@@ -17,6 +17,36 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
 }
+
+body.dark {
+  --text: #e4e4e4;
+  --bg: #121212;
+  --light-bg: #1e1e1e;
+}
+
+#theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--light-bg);
+  color: var(--text);
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease, color 0.3s ease;
+  z-index: 1000;
+}
+
+#theme-toggle:hover {
+  background: var(--secondary);
+  color: #fff;
+}
 header {
   min-height: 100vh;
   display: flex;
@@ -116,6 +146,24 @@ h2.section-title::after {
   transition: transform 0.3s ease;
 }
 .skill:hover {
+  transform: translateY(-5px);
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.project-card {
+  background: var(--light-bg);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
   transform: translateY(-5px);
 }
 form .form-group {
