@@ -11,7 +11,7 @@
   padding: 0;
 }
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: var(--text);
   background: var(--bg);
   line-height: 1.6;
@@ -39,7 +39,9 @@ body.dark {
   justify-content: center;
   cursor: pointer;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: background 0.3s ease, color 0.3s ease;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
   z-index: 1000;
 }
 
@@ -48,15 +50,81 @@ body.dark {
   color: #fff;
 }
 header {
+  position: relative;
+  overflow: hidden;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: #fff;
-  background: linear-gradient(-45deg, var(--primary), var(--secondary), #673ab7, #03a9f4);
+  background: linear-gradient(
+    -45deg,
+    var(--primary),
+    var(--secondary),
+    #673ab7,
+    #03a9f4
+  );
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
+}
+
+header .container {
+  position: relative;
+  z-index: 1;
+}
+
+header .shapes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.shape {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  mix-blend-mode: overlay;
+  animation: float 20s ease-in-out infinite;
+}
+.shape:nth-child(1) {
+  top: 10%;
+  left: 15%;
+  animation-duration: 18s;
+}
+.shape:nth-child(2) {
+  top: 70%;
+  left: 25%;
+  animation-duration: 25s;
+}
+.shape:nth-child(3) {
+  top: 40%;
+  left: 80%;
+  animation-duration: 22s;
+}
+.shape:nth-child(4) {
+  top: 65%;
+  left: 60%;
+  animation-duration: 26s;
+}
+.shape:nth-child(5) {
+  top: 20%;
+  left: 70%;
+  animation-duration: 20s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-60px) scale(1.2);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
 }
 @keyframes gradient {
   0% {
@@ -72,6 +140,9 @@ header {
 header h1 {
   font-size: 3rem;
   margin-bottom: 10px;
+  background: linear-gradient(to right, #fff, var(--secondary));
+  -webkit-background-clip: text;
+  color: transparent;
 }
 header p {
   font-size: 1.3rem;
@@ -85,7 +156,9 @@ header .btn {
   border-radius: 30px;
   text-decoration: none;
   font-weight: 600;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 header .btn:hover {
   transform: translateY(-3px);
@@ -105,7 +178,7 @@ h2.section-title {
   position: relative;
 }
 h2.section-title::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 80px;
   height: 4px;
@@ -153,6 +226,7 @@ h2.section-title::after {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
+  perspective: 1000px;
 }
 
 .project-card {
@@ -160,11 +234,9 @@ h2.section-title::after {
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
+  transition: transform 0.2s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 form .form-group {
   margin-bottom: 15px;
