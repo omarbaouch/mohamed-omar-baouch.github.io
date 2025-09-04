@@ -8,7 +8,7 @@ module.exports = async (req, res) => {
     }
 
     const { question, context } = req.body;
-    const GEMINI_API_KEY = "AIzaSyCbfsRr23GnmMFfGpfBI814zn2BWecP5ec"; // Récupère la clé depuis les variables d'environnement Vercel
+    const GEMINI_API_KEY = process.env.GEMINI_API_KEY; // Récupère la clé depuis les variables d'environnement Vercel
 
     if (!question || !context) {
         return res.status(400).json({ error: 'Question and context are required' });
