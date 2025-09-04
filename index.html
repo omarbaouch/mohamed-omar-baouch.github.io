@@ -1005,9 +1005,12 @@
         /* Skills section avec cartes 3D */
         .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            /* Modification de la largeur des colonnes pour permettre le centrage */
+            grid-template-columns: repeat(auto-fill, minmax(300px, 320px));
             gap: 30px;
             perspective: 1000px;
+            /* Ajout de cette ligne pour centrer les cartes */
+            justify-content: center; 
         }
 
         .skill-card {
@@ -1109,9 +1112,12 @@
         /* Education section */
         .education-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            /* Modification de la largeur des colonnes */
+            grid-template-columns: repeat(auto-fill, minmax(300px, 320px));
             gap: 30px;
             perspective: 1000px;
+            /* Ajout de cette ligne pour centrer les cartes */
+            justify-content: center;
         }
 
         .education-card {
