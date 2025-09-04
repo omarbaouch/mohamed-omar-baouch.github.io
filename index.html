@@ -577,75 +577,7 @@
             clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
         }
 
-        @keyframes glitch-anim-1 {
-            0% {
-                clip: rect(10px, 9999px, 42px, 0);
-                transform: skew(0.1deg);
-            }
-            5% {
-                clip: rect(96px, 9999px, 67px, 0);
-                transform: skew(0.1deg);
-            }
-            10% {
-                clip: rect(24px, 9999px, 85px, 0);
-                transform: skew(-0.1deg);
-            }
-            15% {
-                clip: rect(58px, 9999px, 98px, 0);
-                transform: skew(-0.1deg);
-            }
-            20% {
-                clip: rect(30px, 9999px, 91px, 0);
-                transform: skew(0.1deg);
-            }
-            25% {
-                clip: rect(87px, 9999px, 38px, 0);
-                transform: skew(0.1deg);
-            }
-            30% {
-                clip: rect(0, 0, 0, 0);
-                transform: skew(0);
-            }
-            100% {
-                clip: rect(0, 0, 0, 0);
-                transform: skew(0);
-            }
-        }
-
-        @keyframes glitch-anim-2 {
-            0% {
-                clip: rect(65px, 9999px, 78px, 0);
-                transform: skew(0.1deg);
-            }
-            5% {
-                clip: rect(91px, 9999px, 61px, 0);
-                transform: skew(-0.1deg);
-            }
-            10% {
-                clip: rect(30px, 9999px, 84px, 0);
-                transform: skew(0.1deg);
-            }
-            15% {
-                clip: rect(7px, 9999px, 92px, 0);
-                transform: skew(-0.1deg);
-            }
-            20% {
-                clip: rect(67px, 9999px, 47px, 0);
-                transform: skew(0.1deg);
-            }
-            25% {
-                clip: rect(24px, 9999px, 11px, 0);
-                transform: skew(-0.1deg);
-            }
-            30% {
-                clip: rect(0, 0, 0, 0);
-                transform: skew(0);
-            }
-            100% {
-                clip: rect(0, 0, 0, 0);
-                transform: skew(0);
-            }
-        }
+       
 
         .hero-subtitle {
             font-size: 1.2rem;
@@ -3195,7 +3127,7 @@
                 current = parseFloat((current + (target - current) * ease).toFixed(2));
 
                 const translateY = current * -0.5;
-                const rotateX = current * 0.05;
+                const rotateX = current * 0.01;
 
                 // Utiliser une transformation plus subtile pour éviter la désorientation
                 sceneWrapper.style.transform = `translateY(${translateY}px) rotateX(${rotateX}deg)`;
@@ -3405,7 +3337,7 @@
                 currentScroll = lerp(currentScroll, targetScroll, 0.1);
                 const skewAmount = map(Math.abs(targetScroll - currentScroll), 0, 100, 0, 15);
 
-                content.style.transform = `skewY(${skewAmount * 0.05}deg)`;
+                content.style.transform = `skewY(${skewAmount * 0.01}deg)`;
                 
                 requestAnimationFrame(distortionAnimation);
             }
