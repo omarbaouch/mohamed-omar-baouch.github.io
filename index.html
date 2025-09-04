@@ -1,11 +1,14 @@
 <!DOCTYPE html>
+<!-- La langue sera définie dynamiquement par le script -->
 <html lang="fr">
+
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Le titre et la description seront mis à jour par le script -->
     <title>Mohamed Omar Baouch | Ingénieur & Consultant PDM/PLM</title>
-    <meta name="description" content="Portfolio de Mohamed Omar Baouch - Ingénieur mécanique et consultant PDM/PLM spécialisé dans l'optimisation des processus de développement produit">
+    <meta name="description"
+        content="Portfolio de Mohamed Omar Baouch - Ingénieur mécanique et consultant PDM/PLM spécialisé dans l'optimisation des processus de développement produit">
     <meta name="keywords" content="PDM, PLM, SolidWorks, ingénieur mécanique, consultant, VISIATIV, gestion du cycle de vie produit">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,38 +19,35 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Mohamed Omar Baouch",
-      "url": "https://baouch.fr",
-      "image": "https://baouch.fr/baouch.jpeg", // Assurez-vous que le nom du fichier est correct
-      "jobTitle": "Ingénieur & Consultant PDM/PLM",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "VISIATIV"
-      },
-      "alumniOf": [
-        {
-          "@type": "CollegeOrUniversity",
-          "name": "INSA STRASBOURG"
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Mohamed Omar Baouch",
+        "url": "https://baouch.fr",
+        "image": "https://baouch.fr/baouch.jpeg",
+        "jobTitle": "Ingénieur & Consultant PDM/PLM",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "VISIATIV"
         },
-        {
-          "@type": "CollegeOrUniversity",
-          "name": "UFR MIM"
-        }
-      ],
-      "knowsAbout": [
-        "PDM (Product Data Management)",
-        "PLM (Product Lifecycle Management)",
-        "SolidWorks PDM",
-        "3DEXPERIENCE",
-        "PTC Windchill",
-        "Gestion du cycle de vie produit",
-        "Conception Mécanique"
-      ],
-      "sameAs": [
-        "https://www.linkedin.com/in/mohamed-omar-baouch-9b4473180/"
-      ]
+        "alumniOf": [{
+            "@type": "CollegeOrUniversity",
+            "name": "INSA STRASBOURG"
+        }, {
+            "@type": "CollegeOrUniversity",
+            "name": "UFR MIM"
+        }],
+        "knowsAbout": [
+            "PDM (Product Data Management)",
+            "PLM (Product Lifecycle Management)",
+            "SolidWorks PDM",
+            "3DEXPERIENCE",
+            "PTC Windchill",
+            "Gestion du cycle de vie produit",
+            "Conception Mécanique"
+        ],
+        "sameAs": [
+            "https://www.linkedin.com/in/mohamed-omar-baouch-9b4473180/"
+        ]
     }
     </script>
     <style>
@@ -166,10 +166,18 @@
         }
 
         @keyframes loader-reveal {
-            0% { transform: translateX(-100%); }
-            20% { transform: translateX(0); }
-            80% { transform: translateX(0); }
-            100% { transform: translateX(100%); }
+            0% {
+                transform: translateX(-100%);
+            }
+            20% {
+                transform: translateX(0);
+            }
+            80% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(100%);
+            }
         }
 
         .loader-subtitle {
@@ -222,8 +230,12 @@
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .container {
@@ -310,6 +322,12 @@
             transform: scaleX(1);
         }
 
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        
         .menu {
             display: flex;
             gap: 30px;
@@ -352,6 +370,38 @@
             transform-origin: left;
         }
 
+        .language-switcher {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            border-left: 1px solid var(--secondary-color);
+            padding-left: 30px;
+            margin-left: 0; /* Adjusted from 30px to 0 as nav-right has gap */
+        }
+        
+        .lang-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            transition: color 0.3s ease, transform 0.3s ease;
+            padding: 5px;
+        }
+        
+        .lang-btn:hover {
+            color: var(--text-primary);
+            transform: scale(1.1);
+        }
+        
+        .lang-btn.active {
+            color: var(--accent-color);
+            font-weight: 700;
+            pointer-events: none;
+        }
+
         .menu-toggle {
             display: none;
             cursor: pointer;
@@ -367,7 +417,7 @@
             height: 2px;
             background-color: var(--text-color);
             position: absolute;
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease, opacity 0.3s ease;
         }
 
         .menu-toggle span:nth-child(1) {
@@ -482,19 +532,25 @@
             transform-origin: bottom;
             filter: blur(4px);
         }
-        
+
         /* Effet amélioré pour le glitch */
         .glitch {
             position: relative;
             animation: glitch-float 5s infinite alternate ease-in-out;
         }
-        
+
         @keyframes glitch-float {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-            100% { transform: translateY(0); }
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+            100% {
+                transform: translateY(0);
+            }
         }
-        
+
         .glitch::before,
         .glitch::after {
             content: attr(data-text);
@@ -506,21 +562,21 @@
             clip: rect(0, 0, 0, 0);
             background: var(--bg-color);
         }
-        
+
         .glitch::before {
             left: 2px;
             text-shadow: -1px 0 var(--glitch-color1);
             animation: glitch-anim-1 3s infinite linear alternate-reverse;
             clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
         }
-        
+
         .glitch::after {
             left: -2px;
             text-shadow: 2px 0 var(--glitch-color2);
             animation: glitch-anim-2 2.5s infinite linear alternate-reverse;
             clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
         }
-        
+
         @keyframes glitch-anim-1 {
             0% {
                 clip: rect(10px, 9999px, 42px, 0);
@@ -555,7 +611,7 @@
                 transform: skew(0);
             }
         }
-        
+
         @keyframes glitch-anim-2 {
             0% {
                 clip: rect(65px, 9999px, 78px, 0);
@@ -805,7 +861,8 @@
         .about-img-container {
             position: relative;
             width: 100%;
-            padding-bottom: 125%; /* Aspect ratio */
+            padding-bottom: 125%;
+            /* Aspect ratio */
             overflow: hidden;
             border-radius: 10px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
@@ -1047,7 +1104,7 @@
             gap: 30px;
             perspective: 1000px;
             /* Ajout de cette ligne pour centrer les cartes */
-            justify-content: center; 
+            justify-content: center;
         }
 
         .skill-card {
@@ -1057,7 +1114,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             transition: transform 0.5s ease, box-shadow 0.5s ease, background-position 0.5s ease;
             transform-style: preserve-3d;
-            background-image: linear-gradient(125deg, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0) 40%);
+            background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0) 40%);
             background-size: 200% 200%;
             background-position: 0% 0%;
         }
@@ -1424,8 +1481,14 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Form Error Message */
@@ -1458,9 +1521,23 @@
         }
 
         @keyframes shakeError {
-            0%, 100% { transform: translateX(0); }
-            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-            20%, 40%, 60%, 80% { transform: translateX(5px); }
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+            10%,
+            30%,
+            50%,
+            70%,
+            90% {
+                transform: translateX(-5px);
+            }
+            20%,
+            40%,
+            60%,
+            80% {
+                transform: translateX(5px);
+            }
         }
 
         /* Footer */
@@ -1581,7 +1658,7 @@
             opacity: 0;
             transform: translate(-50%, -50%);
         }
-        
+
         /* Theme switcher styles */
         .theme-switch {
             position: fixed;
@@ -1600,7 +1677,7 @@
             transition: transform 0.3s ease, background-color 0.3s ease;
             overflow: hidden;
         }
-        
+
         .theme-switch::before {
             content: '';
             position: absolute;
@@ -1613,32 +1690,32 @@
             transition: opacity 0.3s ease;
             z-index: -1;
         }
-        
+
         .theme-switch:hover {
             transform: scale(1.1);
         }
-        
+
         .theme-switch:hover::before {
             opacity: 0.8;
         }
-        
+
         .theme-icon {
             font-size: 1.2rem;
             color: var(--accent-color);
             transition: color 0.3s ease, transform 0.5s ease;
         }
-        
+
         .theme-switch:hover .theme-icon {
             color: var(--bg-color);
             transform: rotate(360deg);
         }
-        
+
         /* Tooltip styles */
         .tooltip {
             position: relative;
             display: inline-block;
         }
-        
+
         .tooltip .tooltip-text {
             visibility: hidden;
             width: 200px;
@@ -1660,7 +1737,7 @@
             transform: translateY(10px);
             pointer-events: none;
         }
-        
+
         .tooltip .tooltip-text::after {
             content: "";
             position: absolute;
@@ -1671,13 +1748,13 @@
             border-style: solid;
             border-color: var(--hover-color) transparent transparent transparent;
         }
-        
+
         .tooltip:hover .tooltip-text {
             visibility: visible;
             opacity: 1;
             transform: translateY(0);
         }
-        
+
         /* Animation classes */
         .fade-up {
             opacity: 0;
@@ -1698,13 +1775,13 @@
         .fade-in.show {
             opacity: 1;
         }
-        
+
         /* Parallax effect */
         .parallax {
             position: relative;
             overflow: hidden;
         }
-        
+
         .parallax-layer {
             position: absolute;
             top: 0;
@@ -1713,22 +1790,20 @@
             height: 100%;
             transition: transform 0.1s;
         }
-        
+
         /* Neon text effect */
         .neon-text {
             color: var(--text-color);
-            text-shadow: 0 0 5px rgba(217, 122, 122, 0.5), 
-                         0 0 10px rgba(217, 122, 122, 0.3), 
-                         0 0 15px rgba(217, 122, 122, 0.2);
+            text-shadow: 0 0 5px rgba(217, 122, 122, 0.5), 0 0 10px rgba(217, 122, 122, 0.3), 0 0 15px rgba(217, 122, 122, 0.2);
         }
-        
+
         /* Highlight effect */
         .highlight-hover {
             position: relative;
             display: inline-block;
             overflow: hidden;
         }
-        
+
         .highlight-hover::before {
             content: '';
             position: absolute;
@@ -1741,7 +1816,7 @@
             transition: left 0.3s ease;
             z-index: -1;
         }
-        
+
         .highlight-hover:hover::before {
             left: 0;
         }
@@ -1780,13 +1855,13 @@
             transition: opacity 0.3s ease;
             z-index: -1;
         }
-        
+
         .scroll-to-top.visible {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
         }
-        
+
         .scroll-to-top:hover {
             transform: scale(1.1) translateY(0);
         }
@@ -1794,7 +1869,7 @@
         .scroll-to-top:hover::before {
             opacity: 1;
         }
-        
+
         /* Scroll progress indicator */
         .scroll-progress {
             position: fixed;
@@ -1818,7 +1893,7 @@
             pointer-events: none;
             z-index: 0;
         }
-        
+
         .perspective-content {
             width: 100%;
             height: 100%;
@@ -1826,7 +1901,7 @@
             transform: translateZ(0);
             transition: transform 0.5s ease-out;
         }
-        
+
         /* WebGL Transition Canvas */
         #transition-canvas {
             position: fixed;
@@ -1839,7 +1914,7 @@
             opacity: 0;
             transition: opacity 0.5s ease;
         }
-        
+
         /* Responsive styles */
         @media (max-width: 1200px) {
             .hero-title {
@@ -1852,29 +1927,23 @@
                 grid-template-columns: 1fr;
                 gap: 60px;
             }
-
             .about-img-container {
                 padding-bottom: 75%;
             }
-
             .timeline::after {
                 left: 31px;
             }
-
             .timeline-item {
                 width: 100%;
                 padding-left: 70px;
                 padding-right: 30px;
             }
-
             .timeline-item:nth-child(even) {
                 left: 0;
             }
-
             .timeline-item::after {
                 left: 21px;
             }
-
             .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
@@ -1885,15 +1954,12 @@
             .hero-title {
                 font-size: 3rem;
             }
-
             .hero-subtitle {
                 font-size: 1rem;
             }
-
             .section-title {
                 font-size: 2rem;
             }
-
             .menu {
                 position: fixed;
                 top: 0;
@@ -1909,16 +1975,34 @@
                 z-index: 999;
                 box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
             }
-
+            .nav-right {
+                gap: 15px; /* Reduce gap on mobile */
+            }
+            .language-switcher {
+                 padding-left: 15px; /* Reduce padding on mobile */
+                 border-left: none; /* Remove border on mobile menu */
+                 position: absolute;
+                 bottom: 20px;
+            }
             .menu.active {
                 right: 0;
+                /* Display language switcher inside mobile menu */
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
-
+             .menu.active .language-switcher {
+                 position: static;
+                 margin-top: 20px;
+                 padding: 20px;
+                 border-top: 1px solid var(--secondary-color);
+                 width: 100%;
+                 justify-content: center;
+             }
             .menu a {
                 font-size: 1.2rem;
                 padding: 15px 0;
             }
-
             .menu-toggle {
                 display: block;
                 z-index: 1000;
@@ -1929,55 +2013,55 @@
             .hero-title {
                 font-size: 2.5rem;
             }
-
             .hero-cta {
                 flex-direction: column;
                 align-items: flex-start;
             }
-
             .btn {
                 width: 100%;
                 text-align: center;
             }
-
-            .education-grid, .skills-container {
+            .education-grid,
+            .skills-container {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
+
 <body>
     <canvas id="transition-canvas"></canvas>
-    
+
     <div class="perspective-wrapper">
         <div id="perspective-content" class="perspective-content">
-            </div>
+        </div>
     </div>
-    
+
     <div class="dynamic-overlay" id="dynamicOverlay"></div>
-    
+
     <div class="custom-cursor" id="customCursor"></div>
     <div class="cursor-dot" id="cursorDot"></div>
 
     <div id="particles-js"></div>
-    
+
     <div class="theme-switch" id="themeSwitch">
         <div class="theme-icon">☀️</div>
     </div>
-    
+
     <div class="scroll-to-top" id="scrollToTop">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
         </svg>
     </div>
-    
+
     <div class="scroll-progress" id="scrollProgress"></div>
-    
+
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-icon">
             <div class="loading-circle"></div>
         </div>
-        <div class="loader-title">CHARGEMENT DU PORTFOLIO</div>
+        <div class="loader-title" data-translate-key="loading_portfolio">CHARGEMENT DU PORTFOLIO</div>
         <div class="loader-subtitle">Mohamed Omar Baouch</div>
         <div class="loading-bar-container">
             <div class="loading-bar" id="loadingBar"></div>
@@ -1987,17 +2071,24 @@
     <div class="nav-container" id="navContainer">
         <nav>
             <a href="#" class="logo">M.BAOUCH</a>
-            <ul class="menu" id="menu">
-                <li><a href="#about" class="nav-link">À propos</a></li>
-                <li><a href="#experience" class="nav-link">Expérience</a></li>
-                <li><a href="#skills" class="nav-link">Compétences</a></li>
-                <li><a href="#education" class="nav-link">Formation</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="menu-toggle" id="menuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="nav-right">
+                <ul class="menu" id="menu">
+                    <li><a href="#about" class="nav-link" data-translate-key="nav_about">À propos</a></li>
+                    <li><a href="#experience" class="nav-link" data-translate-key="nav_experience">Expérience</a></li>
+                    <li><a href="#skills" class="nav-link" data-translate-key="nav_skills">Compétences</a></li>
+                    <li><a href="#education" class="nav-link" data-translate-key="nav_education">Formation</a></li>
+                    <li><a href="#contact" class="nav-link" data-translate-key="nav_contact">Contact</a></li>
+                    <!-- Language switcher will be here on mobile -->
+                </ul>
+                 <div class="language-switcher">
+                    <button id="lang-fr" class="lang-btn active">FR</button>
+                    <button id="lang-en" class="lang-btn">EN</button>
+                </div>
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </nav>
     </div>
@@ -2008,20 +2099,20 @@
                 <div class="hero-grid" id="heroGrid"></div>
             </div>
             <div class="hero-content">
-                <h1 class="hero-title">
+                <h1 class="hero-title" data-translate-key="hero_title">
                     <span class="highlight glitch" data-text="Ingénieur Mécanique">Ingénieur Mécanique</span> & <br>
                     Consultant <span class="glitch" data-text="PDM/PLM">PDM/PLM</span>
                 </h1>
-                <p class="hero-subtitle">
+                <p class="hero-subtitle" data-translate-key="hero_subtitle">
                     Expertise en conception, implémentation de solutions PDM et gestion du cycle de vie produit
                 </p>
                 <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary">Me contacter</a>
-                    <a href="#experience" class="btn btn-secondary">Découvrir mon parcours</a>
+                    <a href="#contact" class="btn btn-primary" data-translate-key="hero_cta1">Me contacter</a>
+                    <a href="#experience" class="btn btn-secondary" data-translate-key="hero_cta2">Découvrir mon parcours</a>
                 </div>
             </div>
             <div class="scroll-indicator" id="scrollIndicator">
-                <div class="scroll-text">Défiler</div>
+                <div class="scroll-text" data-translate-key="scroll_text">Défiler</div>
                 <div class="scroll-icon"></div>
             </div>
         </section>
@@ -2030,96 +2121,141 @@
             <div class="parallax-layer" data-depth="0.2">
                 <div class="floating-tech" style="position: absolute; top: 10%; left: 5%; opacity: 0.05;">
                     <svg width="200" height="200" viewBox="0 0 24 24" fill="currentColor" color="var(--accent-color)">
-                        <path d="M12 0L1.5 6v12L12 24l10.5-6V6L12 0zm0 2.189L20.8 7.25v9.5L12 21.811 3.2 16.75v-9.5L12 2.189z"/>
-                        <path d="M12 5.5L6.5 8.75v6.5L12 18.5l5.5-3.25v-6.5L12 5.5zm0 2.189l3.7 2.175v4.275L12 16.311l-3.7-2.175V9.864L12 7.689z"/>
+                        <path
+                            d="M12 0L1.5 6v12L12 24l10.5-6V6L12 0zm0 2.189L20.8 7.25v9.5L12 21.811 3.2 16.75v-9.5L12 2.189z" />
+                        <path
+                            d="M12 5.5L6.5 8.75v6.5L12 18.5l5.5-3.25v-6.5L12 5.5zm0 2.189l3.7 2.175v4.275L12 16.311l-3.7-2.175V9.864L12 7.689z" />
                     </svg>
                 </div>
                 <div class="floating-tech" style="position: absolute; bottom: 15%; right: 8%; opacity: 0.05;">
                     <svg width="150" height="150" viewBox="0 0 24 24" fill="currentColor" color="var(--accent-color)">
-                        <path d="M12 0L1.5 6v12L12 24l10.5-6V6L12 0zm0 2.189L20.8 7.25v9.5L12 21.811 3.2 16.75v-9.5L12 2.189z"/>
+                        <path
+                            d="M12 0L1.5 6v12L12 24l10.5-6V6L12 0zm0 2.189L20.8 7.25v9.5L12 21.811 3.2 16.75v-9.5L12 2.189z" />
                     </svg>
                 </div>
             </div>
-            
-            <h2 class="section-title magnetic-element">À propos</h2>
+
+            <h2 class="section-title magnetic-element" data-translate-key="about_title">À propos</h2>
             <div class="about-content">
                 <div class="about-image">
                     <div class="about-img-container card-3d">
-                        <img data-src="baouch.jpeg" alt="Mohamed Omar Baouch" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 10px;" class="lazy-image" id="profile-photo">
+                        <img data-src="baouch.jpeg" alt="Mohamed Omar Baouch"
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 10px;"
+                            class="lazy-image" id="profile-photo">
                     </div>
                 </div>
                 <div class="about-text">
-                    <p class="highlight-hover">
-                        Ingénieur mécanique expérimenté et consultant PDM/PLM, je suis passionné par l'optimisation des processus de développement produit et la mise en œuvre de solutions techniques adaptées aux besoins spécifiques des entreprises.
+                    <p class="highlight-hover" data-translate-key="about_p1">
+                        Ingénieur mécanique expérimenté et consultant PDM/PLM, je suis passionné par l'optimisation des
+                        processus de développement produit et la mise en œuvre de solutions techniques adaptées aux
+                        besoins spécifiques des entreprises.
                     </p>
-                    <p class="highlight-hover">
-                        Fort de mon expertise en conception mécanique et en gestion du cycle de vie des produits, j'accompagne les organisations dans leur transformation numérique et l'amélioration de leurs flux de travail.
+                    <p class="highlight-hover" data-translate-key="about_p2">
+                        Fort de mon expertise en conception mécanique et en gestion du cycle de vie des produits,
+                        j'accompagne les organisations dans leur transformation numérique et l'amélioration de leurs
+                        flux de travail.
                     </p>
-                    
+
                     <div class="skills-chart">
                         <div class="chart-container" style="position: relative; height: 60px; margin: 30px 0;">
                             <canvas id="skillsChart"></canvas>
                         </div>
                     </div>
-                    
+
                     <div class="about-info" style="display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 15px; margin-top: 30px;">
                         <div class="info-item tooltip" style="min-width: 200px; flex: 1;">
                             <i>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M12 22L5.8 11.4C5.4 10.6 5.4 9.8 5.8 9L8.8 3.8C9.3 2.7 10.6 2 12 2C13.4 2 14.7 2.7 15.2 3.8L18.2 9C18.6 9.8 18.6 10.6 18.2 11.4L12 22Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M12 22L5.8 11.4C5.4 10.6 5.4 9.8 5.8 9L8.8 3.8C9.3 2.7 10.6 2 12 2C13.4 2 14.7 2.7 15.2 3.8L18.2 9C18.6 9.8 18.6 10.6 18.2 11.4L12 22Z"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
                                 </svg>
                             </i>
                             <span style="white-space: nowrap;">Strasbourg, France</span>
-                            <span class="tooltip-text">Situé dans la région Grand Est, disponible pour des projets dans toute la France</span>
+                            <span class="tooltip-text" data-translate-key="tooltip_location">Situé dans la région Grand
+                                Est, disponible pour des projets dans toute la France</span>
                         </div>
                         <div class="info-item tooltip" style="min-width: 200px; flex: 1;">
                             <i>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M12 12L16 10M12 12V17M12 12L8 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M12 12L16 10M12 12V17M12 12L8 10" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
                             </i>
                             <span style="white-space: nowrap;">+33 6 95 91 92 18</span>
-                            <span class="tooltip-text">Disponible par téléphone du lundi au vendredi, 9h-18h</span>
+                            <span class="tooltip-text" data-translate-key="tooltip_phone">Disponible par téléphone du
+                                lundi au vendredi, 9h-18h</span>
                         </div>
                         <div class="info-item tooltip" style="min-width: 200px; flex: 1;">
                             <i>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8 10L3 21V17M8 10L13 21M8 10L12 3L16 10M13 21L18 10L21 17V21M13 21H3M21 21H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 10L3 21V17M8 10L13 21M8 10L12 3L16 10M13 21L18 10L21 17V21M13 21H3M21 21H13"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
                                 </svg>
                             </i>
-                            <span style="white-space: nowrap;">Permis B, Véhiculé</span>
-                            <span class="tooltip-text">Mobile pour des déplacements professionnels</span>
+                            <span style="white-space: nowrap;" data-translate-key="driving_license">Permis B, Véhiculé</span>
+                            <span class="tooltip-text" data-translate-key="tooltip_mobility">Mobile pour des
+                                déplacements professionnels</span>
                         </div>
                         <div class="info-item tooltip" style="min-width: 290px; flex: 1;">
                             <i>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6M22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6M22 6L12 13L2 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6M22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6M22 6L12 13L2 6"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
                                 </svg>
                             </i>
                             <span style="white-space: nowrap;">mohamed.omar.baouch@gmail.com</span>
-                            <span class="tooltip-text">N'hésitez pas à me contacter par email pour toute demande</span>
+                            <span class="tooltip-text" data-translate-key="tooltip_email">N'hésitez pas à me contacter
+                                par email pour toute demande</span>
                         </div>
                         <div class="info-item tooltip" style="min-width: 290px; flex: 1;">
                             <i>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M6 9H2V21H6V9Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8Z"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M6 9H2V21H6V9Z" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path
+                                        d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
                                 </svg>
                             </i>
-                            <a href="https://www.linkedin.com/in/mohamed-omar-baouch-9b4473180/" target="_blank" style="text-decoration: none; color: var(--text-color); white-space: nowrap;">
+                            <a href="https://www.linkedin.com/in/mohamed-omar-baouch-9b4473180/" target="_blank"
+                                style="text-decoration: none; color: var(--text-color); white-space: nowrap;">
                                 <span>Mohamed Omar Baouch | LinkedIn</span>
                             </a>
-                            <span class="tooltip-text">Connectons-nous sur LinkedIn pour échanger professionnellement</span>
+                            <span class="tooltip-text" data-translate-key="tooltip_linkedin">Connectons-nous sur
+                                LinkedIn pour échanger professionnellement</span>
                         </div>
                     </div>
-                    
-                    <a href="/BAOUCH_CV.pdf" download class="btn btn-primary" style="margin-top: 30px; position: relative; z-index: 50; cursor: pointer !important; display: inline-flex; align-items: center;">
-                        <span>Télécharger mon CV</span>
-                        <svg width="20" height="20" viewBox="0 0 24 24" style="margin-left: 8px; vertical-align: middle;">
-                            <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14v-4H8l4-4 4 4h-3v4h-2z"/>
+
+                    <a href="/BAOUCH_CV.pdf" download class="btn btn-primary"
+                        style="margin-top: 30px; position: relative; z-index: 50; cursor: pointer !important; display: inline-flex; align-items: center;">
+                        <span data-translate-key="download_cv">Télécharger mon CV</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24"
+                            style="margin-left: 8px; vertical-align: middle;">
+                            <path fill="currentColor"
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14v-4H8l4-4 4 4h-3v4h-2z" />
                         </svg>
                     </a>
                 </div>
@@ -2127,61 +2263,61 @@
         </section>
 
         <section id="experience" class="fade-up">
-            <h2 class="section-title magnetic-element">Expérience</h2>
+            <h2 class="section-title magnetic-element" data-translate-key="experience_title">Expérience</h2>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <span class="timeline-date">Juin 2023 - Présent</span>
-                        <h3 class="timeline-title magnetic-element">Consultant PDM/PLM</h3>
+                        <span class="timeline-date" data-translate-key="exp1_date">Juin 2023 - Présent</span>
+                        <h3 class="timeline-title magnetic-element" data-translate-key="exp1_title">Consultant PDM/PLM</h3>
                         <p class="timeline-company">VISIATIV</p>
                         <div class="timeline-description">
-                            <p><strong>Mise en œuvre technique:</strong></p>
+                            <p><strong data-translate-key="exp1_subtitle1">Mise en œuvre technique:</strong></p>
                             <ul>
-                                <li>Migration de serveurs et implémentation de solutions SOLIDWORKS PDM</li>
-                                <li>Paramétrage et configuration personnalisée des systèmes</li>
-                                <li>Intégration de systèmes PDM avec ERP via PDM Gateway</li>
+                                <li data-translate-key="exp1_desc1_1">Migration de serveurs et implémentation de solutions SOLIDWORKS PDM</li>
+                                <li data-translate-key="exp1_desc1_2">Paramétrage et configuration personnalisée des systèmes</li>
+                                <li data-translate-key="exp1_desc1_3">Intégration de systèmes PDM avec ERP via PDM Gateway</li>
                             </ul>
-                            <p><strong>Gestion de projets:</strong></p>
+                            <p><strong data-translate-key="exp1_subtitle2">Gestion de projets:</strong></p>
                             <ul>
-                                <li>Pilotage complet de projets d'implémentation PDM</li>
-                                <li>Coordination d'équipes techniques pour des migrations</li>
-                                <li>Élaboration de workflows optimisant les processus</li>
+                                <li data-translate-key="exp1_desc2_1">Pilotage complet de projets d'implémentation PDM</li>
+                                <li data-translate-key="exp1_desc2_2">Coordination d'équipes techniques pour des migrations</li>
+                                <li data-translate-key="exp1_desc2_3">Élaboration de workflows optimisant les processus</li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <span class="timeline-date">Septembre 2021 - Juin 2023</span>
-                        <h3 class="timeline-title magnetic-element">Ingénieur Mécanique</h3>
+                        <span class="timeline-date" data-translate-key="exp2_date">Septembre 2021 - Juin 2023</span>
+                        <h3 class="timeline-title magnetic-element" data-translate-key="exp2_title">Ingénieur Mécanique</h3>
                         <p class="timeline-company">ABMI</p>
                         <div class="timeline-description">
-                            <p><strong>Projet IDEMIA - Développement de radars:</strong></p>
+                            <p><strong data-translate-key="exp2_subtitle1">Projet IDEMIA - Développement de radars:</strong></p>
                             <ul>
-                                <li>Conception et développement des nouveaux radars</li>
-                                <li>Conception de pièces usinées et intégration de composants</li>
-                                <li>Structuration de l'architecture dossier sur le PLM</li>
+                                <li data-translate-key="exp2_desc1_1">Conception et développement des nouveaux radars</li>
+                                <li data-translate-key="exp2_desc1_2">Conception de pièces usinées et intégration de composants</li>
+                                <li data-translate-key="exp2_desc1_3">Structuration de l'architecture dossier sur le PLM</li>
                             </ul>
-                            <p><strong>Projet FLOWBIRD - Transport:</strong></p>
+                            <p><strong data-translate-key="exp2_subtitle2">Projet FLOWBIRD - Transport:</strong></p>
                             <ul>
-                                <li>Retrofit d'un distributeur de ticket pour la RATP</li>
-                                <li>Animation des revues de conception</li>
-                                <li>Calcul de structure avec Creo Simulate</li>
+                                <li data-translate-key="exp2_desc2_1">Retrofit d'un distributeur de ticket pour la RATP</li>
+                                <li data-translate-key="exp2_desc2_2">Animation des revues de conception</li>
+                                <li data-translate-key="exp2_desc2_3">Calcul de structure avec Creo Simulate</li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <span class="timeline-date">Avril 2020 - Octobre 2020</span>
-                        <h3 class="timeline-title magnetic-element">Ingénieur Bureau d'Études</h3>
+                        <span class="timeline-date" data-translate-key="exp3_date">Avril 2020 - Octobre 2020</span>
+                        <h3 class="timeline-title magnetic-element" data-translate-key="exp3_title">Ingénieur Bureau d'Études</h3>
                         <p class="timeline-company">EVOLUM CONTAINER</p>
                         <div class="timeline-description">
                             <ul>
-                                <li>Analyse des cahiers des charges et des exigences clients</li>
-                                <li>Chiffrage de projets et réalisation de nomenclatures</li>
-                                <li>Élaboration de plans d'exécution et dossiers techniques</li>
-                                <li>Recherche et consultation de fournisseurs</li>
+                                <li data-translate-key="exp3_desc1">Analyse des cahiers des charges et des exigences clients</li>
+                                <li data-translate-key="exp3_desc2">Chiffrage de projets et réalisation de nomenclatures</li>
+                                <li data-translate-key="exp3_desc3">Élaboration de plans d'exécution et dossiers techniques</li>
+                                <li data-translate-key="exp3_desc4">Recherche et consultation de fournisseurs</li>
                             </ul>
                         </div>
                     </div>
@@ -2189,150 +2325,172 @@
             </div>
         </section>
 
-<section id="skills" class="fade-up">
-    <h2 class="section-title magnetic-element">Compétences</h2>
-    <div class="skills-container">
-        <div class="skill-card">
-            <div class="skill-card-header" style="position: relative; z-index: 1;">
-                <div class="skill-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+        <section id="skills" class="fade-up">
+            <h2 class="section-title magnetic-element" data-translate-key="skills_title">Compétences</h2>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <div class="skill-card-header" style="position: relative; z-index: 1;">
+                        <div class="skill-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <h3 class="skill-title magnetic-element" data-translate-key="skill1_title">Solutions PDM/PLM</h3>
+                    </div>
+                    <ul class="skill-list" style="position: relative; overflow: visible;">
+                        <li class="tooltip" style="position: relative;">
+                            SOLIDWORKS PDM (administration et utilisation)
+                            <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);" data-translate-key="tooltip_skill1_1">Expert en configuration, migration et personnalisation de SOLIDWORKS PDM pour optimiser les workflows d'entreprise</span>
+                        </li>
+                        <li class="tooltip" style="position: relative;">
+                            3DEXPERIENCE
+                            <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);" data-translate-key="tooltip_skill1_2">Plateforme collaborative pour la gestion du cycle de vie des produits et l'innovation</span>
+                        </li>
+                        <li class="tooltip" style="position: relative;">
+                            PTC Windchill
+                             <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);" data-translate-key="tooltip_skill1_3">Système PLM pour la gestion des données produits, processus et qualité</span>
+                        </li>
+                        <li class="tooltip" style="position: relative;">
+                            Visiativ PDM Gateway, myCADtools, myPDMtools
+                            <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);" data-translate-key="tooltip_skill1_4">Suite d'outils complémentaires pour l'optimisation des processus PDM</span>
+                        </li>
+                        <li class="tooltip" style="position: relative;">
+                            Gitis
+                            <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);" data-translate-key="tooltip_skill1_5">Solution de gestion documentaire et technique</span>
+                        </li>
+                    </ul>
                 </div>
-                <h3 class="skill-title magnetic-element">Solutions PDM/PLM</h3>
-            </div>
-            <ul class="skill-list" style="position: relative; overflow: visible;">
-                <li class="tooltip" style="position: relative;">
-                    SOLIDWORKS PDM (administration et utilisation)
-                    <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);">Expert en configuration, migration et personnalisation de SOLIDWORKS PDM pour optimiser les workflows d'entreprise</span>
-                </li>
-                <li class="tooltip" style="position: relative;">
-                    3DEXPERIENCE
-                    <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);">Plateforme collaborative pour la gestion du cycle de vie des produits et l'innovation</span>
-                </li>
-                <li class="tooltip" style="position: relative;">
-                    PTC Windchill
-                    <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);">Système PLM pour la gestion des données produits, processus et qualité</span>
-                </li>
-                <li class="tooltip" style="position: relative;">
-                    Visiativ PDM Gateway, myCADtools, myPDMtools
-                    <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);">Suite d'outils complémentaires pour l'optimisation des processus PDM</span>
-                </li>
-                <li class="tooltip" style="position: relative;">
-                    Gitis
-                    <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);">Solution de gestion documentaire et technique</span>
-                </li>
-            </ul>
-        </div>
-        <div class="skill-card">
-            <div class="skill-card-header" style="position: relative; z-index: 1;">
-                <div class="skill-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.5 8H8.5C7.67157 8 7 8.67157 7 9.5V15.5C7 16.3284 7.67157 17 8.5 17H15.5C16.3284 17 17 16.3284 17 15.5V9.5C17 8.67157 16.3284 8 15.5 8Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M11 8V6C11 5.44772 11.4477 5 12 5V5C12.5523 5 13 5.44772 13 6V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M5 12H7M17 12H19M12 17V19M12 5V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                    </svg>
+                <div class="skill-card">
+                    <div class="skill-card-header" style="position: relative; z-index: 1;">
+                        <div class="skill-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.5 8H8.5C7.67157 8 7 8.67157 7 9.5V15.5C7 16.3284 7.67157 17 8.5 17H15.5C16.3284 17 17 16.3284 17 15.5V9.5C17 8.67157 16.3284 8 15.5 8Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M11 8V6C11 5.44772 11.4477 5 12 5V5C12.5523 5 13 5.44772 13 6V8"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M5 12H7M17 12H19M12 17V19M12 5V7" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                        <h3 class="skill-title magnetic-element" data-translate-key="skill2_title">Conception & Simulation</h3>
+                    </div>
+                    <ul class="skill-list" style="position: relative; overflow: visible;">
+                        <li class="tooltip" style="position: relative;">
+                            SolidWorks, CATIA V5, CREO 5.0
+                            <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);" data-translate-key="tooltip_skill2_1">Maîtrise avancée des logiciels de CAO pour la conception mécanique</span>
+                        </li>
+                        <li class="tooltip" style="position: relative;">
+                            ABAQUS, Creo Simulate
+                            <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);" data-translate-key="tooltip_skill2_2">Expertise en simulation numérique pour l'analyse de structures</span>
+                        </li>
+                        <li class="tooltip" style="position: relative;" data-translate-key="skill2_3">
+                            Conception mécanique
+                            <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);" data-translate-key="tooltip_skill2_3">Conception de pièces complexes, assemblages et systèmes mécaniques</span>
+                        </li>
+                    </ul>
                 </div>
-                <h3 class="skill-title magnetic-element">Conception & Simulation</h3>
-            </div>
-            <ul class="skill-list" style="position: relative; overflow: visible;">
-                <li class="tooltip" style="position: relative;">
-                    SolidWorks, CATIA V5, CREO 5.0
-                    <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);">Maîtrise avancée des logiciels de CAO pour la conception mécanique</span>
-                </li>
-                <li class="tooltip" style="position: relative;">
-                    ABAQUS, Creo Simulate
-                    <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);">Expertise en simulation numérique pour l'analyse de structures</span>
-                </li>
-                <li class="tooltip" style="position: relative;">
-                    Conception mécanique
-                    <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);">Conception de pièces complexes, assemblages et systèmes mécaniques</span>
-                </li>
-            </ul>
-        </div>
-        <div class="skill-card">
-            <div class="skill-card-header" style="position: relative; z-index: 1;">
-                <div class="skill-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M3 5H12M12 5H21M12 5V19M21 12H12M12 12H3M12 19H3M12 19H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                    </svg>
+                <div class="skill-card">
+                    <div class="skill-card-header" style="position: relative; z-index: 1;">
+                        <div class="skill-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 5H12M12 5H21M12 5V19M21 12H12M12 12H3M12 19H3M12 19H21"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                            </svg>
+                        </div>
+                        <h3 class="skill-title magnetic-element" data-translate-key="skill3_title">Méthodologies</h3>
+                    </div>
+                    <ul class="skill-list" style="position: relative; overflow: visible;">
+                        <li class="tooltip" style="position: relative;" data-translate-key="skill3_1">
+                            Gestion de projets techniques
+                            <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);" data-translate-key="tooltip_skill3_1">Pilotage de projets d'implémentation PDM de l'analyse initiale au déploiement final</span>
+                        </li>
+                        <li class="tooltip" style="position: relative;" data-translate-key="skill3_2">
+                            Migration et organisation de données produit
+                            <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);" data-translate-key="tooltip_skill3_2">Expertise en structuration et migration de données complexes</span>
+                        </li>
+                        <li class="tooltip" style="position: relative;" data-translate-key="skill3_3">
+                            Formation et accompagnement aux changements
+                            <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);" data-translate-key="tooltip_skill3_3">Animation de sessions de formation adaptées aux différents niveaux d'utilisateurs</span>
+                        </li>
+                        <li class="tooltip" style="position: relative;" data-translate-key="skill3_4">
+                            Analyse des processus industriels
+                            <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);" data-translate-key="tooltip_skill3_4">Optimisation des processus métier et des workflows techniques</span>
+                        </li>
+                    </ul>
                 </div>
-                <h3 class="skill-title magnetic-element">Méthodologies</h3>
             </div>
-            <ul class="skill-list" style="position: relative; overflow: visible;">
-                <li class="tooltip" style="position: relative;">
-                    Gestion de projets techniques
-                    <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);">Pilotage de projets d'implémentation PDM de l'analyse initiale au déploiement final</span>
-                </li>
-                <li class="tooltip" style="position: relative;">
-                    Migration et organisation de données produit
-                    <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);">Expertise en structuration et migration de données complexes</span>
-                </li>
-                <li class="tooltip" style="position: relative;">
-                    Formation et accompagnement aux changements
-                    <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);">Animation de sessions de formation adaptées aux différents niveaux d'utilisateurs</span>
-                </li>
-                <li class="tooltip" style="position: relative;">
-                    Analyse des processus industriels
-                    <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);">Optimisation des processus métier et des workflows techniques</span>
-                </li>
-            </ul>
-        </div>
-    </div>
-</section>
+        </section>
 
         <section id="education" class="fade-up">
-            <h2 class="section-title magnetic-element">Formation</h2>
+            <h2 class="section-title magnetic-element" data-translate-key="education_title">Formation</h2>
             <div class="education-grid">
                 <div class="education-card">
                     <span class="education-year">2013-2015</span>
-                    <h3 class="education-degree magnetic-element">CLASSES PRÉPARATOIRES</h3>
+                    <h3 class="education-degree magnetic-element" data-translate-key="edu1_title">CLASSES PRÉPARATOIRES</h3>
                     <p class="education-school">CPGE PTSI, Lycée Louis Couffignal</p>
-                    <p class="education-description">
+                    <p class="education-description" data-translate-key="edu1_desc">
                         Formation scientifique et technique approfondie
                     </p>
                 </div>
                 <div class="education-card">
                     <span class="education-year">2015-2018</span>
-                    <h3 class="education-degree magnetic-element">BACHELOR EN PLASTURGIE</h3>
+                    <h3 class="education-degree magnetic-element" data-translate-key="edu2_title">BACHELOR EN PLASTURGIE</h3>
                     <p class="education-school">INSA STRASBOURG</p>
-                    <p class="education-description">
+                    <p class="education-description" data-translate-key="edu2_desc">
                         Formation en techniques de transformation et conception de pièces plastiques
                     </p>
                 </div>
                 <div class="education-card">
                     <span class="education-year">2018-2020</span>
-                    <h3 class="education-degree magnetic-element">MASTER EN GÉNIE MÉCANIQUE</h3>
+                    <h3 class="education-degree magnetic-element" data-translate-key="edu3_title">MASTER EN GÉNIE MÉCANIQUE</h3>
                     <p class="education-school">UFR MIM</p>
-                    <p class="education-description">
+                    <p class="education-description" data-translate-key="edu3_desc">
                         Spécialisation en conception et simulation numérique
                     </p>
                 </div>
             </div>
         </section>
-        
+
         <section id="contact" class="fade-up">
-            <h2 class="section-title magnetic-element">Contact</h2>
+            <h2 class="section-title magnetic-element" data-translate-key="contact_title">Contact</h2>
             <div class="contact-grid">
                 <div class="contact-info">
                     <div class="contact-item">
                         <div class="contact-icon">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M12 12L16 10M12 12V17M12 12L8 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M12 12L16 10M12 12V17M12 12L8 10" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </div>
                         <div class="contact-details">
-                            <h4>Téléphone</h4>
+                            <h4 data-translate-key="contact_phone">Téléphone</h4>
                             <p>+33 6 95 91 92 18</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6M22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6M22 6L12 13L2 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6M22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6M22 6L12 13L2 6"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
                             </svg>
                         </div>
                         <div class="contact-details">
@@ -2342,33 +2500,45 @@
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M12 22L5.8 11.4C5.4 10.6 5.4 9.8 5.8 9L8.8 3.8C9.3 2.7 10.6 2 12 2C13.4 2 14.7 2.7 15.2 3.8L18.2 9C18.6 9.8 18.6 10.6 18.2 11.4L12 22Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M12 22L5.8 11.4C5.4 10.6 5.4 9.8 5.8 9L8.8 3.8C9.3 2.7 10.6 2 12 2C13.4 2 14.7 2.7 15.2 3.8L18.2 9C18.6 9.8 18.6 10.6 18.2 11.4L12 22Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
                             </svg>
                         </div>
                         <div class="contact-details">
-                            <h4>Adresse</h4>
+                            <h4 data-translate-key="contact_address">Adresse</h4>
                             <p>67200 Strasbourg</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M21 3H3C1.89543 3 1 3.89543 1 5V19C1 20.1046 1.89543 21 3 21H21C22.1046 21 23 20.1046 23 19V5C23 3.89543 22.1046 3 21 3Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M1 9H23M12 9V21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M21 3H3C1.89543 3 1 3.89543 1 5V19C1 20.1046 1.89543 21 3 21H21C22.1046 21 23 20.1046 23 19V5C23 3.89543 22.1046 3 21 3Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M1 9H23M12 9V21" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </div>
                         <div class="contact-details">
-                            <h4>Langues</h4>
-                            <p>Arabe (Natale), Français (Bilingue), Anglais (Courant), Allemand (Débutant)</p>
+                            <h4 data-translate-key="contact_languages">Langues</h4>
+                            <p data-translate-key="contact_languages_list">Arabe (Natale), Français (Bilingue), Anglais (Courant), Allemand (Débutant)</p>
                         </div>
                     </div>
                 </div>
                 <div class="contact-form">
                     <form id="contactForm">
                         <div class="form-group">
-                            <label for="name">Nom</label>
+                            <label for="name" data-translate-key="form_name">Nom</label>
                             <input type="text" id="name" name="name" class="form-control" required>
                         </div>
                         <div class="form-group">
@@ -2376,7 +2546,7 @@
                             <input type="email" id="email" name="email" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="subject">Sujet</label>
+                            <label for="subject" data-translate-key="form_subject">Sujet</label>
                             <input type="text" id="subject" name="subject" class="form-control" required>
                         </div>
                         <div class="form-group">
@@ -2384,25 +2554,33 @@
                             <textarea id="message" name="message" class="form-control" required></textarea>
                         </div>
                         <button type="submit" id="submit-btn" class="btn btn-primary btn-form">
-                            <span id="button-text">Envoyer</span>
+                            <span id="button-text" data-translate-key="form_send">Envoyer</span>
                             <span id="button-loading" style="display: none;">
-                                <svg width="20" height="20" viewBox="0 0 24 24" style="animation: spin 1s linear infinite; display: inline-block;">
+                                <svg width="20" height="20" viewBox="0 0 24 24"
+                                    style="animation: spin 1s linear infinite; display: inline-block;">
                                     <style>
                                         @keyframes spin {
-                                            0% { transform: rotate(0deg); }
-                                            100% { transform: rotate(360deg); }
+                                            0% {
+                                                transform: rotate(0deg);
+                                            }
+                                            100% {
+                                                transform: rotate(360deg);
+                                            }
                                         }
                                     </style>
-                                    <path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z" opacity="0.3"/>
-                                    <path fill="currentColor" d="M12 4V2C6.5 2 2 6.5 2 12h2c0-4.4 3.6-8 8-8z"/>
+                                    <path fill="currentColor"
+                                        d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"
+                                        opacity="0.3" />
+                                    <path fill="currentColor" d="M12 4V2C6.5 2 2 6.5 2 12h2c0-4.4 3.6-8 8-8z" />
                                 </svg>
                             </span>
                         </button>
-                        <div id="form-success" class="form-success-message">
+                        <div id="form-success" class="form-success-message" data-translate-key="form_success">
                             Votre message a été envoyé avec succès ! Je vous répondrai dans les plus brefs délais.
                         </div>
-                        <div id="form-error" class="form-error-message">
-                            Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer ou me contacter directement par email.
+                        <div id="form-error" class="form-error-message" data-translate-key="form_error">
+                            Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer ou me contacter
+                            directement par email.
                         </div>
                     </form>
                 </div>
@@ -2411,11 +2589,12 @@
 
         <footer>
             <div class="footer-content">
-                <div class="copyright">
+                <div class="copyright" data-translate-key="footer_copyright">
                     &copy; 2025 Mohamed Omar Baouch. Tous droits réservés.
                 </div>
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/mohamed-omar-baouch-9b4473180/" target="_blank" class="social-icon">
+                    <a href="https://www.linkedin.com/in/mohamed-omar-baouch-9b4473180/" target="_blank"
+                        class="social-icon">
                         <span>in</span>
                     </a>
                     <a href="mailto:mohamed.omar.baouch@gmail.com" class="social-icon">
@@ -2427,39 +2606,367 @@
     </div>
 
     <script>
+        //--------- LANGUAGE SWITCHER SCRIPT START ---------//
+
+        const translations = {
+            fr: {
+                // Meta
+                "meta_title": "Mohamed Omar Baouch | Ingénieur & Consultant PDM/PLM",
+                "meta_description": "Portfolio de Mohamed Omar Baouch - Ingénieur mécanique et consultant PDM/PLM spécialisé dans l'optimisation des processus de développement produit",
+                // Loading
+                "loading_portfolio": "CHARGEMENT DU PORTFOLIO",
+                // Nav
+                "nav_about": "À propos",
+                "nav_experience": "Expérience",
+                "nav_skills": "Compétences",
+                "nav_education": "Formation",
+                "nav_contact": "Contact",
+                // Hero
+                "hero_title": `<span class="highlight glitch" data-text="Ingénieur Mécanique">Ingénieur Mécanique</span> & <br>Consultant <span class="glitch" data-text="PDM/PLM">PDM/PLM</span>`,
+                "hero_subtitle": "Expertise en conception, implémentation de solutions PDM et gestion du cycle de vie produit",
+                "hero_cta1": "Me contacter",
+                "hero_cta2": "Découvrir mon parcours",
+                "scroll_text": "Défiler",
+                // About
+                "about_title": "À propos",
+                "about_p1": "Ingénieur mécanique expérimenté et consultant PDM/PLM, je suis passionné par l'optimisation des processus de développement produit et la mise en œuvre de solutions techniques adaptées aux besoins spécifiques des entreprises.",
+                "about_p2": "Fort de mon expertise en conception mécanique et en gestion du cycle de vie des produits, j'accompagne les organisations dans leur transformation numérique et l'amélioration de leurs flux de travail.",
+                "tooltip_location": "Situé dans la région Grand Est, disponible pour des projets dans toute la France",
+                "tooltip_phone": "Disponible par téléphone du lundi au vendredi, 9h-18h",
+                "driving_license": "Permis B, Véhiculé",
+                "tooltip_mobility": "Mobile pour des déplacements professionnels",
+                "tooltip_email": "N'hésitez pas à me contacter par email pour toute demande",
+                "tooltip_linkedin": "Connectons-nous sur LinkedIn pour échanger professionnellement",
+                "download_cv": "Télécharger mon CV",
+                // Experience
+                "experience_title": "Expérience",
+                "exp1_date": "Juin 2023 - Présent",
+                "exp1_title": "Consultant PDM/PLM",
+                "exp1_subtitle1": "Mise en œuvre technique:",
+                "exp1_desc1_1": "Migration de serveurs et implémentation de solutions SOLIDWORKS PDM",
+                "exp1_desc1_2": "Paramétrage et configuration personnalisée des systèmes",
+                "exp1_desc1_3": "Intégration de systèmes PDM avec ERP via PDM Gateway",
+                "exp1_subtitle2": "Gestion de projets:",
+                "exp1_desc2_1": "Pilotage complet de projets d'implémentation PDM",
+                "exp1_desc2_2": "Coordination d'équipes techniques pour des migrations",
+                "exp1_desc2_3": "Élaboration de workflows optimisant les processus",
+                "exp2_date": "Septembre 2021 - Juin 2023",
+                "exp2_title": "Ingénieur Mécanique",
+                "exp2_subtitle1": "Projet IDEMIA - Développement de radars:",
+                "exp2_desc1_1": "Conception et développement des nouveaux radars",
+                "exp2_desc1_2": "Conception de pièces usinées et intégration de composants",
+                "exp2_desc1_3": "Structuration de l'architecture dossier sur le PLM",
+                "exp2_subtitle2": "Projet FLOWBIRD - Transport:",
+                "exp2_desc2_1": "Retrofit d'un distributeur de ticket pour la RATP",
+                "exp2_desc2_2": "Animation des revues de conception",
+                "exp2_desc2_3": "Calcul de structure avec Creo Simulate",
+                "exp3_date": "Avril 2020 - Octobre 2020",
+                "exp3_title": "Ingénieur Bureau d'Études",
+                "exp3_desc1": "Analyse des cahiers des charges et des exigences clients",
+                "exp3_desc2": "Chiffrage de projets et réalisation de nomenclatures",
+                "exp3_desc3": "Élaboration de plans d'exécution et dossiers techniques",
+                "exp3_desc4": "Recherche et consultation de fournisseurs",
+                // Skills
+                "skills_title": "Compétences",
+                "skill1_title": "Solutions PDM/PLM",
+                "tooltip_skill1_1": "Expert en configuration, migration et personnalisation de SOLIDWORKS PDM pour optimiser les workflows d'entreprise",
+                "tooltip_skill1_2": "Plateforme collaborative pour la gestion du cycle de vie des produits et l'innovation",
+                "tooltip_skill1_3": "Système PLM pour la gestion des données produits, processus et qualité",
+                "tooltip_skill1_4": "Suite d'outils complémentaires pour l'optimisation des processus PDM",
+                "tooltip_skill1_5": "Solution de gestion documentaire et technique",
+                "skill2_title": "Conception & Simulation",
+                "tooltip_skill2_1": "Maîtrise avancée des logiciels de CAO pour la conception mécanique",
+                "tooltip_skill2_2": "Expertise en simulation numérique pour l'analyse de structures",
+                "skill2_3": "Conception mécanique",
+                "tooltip_skill2_3": "Conception de pièces complexes, assemblages et systèmes mécaniques",
+                "skill3_title": "Méthodologies",
+                "skill3_1": "Gestion de projets techniques",
+                "tooltip_skill3_1": "Pilotage de projets d'implémentation PDM de l'analyse initiale au déploiement final",
+                "skill3_2": "Migration et organisation de données produit",
+                "tooltip_skill3_2": "Expertise en structuration et migration de données complexes",
+                "skill3_3": "Formation et accompagnement aux changements",
+                "tooltip_skill3_3": "Animation de sessions de formation adaptées aux différents niveaux d'utilisateurs",
+                "skill3_4": "Analyse des processus industriels",
+                "tooltip_skill3_4": "Optimisation des processus métier et des workflows techniques",
+                // Education
+                "education_title": "Formation",
+                "edu1_title": "CLASSES PRÉPARATOIRES",
+                "edu1_desc": "Formation scientifique et technique approfondie",
+                "edu2_title": "BACHELOR EN PLASTURGIE",
+                "edu2_desc": "Formation en techniques de transformation et conception de pièces plastiques",
+                "edu3_title": "MASTER EN GÉNIE MÉCANIQUE",
+                "edu3_desc": "Spécialisation en conception et simulation numérique",
+                // Contact
+                "contact_title": "Contact",
+                "contact_phone": "Téléphone",
+                "contact_address": "Adresse",
+                "contact_languages": "Langues",
+                "contact_languages_list": "Arabe (Natale), Français (Bilingue), Anglais (Courant), Allemand (Débutant)",
+                "form_name": "Nom",
+                "form_subject": "Sujet",
+                "form_send": "Envoyer",
+                "form_success": "Votre message a été envoyé avec succès ! Je vous répondrai dans les plus brefs délais.",
+                "form_error": "Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer ou me contacter directement par email.",
+                // Footer
+                "footer_copyright": "&copy; 2025 Mohamed Omar Baouch. Tous droits réservés."
+            },
+            en: {
+                // Meta
+                "meta_title": "Mohamed Omar Baouch | Mechanical Engineer & PDM/PLM Consultant",
+                "meta_description": "Portfolio of Mohamed Omar Baouch - Mechanical engineer and PDM/PLM consultant specializing in optimizing product development processes",
+                // Loading
+                "loading_portfolio": "LOADING PORTFOLIO",
+                // Nav
+                "nav_about": "About",
+                "nav_experience": "Experience",
+                "nav_skills": "Skills",
+                "nav_education": "Education",
+                "nav_contact": "Contact",
+                // Hero
+                "hero_title": `<span class="highlight glitch" data-text="Mechanical Engineer">Mechanical Engineer</span> & <br>PDM/PLM <span class="glitch" data-text="Consultant">Consultant</span>`,
+                "hero_subtitle": "Expertise in design, PDM solution implementation, and product lifecycle management",
+                "hero_cta1": "Contact Me",
+                "hero_cta2": "Explore My Journey",
+                "scroll_text": "Scroll",
+                 // About
+                "about_title": "About Me",
+                "about_p1": "As an experienced mechanical engineer and PDM/PLM consultant, I am passionate about optimizing product development processes and implementing technical solutions tailored to companies' specific needs.",
+                "about_p2": "With strong expertise in mechanical design and product lifecycle management, I guide organizations through their digital transformation and the improvement of their workflows.",
+                "tooltip_location": "Based in the Grand Est region, available for projects throughout France",
+                "tooltip_phone": "Available by phone Monday to Friday, 9am-6pm",
+                "driving_license": "Driver's License, Car Owner",
+                "tooltip_mobility": "Available for business travel",
+                "tooltip_email": "Feel free to contact me by email for any inquiries",
+                "tooltip_linkedin": "Let's connect on LinkedIn for professional exchanges",
+                "download_cv": "Download CV",
+                 // Experience
+                "experience_title": "Experience",
+                "exp1_date": "June 2023 - Present",
+                "exp1_title": "PDM/PLM Consultant",
+                "exp1_subtitle1": "Technical Implementation:",
+                "exp1_desc1_1": "Server migration and implementation of SOLIDWORKS PDM solutions",
+                "exp1_desc1_2": "Custom system parameterization and configuration",
+                "exp1_desc1_3": "Integration of PDM systems with ERP via PDM Gateway",
+                "exp1_subtitle2": "Project Management:",
+                "exp1_desc2_1": "End-to-end management of PDM implementation projects",
+                "exp1_desc2_2": "Coordination of technical teams for migrations",
+                "exp1_desc2_3": "Development of process-optimizing workflows",
+                "exp2_date": "September 2021 - June 2023",
+                "exp2_title": "Mechanical Engineer",
+                "exp2_subtitle1": "IDEMIA Project - Radar Development:",
+                "exp2_desc1_1": "Design and development of new radars",
+                "exp2_desc1_2": "Design of machined parts and component integration",
+                "exp2_desc1_3": "Structuring of the file architecture on the PLM",
+                "exp2_subtitle2": "FLOWBIRD Project - Transport:",
+                "exp2_desc2_1": "Retrofitting a ticket distributor for RATP",
+                "exp2_desc2_2": "Leading design review meetings",
+                "exp2_desc2_3": "Structural calculation with Creo Simulate",
+                "exp3_date": "April 2020 - October 2020",
+                "exp3_title": "Design Engineer",
+                "exp3_desc1": "Analysis of specifications and client requirements",
+                "exp3_desc2": "Project costing and creation of bills of materials",
+                "exp3_desc3": "Development of execution plans and technical files",
+                "exp3_desc4": "Supplier research and consultation",
+                 // Skills
+                "skills_title": "Skills",
+                "skill1_title": "PDM/PLM Solutions",
+                "tooltip_skill1_1": "Expert in configuring, migrating, and customizing SOLIDWORKS PDM to optimize company workflows",
+                "tooltip_skill1_2": "Collaborative platform for product lifecycle management and innovation",
+                "tooltip_skill1_3": "PLM system for managing product data, processes, and quality",
+                "tooltip_skill1_4": "Complementary tool suite for optimizing PDM processes",
+                "tooltip_skill1_5": "Document and technical data management solution",
+                "skill2_title": "Design & Simulation",
+                "tooltip_skill2_1": "Advanced proficiency in CAD software for mechanical design",
+                "tooltip_skill2_2": "Expertise in numerical simulation for structural analysis",
+                "skill2_3": "Mechanical Design",
+                "tooltip_skill2_3": "Design of complex parts, assemblies, and mechanical systems",
+                "skill3_title": "Methodologies",
+                "skill3_1": "Technical Project Management",
+                "tooltip_skill3_1": "Managing PDM implementation projects from initial analysis to final deployment",
+                "skill3_2": "Product Data Migration & Organization",
+                "tooltip_skill3_2": "Expertise in structuring and migrating complex data",
+                "skill3_3": "Training and Change Management",
+                "tooltip_skill3_3": "Conducting training sessions adapted to different user levels",
+                "skill3_4": "Industrial Process Analysis",
+                "tooltip_skill3_4": "Optimization of business processes and technical workflows",
+                 // Education
+                "education_title": "Education",
+                "edu1_title": "PREPARATORY CLASSES",
+                "edu1_desc": "In-depth scientific and technical training",
+                "edu2_title": "BACHELOR IN PLASTICS ENGINEERING",
+                "edu2_desc": "Training in processing techniques and plastic parts design",
+                "edu3_title": "MASTER IN MECHANICAL ENGINEERING",
+                "edu3_desc": "Specialization in design and numerical simulation",
+                 // Contact
+                "contact_title": "Contact",
+                "contact_phone": "Phone",
+                "contact_address": "Address",
+                "contact_languages": "Languages",
+                "contact_languages_list": "Arabic (Native), French (Bilingual), English (Fluent), German (Beginner)",
+                "form_name": "Name",
+                "form_subject": "Subject",
+                "form_send": "Send",
+                "form_success": "Your message has been sent successfully! I will get back to you as soon as possible.",
+                "form_error": "An error occurred while sending the message. Please try again or contact me directly by email.",
+                 // Footer
+                "footer_copyright": "&copy; 2025 Mohamed Omar Baouch. All rights reserved."
+            }
+        };
+
+        const frenchCountries = [
+            'BJ', 'BF', 'CG', 'CD', 'CI', 'GA', 'GN', 'ML', 'NE', 'SN', 'TG', 'TD', // Afrique Ouest/Centrale
+            'FR', 'MC', 'LU', 'BE', 'CH', // Europe
+            'GP', 'MQ', 'GF', 'RE', 'PM', 'YT', 'WF', 'PF', 'NC', // Territoires FR
+            'CA', // Géré spécifiquement, mais FR par défaut si pas de province
+            'HT', // Amérique
+            'DZ', 'MA', 'TN', 'LB', 'DJ', // Maghreb & Moyen-Orient
+            'MG', 'KM', 'MU' // Océan Indien
+        ];
+
+        const englishCountries = [
+            'RW', 'KH', 'LA', 'VU', 'SC' // Groupe 2
+            // Le reste du monde basculera en anglais par défaut
+        ];
+
+        function setCookie(name, value, days) {
+            let expires = "";
+            if (days) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/; SameSite=Lax";
+        }
+
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        function setLanguage(lang) {
+            if (!['fr', 'en'].includes(lang)) {
+                console.warn(`Language '${lang}' not supported. Defaulting to 'fr'.`);
+                lang = 'fr';
+            }
+
+            const langData = translations[lang];
+            document.querySelectorAll('[data-translate-key]').forEach(el => {
+                const key = el.dataset.translateKey;
+                if (langData[key]) {
+                    el.innerHTML = langData[key];
+                }
+            });
+
+             // Mettre à jour les meta tags
+            document.querySelector('html').lang = lang;
+            document.title = langData['meta_title'];
+            document.querySelector('meta[name="description"]').setAttribute('content', langData['meta_description']);
+
+
+            // Mettre à jour le bouton de langue actif
+            document.getElementById('lang-fr').classList.toggle('active', lang === 'fr');
+            document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+            
+            // Mettre à jour l'attribut data-text pour les effets glitch
+            const glitchElements = document.querySelectorAll('.glitch');
+            if (lang === 'en') {
+                 glitchElements[0].dataset.text = "Mechanical Engineer";
+                 glitchElements[1].dataset.text = "Consultant";
+            } else {
+                 glitchElements[0].dataset.text = "Ingénieur Mécanique";
+                 glitchElements[1].dataset.text = "PDM/PLM";
+            }
+
+
+            // Sauvegarder le choix
+            setCookie('preferred_language', lang, 365);
+        }
+
+        async function initializeLanguage() {
+            // 1. Vérifier le cookie
+            const cookieLang = getCookie('preferred_language');
+            if (cookieLang) {
+                setLanguage(cookieLang);
+                return;
+            }
+
+            // 2. Vérifier la langue du navigateur
+            const browserLang = navigator.language.split('-')[0];
+            if (browserLang === 'fr' || browserLang === 'en') {
+                setLanguage(browserLang);
+                return;
+            }
+
+            // 3. Géolocalisation par IP (fallback)
+            try {
+                const response = await fetch('https://ipapi.co/json/');
+                if (!response.ok) {
+                    throw new Error('IP API request failed');
+                }
+                const data = await response.json();
+                const countryCode = data.country_code;
+
+                // Cas spécifique pour le Canada (sans détection de province, on met FR par défaut comme demandé)
+                if (frenchCountries.includes(countryCode)) {
+                    setLanguage('fr');
+                } else if (englishCountries.includes(countryCode)) {
+                    setLanguage('en');
+                } else {
+                    // Pour tous les autres pays, anglais par défaut
+                    setLanguage('en');
+                }
+            } catch (error) {
+                console.error("Could not determine language from IP, defaulting to French.", error);
+                // Fallback final si tout échoue
+                setLanguage('fr');
+            }
+        }
+        
+        document.getElementById('lang-fr').addEventListener('click', () => setLanguage('fr'));
+        document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
+
+        //--------- LANGUAGE SWITCHER SCRIPT END ---------//
+
+
         // Function to create the hero grid
         function createHeroGrid() {
             const heroGrid = document.getElementById('heroGrid');
             const width = window.innerWidth;
             const height = window.innerHeight;
-            
+
             const cellSize = 50;
             const columns = Math.ceil(width / cellSize);
             const rows = Math.ceil(height / cellSize);
-            
+
             heroGrid.innerHTML = ''; // Clear existing grid
-            
+
             for (let i = 0; i < rows * columns; i++) {
                 const cell = document.createElement('div');
                 cell.classList.add('grid-cell');
                 heroGrid.appendChild(cell);
             }
-            
+
             // Add interactive effect to grid
             document.addEventListener('mousemove', (e) => {
                 const cells = document.querySelectorAll('.grid-cell');
                 const mouseX = e.clientX;
                 const mouseY = e.clientY;
-                
+
                 cells.forEach((cell) => {
                     const rect = cell.getBoundingClientRect();
                     const cellX = rect.left + rect.width / 2;
                     const cellY = rect.top + rect.height / 2;
-                    
+
                     const distance = Math.sqrt(
                         Math.pow(mouseX - cellX, 2) + Math.pow(mouseY - cellY, 2)
                     );
-                    
+
                     if (distance < 150) {
                         const opacity = 0.2 - distance / 750;
                         cell.style.backgroundColor = `rgba(217, 122, 122, ${opacity})`;
@@ -2474,13 +2981,13 @@
                 });
             });
         }
-        
+
         // Simulating loading progress with error handling
         function simulateLoading() {
             const loadingBar = document.getElementById('loadingBar');
             const loadingScreen = document.getElementById('loadingScreen');
             const mainContainer = document.getElementById('mainContainer');
-            
+
             // Ensure the loading screen will disappear even if there's an error elsewhere
             setTimeout(() => {
                 loadingScreen.style.opacity = '0';
@@ -2489,7 +2996,7 @@
                     mainContainer.classList.add('show');
                 }, 500);
             }, 3000); // Force hide after 3 seconds
-            
+
             let width = 0;
             const interval = setInterval(() => {
                 if (width >= 100) {
@@ -2498,7 +3005,7 @@
                     setTimeout(() => {
                         loadingScreen.style.display = 'none';
                         mainContainer.classList.add('show');
-                        
+
                         // Make experience section visible initially instead of waiting for scroll
                         const experienceSection = document.getElementById('experience');
                         if (experienceSection) {
@@ -2515,16 +3022,16 @@
                 }
             }, 150);
         }
-        
+
         // Handle scroll animations
         function handleScrollAnimations() {
             const fadeElements = document.querySelectorAll('.fade-up');
-            
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('show');
-                        
+
                         // If the entry is an experience section, show all timeline items inside it
                         if (entry.target.id === 'experience') {
                             const timelineItems = entry.target.querySelectorAll('.timeline-item');
@@ -2534,19 +3041,21 @@
                         }
                     }
                 });
-            }, { threshold: 0.1 });
-            
+            }, {
+                threshold: 0.1
+            });
+
             fadeElements.forEach(element => {
                 observer.observe(element);
             });
         }
-        
+
         // Handle navigation scrolling
         function handleNavigation() {
             const navContainer = document.getElementById('navContainer');
             const menuToggle = document.getElementById('menuToggle');
             const menu = document.getElementById('menu');
-            
+
             // Scroll event for navbar appearance
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
@@ -2555,24 +3064,39 @@
                     navContainer.classList.remove('scrolled');
                 }
             });
-            
+
             // Mobile menu toggle
             menuToggle.addEventListener('click', () => {
                 menuToggle.classList.toggle('active');
                 menu.classList.toggle('active');
+                // Move language switcher into menu on mobile toggle
+                if (window.innerWidth <= 768) {
+                    const langSwitcher = document.querySelector('.language-switcher');
+                    if (menu.classList.contains('active')) {
+                        menu.appendChild(langSwitcher);
+                    } else {
+                        document.querySelector('.nav-right').insertBefore(langSwitcher, menuToggle);
+                    }
+                }
             });
-            
+
             // Smooth scrolling for navigation links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
-                    
+
                     // Close mobile menu if open
                     menu.classList.remove('active');
                     menuToggle.classList.remove('active');
                     
+                    if (window.innerWidth <= 768) {
+                        const langSwitcher = document.querySelector('.language-switcher');
+                        document.querySelector('.nav-right').insertBefore(langSwitcher, menuToggle);
+                    }
+
+
                     const target = document.querySelector(this.getAttribute('href'));
-                    
+
                     if (target) {
                         window.scrollTo({
                             top: target.offsetTop - 80,
@@ -2582,35 +3106,35 @@
                 });
             });
         }
-        
+
         // Contact form handling with EmailJS
         function handleContactForm() {
             // Initialize EmailJS with your User ID
-            (function() {
+            (function () {
                 emailjs.init("ZyE4jMNSgESAa42sB");
             })();
-            
+
             const contactForm = document.getElementById('contactForm');
             const formSuccess = document.getElementById('form-success');
             const formError = document.getElementById('form-error');
             const submitBtn = document.getElementById('submit-btn');
             const buttonText = document.getElementById('button-text');
             const buttonLoading = document.getElementById('button-loading');
-            
+
             if (!contactForm) return;
-            
-            contactForm.addEventListener('submit', function(event) {
+
+            contactForm.addEventListener('submit', function (event) {
                 event.preventDefault();
-                
+
                 // Show loading state
                 buttonText.style.display = 'none';
                 buttonLoading.style.display = 'inline-block';
                 submitBtn.disabled = true;
-                
+
                 // Hide any previous messages
                 formSuccess.classList.remove('show');
                 formError.classList.remove('show');
-                
+
                 // Collect form data
                 const templateParams = {
                     name: contactForm.name.value,
@@ -2618,31 +3142,37 @@
                     subject: contactForm.subject.value,
                     message: contactForm.message.value
                 };
-                
+
                 // Send email using EmailJS
                 emailjs.send('service_w29506o', 'template_2mkwm8s', templateParams)
-                    .then(function(response) {
+                    .then(function (response) {
                         console.log('SUCCESS!', response.status, response.text);
-                        
+
                         // Show success message
                         formSuccess.classList.add('show');
-                        
+
                         // Clear form fields
                         contactForm.reset();
-                        
+
                         // Scroll to the success message
-                        formSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                        
-                    }, function(error) {
+                        formSuccess.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'nearest'
+                        });
+
+                    }, function (error) {
                         console.log('FAILED...', error);
-                        
+
                         // Show error message
                         formError.classList.add('show');
-                        
+
                         // Scroll to the error message
-                        formError.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        formError.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'nearest'
+                        });
                     })
-                    .finally(function() {
+                    .finally(function () {
                         // Reset button state
                         buttonText.style.display = 'inline-block';
                         buttonLoading.style.display = 'none';
@@ -2650,63 +3180,62 @@
                     });
             });
         }
-        
+
         // Effet de défilement 3D immersif
         function init3DScrollEffect() {
-            const sections = document.querySelectorAll('section');
             const sceneWrapper = document.getElementById('perspective-content');
             let current = 0;
             let target = 0;
             let ease = 0.075;
-            
+
             if (!sceneWrapper) return;
-            
+
             // Animation du défilement
             function smoothScroll() {
                 current = parseFloat((current + (target - current) * ease).toFixed(2));
-                
+
                 const translateY = current * -0.5;
                 const rotateX = current * 0.05;
-                
+
                 // Utiliser une transformation plus subtile pour éviter la désorientation
                 sceneWrapper.style.transform = `translateY(${translateY}px) rotateX(${rotateX}deg)`;
-                
+
                 requestAnimationFrame(smoothScroll);
             }
-            
+
             window.addEventListener('scroll', () => {
                 const scrollTop = window.pageYOffset;
                 target = scrollTop * 0.1; // Réduire l'intensité de l'effet
             });
-            
+
             // Démarrer l'animation seulement si sceneWrapper existe
             smoothScroll();
         }
-        
+
         // Effet de texte magnétique
         function initMagneticText() {
             const magneticElements = document.querySelectorAll('.magnetic-element');
-            
+
             magneticElements.forEach(item => {
                 item.addEventListener('mousemove', (e) => {
                     const rect = item.getBoundingClientRect();
                     const x = e.clientX - rect.left - rect.width / 2;
                     const y = e.clientY - rect.top - rect.height / 2;
-                    
+
                     // Réduire la force de l'effet pour plus de subtilité
                     const strength = 15;
                     const maxMove = 10;
-                    
+
                     const xMove = Math.min(Math.max((x / rect.width) * strength, -maxMove), maxMove);
                     const yMove = Math.min(Math.max((y / rect.height) * strength, -maxMove), maxMove);
-                    
+
                     gsap.to(item, {
                         x: xMove,
                         y: yMove,
                         duration: 0.3
                     });
                 });
-                
+
                 item.addEventListener('mouseleave', () => {
                     gsap.to(item, {
                         duration: 0.5,
@@ -2717,7 +3246,7 @@
                 });
             });
         }
-        
+
         // Transitions de page WebGL
         function initWebGLTransitions() {
             // Vérifier si Three.js est chargé
@@ -2726,14 +3255,14 @@
                 return;
             }
         }
-        
+
         // Amélioration du curseur personnalisé
         function enhanceCustomCursor() {
             const cursor = document.getElementById('customCursor');
             const cursorDot = document.getElementById('cursorDot');
-            
+
             if (!cursor || !cursorDot) return;
-            
+
             // Ajouter des particules suivant le curseur
             for (let i = 0; i < 5; i++) {
                 const trail = document.createElement('div');
@@ -2750,10 +3279,10 @@
                 trail.style.transform = 'translate(-50%, -50%) scale(0)';
                 document.body.appendChild(trail);
             }
-            
+
             const trails = document.querySelectorAll('.cursor-trail');
             let trailIndex = 0;
-            
+
             document.addEventListener('mousemove', (e) => {
                 // Position du curseur principal
                 gsap.to(cursor, {
@@ -2761,14 +3290,14 @@
                     top: e.clientY,
                     duration: 0.1
                 });
-                
+
                 // Position du point central
                 gsap.to(cursorDot, {
                     left: e.clientX,
                     top: e.clientY,
                     duration: 0.05
                 });
-                
+
                 // Animation des particules de traînée
                 const trail = trails[trailIndex];
                 if (trail) {
@@ -2788,10 +3317,10 @@
                         }
                     });
                 }
-                
+
                 trailIndex = (trailIndex + 1) % trails.length;
             });
-            
+
             // Effet de distortion sur les liens et éléments interactifs
             const interactiveElements = document.querySelectorAll('a, button, .skill-card, .timeline-content, .education-card, .contact-item');
             interactiveElements.forEach(element => {
@@ -2804,7 +3333,7 @@
                         duration: 0.4
                     });
                 });
-                
+
                 element.addEventListener('mouseleave', () => {
                     gsap.to(cursor, {
                         width: '20px',
@@ -2815,7 +3344,7 @@
                     });
                 });
             });
-            
+
             // Effet de grossissement sur les titres
             const titles = document.querySelectorAll('.section-title, .timeline-title, .skill-title, .education-degree');
             titles.forEach(title => {
@@ -2829,7 +3358,7 @@
                         duration: 0.3
                     });
                 });
-                
+
                 title.addEventListener('mouseleave', () => {
                     gsap.to(cursor, {
                         width: '20px',
@@ -2841,7 +3370,7 @@
                     });
                 });
             });
-            
+
             // Masquer le curseur lorsque la souris quitte la fenêtre
             document.addEventListener('mouseout', (e) => {
                 if (e.relatedTarget === null) {
@@ -2852,73 +3381,69 @@
                     });
                 }
             });
-            
+
             document.addEventListener('mouseover', () => {
                 cursor.style.opacity = '1';
                 cursorDot.style.opacity = '1';
             });
         }
-        
+
         // Intégration d'un effet de distorsion sur défilement
         function initScrollDistortion() {
             const content = document.getElementById('mainContainer');
-            const distortionEffect = document.getElementById('distortionEffect');
             
-            if (!content || !distortionEffect) return;
-            
+            if (!content) return;
+
             let currentScroll = 0;
             let targetScroll = 0;
-            
+
             window.addEventListener('scroll', () => {
                 targetScroll = window.scrollY;
             });
-            
+
             function distortionAnimation() {
                 currentScroll = lerp(currentScroll, targetScroll, 0.1);
                 const skewAmount = map(Math.abs(targetScroll - currentScroll), 0, 100, 0, 15);
-                
+
                 content.style.transform = `skewY(${skewAmount * 0.05}deg)`;
-                
-                const blur = map(Math.abs(targetScroll - currentScroll), 0, 100, 0, 3);
-                distortionEffect.style.backdropFilter = `blur(${blur}px)`;
                 
                 requestAnimationFrame(distortionAnimation);
             }
-            
+
             function lerp(start, end, factor) {
                 return start + (end - start) * factor;
             }
-            
+
             function map(value, in_min, in_max, out_min, out_max) {
                 return (value - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
             }
-            
+
             distortionAnimation();
         }
-        
+
         // Effet d'avant-plan dynamique
         function initDynamicOverlay() {
             const overlay = document.getElementById('dynamicOverlay');
-            
+
             if (!overlay) return;
-            
+
             overlay.style.display = 'block';
-            
+
             document.addEventListener('mousemove', (e) => {
                 const x = (e.clientX / window.innerWidth) * 100;
                 const y = (e.clientY / window.innerHeight) * 100;
-                
+
                 overlay.style.setProperty('--x', `${x}%`);
                 overlay.style.setProperty('--y', `${y}%`);
             });
         }
-        
+
         // Initialize particle background
         function initParticles() {
             // Chargement dynamique de particles.js
             const script = document.createElement('script');
             script.src = 'https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js';
-            script.onload = function() {
+            script.onload = function () {
                 if (typeof particlesJS !== 'undefined') {
                     particlesJS("particles-js", {
                         particles: {
@@ -3015,13 +3540,13 @@
             };
             document.body.appendChild(script);
         }
-        
+
         // Initialize GSAP animations
         function initGSAPAnimations() {
             if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
                 // Register ScrollTrigger plugin
                 gsap.registerPlugin(ScrollTrigger);
-                
+
                 // Timeline for hero section
                 const heroTl = gsap.timeline();
                 heroTl.from('.hero-title', {
@@ -3045,7 +3570,7 @@
                     opacity: 0,
                     ease: 'power3.out'
                 }, '-=0.4');
-                
+
                 // Animations for sections
                 gsap.utils.toArray('section').forEach(section => {
                     const title = section.querySelector('.section-title');
@@ -3062,7 +3587,7 @@
                         });
                     }
                 });
-                
+
                 // Timeline cards animation
                 gsap.utils.toArray('.timeline-content').forEach(item => {
                     gsap.from(item, {
@@ -3076,7 +3601,7 @@
                         ease: 'power3.out'
                     });
                 });
-                
+
                 // Skill cards animation
                 gsap.utils.toArray('.skill-card').forEach((card, index) => {
                     gsap.from(card, {
@@ -3091,7 +3616,7 @@
                         delay: index * 0.2
                     });
                 });
-                
+
                 // Contact section animation
                 const contactGrid = document.querySelector('.contact-grid');
                 if (contactGrid) {
@@ -3108,30 +3633,52 @@
                 }
             }
         }
-        
+
         // Window resize handler
         function handleResize() {
             window.addEventListener('resize', () => {
                 createHeroGrid();
                 
+                 // Move language switcher based on screen size
+                const langSwitcher = document.querySelector('.language-switcher');
+                const menu = document.getElementById('menu');
+                const menuToggle = document.getElementById('menuToggle');
+                const navRight = document.querySelector('.nav-right');
+
+                if (window.innerWidth <= 768) {
+                    if (menu.classList.contains('active')) {
+                        menu.appendChild(langSwitcher);
+                    } else {
+                         navRight.insertBefore(langSwitcher, menuToggle);
+                    }
+                } else {
+                     navRight.insertBefore(langSwitcher, menuToggle);
+                }
+
+
                 // Réinitialiser les dimensions du canvas de transition
                 if (typeof THREE !== 'undefined') {
                     const canvas = document.getElementById('transition-canvas');
                     if (canvas) {
-                        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+                        const renderer = new THREE.WebGLRenderer({
+                            canvas,
+                            alpha: true
+                        });
                         renderer.setSize(window.innerWidth, window.innerHeight);
                     }
                 }
             });
+             // Trigger resize handler once on load to position switcher correctly
+            window.dispatchEvent(new Event('resize'));
         }
-        
+
         // Scroll to top button
         function initScrollToTop() {
             const scrollToTopButton = document.getElementById('scrollToTop');
             const scrollProgressBar = document.getElementById('scrollProgress');
-            
+
             if (!scrollToTopButton || !scrollProgressBar) return;
-            
+
             window.addEventListener('scroll', () => {
                 // Show/hide scroll to top button
                 if (window.pageYOffset > 300) {
@@ -3139,14 +3686,14 @@
                 } else {
                     scrollToTopButton.classList.remove('visible');
                 }
-                
+
                 // Update scroll progress bar
                 const scrollPosition = window.pageYOffset;
                 const totalHeight = document.body.scrollHeight - window.innerHeight;
                 const scrollPercentage = (scrollPosition / totalHeight) * 100;
                 scrollProgressBar.style.width = scrollPercentage + '%';
             });
-            
+
             scrollToTopButton.addEventListener('click', () => {
                 window.scrollTo({
                     top: 0,
@@ -3154,13 +3701,13 @@
                 });
             });
         }
-        
+
         // Lazy loading for images
         function initLazyLoading() {
             const lazyImages = document.querySelectorAll('.lazy-image');
-            
+
             if (lazyImages.length === 0) return;
-            
+
             const lazyImageObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -3172,13 +3719,15 @@
                         observer.unobserve(img);
                     }
                 });
-            }, { rootMargin: '200px' });
-            
+            }, {
+                rootMargin: '200px'
+            });
+
             lazyImages.forEach(image => {
                 lazyImageObserver.observe(image);
             });
         }
-        
+
         // Enhance accessibility
         function enhanceAccessibility() {
             // Add ARIA labels to important interactive elements
@@ -3190,7 +3739,7 @@
                     }
                 }
             });
-            
+
             // Improve focus styles
             const style = document.createElement('style');
             style.textContent = `
@@ -3215,7 +3764,7 @@
                 }
             `;
             document.head.appendChild(style);
-            
+
             // Ajouter un lien d'accès rapide (skip link)
             const skipLink = document.createElement('a');
             skipLink.href = '#mainContainer';
@@ -3223,25 +3772,25 @@
             skipLink.textContent = 'Aller au contenu principal';
             document.body.insertBefore(skipLink, document.body.firstChild);
         }
-        
+
         // Theme switcher with localStorage
         function initThemeSwitcher() {
             const themeSwitch = document.getElementById('themeSwitch');
-            
+
             if (!themeSwitch) return;
-            
+
             const themeIcon = themeSwitch.querySelector('.theme-icon');
             let isDarkTheme = localStorage.getItem('theme') !== 'light';
-            
+
             // Apply saved theme on page load
             applyTheme(isDarkTheme);
-            
+
             themeSwitch.addEventListener('click', () => {
                 isDarkTheme = !isDarkTheme;
                 applyTheme(isDarkTheme);
                 localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
             });
-            
+
             function applyTheme(isDark) {
                 const root = document.documentElement;
                 if (!isDark) {
@@ -3263,80 +3812,151 @@
                 }
             }
         }
-        
+
         // Initialize parallax effect
         function initParallax() {
             const parallaxLayers = document.querySelectorAll('.parallax-layer');
-            
+
             if (parallaxLayers.length === 0) return;
-            
+
             document.addEventListener('mousemove', (e) => {
                 parallaxLayers.forEach((layer, index) => {
                     const speed = (index + 1) * 0.03;
                     const x = (window.innerWidth - e.pageX * speed) / 100;
                     const y = (window.innerHeight - e.pageY * speed) / 100;
-                    
+
                     layer.style.transform = `translateX(${x}px) translateY(${y}px)`;
                 });
             });
         }
-        
+
         // Initialize all functions when page loads with error handling
-        window.addEventListener('load', () => {
-            try {
-                createHeroGrid();
-                simulateLoading(); // This function now has a built-in timeout as a fallback
-                
-                // Initialiser les fonctionnalités existantes avec gestion d'erreurs
-                try { handleScrollAnimations(); } catch (e) { console.error('Error in handleScrollAnimations:', e); }
-                try { handleNavigation(); } catch (e) { console.error('Error in handleNavigation:', e); }
-                try { handleContactForm(); } catch (e) { console.error('Error in handleContactForm:', e); }
-                try { handleResize(); } catch (e) { console.error('Error in handleResize:', e); }
-                try { initScrollToTop(); } catch (e) { console.error('Error in initScrollToTop:', e); }
-                try { initLazyLoading(); } catch (e) { console.error('Error in initLazyLoading:', e); }
-                try { enhanceAccessibility(); } catch (e) { console.error('Error in enhanceAccessibility:', e); }
-                try { initParticles(); } catch (e) { console.error('Error in initParticles:', e); }
-                
-                // Initialiser les nouvelles fonctionnalités améliorées
-                try { initThemeSwitcher(); } catch (e) { console.error('Error in initThemeSwitcher:', e); }
-                try { initParallax(); } catch (e) { console.error('Error in initParallax:', e); }
-                try { enhanceCustomCursor(); } catch (e) { console.error('Error in enhanceCustomCursor:', e); }
-                try { init3DScrollEffect(); } catch (e) { console.error('Error in init3DScrollEffect:', e); }
-                try { initMagneticText(); } catch (e) { console.error('Error in initMagneticText:', e); }
-                try { initWebGLTransitions(); } catch (e) { console.error('Error in initWebGLTransitions:', e); }
-                try { initScrollDistortion(); } catch (e) { console.error('Error in initScrollDistortion:', e); }
-                try { initDynamicOverlay(); } catch (e) { console.error('Error in initDynamicOverlay:', e); }
-                
-                // Initialize GSAP animations after loading screen
-                setTimeout(() => {
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeLanguage(); // Run language detection as early as possible
+            
+            window.addEventListener('load', () => {
+                try {
+                    createHeroGrid();
+                    simulateLoading(); // This function now has a built-in timeout as a fallback
+
+                    // Initialiser les fonctionnalités existantes avec gestion d'erreurs
                     try {
-                        initGSAPAnimations();
+                        handleScrollAnimations();
                     } catch (e) {
-                        console.error('Error in initGSAPAnimations:', e);
+                        console.error('Error in handleScrollAnimations:', e);
                     }
-                }, 3000);
-                
-                // Scroll indicator for smooth scrolling
-                const scrollIndicator = document.getElementById('scrollIndicator');
-                if (scrollIndicator) {
-                    scrollIndicator.addEventListener('click', () => {
-                        const aboutSection = document.getElementById('about');
-                        if (aboutSection) {
-                            aboutSection.scrollIntoView({ behavior: 'smooth' });
+                    try {
+                        handleNavigation();
+                    } catch (e) {
+                        console.error('Error in handleNavigation:', e);
+                    }
+                    try {
+                        handleContactForm();
+                    } catch (e) {
+                        console.error('Error in handleContactForm:', e);
+                    }
+                    try {
+                        handleResize();
+                    } catch (e) {
+                        console.error('Error in handleResize:', e);
+                    }
+                    try {
+                        initScrollToTop();
+                    } catch (e) {
+                        console.error('Error in initScrollToTop:', e);
+                    }
+                    try {
+                        initLazyLoading();
+                    } catch (e) {
+                        console.error('Error in initLazyLoading:', e);
+                    }
+                    try {
+                        enhanceAccessibility();
+                    } catch (e) {
+                        console.error('Error in enhanceAccessibility:', e);
+                    }
+                    try {
+                        initParticles();
+                    } catch (e) {
+                        console.error('Error in initParticles:', e);
+                    }
+
+                    // Initialiser les nouvelles fonctionnalités améliorées
+                    try {
+                        initThemeSwitcher();
+                    } catch (e) {
+                        console.error('Error in initThemeSwitcher:', e);
+                    }
+                    try {
+                        initParallax();
+                    } catch (e) {
+                        console.error('Error in initParallax:', e);
+                    }
+                    try {
+                        enhanceCustomCursor();
+                    } catch (e) {
+                        console.error('Error in enhanceCustomCursor:', e);
+                    }
+                    try {
+                        init3DScrollEffect();
+                    } catch (e) {
+                        console.error('Error in init3DScrollEffect:', e);
+                    }
+                    try {
+                        initMagneticText();
+                    } catch (e) {
+                        console.error('Error in initMagneticText:', e);
+                    }
+                    try {
+                        initWebGLTransitions();
+                    } catch (e) {
+                        console.error('Error in initWebGLTransitions:', e);
+                    }
+                    try {
+                        initScrollDistortion();
+                    } catch (e) {
+                        console.error('Error in initScrollDistortion:', e);
+                    }
+                    try {
+                        initDynamicOverlay();
+                    } catch (e) {
+                        console.error('Error in initDynamicOverlay:', e);
+                    }
+
+                    // Initialize GSAP animations after loading screen
+                    setTimeout(() => {
+                        try {
+                            initGSAPAnimations();
+                        } catch (e) {
+                            console.error('Error in initGSAPAnimations:', e);
                         }
-                    });
+                    }, 3000);
+
+                    // Scroll indicator for smooth scrolling
+                    const scrollIndicator = document.getElementById('scrollIndicator');
+                    if (scrollIndicator) {
+                        scrollIndicator.addEventListener('click', () => {
+                            const aboutSection = document.getElementById('about');
+                            if (aboutSection) {
+                                aboutSection.scrollIntoView({
+                                    behavior: 'smooth'
+                                });
+                            }
+                        });
+                    }
+                } catch (error) {
+                    console.error('Error during initialization:', error);
+                    // Make sure the loading screen goes away even if there are errors
+                    const loadingScreen = document.getElementById('loadingScreen');
+                    const mainContainer = document.getElementById('mainContainer');
+                    if (loadingScreen && mainContainer) {
+                        loadingScreen.style.display = 'none';
+                        mainContainer.classList.add('show');
+                    }
                 }
-            } catch (error) {
-                console.error('Error during initialization:', error);
-                // Make sure the loading screen goes away even if there are errors
-                const loadingScreen = document.getElementById('loadingScreen');
-                const mainContainer = document.getElementById('mainContainer');
-                if (loadingScreen && mainContainer) {
-                    loadingScreen.style.display = 'none';
-                    mainContainer.classList.add('show');
-                }
-            }
+            });
         });
     </script>
 </body>
+
 </html>
