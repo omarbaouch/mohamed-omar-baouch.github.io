@@ -1,14 +1,13 @@
 // Fichier : /api/ask-gemini.js
-// Ce code s'exécute sur les serveurs de Vercel (Node.js)
+// Version corrigée qui utilise un header pour l'API Key
 
 module.exports = async (req, res) => {
-    // On s'assure que la requête est de type POST
     if (req.method !== 'POST') {
         return res.status(405).json({ error: 'Method Not Allowed' });
     }
 
     const { question, context } = req.body;
-    const GEMINI_API_KEY = process.env.GEMINI_API_KEY; // Récupère la clé depuis les variables d'environnement Vercel
+    const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
     if (!question || !context) {
         return res.status(400).json({ error: 'Question and context are required' });
@@ -17,8 +16,10 @@ module.exports = async (req, res) => {
     if (!GEMINI_API_KEY) {
          return res.status(500).json({ error: 'API Key not configured on the server' });
     }
-
-    const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`;
+    
+    // --- MODIFICATION N°1 : L'URL est simplifiée, sans la clé API ---
+    // Nous utilisons aussi un modèle plus récent que vous avez trouvé.
+    const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent';
 
     const prompt = `
         Tu es l'assistant virtuel de Mohamed Omar Baouch, un ingénieur et consultant PDM/PLM.
@@ -49,11 +50,18 @@ module.exports = async (req, res) => {
     try {
         const geminiResponse = await fetch(GEMINI_API_URL, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            // --- MODIFICATION N°2 : La clé est maintenant dans les "headers" ---
+            headers: {
+                'Content-Type': 'application/json',
+                'x-goog-api-key': GEMINI_API_KEY,
+            },
             body: JSON.stringify(payload),
         });
 
         if (!geminiResponse.ok) {
+            // Pour nous aider à déboguer si ça échoue encore
+            const errorBody = await geminiResponse.text();
+            console.error('Gemini API Error:', errorBody);
             throw new Error(`Gemini API responded with status ${geminiResponse.status}`);
         }
 
