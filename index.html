@@ -7,10 +7,13 @@
     <title>Mohamed Omar Baouch | Ingénieur & Consultant PDM/PLM</title>
     <meta name="description"
         content="Portfolio de Mohamed Omar Baouch - Ingénieur mécanique et consultant PDM/PLM spécialisé dans l'optimisation des processus de développement produit">
-    <meta name="keywords" content="PDM, PLM, SolidWorks, ingénieur mécanique, consultant, VISIATIV, gestion du cycle de vie produit">
+    <meta name="keywords"
+        content="PDM, PLM, SolidWorks, ingénieur mécanique, consultant, VISIATIV, gestion du cycle de vie produit">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700;900&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -167,12 +170,15 @@
             0% {
                 transform: translateX(-100%);
             }
+
             20% {
                 transform: translateX(0);
             }
+
             80% {
                 transform: translateX(0);
             }
+
             100% {
                 transform: translateX(100%);
             }
@@ -231,6 +237,7 @@
             0% {
                 transform: rotate(0deg);
             }
+
             100% {
                 transform: rotate(360deg);
             }
@@ -325,7 +332,7 @@
             align-items: center;
             gap: 30px;
         }
-        
+
         .menu {
             display: flex;
             gap: 30px;
@@ -374,9 +381,10 @@
             align-items: center;
             border-left: 1px solid var(--secondary-color);
             padding-left: 30px;
-            margin-left: 0; /* Adjusted from 30px to 0 as nav-right has gap */
+            margin-left: 0;
+            /* Adjusted from 30px to 0 as nav-right has gap */
         }
-        
+
         .lang-btn {
             background: none;
             border: none;
@@ -388,12 +396,12 @@
             transition: color 0.3s ease, transform 0.3s ease;
             padding: 5px;
         }
-        
+
         .lang-btn:hover {
             color: var(--text-primary);
             transform: scale(1.1);
         }
-        
+
         .lang-btn.active {
             color: var(--accent-color);
             font-weight: 700;
@@ -541,9 +549,11 @@
             0% {
                 transform: translateY(0);
             }
+
             50% {
                 transform: translateY(-5px);
             }
+
             100% {
                 transform: translateY(0);
             }
@@ -575,7 +585,6 @@
             clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
         }
 
-        
 
         .hero-subtitle {
             font-size: 1.2rem;
@@ -730,10 +739,12 @@
                 transform: translate(-50%, 0);
                 opacity: 1;
             }
+
             50% {
                 transform: translate(-50%, 20px);
                 opacity: 0.3;
             }
+
             100% {
                 transform: translate(-50%, 0);
                 opacity: 1;
@@ -1415,6 +1426,7 @@
                 opacity: 0;
                 transform: translateY(-10px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -1451,10 +1463,12 @@
         }
 
         @keyframes shakeError {
+
             0%,
             100% {
                 transform: translateX(0);
             }
+
             10%,
             30%,
             50%,
@@ -1462,6 +1476,7 @@
             90% {
                 transform: translateX(-5px);
             }
+
             20%,
             40%,
             60%,
@@ -1857,23 +1872,29 @@
                 grid-template-columns: 1fr;
                 gap: 60px;
             }
+
             .about-img-container {
                 padding-bottom: 75%;
             }
+
             .timeline::after {
                 left: 31px;
             }
+
             .timeline-item {
                 width: 100%;
                 padding-left: 70px;
                 padding-right: 30px;
             }
+
             .timeline-item:nth-child(even) {
                 left: 0;
             }
+
             .timeline-item::after {
                 left: 21px;
             }
+
             .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
@@ -1884,12 +1905,15 @@
             .hero-title {
                 font-size: 3rem;
             }
+
             .hero-subtitle {
                 font-size: 1rem;
             }
+
             .section-title {
                 font-size: 2rem;
             }
+
             .menu {
                 position: fixed;
                 top: 0;
@@ -1905,15 +1929,21 @@
                 z-index: 999;
                 box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
             }
+
             .nav-right {
-                gap: 15px; /* Reduce gap on mobile */
+                gap: 15px;
+                /* Reduce gap on mobile */
             }
+
             .language-switcher {
-                padding-left: 15px; /* Reduce padding on mobile */
-                border-left: none; /* Remove border on mobile menu */
+                padding-left: 15px;
+                /* Reduce padding on mobile */
+                border-left: none;
+                /* Remove border on mobile menu */
                 position: absolute;
                 bottom: 20px;
             }
+
             .menu.active {
                 right: 0;
                 /* Display language switcher inside mobile menu */
@@ -1921,6 +1951,7 @@
                 flex-direction: column;
                 align-items: center;
             }
+
             .menu.active .language-switcher {
                 position: static;
                 margin-top: 20px;
@@ -1929,10 +1960,12 @@
                 width: 100%;
                 justify-content: center;
             }
+
             .menu a {
                 font-size: 1.2rem;
                 padding: 15px 0;
             }
+
             .menu-toggle {
                 display: block;
                 z-index: 1000;
@@ -1943,14 +1976,17 @@
             .hero-title {
                 font-size: 2.5rem;
             }
+
             .hero-cta {
                 flex-direction: column;
                 align-items: flex-start;
             }
+
             .btn {
                 width: 100%;
                 text-align: center;
             }
+
             .education-grid,
             .skills-container {
                 grid-template-columns: 1fr;
@@ -1960,6 +1996,7 @@
         /* =============================================================== */
         /* ================== STYLES POUR L'ASSISTANT IA ================= */
         /* =============================================================== */
+
         .ai-assistant-fab {
             position: fixed;
             bottom: 90px;
@@ -1983,6 +2020,29 @@
             box-shadow: 0 8px 25px rgba(217, 122, 122, 0.4);
         }
 
+        .ai-fab-notification {
+            position: fixed;
+            bottom: 150px; /* Au-dessus du FAB */
+            right: 20px;
+            background: var(--accent-gradient);
+            color: var(--bg-color);
+            padding: 8px 15px;
+            border-radius: 20px 20px 5px 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            opacity: 0;
+            transform: translateY(20px) scale(0.8);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            pointer-events: none;
+            z-index: 1002;
+        }
+
+        .ai-fab-notification.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
         .ai-assistant-container {
             position: fixed;
             bottom: 20px;
@@ -1990,8 +2050,9 @@
             width: 90%;
             max-width: 400px;
             height: 600px;
-            background-color: rgba(42, 42, 42, 0.9);
+            background-color: color-mix(in srgb, var(--bg-color) 85%, transparent);
             backdrop-filter: blur(15px);
+            border: 1px solid var(--secondary-color);
             border-radius: 15px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
             z-index: 1000;
@@ -2009,14 +2070,25 @@
             opacity: 1;
             visibility: visible;
         }
+        
+        /* Masque le FAB quand le chat est ouvert */
+        .ai-assistant-container.show ~ .ai-assistant-fab {
+            transform: scale(0);
+        }
 
         .ai-assistant-header {
             padding: 15px 20px;
-            background-color: rgba(0, 0, 0, 0.2);
+            background-color: color-mix(in srgb, var(--secondary-color) 30%, transparent);
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid var(--secondary-color);
+        }
+        
+        .ai-header-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .ai-assistant-header h3 {
@@ -2049,10 +2121,22 @@
         }
 
         /* Scrollbar customisée */
-        .ai-assistant-body::-webkit-scrollbar { width: 6px; }
-        .ai-assistant-body::-webkit-scrollbar-track { background: transparent; }
-        .ai-assistant-body::-webkit-scrollbar-thumb { background: var(--accent-color); border-radius: 3px; }
-        .ai-assistant-body::-webkit-scrollbar-thumb:hover { background: var(--accent-secondary); }
+        .ai-assistant-body::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .ai-assistant-body::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .ai-assistant-body::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 3px;
+        }
+
+        .ai-assistant-body::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-secondary);
+        }
 
         .ai-message {
             max-width: 85%;
@@ -2061,12 +2145,12 @@
             line-height: 1.5;
             word-wrap: break-word;
         }
-        
+
         .ai-message ul {
             padding-left: 20px;
             margin: 0;
         }
-        
+
         .ai-message li {
             margin-bottom: 5px;
         }
@@ -2100,12 +2184,26 @@
             border-radius: 50%;
             animation: bounce 1.4s infinite ease-in-out both;
         }
-        .ai-message.loading span:nth-child(1) { animation-delay: -0.32s; }
-        .ai-message.loading span:nth-child(2) { animation-delay: -0.16s; }
+
+        .ai-message.loading span:nth-child(1) {
+            animation-delay: -0.32s;
+        }
+
+        .ai-message.loading span:nth-child(2) {
+            animation-delay: -0.16s;
+        }
 
         @keyframes bounce {
-          0%, 80%, 100% { transform: scale(0); }
-          40% { transform: scale(1.0); }
+
+            0%,
+            80%,
+            100% {
+                transform: scale(0);
+            }
+
+            40% {
+                transform: scale(1.0);
+            }
         }
 
 
@@ -2181,6 +2279,12 @@
                 bottom: 0;
                 right: 0;
                 border-radius: 0;
+                /* Amélioration de l'animation d'ouverture */
+                transform: translateY(100%);
+                transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+            .ai-assistant-container.show {
+                transform: translateY(0);
             }
         }
     </style>
@@ -2235,7 +2339,7 @@
                     <li><a href="#skills" class="nav-link" data-translate-key="nav_skills">Compétences</a></li>
                     <li><a href="#education" class="nav-link" data-translate-key="nav_education">Formation</a></li>
                     <li><a href="#contact" class="nav-link" data-translate-key="nav_contact">Contact</a></li>
-                    </ul>
+                </ul>
                 <div class="language-switcher">
                     <button id="lang-fr" class="lang-btn active">FR</button>
                     <button id="lang-en" class="lang-btn">EN</button>
@@ -2264,7 +2368,8 @@
                 </p>
                 <div class="hero-cta">
                     <a href="#contact" class="btn btn-primary" data-translate-key="hero_cta1">Me contacter</a>
-                    <a href="#experience" class="btn btn-secondary" data-translate-key="hero_cta2">Découvrir mon parcours</a>
+                    <a href="#experience" class="btn btn-secondary" data-translate-key="hero_cta2">Découvrir mon
+                        parcours</a>
                 </div>
             </div>
             <div class="scroll-indicator" id="scrollIndicator">
@@ -2318,7 +2423,8 @@
                         </div>
                     </div>
 
-                    <div class="about-info" style="display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 15px; margin-top: 30px;">
+                    <div class="about-info"
+                        style="display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 15px; margin-top: 30px;">
                         <div class="info-item tooltip" style="min-width: 200px; flex: 1;">
                             <i>
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
@@ -2362,7 +2468,8 @@
                                         stroke-linejoin="round" />
                                 </svg>
                             </i>
-                            <span style="white-space: nowrap;" data-translate-key="driving_license">Permis B, Véhiculé</span>
+                            <span style="white-space: nowrap;" data-translate-key="driving_license">Permis B,
+                                Véhiculé</span>
                             <span class="tooltip-text" data-translate-key="tooltip_mobility">Mobile pour des
                                 déplacements professionnels</span>
                         </div>
@@ -2405,7 +2512,7 @@
                         </div>
                     </div>
 
-                    <a href="/BAOUCH_CV_FR.pdf"  class="btn btn-primary"
+                    <a href="/BAOUCH_CV_FR.pdf" class="btn btn-primary"
                         style="margin-top: 30px; position: relative; z-index: 50; cursor: pointer !important; display: inline-flex; align-items: center;">
                         <span data-translate-key="download_cv">Télécharger mon CV</span>
                         <svg width="20" height="20" viewBox="0 0 24 24"
@@ -2424,20 +2531,27 @@
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <span class="timeline-date" data-translate-key="exp1_date">Juin 2023 - Présent</span>
-                        <h3 class="timeline-title magnetic-element" data-translate-key="exp1_title">Consultant PDM/PLM</h3>
+                        <h3 class="timeline-title magnetic-element" data-translate-key="exp1_title">Consultant PDM/PLM
+                        </h3>
                         <p class="timeline-company">VISIATIV</p>
                         <div class="timeline-description">
                             <p><strong data-translate-key="exp1_subtitle1">Mise en œuvre technique:</strong></p>
                             <ul>
-                                <li data-translate-key="exp1_desc1_1">Migration de serveurs et implémentation de solutions SOLIDWORKS PDM</li>
-                                <li data-translate-key="exp1_desc1_2">Paramétrage et configuration personnalisée des systèmes</li>
-                                <li data-translate-key="exp1_desc1_3">Intégration de systèmes PDM avec ERP via PDM Gateway</li>
+                                <li data-translate-key="exp1_desc1_1">Migration de serveurs et implémentation de
+                                    solutions SOLIDWORKS PDM</li>
+                                <li data-translate-key="exp1_desc1_2">Paramétrage et configuration personnalisée des
+                                    systèmes</li>
+                                <li data-translate-key="exp1_desc1_3">Intégration de systèmes PDM avec ERP via PDM
+                                    Gateway</li>
                             </ul>
                             <p><strong data-translate-key="exp1_subtitle2">Gestion de projets:</strong></p>
                             <ul>
-                                <li data-translate-key="exp1_desc2_1">Pilotage complet de projets d'implémentation PDM</li>
-                                <li data-translate-key="exp1_desc2_2">Coordination d'équipes techniques pour des migrations</li>
-                                <li data-translate-key="exp1_desc2_3">Élaboration de workflows optimisant les processus</li>
+                                <li data-translate-key="exp1_desc2_1">Pilotage complet de projets d'implémentation PDM
+                                </li>
+                                <li data-translate-key="exp1_desc2_2">Coordination d'équipes techniques pour des
+                                    migrations</li>
+                                <li data-translate-key="exp1_desc2_3">Élaboration de workflows optimisant les processus
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -2445,18 +2559,24 @@
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <span class="timeline-date" data-translate-key="exp2_date">Septembre 2021 - Juin 2023</span>
-                        <h3 class="timeline-title magnetic-element" data-translate-key="exp2_title">Ingénieur Mécanique</h3>
+                        <h3 class="timeline-title magnetic-element" data-translate-key="exp2_title">Ingénieur Mécanique
+                        </h3>
                         <p class="timeline-company">ABMI</p>
                         <div class="timeline-description">
-                            <p><strong data-translate-key="exp2_subtitle1">Projet IDEMIA - Développement de radars:</strong></p>
+                            <p><strong data-translate-key="exp2_subtitle1">Projet IDEMIA - Développement de
+                                    radars:</strong></p>
                             <ul>
-                                <li data-translate-key="exp2_desc1_1">Conception et développement des nouveaux radars</li>
-                                <li data-translate-key="exp2_desc1_2">Conception de pièces usinées et intégration de composants</li>
-                                <li data-translate-key="exp2_desc1_3">Structuration de l'architecture dossier sur le PLM</li>
+                                <li data-translate-key="exp2_desc1_1">Conception et développement des nouveaux radars
+                                </li>
+                                <li data-translate-key="exp2_desc1_2">Conception de pièces usinées et intégration de
+                                    composants</li>
+                                <li data-translate-key="exp2_desc1_3">Structuration de l'architecture dossier sur le
+                                    PLM</li>
                             </ul>
                             <p><strong data-translate-key="exp2_subtitle2">Projet FLOWBIRD - Transport:</strong></p>
                             <ul>
-                                <li data-translate-key="exp2_desc2_1">Retrofit d'un distributeur de ticket pour la RATP</li>
+                                <li data-translate-key="exp2_desc2_1">Retrofit d'un distributeur de ticket pour la RATP
+                                </li>
                                 <li data-translate-key="exp2_desc2_2">Animation des revues de conception</li>
                                 <li data-translate-key="exp2_desc2_3">Calcul de structure avec Creo Simulate</li>
                             </ul>
@@ -2466,13 +2586,17 @@
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <span class="timeline-date" data-translate-key="exp3_date">Avril 2020 - Octobre 2020</span>
-                        <h3 class="timeline-title magnetic-element" data-translate-key="exp3_title">Ingénieur Bureau d'Études</h3>
+                        <h3 class="timeline-title magnetic-element" data-translate-key="exp3_title">Ingénieur Bureau
+                            d'Études</h3>
                         <p class="timeline-company">EVOLUM CONTAINER</p>
                         <div class="timeline-description">
                             <ul>
-                                <li data-translate-key="exp3_desc1">Analyse des cahiers des charges et des exigences clients</li>
-                                <li data-translate-key="exp3_desc2">Chiffrage de projets et réalisation de nomenclatures</li>
-                                <li data-translate-key="exp3_desc3">Élaboration de plans d'exécution et dossiers techniques</li>
+                                <li data-translate-key="exp3_desc1">Analyse des cahiers des charges et des exigences
+                                    clients</li>
+                                <li data-translate-key="exp3_desc2">Chiffrage de projets et réalisation de nomenclatures
+                                </li>
+                                <li data-translate-key="exp3_desc3">Élaboration de plans d'exécution et dossiers
+                                    techniques</li>
                                 <li data-translate-key="exp3_desc4">Recherche et consultation de fournisseurs</li>
                             </ul>
                         </div>
@@ -2497,28 +2621,44 @@
                                     stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </div>
-                        <h3 class="skill-title magnetic-element" data-translate-key="skill1_title">Solutions PDM/PLM</h3>
+                        <h3 class="skill-title magnetic-element" data-translate-key="skill1_title">Solutions PDM/PLM
+                        </h3>
                     </div>
                     <ul class="skill-list" style="position: relative; overflow: visible;">
                         <li class="tooltip" style="position: relative;">
                             SOLIDWORKS PDM (administration et utilisation)
-                            <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);" data-translate-key="tooltip_skill1_1">Expert en configuration, migration et personnalisation de SOLIDWORKS PDM pour optimiser les workflows d'entreprise</span>
+                            <span class="tooltip-text"
+                                style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);"
+                                data-translate-key="tooltip_skill1_1">Expert en configuration, migration et
+                                personnalisation de SOLIDWORKS PDM pour optimiser les workflows d'entreprise</span>
                         </li>
                         <li class="tooltip" style="position: relative;">
                             3DEXPERIENCE
-                            <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);" data-translate-key="tooltip_skill1_2">Plateforme collaborative pour la gestion du cycle de vie des produits et l'innovation</span>
+                            <span class="tooltip-text"
+                                style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);"
+                                data-translate-key="tooltip_skill1_2">Plateforme collaborative pour la gestion du cycle
+                                de vie des produits et l'innovation</span>
                         </li>
                         <li class="tooltip" style="position: relative;">
                             PTC Windchill
-                            <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);" data-translate-key="tooltip_skill1_3">Système PLM pour la gestion des données produits, processus et qualité</span>
+                            <span class="tooltip-text"
+                                style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);"
+                                data-translate-key="tooltip_skill1_3">Système PLM pour la gestion des données produits,
+                                processus et qualité</span>
                         </li>
                         <li class="tooltip" style="position: relative;">
                             Visiativ PDM Gateway, myCADtools, myPDMtools
-                            <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);" data-translate-key="tooltip_skill1_4">Suite d'outils complémentaires pour l'optimisation des processus PDM</span>
+                            <span class="tooltip-text"
+                                style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);"
+                                data-translate-key="tooltip_skill1_4">Suite d'outils complémentaires pour l'optimisation
+                                des processus PDM</span>
                         </li>
                         <li class="tooltip" style="position: relative;">
                             Gitis
-                            <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);" data-translate-key="tooltip_skill1_5">Solution de gestion documentaire et technique</span>
+                            <span class="tooltip-text"
+                                style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);"
+                                data-translate-key="tooltip_skill1_5">Solution de gestion documentaire et
+                                technique</span>
                         </li>
                     </ul>
                 </div>
@@ -2538,20 +2678,30 @@
                                     stroke-linecap="round" />
                             </svg>
                         </div>
-                        <h3 class="skill-title magnetic-element" data-translate-key="skill2_title">Conception & Simulation</h3>
+                        <h3 class="skill-title magnetic-element" data-translate-key="skill2_title">Conception &
+                            Simulation</h3>
                     </div>
                     <ul class="skill-list" style="position: relative; overflow: visible;">
                         <li class="tooltip" style="position: relative;">
                             SolidWorks, CATIA V5, CREO 5.0
-                            <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);" data-translate-key="tooltip_skill2_1">Maîtrise avancée des logiciels de CAO pour la conception mécanique</span>
+                            <span class="tooltip-text"
+                                style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);"
+                                data-translate-key="tooltip_skill2_1">Maîtrise avancée des logiciels de CAO pour la
+                                conception mécanique</span>
                         </li>
                         <li class="tooltip" style="position: relative;">
                             ABAQUS, Creo Simulate
-                            <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);" data-translate-key="tooltip_skill2_2">Expertise en simulation numérique pour l'analyse de structures</span>
+                            <span class="tooltip-text"
+                                style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);"
+                                data-translate-key="tooltip_skill2_2">Expertise en simulation numérique pour l'analyse
+                                de structures</span>
                         </li>
                         <li class="tooltip" style="position: relative;" data-translate-key="skill2_3">
                             Conception mécanique
-                            <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);" data-translate-key="tooltip_skill2_3">Conception de pièces complexes, assemblages et systèmes mécaniques</span>
+                            <span class="tooltip-text"
+                                style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);"
+                                data-translate-key="tooltip_skill2_3">Conception de pièces complexes, assemblages et
+                                systèmes mécaniques</span>
                         </li>
                     </ul>
                 </div>
@@ -2569,19 +2719,31 @@
                     <ul class="skill-list" style="position: relative; overflow: visible;">
                         <li class="tooltip" style="position: relative;" data-translate-key="skill3_1">
                             Gestion de projets techniques
-                            <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);" data-translate-key="tooltip_skill3_1">Pilotage de projets d'implémentation PDM de l'analyse initiale au déploiement final</span>
+                            <span class="tooltip-text"
+                                style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);"
+                                data-translate-key="tooltip_skill3_1">Pilotage de projets d'implémentation PDM de
+                                l'analyse initiale au déploiement final</span>
                         </li>
                         <li class="tooltip" style="position: relative;" data-translate-key="skill3_2">
                             Migration et organisation de données produit
-                            <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);" data-translate-key="tooltip_skill3_2">Expertise en structuration et migration de données complexes</span>
+                            <span class="tooltip-text"
+                                style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);"
+                                data-translate-key="tooltip_skill3_2">Expertise en structuration et migration de
+                                données complexes</span>
                         </li>
                         <li class="tooltip" style="position: relative;" data-translate-key="skill3_3">
                             Formation et accompagnement aux changements
-                            <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);" data-translate-key="tooltip_skill3_3">Animation de sessions de formation adaptées aux différents niveaux d'utilisateurs</span>
+                            <span class="tooltip-text"
+                                style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);"
+                                data-translate-key="tooltip_skill3_3">Animation de sessions de formation adaptées aux
+                                différents niveaux d'utilisateurs</span>
                         </li>
                         <li class="tooltip" style="position: relative;" data-translate-key="skill3_4">
                             Analyse des processus industriels
-                            <span class="tooltip-text" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);" data-translate-key="tooltip_skill3_4">Optimisation des processus métier et des workflows techniques</span>
+                            <span class="tooltip-text"
+                                style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);"
+                                data-translate-key="tooltip_skill3_4">Optimisation des processus métier et des workflows
+                                techniques</span>
                         </li>
                     </ul>
                 </div>
@@ -2593,7 +2755,8 @@
             <div class="education-grid">
                 <div class="education-card">
                     <span class="education-year">2013-2015</span>
-                    <h3 class="education-degree magnetic-element" data-translate-key="edu1_title">CLASSES PRÉPARATOIRES</h3>
+                    <h3 class="education-degree magnetic-element" data-translate-key="edu1_title">CLASSES
+                        PRÉPARATOIRES</h3>
                     <p class="education-school">CPGE PTSI, Lycée Louis Couffignal</p>
                     <p class="education-description" data-translate-key="edu1_desc">
                         Formation scientifique et technique approfondie
@@ -2601,7 +2764,8 @@
                 </div>
                 <div class="education-card">
                     <span class="education-year">2015-2018</span>
-                    <h3 class="education-degree magnetic-element" data-translate-key="edu2_title">BACHELOR EN PLASTURGIE</h3>
+                    <h3 class="education-degree magnetic-element" data-translate-key="edu2_title">BACHELOR EN
+                        PLASTURGIE</h3>
                     <p class="education-school">INSA STRASBOURG</p>
                     <p class="education-description" data-translate-key="edu2_desc">
                         Formation en techniques de transformation et conception de pièces plastiques
@@ -2609,7 +2773,8 @@
                 </div>
                 <div class="education-card">
                     <span class="education-year">2018-2020</span>
-                    <h3 class="education-degree magnetic-element" data-translate-key="edu3_title">MASTER EN GÉNIE MÉCANIQUE</h3>
+                    <h3 class="education-degree magnetic-element" data-translate-key="edu3_title">MASTER EN GÉNIE
+                        MÉCANIQUE</h3>
                     <p class="education-school">UFR MIM</p>
                     <p class="education-description" data-translate-key="edu3_desc">
                         Spécialisation en conception et simulation numérique
@@ -2687,7 +2852,8 @@
                         </div>
                         <div class="contact-details">
                             <h4 data-translate-key="contact_languages">Langues</h4>
-                            <p data-translate-key="contact_languages_list">Arabe (Natale), Français (Bilingue), Anglais (Courant), Allemand (Débutant)</p>
+                            <p data-translate-key="contact_languages_list">Arabe (Natale), Français (Bilingue), Anglais
+                                (Courant), Allemand (Débutant)</p>
                         </div>
                     </div>
                 </div>
@@ -2719,6 +2885,7 @@
                                             0% {
                                                 transform: rotate(0deg);
                                             }
+
                                             100% {
                                                 transform: rotate(360deg);
                                             }
@@ -2743,33 +2910,6 @@
             </div>
         </section>
 
-        <div class="ai-assistant-fab" id="ai-fab">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect x="4" y="12" width="8" height="8" rx="2"/><path d="M8 12v1.5a2.5 2.5 0 0 0 5 0V12"/><path d="M2 12h2"/><path d="M14 2h2"/><path d="M14 8h2"/><path d="M14 14h2"/></svg>
-        </div>
-
-        <div class="ai-assistant-container" id="ai-container">
-            <div class="ai-assistant-header">
-                <h3 data-translate-key="ai_title">Assistant Virtuel</h3>
-                <button class="ai-close-btn" id="ai-close-btn">&times;</button>
-            </div>
-            <div class="ai-assistant-body" id="ai-chat-box">
-                <div class="ai-message assistant">
-                    <p data-translate-key="ai_welcome">Bonjour ! Je suis l'assistant virtuel de Mohamed. Comment puis-je vous aider à découvrir son profil ? Voici quelques suggestions :</p>
-                </div>
-                 <div class="ai-suggestions" id="ai-suggestions">
-                    <button class="suggestion-btn" data-translate-key="ai_sugg_1">Résume son expérience</button>
-                    <button class="suggestion-btn" data-translate-key="ai_sugg_2">Quelles sont ses compétences en PDM ?</button>
-                    <button class="suggestion-btn" data-translate-key="ai_sugg_3">Où a-t-il étudié ?</button>
-                </div>
-            </div>
-            <div class="ai-assistant-footer">
-                <input type="text" id="ai-input" placeholder="Posez votre question ici..." autocomplete="off">
-                <button id="ai-send-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                </button>
-            </div>
-        </div>
-
         <footer>
             <div class="footer-content">
                 <div class="copyright" data-translate-key="footer_copyright">
@@ -2786,7 +2926,54 @@
                 </div>
             </div>
         </footer>
+    </div><div class="ai-assistant-fab" id="ai-fab">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 8V4H8" />
+            <rect x="4" y="12" width="8" height="8" rx="2" />
+            <path d="M8 12v1.5a2.5 2.5 0 0 0 5 0V12" />
+            <path d="M2 12h2" />
+            <path d="M14 2h2" />
+            <path d="M14 8h2" />
+            <path d="M14 14h2" />
+        </svg>
     </div>
+
+    <div class="ai-fab-notification" id="ai-fab-notification"></div>
+
+    <div class="ai-assistant-container" id="ai-container">
+        <div class="ai-assistant-header">
+            <div class="ai-header-profile">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--accent-color)" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 8V4H8"/><rect x="4" y="12" width="8" height="8" rx="2"/><path d="M8 12v1.5a2.5 2.5 0 0 0 5 0V12"/><path d="M2 12h2"/><path d="M14 2h2"/><path d="M14 8h2"/><path d="M14 14h2"/>
+                </svg>
+                <h3 data-translate-key="ai_title">Assistant Virtuel</h3>
+            </div>
+            <button class="ai-close-btn" id="ai-close-btn">&times;</button>
+        </div>
+        <div class="ai-assistant-body" id="ai-chat-box">
+            <div class="ai-message assistant">
+                <p data-translate-key="ai_welcome">Bonjour ! Je suis l'assistant virtuel de Mohamed. Comment puis-je
+                    vous aider à découvrir son profil ? Voici quelques suggestions :</p>
+            </div>
+            <div class="ai-suggestions" id="ai-suggestions">
+                <button class="suggestion-btn" data-translate-key="ai_sugg_1">Résume son expérience</button>
+                <button class="suggestion-btn" data-translate-key="ai_sugg_2">Quelles sont ses compétences en PDM ?</button>
+                <button class="suggestion-btn" data-translate-key="ai_sugg_3">Où a-t-il étudié ?</button>
+            </div>
+        </div>
+        <div class="ai-assistant-footer">
+            <input type="text" id="ai-input" placeholder="Posez votre question ici..." autocomplete="off">
+            <button id="ai-send-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+        </div>
+    </div>
+
 
     <script>
         //--------- LANGUAGE SWITCHER SCRIPT START ---------//
@@ -2893,7 +3080,7 @@
             },
             en: {
                 // ... (toutes vos traductions EN existantes)
-                 "meta_title": "Mohamed Omar Baouch | Mechanical Engineer & PDM/PLM Consultant",
+                "meta_title": "Mohamed Omar Baouch | Mechanical Engineer & PDM/PLM Consultant",
                 "meta_description": "Portfolio of Mohamed Omar Baouch - Mechanical engineer and PDM/PLM consultant specializing in optimizing product development processes",
                 "loading_portfolio": "LOADING PORTFOLIO",
                 "nav_about": "About",
@@ -2983,7 +3170,7 @@
                 "form_success": "Your message has been sent successfully! I will get back to you as soon as possible.",
                 "form_error": "An error occurred while sending the message. Please try again or contact me directly by email.",
                 "footer_copyright": "&copy; 2025 Mohamed Omar Baouch. All rights reserved.",
-                 // Translations for AI Assistant
+                // Translations for AI Assistant
                 "ai_title": "Virtual Assistant",
                 "ai_welcome": "Hello! I am Mohamed's virtual assistant. How can I help you explore his profile? Here are a few suggestions:",
                 "ai_sugg_1": "Summarize his experience",
@@ -3057,7 +3244,7 @@
             // Mettre à jour le bouton de langue actif
             document.getElementById('lang-fr').classList.toggle('active', lang === 'fr');
             document.getElementById('lang-en').classList.toggle('active', lang === 'en');
-            
+
             // Mettre à jour l'attribut data-text pour les effets glitch
             const glitchElements = document.querySelectorAll('.glitch');
             if (lang === 'en') {
@@ -3112,7 +3299,7 @@
                 setLanguage('fr');
             }
         }
-        
+
         document.getElementById('lang-fr').addEventListener('click', () => setLanguage('fr'));
         document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
 
@@ -3273,7 +3460,7 @@
                     // Close mobile menu if open
                     menu.classList.remove('active');
                     menuToggle.classList.remove('active');
-                    
+
                     if (window.innerWidth <= 768) {
                         const langSwitcher = document.querySelector('.language-switcher');
                         document.querySelector('.nav-right').insertBefore(langSwitcher, menuToggle);
@@ -3576,7 +3763,7 @@
         // Intégration d'un effet de distorsion sur défilement
         function initScrollDistortion() {
             const content = document.getElementById('mainContainer');
-            
+
             if (!content) return;
 
             let currentScroll = 0;
@@ -3591,7 +3778,7 @@
                 const skewAmount = map(Math.abs(targetScroll - currentScroll), 0, 100, 0, 15);
 
                 content.style.transform = `skewY(${skewAmount * 0.02}deg)`;
-                
+
                 requestAnimationFrame(distortionAnimation);
             }
 
@@ -3823,7 +4010,7 @@
         function handleResize() {
             window.addEventListener('resize', () => {
                 createHeroGrid();
-                
+
                 // Move language switcher based on screen size
                 const langSwitcher = document.querySelector('.language-switcher');
                 const menu = document.getElementById('menu');
@@ -4014,13 +4201,13 @@
                 });
             });
         }
-        
+
         // ===============================================================
         // =========== SCRIPT POUR L'ASSISTANT IA (VERCEL) ===========
         // ===============================================================
         function initAIAssistant() {
-            const AI_API_ENDPOINT = '/api/ask-gemini'; 
-            
+            const AI_API_ENDPOINT = '/api/ask-gemini';
+
             const aiFab = document.getElementById('ai-fab');
             const aiContainer = document.getElementById('ai-container');
             const aiCloseBtn = document.getElementById('ai-close-btn');
@@ -4067,7 +4254,13 @@
 
             const portfolioContext = getPortfolioContext();
 
-            const toggleAssistant = () => aiContainer.classList.toggle('show');
+            const toggleAssistant = () => {
+                // Haptic feedback for mobile
+                if (navigator.vibrate) {
+                    navigator.vibrate(50);
+                }
+                aiContainer.classList.toggle('show');
+            }
             aiFab.addEventListener('click', toggleAssistant);
             aiCloseBtn.addEventListener('click', toggleAssistant);
 
@@ -4080,7 +4273,7 @@
                 } else {
                     let formattedText = text.replace(/\*\s(.*?)(?:\n|<br>|$)/g, '<li>$1</li>');
                     if (formattedText.includes('<li>')) {
-                         formattedText = `<ul>${formattedText.replace(/<\/li><li>/g, '</li><li>')}</ul>`;
+                        formattedText = `<ul>${formattedText.replace(/<\/li><li>/g, '</li><li>')}</ul>`;
                     }
                     messageDiv.innerHTML = formattedText.replace(/\n/g, '<br>');
                 }
@@ -4095,7 +4288,7 @@
 
                 addMessage(userInput, 'user');
                 aiInput.value = '';
-                if(aiSuggestions) aiSuggestions.style.display = 'none';
+                if (aiSuggestions) aiSuggestions.style.display = 'none';
 
                 const loadingMessage = addMessage('', 'assistant', true);
 
@@ -4109,13 +4302,13 @@
                     addMessage("Désolé, une erreur est survenue. Veuillez réessayer plus tard.", 'assistant');
                 }
             };
-            
+
             aiSendBtn.addEventListener('click', handleSend);
             aiInput.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') handleSend();
             });
-            
-            if(aiSuggestions) {
+
+            if (aiSuggestions) {
                 aiSuggestions.addEventListener('click', (e) => {
                     if (e.target.classList.contains('suggestion-btn')) {
                         aiInput.value = e.target.textContent;
@@ -4127,10 +4320,12 @@
             async function callAIAssistant(question) {
                 const response = await fetch(AI_API_ENDPOINT, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
                     body: JSON.stringify({
                         question: question,
-                        context: portfolioContext 
+                        context: portfolioContext
                     }),
                 });
 
@@ -4143,22 +4338,56 @@
             }
         }
 
+        function initProactiveAI() {
+            const fabNotification = document.getElementById('ai-fab-notification');
+            let notificationTimeout;
+
+            const suggestions = {
+                'experience': "Des questions sur mon parcours chez VISIATIV ?",
+                'skills': "Demandez-moi mes compétences en SOLIDWORKS PDM !",
+                'contact': "Besoin de mon email ou LinkedIn ?"
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const sectionId = entry.target.id;
+                        if (suggestions[sectionId]) {
+                            clearTimeout(notificationTimeout);
+                            
+                            fabNotification.textContent = suggestions[sectionId];
+                            fabNotification.classList.add('show');
+
+                            notificationTimeout = setTimeout(() => {
+                                fabNotification.classList.remove('show');
+                            }, 5000);
+                        }
+                    }
+                });
+            }, { threshold: 0.6 });
+
+            Object.keys(suggestions).forEach(id => {
+                const section = document.getElementById(id);
+                if(section) observer.observe(section);
+            });
+        }
+
 
         // Initialize all functions when page loads with error handling
         document.addEventListener('DOMContentLoaded', () => {
-            initializeLanguage(); 
-            
+            initializeLanguage();
+
             window.addEventListener('load', () => {
                 try {
                     createHeroGrid();
-                    simulateLoading(); 
+                    simulateLoading();
 
                     const initializers = [
                         handleScrollAnimations, handleNavigation, handleContactForm, handleResize,
                         initScrollToTop, initLazyLoading, enhanceAccessibility, initParticles,
                         initThemeSwitcher, initParallax, enhanceCustomCursor, init3DScrollEffect,
                         initMagneticText, initWebGLTransitions, initScrollDistortion, initDynamicOverlay,
-                        initAIAssistant // Ajout de l'initialisation de l'IA
+                        initAIAssistant, initProactiveAI // Ajout des initialisations de l'IA
                     ];
 
                     initializers.forEach(initFunc => {
@@ -4182,7 +4411,9 @@
                         scrollIndicator.addEventListener('click', () => {
                             const aboutSection = document.getElementById('about');
                             if (aboutSection) {
-                                aboutSection.scrollIntoView({ behavior: 'smooth' });
+                                aboutSection.scrollIntoView({
+                                    behavior: 'smooth'
+                                });
                             }
                         });
                     }
