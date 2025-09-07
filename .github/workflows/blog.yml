@@ -25,4 +25,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: '📰 chore(blog): Update daily radar'
-          file_pattern: 'blog/**/*.html'
+          file_pattern: blog
