@@ -1,13 +1,9 @@
 [
   { "name": "SOLIDWORKS Tech Blog", "url": "https://blogs.solidworks.com/tech/feed/" },
-  { "name": "SOLIDWORKS PDM Category", "url": "https://blogs.solidworks.com/tech/category/pdm/feed/" },
-  { "name": "Dassault Systèmes News", "url": "https://www.3ds.com/rss" },
-  { "name": "Teamcenter News (Siemens)", "url": "https://blogs.sw.siemens.com/teamcenter/tag/news/feed/" },
   { "name": "Javelin Tech Blog (TriMech)", "url": "https://www.javelin-tech.com/blog/feed/" },
-  { "name": "TriMech Blog", "url": "https://blog.trimech.com/feed/" },
-  { "name": "GoEngineer Blog", "url": "https://www.goengineer.com/blog/rss.xml" },
-  { "name": "Beyond PLM (Oleg Shilovitsky)", "url": "https://beyondplm.com/feed/" },
+  { "name": "Teamcenter Blog (Siemens)", "url": "https://blogs.sw.siemens.com/teamcenter/feed/" },
   { "name": "OpenBOM Blog", "url": "https://www.openbom.com/blog/feed/" },
-  { "name": "myCAD by Visiativ News", "url": "https://mycad.visiativ.com/en/community/news/articles?format=rss" },
-  { "name": "Reddit r/SolidWorks", "url": "https://www.reddit.com/r/SolidWorks/.rss" }
+  { "name": "Beyond PLM (Oleg Shilovitsky)", "url": "https://beyondplm.com/feed/" },
+  { "name": "Reddit r/SolidWorks", "url": "https://www.reddit.com/r/SolidWorks/.rss" },
+  { "name": "CIMdata Commentaries", "url": "https://www.cimdata.com/en/resources/complimentary-research/commentaries?format=feed&type=rss" }
 ]
