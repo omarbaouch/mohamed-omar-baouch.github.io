@@ -22,20 +22,43 @@ const MAX_ITEMS_PER_POST = 10;
 const args = process.argv.slice(2);
 const ITEMS_ONLY = args.includes('--items-only');
 
-const generateHTMLPage = (title, content, metaDescription, cssContent) => `
+const generateHTMLPage = (headContent, bodyContent) => `
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${title} | Mohamed Omar Baouch</title>
-    <meta name="description" content="${metaDescription}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* CSS intégré depuis index.html */
-        ${cssContent}
+<head>${headContent}</head>
+<body>
+    <div class="container blog-container">${bodyContent}</div>
+</body>
+</html>`;
+
+const escapeHTML = (str) => str?.replace(/[&<>"']/g, tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[tag]));
+
+const toISODate = (dateStr) => {
+    if (!dateStr) return null;
+    const parsed = new Date(dateStr);
+    return isNaN(parsed) ? null : parsed.toISOString();
+};
+
+async function getHeadFromIndex(title, description) {
+    const indexHtml = await fs.readFile(INDEX_HTML_PATH, 'utf-8');
+    const $ = load(indexHtml);
+
+    const head = $('head').clone();
+
+    head.find('script').each((_, el) => {
+        const src = $(el).attr('src') || '';
+        const content = $(el).html() || '';
+        if (src.includes('googletagmanager') || content.includes('googletagmanager')) {
+            $(el).remove();
+        }
+    });
+
+    head.find('title').text(`${title} | Mohamed Omar Baouch`);
+    head.find('meta[name="description"]').attr('content', description);
+
+    const extraCss = `
+        /* Désactive l'écran de chargement sur les pages du blog */
+        .loading-screen { display: none !important; }
 
         /* Styles additionnels pour le blog */
         .blog-container { max-width: 900px; margin: 120px auto 40px; padding: 20px; }
@@ -49,32 +72,16 @@ const generateHTMLPage = (title, content, metaDescription, cssContent) => `
         .article-item h2 a:hover { color: var(--accent-primary); }
         .article-item .source { font-size: 0.9rem; color: var(--text-secondary); }
         .back-link { display: inline-block; margin-top: 2rem; color: var(--accent-secondary); font-weight: 600; }
-    </style>
-</head>
-<body>
-    <div class="container blog-container">${content}</div>
-</body>
-</html>`;
+    `;
 
-const escapeHTML = (str) => str?.replace(/[&<>"']/g, tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[tag]));
-
-const toISODate = (dateStr) => {
-    if (!dateStr) return null;
-    const parsed = new Date(dateStr);
-    return isNaN(parsed) ? null : parsed.toISOString();
-};
-
-async function getCssFromIndex() {
-    const indexHtml = await fs.readFile(INDEX_HTML_PATH, 'utf-8');
-    const $ = load(indexHtml);
-    const styles = [];
-    $('head style').each((_, el) => {
-        styles.push($(el).html());
-    });
-    if (styles.length === 0) {
-        throw new Error('Style tags not found in index.html');
+    const mainStyle = head.find('style').last();
+    if (mainStyle.length) {
+        mainStyle.append(`\n${extraCss}\n`);
+    } else {
+        head.append(`<style>${extraCss}</style>`);
     }
-    return styles.join('\n');
+
+    return head.html();
 }
 
 async function fetchItems(processedLinks) {
@@ -123,8 +130,6 @@ async function fetchItems(processedLinks) {
 
 async function main() {
     console.log('Starting blog generation...');
-    const cssContent = await getCssFromIndex();
-    console.log(`Successfully extracted ${cssContent.length} characters of CSS.`);
 
     await fs.ensureDir(BLOG_DIR);
     await fs.ensureDir(CACHE_DIR);
@@ -200,7 +205,8 @@ async function main() {
     `;
 
     const metaDescription = noNews ? "Aucune actualité aujourd'hui." : `Veille PDM/PLM du ${dateStr}`;
-    const postHTML = generateHTMLPage(postTitle, postContent, metaDescription, cssContent);
+    const postHead = await getHeadFromIndex(postTitle, metaDescription);
+    const postHTML = generateHTMLPage(postHead, postContent);
     await fs.writeFile(path.join(postDir, 'index.html'), postHTML);
     console.log(`✅ Generated post: ${postSlug}`);
 
@@ -221,7 +227,8 @@ async function main() {
         </div>
     `;
 
-    const indexHTML = generateHTMLPage('Blog - Radar PDM/PLM', indexContent, "Veille technologique sur PDM, PLM et SolidWorks.", cssContent);
+    const indexHead = await getHeadFromIndex('Blog - Radar PDM/PLM', "Veille technologique sur PDM, PLM et SolidWorks.");
+    const indexHTML = generateHTMLPage(indexHead, indexContent);
     await fs.writeFile(path.join(BLOG_DIR, 'index.html'), indexHTML);
     console.log('✅ Generated blog index page.');
 }
