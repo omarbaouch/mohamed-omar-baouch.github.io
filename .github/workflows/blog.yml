@@ -13,16 +13,25 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+      - name: Cache models
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache
+          key: models-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
       - name: Install dependencies
-        run: npm install
-      - name: Generate blog files
-        run: npm run build-blog
+        run: npm ci
+      - name: Fetch items
+        run: node scripts/generate-blog.mjs
+      - name: Enrich articles
+        run: npm run enrich-blog
+      - name: Generate blog
+        run: node scripts/generate-blog.mjs
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: '📰 chore(blog): Update daily radar'
-          file_pattern: blog
+          file_pattern: "blog blog_meta .cache"

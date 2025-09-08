@@ -8,6 +8,8 @@ dayjs.extend(utc);
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 const ROOT = path.resolve(__dirname, '..');
 const BLOG_DIR = path.join(ROOT, 'blog');
+const CACHE_DIR = path.join(ROOT, '.cache');
+const META_DIR = path.join(ROOT, 'blog_meta');
 const SOURCES_FILE = path.join(ROOT, 'sources.json');
 const INDEX_HTML_PATH = path.join(ROOT, 'index.html'); // Chemin vers votre index.html
 
@@ -113,6 +115,14 @@ async function main() {
     const itemsForPost = recentItems.slice(0, MAX_ITEMS_PER_POST);
 
     const dateStr = now.format('YYYY-MM-DD');
+    await fs.ensureDir(CACHE_DIR);
+    await fs.writeJson(path.join(CACHE_DIR, `${dateStr}-items.json`), itemsForPost, { spaces: 2 });
+
+    let meta = {};
+    const metaPath = path.join(META_DIR, `${dateStr}.json`);
+    if (await fs.pathExists(metaPath)) {
+        meta = await fs.readJson(metaPath);
+    }
     const postTitle = `Radar PDM/PLM – ${dateStr}`;
     const postSlug = `radar-${dateStr}`;
     const postDir = path.join(BLOG_DIR, postSlug);
@@ -122,12 +132,16 @@ async function main() {
         <div class="blog-post">
             <h1>${postTitle}</h1>
             <p class="meta">Une sélection des dernières actualités du ${now.format('DD/MM/YYYY')}.</p>
-            ${itemsForPost.map(item => `
+            ${itemsForPost.map(item => {
+                const info = meta[item.link] || {};
+                return `
                 <div class="article-item">
                     <h2><a href="${escapeHTML(item.link)}" target="_blank" rel="noopener noreferrer">${escapeHTML(item.title)}</a></h2>
                     <p class="source">Source: ${escapeHTML(item.source)}</p>
-                </div>
-            `).join('')}
+                    ${info.summary ? `<p class="summary">${escapeHTML(info.summary)}</p>` : ''}
+                    ${info.keywords ? `<p class="tags">Tags: ${info.keywords.map(k => escapeHTML(k)).join(', ')}</p>` : ''}
+                </div>`;
+            }).join('')}
             <a href="/blog/" class="back-link">← Voir tous les radars</a>
         </div>
     `;
