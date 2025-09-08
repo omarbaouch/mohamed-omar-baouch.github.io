@@ -51,7 +51,10 @@ const generateHTMLPage = (title, content, metaDescription, cssContent) => `
 </body>
 </html>`;
 
-const escapeHTML = (str) => str ? str.replace(/[&<>'"]/g, tag => ({'&': '&amp;','<': '&lt;','>': '&gt;','\'': '&#39;','"': '&quot;'}[tag] || tag)) : '';
+const escapeHTML = (str) => str?.replace(
+  /[&<>"']/g,
+  tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[tag])
+);
 
 async function getCssFromIndex() {
     const indexHtml = await fs.readFile(INDEX_HTML_PATH, 'utf-8');
