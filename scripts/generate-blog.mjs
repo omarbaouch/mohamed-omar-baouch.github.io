@@ -1,6 +1,7 @@
 import Parser from 'rss-parser';
 import fs from 'fs-extra';
 import path from 'path';
+import { load } from 'cheerio';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc.js';
 dayjs.extend(utc);
@@ -55,12 +56,15 @@ const escapeHTML = (str) => str ? str.replace(/[&<>'"]/g, tag => ({'&': '&amp;',
 
 async function getCssFromIndex() {
     const indexHtml = await fs.readFile(INDEX_HTML_PATH, 'utf-8');
-    const styleStart = indexHtml.indexOf('<style>');
-    const styleEnd = indexHtml.lastIndexOf('</style>');
-    if (styleStart === -1 || styleEnd === -1) {
+    const $ = load(indexHtml);
+    const styles = [];
+    $('head style').each((_, el) => {
+        styles.push($(el).html());
+    });
+    if (styles.length === 0) {
         throw new Error('Style tags not found in index.html');
     }
-    return indexHtml.substring(styleStart + 7, styleEnd);
+    return styles.join('\n');
 }
 
 async function main() {
