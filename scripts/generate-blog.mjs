@@ -1,7 +1,6 @@
 import Parser from 'rss-parser';
 import fs from 'fs-extra';
 import path from 'path';
-import { load } from 'cheerio';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc.js';
 dayjs.extend(utc);
@@ -22,66 +21,65 @@ const MAX_ITEMS_PER_POST = 10;
 const args = process.argv.slice(2);
 const ITEMS_ONLY = args.includes('--items-only');
 
-const generateHTMLPage = (headContent, bodyContent) => `
-<!DOCTYPE html>
-<html lang="fr">
-<head>${headContent}</head>
-<body>
-    <div class="container blog-container">${bodyContent}</div>
-</body>
-</html>`;
-
-const escapeHTML = (str) => str?.replace(/[&<>"']/g, tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[tag]));
-
 const toISODate = (dateStr) => {
     if (!dateStr) return null;
     const parsed = new Date(dateStr);
     return isNaN(parsed) ? null : parsed.toISOString();
 };
 
-async function getHeadFromIndex(title, description) {
-    const indexHtml = await fs.readFile(INDEX_HTML_PATH, 'utf-8');
-    const $ = load(indexHtml);
+async function getHeadFromIndex({ title, description }) {
+  const html = await fs.readFile(INDEX_HTML_PATH, 'utf-8');
+  const hs = html.indexOf('<head>');
+  const he = html.indexOf('</head>', hs);
+  if (hs === -1 || he === -1) throw new Error('Head tags not found in index.html');
+  let head = html.substring(hs + '<head>'.length, he);
 
-    const head = $('head').clone();
+  head = head.replace(/<script[\s\S]*?gtm\.js[\s\S]*?<\/script>/gi, '');
 
-    head.find('script').each((_, el) => {
-        const src = $(el).attr('src') || '';
-        const content = $(el).html() || '';
-        if (src.includes('googletagmanager') || content.includes('googletagmanager')) {
-            $(el).remove();
-        }
-    });
+  if (!/<base\s+href=/i.test(head)) {
+    head = `<base href="/">\n` + head;
+  }
 
-    head.find('title').text(`${title} | Mohamed Omar Baouch`);
-    head.find('meta[name="description"]').attr('content', description);
+  head = /<title>[\s\S]*?<\/title>/i.test(head)
+    ? head.replace(/<title>[\s\S]*?<\/title>/i, `<title>${title}</title>`)
+    : `<title>${title}</title>\n` + head;
 
-    const extraCss = `
-        /* Désactive l'écran de chargement sur les pages du blog */
-        .loading-screen { display: none !important; }
+  head = /<meta\s+name=["']description["'][^>]*>/i.test(head)
+    ? head.replace(/<meta\s+name=["']description["'][^>]*>/i, `<meta name="description" content="${description}">`)
+    : head + `\n<meta name="description" content="${description}">`;
 
-        /* Styles additionnels pour le blog */
-        .blog-container { max-width: 900px; margin: 120px auto 40px; padding: 20px; }
-        .blog-post, .blog-index { background-color: var(--bg-secondary); border-radius: 10px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
-        .blog-post h1, .blog-index h1 { color: var(--accent-primary); margin-top: 0; }
-        .blog-post .meta, .blog-index .meta { color: var(--text-secondary); margin-bottom: 2rem; }
-        .article-item { border-top: 1px solid var(--bg-tertiary); padding: 1.5rem 0; }
-        .article-item:first-child { border-top: none; }
-        .article-item h2 { margin: 0 0 0.5rem 0; font-size: 1.25rem; }
-        .article-item h2 a { color: var(--text-primary); text-decoration: none; transition: color 0.3s; }
-        .article-item h2 a:hover { color: var(--accent-primary); }
-        .article-item .source { font-size: 0.9rem; color: var(--text-secondary); }
-        .back-link { display: inline-block; margin-top: 2rem; color: var(--accent-secondary); font-weight: 600; }
-    `;
+  return head.trim();
+}
 
-    const mainStyle = head.find('style').last();
-    if (mainStyle.length) {
-        mainStyle.append(`\n${extraCss}\n`);
-    } else {
-        head.append(`<style>${extraCss}</style>`);
-    }
+const SAFE_FIX = `
+<style>
+  /* Désactive tout overlay/loader résiduel */
+  .loading-screen, .preloader, .loader { display: none !important; }
+  /* Forcer l\u2019affichage si la home cache le body en attendant un JS */
+  html, body { opacity: 1 !important; visibility: visible !important; }
+  /* Éviter qu\u2019un pseudo-élément plein écran intercepte des clics */
+  .grain::before, body::before, #app::before { pointer-events: none !important; }
+</style>
+`;
 
-    return head.html();
+async function generateHTMLPage(title, bodyContent, metaDescription) {
+  const head = await getHeadFromIndex({ title, description: metaDescription });
+  return `<!doctype html>
+<html lang="fr">
+<head>
+${head}
+${SAFE_FIX}
+</head>
+<body class="blog-page ready">
+  <main class="container blog-container">
+    ${bodyContent}
+  </main>
+</body>
+</html>`;
+}
+
+function escapeHTML(str) {
+  return str ? str.replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','\'':'&#39;','"':'&quot;'}[c])) : '';
 }
 
 async function fetchItems(processedLinks) {
@@ -176,59 +174,79 @@ async function main() {
     const postDir = path.join(BLOG_DIR, postSlug);
     await fs.ensureDir(postDir);
 
-    const postContent = noNews ? `
-        <div class="blog-post">
-            <h1>${postTitle}</h1>
-            <p class="meta">Aucune actualité aujourd'hui.</p>
-            <a href="/blog/" class="back-link">← Voir tous les radars</a>
-        </div>
-    ` : `
-        <div class="blog-post">
-            <h1>${postTitle}</h1>
-            <p class="meta">Une sélection des dernières actualités du ${now.format('DD/MM/YYYY')}.</p>
-            ${itemsForPost.map(item => {
-                const enriched = meta?.items?.find(m => m.link === item.link);
-                const resumo = enriched ? `
-                    ${enriched.summary ? `<p class="meta">${escapeHTML(enriched.summary)}</p>` : ''}
-                    ${enriched.keywords?.length ? `<p class="meta"><strong>Mots-clés:</strong> ${enriched.keywords.map(escapeHTML).join(', ')}</p>` : ''}
-                    ${enriched.categories?.length ? `<p class="meta"><strong>Catégories:</strong> ${enriched.categories.map(escapeHTML).join(' / ')}</p>` : ''}
-                ` : '';
-                return `
-                <div class="article-item">
-                    <h2><a href="${escapeHTML(item.link)}" target="_blank" rel="noopener noreferrer">${escapeHTML(item.title)}</a></h2>
-                    ${resumo}
-                    <p class="source">Source: ${escapeHTML(item.source)}</p>
-                </div>`;
-            }).join('')}
-            <a href="/blog/" class="back-link">← Voir tous les radars</a>
-        </div>
-    `;
+    function renderEnrichedMetaFor(item) {
+        if (!meta?.items) return '';
+        const enriched = meta.items.find(m => m.link === item.link);
+        if (!enriched) return '';
+        return `
+        ${enriched.summary ? `<p>${escapeHTML(enriched.summary)}</p>` : ''}
+        ${enriched.keywords?.length ? `<p class="meta"><strong>Mots-clés:</strong> ${enriched.keywords.map(escapeHTML).join(', ')}</p>` : ''}
+        ${enriched.categories?.length ? `<p class="meta"><strong>Catégories:</strong> ${enriched.categories.map(escapeHTML).join(' / ')}</p>` : ''}
+        `;
+    }
 
-    const metaDescription = noNews ? "Aucune actualité aujourd'hui." : `Veille PDM/PLM du ${dateStr}`;
-    const postHead = await getHeadFromIndex(postTitle, metaDescription);
-    const postHTML = generateHTMLPage(postHead, postContent);
+    const postContent = noNews ? `
+  <section class="section">
+    <p class="back"><a href="/blog/">← Voir tous les radars</a></p>
+    <h1 class="title">${escapeHTML(postTitle)}</h1>
+    <p class="meta">Aucune actualité aujourd'hui.</p>
+    <p class="back"><a href="/">← Retour au portfolio</a></p>
+  </section>
+` : `
+  <section class="section">
+    <p class="back"><a href="/blog/">← Voir tous les radars</a></p>
+    <h1 class="title">${escapeHTML(postTitle)}</h1>
+    <p>Veille du ${now.format('DD/MM/YYYY')} — PDM/PLM & écosystème.</p>
+
+    ${itemsForPost.map(item => `
+      <article class="post-item">
+        <h2 class="subtitle">
+          <a href="${escapeHTML(item.link)}" target="_blank" rel="noopener noreferrer">
+            ${escapeHTML(item.title)}
+          </a>
+        </h2>
+        ${renderEnrichedMetaFor(item)}
+        <p class="meta">Source : ${escapeHTML(item.source)}</p>
+      </article>
+    `).join('')}
+
+    <p class="back"><a href="/">← Retour au portfolio</a></p>
+  </section>
+`;
+
+    const metaDescription = noNews ? "Aucune actualité aujourd'hui." : `Veille PDM/PLM du ${now.format('DD/MM/YYYY')}`;
+    const postHTML = await generateHTMLPage(
+        `Radar PDM/PLM – ${dateStr}`,
+        postContent,
+        metaDescription
+    );
     await fs.writeFile(path.join(postDir, 'index.html'), postHTML);
     console.log(`✅ Generated post: ${postSlug}`);
 
     // Générer la page d'index du blog
-    const allPosts = (await fs.readdir(BLOG_DIR)).filter(file => fs.statSync(path.join(BLOG_DIR, file)).isDirectory());
-    allPosts.sort().reverse();
+    const allPostDirs = (await fs.readdir(BLOG_DIR)).filter(file => fs.statSync(path.join(BLOG_DIR, file)).isDirectory());
+    allPostDirs.sort().reverse();
 
     const indexContent = `
-        <div class="blog-index">
-            <h1>Blog - Radar PDM/PLM</h1>
-            <p class="meta">Veille technologique quotidienne et automatisée sur les sujets PDM, PLM, et l'écosystème SolidWorks.</p>
-            ${allPosts.map(slug => `
-                <div class="article-item">
-                    <h2><a href="/blog/${slug}/">Radar PDM/PLM – ${slug.replace('radar-', '')}</a></h2>
-                </div>
-            `).join('')}
-             <a href="/" class="back-link">← Retour au portfolio</a>
-        </div>
-    `;
+  <section class="section">
+    <h1 class="title">Blog — Radar PDM/PLM</h1>
+    <p class="meta">Veille technologique quotidienne et automatisée.</p>
+    <ul class="post-list">
+      ${allPostDirs.map(slug => `
+        <li class="post-list-item">
+          <a href="/blog/${slug}/">Radar — ${slug.replace('radar-', '')}</a>
+        </li>
+      `).join('')}
+    </ul>
+    <p class="back"><a href="/">← Retour au portfolio</a></p>
+  </section>
+`;
 
-    const indexHead = await getHeadFromIndex('Blog - Radar PDM/PLM', "Veille technologique sur PDM, PLM et SolidWorks.");
-    const indexHTML = generateHTMLPage(indexHead, indexContent);
+    const indexHTML = await generateHTMLPage(
+        'Blog — Radar PDM/PLM',
+        indexContent,
+        'Veille PDM/PLM, SolidWorks, Teamcenter…'
+    );
     await fs.writeFile(path.join(BLOG_DIR, 'index.html'), indexHTML);
     console.log('✅ Generated blog index page.');
 }
