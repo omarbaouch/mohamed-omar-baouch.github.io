@@ -111,12 +111,12 @@ async function main() {
         recentItems = allItems.filter(item => dayjs(item.isoDate).isAfter(cutoff));
     }
 
+    let noNews = false;
     if (recentItems.length === 0) {
-        console.log('No new items found. Exiting.');
-        return;
+        noNews = true;
+    } else {
+        recentItems.sort((a, b) => new Date(b.isoDate) - new Date(a.isoDate));
     }
-
-    recentItems.sort((a, b) => new Date(b.isoDate) - new Date(a.isoDate));
     const itemsForPost = recentItems.slice(0, MAX_ITEMS_PER_POST);
 
     const dateStr = now.format('YYYY-MM-DD');
@@ -125,7 +125,13 @@ async function main() {
     const postDir = path.join(BLOG_DIR, postSlug);
     await fs.ensureDir(postDir);
 
-    const postContent = `
+    const postContent = noNews ? `
+        <div class="blog-post">
+            <h1>${postTitle}</h1>
+            <p class="meta">Aucune actualité aujourd'hui.</p>
+            <a href="/blog/" class="back-link">← Voir tous les radars</a>
+        </div>
+    ` : `
         <div class="blog-post">
             <h1>${postTitle}</h1>
             <p class="meta">Une sélection des dernières actualités du ${now.format('DD/MM/YYYY')}.</p>
@@ -139,7 +145,8 @@ async function main() {
         </div>
     `;
 
-    const postHTML = generateHTMLPage(postTitle, postContent, `Veille PDM/PLM du ${dateStr}`, cssContent);
+    const metaDescription = noNews ? "Aucune actualité aujourd'hui." : `Veille PDM/PLM du ${dateStr}`;
+    const postHTML = generateHTMLPage(postTitle, postContent, metaDescription, cssContent);
     await fs.writeFile(path.join(postDir, 'index.html'), postHTML);
     console.log(`✅ Generated post: ${postSlug}`);
 
