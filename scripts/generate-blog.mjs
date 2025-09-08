@@ -10,15 +10,18 @@ const __dirname = path.dirname(new URL(import.meta.url).pathname);
 const ROOT = path.resolve(__dirname, '..');
 const BLOG_DIR = path.join(ROOT, 'blog');
 const SOURCES_FILE = path.join(ROOT, 'sources.json');
-const INDEX_HTML_PATH = path.join(ROOT, 'index.html'); // Chemin vers votre index.html
+const INDEX_HTML_PATH = path.join(ROOT, 'index.html');
 const HISTORY_FILE = path.join(ROOT, 'history.json');
+const CACHE_DIR = path.join(ROOT, '.cache');
+const META_DIR = path.join(ROOT, 'blog_meta');
 
-// --- Configuration ---
 const LOOKBACK_DAYS = 1;
 const FALLBACK_DAYS = 3;
 const MAX_ITEMS_PER_POST = 10;
 
-// --- Template HTML avec CSS intégré ---
+const args = process.argv.slice(2);
+const ITEMS_ONLY = args.includes('--items-only');
+
 const generateHTMLPage = (title, content, metaDescription, cssContent) => `
 <!DOCTYPE html>
 <html lang="fr">
@@ -53,10 +56,7 @@ const generateHTMLPage = (title, content, metaDescription, cssContent) => `
 </body>
 </html>`;
 
-const escapeHTML = (str) => str?.replace(
-  /[&<>"']/g,
-  tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[tag])
-);
+const escapeHTML = (str) => str?.replace(/[&<>"']/g, tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[tag]));
 
 const toISODate = (dateStr) => {
     if (!dateStr) return null;
@@ -77,20 +77,8 @@ async function getCssFromIndex() {
     return styles.join('\n');
 }
 
-async function main() {
-    console.log('Starting blog generation...');
-    const cssContent = await getCssFromIndex();
-    console.log(`Successfully extracted ${cssContent.length} characters of CSS.`);
-
-    await fs.ensureDir(BLOG_DIR);
+async function fetchItems(processedLinks) {
     const sources = await fs.readJson(SOURCES_FILE);
-
-    let history = { processedLinks: [] };
-    if (await fs.pathExists(HISTORY_FILE)) {
-        history = await fs.readJson(HISTORY_FILE);
-    }
-    const processedLinks = new Set(history.processedLinks);
-
     let allItems = [];
     const parser = new Parser({
         timeout: 15000,
@@ -98,7 +86,6 @@ async function main() {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36'
         }
     });
-
     for (const source of sources) {
         try {
             const feed = await parser.parseURL(source.url);
@@ -117,16 +104,13 @@ async function main() {
             console.warn(`Failed to fetch feed: ${source.name} - ${error.message}`);
         }
     }
-
     const now = dayjs.utc();
     let cutoff = now.subtract(LOOKBACK_DAYS, 'day');
     let recentItems = allItems.filter(item => dayjs(item.isoDate).isAfter(cutoff));
-
     if (recentItems.length === 0) {
         cutoff = now.subtract(FALLBACK_DAYS, 'day');
         recentItems = allItems.filter(item => dayjs(item.isoDate).isAfter(cutoff));
     }
-
     let noNews = false;
     if (recentItems.length === 0) {
         noNews = true;
@@ -134,8 +118,54 @@ async function main() {
         recentItems.sort((a, b) => new Date(b.isoDate) - new Date(a.isoDate));
     }
     const itemsForPost = recentItems.slice(0, MAX_ITEMS_PER_POST);
+    return { itemsForPost, noNews };
+}
 
+async function main() {
+    console.log('Starting blog generation...');
+    const cssContent = await getCssFromIndex();
+    console.log(`Successfully extracted ${cssContent.length} characters of CSS.`);
+
+    await fs.ensureDir(BLOG_DIR);
+    await fs.ensureDir(CACHE_DIR);
+    await fs.ensureDir(META_DIR);
+
+    const now = dayjs.utc();
     const dateStr = now.format('YYYY-MM-DD');
+    const busPath = path.join(CACHE_DIR, `${dateStr}-items.json`);
+
+    let history = { processedLinks: [] };
+    if (await fs.pathExists(HISTORY_FILE)) {
+        history = await fs.readJson(HISTORY_FILE);
+    }
+    const processedLinks = new Set(history.processedLinks);
+
+    let itemsForPost = [];
+    let noNews = false;
+    if (await fs.pathExists(busPath)) {
+        itemsForPost = await fs.readJson(busPath);
+        noNews = itemsForPost.length === 0;
+        console.log(`Loaded ${itemsForPost.length} cached items.`);
+    } else {
+        const fetched = await fetchItems(processedLinks);
+        itemsForPost = fetched.itemsForPost;
+        noNews = fetched.noNews;
+        await fs.writeJson(busPath, itemsForPost, { spaces: 2 });
+        history.processedLinks = Array.from(new Set([...processedLinks, ...itemsForPost.map(i => i.link)]));
+        await fs.writeJson(HISTORY_FILE, history, { spaces: 2 });
+    }
+
+    if (ITEMS_ONLY) {
+        console.log('Items collected. Exiting due to --items-only.');
+        return;
+    }
+
+    let meta = null;
+    const metaPath = path.join(META_DIR, `${dateStr}.json`);
+    if (await fs.pathExists(metaPath)) {
+        meta = await fs.readJson(metaPath);
+    }
+
     const postTitle = `Radar PDM/PLM – ${dateStr}`;
     const postSlug = `radar-${dateStr}`;
     const postDir = path.join(BLOG_DIR, postSlug);
@@ -151,12 +181,20 @@ async function main() {
         <div class="blog-post">
             <h1>${postTitle}</h1>
             <p class="meta">Une sélection des dernières actualités du ${now.format('DD/MM/YYYY')}.</p>
-            ${itemsForPost.map(item => `
+            ${itemsForPost.map(item => {
+                const enriched = meta?.items?.find(m => m.link === item.link);
+                const resumo = enriched ? `
+                    ${enriched.summary ? `<p class="meta">${escapeHTML(enriched.summary)}</p>` : ''}
+                    ${enriched.keywords?.length ? `<p class="meta"><strong>Mots-clés:</strong> ${enriched.keywords.map(escapeHTML).join(', ')}</p>` : ''}
+                    ${enriched.categories?.length ? `<p class="meta"><strong>Catégories:</strong> ${enriched.categories.map(escapeHTML).join(' / ')}</p>` : ''}
+                ` : '';
+                return `
                 <div class="article-item">
                     <h2><a href="${escapeHTML(item.link)}" target="_blank" rel="noopener noreferrer">${escapeHTML(item.title)}</a></h2>
+                    ${resumo}
                     <p class="source">Source: ${escapeHTML(item.source)}</p>
-                </div>
-            `).join('')}
+                </div>`;
+            }).join('')}
             <a href="/blog/" class="back-link">← Voir tous les radars</a>
         </div>
     `;
@@ -165,9 +203,6 @@ async function main() {
     const postHTML = generateHTMLPage(postTitle, postContent, metaDescription, cssContent);
     await fs.writeFile(path.join(postDir, 'index.html'), postHTML);
     console.log(`✅ Generated post: ${postSlug}`);
-
-    history.processedLinks = Array.from(new Set([...processedLinks, ...itemsForPost.map(item => item.link)]));
-    await fs.writeJson(HISTORY_FILE, history, { spaces: 2 });
 
     // Générer la page d'index du blog
     const allPosts = (await fs.readdir(BLOG_DIR)).filter(file => fs.statSync(path.join(BLOG_DIR, file)).isDirectory());

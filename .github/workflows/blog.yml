@@ -1,27 +1,53 @@
 name: Generate Daily Blog Post
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 7 * * *'
       timeZone: 'Europe/Paris'
+
 permissions:
   contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
+
       - name: Install dependencies
-        run: npm install
-      - name: Generate blog files
+        run: npm ci
+
+      - name: Cache models
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache
+          key: transformers-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: transformers-cache-${{ runner.os }}-
+
+      - name: Collect items
+        run: npm run build-blog -- --items-only
+
+      - name: Enrich items with local AI
+        run: npm run enrich-blog
+
+      - name: Generate blog pages
         run: npm run build-blog
+
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: '📰 chore(blog): Update daily radar'
-          file_pattern: blog
+          commit_message: '📰 chore(blog): update daily radar with AI summaries'
+          file_pattern: |
+            blog
+            blog_meta
+            .cache
+            history.json
+
