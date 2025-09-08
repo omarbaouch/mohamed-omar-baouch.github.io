@@ -2247,615 +2247,7 @@
                 transform: translateY(0);
             }
         }
-    </style>
-</head>
-
-<body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBLRK58T"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <canvas id="transition-canvas"></canvas>
-
-    <div class="perspective-wrapper">
-        <div id="perspective-content" class="perspective-content">
-        </div>
-    </div>
-
-    <div class="dynamic-overlay" id="dynamicOverlay"></div>
-
-    <div class="custom-cursor" id="customCursor"></div>
-    <div class="cursor-dot" id="cursorDot"></div>
-
-    <div id="particles-js"></div>
-
-    <div class="theme-switch" id="themeSwitch">
-        <div class="theme-icon">☀️</div>
-    </div>
-
-    <div class="scroll-to-top" id="scrollToTop">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" />
-        </svg>
-    </div>
-
-    <div class="scroll-progress" id="scrollProgress"></div>
-
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loading-icon">
-            <div class="loading-circle"></div>
-        </div>
-        <div class="loader-title" data-translate-key="loading_portfolio">CHARGEMENT DU PORTFOLIO</div>
-        <div class="loader-subtitle">Mohamed Omar Baouch</div>
-        <div class="loading-bar-container">
-            <div class="loading-bar" id="loadingBar"></div>
-        </div>
-    </div>
-
-    <div class="nav-container" id="navContainer">
-        <nav>
-            <a href="#" class="logo">M.BAOUCH</a>
-            <div class="nav-right">
-                <ul class="menu" id="menu">
-                    <li><a href="#about" class="nav-link" data-translate-key="nav_about">À propos</a></li>
-                    <li><a href="#experience" class="nav-link" data-translate-key="nav_experience">Expérience</a></li>
-                    <li><a href="#skills" class="nav-link" data-translate-key="nav_skills">Compétences</a></li>
-                    <li><a href="#education" class="nav-link" data-translate-key="nav_education">Formation</a></li>
-                    <li><a href="#contact" class="nav-link" data-translate-key="nav_contact">Contact</a></li>
-                    <li><a href="/blog/" class="nav-link">Blog</a></li>
-                </ul>
-                <div class="language-switcher">
-                    <button id="lang-fr" class="lang-btn active">FR</button>
-                    <button id="lang-en" class="lang-btn">EN</button>
-                </div>
-                <div class="menu-toggle" id="menuToggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </nav>
-    </div>
-
-    <div class="container" id="mainContainer">
-        <section class="hero">
-            <div class="hero-background">
-                <div class="hero-grid" id="heroGrid"></div>
-            </div>
-            <div class="hero-content">
-                <h1 class="hero-title" data-translate-key="hero_title">
-                    <span class="highlight glitch" data-text="Ingénieur Mécanique">Ingénieur Mécanique</span> & <br>
-                    Consultant <span class="glitch" data-text="PDM/PLM">PDM/PLM</span>
-                </h1>
-                <p class="hero-subtitle" data-translate-key="hero_subtitle">
-                    Expertise en conception, implémentation de solutions PDM et gestion du cycle de vie produit
-                </p>
-                <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary" data-translate-key="hero_cta1">Me contacter</a>
-                    <a href="#experience" class="btn btn-secondary" data-translate-key="hero_cta2">Découvrir mon
-                        parcours</a>
-                </div>
-            </div>
-            <div class="scroll-indicator" id="scrollIndicator">
-                <div class="scroll-text" data-translate-key="scroll_text">Défiler</div>
-                <div class="scroll-icon"></div>
-            </div>
-        </section>
-
-        <section id="about" class="fade-up parallax">
-            <div class="parallax-layer" data-depth="0.2">
-                <div class="floating-tech" style="position: absolute; top: 10%; left: 5%; opacity: 0.05;">
-                    <svg width="200" height="200" viewBox="0 0 24 24" fill="currentColor" color="var(--accent-color)">
-                        <path
-                            d="M12 0L1.5 6v12L12 24l10.5-6V6L12 0zm0 2.189L20.8 7.25v9.5L12 21.811 3.2 16.75v-9.5L12 2.189z" />
-                        <path
-                            d="M12 5.5L6.5 8.75v6.5L12 18.5l5.5-3.25v-6.5L12 5.5zm0 2.189l3.7 2.175v4.275L12 16.311l-3.7-2.175V9.864L12 7.689z" />
-                    </svg>
-                </div>
-                <div class="floating-tech" style="position: absolute; bottom: 15%; right: 8%; opacity: 0.05;">
-                    <svg width="150" height="150" viewBox="0 0 24 24" fill="currentColor" color="var(--accent-color)">
-                        <path
-                            d="M12 0L1.5 6v12L12 24l10.5-6V6L12 0zm0 2.189L20.8 7.25v9.5L12 21.811 3.2 16.75v-9.5L12 2.189z" />
-                    </svg>
-                </div>
-            </div>
-
-            <h2 class="section-title magnetic-element" data-translate-key="about_title">À propos</h2>
-            <div class="about-content">
-                <div class="about-image">
-                    <div class="about-img-container card-3d">
-                        <img data-src="baouch.jpeg" alt="Mohamed Omar Baouch"
-                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 10px;"
-                            class="lazy-image" id="profile-photo">
-                    </div>
-                </div>
-                <div class="about-text">
-                    <p class="highlight-hover" data-translate-key="about_p1">
-                        Ingénieur mécanique expérimenté et consultant PDM/PLM, je suis passionné par l'optimisation des
-                        processus de développement produit et la mise en œuvre de solutions techniques adaptées aux
-                        besoins spécifiques des entreprises.
-                    </p>
-                    <p class="highlight-hover" data-translate-key="about_p2">
-                        Fort de mon expertise en conception mécanique et en gestion du cycle de vie des produits,
-                        j'accompagne les organisations dans leur transformation numérique et l'amélioration de leurs
-                        flux de travail.
-                    </p>
-
-                    <div class="skills-chart">
-                        <div class="chart-container" style="position: relative; height: 60px; margin: 30px 0;">
-                            <canvas id="skillsChart"></canvas>
-                        </div>
-                    </div>
-
-                    <div class="about-info"
-                        style="display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 15px; margin-top: 30px;">
-                        <div class="info-item tooltip" style="min-width: 200px; flex: 1;">
-                            <i>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z"
-                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                    <path
-                                        d="M12 22L5.8 11.4C5.4 10.6 5.4 9.8 5.8 9L8.8 3.8C9.3 2.7 10.6 2 12 2C13.4 2 14.7 2.7 15.2 3.8L18.2 9C18.6 9.8 18.6 10.6 18.2 11.4L12 22Z"
-                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </i>
-                            <span style="white-space: nowrap;">Strasbourg, France</span>
-                            <span class="tooltip-text" data-translate-key="tooltip_location">Situé dans la région Grand
-                                Est, disponible pour des projets dans toute la France</span>
-                        </div>
-                        <div class="info-item tooltip" style="min-width: 200px; flex: 1;">
-                            <i>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"
-                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                    <path d="M12 12L16 10M12 12V17M12 12L8 10" stroke="currentColor" stroke-width="1.5"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </i>
-                            <span style="white-space: nowrap;">+33 6 95 91 92 18</span>
-                            <span class="tooltip-text" data-translate-key="tooltip_phone">Disponible par téléphone du
-                                lundi au vendredi, 9h-18h</span>
-                        </div>
-                        <div class="info-item tooltip" style="min-width: 200px; flex: 1;">
-                            <i>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8 10L3 21V17M8 10L13 21M8 10L12 3L16 10M13 21L18 10L21 17V21M13 21H3M21 21H13"
-                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </i>
-                            <span style="white-space: nowrap;" data-translate-key="driving_license">Permis B,
-                                Véhiculé</span>
-                            <span class="tooltip-text" data-translate-key="tooltip_mobility">Mobile pour des
-                                déplacements professionnels</span>
-                        </div>
-                        <div class="info-item tooltip" style="min-width: 290px; flex: 1;">
-                            <i>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6M22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6M22 6L12 13L2 6"
-                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </i>
-                            <span style="white-space: nowrap;">mohamed.omar.baouch@gmail.com</span>
-                            <span class="tooltip-text" data-translate-key="tooltip_email">N'hésitez pas à me contacter
-                                par email pour toute demande</span>
-                        </div>
-                        <div class="info-item tooltip" style="min-width: 290px; flex: 1;">
-                            <i>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8Z"
-                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                    <path d="M6 9H2V21H6V9Z" stroke="currentColor" stroke-width="1.5"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                    <path
-                                        d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z"
-                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </i>
-                            <a href="https://www.linkedin.com/in/mohamed-omar-baouch-9b4473180/" target="_blank"
-                                style="text-decoration: none; color: var(--text-color); white-space: nowrap;">
-                                <span>Mohamed Omar Baouch | LinkedIn</span>
-                            </a>
-                            <span class="tooltip-text" data-translate-key="tooltip_linkedin">Connectons-nous sur
-                                LinkedIn pour échanger professionnellement</span>
-                        </div>
-                    </div>
-
-                    <a href="/BAOUCH_CV_FR.pdf" class="btn btn-primary"
-                        style="margin-top: 30px; position: relative; z-index: 50; cursor: pointer !important; display: inline-flex; align-items: center;">
-                        <span data-translate-key="download_cv">Télécharger mon CV</span>
-                        <svg width="20" height="20" viewBox="0 0 24 24"
-                            style="margin-left: 8px; vertical-align: middle;">
-                            <path fill="currentColor"
-                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14v-4H8l4-4 4 4h-3v4h-2z" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="experience" class="fade-up">
-            <h2 class="section-title magnetic-element" data-translate-key="experience_title">Expérience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date" data-translate-key="exp1_date">Juin 2023 - Présent</span>
-                        <h3 class="timeline-title magnetic-element" data-translate-key="exp1_title">Consultant PDM/PLM
-                        </h3>
-                        <p class="timeline-company">VISIATIV</p>
-                        <div class="timeline-description">
-                            <p><strong data-translate-key="exp1_subtitle1">Mise en œuvre technique:</strong></p>
-                            <ul>
-                                <li data-translate-key="exp1_desc1_1">Migration de serveurs et implémentation de
-                                    solutions SOLIDWORKS PDM</li>
-                                <li data-translate-key="exp1_desc1_2">Paramétrage et configuration personnalisée des
-                                    systèmes</li>
-                                <li data-translate-key="exp1_desc1_3">Intégration de systèmes PDM avec ERP via PDM
-                                    Gateway</li>
-                            </ul>
-                            <p><strong data-translate-key="exp1_subtitle2">Gestion de projets:</strong></p>
-                            <ul>
-                                <li data-translate-key="exp1_desc2_1">Pilotage complet de projets d'implémentation PDM
-                                </li>
-                                <li data-translate-key="exp1_desc2_2">Coordination d'équipes techniques pour des
-                                    migrations</li>
-                                <li data-translate-key="exp1_desc2_3">Élaboration de workflows optimisant les processus
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date" data-translate-key="exp2_date">Septembre 2021 - Juin 2023</span>
-                        <h3 class="timeline-title magnetic-element" data-translate-key="exp2_title">Ingénieur Mécanique
-                        </h3>
-                        <p class="timeline-company">ABMI</p>
-                        <div class="timeline-description">
-                            <p><strong data-translate-key="exp2_subtitle1">Projet IDEMIA - Développement de
-                                    radars:</strong></p>
-                            <ul>
-                                <li data-translate-key="exp2_desc1_1">Conception et développement des nouveaux radars
-                                </li>
-                                <li data-translate-key="exp2_desc1_2">Conception de pièces usinées et intégration de
-                                    composants</li>
-                                <li data-translate-key="exp2_desc1_3">Structuration de l'architecture dossier sur le
-                                    PLM</li>
-                            </ul>
-                            <p><strong data-translate-key="exp2_subtitle2">Projet FLOWBIRD - Transport:</strong></p>
-                            <ul>
-                                <li data-translate-key="exp2_desc2_1">Retrofit d'un distributeur de ticket pour la RATP
-                                </li>
-                                <li data-translate-key="exp2_desc2_2">Animation des revues de conception</li>
-                                <li data-translate-key="exp2_desc2_3">Calcul de structure avec Creo Simulate</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date" data-translate-key="exp3_date">Avril 2020 - Octobre 2020</span>
-                        <h3 class="timeline-title magnetic-element" data-translate-key="exp3_title">Ingénieur Bureau
-                            d'Études</h3>
-                        <p class="timeline-company">EVOLUM CONTAINER</p>
-                        <div class="timeline-description">
-                            <ul>
-                                <li data-translate-key="exp3_desc1">Analyse des cahiers des charges et des exigences
-                                    clients</li>
-                                <li data-translate-key="exp3_desc2">Chiffrage de projets et réalisation de nomenclatures
-                                </li>
-                                <li data-translate-key="exp3_desc3">Élaboration de plans d'exécution et dossiers
-                                    techniques</li>
-                                <li data-translate-key="exp3_desc4">Recherche et consultation de fournisseurs</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills" class="fade-up">
-            <h2 class="section-title magnetic-element" data-translate-key="skills_title">Compétences</h2>
-            <div class="skills-container">
-                <div class="skill-card">
-                    <div class="skill-card-header" style="position: relative; z-index: 1;">
-                        <div class="skill-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="1.5"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="1.5"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="1.5"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                        <h3 class="skill-title magnetic-element" data-translate-key="skill1_title">Solutions PDM/PLM
-                        </h3>
-                    </div>
-                    <ul class="skill-list" style="position: relative; overflow: visible;">
-                        <li class="tooltip" style="position: relative;">
-                            SOLIDWORKS PDM (administration et utilisation)
-                            <span class="tooltip-text"
-                                style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);"
-                                data-translate-key="tooltip_skill1_1">Expert en configuration, migration et
-                                personnalisation de SOLIDWORKS PDM pour optimiser les workflows d'entreprise</span>
-                        </li>
-                        <li class="tooltip" style="position: relative;">
-                            3DEXPERIENCE
-                            <span class="tooltip-text"
-                                style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);"
-                                data-translate-key="tooltip_skill1_2">Plateforme collaborative pour la gestion du cycle
-                                de vie des produits et l'innovation</span>
-                        </li>
-                        <li class="tooltip" style="position: relative;">
-                            PTC Windchill
-                            <span class="tooltip-text"
-                                style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);"
-                                data-translate-key="tooltip_skill1_3">Système PLM pour la gestion des données produits,
-                                processus et qualité</span>
-                        </li>
-                        <li class="tooltip" style="position: relative;">
-                            Visiativ PDM Gateway, myCADtools, myPDMtools
-                            <span class="tooltip-text"
-                                style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);"
-                                data-translate-key="tooltip_skill1_4">Suite d'outils complémentaires pour l'optimisation
-                                des processus PDM</span>
-                        </li>
-                        <li class="tooltip" style="position: relative;">
-                            Gitis
-                            <span class="tooltip-text"
-                                style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);"
-                                data-translate-key="tooltip_skill1_5">Solution de gestion documentaire et
-                                technique</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-card-header" style="position: relative; z-index: 1;">
-                        <div class="skill-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M15.5 8H8.5C7.67157 8 7 8.67157 7 9.5V15.5C7 16.3284 7.67157 17 8.5 17H15.5C16.3284 17 17 16.3284 17 15.5V9.5C17 8.67157 16.3284 8 15.5 8Z"
-                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                                <path d="M11 8V6C11 5.44772 11.4477 5 12 5V5C12.5523 5 13 5.44772 13 6V8"
-                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                                <path d="M5 12H7M17 12H19M12 17V19M12 5V7" stroke="currentColor" stroke-width="1.5"
-                                    stroke-linecap="round" />
-                            </svg>
-                        </div>
-                        <h3 class="skill-title magnetic-element" data-translate-key="skill2_title">Conception &
-                            Simulation</h3>
-                    </div>
-                    <ul class="skill-list" style="position: relative; overflow: visible;">
-                        <li class="tooltip" style="position: relative;">
-                            SolidWorks, CATIA V5, CREO 5.0
-                            <span class="tooltip-text"
-                                style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);"
-                                data-translate-key="tooltip_skill2_1">Maîtrise avancée des logiciels de CAO pour la
-                                conception mécanique</span>
-                        </li>
-                        <li class="tooltip" style="position: relative;">
-                            ABAQUS, Creo Simulate
-                            <span class="tooltip-text"
-                                style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);"
-                                data-translate-key="tooltip_skill2_2">Expertise en simulation numérique pour l'analyse
-                                de structures</span>
-                        </li>
-                        <li class="tooltip" style="position: relative;" data-translate-key="skill2_3">
-                            Conception mécanique
-                            <span class="tooltip-text"
-                                style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);"
-                                data-translate-key="tooltip_skill2_3">Conception de pièces complexes, assemblages et
-                                systèmes mécaniques</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-card-header" style="position: relative; z-index: 1;">
-                        <div class="skill-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3 5H12M12 5H21M12 5V19M21 12H12M12 12H3M12 19H3M12 19H21"
-                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                            </svg>
-                        </div>
-                        <h3 class="skill-title magnetic-element" data-translate-key="skill3_title">Méthodologies</h3>
-                    </div>
-                    <ul class="skill-list" style="position: relative; overflow: visible;">
-                        <li class="tooltip" style="position: relative;" data-translate-key="skill3_1">
-                            Gestion de projets techniques
-                            <span class="tooltip-text"
-                                style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);"
-                                data-translate-key="tooltip_skill3_1">Pilotage de projets d'implémentation PDM de
-                                l'analyse initiale au déploiement final</span>
-                        </li>
-                        <li class="tooltip" style="position: relative;" data-translate-key="skill3_2">
-                            Migration et organisation de données produit
-                            <span class="tooltip-text"
-                                style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);"
-                                data-translate-key="tooltip_skill3_2">Expertise en structuration et migration de
-                                données complexes</span>
-                        </li>
-                        <li class="tooltip" style="position: relative;" data-translate-key="skill3_3">
-                            Formation et accompagnement aux changements
-                            <span class="tooltip-text"
-                                style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);"
-                                data-translate-key="tooltip_skill3_3">Animation de sessions de formation adaptées aux
-                                différents niveaux d'utilisateurs</span>
-                        </li>
-                        <li class="tooltip" style="position: relative;" data-translate-key="skill3_4">
-                            Analyse des processus industriels
-                            <span class="tooltip-text"
-                                style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent-color);"
-                                data-translate-key="tooltip_skill3_4">Optimisation des processus métier et des workflows
-                                techniques</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="education" class="fade-up">
-            <h2 class="section-title magnetic-element" data-translate-key="education_title">Formation</h2>
-            <div class="education-grid">
-                <div class="education-card">
-                    <span class="education-year">2013-2015</span>
-                    <h3 class="education-degree magnetic-element" data-translate-key="edu1_title">CLASSES
-                        PRÉPARATOIRES</h3>
-                    <p class="education-school">CPGE PTSI, Lycée Louis Couffignal</p>
-                    <p class="education-description" data-translate-key="edu1_desc">
-                        Formation scientifique et technique approfondie
-                    </p>
-                </div>
-                <div class="education-card">
-                    <span class="education-year">2015-2018</span>
-                    <h3 class="education-degree magnetic-element" data-translate-key="edu2_title">BACHELOR EN
-                        PLASTURGIE</h3>
-                    <p class="education-school">INSA STRASBOURG</p>
-                    <p class="education-description" data-translate-key="edu2_desc">
-                        Formation en techniques de transformation et conception de pièces plastiques
-                    </p>
-                </div>
-                <div class="education-card">
-                    <span class="education-year">2018-2020</span>
-                    <h3 class="education-degree magnetic-element" data-translate-key="edu3_title">MASTER EN GÉNIE
-                        MÉCANIQUE</h3>
-                    <p class="education-school">UFR MIM</p>
-                    <p class="education-description" data-translate-key="edu3_desc">
-                        Spécialisation en conception et simulation numérique
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="fade-up">
-            <h2 class="section-title magnetic-element" data-translate-key="contact_title">Contact</h2>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"
-                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                                <path d="M12 12L16 10M12 12V17M12 12L8 10" stroke="currentColor" stroke-width="1.5"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                        <div class="contact-details">
-                            <h4 data-translate-key="contact_phone">Téléphone</h4>
-                            <p>+33 6 95 91 92 18</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6M22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6M22 6L12 13L2 6"
-                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Email</h4>
-                            <p>mohamed.omar.baouch@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z"
-                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                                <path
-                                    d="M12 22L5.8 11.4C5.4 10.6 5.4 9.8 5.8 9L8.8 3.8C9.3 2.7 10.6 2 12 2C13.4 2 14.7 2.7 15.2 3.8L18.2 9C18.6 9.8 18.6 10.6 18.2 11.4L12 22Z"
-                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                        <div class="contact-details">
-                            <h4 data-translate-key="contact_address">Adresse</h4>
-                            <p>67200 Strasbourg</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M21 3H3C1.89543 3 1 3.89543 1 5V19C1 20.1046 1.89543 21 3 21H21C22.1046 21 23 20.1046 23 19V5C23 3.89543 22.1046 3 21 3Z"
-                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                                <path d="M1 9H23M12 9V21" stroke="currentColor" stroke-width="1.5"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                        <div class="contact-details">
-                            <h4 data-translate-key="contact_languages">Langues</h4>
-                            <p data-translate-key="contact_languages_list">Arabe (Natale), Français (Bilingue), Anglais
-                                (Courant), Allemand (Débutant)</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name" data-translate-key="form_name">Nom</label>
-                            <input type="text" id="name" name="name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject" data-translate-key="form_subject">Sujet</label>
-                            <input type="text" id="subject" name="subject" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" class="form-control" required></textarea>
-                        </div>
-                        <button type="submit" id="submit-btn" class="btn btn-primary btn-form">
-                            <span id="button-text" data-translate-key="form_send">Envoyer</span>
-                            <span id="button-loading" style="display: none;">
-                                <svg width="20" height="20" viewBox="0 0 24 24"
-                                    style="animation: spin 1s linear infinite; display: inline-block;">
-                                    <style>
-                                        @keyframes spin {
-                                            0% {
-                                                transform: rotate(0deg);
-                                            }
-
-                                            100% {
-                                                transform: rotate(360deg);
-                                            }
-                                        }
-                                    
+    
 
         /* Styles additionnels pour le blog */
         .blog-container { max-width: 900px; margin: 120px auto 40px; padding: 20px; }
@@ -2878,10 +2270,95 @@
             <p class="meta">Une sélection des dernières actualités du 08/09/2025.</p>
             
                 <div class="article-item">
-                    <h2><a href="https://beyondplm.com/2025/09/07/plm-as-the-next-operational-system-goodbye-docs-hello-collaborative-executable-artifacts/" target="_blank" rel="noopener noreferrer">PLM as the Next Operational System: Goodbye Docs, Hello Collaborative Executable Artifacts</a></h2>
-                    <p class="source">Source: Beyond PLM (Oleg Shilovitsky)</p>
+                    <h2><a href="https://www.reddit.com/r/SolidWorks/comments/1nbyf3v/how_to_learn_to_make_cvt/" target="_blank" rel="noopener noreferrer">How to learn to make CVT</a></h2>
+                    
+                    
+                    <p class="meta"><strong>Mots-clés:</strong> how, learn, make, cvt</p>
+                    
+                
+                    <p class="source">Source: Reddit r/SolidWorks</p>
                 </div>
-            
+                <div class="article-item">
+                    <h2><a href="https://www.reddit.com/r/SolidWorks/comments/1nby4ua/are_there_any_courses_out_there_to_get_you_the/" target="_blank" rel="noopener noreferrer">Are there any courses out there to get you the CSWA that include access to the software itself?</a></h2>
+                    
+                    
+                    <p class="meta"><strong>Mots-clés:</strong> there, any, courses, out, get, cswa</p>
+                    
+                
+                    <p class="source">Source: Reddit r/SolidWorks</p>
+                </div>
+                <div class="article-item">
+                    <h2><a href="https://www.reddit.com/r/SolidWorks/comments/1nbu06o/blank_blue_screen_when_i_try_to_load_solidworks/" target="_blank" rel="noopener noreferrer">Blank blue screen when i try to load solidworks</a></h2>
+                    
+                    
+                    <p class="meta"><strong>Mots-clés:</strong> blank, blue, screen, when, try, load</p>
+                    <p class="meta"><strong>Catégories:</strong> SolidWorks</p>
+                
+                    <p class="source">Source: Reddit r/SolidWorks</p>
+                </div>
+                <div class="article-item">
+                    <h2><a href="https://www.reddit.com/r/SolidWorks/comments/1nbtzkh/cswa_exam_code/" target="_blank" rel="noopener noreferrer">CSWA Exam Code</a></h2>
+                    
+                    
+                    <p class="meta"><strong>Mots-clés:</strong> cswa, exam, code</p>
+                    
+                
+                    <p class="source">Source: Reddit r/SolidWorks</p>
+                </div>
+                <div class="article-item">
+                    <h2><a href="https://www.reddit.com/r/SolidWorks/comments/1nbt10v/ive_just_learned_how_to_model_a_hydraulic/" target="_blank" rel="noopener noreferrer">I’ve just learned how to model a Hydraulic Cylinder and i I succeeded to model it</a></h2>
+                    
+                    
+                    <p class="meta"><strong>Mots-clés:</strong> model, just, learned, how, hydraulic, cylinder</p>
+                    
+                
+                    <p class="source">Source: Reddit r/SolidWorks</p>
+                </div>
+                <div class="article-item">
+                    <h2><a href="https://www.reddit.com/r/SolidWorks/comments/1nbsl7q/help_with_fully_defining_sketch/" target="_blank" rel="noopener noreferrer">Help with fully defining sketch</a></h2>
+                    
+                    
+                    <p class="meta"><strong>Mots-clés:</strong> help, fully, defining, sketch</p>
+                    
+                
+                    <p class="source">Source: Reddit r/SolidWorks</p>
+                </div>
+                <div class="article-item">
+                    <h2><a href="https://www.reddit.com/r/SolidWorks/comments/1nbskpb/help_in_solidworks_drawing/" target="_blank" rel="noopener noreferrer">Help in SolidWorks Drawing</a></h2>
+                    
+                    
+                    <p class="meta"><strong>Mots-clés:</strong> help, solidworks, drawing</p>
+                    <p class="meta"><strong>Catégories:</strong> SolidWorks</p>
+                
+                    <p class="source">Source: Reddit r/SolidWorks</p>
+                </div>
+                <div class="article-item">
+                    <h2><a href="https://www.reddit.com/r/SolidWorks/comments/1nbrshc/zoom_to_fit_encapsulation_of_unidentified_entity/" target="_blank" rel="noopener noreferrer">Zoom to Fit - encapsulation of unidentified entity</a></h2>
+                    
+                    
+                    <p class="meta"><strong>Mots-clés:</strong> zoom, fit, encapsulation, unidentified, entity</p>
+                    
+                
+                    <p class="source">Source: Reddit r/SolidWorks</p>
+                </div>
+                <div class="article-item">
+                    <h2><a href="https://www.reddit.com/r/SolidWorks/comments/1nbqdst/opening_old_revisions/" target="_blank" rel="noopener noreferrer">Opening old revisions!!!!</a></h2>
+                    
+                    
+                    <p class="meta"><strong>Mots-clés:</strong> opening, old, revisions</p>
+                    
+                
+                    <p class="source">Source: Reddit r/SolidWorks</p>
+                </div>
+                <div class="article-item">
+                    <h2><a href="https://www.reddit.com/r/SolidWorks/comments/1nbq6jt/cannot_reorder_the_feature_that_is_used_in/" target="_blank" rel="noopener noreferrer">Cannot reorder the feature that is used in another feature</a></h2>
+                    
+                    
+                    <p class="meta"><strong>Mots-clés:</strong> feature, cannot, reorder, used, another</p>
+                    
+                
+                    <p class="source">Source: Reddit r/SolidWorks</p>
+                </div>
             <a href="/blog/" class="back-link">← Voir tous les radars</a>
         </div>
     </div>
