@@ -1,18 +1,22 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
+<base href="/">
+
         <!-- Google Tag Manager -->
     
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radar PDM/PLM – 2025-09-08 | Mohamed Omar Baouch</title>
+    <title>Radar PDM/PLM – 2025-09-08</title>
     <meta name="description" content="Aucune actualité aujourd'hui.">
-    <meta name="keywords" content="PDM, PLM, SolidWorks, ingénieur mécanique, consultant, VISIATIV, gestion du cycle de vie produit">
+    <meta name="keywords"
+        content="PDM, PLM, SolidWorks, ingénieur mécanique, consultant, VISIATIV, gestion du cycle de vie produit">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700;900&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700;900&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -2286,33 +2290,28 @@
                 transform: translateY(0);
             }
         }
-    
+    </style>
 
-        /* Désactive l'écran de chargement sur les pages du blog */
-        .loading-screen { display: none !important; }
-
-        /* Styles additionnels pour le blog */
-        .blog-container { max-width: 900px; margin: 120px auto 40px; padding: 20px; }
-        .blog-post, .blog-index { background-color: var(--bg-secondary); border-radius: 10px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
-        .blog-post h1, .blog-index h1 { color: var(--accent-primary); margin-top: 0; }
-        .blog-post .meta, .blog-index .meta { color: var(--text-secondary); margin-bottom: 2rem; }
-        .article-item { border-top: 1px solid var(--bg-tertiary); padding: 1.5rem 0; }
-        .article-item:first-child { border-top: none; }
-        .article-item h2 { margin: 0 0 0.5rem 0; font-size: 1.25rem; }
-        .article-item h2 a { color: var(--text-primary); text-decoration: none; transition: color 0.3s; }
-        .article-item h2 a:hover { color: var(--accent-primary); }
-        .article-item .source { font-size: 0.9rem; color: var(--text-secondary); }
-        .back-link { display: inline-block; margin-top: 2rem; color: var(--accent-secondary); font-weight: 600; }
-    
+<style>
+  /* Désactive tout overlay/loader résiduel */
+  .loading-screen, .preloader, .loader { display: none !important; }
+  /* Forcer l’affichage si la home cache le body en attendant un JS */
+  html, body { opacity: 1 !important; visibility: visible !important; }
+  /* Éviter qu’un pseudo-élément plein écran intercepte des clics */
+  .grain::before, body::before, #app::before { pointer-events: none !important; }
 </style>
+
 </head>
-<body>
-    <div class="container blog-container">
-        <div class="blog-post">
-            <h1>Radar PDM/PLM – 2025-09-08</h1>
-            <p class="meta">Aucune actualité aujourd'hui.</p>
-            <a href="/blog/" class="back-link">← Voir tous les radars</a>
-        </div>
-    </div>
+<body class="blog-page ready">
+  <main class="container blog-container">
+    
+  <section class="section">
+    <p class="back"><a href="/blog/">← Voir tous les radars</a></p>
+    <h1 class="title">Radar PDM/PLM – 2025-09-08</h1>
+    <p class="meta">Aucune actualité aujourd'hui.</p>
+    <p class="back"><a href="/">← Retour au portfolio</a></p>
+  </section>
+
+  </main>
 </body>
 </html>
