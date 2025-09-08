@@ -10,6 +10,7 @@ const ROOT = path.resolve(__dirname, '..');
 const BLOG_DIR = path.join(ROOT, 'blog');
 const SOURCES_FILE = path.join(ROOT, 'sources.json');
 const INDEX_HTML_PATH = path.join(ROOT, 'index.html'); // Chemin vers votre index.html
+const HISTORY_FILE = path.join(ROOT, 'history.json');
 
 // --- Configuration ---
 const LOOKBACK_DAYS = 1;
@@ -53,6 +54,12 @@ const generateHTMLPage = (title, content, metaDescription, cssContent) => `
 
 const escapeHTML = (str) => str ? str.replace(/[&<>'"]/g, tag => ({'&': '&amp;','<': '&lt;','>': '&gt;','\'': '&#39;','"': '&quot;'}[tag] || tag)) : '';
 
+const toISODate = (dateStr) => {
+    if (!dateStr) return null;
+    const parsed = new Date(dateStr);
+    return isNaN(parsed) ? null : parsed.toISOString();
+};
+
 async function getCssFromIndex() {
     const indexHtml = await fs.readFile(INDEX_HTML_PATH, 'utf-8');
     const styleStart = indexHtml.indexOf('<style>');
@@ -71,6 +78,12 @@ async function main() {
     await fs.ensureDir(BLOG_DIR);
     const sources = await fs.readJson(SOURCES_FILE);
 
+    let history = { processedLinks: [] };
+    if (await fs.pathExists(HISTORY_FILE)) {
+        history = await fs.readJson(HISTORY_FILE);
+    }
+    const processedLinks = new Set(history.processedLinks);
+
     let allItems = [];
     const parser = new Parser({
         timeout: 15000,
@@ -83,12 +96,15 @@ async function main() {
         try {
             const feed = await parser.parseURL(source.url);
             feed.items.forEach(item => {
-                allItems.push({
-                    source: source.name,
-                    title: item.title,
-                    link: item.link,
-                    isoDate: item.isoDate || new Date().toISOString()
-                });
+                const isoDate = item.isoDate || toISODate(item.pubDate) || toISODate(item.date) || new Date().toISOString();
+                if (!processedLinks.has(item.link)) {
+                    allItems.push({
+                        source: source.name,
+                        title: item.title,
+                        link: item.link,
+                        isoDate
+                    });
+                }
             });
         } catch (error) {
             console.warn(`Failed to fetch feed: ${source.name} - ${error.message}`);
@@ -135,6 +151,9 @@ async function main() {
     const postHTML = generateHTMLPage(postTitle, postContent, `Veille PDM/PLM du ${dateStr}`, cssContent);
     await fs.writeFile(path.join(postDir, 'index.html'), postHTML);
     console.log(`✅ Generated post: ${postSlug}`);
+
+    history.processedLinks = Array.from(new Set([...processedLinks, ...itemsForPost.map(item => item.link)]));
+    await fs.writeJson(HISTORY_FILE, history, { spaces: 2 });
 
     // Générer la page d'index du blog
     const allPosts = (await fs.readdir(BLOG_DIR)).filter(file => fs.statSync(path.join(BLOG_DIR, file)).isDirectory());
