@@ -62,6 +62,7 @@ const SAFE_FIX = `
 </style>
 `;
 
+
 async function generateHTMLPage(title, bodyContent, metaDescription) {
   const head = await getHeadFromIndex({ title, description: metaDescription });
   return `<!doctype html>
@@ -71,7 +72,7 @@ ${head}
 ${SAFE_FIX}
 </head>
 <body class="blog-page ready">
-  <main class="container blog-container">
+  <main id="mainContainer" class="container blog-container">
     ${bodyContent}
   </main>
   <script src="/assets/js/loader.js" defer></script>
