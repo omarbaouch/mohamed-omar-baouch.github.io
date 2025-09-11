@@ -1,3 +1,5 @@
+// Remplacez tout le contenu de : omarbaouch/mohamed-omar-baouch.github.io/scripts/generate-blog.mjs
+
 import Parser from 'rss-parser';
 import fs from 'fs-extra';
 import path from 'path';
@@ -55,13 +57,105 @@ const SAFE_FIX = `
 <style>
   /* Désactive tout overlay/loader résiduel */
   .loading-screen, .preloader, .loader { display: none !important; }
-  /* Forcer l\u2019affichage si la home cache le body en attendant un JS */
+  /* Forcer l’affichage si la home cache le body en attendant un JS */
   html, body { opacity: 1 !important; visibility: visible !important; }
-  /* Éviter qu\u2019un pseudo-élément plein écran intercepte des clics */
+  /* Éviter qu’un pseudo-élément plein écran intercepte des clics */
   .grain::before, body::before, #app::before { pointer-events: none !important; }
 </style>
 `;
 
+// NOUVEAU BLOC DE STYLE POUR LE BLOG
+const BLOG_STYLES = `
+<style>
+    .blog-container {
+        max-width: 900px;
+        margin: 120px auto 40px !important;
+    }
+    .section {
+        background-color: var(--bg-secondary);
+        border-radius: 10px;
+        padding: 2rem 3rem;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        border: 1px solid var(--bg-tertiary);
+    }
+    .title {
+        font-size: 2.5rem;
+        color: var(--accent-primary);
+        margin-bottom: 0.5rem;
+        border-bottom: 2px solid var(--accent-secondary);
+        padding-bottom: 0.5rem;
+        display: inline-block;
+    }
+    .meta {
+        color: var(--text-secondary);
+        margin-bottom: 2.5rem;
+        font-style: italic;
+    }
+    .post-item {
+        border-bottom: 1px solid var(--bg-tertiary);
+        padding: 1.5rem 0;
+        transition: background-color 0.3s ease;
+        margin: 0 -3rem; /* Etendre sur toute la largeur de la carte */
+        padding: 1.5rem 3rem;
+    }
+    .post-item:last-child {
+        border-bottom: none;
+    }
+    .post-item:hover {
+        background-color: var(--hover-color);
+    }
+    .subtitle {
+        margin: 0 0 0.5rem 0;
+        font-size: 1.25rem;
+    }
+    .subtitle a {
+        color: var(--text-primary);
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    .subtitle a:hover {
+        color: var(--accent-primary);
+    }
+    .post-item .meta {
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+        color: var(--text-secondary);
+    }
+    .back {
+        margin-top: 2rem;
+    }
+    .back a {
+        color: var(--accent-secondary);
+        font-weight: 500;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    .back a:hover {
+        color: var(--accent-primary);
+    }
+    .post-list {
+        list-style: none;
+        padding: 0;
+    }
+    .post-list-item {
+        background-color: var(--hover-color);
+        margin-bottom: 1rem;
+        border-radius: 5px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .post-list-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+    .post-list-item a {
+        display: block;
+        padding: 1rem 1.5rem;
+        color: var(--text-primary);
+        text-decoration: none;
+        font-weight: 500;
+    }
+</style>
+`;
 
 async function generateHTMLPage(title, bodyContent, metaDescription) {
   const head = await getHeadFromIndex({ title, description: metaDescription });
@@ -69,6 +163,7 @@ async function generateHTMLPage(title, bodyContent, metaDescription) {
 <html lang="fr">
 <head>
 ${head}
+${BLOG_STYLES}
 ${SAFE_FIX}
 </head>
 <body class="blog-page ready">
@@ -79,6 +174,7 @@ ${SAFE_FIX}
 </body>
 </html>`;
 }
+
 
 function escapeHTML(str) {
   return str ? str.replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','\'':'&#39;','"':'&quot;'}[c])) : '';
@@ -198,7 +294,7 @@ async function main() {
   <section class="section">
     <p class="back"><a href="/blog/">← Voir tous les radars</a></p>
     <h1 class="title">${escapeHTML(postTitle)}</h1>
-    <p>Veille du ${now.format('DD/MM/YYYY')} — PDM/PLM & écosystème.</p>
+    <p class="meta">Veille du ${now.format('DD/MM/YYYY')} — PDM/PLM & écosystème.</p>
 
     ${itemsForPost.map(item => `
       <article class="post-item">
