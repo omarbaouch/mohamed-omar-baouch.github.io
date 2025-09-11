@@ -1,1 +1,46 @@
-
+{
+  "fr": [
+    { "id": 1, "keyword": "problématiques PLM", "lastUsed": null },
+    { "id": 2, "keyword": "difficulté à collaborer sur des projets Solidworks", "lastUsed": null },
+    { "id": 3, "keyword": "manque de contrôle sur les versions et révisions", "lastUsed": null },
+    { "id": 4, "keyword": "erreurs dans les nomenclatures", "lastUsed": null },
+    { "id": 5, "keyword": "Solidworks PDM est lent", "lastUsed": null },
+    { "id": 6, "keyword": "silos de données PLM", "lastUsed": null },
+    { "id": 7, "keyword": "Solidworks PDM Professional vs Standard", "lastUsed": null },
+    { "id": 8, "keyword": "Solidworks PDM Professional vs Autodesk Vault", "lastUsed": null },
+    { "id": 9, "keyword": "Solidworks PDM Standard vs Dropbox / Google Drive", "lastUsed": null },
+    { "id": 10, "keyword": "PTC Windchill vs 3DEXPERIENCE", "lastUsed": null },
+    { "id": 11, "keyword": "implémenter Solidworks PDM", "lastUsed": null },
+    { "id": 12, "keyword": "checklist d'implémentation Solidworks PDM", "lastUsed": null },
+    { "id": 13, "keyword": "migration Solidworks PDM", "lastUsed": null },
+    { "id": 14, "keyword": "meilleures pratiques d'implémentation PLM", "lastUsed": null },
+    { "id": 15, "keyword": "coût d'une migration Solidworks PDM", "lastUsed": null },
+    { "id": 16, "keyword": "PTC Windchill PLM", "lastUsed": null },
+    { "id": 17, "keyword": "Solidworks PDM Professional", "lastUsed": null },
+    { "id": 18, "keyword": "prix Solidworks PDM Professional", "lastUsed": null },
+    { "id": 19, "keyword": "formation Solidworks PDM", "lastUsed": null },
+    { "id": 20, "keyword": "gestion des nomenclatures (BOM) dans Solidworks PDM", "lastUsed": null }
+  ],
+  "en": [
+    { "id": 1, "keyword": "common PDM problems" },
+    { "id": 2, "keyword": "version control issues" },
+    { "id": 3, "keyword": "inefficient collaboration among engineers" },
+    { "id": 4, "keyword": "errors in bill of materials" },
+    { "id": 5, "keyword": "Solidworks PDM performance issues" },
+    { "id": 6, "keyword": "data silos PLM" },
+    { "id": 7, "keyword": "Solidworks PDM Professional vs Standard" },
+    { "id": 8, "keyword": "Solidworks PDM vs Autodesk Vault Professional" },
+    { "id": 9, "keyword": "Dropbox for Business vs Solidworks PDM" },
+    { "id": 10, "keyword": "3DEXPERIENCE PLM vs PTC Windchill" },
+    { "id": 11, "keyword": "Solidworks PDM implementation" },
+    { "id": 12, "keyword": "PLM implementation challenges" },
+    { "id": 13, "keyword": "Solidworks PDM migration" },
+    { "id": 14, "keyword": "best practices for Solidworks PDM migration" },
+    { "id": 15, "keyword": "Windchill implementation challenges" },
+    { "id": 16, "keyword": "PTC Windchill PLM" },
+    { "id": 17, "keyword": "Solidworks PDM Professional" },
+    { "id": 18, "keyword": "Dassault Systèmes ENOVIA" },
+    { "id": 19, "keyword": "Solidworks PDM BOM management" },
+    { "id": 20, "keyword": "best practices for Solidworks PDM migration" }
+  ]
+}
