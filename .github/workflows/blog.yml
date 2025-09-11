@@ -43,6 +43,12 @@ jobs:
       - name: Generate blog pages
         run: npm run build-blog
 
+      - name: Pull latest changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git pull --rebase
+
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -72,6 +78,12 @@ jobs:
         
       - name: Generate keyword-based article
         run: node scripts/generate-keyword-post.mjs
+
+      - name: Pull latest changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git pull --rebase
 
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
