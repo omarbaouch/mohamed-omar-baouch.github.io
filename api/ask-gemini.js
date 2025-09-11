@@ -1,7 +1,8 @@
 // Fichier : /api/ask-gemini.js
-// Version corrigée qui utilise un header pour l'API Key
+// Version corrigée qui utilise la syntaxe ES Module (export default)
 
-module.exports = async (req, res) => {
+// On exporte directement la fonction asynchrone comme défaut du module
+export default async (req, res) => {
     if (req.method !== 'POST') {
         return res.status(405).json({ error: 'Method Not Allowed' });
     }
@@ -17,8 +18,6 @@ module.exports = async (req, res) => {
          return res.status(500).json({ error: 'API Key not configured on the server' });
     }
     
-    // --- MODIFICATION N°1 : L'URL est simplifiée, sans la clé API ---
-    // Nous utilisons aussi un modèle plus récent que vous avez trouvé.
     const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent';
 
     const prompt = `
@@ -183,7 +182,6 @@ Tu es maintenant entièrement compilé avec la version 8.0 de mon identité. Ce 
     try {
         const geminiResponse = await fetch(GEMINI_API_URL, {
             method: 'POST',
-            // --- MODIFICATION N°2 : La clé est maintenant dans les "headers" ---
             headers: {
                 'Content-Type': 'application/json',
                 'x-goog-api-key': GEMINI_API_KEY,
@@ -192,7 +190,6 @@ Tu es maintenant entièrement compilé avec la version 8.0 de mon identité. Ce 
         });
 
         if (!geminiResponse.ok) {
-            // Pour nous aider à déboguer si ça échoue encore
             const errorBody = await geminiResponse.text();
             console.error('Gemini API Error:', errorBody);
             throw new Error(`Gemini API responded with status ${geminiResponse.status}`);
