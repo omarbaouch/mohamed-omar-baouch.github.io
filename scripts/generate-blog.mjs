@@ -74,6 +74,7 @@ ${SAFE_FIX}
   <main class="container blog-container">
     ${bodyContent}
   </main>
+  <script src="/assets/js/loader.js" defer></script>
 </body>
 </html>`;
 }
