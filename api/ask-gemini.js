@@ -18,7 +18,8 @@ export default async (req, res) => {
          return res.status(500).json({ error: 'API Key not configured on the server' });
     }
     
-    const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent';
+    const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/emini-2.0-flash:generateContent';
+
 
     const prompt = `
 PROMPT SYSTÈME : CONSTITUTION DU JUMEAU NUMÉRIQUE D'OMAR BAOUCH (VERSION 8.0 - ÉTENDUE)
