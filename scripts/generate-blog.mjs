@@ -1,5 +1,4 @@
-// Remplacez tout le contenu de : omarbaouch/mohamed-omar-baouch.github.io/scripts/generate-blog.mjs
-
+// omarbaouch/mohamed-omar-baouch.github.io/scripts/generate-blog.mjs
 import Parser from 'rss-parser';
 import fs from 'fs-extra';
 import path from 'path';
@@ -64,7 +63,6 @@ const SAFE_FIX = `
 </style>
 `;
 
-// NOUVEAU BLOC DE STYLE POUR LE BLOG
 const BLOG_STYLES = `
 <style>
     .blog-container {
@@ -120,6 +118,12 @@ const BLOG_STYLES = `
         font-size: 0.85rem;
         margin-bottom: 0.5rem;
         color: var(--text-secondary);
+    }
+    .post-item img {
+        max-width: 100%;
+        border-radius: 5px;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
     }
     .back {
         margin-top: 2rem;
@@ -277,6 +281,7 @@ async function main() {
         const enriched = meta.items.find(m => m.link === item.link);
         if (!enriched) return '';
         return `
+        ${enriched.image ? `<img src="${escapeHTML(enriched.image)}" alt="${escapeHTML(item.title)}">` : ''}
         ${enriched.summary ? `<p>${escapeHTML(enriched.summary)}</p>` : ''}
         ${enriched.keywords?.length ? `<p class="meta"><strong>Mots-clés:</strong> ${enriched.keywords.map(escapeHTML).join(', ')}</p>` : ''}
         ${enriched.categories?.length ? `<p class="meta"><strong>Catégories:</strong> ${enriched.categories.map(escapeHTML).join(' / ')}</p>` : ''}
