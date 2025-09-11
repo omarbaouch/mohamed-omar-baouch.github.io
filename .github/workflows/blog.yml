@@ -1,16 +1,18 @@
-name: Generate Daily Blog Post
+name: Generate Daily Blog Content
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 7 * * *'
-      timeZone: 'Europe/Paris'
+    - cron: '0 7 * * *'  # Radar article every day at 7am UTC
+    - cron: '0 12 * * *' # Keyword article every day at 12pm UTC
 
 permissions:
   contents: write
 
 jobs:
-  build:
+  daily-radar:
+    # This job runs for the daily 7am cron or manual dispatch
+    if: github.event.schedule == '0 7 * * *' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -35,7 +37,7 @@ jobs:
       - name: Collect items
         run: npm run build-blog -- --items-only
 
-      - name: Enrich items with local AI
+      - name: Enrich items with local AI and Images
         run: npm run enrich-blog
 
       - name: Generate blog pages
@@ -44,10 +46,37 @@ jobs:
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: '📰 chore(blog): update daily radar with AI summaries'
+          commit_message: '📰 chore(blog): update daily radar with summaries and images'
           file_pattern: |
             blog
             blog_meta
             .cache
             history.json
 
+  keyword-post:
+    # This job runs for the daily 12pm cron or manual dispatch
+    if: github.event.schedule == '0 12 * * *' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Generate keyword-based article
+        run: node scripts/generate-keyword-post.mjs
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: '✍️ feat(blog): add new daily keyword-based article'
+          file_pattern: |
+            blog
+            keywords.json
