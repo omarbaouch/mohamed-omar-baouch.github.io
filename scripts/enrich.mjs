@@ -49,11 +49,12 @@ async function safeFetchArticle(link) {
 }
 
 async function summarize(text) {
-  if (!text || text.length < 400) return '';
-  const summarizer = await pipeline('summarization', 'Xenova/distilbart-cnn-6-6');
-  const chunk = text.slice(0,2500);
-  const out = await summarizer(chunk, { max_length: 90, min_length: 45, do_sample: false });
-  return (Array.isArray(out) ? out[0]?.summary_text : out?.summary_text || '').trim();
+    // Cette fonction n'est plus utilisée mais conservée au cas où.
+    if (!text || text.length < 400) return '';
+    const summarizer = await pipeline('summarization', 'Xenova/distilbart-cnn-6-6');
+    const chunk = text.slice(0,2500);
+    const out = await summarizer(chunk, { max_length: 90, min_length: 45, do_sample: false });
+    return (Array.isArray(out) ? out[0]?.summary_text : out?.summary_text || '').trim();
 }
 
 async function main() {
@@ -68,7 +69,8 @@ async function main() {
   const enriched = [];
   for (const item of items) {
     const raw = await safeFetchArticle(item.link);
-    const sum = await summarize(raw);
+    // MODIFICATION : L'appel à summarize a été remplacé par une chaîne vide.
+    const sum = ''; 
     const keys = keywords((raw || item.title || '').slice(0,4000));
     const cats = categories(raw || item.title || '');
     enriched.push({ ...item, summary: sum, keywords: keys, categories: cats });
