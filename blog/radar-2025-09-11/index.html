@@ -2293,6 +2293,97 @@
     </style>
 
 <style>
+    .blog-container {
+        max-width: 900px;
+        margin: 120px auto 40px !important;
+    }
+    .section {
+        background-color: var(--bg-secondary);
+        border-radius: 10px;
+        padding: 2rem 3rem;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        border: 1px solid var(--bg-tertiary);
+    }
+    .title {
+        font-size: 2.5rem;
+        color: var(--accent-primary);
+        margin-bottom: 0.5rem;
+        border-bottom: 2px solid var(--accent-secondary);
+        padding-bottom: 0.5rem;
+        display: inline-block;
+    }
+    .meta {
+        color: var(--text-secondary);
+        margin-bottom: 2.5rem;
+        font-style: italic;
+    }
+    .post-item {
+        border-bottom: 1px solid var(--bg-tertiary);
+        padding: 1.5rem 0;
+        transition: background-color 0.3s ease;
+        margin: 0 -3rem; /* Etendre sur toute la largeur de la carte */
+        padding: 1.5rem 3rem;
+    }
+    .post-item:last-child {
+        border-bottom: none;
+    }
+    .post-item:hover {
+        background-color: var(--hover-color);
+    }
+    .subtitle {
+        margin: 0 0 0.5rem 0;
+        font-size: 1.25rem;
+    }
+    .subtitle a {
+        color: var(--text-primary);
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    .subtitle a:hover {
+        color: var(--accent-primary);
+    }
+    .post-item .meta {
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+        color: var(--text-secondary);
+    }
+    .back {
+        margin-top: 2rem;
+    }
+    .back a {
+        color: var(--accent-secondary);
+        font-weight: 500;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    .back a:hover {
+        color: var(--accent-primary);
+    }
+    .post-list {
+        list-style: none;
+        padding: 0;
+    }
+    .post-list-item {
+        background-color: var(--hover-color);
+        margin-bottom: 1rem;
+        border-radius: 5px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .post-list-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+    .post-list-item a {
+        display: block;
+        padding: 1rem 1.5rem;
+        color: var(--text-primary);
+        text-decoration: none;
+        font-weight: 500;
+    }
+</style>
+
+
+<style>
   /* Désactive tout overlay/loader résiduel */
   .loading-screen, .preloader, .loader { display: none !important; }
   /* Forcer l’affichage si la home cache le body en attendant un JS */
@@ -2308,7 +2399,7 @@
   <section class="section">
     <p class="back"><a href="/blog/">← Voir tous les radars</a></p>
     <h1 class="title">Radar PDM/PLM – 2025-09-11</h1>
-    <p>Veille du 11/09/2025 — PDM/PLM & écosystème.</p>
+    <p class="meta">Veille du 11/09/2025 — PDM/PLM & écosystème.</p>
 
     
       <article class="post-item">
