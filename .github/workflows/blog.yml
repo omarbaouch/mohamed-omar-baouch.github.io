@@ -42,7 +42,7 @@ jobs:
 
       - name: Generate blog pages
         run: npm run build-blog
-
+      
       - name: Pull latest changes
         run: |
           git config --global user.name 'github-actions[bot]'
@@ -77,7 +77,7 @@ jobs:
         run: npm ci
         
       - name: Generate keyword-based article
-        run: node scripts/generate-keyword-post.mjs
+        run: node generate-keyword-post.mjs
 
       - name: Pull latest changes
         run: |
