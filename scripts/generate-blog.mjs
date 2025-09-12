@@ -22,62 +22,37 @@ const MAX_ITEMS_PER_POST = 10;
 const args = process.argv.slice(2);
 const ITEMS_ONLY = args.includes('--items-only');
 
+// --- NOUVELLE FONCTION TEMPLATE ---
+// Utilise index.html comme un modèle complet
+async function getPortfolioTemplate(options = {}) {
+    const { title, description } = options;
+    let template = await fs.readFile(INDEX_HTML_PATH, 'utf-8');
+
+    // Mettre à jour le titre et la description pour la page du blog
+    if (title) {
+        template = template.replace(/<title>.*?<\/title>/, `<title>${escapeHTML(title)}</title>`);
+    }
+    if (description) {
+        template = template.replace(/<meta name="description"[^>]*>/, `<meta name="description" content="${escapeHTML(description)}">`);
+    }
+
+    // Remplacer le contenu principal du portfolio par un placeholder
+    const mainContentRegex = /<div class="container" id="mainContainer">[\s\S]*?<\/div>\s*<footer>/;
+    template = template.replace(mainContentRegex, '<div class="container" id="mainContainer"></div>\n<footer>');
+
+    return template;
+}
+
 const toISODate = (dateStr) => {
     if (!dateStr) return null;
     const parsed = new Date(dateStr);
     return isNaN(parsed) ? null : parsed.toISOString();
 };
 
-async function getHeadFromIndex({ title, description }) {
-  const html = await fs.readFile(INDEX_HTML_PATH, 'utf-8');
-  const hs = html.indexOf('<head>');
-  const he = html.indexOf('</head>', hs);
-  if (hs === -1 || he === -1) throw new Error('Head tags not found in index.html');
-  let head = html.substring(hs + '<head>'.length, he);
-
-  head = head.replace(/<script[\s\S]*?gtm\.js[\s\S]*?<\/script>/gi, '');
-  head = head.replace(/<link rel="stylesheet"[^>]*>/gi, ''); // Retirer l'ancien lien CSS
-
-  if (!/<base\s+href=/i.test(head)) {
-    head = `<base href="/">\n` + head;
-  }
-
-  head = /<title>[\s\S]*?<\/title>/i.test(head)
-    ? head.replace(/<title>[\s\S]*?<\/title>/i, `<title>${title}</title>`)
-    : `<title>${title}</title>\n` + head;
-
-  head = /<meta\s+name=["']description["'][^>]*>/i.test(head)
-    ? head.replace(/<meta\s+name=["']description["'][^>]*>/i, `<meta name="description" content="${description}">`)
-    : head + `\n<meta name="description" content="${description}">`;
-    
-  head += '\n<link rel="stylesheet" href="/assets/css/style.css">'; // Ajouter le nouveau lien CSS
-
-  return head.trim();
-}
-
-const SAFE_FIX = `
-<style>
-  .loading-screen, .preloader, .loader { display: none !important; }
-  html, body { opacity: 1 !important; visibility: visible !important; }
-  .grain::before, body::before, #app::before { pointer-events: none !important; }
-</style>
-`;
-
 async function generateHTMLPage(title, bodyContent, metaDescription) {
-  const head = await getHeadFromIndex({ title, description: metaDescription });
-  return `<!doctype html>
-<html lang="fr">
-<head>
-${head}
-${SAFE_FIX}
-</head>
-<body class="blog-page ready">
-  <main id="mainContainer" class="container blog-container">
-    ${bodyContent}
-  </main>
-  <script src="/assets/js/loader.js" defer></script>
-</body>
-</html>`;
+    const template = await getPortfolioTemplate({ title, description: metaDescription });
+    const finalHtml = template.replace('', bodyContent);
+    return finalHtml;
 }
 
 function escapeHTML(str) {
