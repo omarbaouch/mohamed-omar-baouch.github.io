@@ -36,6 +36,7 @@ async function getHeadFromIndex({ title, description }) {
   let head = html.substring(hs + '<head>'.length, he);
 
   head = head.replace(/<script[\s\S]*?gtm\.js[\s\S]*?<\/script>/gi, '');
+  head = head.replace(/<link rel="stylesheet"[^>]*>/gi, ''); // Retirer l'ancien lien CSS
 
   if (!/<base\s+href=/i.test(head)) {
     head = `<base href="/">\n` + head;
@@ -48,116 +49,17 @@ async function getHeadFromIndex({ title, description }) {
   head = /<meta\s+name=["']description["'][^>]*>/i.test(head)
     ? head.replace(/<meta\s+name=["']description["'][^>]*>/i, `<meta name="description" content="${description}">`)
     : head + `\n<meta name="description" content="${description}">`;
+    
+  head += '\n<link rel="stylesheet" href="/assets/css/style.css">'; // Ajouter le nouveau lien CSS
 
   return head.trim();
 }
 
 const SAFE_FIX = `
 <style>
-  /* Désactive tout overlay/loader résiduel */
   .loading-screen, .preloader, .loader { display: none !important; }
-  /* Forcer l’affichage si la home cache le body en attendant un JS */
   html, body { opacity: 1 !important; visibility: visible !important; }
-  /* Éviter qu’un pseudo-élément plein écran intercepte des clics */
   .grain::before, body::before, #app::before { pointer-events: none !important; }
-</style>
-`;
-
-const BLOG_STYLES = `
-<style>
-    .blog-container {
-        max-width: 900px;
-        margin: 120px auto 40px !important;
-    }
-    .section {
-        background-color: var(--bg-secondary);
-        border-radius: 10px;
-        padding: 2rem 3rem;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-        border: 1px solid var(--bg-tertiary);
-    }
-    .title {
-        font-size: 2.5rem;
-        color: var(--accent-primary);
-        margin-bottom: 0.5rem;
-        border-bottom: 2px solid var(--accent-secondary);
-        padding-bottom: 0.5rem;
-        display: inline-block;
-    }
-    .meta {
-        color: var(--text-secondary);
-        margin-bottom: 2.5rem;
-        font-style: italic;
-    }
-    .post-item {
-        border-bottom: 1px solid var(--bg-tertiary);
-        padding: 1.5rem 0;
-        transition: background-color 0.3s ease;
-        margin: 0 -3rem; /* Etendre sur toute la largeur de la carte */
-        padding: 1.5rem 3rem;
-    }
-    .post-item:last-child {
-        border-bottom: none;
-    }
-    .post-item:hover {
-        background-color: var(--hover-color);
-    }
-    .subtitle {
-        margin: 0 0 0.5rem 0;
-        font-size: 1.25rem;
-    }
-    .subtitle a {
-        color: var(--text-primary);
-        text-decoration: none;
-        transition: color 0.3s;
-    }
-    .subtitle a:hover {
-        color: var(--accent-primary);
-    }
-    .post-item .meta {
-        font-size: 0.85rem;
-        margin-bottom: 0.5rem;
-        color: var(--text-secondary);
-    }
-    .post-item img {
-        max-width: 100%;
-        border-radius: 5px;
-        margin-top: 1rem;
-        margin-bottom: 0.5rem;
-    }
-    .back {
-        margin-top: 2rem;
-    }
-    .back a {
-        color: var(--accent-secondary);
-        font-weight: 500;
-        text-decoration: none;
-        transition: color 0.3s;
-    }
-    .back a:hover {
-        color: var(--accent-primary);
-    }
-    .post-list {
-        list-style: none;
-        padding: 0;
-    }
-    .post-list-item {
-        background-color: var(--hover-color);
-        margin-bottom: 1rem;
-        border-radius: 5px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .post-list-item:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    }
-    .post-list-item a {
-        display: block;
-        padding: 1rem 1.5rem;
-        color: var(--text-primary);
-        text-decoration: none;
-        font-weight: 500;
-    }
 </style>
 `;
 
@@ -167,7 +69,6 @@ async function generateHTMLPage(title, bodyContent, metaDescription) {
 <html lang="fr">
 <head>
 ${head}
-${BLOG_STYLES}
 ${SAFE_FIX}
 </head>
 <body class="blog-page ready">
@@ -178,7 +79,6 @@ ${SAFE_FIX}
 </body>
 </html>`;
 }
-
 
 function escapeHTML(str) {
   return str ? str.replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','\'':'&#39;','"':'&quot;'}[c])) : '';
@@ -230,21 +130,17 @@ async function fetchItems(processedLinks) {
 
 async function main() {
     console.log('Starting blog generation...');
-
     await fs.ensureDir(BLOG_DIR);
     await fs.ensureDir(CACHE_DIR);
     await fs.ensureDir(META_DIR);
-
     const now = dayjs.utc();
     const dateStr = now.format('YYYY-MM-DD');
     const busPath = path.join(CACHE_DIR, `${dateStr}-items.json`);
-
     let history = { processedLinks: [] };
     if (await fs.pathExists(HISTORY_FILE)) {
         history = await fs.readJson(HISTORY_FILE);
     }
     const processedLinks = new Set(history.processedLinks);
-
     let itemsForPost = [];
     let noNews = false;
     if (await fs.pathExists(busPath)) {
@@ -259,23 +155,19 @@ async function main() {
         history.processedLinks = Array.from(new Set([...processedLinks, ...itemsForPost.map(i => i.link)]));
         await fs.writeJson(HISTORY_FILE, history, { spaces: 2 });
     }
-
     if (ITEMS_ONLY) {
         console.log('Items collected. Exiting due to --items-only.');
         return;
     }
-
     let meta = null;
     const metaPath = path.join(META_DIR, `${dateStr}.json`);
     if (await fs.pathExists(metaPath)) {
         meta = await fs.readJson(metaPath);
     }
-
     const postTitle = `Radar PDM/PLM – ${dateStr}`;
     const postSlug = `radar-${dateStr}`;
     const postDir = path.join(BLOG_DIR, postSlug);
     await fs.ensureDir(postDir);
-
     function renderEnrichedMetaFor(item) {
         if (!meta?.items) return '';
         const enriched = meta.items.find(m => m.link === item.link);
@@ -287,7 +179,6 @@ async function main() {
         ${enriched.categories?.length ? `<p class="meta"><strong>Catégories:</strong> ${enriched.categories.map(escapeHTML).join(' / ')}</p>` : ''}
         `;
     }
-
     const postContent = noNews ? `
   <section class="section">
     <p class="back"><a href="/blog/">← Voir tous les radars</a></p>
@@ -300,7 +191,6 @@ async function main() {
     <p class="back"><a href="/blog/">← Voir tous les radars</a></p>
     <h1 class="title">${escapeHTML(postTitle)}</h1>
     <p class="meta">Veille du ${now.format('DD/MM/YYYY')} — PDM/PLM & écosystème.</p>
-
     ${itemsForPost.map(item => `
       <article class="post-item">
         <h2 class="subtitle">
@@ -312,11 +202,9 @@ async function main() {
         <p class="meta">Source : ${escapeHTML(item.source)}</p>
       </article>
     `).join('')}
-
     <p class="back"><a href="/">← Retour au portfolio</a></p>
   </section>
 `;
-
     const metaDescription = noNews ? "Aucune actualité aujourd'hui." : `Veille PDM/PLM du ${now.format('DD/MM/YYYY')}`;
     const postHTML = await generateHTMLPage(
         `Radar PDM/PLM – ${dateStr}`,
@@ -325,11 +213,8 @@ async function main() {
     );
     await fs.writeFile(path.join(postDir, 'index.html'), postHTML);
     console.log(`✅ Generated post: ${postSlug}`);
-
-    // Générer la page d'index du blog
     const allPostDirs = (await fs.readdir(BLOG_DIR)).filter(file => fs.statSync(path.join(BLOG_DIR, file)).isDirectory());
     allPostDirs.sort().reverse();
-
     const indexContent = `
   <section class="section">
     <h1 class="title">Blog — Radar PDM/PLM</h1>
@@ -344,7 +229,6 @@ async function main() {
     <p class="back"><a href="/">← Retour au portfolio</a></p>
   </section>
 `;
-
     const indexHTML = await generateHTMLPage(
         'Blog — Radar PDM/PLM',
         indexContent,
