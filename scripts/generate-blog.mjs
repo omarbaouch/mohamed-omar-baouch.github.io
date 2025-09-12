@@ -10,7 +10,8 @@ const __dirname = path.dirname(new URL(import.meta.url).pathname);
 const ROOT = path.resolve(__dirname, '..');
 const BLOG_DIR = path.join(ROOT, 'blog');
 const SOURCES_FILE = path.join(ROOT, 'sources.json');
-const INDEX_HTML_PATH = path.join(ROOT, 'index.html');
+// MODIFIÉ : Utilise le nouveau modèle de blog
+const BLOG_TEMPLATE_PATH = path.join(ROOT, 'blog-template.html'); 
 const HISTORY_FILE = path.join(ROOT, 'history.json');
 const CACHE_DIR = path.join(ROOT, '.cache');
 const META_DIR = path.join(ROOT, 'blog_meta');
@@ -22,11 +23,15 @@ const MAX_ITEMS_PER_POST = 10;
 const args = process.argv.slice(2);
 const ITEMS_ONLY = args.includes('--items-only');
 
-// --- NOUVELLE FONCTION TEMPLATE ---
-// Utilise index.html comme un modèle complet
-async function getPortfolioTemplate(options = {}) {
+// --- FONCTION TEMPLATE MISE À JOUR ---
+// Utilise blog-template.html
+async function getBlogTemplate(options = {}) {
     const { title, description } = options;
-    let template = await fs.readFile(INDEX_HTML_PATH, 'utf-8');
+    // S'assurer que le fichier modèle existe
+    if (!await fs.pathExists(BLOG_TEMPLATE_PATH)) {
+        throw new Error(`Le fichier modèle de blog est introuvable à l'emplacement : ${BLOG_TEMPLATE_PATH}`);
+    }
+    let template = await fs.readFile(BLOG_TEMPLATE_PATH, 'utf-8');
 
     // Mettre à jour le titre et la description pour la page du blog
     if (title) {
@@ -35,10 +40,6 @@ async function getPortfolioTemplate(options = {}) {
     if (description) {
         template = template.replace(/<meta name="description"[^>]*>/, `<meta name="description" content="${escapeHTML(description)}">`);
     }
-
-    // Remplacer le contenu principal du portfolio par un placeholder
-    const mainContentRegex = /<div class="container" id="mainContainer">[\s\S]*?<\/div>\s*<footer>/;
-    template = template.replace(mainContentRegex, '<div class="container" id="mainContainer"></div>\n<footer>');
 
     return template;
 }
@@ -49,9 +50,11 @@ const toISODate = (dateStr) => {
     return isNaN(parsed) ? null : parsed.toISOString();
 };
 
+// --- FONCTION DE GÉNÉRATION DE PAGE MISE À JOUR ---
 async function generateHTMLPage(title, bodyContent, metaDescription) {
-    const template = await getPortfolioTemplate({ title, description: metaDescription });
-    const finalHtml = template.replace('', bodyContent);
+    const template = await getBlogTemplate({ title, description: metaDescription });
+    // Remplace le placeholder par le contenu généré
+    const finalHtml = template.replace('{{BLOG_CONTENT}}', bodyContent);
     return finalHtml;
 }
 
