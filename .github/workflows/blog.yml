@@ -18,6 +18,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 1. Pull latest changes immediately after checkout
+      - name: Pull latest changes
+        run: git pull --rebase
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -34,6 +38,7 @@ jobs:
           key: transformers-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
           restore-keys: transformers-cache-${{ runner.os }}-
 
+      # 2. Now, run the scripts that modify files
       - name: Collect items
         run: npm run build-blog -- --items-only
 
@@ -43,12 +48,7 @@ jobs:
       - name: Generate blog pages
         run: npm run build-blog
 
-      - name: Pull latest changes
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git pull --rebase
-
+      # 3. Finally, commit the new changes
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -67,6 +67,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 1. Pull latest changes immediately after checkout
+      - name: Pull latest changes
+        run: git pull --rebase
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -76,15 +80,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
         
+      # 2. Run the script (with the corrected path)
       - name: Generate keyword-based article
         run: node generate-keyword-post.mjs
 
-      - name: Pull latest changes
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git pull --rebase
-
+      # 3. Finally, commit the new changes
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
