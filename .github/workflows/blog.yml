@@ -42,7 +42,7 @@ jobs:
 
       - name: Generate blog pages
         run: npm run build-blog
-      
+
       - name: Pull latest changes
         run: |
           git config --global user.name 'github-actions[bot]'
