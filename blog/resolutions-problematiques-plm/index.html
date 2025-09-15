@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PBLRK58T');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Au-delà de la théorie : résoudre les 5 problématiques PLM que j'ai vécues en tant qu'Ingénieur Mécanique</title>
+    <meta name="description" content="Retour d'expérience de Mohamed Omar Baouch sur cinq problématiques PLM vécues sur le terrain et les solutions apportées grâce à un PDM/PLM bien implémenté.">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <style>
+        .blog-container { max-width: 900px; margin: 120px auto 40px !important; padding: 20px; }
+        .section { background-color: var(--bg-secondary); border-radius: 10px; padding: 2rem 3rem; box-shadow: 0 15px 35px rgba(0,0,0,0.3); border: 1px solid var(--bg-tertiary); }
+        .title { font-size: 2.5rem; color: var(--accent-primary); margin-bottom: 0.5rem; border-bottom: 2px solid var(--accent-secondary); padding-bottom: 0.5rem; display: inline-block; }
+        .meta { color: var(--text-secondary); margin-bottom: 2.5rem; font-style: italic; }
+        .back { margin-top: 2rem; }
+        .back a { color: var(--accent-secondary); font-weight: 500; text-decoration: none; transition: color 0.3s; }
+        .back a:hover { color: var(--accent-primary); }
+    </style>
+</head>
+<body class="blog-page">
+    <canvas id="transition-canvas"></canvas>
+    <div class="perspective-wrapper">
+        <div id="perspective-content" class="perspective-content"></div>
+    </div>
+    <div class="dynamic-overlay" id="dynamicOverlay"></div>
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div id="particles-js"></div>
+    <div class="theme-switch" id="themeSwitch">
+        <div class="theme-icon">☀️</div>
+    </div>
+    <div class="scroll-to-top" id="scrollToTop"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <div class="nav-container" id="navContainer">
+        <nav>
+            <a href="/" class="logo">M.BAOUCH</a>
+            <div class="nav-right">
+                <ul class="menu" id="menu">
+                    <li><a href="/#about" class="nav-link">À propos</a></li>
+                    <li><a href="/#experience" class="nav-link">Expérience</a></li>
+                    <li><a href="/#skills" class="nav-link">Compétences</a></li>
+                    <li><a href="/#education" class="nav-link">Formation</a></li>
+                    <li><a href="/#contact" class="nav-link">Contact</a></li>
+                    <li><a href="/blog/" class="nav-link">Blog</a></li>
+                </ul>
+                <div class="language-switcher">
+                    <button id="lang-fr" class="lang-btn active">FR</button>
+                    <button id="lang-en" class="lang-btn">EN</button>
+                </div>
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <main id="mainContainer" class="container blog-container show">
+        <section class="section">
+            <p class="back"><a href="/blog/">← Voir tous les radars</a></p>
+            <h1 class="title">Au-delà de la théorie : résoudre les 5 problématiques PLM que j'ai vécues en tant qu'Ingénieur Mécanique</h1>
+            <p class="meta">Par Mohamed Omar Baouch – 15/09/2025</p>
+            <p>Quand j'ai débuté comme ingénieur mécanique, la gestion des données produit me semblait un sujet réservé aux grandes entreprises et aux théoriciens des processus. La réalité du terrain m'a vite montré l'inverse. Chez Evolum puis chez ABMI, j'ai vu comment un simple plan mal versionné pouvait immobiliser une ligne de production ou comment une nomenclature erronée pouvait faire exploser les coûts d'un projet. Ces expériences m'ont donné une conviction : un PDM/PLM bien implémenté n'est pas un luxe mais une condition de survie pour toute organisation industrielle.</p>
+            <h2>1. Silos de données qui fragmentent le savoir</h2>
+            <p>À mes débuts chez Evolum, chacun travaillait dans son coin. Les fichiers de conception étaient dispersés entre des disques partagés, des clés USB et parfois des ordinateurs personnels. Lorsque je devais reprendre un projet, je passais plus de temps à chercher la bonne version d'un assemblage qu'à concevoir. Cette fragmentation du savoir faisait perdre un temps précieux et créait des divergences entre les bureaux d'études et l'atelier. La mise en place d'un coffre-fort PDM centralisé a été une révélation : chaque modèle était stocké une seule fois, les droits d'accès étaient clairs et je pouvais retracer l'historique complet d'une pièce sans lever de téléphone.</p>
+            <h2>2. Erreurs dans les nomenclatures</h2>
+            <p>Lors d'une mission chez ABMI, j'ai vécu les conséquences d'une nomenclature gérée sous Excel. Une ligne oubliée a entraîné l'achat de pièces supplémentaires et plusieurs jours de retard sur un prototype. C'est à ce moment que j'ai compris l'importance d'un système PLM capable de générer des nomenclatures cohérentes directement depuis la CAO et de les lier aux achats. Avec SolidWorks PDM, nous avons automatisé l'extraction des BOM et mis en place des règles de validation qui ont supprimé ce type d'erreurs. L'équipe projet gagnait en sérénité et les réunions ne tournaient plus autour de la question « qui possède la bonne version ? ».</p>
+            <h2>3. Versions incontrôlées et confusion</h2>
+            <p>Avant d'adopter un PDM, la gestion des révisions se résumait à des suffixes dans les noms de fichiers. Il n'était pas rare de voir des dossiers remplis de "finale", "finale2" ou "version_definitive_v3". Lors de mon passage chez Evolum, cette pratique a provoqué la fabrication d'un lot de pièces basé sur un plan obsolète. En implémentant un véritable PLM chez Visiativ, j'ai découvert la puissance du contrôle de versions : chaque modification est tracée, commentée et validée. Les transitions de statuts (en conception, en validation, publié) ont apporté une clarté immédiate et réduit les allers-retours improductifs.</p>
+            <h2>4. Collaboration freinée entre bureaux d'études et production</h2>
+            <p>La collaboration se limitait souvent à l'échange de fichiers par email. Les retours de l'atelier arrivaient tard et les remarques se perdaient dans les boîtes de réception. En tant que consultant chez Visiativ, j'ai accompagné plusieurs clients dans l'intégration de workflows qui relient directement la conception à la production. Grâce à un PDM bien configuré, l'atelier peut annoter les modèles, proposer des modifications et suivre leur prise en compte. Cette boucle de feedback en continu a transformé la relation entre les équipes et réduit drastiquement les erreurs de fabrication.</p>
+            <h2>5. Traçabilité et conformité</h2>
+            <p>Dans des secteurs réglementés, prouver la conformité d'un produit est aussi important que le produit lui-même. Avant l'arrivée d'un PLM, la traçabilité reposait sur des dossiers papier et la mémoire des ingénieurs. J'ai vu un audit repoussé parce qu'il était impossible de démontrer la généalogie complète d'un composant. Avec un PLM, chaque décision, chaque validation et chaque version est enregistrée. Lors d'un projet piloté par Visiativ, nous avons pu répondre à un audit en quelques clics, fournissant l'historique complet des modifications d'une pièce critique. La confiance du client s'en est trouvée renforcée.</p>
+            <p>Ces cinq problématiques ne sont pas de simples cas d'école. Elles ont freiné des projets auxquels j'ai participé et m'ont parfois laissé un goût d'inachevé. Aujourd'hui, en tant que consultant PDM/PLM chez Visiativ, je mets cette expérience au service des entreprises qui veulent éviter ces pièges. Un PDM/PLM bien implémenté apporte de la rigueur sans étouffer la créativité : il libère les équipes de la chasse aux informations pour qu'elles se concentrent sur l'innovation. Si ces retours d'expérience résonnent avec vos propres défis, discutons-en. Je suis convaincu que la transformation commence par un diagnostic honnête du terrain, bien avant les slides de présentation.</p>
+            <p class="back"><a href="/">← Retour au portfolio</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="copyright" data-translate-key="footer_copyright">
+                &copy; 2025 Mohamed Omar Baouch. Tous droits réservés.
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/mohamed-omar-baouch-9b4473180/" target="_blank" class="social-icon"><span>in</span></a>
+                <a href="mailto:mohamed.omar.baouch@gmail.com" class="social-icon"><span>📧</span></a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="ai-assistant-fab" id="ai-fab"></div>
+    <div class="ai-fab-notification" id="ai-fab-notification"></div>
+    <div class="ai-assistant-container" id="ai-container"></div>
+
+    <script src="/assets/js/script.js"></script>
+</body>
+</html>
