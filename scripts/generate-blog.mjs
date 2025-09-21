@@ -829,8 +829,8 @@ async function main() {
     ].filter(Boolean).join('\n\n');
 
     const indexHTML = await generateHTMLPage({
-        title: 'Blog — Radar PDM/PLM',
-        description: 'Veille PDM/PLM, SolidWorks, Teamcenter…',
+        title: 'Blog — Radar & guides PDM/PLM',
+        description: 'Veille PDM/PLM, guides SOLIDWORKS et retours d\'expérience terrain.',
         hero: indexHero,
         summary: indexFilterControls,
         body: indexBody

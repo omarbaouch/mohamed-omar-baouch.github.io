@@ -8,7 +8,7 @@
     })(window,document,'script','dataLayer','GTM-PBLRK58T');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog — Radar PDM/PLM</title> <meta name="description" content="Veille PDM/PLM, SolidWorks, Teamcenter…">
+    <title>Blog — Radar &amp; guides PDM/PLM</title> <meta name="description" content="Veille PDM/PLM, guides SOLIDWORKS et retours d&#39;expérience terrain.">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/blog.css">
 </head>
@@ -55,14 +55,46 @@
 
     <main id="mainContainer" class="container blog-container show">
         <div class="blog-shell" id="blogShell" data-shell>
-            <article class="blog-article" data-article-root><section class="blog-hero" data-hero>
+            <article class="blog-article" data-article-root>
+                <!--
+                    🔢 Graphiques dans un article
+                    1. Variante JSON complète (Chart.js) :
+                        <figure data-blog-chart>
+                            <canvas aria-label="Titre du graphique"></canvas>
+                            <script type="application/json" data-chart-config>
+                                {
+                                    "type": "bar",
+                                    "data": {
+                                        "labels": ["Q1", "Q2", "Q3", "Q4"],
+                                        "datasets": [
+                                            { "label": "2024", "data": [10, 12, 8, 14] }
+                                        ]
+                                    }
+                                }
+                            </script>
+                        </figure>
+
+                    2. Variante rapide avec attributs inline :
+                        <div data-blog-chart
+                             data-chart-type="line"
+                             data-chart-labels="Janvier,Février,Mars"
+                             data-chart-values="12,18,9"
+                             data-chart-dataset-label="Nombre d'articles">
+                        </div>
+
+                    Options supplémentaires :
+                    - data-chart-target=".selector" pour pointer vers un <canvas> existant
+                    - data-chart-colors et data-chart-border-colors (liste de couleurs séparées par des virgules)
+                    - data-chart-options='{"plugins":{"legend":{"position":"bottom"}}}' pour fusionner des options Chart.js
+                -->
+                <section class="blog-hero" data-hero>
   <div class="hero-intro">
     <span class="hero-eyebrow">Radar &amp; analyses PDM/PLM</span>
     <h1 class="hero-title" data-hero-title>Radar PDM/PLM – 2025-09-21</h1>
     <p class="hero-subtitle" data-hero-subtitle>Aucune actualité détectée pour le 21 septembre 2025.</p>
     <div class="hero-actions">
       <a class="hero-btn" data-hero-link href="/blog/radar-2025-09-21/">Consulter le radar du 21 septembre 2025</a>
-      <a class="hero-btn hero-btn--ghost" data-hero-secondary href="/blog/resolutions-problematiques-plm/">Lire l&#39;article de fond</a>
+      <a class="hero-btn hero-btn--ghost" data-hero-secondary href="/blog/configuration-materielle-solidworks/">Lire l&#39;article de fond</a>
     </div>
   </div>
   <div class="hero-stats">
@@ -71,7 +103,7 @@
       <span class="hero-stat-label">Radars en ligne</span>
     </div>
     <div class="hero-stat">
-      <span class="hero-stat-value">1</span>
+      <span class="hero-stat-value">2</span>
       <span class="hero-stat-label">Articles de fond</span>
     </div>
     
@@ -237,6 +269,15 @@
   <div class="card-grid"><article class="post-card" data-type="editorial">
   <div class="post-card__meta">
     <span class="badge badge-editorial">Article de fond</span>
+    <time datetime="2025-09-21T00:00:00.000Z">21 septembre 2025</time>
+    
+  </div>
+  <h3 class="post-card__title"><a href="/blog/configuration-materielle-solidworks/">Configuration matérielle SOLIDWORKS 2025 : le guide terrain pour un bureau d&#39;études réactif</a></h3>
+  <p class="post-card__excerpt">Guide pratique de Mohamed Omar Baouch pour dimensionner stations de travail, serveur PDM et réseau autour de SOLIDWORKS 2025, avec benchmarks et feuilles de route opérationnelles.</p>
+  <a class="post-card__cta" href="/blog/configuration-materielle-solidworks/">Lire l'article</a>
+</article><article class="post-card" data-type="editorial">
+  <div class="post-card__meta">
+    <span class="badge badge-editorial">Article de fond</span>
     <time datetime="2025-09-15T00:00:00.000Z">15 septembre 2025</time>
     
   </div>
@@ -341,7 +382,7 @@
 </section>
 
 <script type="application/json" id="blog-data">{
-  "generatedAt": "2025-09-21T13:29:56.244Z",
+  "generatedAt": "2025-09-21T19:15:20.844Z",
   "hero": {
     "tagline": "Radar \u0026 analyses PDM/PLM",
     "title": "Radar PDM/PLM – 2025-09-21",
@@ -358,19 +399,19 @@
       "type": "radar"
     },
     "editorialHighlight": {
-      "title": "Au-delà de la théorie : résoudre les 5 problématiques PLM que j'ai vécues en tant qu'Ingénieur Mécanique",
-      "url": "/blog/resolutions-problematiques-plm/",
-      "dateIso": "2025-09-15T00:00:00.000Z",
-      "displayDate": "15 septembre 2025",
-      "shortDate": "15/09/2025",
-      "excerpt": "Retour d",
-      "heroSubtitle": "Publié le 15 septembre 2025. Retour d",
+      "title": "Configuration matérielle SOLIDWORKS 2025 : le guide terrain pour un bureau d'études réactif",
+      "url": "/blog/configuration-materielle-solidworks/",
+      "dateIso": "2025-09-21T00:00:00.000Z",
+      "displayDate": "21 septembre 2025",
+      "shortDate": "21/09/2025",
+      "excerpt": "Guide pratique de Mohamed Omar Baouch pour dimensionner stations de travail, serveur PDM et réseau autour de SOLIDWORKS 2025, avec benchmarks et feuilles de route opérationnelles.",
+      "heroSubtitle": "Publié le 21 septembre 2025. Guide pratique de Mohamed Omar Baouch pour dimensionner stations de travail, serveur PDM et réseau autour de SOLIDWORKS 2025, avec benchmarks et feuilles de route opérationnelles.",
       "itemsCount": null,
       "type": "editorial"
     },
     "stats": {
       "radarCount": 15,
-      "editorialCount": 1,
+      "editorialCount": 2,
       "lastRadar": "21/09/2025"
     }
   },
@@ -407,7 +448,7 @@
       "displayDate": "19 septembre 2025",
       "shortDate": "19/09/2025",
       "excerpt": "Veille du 19 septembre 2025. 3 signals sélectionnés.",
-      "heroSubtitle": "Veille du 19/09/2025 — PDM/PLM \u0026 écosystème.",
+      "heroSubtitle": "Veille du 19 septembre 2025 — 3 signaux sélectionnés auprès de 3 sources.",
       "itemsCount": 3,
       "type": "radar"
     },
@@ -558,6 +599,17 @@
   ],
   "editorials": [
     {
+      "slug": "configuration-materielle-solidworks",
+      "url": "/blog/configuration-materielle-solidworks/",
+      "title": "Configuration matérielle SOLIDWORKS 2025 : le guide terrain pour un bureau d'études réactif",
+      "dateIso": "2025-09-21T00:00:00.000Z",
+      "displayDate": "21 septembre 2025",
+      "shortDate": "21/09/2025",
+      "excerpt": "Guide pratique de Mohamed Omar Baouch pour dimensionner stations de travail, serveur PDM et réseau autour de SOLIDWORKS 2025, avec benchmarks et feuilles de route opérationnelles.",
+      "heroSubtitle": "Publié le 21 septembre 2025. Guide pratique de Mohamed Omar Baouch pour dimensionner stations de travail, serveur PDM et réseau autour de SOLIDWORKS 2025, avec benchmarks et feuilles de route opérationnelles.",
+      "type": "editorial"
+    },
+    {
       "slug": "resolutions-problematiques-plm",
       "url": "/blog/resolutions-problematiques-plm/",
       "title": "Au-delà de la théorie : résoudre les 5 problématiques PLM que j'ai vécues en tant qu'Ingénieur Mécanique",
@@ -602,7 +654,7 @@
       "displayDate": "19 septembre 2025",
       "shortDate": "19/09/2025",
       "excerpt": "Veille du 19 septembre 2025. 3 signals sélectionnés.",
-      "heroSubtitle": "Veille du 19/09/2025 — PDM/PLM \u0026 écosystème.",
+      "heroSubtitle": "Veille du 19 septembre 2025 — 3 signaux sélectionnés auprès de 3 sources.",
       "itemsCount": 3,
       "type": "radar"
     },
@@ -715,7 +767,8 @@
       "type": "radar"
     }
   ]
-}</script></article>
+}</script>
+            </article>
         </div>
     </main>
 
@@ -738,6 +791,69 @@
         </div>
 
     <script src="/assets/js/script.js"></script>
+    <script type="module">
+        const CHART_DATA_SELECTORS = [
+            '[data-blog-chart]',
+            'script[type="application/json"][data-chart-config]',
+            'canvas[data-chart-config]',
+            'canvas[data-chart-type]'
+        ];
+
+        const hasChartData = () => CHART_DATA_SELECTORS.some((selector) => document.querySelector(selector));
+
+        const loadChartsModule = (() => {
+            let loaded = false;
+            return () => {
+                if (loaded) return;
+                loaded = true;
+                import('/assets/js/blog-charts.js').catch((error) => {
+                    console.error('[blog] Échec du chargement du module de graphiques.', error);
+                });
+            };
+        })();
+
+        const ensureChartsModule = () => {
+            if (hasChartData()) {
+                loadChartsModule();
+                return true;
+            }
+            return false;
+        };
+
+        if (!ensureChartsModule()) {
+            let observer;
+
+            const stopListening = () => {
+                if (observer) {
+                    observer.disconnect();
+                    observer = undefined;
+                }
+                document.removeEventListener('DOMContentLoaded', onReady);
+            };
+
+            const onReady = () => {
+                if (ensureChartsModule()) {
+                    stopListening();
+                }
+            };
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', onReady);
+            } else {
+                onReady();
+            }
+
+            const observeTarget = document.body || document.documentElement;
+            if (observeTarget) {
+                observer = new MutationObserver(() => {
+                    if (ensureChartsModule()) {
+                        stopListening();
+                    }
+                });
+                observer.observe(observeTarget, { childList: true, subtree: true });
+            }
+        }
+    </script>
     <script type="module" src="/assets/js/blog.js"></script>
 </body>
 </html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PBLRK58T');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuration matérielle SOLIDWORKS 2025 : le guide terrain pour un bureau d'études réactif</title>
+    <meta name="description" content="Guide pratique de Mohamed Omar Baouch pour dimensionner stations de travail, serveur PDM et réseau autour de SOLIDWORKS 2025, avec benchmarks et feuilles de route opérationnelles.">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/blog.css">
+</head>
+<body class="blog-page">
+    <canvas id="transition-canvas"></canvas>
+    <div class="perspective-wrapper">
+        <div id="perspective-content" class="perspective-content"></div>
+    </div>
+    <div class="dynamic-overlay" id="dynamicOverlay"></div>
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div id="particles-js"></div>
+    <div class="theme-switch" id="themeSwitch">
+        <div class="theme-icon">☀️</div>
+    </div>
+    <div class="scroll-to-top" id="scrollToTop"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <div class="nav-container" id="navContainer">
+        <nav>
+            <a href="/" class="logo">M.BAOUCH</a>
+            <div class="nav-right">
+                <ul class="menu" id="menu">
+                    <li><a href="/#about" class="nav-link">À propos</a></li>
+                    <li><a href="/#experience" class="nav-link">Expérience</a></li>
+                    <li><a href="/#skills" class="nav-link">Compétences</a></li>
+                    <li><a href="/#education" class="nav-link">Formation</a></li>
+                    <li><a href="/#contact" class="nav-link">Contact</a></li>
+                    <li><a href="/blog/" class="nav-link">Blog</a></li>
+                </ul>
+                <div class="language-switcher">
+                    <button id="lang-fr" class="lang-btn active">FR</button>
+                    <button id="lang-en" class="lang-btn">EN</button>
+                </div>
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <main id="mainContainer" class="container blog-container show">
+        <div class="blog-shell" id="blogShell" data-shell>
+            <article class="blog-article" data-article-root>
+                <nav class="article-breadcrumbs" aria-label="Navigation secondaire">
+                    <a class="back-link" href="/blog/">← Retour au blog</a>
+                    <a class="back-link back-link--ghost" href="/">Retour au portfolio</a>
+                </nav>
+
+                <header class="blog-hero post-hero" data-component="hero">
+                    <div class="hero-intro">
+                        <div class="hero-badges">
+                            <span class="badge badge-editorial">Article de fond</span>
+                            <span class="badge">Guide matériel</span>
+                        </div>
+                        <span class="hero-eyebrow">SOLIDWORKS &amp; PDM</span>
+                        <h1 class="hero-title">Configuration matérielle SOLIDWORKS 2025 : le guide terrain pour un bureau d'études réactif</h1>
+                        <p class="hero-subtitle">Publié le 21 septembre 2025 après dix audits de parcs CAO : comment dimensionner stations, serveur PDM et réseau pour supprimer les goulots d'étranglement.</p>
+                        <div class="hero-actions">
+                            <a class="hero-btn" href="#sommaire">Consulter le sommaire</a>
+                            <a class="hero-btn hero-btn--ghost" href="/#contact">Discuter de votre projet</a>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">21/09/2025</span>
+                            <span class="hero-stat-label">Date de publication</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">3</span>
+                            <span class="hero-stat-label">Profils de stations validés</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">12%</span>
+                            <span class="hero-stat-label">Gain moyen sur les temps d'ouverture</span>
+                        </div>
+                    </div>
+                </header>
+
+                <nav class="blog-section article-summary" id="sommaire" aria-label="Sommaire de l'article">
+                    <h2 class="summary-title">Sommaire</h2>
+                    <ol class="summary-list">
+                        <li>
+                            <a href="#enjeux-performance">
+                                <span class="summary-index">01</span>
+                                <span class="summary-label">Pourquoi optimiser le matériel maintenant&nbsp;?</span>
+                                <span class="summary-meta">Les signaux terrain et KPI à surveiller</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#audit-initial">
+                                <span class="summary-index">02</span>
+                                <span class="summary-label">Audit express d'un parc CAO</span>
+                                <span class="summary-meta">Méthode en trois temps, outils et seuils</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#profils-workstations">
+                                <span class="summary-index">03</span>
+                                <span class="summary-label">Trois profils de stations prêts à déployer</span>
+                                <span class="summary-meta">Spécifications, coûts et impact utilisateur</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#infrastructure">
+                                <span class="summary-index">04</span>
+                                <span class="summary-label">Serveur PDM, stockage et réseau</span>
+                                <span class="summary-meta">Architecture type et points de vigilance</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#plan-daction">
+                                <span class="summary-index">05</span>
+                                <span class="summary-label">Plan d'action 90 jours</span>
+                                <span class="summary-meta">Feuille de route et indicateurs de succès</span>
+                            </a>
+                        </li>
+                    </ol>
+                </nav>
+
+                <section class="blog-section article-section" id="enjeux-performance">
+                    <h2>1. Pourquoi optimiser le matériel maintenant&nbsp;?</h2>
+                    <p>Dans les missions menées chez Evolum, ABMI puis Visiativ, j'ai constaté que la majorité des irritants ressentis par les concepteurs SolidWorks n'étaient pas liés à la modélisation elle-même mais à l'infrastructure. Temps d'ouverture interminables, calculs Simulation qui monopolisent un poste, synchronisations PDM qui saturent le réseau&nbsp;: autant de signaux faibles qui s'accumulent jusqu'à gripper la machine.</p>
+                    <div class="callout">
+                        <div class="quote-block">
+                            <blockquote>Une configuration adaptée, c'est un dossier assemblé 30&nbsp;% plus vite, un bureau d'études qui collabore mieux avec la production et un service IT qui maîtrise enfin ses SLA.</blockquote>
+                            <cite>Mohamed Omar Baouch</cite>
+                        </div>
+                    </div>
+                    <p>Les entreprises qui réussissent leur transformation PDM/PLM ont toutes en commun un socle matériel maîtrisé. Ce guide synthétise dix audits menés depuis 2023 et propose un cadrage clair&nbsp;: identifier les goulots d'étranglement, aligner le hardware sur les usages, sécuriser la donnée et préparer l'évolutivité.</p>
+                </section>
+
+                <section class="blog-section article-section" id="audit-initial">
+                    <h2>2. Audit express d'un parc CAO</h2>
+                    <p>L'objectif est de dresser une cartographie de performances en moins de deux semaines. La démarche se structure autour de trois axes complémentaires.</p>
+                    <div class="media-grid">
+                        <div class="media-card media-card--text">
+                            <h3>Mesures terrain</h3>
+                            <ul>
+                                <li>Log des temps d'ouverture sur 10 assemblages représentatifs</li>
+                                <li>Monitoring CPU/GPU avec SOLIDWORKS RX et HWinfo</li>
+                                <li>Analyse des temps de check-in/out PDM</li>
+                            </ul>
+                        </div>
+                        <div class="media-card media-card--text">
+                            <h3>Entretien utilisateurs</h3>
+                            <ul>
+                                <li>Cartographie des tâches critiques (assemblage, Simulation, Visualize)</li>
+                                <li>Identification des pics de charge hebdomadaires</li>
+                                <li>Évaluation de la maturité PDM (workflows, réplications)</li>
+                            </ul>
+                        </div>
+                        <div class="media-card media-card--text">
+                            <h3>Inventaire IT</h3>
+                            <ul>
+                                <li>Âge et garantie des workstations, firmwares BIOS</li>
+                                <li>Topologie réseau, saturation sur les VLAN CAO</li>
+                                <li>Stratégie de sauvegarde et PRA autour du coffre-fort PDM</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="callout callout--soft">
+                        <p><strong>Livrable clé :</strong> une matrice croisant profils utilisateurs et workloads, avec un indicateur de santé (vert / orange / rouge). C'est le socle qui guidera les investissements ciblés.</p>
+                    </div>
+                </section>
+
+                <section class="blog-section article-section" id="profils-workstations">
+                    <h2>3. Trois profils de stations prêts à déployer</h2>
+                    <p>Plutôt que de multiplier les configurations sur mesure, je recommande trois profils standardisés. Ils couvrent 90&nbsp;% des cas rencontrés, simplifient les achats et garantissent une maintenance cohérente.</p>
+                    <table class="feature-table">
+                        <thead>
+                            <tr>
+                                <th>Profil</th>
+                                <th>CPU</th>
+                                <th>GPU</th>
+                                <th>RAM</th>
+                                <th>Stockage</th>
+                                <th>Usage principal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Bureau d'études</td>
+                                <td>Intel Core i7-14700K</td>
+                                <td>NVIDIA RTX 4000 Ada</td>
+                                <td>64&nbsp;Go DDR5</td>
+                                <td>2&nbsp;To NVMe Gen4 + 2&nbsp;To SATA</td>
+                                <td>Assemblages &lt; 5&nbsp;000 pièces, mise en plan</td>
+                            </tr>
+                            <tr>
+                                <td>Simulation avancée</td>
+                                <td>AMD Ryzen 9 7950X</td>
+                                <td>NVIDIA RTX 5000 Ada</td>
+                                <td>128&nbsp;Go DDR5</td>
+                                <td>2&nbsp;To NVMe Gen4 (RAID 1)</td>
+                                <td>Simulation statique / thermique / Flow</td>
+                            </tr>
+                            <tr>
+                                <td>Revue immersive</td>
+                                <td>Intel Core i9-14900KF</td>
+                                <td>NVIDIA RTX 6000 Ada</td>
+                                <td>128&nbsp;Go DDR5</td>
+                                <td>2&nbsp;To NVMe Gen4 + 4&nbsp;To SSD</td>
+                                <td>VR, Visualize, revues clients</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <figure class="media-figure">
+                        <img src="/assets/img/blog/configuration-materielle-solidworks/workstation-profiles.svg" alt="Illustration des trois profils de stations de travail recommandés pour SOLIDWORKS" loading="lazy">
+                        <figcaption>Trois profils éprouvés sur le terrain&nbsp;: standardisation des achats, maintenance simplifiée et gains mesurés dès les premiers sprints.</figcaption>
+                    </figure>
+                    <figure class="chart-figure" data-blog-chart>
+                        <canvas aria-label="Comparatif de charge selon les profils de stations"></canvas>
+                        <script type="application/json" data-chart-config>
+                            {
+                                "type": "radar",
+                                "data": {
+                                    "labels": [
+                                        "Assemblages complexes",
+                                        "Calculs Simulation",
+                                        "Rendu / Visualize",
+                                        "VR temps réel",
+                                        "Interop PDM"
+                                    ],
+                                    "datasets": [
+                                        {
+                                            "label": "Bureau d'études",
+                                            "data": [75, 40, 30, 10, 80],
+                                            "backgroundColor": "rgba(37,99,235,0.2)",
+                                            "borderColor": "#2563eb",
+                                            "pointBackgroundColor": "#2563eb"
+                                        },
+                                        {
+                                            "label": "Simulation avancée",
+                                            "data": [60, 95, 45, 15, 70],
+                                            "backgroundColor": "rgba(124,58,237,0.2)",
+                                            "borderColor": "#7c3aed",
+                                            "pointBackgroundColor": "#7c3aed"
+                                        },
+                                        {
+                                            "label": "Revue immersive",
+                                            "data": [55, 50, 90, 95, 60],
+                                            "backgroundColor": "rgba(249,115,22,0.2)",
+                                            "borderColor": "#f97316",
+                                            "pointBackgroundColor": "#f97316"
+                                        }
+                                    ]
+                                },
+                                "options": {
+                                    "plugins": {
+                                        "legend": {
+                                            "position": "bottom"
+                                        }
+                                    },
+                                    "scales": {
+                                        "r": {
+                                            "angleLines": { "color": "rgba(148, 163, 184, 0.3)" },
+                                            "grid": { "color": "rgba(148, 163, 184, 0.2)" },
+                                            "suggestedMin": 0,
+                                            "suggestedMax": 100
+                                        }
+                                    }
+                                }
+                            }
+                        </script>
+                    </figure>
+                    <div class="callout">
+                        <p><strong>Astuce terrain :</strong> programmez des profils Windows distincts (Design, Simulation, VR) avec politiques d'alimentation adaptées. Vous évitez les BIOS sous-optimisés et garantissez un comportement homogène sur tout le parc.</p>
+                    </div>
+                </section>
+
+                <section class="blog-section article-section" id="infrastructure">
+                    <h2>4. Serveur PDM, stockage et réseau</h2>
+                    <p>Une station de travail performante ne suffit pas si le coffre-fort PDM ou le réseau ralentit les échanges. Les projets les plus fluides reposent sur une architecture cohérente&nbsp;: serveur applicatif dimensionné, stockage NVMe répliqué et réseau 10&nbsp;GbE priorisé sur les flux CAO.</p>
+                    <figure class="media-figure">
+                        <img src="/assets/img/blog/configuration-materielle-solidworks/network-backbone.svg" alt="Schéma d'une architecture matérielle SolidWorks PDM avec stockage NVMe et sauvegarde 3-2-1" loading="lazy">
+                        <figcaption>Backbone PDM prêt pour la montée en charge&nbsp;: NVMe en production, sauvegarde 3-2-1 et qualité de service sur le réseau.</figcaption>
+                    </figure>
+                    <div class="grid grid--2">
+                        <div>
+                            <h3>Serveur PDM</h3>
+                            <ul>
+                                <li>CPU Xeon Silver ou AMD EPYC avec 12&nbsp;coeurs minimum</li>
+                                <li>128&nbsp;Go RAM ECC pour absorber les pics de réplication</li>
+                                <li>Volumes NVMe en RAID&nbsp;1 pour le vault et SSD SATA pour les archives</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Réseau &amp; QoS</h3>
+                            <ul>
+                                <li>Backbone 10&nbsp;GbE redondé, VLAN dédié CAO</li>
+                                <li>QoS priorisant les flux PDM et Visualize</li>
+                                <li>VPN avec compression pour sites distants</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="chart-card" data-blog-chart data-chart-type="doughnut" data-chart-labels="Workstations,Serveur PDM,Stockage,Sauvegarde,Réseau" data-chart-values="45,18,14,10,13" data-chart-dataset-label="Répartition budget matériel" data-chart-options='{"plugins":{"legend":{"position":"bottom"}}}'>
+                        <p>Répartition indicative d'un budget de modernisation (en&nbsp;%). Ajustez-la après votre audit&nbsp;: les gains rapides viennent souvent du stockage et du réseau.</p>
+                    </div>
+                    <div class="callout callout--soft">
+                        <p><strong>Point de vigilance :</strong> synchronisez vos maintenances avec les cycles de sauvegarde et mettez en place un test mensuel de restauration de coffre-fort. Un PRA documenté évite les arrêts de production lors des mises à jour SOLIDWORKS.</p>
+                    </div>
+                </section>
+
+                <section class="blog-section article-section" id="plan-daction">
+                    <h2>5. Plan d'action 90 jours</h2>
+                    <p>Une fois la cible validée, structurez la mise en œuvre en trois sprints de 30 jours. Objectif&nbsp;: livrer rapidement des améliorations visibles tout en sécurisant la trajectoire long terme.</p>
+                    <ol>
+                        <li><strong>Sprint&nbsp;1&nbsp;:</strong> commandes et quick wins (SSD NVMe, BIOS à jour, tuning Windows). KPI&nbsp;: temps d'ouverture moyen &lt;&nbsp;45&nbsp;secondes.</li>
+                        <li><strong>Sprint&nbsp;2&nbsp;:</strong> déploiement des nouvelles stations et mise à niveau réseau. KPI&nbsp;: 0 erreur de check-in PDM, latence moyenne &lt;&nbsp;2&nbsp;ms.</li>
+                        <li><strong>Sprint&nbsp;3&nbsp;:</strong> bascule serveur PDM, sauvegarde 3-2-1, formation utilisateurs. KPI&nbsp;: satisfaction utilisateurs &gt;&nbsp;8/10, PRA testé et validé.</li>
+                    </ol>
+                    <p>Ce plan permet d'engranger des gains dès le premier mois tout en alignant IT, bureau d'études et direction industrielle sur une feuille de route commune.</p>
+                </section>
+
+                <section class="blog-section article-cta" data-component="cta">
+                    <div class="cta-card">
+                        <h2>Vous voulez fiabiliser votre environnement SOLIDWORKS&nbsp;?</h2>
+                        <p>Je vous accompagne pour auditer votre existant, prioriser les investissements et piloter le déploiement sans interrompre la production. Parlons de vos enjeux.</p>
+                        <a class="hero-btn" href="/#contact">Planifier un échange</a>
+                    </div>
+                </section>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="copyright" data-translate-key="footer_copyright">
+                &copy; 2025 Mohamed Omar Baouch. Tous droits réservés.
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/mohamed-omar-baouch-9b4473180/" target="_blank" class="social-icon"><span>in</span></a>
+                <a href="mailto:mohamed.omar.baouch@gmail.com" class="social-icon"><span>📧</span></a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="ai-assistant-fab" id="ai-fab"></div>
+    <div class="ai-fab-notification" id="ai-fab-notification"></div>
+    <div class="ai-assistant-container" id="ai-container"></div>
+
+    <script src="/assets/js/script.js"></script>
+    <script type="module">
+        const CHART_DATA_SELECTORS = [
+            '[data-blog-chart]',
+            'script[type="application/json"][data-chart-config]',
+            'canvas[data-chart-config]',
+            'canvas[data-chart-type]'
+        ];
+
+        const hasChartData = () => CHART_DATA_SELECTORS.some((selector) => document.querySelector(selector));
+
+        const loadChartsModule = (() => {
+            let loaded = false;
+            return () => {
+                if (loaded) return;
+                loaded = true;
+                import('/assets/js/blog-charts.js').catch((error) => {
+                    console.error('[blog] Échec du chargement du module de graphiques.', error);
+                });
+            };
+        })();
+
+        const ensureChartsModule = () => {
+            if (hasChartData()) {
+                loadChartsModule();
+                return true;
+            }
+            return false;
+        };
+
+        if (!ensureChartsModule()) {
+            let observer;
+
+            const stopListening = () => {
+                if (observer) {
+                    observer.disconnect();
+                    observer = undefined;
+                }
+                document.removeEventListener('DOMContentLoaded', onReady);
+            };
+
+            const onReady = () => {
+                if (ensureChartsModule()) {
+                    stopListening();
+                }
+            };
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', onReady);
+            } else {
+                onReady();
+            }
+
+            const observeTarget = document.body || document.documentElement;
+            if (observeTarget) {
+                observer = new MutationObserver(() => {
+                    if (ensureChartsModule()) {
+                        stopListening();
+                    }
+                });
+                observer.observe(observeTarget, { childList: true, subtree: true });
+            }
+        }
+    </script>
+    <script type="module" src="/assets/js/blog.js"></script>
+</body>
+</html>
