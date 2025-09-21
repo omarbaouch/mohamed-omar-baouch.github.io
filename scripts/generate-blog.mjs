@@ -109,11 +109,31 @@ const toISODate = (dateStr) => {
 };
 
 // --- FONCTION DE GÉNÉRATION DE PAGE MISE À JOUR ---
-async function generateHTMLPage(title, bodyContent, metaDescription) {
-    const template = await getBlogTemplate({ title, description: metaDescription });
-    // Remplace le placeholder par le contenu généré
-    const finalHtml = template.replace('{{BLOG_CONTENT}}', bodyContent);
-    return finalHtml;
+async function generateHTMLPage({
+    title,
+    description,
+    navigation = '',
+    hero = '',
+    summary = '',
+    body = '',
+    sidebar = '',
+    footer = ''
+}) {
+    let template = await getBlogTemplate({ title, description });
+    const replacements = {
+        '{{BLOG_NAVIGATION}}': navigation,
+        '{{BLOG_HERO}}': hero,
+        '{{BLOG_SUMMARY}}': summary,
+        '{{BLOG_CONTENT}}': body,
+        '{{BLOG_SIDEBAR}}': sidebar,
+        '{{BLOG_FOOTER}}': footer
+    };
+
+    for (const [token, value] of Object.entries(replacements)) {
+        template = template.replace(token, value || '');
+    }
+
+    return template;
 }
 
 function escapeHTML(str) {
@@ -241,6 +261,186 @@ async function readEditorialMetadata(slug) {
         heroSubtitle,
         type: 'editorial'
     };
+}
+
+function renderArticleNavigation(links = []) {
+    if (!links?.length) return '';
+    const items = links
+        .filter(link => link?.href && link?.label)
+        .map((link) => {
+            const classes = ['back-link'];
+            if (link.variant === 'ghost') classes.push('back-link--ghost');
+            const attrs = [`href="${escapeHTML(link.href)}"`];
+            if (link.external) {
+                attrs.push('target="_blank"', 'rel="noopener noreferrer"');
+            }
+            return `<a class="${classes.join(' ')}" ${attrs.join(' ')}>${escapeHTML(link.label)}</a>`;
+        });
+    if (!items.length) return '';
+    return `
+<nav class="article-breadcrumbs" aria-label="Navigation secondaire">
+  ${items.join('\n  ')}
+</nav>
+`.trim();
+}
+
+function renderHeroBadges(badges = []) {
+    if (!badges?.length) return '';
+    const markup = badges
+        .filter(badge => badge?.label)
+        .map((badge) => {
+            const classes = ['badge'];
+            if (badge.variant) {
+                classes.push(`badge-${badge.variant}`);
+            }
+            return `<span class="${classes.join(' ')}">${escapeHTML(badge.label)}</span>`;
+        });
+    if (!markup.length) return '';
+    return `<div class="hero-badges">${markup.join('\n      ')}</div>`;
+}
+
+function renderHeroButton(button, defaultVariant = 'primary') {
+    if (!button?.href || !button?.label) return '';
+    const classes = ['hero-btn'];
+    const variant = button.variant || defaultVariant;
+    if (variant === 'ghost') {
+        classes.push('hero-btn--ghost');
+    }
+    const attrs = [`href="${escapeHTML(button.href)}"`];
+    if (button.external) {
+        attrs.push('target="_blank"', 'rel="noopener noreferrer"');
+    }
+    const icon = button.icon ? `<span aria-hidden="true">${escapeHTML(button.icon)}</span>` : '';
+    return `<a class="${classes.join(' ')}" ${attrs.join(' ')}>${icon}${escapeHTML(button.label)}</a>`;
+}
+
+function renderHeroActions(primary, secondary) {
+    const buttons = [];
+    const primaryMarkup = renderHeroButton(primary, 'primary');
+    if (primaryMarkup) {
+        buttons.push(primaryMarkup);
+    }
+    const secondaryMarkup = renderHeroButton(secondary, 'ghost');
+    if (secondaryMarkup) {
+        buttons.push(secondaryMarkup);
+    }
+    if (!buttons.length) return '';
+    return `<div class="hero-actions">${buttons.join('\n      ')}</div>`;
+}
+
+function renderHeroStats(stats = []) {
+    if (!stats?.length) return '';
+    const items = stats
+        .filter(stat => stat?.value !== undefined && stat?.label)
+        .map((stat) => `
+    <div class="hero-stat">
+      <span class="hero-stat-value">${escapeHTML(String(stat.value))}</span>
+      <span class="hero-stat-label">${escapeHTML(stat.label)}</span>
+    </div>`)
+        .join('');
+    if (!items) return '';
+    return `<div class="hero-stats">${items}\n  </div>`;
+}
+
+function renderHeroMedia(media) {
+    if (!media?.src) return '';
+    const attrs = [`src="${escapeHTML(media.src)}"`];
+    attrs.push(`alt="${escapeHTML(media.alt || '')}"`);
+    const caption = media.caption ? `<figcaption>${escapeHTML(media.caption)}</figcaption>` : '';
+    return `
+<figure class="hero-media">
+  <img ${attrs.join(' ')}>
+  ${caption}
+</figure>
+`.trim();
+}
+
+function renderPostHero({ eyebrow, title, subtitle, badges = [], primaryCta, secondaryCta, stats = [], media }) {
+    const badgesMarkup = renderHeroBadges(badges);
+    const actionsMarkup = renderHeroActions(primaryCta, secondaryCta);
+    const statsMarkup = renderHeroStats(stats);
+    const mediaMarkup = renderHeroMedia(media);
+    return `
+<header class="blog-hero post-hero" data-component="hero">
+  <div class="hero-intro">
+    ${badgesMarkup}
+    ${eyebrow ? `<span class="hero-eyebrow">${escapeHTML(eyebrow)}</span>` : ''}
+    <h1 class="hero-title">${escapeHTML(title)}</h1>
+    ${subtitle ? `<p class="hero-subtitle">${escapeHTML(subtitle)}</p>` : ''}
+    ${actionsMarkup}
+  </div>
+  ${statsMarkup}
+  ${mediaMarkup}
+</header>
+`.trim();
+}
+
+function renderSummaryNavigation({ title, items = [], id }) {
+    if (!items?.length) return '';
+    const list = items
+        .filter(item => item?.href && item?.label)
+        .map((item, index) => {
+            const meta = item.meta ? `<span class="summary-meta">${escapeHTML(item.meta)}</span>` : '';
+            return `
+    <li>
+      <a href="${escapeHTML(item.href)}">
+        <span class="summary-index">${String(index + 1).padStart(2, '0')}</span>
+        <span class="summary-label">${escapeHTML(item.label)}</span>
+        ${meta}
+      </a>
+    </li>`;
+        })
+        .join('');
+    if (!list) return '';
+    const navId = id ? ` id="${escapeHTML(id)}"` : '';
+    return `
+<nav class="blog-section article-summary"${navId} aria-label="${escapeHTML(title || 'Sommaire')}">
+  <h2 class="summary-title">${escapeHTML(title || 'Sommaire')}</h2>
+  <ol class="summary-list">${list}\n  </ol>
+</nav>
+`.trim();
+}
+
+function renderRadarItemsSection({ title, subtitle, items = [], renderItem }) {
+    if (!items?.length || typeof renderItem !== 'function') return '';
+    const cards = items
+        .map((item, index) => renderItem(item, index))
+        .filter(Boolean)
+        .join('\n');
+    return `
+<section class="blog-section" data-component="radar-list">
+  <div class="section-header">
+    <div>
+      <h2>${escapeHTML(title)}</h2>
+      ${subtitle ? `<p class="section-subtitle">${escapeHTML(subtitle)}</p>` : ''}
+    </div>
+    <span class="badge badge-radar">Radar</span>
+  </div>
+  <div class="card-grid radar-grid">${cards}</div>
+</section>
+`.trim();
+}
+
+function renderRadarEmptyState({ message }) {
+    return `
+<section class="blog-section" data-component="radar-empty">
+  <div class="empty-state">
+    <p>${escapeHTML(message)}</p>
+  </div>
+</section>
+`.trim();
+}
+
+function renderArticleFooterCta() {
+    return `
+<section class="blog-section article-cta" data-component="cta">
+  <div class="cta-card">
+    <h2>Aller plus loin avec votre veille PLM</h2>
+    <p>Envie d'automatiser votre radar ou de structurer votre démarche de veille ? Parlons-en.</p>
+    <a class="hero-btn" href="/#contact">Planifier un échange</a>
+  </div>
+</section>
+`.trim();
 }
 
 function renderHeroSection(hero) {
@@ -422,39 +622,38 @@ async function main() {
         if (!meta?.items) return '';
         const enriched = meta.items.find(m => m.link === item.link);
         if (!enriched) return '';
-        const blocks = [];
+        const mediaCells = [];
         if (enriched.image) {
-            blocks.push(`<figure class="post-card__media"><img src="${escapeHTML(enriched.image)}" alt="${escapeHTML(item.title)}"></figure>`);
+            mediaCells.push(`<figure class="media-card"><img src="${escapeHTML(enriched.image)}" alt="${escapeHTML(item.title)}"></figure>`);
         }
         if (enriched.summary) {
-            blocks.push(`<p class="post-card__excerpt">${escapeHTML(enriched.summary)}</p>`);
+            mediaCells.push(`<div class="media-card media-card--text"><p class="post-card__excerpt">${escapeHTML(enriched.summary)}</p></div>`);
         }
-        if (enriched.keywords?.length) {
-            const keywords = enriched.keywords.map(keyword => `<span class="tag">#${escapeHTML(keyword)}</span>`).join('');
-            blocks.push(`<div class="tag-list">${keywords}</div>`);
-        }
-        if (enriched.categories?.length) {
-            const categories = enriched.categories.map(category => `<span class="tag">${escapeHTML(category)}</span>`).join('');
-            blocks.push(`<div class="tag-list">${categories}</div>`);
-        }
-        return blocks.join('\n');
+        const grid = mediaCells.length ? `<div class="media-grid">${mediaCells.join('\n')}</div>` : '';
+        const keywords = enriched.keywords?.length
+            ? `<div class="tag-list">${enriched.keywords.map(keyword => `<span class="tag">#${escapeHTML(keyword)}</span>`).join('')}</div>`
+            : '';
+        const categories = enriched.categories?.length
+            ? `<div class="tag-list">${enriched.categories.map(category => `<span class="tag">${escapeHTML(category)}</span>`).join('')}</div>`
+            : '';
+        const blocks = [grid, keywords, categories].filter(Boolean);
+        return blocks.length ? `<div class="post-card__enrichment">${blocks.join('\n')}</div>` : '';
     }
     function renderRadarItem(item, index) {
+        const anchorId = `signal-${String(index + 1).padStart(2, '0')}`;
         return `
-      <article class="post-card" data-entry-type="radar-item">
-        <div class="post-card__meta">
-          <span class="badge badge-radar">Signal #${index + 1}</span>
-          <span>${escapeHTML(item.source)}</span>
-        </div>
-        <h3 class="post-card__title">
-          <a href="${escapeHTML(item.link)}" target="_blank" rel="noopener noreferrer">
-            ${escapeHTML(item.title)}
-          </a>
-        </h3>
-        ${renderEnrichedMetaFor(item)}
-        <a class="post-card__cta" href="${escapeHTML(item.link)}" target="_blank" rel="noopener noreferrer">Ouvrir la source</a>
-      </article>
-    `;
+<article class="post-card" data-entry-type="radar-item" id="${anchorId}" data-source="${escapeHTML(item.source)}">
+  <div class="post-card__meta">
+    <span class="badge badge-radar">Signal #${index + 1}</span>
+    <span>${escapeHTML(item.source)}</span>
+  </div>
+  <h3 class="post-card__title">
+    <a href="${escapeHTML(item.link)}" target="_blank" rel="noopener noreferrer">${escapeHTML(item.title)}</a>
+  </h3>
+  ${renderEnrichedMetaFor(item)}
+  <a class="post-card__cta" href="${escapeHTML(item.link)}" target="_blank" rel="noopener noreferrer">Ouvrir la source</a>
+</article>
+`.trim();
     }
 
     const publishedISO = now.toISOString();
@@ -464,71 +663,70 @@ async function main() {
     const uniqueSourcesCount = new Set(itemsForPost.map(item => item.source)).size;
     const selectionSubtitle = `Sélection automatisée de ${itemsCount} ${pluralize(itemsCount, 'lien')} issue${itemsCount > 1 ? 's' : ''} de ${uniqueSourcesCount} ${pluralize(uniqueSourcesCount, 'source')}.`;
 
-    const postContent = noNews ? `
-<section class="blog-hero post-hero">
-  <div class="hero-intro">
-    <span class="hero-eyebrow">Radar quotidien</span>
-    <h1 class="hero-title">${escapeHTML(postTitle)}</h1>
-    <p class="hero-subtitle">Aucune actualité détectée pour le ${escapeHTML(displayDate)}.</p>
-    <div class="hero-actions">
-      <a class="hero-btn" href="/blog/">← Retour aux radars</a>
-      <a class="hero-btn hero-btn--ghost" href="/">Retour au portfolio</a>
-    </div>
-  </div>
-  <div class="hero-stats">
-    <div class="hero-stat">
-      <span class="hero-stat-value">${escapeHTML(shortDisplayDate)}</span>
-      <span class="hero-stat-label">Date de publication</span>
-    </div>
-  </div>
-</section>
-<section class="blog-section">
-  <div class="empty-state">
-    <p>Aucun signal détecté aujourd'hui. Revenez demain pour une nouvelle veille.</p>
-  </div>
-</section>
-` : `
-<section class="blog-hero post-hero">
-  <div class="hero-intro">
-    <span class="hero-eyebrow">Radar quotidien</span>
-    <h1 class="hero-title">${escapeHTML(postTitle)}</h1>
-    <p class="hero-subtitle">Veille du ${escapeHTML(displayDate)} — ${itemsCount} ${pluralize(itemsCount, 'signal')} sélectionné${itemsCount > 1 ? 's' : ''} auprès de ${uniqueSourcesCount} ${pluralize(uniqueSourcesCount, 'source')}.</p>
-    <div class="hero-actions">
-      <a class="hero-btn" href="/blog/">← Tous les radars</a>
-      <a class="hero-btn hero-btn--ghost" href="/">Retour au portfolio</a>
-    </div>
-  </div>
-  <div class="hero-stats">
-    <div class="hero-stat">
-      <span class="hero-stat-value">${itemsCount}</span>
-      <span class="hero-stat-label">${pluralize(itemsCount, 'Lien', 'Liens')} sélectionné${itemsCount > 1 ? 's' : ''}</span>
-    </div>
-    <div class="hero-stat">
-      <span class="hero-stat-value">${uniqueSourcesCount}</span>
-      <span class="hero-stat-label">${pluralize(uniqueSourcesCount, 'Source', 'Sources')} distincte${uniqueSourcesCount > 1 ? 's' : ''}</span>
-    </div>
-    <div class="hero-stat">
-      <span class="hero-stat-value">${escapeHTML(shortDisplayDate)}</span>
-      <span class="hero-stat-label">Date de publication</span>
-    </div>
-  </div>
-</section>
-<section class="blog-section">
-  <div class="section-header">
-    <h2>Les signaux du ${escapeHTML(displayDate)}</h2>
-    <p class="section-subtitle">${escapeHTML(selectionSubtitle)}</p>
-  </div>
-  <div class="card-grid radar-grid">
-    ${itemsForPost.map((item, index) => renderRadarItem(item, index)).join('')}
-  </div>
-</section>
-`;
-    const metaDescription = noNews ? "Aucune actualité aujourd'hui." : `Veille PDM/PLM du ${displayDate} – ${itemsCount} ${pluralize(itemsCount, 'lien')} sélectionné${itemsCount > 1 ? 's' : ''}.`;
-    const postHTML = await generateHTMLPage(
-        `Radar PDM/PLM – ${dateStr}`,
-        postContent,
-        metaDescription
-    );
+    const navigationMarkup = renderArticleNavigation([
+        { href: '/blog/', label: '← Retour au blog' },
+        { href: '/', label: 'Retour au portfolio', variant: 'ghost' }
+    ]);
+
+    const heroSubtitle = noNews
+        ? `Aucune actualité détectée pour le ${displayDate}.`
+        : `Veille du ${displayDate} — ${itemsCount} ${pluralize(itemsCount === 0 ? 2 : itemsCount, 'signal', 'signaux')} sélectionné${itemsCount > 1 ? 's' : ''} auprès de ${uniqueSourcesCount} ${pluralize(uniqueSourcesCount === 0 ? 2 : uniqueSourcesCount, 'source', 'sources')}.`;
+
+    const heroMarkup = renderPostHero({
+        eyebrow: 'Radar quotidien',
+        title: postTitle,
+        subtitle: heroSubtitle,
+        badges: [
+            { label: shortDisplayDate || displayDate || dateStr, variant: 'neutral' },
+            { label: `${itemsCount} ${pluralize(itemsCount === 0 ? 2 : itemsCount, 'signal', 'signaux')}`, variant: 'radar' }
+        ],
+        primaryCta: noNews
+            ? { href: '/blog/', label: '← Tous les radars' }
+            : { href: '#sommaire', label: 'Consulter le sommaire' },
+        secondaryCta: { href: '/#contact', label: 'Planifier un échange', variant: 'ghost' },
+        stats: [
+            { value: itemsCount, label: pluralize(itemsCount === 1 ? 1 : 2, 'Signal sélectionné', 'Signaux sélectionnés') },
+            { value: uniqueSourcesCount, label: pluralize(uniqueSourcesCount === 1 ? 1 : 2, 'Source distincte', 'Sources distinctes') },
+            { value: shortDisplayDate || displayDate || dateStr, label: 'Date de publication' }
+        ]
+    });
+
+    const summaryMarkup = noNews
+        ? ''
+        : renderSummaryNavigation({
+            id: 'sommaire',
+            title: 'Sommaire des signaux',
+            items: itemsForPost.map((item, index) => ({
+                href: `#signal-${String(index + 1).padStart(2, '0')}`,
+                label: item.title,
+                meta: item.source
+            }))
+        });
+
+    const bodyContent = noNews
+        ? renderRadarEmptyState({ message: "Aucun signal détecté aujourd'hui. Revenez demain pour une nouvelle veille." })
+        : renderRadarItemsSection({
+            title: `Les signaux du ${displayDate}`,
+            subtitle: selectionSubtitle,
+            items: itemsForPost,
+            renderItem: renderRadarItem
+        });
+
+    const footerMarkup = renderArticleFooterCta();
+
+    const metaDescription = noNews
+        ? "Aucune actualité aujourd'hui."
+        : `Veille PDM/PLM du ${displayDate} – ${itemsCount} ${pluralize(itemsCount, 'lien')} sélectionné${itemsCount > 1 ? 's' : ''}.`;
+
+    const postHTML = await generateHTMLPage({
+        title: `Radar PDM/PLM – ${dateStr}`,
+        description: metaDescription,
+        navigation: navigationMarkup,
+        hero: heroMarkup,
+        summary: summaryMarkup,
+        body: bodyContent,
+        footer: footerMarkup
+    });
     await fs.writeFile(path.join(postDir, 'index.html'), postHTML);
     console.log(`✅ Generated post: ${postSlug}`);
     const entries = await fs.readdir(BLOG_DIR);
@@ -579,11 +777,11 @@ async function main() {
     const latestRadar = radarEntries[0] ?? null;
     const latestEditorial = editorialEntries[0] ?? null;
     const heroTitle = latestRadar?.title || latestEditorial?.title || 'Veille & analyses PDM/PLM';
-    const heroSubtitle = latestRadar?.heroSubtitle || latestEditorial?.heroSubtitle || 'Veille technologique quotidienne et retours d’expérience sur le PDM/PLM.';
+    const indexHeroSubtitle = latestRadar?.heroSubtitle || latestEditorial?.heroSubtitle || 'Veille technologique quotidienne et retours d’expérience sur le PDM/PLM.';
     const heroData = {
         tagline: 'Radar & analyses PDM/PLM',
         title: heroTitle,
-        subtitle: heroSubtitle,
+        subtitle: indexHeroSubtitle,
         radarHighlight: latestRadar,
         editorialHighlight: latestEditorial,
         stats: {
@@ -609,9 +807,9 @@ async function main() {
         timeline: timelineItems
     };
 
-    const indexSections = [
-        renderHeroSection(heroData),
-        renderFilterControls(),
+    const indexHero = renderHeroSection(heroData);
+    const indexFilterControls = renderFilterControls();
+    const indexBody = [
         renderCardsSection({
             title: 'Radars quotidiens',
             description: 'Veille automatisée sur le PDM/PLM, actualisée chaque jour ouvré.',
@@ -628,14 +826,15 @@ async function main() {
         }),
         renderTimelineSection(timelineItems),
         `<script type="application/json" id="blog-data">${serializeJSON(blogData)}</script>`
-    ].filter(Boolean);
+    ].filter(Boolean).join('\n\n');
 
-    const indexContent = indexSections.join('\n\n');
-    const indexHTML = await generateHTMLPage(
-        'Blog — Radar PDM/PLM',
-        indexContent,
-        'Veille PDM/PLM, SolidWorks, Teamcenter…'
-    );
+    const indexHTML = await generateHTMLPage({
+        title: 'Blog — Radar PDM/PLM',
+        description: 'Veille PDM/PLM, SolidWorks, Teamcenter…',
+        hero: indexHero,
+        summary: indexFilterControls,
+        body: indexBody
+    });
     await fs.writeFile(path.join(BLOG_DIR, 'index.html'), indexHTML);
     console.log('✅ Generated blog index page.');
 }
