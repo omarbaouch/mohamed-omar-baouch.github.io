@@ -11,15 +11,7 @@
     <title>Au-delà de la théorie : résoudre les 5 problématiques PLM que j'ai vécues en tant qu'Ingénieur Mécanique</title>
     <meta name="description" content="Retour d'expérience de Mohamed Omar Baouch sur cinq problématiques PLM vécues sur le terrain et les solutions apportées grâce à un PDM/PLM bien implémenté.">
     <link rel="stylesheet" href="/assets/css/style.css">
-    <style>
-        .blog-container { max-width: 900px; margin: 120px auto 40px !important; padding: 20px; }
-        .section { background-color: var(--bg-secondary); border-radius: 10px; padding: 2rem 3rem; box-shadow: 0 15px 35px rgba(0,0,0,0.3); border: 1px solid var(--bg-tertiary); }
-        .title { font-size: 2.5rem; color: var(--accent-primary); margin-bottom: 0.5rem; border-bottom: 2px solid var(--accent-secondary); padding-bottom: 0.5rem; display: inline-block; }
-        .meta { color: var(--text-secondary); margin-bottom: 2.5rem; font-style: italic; }
-        .back { margin-top: 2rem; }
-        .back a { color: var(--accent-secondary); font-weight: 500; text-decoration: none; transition: color 0.3s; }
-        .back a:hover { color: var(--accent-primary); }
-    </style>
+    <link rel="stylesheet" href="/assets/css/blog.css">
 </head>
 <body class="blog-page">
     <canvas id="transition-canvas"></canvas>
@@ -62,24 +54,194 @@
     </div>
 
     <main id="mainContainer" class="container blog-container show">
-        <section class="section">
-            <p class="back"><a href="/blog/">← Voir tous les radars</a></p>
-            <h1 class="title">Au-delà de la théorie : résoudre les 5 problématiques PLM que j'ai vécues en tant qu'Ingénieur Mécanique</h1>
-            <p class="meta">Par Mohamed Omar Baouch – 15/09/2025</p>
-            <p>Quand j'ai débuté comme ingénieur mécanique, la gestion des données produit me semblait un sujet réservé aux grandes entreprises et aux théoriciens des processus. La réalité du terrain m'a vite montré l'inverse. Chez Evolum puis chez ABMI, j'ai vu comment un simple plan mal versionné pouvait immobiliser une ligne de production ou comment une nomenclature erronée pouvait faire exploser les coûts d'un projet. Ces expériences m'ont donné une conviction : un PDM/PLM bien implémenté n'est pas un luxe mais une condition de survie pour toute organisation industrielle.</p>
-            <h2>1. Silos de données qui fragmentent le savoir</h2>
-            <p>À mes débuts chez Evolum, chacun travaillait dans son coin. Les fichiers de conception étaient dispersés entre des disques partagés, des clés USB et parfois des ordinateurs personnels. Lorsque je devais reprendre un projet, je passais plus de temps à chercher la bonne version d'un assemblage qu'à concevoir. Cette fragmentation du savoir faisait perdre un temps précieux et créait des divergences entre les bureaux d'études et l'atelier. La mise en place d'un coffre-fort PDM centralisé a été une révélation : chaque modèle était stocké une seule fois, les droits d'accès étaient clairs et je pouvais retracer l'historique complet d'une pièce sans lever de téléphone.</p>
-            <h2>2. Erreurs dans les nomenclatures</h2>
-            <p>Lors d'une mission chez ABMI, j'ai vécu les conséquences d'une nomenclature gérée sous Excel. Une ligne oubliée a entraîné l'achat de pièces supplémentaires et plusieurs jours de retard sur un prototype. C'est à ce moment que j'ai compris l'importance d'un système PLM capable de générer des nomenclatures cohérentes directement depuis la CAO et de les lier aux achats. Avec SolidWorks PDM, nous avons automatisé l'extraction des BOM et mis en place des règles de validation qui ont supprimé ce type d'erreurs. L'équipe projet gagnait en sérénité et les réunions ne tournaient plus autour de la question « qui possède la bonne version ? ».</p>
-            <h2>3. Versions incontrôlées et confusion</h2>
-            <p>Avant d'adopter un PDM, la gestion des révisions se résumait à des suffixes dans les noms de fichiers. Il n'était pas rare de voir des dossiers remplis de "finale", "finale2" ou "version_definitive_v3". Lors de mon passage chez Evolum, cette pratique a provoqué la fabrication d'un lot de pièces basé sur un plan obsolète. En implémentant un véritable PLM chez Visiativ, j'ai découvert la puissance du contrôle de versions : chaque modification est tracée, commentée et validée. Les transitions de statuts (en conception, en validation, publié) ont apporté une clarté immédiate et réduit les allers-retours improductifs.</p>
-            <h2>4. Collaboration freinée entre bureaux d'études et production</h2>
-            <p>La collaboration se limitait souvent à l'échange de fichiers par email. Les retours de l'atelier arrivaient tard et les remarques se perdaient dans les boîtes de réception. En tant que consultant chez Visiativ, j'ai accompagné plusieurs clients dans l'intégration de workflows qui relient directement la conception à la production. Grâce à un PDM bien configuré, l'atelier peut annoter les modèles, proposer des modifications et suivre leur prise en compte. Cette boucle de feedback en continu a transformé la relation entre les équipes et réduit drastiquement les erreurs de fabrication.</p>
-            <h2>5. Traçabilité et conformité</h2>
-            <p>Dans des secteurs réglementés, prouver la conformité d'un produit est aussi important que le produit lui-même. Avant l'arrivée d'un PLM, la traçabilité reposait sur des dossiers papier et la mémoire des ingénieurs. J'ai vu un audit repoussé parce qu'il était impossible de démontrer la généalogie complète d'un composant. Avec un PLM, chaque décision, chaque validation et chaque version est enregistrée. Lors d'un projet piloté par Visiativ, nous avons pu répondre à un audit en quelques clics, fournissant l'historique complet des modifications d'une pièce critique. La confiance du client s'en est trouvée renforcée.</p>
-            <p>Ces cinq problématiques ne sont pas de simples cas d'école. Elles ont freiné des projets auxquels j'ai participé et m'ont parfois laissé un goût d'inachevé. Aujourd'hui, en tant que consultant PDM/PLM chez Visiativ, je mets cette expérience au service des entreprises qui veulent éviter ces pièges. Un PDM/PLM bien implémenté apporte de la rigueur sans étouffer la créativité : il libère les équipes de la chasse aux informations pour qu'elles se concentrent sur l'innovation. Si ces retours d'expérience résonnent avec vos propres défis, discutons-en. Je suis convaincu que la transformation commence par un diagnostic honnête du terrain, bien avant les slides de présentation.</p>
-            <p class="back"><a href="/">← Retour au portfolio</a></p>
-        </section>
+        <div class="blog-shell" id="blogShell" data-shell>
+            <article class="blog-article" data-article-root>
+                <nav class="article-breadcrumbs" aria-label="Navigation secondaire">
+                    <a class="back-link" href="/blog/">← Retour au blog</a>
+                    <a class="back-link back-link--ghost" href="/">Retour au portfolio</a>
+                </nav>
+
+                <header class="blog-hero post-hero" data-component="hero">
+                    <div class="hero-intro">
+                        <div class="hero-badges">
+                            <span class="badge badge-editorial">Article de fond</span>
+                        </div>
+                        <span class="hero-eyebrow">Expérience terrain</span>
+                        <h1 class="hero-title">Au-delà de la théorie : résoudre les 5 problématiques PLM que j'ai vécues en tant qu'Ingénieur Mécanique</h1>
+                        <p class="hero-subtitle">Retour d'expérience publié le 15 septembre 2025 : comment passer des discours aux actions concrètes pour sécuriser données, nomenclatures et collaboration.</p>
+                        <div class="hero-actions">
+                            <a class="hero-btn" href="#sommaire">Consulter le sommaire</a>
+                            <a class="hero-btn hero-btn--ghost" href="/#contact">Discuter de votre projet</a>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">15/09/2025</span>
+                            <span class="hero-stat-label">Date de publication</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">5</span>
+                            <span class="hero-stat-label">Problématiques traitées</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">Visiativ</span>
+                            <span class="hero-stat-label">Expertise terrain</span>
+                        </div>
+                    </div>
+                </header>
+
+                <nav class="blog-section article-summary" id="sommaire" aria-label="Sommaire de l'article">
+                    <h2 class="summary-title">Sommaire</h2>
+                    <ol class="summary-list">
+                        <li>
+                            <a href="#silos-donnees">
+                                <span class="summary-index">01</span>
+                                <span class="summary-label">Silos de données qui fragmentent le savoir</span>
+                                <span class="summary-meta">De l'enquête manuelle au coffre-fort PDM</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#erreurs-nomenclatures">
+                                <span class="summary-index">02</span>
+                                <span class="summary-label">Erreurs dans les nomenclatures</span>
+                                <span class="summary-meta">Quand Excel fait dérailler la production</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#versions-incontrolees">
+                                <span class="summary-index">03</span>
+                                <span class="summary-label">Versions incontrôlées et confusion</span>
+                                <span class="summary-meta">Le risque caché des dossiers « finale_v3 »</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#collaboration-freinee">
+                                <span class="summary-index">04</span>
+                                <span class="summary-label">Collaboration freinée entre BE et production</span>
+                                <span class="summary-meta">Du mail perdu au workflow tracé</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#tracabilite-conformite">
+                                <span class="summary-index">05</span>
+                                <span class="summary-label">Traçabilité et conformité sous tension</span>
+                                <span class="summary-meta">Répondre à un audit en quelques clics</span>
+                            </a>
+                        </li>
+                    </ol>
+                </nav>
+
+                <section class="blog-section article-section">
+                    <p>Quand j'ai débuté comme ingénieur mécanique, la gestion des données produit me semblait un sujet réservé aux grandes entreprises et aux théoriciens des processus. La réalité du terrain m'a vite montré l'inverse. Chez Evolum puis chez ABMI, j'ai vu comment un simple plan mal versionné pouvait immobiliser une ligne de production ou comment une nomenclature erronée pouvait faire exploser les coûts d'un projet.</p>
+                    <div class="callout">
+                        <div class="quote-block">
+                            <blockquote>Un PDM/PLM bien implémenté n'est pas un luxe : c'est un filet de sécurité qui libère les équipes de la chasse aux informations pour qu'elles se concentrent sur l'innovation.</blockquote>
+                            <cite>Mohamed Omar Baouch</cite>
+                        </div>
+                    </div>
+                    <p>Au fil des projets, j'ai identifié cinq problématiques récurrentes. Elles ne sont pas théoriques : chacune est issue d'un incident concret, d'un retard de production ou d'un audit stressant. Voici la synthèse des symptômes et des réponses mises en place avec les équipes terrain.</p>
+                    <table class="feature-table">
+                        <thead>
+                            <tr>
+                                <th>Problématique</th>
+                                <th>Impact terrain</th>
+                                <th>Solution PLM appliquée</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Silos de données</td>
+                                <td>Temps perdu à retrouver la bonne version</td>
+                                <td>Coffre-fort PDM centralisé et droits maîtrisés</td>
+                            </tr>
+                            <tr>
+                                <td>Nomenclatures instables</td>
+                                <td>Achats erronés, prototypes retardés</td>
+                                <td>Génération automatique des BOM depuis la CAO</td>
+                            </tr>
+                            <tr>
+                                <td>Versions incontrôlées</td>
+                                <td>Production lancée sur un plan obsolète</td>
+                                <td>Gestion des révisions et workflow de validation</td>
+                            </tr>
+                            <tr>
+                                <td>Collaboration freinée</td>
+                                <td>Feedback perdu entre mail et atelier</td>
+                                <td>Workflows intégrés entre BE et production</td>
+                            </tr>
+                            <tr>
+                                <td>Traçabilité fragile</td>
+                                <td>Audits retardés, confiance client fragilisée</td>
+                                <td>Historique complet et généalogie des pièces</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section class="blog-section article-section" id="silos-donnees">
+                    <h2>1. Silos de données qui fragmentent le savoir</h2>
+                    <p>À mes débuts chez Evolum, chacun travaillait dans son coin. Les fichiers de conception étaient dispersés entre des disques partagés, des clés USB et parfois des ordinateurs personnels. Lorsque je devais reprendre un projet, je passais plus de temps à chercher la bonne version d'un assemblage qu'à concevoir.</p>
+                    <p>Cette fragmentation du savoir faisait perdre un temps précieux et créait des divergences entre les bureaux d'études et l'atelier. La mise en place d'un coffre-fort PDM centralisé a été une révélation : chaque modèle était stocké une seule fois, les droits d'accès étaient clairs et je pouvais retracer l'historique complet d'une pièce sans lever de téléphone.</p>
+                    <div class="callout callout--soft">
+                        <p><strong>Clé du succès :</strong> rendre le PDM incontournable en l'intégrant dans les habitudes quotidiennes (check-in/check-out, commentaires, workflows de revue).</p>
+                    </div>
+                </section>
+
+                <section class="blog-section article-section" id="erreurs-nomenclatures">
+                    <h2>2. Erreurs dans les nomenclatures</h2>
+                    <p>Lors d'une mission chez ABMI, j'ai vécu les conséquences d'une nomenclature gérée sous Excel. Une ligne oubliée a entraîné l'achat de pièces supplémentaires et plusieurs jours de retard sur un prototype. C'est à ce moment que j'ai compris l'importance d'un système PLM capable de générer des nomenclatures cohérentes directement depuis la CAO et de les lier aux achats.</p>
+                    <div class="media-grid">
+                        <div class="media-card media-card--text">
+                            <h3>Avant</h3>
+                            <ul>
+                                <li>Excel partagé par mail</li>
+                                <li>Versions multiples sans historique</li>
+                                <li>Décisions prises hors système</li>
+                            </ul>
+                        </div>
+                        <div class="media-card media-card--text">
+                            <h3>Après</h3>
+                            <ul>
+                                <li>BOM générée automatiquement</li>
+                                <li>Validation croisée avec les achats</li>
+                                <li>Historique des modifications consolidé</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p>Avec SolidWorks PDM, nous avons automatisé l'extraction des BOM et mis en place des règles de validation qui ont supprimé ce type d'erreurs. L'équipe projet gagnait en sérénité et les réunions ne tournaient plus autour de la question « qui possède la bonne version ? ».</p>
+                </section>
+
+                <section class="blog-section article-section" id="versions-incontrolees">
+                    <h2>3. Versions incontrôlées et confusion</h2>
+                    <p>Avant d'adopter un PDM, la gestion des révisions se résumait à des suffixes dans les noms de fichiers. Il n'était pas rare de voir des dossiers remplis de "finale", "finale2" ou "version_definitive_v3". Lors de mon passage chez Evolum, cette pratique a provoqué la fabrication d'un lot de pièces basé sur un plan obsolète.</p>
+                    <p>En implémentant un véritable PLM chez Visiativ, j'ai découvert la puissance du contrôle de versions : chaque modification est tracée, commentée et validée. Les transitions de statuts (en conception, en validation, publié) ont apporté une clarté immédiate et réduit drastiquement les allers-retours improductifs.</p>
+                </section>
+
+                <section class="blog-section article-section" id="collaboration-freinee">
+                    <h2>4. Collaboration freinée entre bureaux d'études et production</h2>
+                    <p>La collaboration se limitait souvent à l'échange de fichiers par email. Les retours de l'atelier arrivaient tard et les remarques se perdaient dans les boîtes de réception. En tant que consultant chez Visiativ, j'ai accompagné plusieurs clients dans l'intégration de workflows qui relient directement la conception à la production.</p>
+                    <p>Grâce à un PDM bien configuré, l'atelier peut annoter les modèles, proposer des modifications et suivre leur prise en compte. Cette boucle de feedback en continu a transformé la relation entre les équipes et réduit drastiquement les erreurs de fabrication.</p>
+                </section>
+
+                <section class="blog-section article-section" id="tracabilite-conformite">
+                    <h2>5. Traçabilité et conformité</h2>
+                    <p>Dans des secteurs réglementés, prouver la conformité d'un produit est aussi important que le produit lui-même. Avant l'arrivée d'un PLM, la traçabilité reposait sur des dossiers papier et la mémoire des ingénieurs. J'ai vu un audit repoussé parce qu'il était impossible de démontrer la généalogie complète d'un composant.</p>
+                    <p>Avec un PLM, chaque décision, chaque validation et chaque version est enregistrée. Lors d'un projet piloté par Visiativ, nous avons pu répondre à un audit en quelques clics, fournissant l'historique complet des modifications d'une pièce critique. La confiance du client s'en est trouvée renforcée.</p>
+                </section>
+
+                <section class="blog-section article-section">
+                    <p>Ces cinq problématiques ne sont pas de simples cas d'école. Elles ont freiné des projets auxquels j'ai participé et m'ont parfois laissé un goût d'inachevé. Aujourd'hui, en tant que consultant PDM/PLM chez Visiativ, je mets cette expérience au service des entreprises qui veulent éviter ces pièges.</p>
+                </section>
+
+                <section class="blog-section article-cta" data-component="cta">
+                    <div class="cta-card">
+                        <h2>Envie de résoudre vos problématiques PLM&nbsp;?</h2>
+                        <p>Construisons ensemble une feuille de route pragmatique, ancrée dans votre réalité terrain. Une simple discussion peut révéler les priorités à adresser en premier.</p>
+                        <a class="hero-btn" href="/#contact">Planifier un échange</a>
+                    </div>
+                </section>
+            </article>
+        </div>
     </main>
 
     <footer>
@@ -99,5 +261,6 @@
     <div class="ai-assistant-container" id="ai-container"></div>
 
     <script src="/assets/js/script.js"></script>
+    <script type="module" src="/assets/js/blog.js"></script>
 </body>
 </html>

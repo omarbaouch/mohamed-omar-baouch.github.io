@@ -54,8 +54,8 @@
     </div>
 
     <main id="mainContainer" class="container blog-container show">
-        <div class="blog-shell" id="blogShell">
-            {{BLOG_CONTENT}}
+        <div class="blog-shell" id="blogShell" data-shell>
+            <article class="blog-article" data-article-root>{{BLOG_NAVIGATION}}{{BLOG_HERO}}{{BLOG_SUMMARY}}{{BLOG_CONTENT}}{{BLOG_SIDEBAR}}{{BLOG_FOOTER}}</article>
         </div>
     </main>
 
