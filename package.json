@@ -7,11 +7,12 @@
     "enrich-blog": "node scripts/enrich.mjs"
   },
   "dependencies": {
+    "@extractus/article-extractor": "^8.0.1",
+    "@xenova/transformers": "^2.16.1",
+    "chart.js": "^4.4.6",
     "cheerio": "^1.1.2",
     "dayjs": "^1.11.11",
     "fs-extra": "^11.2.0",
-    "rss-parser": "^3.13.0",
-    "@extractus/article-extractor": "^8.0.1",
-    "@xenova/transformers": "^2.16.1"
+    "rss-parser": "^3.13.0"
   }
 }
