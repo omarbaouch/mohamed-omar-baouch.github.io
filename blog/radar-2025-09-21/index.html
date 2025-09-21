@@ -55,7 +55,39 @@
 
     <main id="mainContainer" class="container blog-container show">
         <div class="blog-shell" id="blogShell" data-shell>
-            <article class="blog-article" data-article-root><nav class="article-breadcrumbs" aria-label="Navigation secondaire">
+            <article class="blog-article" data-article-root>
+                <!--
+                    🔢 Graphiques dans un article
+                    1. Variante JSON complète (Chart.js) :
+                        <figure data-blog-chart>
+                            <canvas aria-label="Titre du graphique"></canvas>
+                            <script type="application/json" data-chart-config>
+                                {
+                                    "type": "bar",
+                                    "data": {
+                                        "labels": ["Q1", "Q2", "Q3", "Q4"],
+                                        "datasets": [
+                                            { "label": "2024", "data": [10, 12, 8, 14] }
+                                        ]
+                                    }
+                                }
+                            </script>
+                        </figure>
+
+                    2. Variante rapide avec attributs inline :
+                        <div data-blog-chart
+                             data-chart-type="line"
+                             data-chart-labels="Janvier,Février,Mars"
+                             data-chart-values="12,18,9"
+                             data-chart-dataset-label="Nombre d'articles">
+                        </div>
+
+                    Options supplémentaires :
+                    - data-chart-target=".selector" pour pointer vers un <canvas> existant
+                    - data-chart-colors et data-chart-border-colors (liste de couleurs séparées par des virgules)
+                    - data-chart-options='{"plugins":{"legend":{"position":"bottom"}}}' pour fusionner des options Chart.js
+                -->
+                <nav class="article-breadcrumbs" aria-label="Navigation secondaire">
   <a class="back-link" href="/blog/">← Retour au blog</a>
   <a class="back-link back-link--ghost" href="/">Retour au portfolio</a>
 </nav><header class="blog-hero post-hero" data-component="hero">
@@ -93,7 +125,8 @@
     <p>Envie d'automatiser votre radar ou de structurer votre démarche de veille ? Parlons-en.</p>
     <a class="hero-btn" href="/#contact">Planifier un échange</a>
   </div>
-</section></article>
+</section>
+            </article>
         </div>
     </main>
 
@@ -116,6 +149,69 @@
         </div>
 
     <script src="/assets/js/script.js"></script>
+    <script type="module">
+        const CHART_DATA_SELECTORS = [
+            '[data-blog-chart]',
+            'script[type="application/json"][data-chart-config]',
+            'canvas[data-chart-config]',
+            'canvas[data-chart-type]'
+        ];
+
+        const hasChartData = () => CHART_DATA_SELECTORS.some((selector) => document.querySelector(selector));
+
+        const loadChartsModule = (() => {
+            let loaded = false;
+            return () => {
+                if (loaded) return;
+                loaded = true;
+                import('/assets/js/blog-charts.js').catch((error) => {
+                    console.error('[blog] Échec du chargement du module de graphiques.', error);
+                });
+            };
+        })();
+
+        const ensureChartsModule = () => {
+            if (hasChartData()) {
+                loadChartsModule();
+                return true;
+            }
+            return false;
+        };
+
+        if (!ensureChartsModule()) {
+            let observer;
+
+            const stopListening = () => {
+                if (observer) {
+                    observer.disconnect();
+                    observer = undefined;
+                }
+                document.removeEventListener('DOMContentLoaded', onReady);
+            };
+
+            const onReady = () => {
+                if (ensureChartsModule()) {
+                    stopListening();
+                }
+            };
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', onReady);
+            } else {
+                onReady();
+            }
+
+            const observeTarget = document.body || document.documentElement;
+            if (observeTarget) {
+                observer = new MutationObserver(() => {
+                    if (ensureChartsModule()) {
+                        stopListening();
+                    }
+                });
+                observer.observe(observeTarget, { childList: true, subtree: true });
+            }
+        }
+    </script>
     <script type="module" src="/assets/js/blog.js"></script>
 </body>
 </html>
