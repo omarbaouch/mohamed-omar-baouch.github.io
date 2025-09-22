@@ -723,6 +723,9 @@ if (langEnButton) {
 
 function createHeroGrid() {
     const heroGrid = document.getElementById('heroGrid');
+    if (!heroGrid) {
+        return;
+    }
     const width = window.innerWidth;
     const height = window.innerHeight;
     const cellSize = 50;
