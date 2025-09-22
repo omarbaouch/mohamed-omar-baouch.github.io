@@ -24,6 +24,45 @@
     --light-text-color: #2a2a2a;
     --light-hover-color: #e5b48e;
     --light-secondary-color: #a8a29a;
+
+    /* Variables spécifiques au blog */
+    --blog-overlay: color-mix(in srgb, var(--bg-color) 30%, transparent);
+    --blog-overlay-strong: color-mix(in srgb, var(--bg-color) 35%, transparent);
+    --blog-surface: color-mix(in srgb, var(--bg-color) 25%, transparent);
+    --blog-glass-faint: color-mix(in srgb, var(--text-color) 2%, transparent);
+    --blog-glass-muted: color-mix(in srgb, var(--text-color) 3%, transparent);
+    --blog-glass-soft: color-mix(in srgb, var(--text-color) 5%, transparent);
+    --blog-glass: color-mix(in srgb, var(--text-color) 8%, transparent);
+    --blog-glass-strong: color-mix(in srgb, var(--text-color) 10%, transparent);
+    --blog-border-soft: color-mix(in srgb, var(--text-color) 5%, transparent);
+    --blog-border-muted: color-mix(in srgb, var(--text-color) 6%, transparent);
+    --blog-border: color-mix(in srgb, var(--text-color) 8%, transparent);
+    --blog-border-strong: color-mix(in srgb, var(--text-color) 10%, transparent);
+    --blog-border-dashed: color-mix(in srgb, var(--text-color) 14%, transparent);
+    --blog-accent-border: color-mix(in srgb, var(--accent-secondary) 25%, transparent);
+    --blog-accent-border-strong: color-mix(in srgb, var(--accent-secondary) 35%, transparent);
+    --blog-accent-border-heavy: color-mix(in srgb, var(--accent-secondary) 45%, transparent);
+    --blog-accent-surface: color-mix(in srgb, var(--accent-secondary) 12%, transparent);
+    --blog-accent-surface-strong: color-mix(in srgb, var(--accent-secondary) 15%, transparent);
+    --blog-accent-surface-bold: color-mix(in srgb, var(--accent-secondary) 18%, transparent);
+    --blog-accent-surface-radar: color-mix(in srgb, var(--accent-primary) 18%, transparent);
+    --blog-shadow-strong: color-mix(in srgb, var(--bg-color) 35%, transparent);
+    --blog-shadow-accent: color-mix(in srgb, var(--accent-primary) 25%, transparent);
+    --blog-shadow-accent-strong: color-mix(in srgb, var(--accent-primary) 35%, transparent);
+    --blog-shadow-accent-soft: color-mix(in srgb, var(--accent-primary) 18%, transparent);
+    --blog-hero-gradient: linear-gradient(135deg,
+            color-mix(in srgb, var(--accent-primary) 14%, transparent),
+            color-mix(in srgb, var(--accent-secondary) 8%, transparent));
+    --blog-hero-overlay: radial-gradient(circle at 20% 20%,
+            color-mix(in srgb, var(--accent-secondary) 35%, transparent),
+            transparent 60%),
+        radial-gradient(circle at 80% 0%,
+            color-mix(in srgb, var(--accent-primary) 25%, transparent),
+            transparent 55%);
+    --blog-card-highlight: radial-gradient(circle at top right,
+            color-mix(in srgb, var(--accent-primary) 15%, transparent),
+            transparent 60%);
+    --blog-badge-neutral-bg: color-mix(in srgb, var(--text-color) 10%, transparent);
 }
 * {
     margin: 0;
@@ -36,6 +75,29 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
+}
+
+body.light-theme {
+    --blog-overlay: color-mix(in srgb, var(--text-color) 12%, transparent);
+    --blog-overlay-strong: color-mix(in srgb, var(--text-color) 18%, transparent);
+    --blog-surface: color-mix(in srgb, var(--text-color) 10%, transparent);
+    --blog-shadow-strong: color-mix(in srgb, var(--text-color) 20%, transparent);
+    --blog-shadow-accent: color-mix(in srgb, var(--accent-primary) 22%, transparent);
+    --blog-shadow-accent-strong: color-mix(in srgb, var(--accent-primary) 30%, transparent);
+    --blog-shadow-accent-soft: color-mix(in srgb, var(--accent-primary) 15%, transparent);
+    --blog-hero-gradient: linear-gradient(135deg,
+            color-mix(in srgb, var(--accent-primary) 12%, var(--bg-color) 88%),
+            color-mix(in srgb, var(--accent-secondary) 8%, var(--bg-color) 92%));
+    --blog-hero-overlay: radial-gradient(circle at 20% 20%,
+            color-mix(in srgb, var(--accent-secondary) 22%, var(--bg-color) 78%),
+            transparent 60%),
+        radial-gradient(circle at 80% 0%,
+            color-mix(in srgb, var(--accent-primary) 18%, var(--bg-color) 82%),
+            transparent 55%);
+    --blog-card-highlight: radial-gradient(circle at top right,
+            color-mix(in srgb, var(--accent-primary) 12%, transparent),
+            transparent 60%);
+    --blog-badge-neutral-bg: color-mix(in srgb, var(--text-color) 12%, transparent);
 }
 body::before {
     content: '';
