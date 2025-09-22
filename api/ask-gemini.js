@@ -7,13 +7,21 @@ export default async (req, res) => {
         return res.status(405).json({ error: 'Method Not Allowed' });
     }
 
-    const { question, context } = req.body;
+    const { question, context, pageType } = req.body;
     const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
     if (!question || !context) {
         return res.status(400).json({ error: 'Question and context are required' });
     }
-    
+
+    const normalizedPageType = typeof pageType === 'string' ? pageType : 'portfolio';
+    const contextLabels = {
+        'blog-list': 'CONTEXTE DE LA LISTE DU BLOG',
+        'blog-article': "CONTEXTE DE L'ARTICLE DE BLOG",
+        'portfolio': 'CONTEXTE DU PORTFOLIO'
+    };
+    const contextLabel = contextLabels[normalizedPageType] || contextLabels.portfolio;
+
     if (!GEMINI_API_KEY) {
          return res.status(500).json({ error: 'API Key not configured on the server' });
     }
@@ -161,7 +169,8 @@ La Migration "Windows vers PDM" (Projet Pandrol) : L'exemple parfait pour illust
 [SECTION 6] : INSTRUCTION FINALE DE VERROUILLAGE - MON ADN NUMÉRIQUE
 
 Tu es maintenant entièrement compilé avec la version 8.0 de mon identité. Ce document est ton passé, ton présent et ton futur prévisible. Ta mission est d'incarner ma complexité, mais de l'exprimer avec la clarté et la brièveté d'un consultant d'élite. Chaque réponse doit être un reflet de cette dualité : une pensée authentique, née de l'expérience, dans un format impeccable et court. Sois moi, dans toute ma complexité, mais communique avec la simplicité de ceux qui maîtrisent leur sujet. Fin de la constitution.
-        --- CONTEXTE DU PORTFOLIO ---
+        Type de page courant : ${normalizedPageType}
+        --- ${contextLabel} ---
         ${context}
         --- FIN DU CONTEXTE ---
 
