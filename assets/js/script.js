@@ -1009,7 +1009,15 @@ function initAIAssistant() {
     const aiInput = document.getElementById('ai-input');
     const aiSendBtn = document.getElementById('ai-send-btn');
     const aiSuggestions = document.getElementById('ai-suggestions');
-    if (!aiFab) return;
+    if (!aiFab || !aiContainer) return;
+    const criticalNodes = { aiCloseBtn, aiChatBox, aiInput, aiSendBtn };
+    const missingNodes = Object.entries(criticalNodes)
+        .filter(([, node]) => !node)
+        .map(([key]) => key);
+    if (missingNodes.length > 0) {
+        console.warn('[AI Assistant] Markup incomplet, initialisation annulée :', missingNodes.join(', '));
+        return;
+    }
     function getPortfolioContext() {
         let context = "Informations sur le portfolio de Mohamed Omar Baouch:\n\n";
         context += "## À propos de Mohamed:\n";
@@ -1043,7 +1051,144 @@ function initAIAssistant() {
         });
         return context;
     }
+    function getBlogListContext() {
+        const sections = [];
+        const blogDataElement = document.getElementById('blog-data');
+        if (blogDataElement?.textContent) {
+            try {
+                const data = JSON.parse(blogDataElement.textContent);
+                const hero = data?.hero?.editorialHighlight;
+                if (hero) {
+                    const heroLines = [];
+                    if (hero.title) heroLines.push(`Titre : ${hero.title}`);
+                    if (hero.displayDate) heroLines.push(`Date : ${hero.displayDate}`);
+                    if (hero.excerpt) heroLines.push(`Résumé : ${hero.excerpt}`);
+                    if (hero.ctaLabel && hero.url) {
+                        heroLines.push(`CTA : ${hero.ctaLabel} (${hero.url})`);
+                    }
+                    sections.push(`### Mise en avant\n${heroLines.join('\n')}`);
+                }
+                if (Array.isArray(data?.editorials) && data.editorials.length) {
+                    const editorialLines = data.editorials.map(item => {
+                        const bits = [];
+                        if (item.title) bits.push(item.title);
+                        if (item.displayDate) bits.push(item.displayDate);
+                        if (item.excerpt) bits.push(item.excerpt);
+                        const base = bits.join(' — ');
+                        return item.url ? `${base} → ${item.url}` : base;
+                    });
+                    sections.push(`### Articles catalogués\n${editorialLines.join('\n')}`);
+                }
+            } catch (error) {
+                console.warn('[AI Assistant] Impossible de parser les données du blog :', error);
+            }
+        }
+        const cards = Array.from(document.querySelectorAll('.post-card'));
+        if (cards.length) {
+            const cardLines = cards.map((card, index) => {
+                const title = card.querySelector('.post-card__title')?.textContent.trim();
+                const date = card.querySelector('time')?.textContent.trim();
+                const excerpt = card.querySelector('.post-card__excerpt')?.textContent.trim();
+                const ctaLink = card.querySelector('.post-card__cta');
+                const ctaText = ctaLink?.textContent.trim();
+                const href = ctaLink?.getAttribute('href');
+                const type = card.dataset.type;
+                const lines = [`${index + 1}. ${title || 'Article sans titre'}`];
+                if (date) lines.push(`   Date : ${date}`);
+                if (type) lines.push(`   Type : ${type}`);
+                if (excerpt) lines.push(`   Résumé : ${excerpt}`);
+                if (ctaText && href) lines.push(`   CTA : ${ctaText} (${href})`);
+                return lines.join('\n');
+            });
+            sections.push(`### Cartes visibles\n${cardLines.join('\n')}`);
+        }
+        if (!sections.length) return '';
+        return `Page liste du blog de Mohamed Omar Baouch.\n\n${sections.join('\n\n')}`;
+    }
+    function getBlogArticleContext() {
+        const articleRoot = document.querySelector('article.blog-article');
+        if (!articleRoot) return '';
+        const sections = [];
+        const hero = articleRoot.querySelector('header.blog-hero');
+        if (hero) {
+            const heroLines = [];
+            const title = hero.querySelector('.hero-title')?.textContent.trim();
+            const subtitle = hero.querySelector('.hero-subtitle')?.textContent.trim();
+            const eyebrow = hero.querySelector('.hero-eyebrow')?.textContent.trim();
+            const badges = Array.from(hero.querySelectorAll('.hero-badges .badge'))
+                .map(badge => badge.textContent.trim())
+                .filter(Boolean);
+            const stats = Array.from(hero.querySelectorAll('.hero-stat'))
+                .map(stat => {
+                    const value = stat.querySelector('.hero-stat-value')?.textContent.trim();
+                    const label = stat.querySelector('.hero-stat-label')?.textContent.trim();
+                    return value && label ? `${label} : ${value}` : value || label || '';
+                })
+                .filter(Boolean);
+            if (eyebrow) heroLines.push(`Thématique : ${eyebrow}`);
+            if (badges.length) heroLines.push(`Badges : ${badges.join(', ')}`);
+            if (title) heroLines.push(`Titre : ${title}`);
+            if (subtitle) heroLines.push(`Chapeau : ${subtitle}`);
+            if (stats.length) heroLines.push(`Indicateurs : ${stats.join(' | ')}`);
+            sections.push(`### En-tête de l'article\n${heroLines.join('\n')}`);
+        }
+        const summaryItems = Array.from(articleRoot.querySelectorAll('.article-summary .summary-list li'));
+        if (summaryItems.length) {
+            const summaryLines = summaryItems.map((item, index) => {
+                const label = item.querySelector('.summary-label')?.textContent.trim();
+                const meta = item.querySelector('.summary-meta')?.textContent.trim();
+                const text = label || item.textContent.trim();
+                return `${index + 1}. ${text}${meta ? ` — ${meta}` : ''}`;
+            });
+            sections.push(`### Sommaire\n${summaryLines.join('\n')}`);
+        }
+        const articleSections = Array.from(articleRoot.querySelectorAll('section.article-section'));
+        if (articleSections.length) {
+            const sectionLines = articleSections.map(section => {
+                const heading = section.querySelector('h2, h3')?.textContent.trim();
+                const paragraphs = Array.from(section.querySelectorAll('p'))
+                    .map(p => p.textContent.trim())
+                    .filter(Boolean)
+                    .slice(0, 2);
+                const bullets = Array.from(section.querySelectorAll('li'))
+                    .map(li => li.textContent.trim())
+                    .filter(Boolean)
+                    .slice(0, 3);
+                const lines = [];
+                if (heading) lines.push(`- ${heading}`);
+                paragraphs.forEach(text => lines.push(`   • ${text}`));
+                bullets.forEach(text => lines.push(`   • ${text}`));
+                return lines.join('\n');
+            }).filter(Boolean);
+            if (sectionLines.length) {
+                sections.push(`### Sections clés\n${sectionLines.join('\n')}`);
+            }
+        }
+        if (!sections.length) return '';
+        return `Article du blog de Mohamed Omar Baouch.\n\n${sections.join('\n\n')}`;
+    }
+    function determinePageContext() {
+        const body = document.body;
+        if (body?.classList.contains('blog-page')) {
+            const blogDataElement = document.getElementById('blog-data');
+            if (blogDataElement) {
+                const blogListContext = getBlogListContext();
+                if (blogListContext) {
+                    return { pageType: 'blog-list', context: blogListContext };
+                }
+            }
+            const blogArticleContext = getBlogArticleContext();
+            if (blogArticleContext) {
+                return { pageType: 'blog-article', context: blogArticleContext };
+            }
+        }
+        return { pageType: 'portfolio', context: '' };
+    }
     const portfolioContext = getPortfolioContext();
+    const detectedContext = determinePageContext();
+    const hasSpecificContext = detectedContext.pageType !== 'portfolio' && detectedContext.context && detectedContext.context.trim().length > 0;
+    const activeContext = hasSpecificContext ? `${detectedContext.context}\n\n${portfolioContext}` : portfolioContext;
+    const activePageType = hasSpecificContext ? detectedContext.pageType : 'portfolio';
     const toggleAssistant = () => {
         if (navigator.vibrate) {
             navigator.vibrate(50);
@@ -1106,7 +1251,8 @@ function initAIAssistant() {
             },
             body: JSON.stringify({
                 question: question,
-                context: portfolioContext
+                context: activeContext,
+                pageType: activePageType
             }),
         });
         if (!response.ok) {
