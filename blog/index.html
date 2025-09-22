@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/blog.css">
 </head>
-<body class="blog-page">
+<body class="blog-page" data-blog-page="index">
     <canvas id="transition-canvas"></canvas>
     <div class="perspective-wrapper">
         <div id="perspective-content" class="perspective-content"></div>
@@ -33,12 +33,12 @@
             <a href="/" class="logo">M.BAOUCH</a>
             <div class="nav-right">
                 <ul class="menu" id="menu">
-                    <li><a href="/#about" class="nav-link">À propos</a></li>
-                    <li><a href="/#experience" class="nav-link">Expérience</a></li>
-                    <li><a href="/#skills" class="nav-link">Compétences</a></li>
-                    <li><a href="/#education" class="nav-link">Formation</a></li>
-                    <li><a href="/#contact" class="nav-link">Contact</a></li>
-                    <li><a href="/blog/" class="nav-link">Blog</a></li>
+                    <li><a href="/#about" class="nav-link" data-translate-key="nav_about">À propos</a></li>
+                    <li><a href="/#experience" class="nav-link" data-translate-key="nav_experience">Expérience</a></li>
+                    <li><a href="/#skills" class="nav-link" data-translate-key="nav_skills">Compétences</a></li>
+                    <li><a href="/#education" class="nav-link" data-translate-key="nav_education">Formation</a></li>
+                    <li><a href="/#contact" class="nav-link" data-translate-key="nav_contact">Contact</a></li>
+                    <li><a href="/blog/" class="nav-link" data-translate-key="nav_blog">Blog</a></li>
                 </ul>
                 <div class="language-switcher">
                     <button id="lang-fr" class="lang-btn active">FR</button>
@@ -90,37 +90,37 @@
                 <section class="blog-hero" data-hero>
   <div class="hero-intro">
     <h1 class="hero-title" data-hero-title>Configuration matérielle SOLIDWORKS 2025 : le guide terrain pour un bureau d'études réactif</h1>
-    <p class="hero-subtitle" data-hero-subtitle>Publié le 21 septembre 2025. Guide pratique de Mohamed Omar Baouch pour dimensionner stations de travail, serveur PDM et réseau autour de SOLIDWORKS 2025, avec benchmarks et feuilles de route opérationnelles.</p>
+    <p class="hero-subtitle" data-hero-subtitle>Publié le <span data-date-iso="2025-09-21T00:00:00.000Z" data-date-format="long">21 septembre 2025</span>. Guide pratique de Mohamed Omar Baouch pour dimensionner stations de travail, serveur PDM et réseau autour de SOLIDWORKS 2025, avec benchmarks et feuilles de route opérationnelles.</p>
     <div class="hero-actions">
       <a class="hero-btn" data-hero-link href="/blog/configuration-materielle-solidworks/">Lire l'article</a>
     </div>
   </div>
 </section><section class="blog-controls">
   <div class="filter-group" data-filter-group role="group" aria-label="Filtrer les contenus du blog">
-    <button class="filter-btn is-active" type="button" data-filter="all" aria-pressed="true">Tout</button>
-    <button class="filter-btn" type="button" data-filter="editorial" aria-pressed="false">Articles de fond</button>
+    <button class="filter-btn is-active" type="button" data-filter="all" aria-pressed="true" data-translate-key="blog_index_filter_all">Tout</button>
+    <button class="filter-btn" type="button" data-filter="editorial" aria-pressed="false" data-translate-key="blog_index_filter_editorial">Articles de fond</button>
   </div>
 </section>
 
 <section class="blog-section" data-section="editorial">
   <div class="section-header">
-    <h2>Articles de fond</h2>
-    <p class="section-subtitle">Analyses éditoriales, retours d’expérience et bonnes pratiques terrain.</p>
+    <h2 data-translate-key="blog_index_section_editorial_title">Articles de fond</h2>
+    <p class="section-subtitle" data-translate-key="blog_index_section_editorial_subtitle">Analyses éditoriales, retours d’expérience et bonnes pratiques terrain.</p>
   </div>
-  <div class="card-grid"><article class="post-card" data-type="editorial">
+  <div class="card-grid"><article class="post-card" data-type="editorial" data-post-slug="configuration-materielle-solidworks">
   <div class="post-card__meta">
-    <span class="badge badge-editorial">Article de fond</span>
-    <time datetime="2025-09-21T00:00:00.000Z">21 septembre 2025</time>
-    
+    <span class="badge badge-editorial" data-translate-key="blog_badge_editorial">Article de fond</span>
+    <time datetime="2025-09-21T00:00:00.000Z" data-date-format="long" data-date-iso="2025-09-21T00:00:00.000Z">21 septembre 2025</time>
+
   </div>
   <h3 class="post-card__title"><a href="/blog/configuration-materielle-solidworks/">Configuration matérielle SOLIDWORKS 2025 : le guide terrain pour un bureau d&#39;études réactif</a></h3>
   <p class="post-card__excerpt">Guide pratique de Mohamed Omar Baouch pour dimensionner stations de travail, serveur PDM et réseau autour de SOLIDWORKS 2025, avec benchmarks et feuilles de route opérationnelles.</p>
   <a class="post-card__cta" href="/blog/configuration-materielle-solidworks/">Lire l'article</a>
-</article><article class="post-card" data-type="editorial">
+</article><article class="post-card" data-type="editorial" data-post-slug="resolutions-problematiques-plm">
   <div class="post-card__meta">
-    <span class="badge badge-editorial">Article de fond</span>
-    <time datetime="2025-09-15T00:00:00.000Z">15 septembre 2025</time>
-    
+    <span class="badge badge-editorial" data-translate-key="blog_badge_editorial">Article de fond</span>
+    <time datetime="2025-09-15T00:00:00.000Z" data-date-format="long" data-date-iso="2025-09-15T00:00:00.000Z">15 septembre 2025</time>
+
   </div>
   <h3 class="post-card__title"><a href="/blog/resolutions-problematiques-plm/">Au-delà de la théorie : résoudre les 5 problématiques PLM que j&#39;ai vécues en tant qu&#39;Ingénieur Mécanique</a></h3>
   <p class="post-card__excerpt">Retour d</p>
@@ -134,36 +134,62 @@
   "generatedAt": "2025-09-21T19:15:20.844Z",
   "hero": {
     "editorialHighlight": {
-      "title": "Configuration matérielle SOLIDWORKS 2025 : le guide terrain pour un bureau d'études réactif",
+      "title": {
+        "fr": "Configuration matérielle SOLIDWORKS 2025 : le guide terrain pour un bureau d'études réactif",
+        "en": "SOLIDWORKS 2025 hardware configuration: the field guide for an agile design office"
+      },
       "url": "/blog/configuration-materielle-solidworks/",
       "dateIso": "2025-09-21T00:00:00.000Z",
-      "displayDate": "21 septembre 2025",
-      "shortDate": "21/09/2025",
-      "excerpt": "Guide pratique de Mohamed Omar Baouch pour dimensionner stations de travail, serveur PDM et réseau autour de SOLIDWORKS 2025, avec benchmarks et feuilles de route opérationnelles.",
-      "heroSubtitle": "Publié le 21 septembre 2025. Guide pratique de Mohamed Omar Baouch pour dimensionner stations de travail, serveur PDM et réseau autour de SOLIDWORKS 2025, avec benchmarks et feuilles de route opérationnelles.",
+      "excerpt": {
+        "fr": "Guide pratique de Mohamed Omar Baouch pour dimensionner stations de travail, serveur PDM et réseau autour de SOLIDWORKS 2025, avec benchmarks et feuilles de route opérationnelles.",
+        "en": "Practical guide by Mohamed Omar Baouch to size workstations, the PDM server, and the network around SOLIDWORKS 2025, with benchmarks and actionable roadmaps."
+      },
+      "heroSubtitle": {
+        "fr": "Publié le <span data-date-iso=\"2025-09-21T00:00:00.000Z\" data-date-format=\"long\"></span>. Guide pratique de Mohamed Omar Baouch pour dimensionner stations de travail, serveur PDM et réseau autour de SOLIDWORKS 2025, avec benchmarks et feuilles de route opérationnelles.",
+        "en": "Published on <span data-date-iso=\"2025-09-21T00:00:00.000Z\" data-date-format=\"long\"></span>. Practical guide by Mohamed Omar Baouch to size workstations, the PDM server, and the network around SOLIDWORKS 2025, with benchmarks and actionable roadmaps."
+      },
       "type": "editorial",
-      "ctaLabel": "Lire l'article"
+      "ctaLabel": {
+        "fr": "Lire l'article",
+        "en": "Read the article"
+      }
     }
   },
   "editorials": [
     {
       "slug": "configuration-materielle-solidworks",
       "url": "/blog/configuration-materielle-solidworks/",
-      "title": "Configuration matérielle SOLIDWORKS 2025 : le guide terrain pour un bureau d'études réactif",
+      "title": {
+        "fr": "Configuration matérielle SOLIDWORKS 2025 : le guide terrain pour un bureau d'études réactif",
+        "en": "SOLIDWORKS 2025 hardware configuration: the field guide for an agile design office"
+      },
       "dateIso": "2025-09-21T00:00:00.000Z",
-      "displayDate": "21 septembre 2025",
-      "shortDate": "21/09/2025",
-      "excerpt": "Guide pratique de Mohamed Omar Baouch pour dimensionner stations de travail, serveur PDM et réseau autour de SOLIDWORKS 2025, avec benchmarks et feuilles de route opérationnelles.",
+      "excerpt": {
+        "fr": "Guide pratique de Mohamed Omar Baouch pour dimensionner stations de travail, serveur PDM et réseau autour de SOLIDWORKS 2025, avec benchmarks et feuilles de route opérationnelles.",
+        "en": "Practical guide by Mohamed Omar Baouch to size workstations, the PDM server, and the network around SOLIDWORKS 2025, with benchmarks and actionable roadmaps."
+      },
+      "ctaLabel": {
+        "fr": "Lire l'article",
+        "en": "Read the article"
+      },
       "type": "editorial"
     },
     {
       "slug": "resolutions-problematiques-plm",
       "url": "/blog/resolutions-problematiques-plm/",
-      "title": "Au-delà de la théorie : résoudre les 5 problématiques PLM que j'ai vécues en tant qu'Ingénieur Mécanique",
+      "title": {
+        "fr": "Au-delà de la théorie : résoudre les 5 problématiques PLM que j'ai vécues en tant qu'Ingénieur Mécanique",
+        "en": "Beyond theory: solving the 5 PLM challenges I experienced as a Mechanical Engineer"
+      },
       "dateIso": "2025-09-15T00:00:00.000Z",
-      "displayDate": "15 septembre 2025",
-      "shortDate": "15/09/2025",
-      "excerpt": "Retour d'expérience sur la résolution de problématiques PLM vécues sur le terrain.",
+      "excerpt": {
+        "fr": "Retour d'expérience sur la résolution de problématiques PLM vécues sur le terrain.",
+        "en": "Field feedback on resolving PLM challenges encountered on the ground."
+      },
+      "ctaLabel": {
+        "fr": "Lire l'article",
+        "en": "Read the article"
+      },
       "type": "editorial"
     }
   ]
