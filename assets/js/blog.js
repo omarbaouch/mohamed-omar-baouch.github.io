@@ -9,18 +9,14 @@ const parseBlogData = () => {
     }
 };
 
-const updateHero = (heroData, filter) => {
+const updateHero = (heroData) => {
     if (!heroData) return;
     const heroTitle = document.querySelector('[data-hero-title]');
     const heroSubtitle = document.querySelector('[data-hero-subtitle]');
     const heroLink = document.querySelector('[data-hero-link]');
-    const heroSecondary = document.querySelector('[data-hero-secondary]');
+    const heroActions = document.querySelector('.hero-actions');
 
-    const preferredType = filter === 'editorial' ? 'editorial' : 'radar';
-    const highlight = preferredType === 'editorial'
-        ? heroData.editorialHighlight || heroData.radarHighlight
-        : heroData.radarHighlight || heroData.editorialHighlight;
-
+    const highlight = heroData.editorialHighlight;
     if (!highlight) return;
 
     if (heroTitle) {
@@ -30,25 +26,14 @@ const updateHero = (heroData, filter) => {
         heroSubtitle.textContent = highlight.heroSubtitle || highlight.excerpt || '';
     }
     if (heroLink) {
-        heroLink.href = highlight.url;
-        heroLink.textContent = highlight.type === 'editorial'
-            ? "Lire l'article"
-            : (highlight.displayDate ? `Consulter le radar du ${highlight.displayDate}` : 'Consulter le radar');
-    }
-
-    if (heroSecondary) {
-        const alternate = highlight.type === 'editorial'
-            ? heroData.radarHighlight
-            : heroData.editorialHighlight;
-        if (alternate) {
-            heroSecondary.href = alternate.url;
-            heroSecondary.textContent = alternate.type === 'editorial'
-                ? "Lire l'article de fond"
-                : 'Voir le radar du jour';
-            heroSecondary.classList.remove('is-hidden');
-        } else {
-            heroSecondary.classList.add('is-hidden');
+        if (highlight.url) {
+            heroLink.href = highlight.url;
         }
+        heroLink.textContent = highlight.ctaLabel || "Lire l'article";
+        heroLink.classList.remove('is-hidden');
+    }
+    if (heroActions) {
+        heroActions.classList.toggle('is-hidden', !highlight.url);
     }
 };
 
@@ -79,8 +64,7 @@ const initFilters = (blogData) => {
     const setFilter = (target) => {
         currentFilter = target;
         applyFilter(target, sections, buttons);
-        const heroFilter = target === 'editorial' ? 'editorial' : 'radar';
-        updateHero(blogData?.hero, heroFilter);
+        updateHero(blogData?.hero);
     };
 
     filterGroup.addEventListener('click', (event) => {
@@ -95,30 +79,10 @@ const initFilters = (blogData) => {
     setFilter('all');
 };
 
-const initTimeline = () => {
-    const items = document.querySelectorAll('.timeline-item');
-    if (!items.length || !('IntersectionObserver' in window)) return;
-
-    const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                obs.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.2,
-        rootMargin: '0px 0px -10% 0px'
-    });
-
-    items.forEach((item) => observer.observe(item));
-};
-
 const initBlogPage = () => {
     const blogData = parseBlogData();
     initFilters(blogData);
-    updateHero(blogData?.hero, blogData?.hero?.radarHighlight ? 'radar' : 'editorial');
-    initTimeline();
+    updateHero(blogData?.hero);
 };
 
 if (document.readyState !== 'loading') {
