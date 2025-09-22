@@ -9,7 +9,23 @@ const parseBlogData = () => {
     }
 };
 
-const updateHero = (heroData) => {
+const getLocalizedValue = (value, lang) => {
+    if (value === null || value === undefined) {
+        return '';
+    }
+    if (typeof value === 'string') {
+        return value;
+    }
+    if (typeof value === 'object' && !Array.isArray(value)) {
+        return value[lang] ?? value.fr ?? Object.values(value)[0] ?? '';
+    }
+    return String(value);
+};
+
+let blogDataCache = null;
+let currentLanguage = document.documentElement.lang || 'fr';
+
+const updateHero = (heroData, lang = currentLanguage) => {
     if (!heroData) return;
     const heroTitle = document.querySelector('[data-hero-title]');
     const heroSubtitle = document.querySelector('[data-hero-subtitle]');
@@ -20,21 +36,66 @@ const updateHero = (heroData) => {
     if (!highlight) return;
 
     if (heroTitle) {
-        heroTitle.textContent = highlight.title;
+        heroTitle.textContent = getLocalizedValue(highlight.title, lang);
     }
     if (heroSubtitle) {
-        heroSubtitle.textContent = highlight.heroSubtitle || highlight.excerpt || '';
+        heroSubtitle.innerHTML = getLocalizedValue(highlight.heroSubtitle, lang) || getLocalizedValue(highlight.excerpt, lang) || '';
     }
     if (heroLink) {
         if (highlight.url) {
             heroLink.href = highlight.url;
         }
-        heroLink.textContent = highlight.ctaLabel || "Lire l'article";
+        const defaultCta = lang === 'fr' ? "Lire l'article" : 'Read the article';
+        heroLink.textContent = getLocalizedValue(highlight.ctaLabel, lang) || defaultCta;
         heroLink.classList.remove('is-hidden');
     }
     if (heroActions) {
         heroActions.classList.toggle('is-hidden', !highlight.url);
     }
+    window.formatBlogDates?.(lang);
+};
+
+const updateCards = (posts, lang = currentLanguage) => {
+    if (!Array.isArray(posts)) return;
+    const cards = document.querySelectorAll('.post-card');
+    cards.forEach((card) => {
+        const slug = card.dataset.postSlug;
+        if (!slug) return;
+        const postData = posts.find((post) => post.slug === slug);
+        if (!postData) return;
+        const titleLink = card.querySelector('.post-card__title a');
+        if (titleLink) {
+            titleLink.textContent = getLocalizedValue(postData.title, lang);
+            if (postData.url) {
+                titleLink.href = postData.url;
+            }
+        }
+        const excerptEl = card.querySelector('.post-card__excerpt');
+        if (excerptEl) {
+            excerptEl.textContent = getLocalizedValue(postData.excerpt, lang) || '';
+        }
+        const ctaEl = card.querySelector('.post-card__cta');
+        if (ctaEl) {
+            const defaultCta = lang === 'fr' ? "Lire l'article" : 'Read the article';
+            ctaEl.textContent = getLocalizedValue(postData.ctaLabel, lang) || defaultCta;
+            if (postData.url) {
+                ctaEl.href = postData.url;
+            }
+        }
+        const timeEl = card.querySelector('time');
+        if (timeEl && postData.dateIso) {
+            timeEl.setAttribute('datetime', postData.dateIso);
+            timeEl.setAttribute('data-date-iso', postData.dateIso);
+        }
+    });
+    window.formatBlogDates?.(lang);
+};
+
+const updateBlogTexts = (lang = currentLanguage) => {
+    currentLanguage = lang;
+    if (!blogDataCache) return;
+    updateHero(blogDataCache.hero, lang);
+    updateCards(blogDataCache.editorials, lang);
 };
 
 const applyFilter = (target, sections, buttons) => {
@@ -64,7 +125,7 @@ const initFilters = (blogData) => {
     const setFilter = (target) => {
         currentFilter = target;
         applyFilter(target, sections, buttons);
-        updateHero(blogData?.hero);
+        updateHero(blogData?.hero, currentLanguage);
     };
 
     filterGroup.addEventListener('click', (event) => {
@@ -80,9 +141,10 @@ const initFilters = (blogData) => {
 };
 
 const initBlogPage = () => {
-    const blogData = parseBlogData();
-    initFilters(blogData);
-    updateHero(blogData?.hero);
+    blogDataCache = parseBlogData();
+    if (!blogDataCache) return;
+    initFilters(blogDataCache);
+    updateBlogTexts(currentLanguage);
 };
 
 if (document.readyState !== 'loading') {
@@ -90,3 +152,8 @@ if (document.readyState !== 'loading') {
 } else {
     document.addEventListener('DOMContentLoaded', initBlogPage);
 }
+
+document.addEventListener('blog:languagechange', (event) => {
+    const lang = event.detail?.lang || 'fr';
+    updateBlogTexts(lang);
+});

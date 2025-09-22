@@ -9,6 +9,7 @@ const translations = {
         "nav_skills": "Compétences",
         "nav_education": "Formation",
         "nav_contact": "Contact",
+        "nav_blog": "Blog",
         "hero_title": `<span class="highlight glitch" data-text="Ingénieur Mécanique">Ingénieur Mécanique</span> & <br>Consultant <span class="glitch" data-text="PDM/PLM">PDM/PLM</span>`,
         "hero_subtitle": "Expertise en conception, implémentation de solutions PDM et gestion du cycle de vie produit",
         "hero_cta1": "Me contacter",
@@ -106,6 +107,7 @@ const translations = {
         "nav_skills": "Skills",
         "nav_education": "Education",
         "nav_contact": "Contact",
+        "nav_blog": "Blog",
         "hero_title": `<span class="highlight glitch" data-text="Mechanical Engineer">Mechanical Engineer</span> & <br>PDM/PLM <span class="glitch" data-text="Consultant">Consultant</span>`,
         "hero_subtitle": "Expertise in design, PDM solution implementation, and product lifecycle management",
         "hero_cta1": "Contact Me",
@@ -195,6 +197,424 @@ const translations = {
         "ai_sugg_3": "Where did he study?"
     }
 };
+
+const blogTranslations = {
+    fr: {
+        common: {
+            blog_back_to_blog: "← Retour au blog",
+            blog_back_to_portfolio: "Retour au portfolio",
+            blog_badge_editorial: "Article de fond",
+            blog_cta_summary: "Consulter le sommaire",
+            blog_cta_discuss_project: "Discuter de votre projet",
+            blog_summary_title: "Sommaire"
+        },
+        pages: {
+            index: {
+                blog_index_filter_all: "Tout",
+                blog_index_filter_editorial: "Articles de fond",
+                blog_index_section_editorial_title: "Articles de fond",
+                blog_index_section_editorial_subtitle: "Analyses éditoriales, retours d’expérience et bonnes pratiques terrain."
+            }
+        },
+        articles: {
+            "configuration-materielle-solidworks": {
+                blog_config_badge_guide: "Guide matériel",
+                blog_config_hero_eyebrow: "SOLIDWORKS &amp; PDM",
+                blog_config_hero_title: "Configuration matérielle SOLIDWORKS 2025 : le guide terrain pour un bureau d'études réactif",
+                blog_config_hero_subtitle: `Publié le <span data-date-iso="2025-09-21T00:00:00.000Z" data-date-format="long">21 septembre 2025</span> après douze missions de diagnostic CAO : comment dimensionner stations, serveur PDM et réseau pour éliminer les goulots d'étranglement avant la saison des pics de charge.`,
+                blog_config_stat_publication: "Date de publication",
+                blog_config_stat_profiles: "Profils de stations validés",
+                blog_config_stat_gain: "Gain moyen sur les temps d'ouverture",
+                blog_config_summary_label1: "Pourquoi optimiser le matériel maintenant&nbsp;?",
+                blog_config_summary_meta1: "Les signaux terrain et KPI à surveiller",
+                blog_config_summary_label2: "Audit express d'un parc CAO",
+                blog_config_summary_meta2: "Méthode en trois temps, outils et seuils",
+                blog_config_summary_label3: "Trois profils de stations prêts à déployer",
+                blog_config_summary_meta3: "Spécifications, coûts et impact utilisateur",
+                blog_config_summary_label4: "Serveur PDM, stockage et réseau",
+                blog_config_summary_meta4: "Architecture type et points de vigilance",
+                blog_config_summary_label5: "Plan d'action 90 jours",
+                blog_config_summary_meta5: "Feuille de route et indicateurs de succès",
+                blog_config_enjeux_title: "1. Pourquoi optimiser le matériel maintenant&nbsp;?",
+                blog_config_enjeux_p1: "Depuis le début de 2025, la plupart des directions de bureaux d'études que j'accompagne cherchent à absorber une hausse des projets sans sacrifier la réactivité. Or les irritants que remontent les concepteurs SOLIDWORKS proviennent rarement de la modélisation elle-même&nbsp;: temps d'ouverture qui dépassent la minute, calculs Simulation qui bloquent un poste toute une après-midi, synchronisations PDM qui saturent les liens inter-sites. Ces signaux faibles finissent par freiner la mise sur le marché.",
+                blog_config_enjeux_quote: "Une plateforme matérielle alignée sur les usages, c'est un dossier critique qui sort 30&nbsp;% plus vite, une production mieux alimentée en données et une DSI qui tient ses engagements de service sans surcoût.",
+                blog_config_enjeux_quote_author: "Mohamed Omar Baouch",
+                blog_config_enjeux_p2: "Les organisations qui franchissent le cap de SOLIDWORKS 2025 avec sérénité partagent le même socle&nbsp;: un environnement matériel contrôlé et instrumenté. Ce guide synthétise les enseignements tirés d'une douzaine d'audits réalisés ces dix-huit derniers mois et propose un cadre opérationnel pour identifier les goulots d'étranglement, prioriser les investissements et sécuriser l'évolutivité.",
+                blog_config_audit_title: "2. Audit express d'un parc CAO",
+                blog_config_audit_intro: "L'objectif est de dresser une cartographie fiable des performances en moins de quinze jours. La démarche se structure autour de trois axes complémentaires qui se nourrissent l'un l'autre.",
+                blog_config_audit_card1_title: "Mesures terrain",
+                blog_config_audit_card1_item1: "Journalisation des temps d'ouverture sur dix assemblages représentatifs",
+                blog_config_audit_card1_item2: "Suivi CPU/GPU via SOLIDWORKS RX complété par HWinfo",
+                blog_config_audit_card1_item3: "Analyse détaillée des temps de check-in/out PDM",
+                blog_config_audit_card2_title: "Entretien utilisateurs",
+                blog_config_audit_card2_item1: "Cartographie des tâches critiques (assemblage, Simulation, Visualize)",
+                blog_config_audit_card2_item2: "Identification des pics de charge hebdomadaires et saisonniers",
+                blog_config_audit_card2_item3: "Évaluation de la maturité PDM&nbsp;: workflows, réplications, discipline documentaire",
+                blog_config_audit_card3_title: "Inventaire IT",
+                blog_config_audit_card3_item1: "Âge, garantie et version de firmware des stations",
+                blog_config_audit_card3_item2: "Topologie réseau, saturation des VLAN et qualité du câblage",
+                blog_config_audit_card3_item3: "Stratégie de sauvegarde et PRA autour du coffre-fort PDM",
+                blog_config_audit_callout: `<strong>Livrable clé :</strong> une matrice qui croise profils utilisateurs et workloads, assortie d'un indicateur de santé (vert / orange / rouge). Elle sert de boussole pour calibrer les investissements ciblés.`,
+                blog_config_profils_title: "3. Trois profils de stations prêts à déployer",
+                blog_config_profils_intro: "Au lieu de multiplier les stations sur mesure, je préconise trois profils standardisés. Ils couvrent plus de 90&nbsp;% des cas observés, simplifient les achats et réduisent la variabilité lors des maintenances.",
+                blog_config_profils_table_header_profile: "Profil",
+                blog_config_profils_table_header_cpu: "CPU",
+                blog_config_profils_table_header_gpu: "GPU",
+                blog_config_profils_table_header_ram: "RAM",
+                blog_config_profils_table_header_storage: "Stockage",
+                blog_config_profils_table_header_usage: "Usage principal",
+                blog_config_profils_row1_label: "Bureau d'études",
+                blog_config_profils_row1_usage: "Assemblages &lt; 5&nbsp;000 pièces, mise en plan",
+                blog_config_profils_row2_label: "Simulation avancée",
+                blog_config_profils_row2_usage: "Simulation statique / thermique / Flow",
+                blog_config_profils_row3_label: "Revue immersive",
+                blog_config_profils_row3_usage: "VR, Visualize, revues clients",
+                blog_config_profils_figcaption: "Trois profils éprouvés sur le terrain&nbsp;: budget maîtrisé, maintenance prévisible et gains visibles dès les premières semaines.",
+                blog_config_profils_callout: `<strong>Astuce terrain :</strong> préparez des images Windows différenciées (Design, Simulation, VR) avec politiques d'alimentation adaptées. Vous évitez les BIOS sous-optimisés et sécurisez un comportement homogène sur tout le parc.`,
+                blog_config_infra_title: "4. Serveur PDM, stockage et réseau",
+                blog_config_infra_intro: "Une station de travail performante ne suffit pas si le coffre-fort PDM ou le réseau devient le nouveau goulot d'étranglement. Les projets les plus fluides reposent sur une architecture complète&nbsp;: serveur applicatif dimensionné, stockage NVMe répliqué et réseau 10&nbsp;GbE qui priorise les flux CAO.",
+                blog_config_infra_figcaption: "Backbone PDM prêt pour la montée en charge&nbsp;: NVMe en production, sauvegarde 3-2-1 et qualité de service appliquée aux flux critiques.",
+                blog_config_infra_server_title: "Serveur PDM",
+                blog_config_infra_server_item1: "CPU Xeon Silver ou AMD EPYC avec 12&nbsp;coeurs minimum",
+                blog_config_infra_server_item2: "128&nbsp;Go de RAM ECC pour absorber les pics de réplication",
+                blog_config_infra_server_item3: "Volumes NVMe en RAID&nbsp;1 pour le vault et SSD SATA pour les archives",
+                blog_config_infra_network_title: "Réseau &amp; QoS",
+                blog_config_infra_network_item1: "Backbone 10&nbsp;GbE redondé, VLAN dédié aux flux CAO",
+                blog_config_infra_network_item2: "QoS priorisant PDM, Visualize et sauvegardes différées",
+                blog_config_infra_network_item3: "VPN avec compression et cache local pour les sites distants",
+                blog_config_infra_chart_text: "Répartition indicative d'un budget de modernisation (en&nbsp;%). Ajustez-la à l'issue de votre audit&nbsp;: les gains rapides proviennent souvent du stockage et du réseau.",
+                blog_config_infra_callout: `<strong>Point de vigilance :</strong> synchronisez vos maintenances avec les cycles de sauvegarde et institutionnalisez un test mensuel de restauration du coffre-fort. Un PRA documenté évite les arrêts de production lors des mises à jour SOLIDWORKS.`,
+                blog_config_plan_title: "5. Plan d'action 90 jours",
+                blog_config_plan_intro: "Une fois la cible validée, structurez la mise en œuvre en trois sprints de trente jours. Objectif&nbsp;: livrer des améliorations visibles dès le premier mois tout en sécurisant la trajectoire long terme.",
+                blog_config_plan_item1: `<strong>Sprint&nbsp;1&nbsp;:</strong> commandes et quick wins (SSD NVMe, BIOS à jour, tuning Windows). KPI&nbsp;: temps d'ouverture moyen &lt;&nbsp;45&nbsp;secondes.`,
+                blog_config_plan_item2: `<strong>Sprint&nbsp;2&nbsp;:</strong> déploiement des nouvelles stations et mise à niveau réseau. KPI&nbsp;: zéro erreur de check-in PDM, latence moyenne &lt;&nbsp;2&nbsp;ms.`,
+                blog_config_plan_item3: `<strong>Sprint&nbsp;3&nbsp;:</strong> bascule serveur PDM, sauvegarde 3-2-1, formation utilisateurs. KPI&nbsp;: satisfaction utilisateurs &gt;&nbsp;8/10, PRA testé et validé.`,
+                blog_config_plan_outro: "Ce plan permet d'engranger des gains dès le premier mois tout en alignant IT, bureau d'études et direction industrielle sur la même feuille de route.",
+                blog_config_cta_title: "Vous voulez fiabiliser votre environnement SOLIDWORKS&nbsp;?",
+                blog_config_cta_text: "Je vous aide à cadrer l'audit, hiérarchiser les investissements et orchestrer le déploiement sans interrompre la production. Discutons de vos priorités.",
+                blog_config_cta_button: "Planifier un échange"
+            },
+            "resolutions-problematiques-plm": {
+                blog_plm_hero_eyebrow: "Expérience terrain",
+                blog_plm_hero_title: "Au-delà de la théorie : résoudre les 5 problématiques PLM que j'ai vécues en tant qu'Ingénieur Mécanique",
+                blog_plm_hero_subtitle: `Retour d'expérience publié le <span data-date-iso="2025-09-15T00:00:00.000Z" data-date-format="long">15 septembre 2025</span> : comment passer des discours aux actions concrètes pour sécuriser données, nomenclatures et collaboration.`,
+                blog_plm_stat_publication: "Date de publication",
+                blog_plm_stat_issues: "Problématiques traitées",
+                blog_plm_stat_expertise: "Expertise terrain",
+                blog_plm_summary_label1: "Silos de données qui fragmentent le savoir",
+                blog_plm_summary_meta1: "De l'enquête manuelle au coffre-fort PDM",
+                blog_plm_summary_label2: "Erreurs dans les nomenclatures",
+                blog_plm_summary_meta2: "Quand Excel fait dérailler la production",
+                blog_plm_summary_label3: "Versions incontrôlées et confusion",
+                blog_plm_summary_meta3: "Le risque caché des dossiers « finale_v3 »",
+                blog_plm_summary_label4: "Collaboration freinée entre BE et production",
+                blog_plm_summary_meta4: "Du mail perdu au workflow tracé",
+                blog_plm_summary_label5: "Traçabilité et conformité sous tension",
+                blog_plm_summary_meta5: "Répondre à un audit en quelques clics",
+                blog_plm_intro_p1: "Quand j'ai débuté comme ingénieur mécanique, la gestion des données produit me semblait un sujet réservé aux grandes entreprises et aux théoriciens des processus. La réalité du terrain m'a vite montré l'inverse. Chez Evolum puis chez ABMI, j'ai vu comment un simple plan mal versionné pouvait immobiliser une ligne de production ou comment une nomenclature erronée pouvait faire exploser les coûts d'un projet.",
+                blog_plm_intro_quote: "Un PDM/PLM bien implémenté n'est pas un luxe : c'est un filet de sécurité qui libère les équipes de la chasse aux informations pour qu'elles se concentrent sur l'innovation.",
+                blog_plm_intro_author: "Mohamed Omar Baouch",
+                blog_plm_intro_p2: "Au fil des projets, j'ai identifié cinq problématiques récurrentes. Elles ne sont pas théoriques : chacune est issue d'un incident concret, d'un retard de production ou d'un audit stressant. Voici la synthèse des symptômes et des réponses mises en place avec les équipes terrain.",
+                blog_plm_table_header_issue: "Problématique",
+                blog_plm_table_header_impact: "Impact terrain",
+                blog_plm_table_header_solution: "Solution PLM appliquée",
+                blog_plm_table_row1_issue: "Silos de données",
+                blog_plm_table_row1_impact: "Temps perdu à retrouver la bonne version",
+                blog_plm_table_row1_solution: "Coffre-fort PDM centralisé et droits maîtrisés",
+                blog_plm_table_row2_issue: "Nomenclatures instables",
+                blog_plm_table_row2_impact: "Achats erronés, prototypes retardés",
+                blog_plm_table_row2_solution: "Génération automatique des BOM depuis la CAO",
+                blog_plm_table_row3_issue: "Versions incontrôlées",
+                blog_plm_table_row3_impact: "Production lancée sur un plan obsolète",
+                blog_plm_table_row3_solution: "Gestion des révisions et workflow de validation",
+                blog_plm_table_row4_issue: "Collaboration freinée",
+                blog_plm_table_row4_impact: "Feedback perdu entre mail et atelier",
+                blog_plm_table_row4_solution: "Workflows intégrés entre BE et production",
+                blog_plm_table_row5_issue: "Traçabilité fragile",
+                blog_plm_table_row5_impact: "Audits retardés, confiance client fragilisée",
+                blog_plm_table_row5_solution: "Historique complet et généalogie des pièces",
+                blog_plm_silos_title: "1. Silos de données qui fragmentent le savoir",
+                blog_plm_silos_p1: "À mes débuts chez Evolum, chacun travaillait dans son coin. Les fichiers de conception étaient dispersés entre des disques partagés, des clés USB et parfois des ordinateurs personnels. Lorsque je devais reprendre un projet, je passais plus de temps à chercher la bonne version d'un assemblage qu'à concevoir.",
+                blog_plm_silos_p2: "Cette fragmentation du savoir faisait perdre un temps précieux et créait des divergences entre les bureaux d'études et l'atelier. La mise en place d'un coffre-fort PDM centralisé a été une révélation : chaque modèle était stocké une seule fois, les droits d'accès étaient clairs et je pouvais retracer l'historique complet d'une pièce sans lever de téléphone.",
+                blog_plm_silos_callout: `<strong>Clé du succès :</strong> rendre le PDM incontournable en l'intégrant dans les habitudes quotidiennes (check-in/check-out, commentaires, workflows de revue).`,
+                blog_plm_nomenclature_title: "2. Erreurs dans les nomenclatures",
+                blog_plm_nomenclature_p1: "Lors d'une mission chez ABMI, j'ai vécu les conséquences d'une nomenclature gérée sous Excel. Une ligne oubliée a entraîné l'achat de pièces supplémentaires et plusieurs jours de retard sur un prototype. C'est à ce moment que j'ai compris l'importance d'un système PLM capable de générer des nomenclatures cohérentes directement depuis la CAO et de les lier aux achats.",
+                blog_plm_nomenclature_before_title: "Avant",
+                blog_plm_nomenclature_before_item1: "Excel partagé par mail",
+                blog_plm_nomenclature_before_item2: "Versions multiples sans historique",
+                blog_plm_nomenclature_before_item3: "Décisions prises hors système",
+                blog_plm_nomenclature_after_title: "Après",
+                blog_plm_nomenclature_after_item1: "BOM générée automatiquement",
+                blog_plm_nomenclature_after_item2: "Validation croisée avec les achats",
+                blog_plm_nomenclature_after_item3: "Historique des modifications consolidé",
+                blog_plm_nomenclature_p2: "Avec SolidWorks PDM, nous avons automatisé l'extraction des BOM et mis en place des règles de validation qui ont supprimé ce type d'erreurs. L'équipe projet gagnait en sérénité et les réunions ne tournaient plus autour de la question « qui possède la bonne version ? ».",
+                blog_plm_versions_title: "3. Versions incontrôlées et confusion",
+                blog_plm_versions_p1: "Avant d'adopter un PDM, la gestion des révisions se résumait à des suffixes dans les noms de fichiers. Il n'était pas rare de voir des dossiers remplis de \"finale\", \"finale2\" ou \"version_definitive_v3\". Lors de mon passage chez Evolum, cette pratique a provoqué la fabrication d'un lot de pièces basé sur un plan obsolète.",
+                blog_plm_versions_p2: "En implémentant un véritable PLM chez Visiativ, j'ai découvert la puissance du contrôle de versions : chaque modification est tracée, commentée et validée. Les transitions de statuts (en conception, en validation, publié) ont apporté une clarté immédiate et réduit drastiquement les allers-retours improductifs.",
+                blog_plm_collaboration_title: "4. Collaboration freinée entre bureaux d'études et production",
+                blog_plm_collaboration_p1: "La collaboration se limitait souvent à l'échange de fichiers par email. Les retours de l'atelier arrivaient tard et les remarques se perdaient dans les boîtes de réception. En tant que consultant chez Visiativ, j'ai accompagné plusieurs clients dans l'intégration de workflows qui relient directement la conception à la production.",
+                blog_plm_collaboration_p2: "Grâce à un PDM bien configuré, l'atelier peut annoter les modèles, proposer des modifications et suivre leur prise en compte. Cette boucle de feedback en continu a transformé la relation entre les équipes et réduit drastiquement les erreurs de fabrication.",
+                blog_plm_traceability_title: "5. Traçabilité et conformité",
+                blog_plm_traceability_p1: "Dans des secteurs réglementés, prouver la conformité d'un produit est aussi important que le produit lui-même. Avant l'arrivée d'un PLM, la traçabilité reposait sur des dossiers papier et la mémoire des ingénieurs. J'ai vu un audit repoussé parce qu'il était impossible de démontrer la généalogie complète d'un composant.",
+                blog_plm_traceability_p2: "Avec un PLM, chaque décision, chaque validation et chaque version est enregistrée. Lors d'un projet piloté par Visiativ, nous avons pu répondre à un audit en quelques clics, fournissant l'historique complet des modifications d'une pièce critique. La confiance du client s'en est trouvée renforcée.",
+                blog_plm_outro_p1: "Ces cinq problématiques ne sont pas de simples cas d'école. Elles ont freiné des projets auxquels j'ai participé et m'ont parfois laissé un goût d'inachevé. Aujourd'hui, en tant que consultant PDM/PLM chez Visiativ, je mets cette expérience au service des entreprises qui veulent éviter ces pièges.",
+                blog_plm_cta_title: "Envie de résoudre vos problématiques PLM&nbsp;?",
+                blog_plm_cta_text: "Construisons ensemble une feuille de route pragmatique, ancrée dans votre réalité terrain. Une simple discussion peut révéler les priorités à adresser en premier.",
+                blog_plm_cta_button: "Planifier un échange"
+            }
+        }
+    },
+    en: {
+        common: {
+            blog_back_to_blog: "← Back to the blog",
+            blog_back_to_portfolio: "Back to the portfolio",
+            blog_badge_editorial: "Feature article",
+            blog_cta_summary: "View the outline",
+            blog_cta_discuss_project: "Discuss your project",
+            blog_summary_title: "Outline"
+        },
+        pages: {
+            index: {
+                blog_index_filter_all: "All",
+                blog_index_filter_editorial: "Feature articles",
+                blog_index_section_editorial_title: "Feature articles",
+                blog_index_section_editorial_subtitle: "Editorial analyses, field feedback, and practical best practices."
+            }
+        },
+        articles: {
+            "configuration-materielle-solidworks": {
+                blog_config_badge_guide: "Hardware guide",
+                blog_config_hero_eyebrow: "SOLIDWORKS &amp; PDM",
+                blog_config_hero_title: "SOLIDWORKS 2025 hardware configuration: the field guide for an agile design office",
+                blog_config_hero_subtitle: `Published on <span data-date-iso="2025-09-21T00:00:00.000Z" data-date-format="long"></span> after twelve CAD diagnostics: how to size workstations, the PDM server, and the network to eliminate bottlenecks before peak season.`,
+                blog_config_stat_publication: "Publication date",
+                blog_config_stat_profiles: "Validated workstation profiles",
+                blog_config_stat_gain: "Average gain on opening times",
+                blog_config_summary_label1: "Why optimize hardware now?",
+                blog_config_summary_meta1: "Signals from the field and KPIs to monitor",
+                blog_config_summary_label2: "Rapid audit of a CAD environment",
+                blog_config_summary_meta2: "Three-step method, tools, and thresholds",
+                blog_config_summary_label3: "Three ready-to-deploy workstation profiles",
+                blog_config_summary_meta3: "Specifications, costs, and user impact",
+                blog_config_summary_label4: "PDM server, storage, and network",
+                blog_config_summary_meta4: "Reference architecture and watchpoints",
+                blog_config_summary_label5: "90-day action plan",
+                blog_config_summary_meta5: "Roadmap and success indicators",
+                blog_config_enjeux_title: "1. Why optimize hardware now?",
+                blog_config_enjeux_p1: "Since the start of 2025, most design office leaders I support are trying to absorb more projects without sacrificing responsiveness. Yet the pain points raised by SOLIDWORKS designers rarely stem from modeling itself: opening times that exceed a minute, Simulation runs that block a workstation for an entire afternoon, PDM synchronizations that saturate inter-site links. These weak signals eventually slow down time-to-market.",
+                blog_config_enjeux_quote: "A hardware platform aligned with actual usage means a critical file is released 30% faster, production stays well supplied with data, and IT delivers service levels without overspending.",
+                blog_config_enjeux_quote_author: "Mohamed Omar Baouch",
+                blog_config_enjeux_p2: "Organizations that approach SOLIDWORKS 2025 with confidence share the same foundation: a controlled, instrumented hardware environment. This guide summarizes a dozen audits carried out over the past eighteen months and offers an operational framework to identify bottlenecks, prioritize investments, and secure scalability.",
+                blog_config_audit_title: "2. Rapid audit of a CAD environment",
+                blog_config_audit_intro: "The goal is to establish a reliable performance map in under fifteen days. The approach is structured around three complementary axes that feed each other.",
+                blog_config_audit_card1_title: "Field measurements",
+                blog_config_audit_card1_item1: "Log opening times on ten representative assemblies",
+                blog_config_audit_card1_item2: "Track CPU/GPU usage via SOLIDWORKS RX supplemented with HWinfo",
+                blog_config_audit_card1_item3: "Detailed analysis of PDM check-in/check-out times",
+                blog_config_audit_card2_title: "User interviews",
+                blog_config_audit_card2_item1: "Map critical tasks (assemblies, Simulation, Visualize)",
+                blog_config_audit_card2_item2: "Identify weekly and seasonal peak loads",
+                blog_config_audit_card2_item3: "Assess PDM maturity: workflows, replication, document discipline",
+                blog_config_audit_card3_title: "IT inventory",
+                blog_config_audit_card3_item1: "Station age, warranty, and firmware version",
+                blog_config_audit_card3_item2: "Network topology, VLAN saturation, and cabling quality",
+                blog_config_audit_card3_item3: "Backup strategy and disaster recovery around the PDM vault",
+                blog_config_audit_callout: `<strong>Key deliverable:</strong> a matrix crossing user profiles and workloads, paired with a health indicator (green / orange / red). It is the compass for calibrating targeted investments.`,
+                blog_config_profils_title: "3. Three ready-to-deploy workstation profiles",
+                blog_config_profils_intro: "Instead of multiplying custom stations, I recommend three standardized profiles. They cover over 90% of observed cases, simplify purchasing, and reduce variability during maintenance.",
+                blog_config_profils_table_header_profile: "Profile",
+                blog_config_profils_table_header_cpu: "CPU",
+                blog_config_profils_table_header_gpu: "GPU",
+                blog_config_profils_table_header_ram: "RAM",
+                blog_config_profils_table_header_storage: "Storage",
+                blog_config_profils_table_header_usage: "Primary use",
+                blog_config_profils_row1_label: "Design office",
+                blog_config_profils_row1_usage: "Assemblies &lt; 5&nbsp;000 parts, drafting",
+                blog_config_profils_row2_label: "Advanced simulation",
+                blog_config_profils_row2_usage: "Structural, thermal, and Flow Simulation",
+                blog_config_profils_row3_label: "Immersive review",
+                blog_config_profils_row3_usage: "VR, Visualize, client reviews",
+                blog_config_profils_figcaption: "Three field-proven profiles: controlled budget, predictable maintenance, and visible gains from the first weeks.",
+                blog_config_profils_callout: `<strong>Field tip:</strong> prepare separate Windows images (Design, Simulation, VR) with tailored power policies. You avoid under-tuned BIOS settings and ensure consistent behavior across the fleet.`,
+                blog_config_infra_title: "4. PDM server, storage, and network",
+                blog_config_infra_intro: "A powerful workstation is not enough if the PDM vault or the network becomes the new bottleneck. The smoothest projects rely on a complete architecture: properly sized application server, replicated NVMe storage, and 10&nbsp;GbE networking that prioritizes CAD traffic.",
+                blog_config_infra_figcaption: "PDM backbone ready to scale: NVMe in production, 3-2-1 backup, and quality of service applied to critical flows.",
+                blog_config_infra_server_title: "PDM server",
+                blog_config_infra_server_item1: "Xeon Silver or AMD EPYC CPU with at least 12 cores",
+                blog_config_infra_server_item2: "128&nbsp;GB ECC RAM to absorb replication peaks",
+                blog_config_infra_server_item3: "NVMe RAID&nbsp;1 volumes for the vault and SATA SSDs for archives",
+                blog_config_infra_network_title: "Network &amp; QoS",
+                blog_config_infra_network_item1: "Redundant 10&nbsp;GbE backbone with a VLAN dedicated to CAD traffic",
+                blog_config_infra_network_item2: "QoS prioritizing PDM, Visualize, and deferred backups",
+                blog_config_infra_network_item3: "VPN with compression and local caching for remote sites",
+                blog_config_infra_chart_text: "Indicative breakdown of a modernization budget (%). Adjust it after your audit: quick wins often come from storage and the network.",
+                blog_config_infra_callout: `<strong>Watchpoint:</strong> align maintenance windows with backup cycles and institutionalize a monthly vault restoration test. A documented DR plan prevents production stops during SOLIDWORKS upgrades.`,
+                blog_config_plan_title: "5. 90-day action plan",
+                blog_config_plan_intro: "Once the target is validated, structure execution into three thirty-day sprints. Objective: deliver visible improvements from month one while securing the long-term trajectory.",
+                blog_config_plan_item1: `<strong>Sprint&nbsp;1:</strong> orders and quick wins (NVMe SSDs, up-to-date BIOS, Windows tuning). KPI: average opening time &lt;&nbsp;45&nbsp;seconds.`,
+                blog_config_plan_item2: `<strong>Sprint&nbsp;2:</strong> deploy new stations and upgrade the network. KPI: zero PDM check-in errors, average latency &lt;&nbsp;2&nbsp;ms.`,
+                blog_config_plan_item3: `<strong>Sprint&nbsp;3:</strong> switch the PDM server, implement 3-2-1 backups, train users. KPI: user satisfaction &gt;&nbsp;8/10, DR plan tested and approved.`,
+                blog_config_plan_outro: "This plan generates gains from the first month while aligning IT, the design office, and operations on the same roadmap.",
+                blog_config_cta_title: "Want to stabilize your SOLIDWORKS environment?",
+                blog_config_cta_text: "I help you frame the audit, prioritize investments, and orchestrate deployment without interrupting production. Let's discuss your priorities.",
+                blog_config_cta_button: "Schedule a call"
+            },
+            "resolutions-problematiques-plm": {
+                blog_plm_hero_eyebrow: "Field experience",
+                blog_plm_hero_title: "Beyond theory: solving the 5 PLM challenges I experienced as a Mechanical Engineer",
+                blog_plm_hero_subtitle: `Field feedback published on <span data-date-iso="2025-09-15T00:00:00.000Z" data-date-format="long"></span>: how to move from talk to concrete actions to secure data, BOMs, and collaboration.`,
+                blog_plm_stat_publication: "Publication date",
+                blog_plm_stat_issues: "Challenges addressed",
+                blog_plm_stat_expertise: "Field expertise",
+                blog_plm_summary_label1: "Data silos fragmenting knowledge",
+                blog_plm_summary_meta1: "From manual searches to a secured PDM vault",
+                blog_plm_summary_label2: "Errors in bills of materials",
+                blog_plm_summary_meta2: "When Excel derails production",
+                blog_plm_summary_label3: "Uncontrolled versions and confusion",
+                blog_plm_summary_meta3: "The hidden risk of “final_v3” folders",
+                blog_plm_summary_label4: "Collaboration slowed between design and production",
+                blog_plm_summary_meta4: "From lost emails to tracked workflows",
+                blog_plm_summary_label5: "Traceability and compliance under pressure",
+                blog_plm_summary_meta5: "Answering an audit in a few clicks",
+                blog_plm_intro_p1: "When I started as a mechanical engineer, product data management seemed reserved for large companies and process theorists. Reality quickly proved otherwise. At Evolum and later ABMI, I saw how a single mis-versioned drawing could stop a production line or how an inconsistent BOM could explode a project’s costs.",
+                blog_plm_intro_quote: "A well-implemented PDM/PLM is not a luxury: it is a safety net that frees teams from chasing information so they can focus on innovation.",
+                blog_plm_intro_author: "Mohamed Omar Baouch",
+                blog_plm_intro_p2: "Across projects I identified five recurring challenges. They are not theoretical: each stems from a concrete incident, a production delay, or a stressful audit. Here is a synthesis of the symptoms and the responses built with field teams.",
+                blog_plm_table_header_issue: "Challenge",
+                blog_plm_table_header_impact: "Impact on the field",
+                blog_plm_table_header_solution: "Applied PLM solution",
+                blog_plm_table_row1_issue: "Data silos",
+                blog_plm_table_row1_impact: "Time wasted finding the right version",
+                blog_plm_table_row1_solution: "Centralized PDM vault with controlled access",
+                blog_plm_table_row2_issue: "Unstable BOMs",
+                blog_plm_table_row2_impact: "Wrong purchases, delayed prototypes",
+                blog_plm_table_row2_solution: "Automatic BOM generation from CAD",
+                blog_plm_table_row3_issue: "Uncontrolled versions",
+                blog_plm_table_row3_impact: "Production launched on an outdated drawing",
+                blog_plm_table_row3_solution: "Revision management and approval workflow",
+                blog_plm_table_row4_issue: "Slowed collaboration",
+                blog_plm_table_row4_impact: "Feedback lost between email and the shop floor",
+                blog_plm_table_row4_solution: "Integrated workflows between design and production",
+                blog_plm_table_row5_issue: "Fragile traceability",
+                blog_plm_table_row5_impact: "Delayed audits, weakened customer trust",
+                blog_plm_table_row5_solution: "Complete history and part genealogy",
+                blog_plm_silos_title: "1. Data silos fragmenting knowledge",
+                blog_plm_silos_p1: "At my start with Evolum, everyone worked in isolation. Design files were scattered across shared drives, USB sticks, and sometimes personal computers. When I had to take over a project, I spent more time searching for the right assembly version than actually designing.",
+                blog_plm_silos_p2: "This fragmented knowledge wasted precious time and created discrepancies between design offices and the workshop. Deploying a centralized PDM vault was a revelation: each model was stored once, access rights were clear, and I could trace a part’s entire history without picking up the phone.",
+                blog_plm_silos_callout: `<strong>Success key:</strong> make the PDM indispensable by embedding it into daily habits (check-in/check-out, comments, review workflows).`,
+                blog_plm_nomenclature_title: "2. Errors in bills of materials",
+                blog_plm_nomenclature_p1: "During a mission at ABMI I experienced the consequences of managing a BOM in Excel. One missing line led to extra parts being ordered and several days of delay on a prototype. That’s when I realized the importance of a PLM capable of generating consistent BOMs directly from CAD and linking them to purchasing.",
+                blog_plm_nomenclature_before_title: "Before",
+                blog_plm_nomenclature_before_item1: "Excel shared by email",
+                blog_plm_nomenclature_before_item2: "Multiple versions with no history",
+                blog_plm_nomenclature_before_item3: "Decisions taken outside the system",
+                blog_plm_nomenclature_after_title: "After",
+                blog_plm_nomenclature_after_item1: "BOM generated automatically",
+                blog_plm_nomenclature_after_item2: "Cross-check with purchasing",
+                blog_plm_nomenclature_after_item3: "Consolidated change history",
+                blog_plm_nomenclature_p2: "With SOLIDWORKS PDM we automated BOM extraction and implemented validation rules that eliminated this kind of error. The project team gained peace of mind and meetings no longer revolved around “who has the right version?”",
+                blog_plm_versions_title: "3. Uncontrolled versions and confusion",
+                blog_plm_versions_p1: "Before adopting a PDM, revision management boiled down to suffixes in filenames. Folders full of “final”, “final2”, or “version_definitive_v3” were common. During my time at Evolum this practice triggered the production of a batch of parts from an outdated drawing.",
+                blog_plm_versions_p2: "By implementing a true PLM at Visiativ, I discovered the power of version control: every change is tracked, commented, and approved. Status transitions (in design, under review, released) brought immediate clarity and drastically reduced unproductive back-and-forth.",
+                blog_plm_collaboration_title: "4. Collaboration slowed between design offices and production",
+                blog_plm_collaboration_p1: "Collaboration often boiled down to exchanging files by email. Feedback from the shop floor arrived late and comments were lost in inboxes. As a consultant at Visiativ I helped several clients integrate workflows that connect design directly to production.",
+                blog_plm_collaboration_p2: "With a well-configured PDM, the workshop can annotate models, propose changes, and track their adoption. This continuous feedback loop transformed relationships between teams and drastically reduced manufacturing errors.",
+                blog_plm_traceability_title: "5. Traceability and compliance",
+                blog_plm_traceability_p1: "In regulated industries, proving product compliance is as critical as the product itself. Before PLM, traceability relied on paper binders and engineers’ memory. I saw an audit postponed because it was impossible to demonstrate the full genealogy of a component.",
+                blog_plm_traceability_p2: "With a PLM, every decision, approval, and version is recorded. On a project led by Visiativ we answered an audit in just a few clicks, providing the complete change history of a critical part. Customer trust was strengthened.",
+                blog_plm_outro_p1: "These five challenges are not textbook examples. They slowed projects I worked on and sometimes left me frustrated. Today, as a PDM/PLM consultant at Visiativ, I leverage that experience to help companies avoid these pitfalls.",
+                blog_plm_cta_title: "Want to tackle your PLM challenges?",
+                blog_plm_cta_text: "Let's build a pragmatic roadmap anchored in your field reality. A short discussion can surface the priorities to address first.",
+                blog_plm_cta_button: "Schedule a call"
+            }
+        }
+    }
+};
+
+const SUPPORTED_LANGUAGES = ['fr', 'en'];
+
+function isBlogPage() {
+    return document.body?.classList.contains('blog-page');
+}
+
+function getBlogPageKey() {
+    return document.body?.dataset.blogPage || null;
+}
+
+function getBlogPostSlug() {
+    return document.body?.dataset.blogPost || null;
+}
+
+function buildBlogLanguageData(lang) {
+    const config = blogTranslations[lang];
+    if (!config) {
+        return {};
+    }
+    const result = { ...(config.common || {}) };
+    const pageKey = getBlogPageKey();
+    if (pageKey && config.pages?.[pageKey]) {
+        Object.assign(result, config.pages[pageKey]);
+    }
+    const slug = getBlogPostSlug();
+    if (slug && config.articles?.[slug]) {
+        Object.assign(result, config.articles[slug]);
+    }
+    return result;
+}
+
+function formatBlogDates(lang) {
+    const targets = document.querySelectorAll('[data-date-iso]');
+    if (!targets.length) {
+        return;
+    }
+    const locale = lang === 'fr' ? 'fr-FR' : 'en-GB';
+    const longFormatter = new Intl.DateTimeFormat(locale, { day: 'numeric', month: 'long', year: 'numeric' });
+    const shortFormatter = new Intl.DateTimeFormat(locale, { day: '2-digit', month: '2-digit', year: 'numeric' });
+    targets.forEach((element) => {
+        const iso = element.getAttribute('data-date-iso');
+        if (!iso) {
+            return;
+        }
+        const date = new Date(iso);
+        if (Number.isNaN(date.getTime())) {
+            return;
+        }
+        const format = element.getAttribute('data-date-format') || 'long';
+        const formatter = format === 'short' ? shortFormatter : longFormatter;
+        element.textContent = formatter.format(date);
+    });
+}
+
+if (typeof window !== 'undefined') {
+    window.formatBlogDates = formatBlogDates;
+}
+
+function applyPortfolioLanguage(langData, lang) {
+    if (!langData) {
+        return;
+    }
+    const downloadCvLink = document.querySelector('[data-cv-link]');
+    if (downloadCvLink && langData['cv_file']) {
+        downloadCvLink.setAttribute('href', langData['cv_file']);
+    }
+    if (langData['meta_title']) {
+        document.title = langData['meta_title'];
+    }
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription && langData['meta_description']) {
+        metaDescription.setAttribute('content', langData['meta_description']);
+    }
+    const glitchElements = document.querySelectorAll('.glitch');
+    if (glitchElements.length >= 2) {
+        if (lang === 'en') {
+            glitchElements[0].dataset.text = 'Mechanical Engineer';
+            glitchElements[1].dataset.text = 'Consultant';
+        } else {
+            glitchElements[0].dataset.text = 'Ingénieur Mécanique';
+            glitchElements[1].dataset.text = 'PDM/PLM';
+        }
+    }
+}
 const frenchCountries = [
     'BJ', 'BF', 'CG', 'CD', 'CI', 'GA', 'GN', 'ML', 'NE', 'SN', 'TG', 'TD', // Afrique Ouest/Centrale
     'FR', 'MC', 'LU', 'BE', 'CH', // Europe
@@ -227,44 +647,48 @@ function getCookie(name) {
     return null;
 }
 function setLanguage(lang) {
-    if (!['fr', 'en'].includes(lang)) {
+    if (!SUPPORTED_LANGUAGES.includes(lang)) {
         console.warn(`Language '${lang}' not supported. Defaulting to 'fr'.`);
         lang = 'fr';
     }
-    const langData = translations[lang];
-    document.querySelectorAll('[data-translate-key]').forEach(el => {
-        const key = el.dataset.translateKey;
-        if (langData[key]) {
-            el.innerHTML = langData[key];
+    const htmlElement = document.documentElement;
+    if (htmlElement) {
+        htmlElement.lang = lang;
+    }
+    const portfolioLangData = translations[lang] || {};
+    const blogPageActive = isBlogPage();
+    const blogLangData = blogPageActive ? buildBlogLanguageData(lang) : {};
+    document.querySelectorAll('[data-translate-key]').forEach((element) => {
+        const key = element.dataset.translateKey;
+        const value = (blogPageActive ? blogLangData[key] : undefined) ?? portfolioLangData[key];
+        if (value !== undefined) {
+            element.innerHTML = value;
         }
     });
-    const downloadCvLink = document.querySelector('a[href$=".pdf"]');
-    if (downloadCvLink && langData['cv_file']) {
-        downloadCvLink.setAttribute('href', langData['cv_file']);
+    const langFrBtn = document.getElementById('lang-fr');
+    if (langFrBtn) {
+        langFrBtn.classList.toggle('active', lang === 'fr');
     }
-    document.querySelector('html').lang = lang;
-    document.title = langData['meta_title'];
-    document.querySelector('meta[name="description"]').setAttribute('content', langData['meta_description']);
-    document.getElementById('lang-fr').classList.toggle('active', lang === 'fr');
-    document.getElementById('lang-en').classList.toggle('active', lang === 'en');
-    const glitchElements = document.querySelectorAll('.glitch');
-    if (lang === 'en') {
-        glitchElements[0].dataset.text = "Mechanical Engineer";
-        glitchElements[1].dataset.text = "Consultant";
+    const langEnBtn = document.getElementById('lang-en');
+    if (langEnBtn) {
+        langEnBtn.classList.toggle('active', lang === 'en');
+    }
+    if (blogPageActive) {
+        document.dispatchEvent(new CustomEvent('blog:languagechange', { detail: { lang } }));
+        formatBlogDates(lang);
     } else {
-        glitchElements[0].dataset.text = "Ingénieur Mécanique";
-        glitchElements[1].dataset.text = "PDM/PLM";
+        applyPortfolioLanguage(portfolioLangData, lang);
     }
     setCookie('preferred_language', lang, 365);
 }
 async function initializeLanguage() {
     const cookieLang = getCookie('preferred_language');
-    if (cookieLang) {
+    if (cookieLang && SUPPORTED_LANGUAGES.includes(cookieLang)) {
         setLanguage(cookieLang);
         return;
     }
     const browserLang = navigator.language.split('-')[0];
-    if (browserLang === 'fr' || browserLang === 'en') {
+    if (SUPPORTED_LANGUAGES.includes(browserLang)) {
         setLanguage(browserLang);
         return;
     }
@@ -287,8 +711,14 @@ async function initializeLanguage() {
         setLanguage('fr');
     }
 }
-document.getElementById('lang-fr').addEventListener('click', () => setLanguage('fr'));
-document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
+const langFrButton = document.getElementById('lang-fr');
+if (langFrButton) {
+    langFrButton.addEventListener('click', () => setLanguage('fr'));
+}
+const langEnButton = document.getElementById('lang-en');
+if (langEnButton) {
+    langEnButton.addEventListener('click', () => setLanguage('en'));
+}
 //--------- LANGUAGE SWITCHER SCRIPT END ---------//
 
 function createHeroGrid() {

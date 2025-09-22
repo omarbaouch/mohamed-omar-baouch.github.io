@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/blog.css">
 </head>
-<body class="blog-page">
+<body class="blog-page" data-blog-post="configuration-materielle-solidworks">
     <canvas id="transition-canvas"></canvas>
     <div class="perspective-wrapper">
         <div id="perspective-content" class="perspective-content"></div>
@@ -33,12 +33,12 @@
             <a href="/" class="logo">M.BAOUCH</a>
             <div class="nav-right">
                 <ul class="menu" id="menu">
-                    <li><a href="/#about" class="nav-link">À propos</a></li>
-                    <li><a href="/#experience" class="nav-link">Expérience</a></li>
-                    <li><a href="/#skills" class="nav-link">Compétences</a></li>
-                    <li><a href="/#education" class="nav-link">Formation</a></li>
-                    <li><a href="/#contact" class="nav-link">Contact</a></li>
-                    <li><a href="/blog/" class="nav-link">Blog</a></li>
+                    <li><a href="/#about" class="nav-link" data-translate-key="nav_about">À propos</a></li>
+                    <li><a href="/#experience" class="nav-link" data-translate-key="nav_experience">Expérience</a></li>
+                    <li><a href="/#skills" class="nav-link" data-translate-key="nav_skills">Compétences</a></li>
+                    <li><a href="/#education" class="nav-link" data-translate-key="nav_education">Formation</a></li>
+                    <li><a href="/#contact" class="nav-link" data-translate-key="nav_contact">Contact</a></li>
+                    <li><a href="/blog/" class="nav-link" data-translate-key="nav_blog">Blog</a></li>
                 </ul>
                 <div class="language-switcher">
                     <button id="lang-fr" class="lang-btn active">FR</button>
@@ -57,171 +57,171 @@
         <div class="blog-shell" id="blogShell" data-shell>
             <article class="blog-article" data-article-root>
                 <nav class="article-breadcrumbs" aria-label="Navigation secondaire">
-                    <a class="back-link" href="/blog/">← Retour au blog</a>
-                    <a class="back-link back-link--ghost" href="/">Retour au portfolio</a>
+                    <a class="back-link" href="/blog/" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                    <a class="back-link back-link--ghost" href="/" data-translate-key="blog_back_to_portfolio">Retour au portfolio</a>
                 </nav>
 
                 <header class="blog-hero post-hero" data-component="hero">
                     <div class="hero-intro">
                         <div class="hero-badges">
-                            <span class="badge badge-editorial">Article de fond</span>
-                            <span class="badge">Guide matériel</span>
+                            <span class="badge badge-editorial" data-translate-key="blog_badge_editorial">Article de fond</span>
+                            <span class="badge" data-translate-key="blog_config_badge_guide">Guide matériel</span>
                         </div>
-                        <span class="hero-eyebrow">SOLIDWORKS &amp; PDM</span>
-                        <h1 class="hero-title">Configuration matérielle SOLIDWORKS 2025 : le guide terrain pour un bureau d'études réactif</h1>
-                        <p class="hero-subtitle">Publié le 21 septembre 2025 après douze missions de diagnostic CAO : comment dimensionner stations, serveur PDM et réseau pour éliminer les goulots d'étranglement avant la saison des pics de charge.</p>
+                        <span class="hero-eyebrow" data-translate-key="blog_config_hero_eyebrow">SOLIDWORKS &amp; PDM</span>
+                        <h1 class="hero-title" data-translate-key="blog_config_hero_title">Configuration matérielle SOLIDWORKS 2025 : le guide terrain pour un bureau d'études réactif</h1>
+                        <p class="hero-subtitle" data-translate-key="blog_config_hero_subtitle">Publié le <span data-date-iso="2025-09-21T00:00:00.000Z" data-date-format="long">21 septembre 2025</span> après douze missions de diagnostic CAO : comment dimensionner stations, serveur PDM et réseau pour éliminer les goulots d'étranglement avant la saison des pics de charge.</p>
                         <div class="hero-actions">
-                            <a class="hero-btn" href="#sommaire">Consulter le sommaire</a>
-                            <a class="hero-btn hero-btn--ghost" href="/#contact">Discuter de votre projet</a>
+                            <a class="hero-btn" href="#sommaire" data-translate-key="blog_cta_summary">Consulter le sommaire</a>
+                            <a class="hero-btn hero-btn--ghost" href="/#contact" data-translate-key="blog_cta_discuss_project">Discuter de votre projet</a>
                         </div>
                     </div>
                     <div class="hero-stats">
                         <div class="hero-stat">
-                            <span class="hero-stat-value">21/09/2025</span>
-                            <span class="hero-stat-label">Date de publication</span>
+                            <span class="hero-stat-value" data-date-iso="2025-09-21T00:00:00.000Z" data-date-format="short">21/09/2025</span>
+                            <span class="hero-stat-label" data-translate-key="blog_config_stat_publication">Date de publication</span>
                         </div>
                         <div class="hero-stat">
                             <span class="hero-stat-value">3</span>
-                            <span class="hero-stat-label">Profils de stations validés</span>
+                            <span class="hero-stat-label" data-translate-key="blog_config_stat_profiles">Profils de stations validés</span>
                         </div>
                         <div class="hero-stat">
                             <span class="hero-stat-value">12%</span>
-                            <span class="hero-stat-label">Gain moyen sur les temps d'ouverture</span>
+                            <span class="hero-stat-label" data-translate-key="blog_config_stat_gain">Gain moyen sur les temps d'ouverture</span>
                         </div>
                     </div>
                 </header>
 
                 <nav class="blog-section article-summary" id="sommaire" aria-label="Sommaire de l'article">
-                    <h2 class="summary-title">Sommaire</h2>
+                    <h2 class="summary-title" data-translate-key="blog_summary_title">Sommaire</h2>
                     <ol class="summary-list">
                         <li>
                             <a href="#enjeux-performance">
                                 <span class="summary-index">01</span>
-                                <span class="summary-label">Pourquoi optimiser le matériel maintenant&nbsp;?</span>
-                                <span class="summary-meta">Les signaux terrain et KPI à surveiller</span>
+                                <span class="summary-label" data-translate-key="blog_config_summary_label1">Pourquoi optimiser le matériel maintenant&nbsp;?</span>
+                                <span class="summary-meta" data-translate-key="blog_config_summary_meta1">Les signaux terrain et KPI à surveiller</span>
                             </a>
                         </li>
                         <li>
                             <a href="#audit-initial">
                                 <span class="summary-index">02</span>
-                                <span class="summary-label">Audit express d'un parc CAO</span>
-                                <span class="summary-meta">Méthode en trois temps, outils et seuils</span>
+                                <span class="summary-label" data-translate-key="blog_config_summary_label2">Audit express d'un parc CAO</span>
+                                <span class="summary-meta" data-translate-key="blog_config_summary_meta2">Méthode en trois temps, outils et seuils</span>
                             </a>
                         </li>
                         <li>
                             <a href="#profils-workstations">
                                 <span class="summary-index">03</span>
-                                <span class="summary-label">Trois profils de stations prêts à déployer</span>
-                                <span class="summary-meta">Spécifications, coûts et impact utilisateur</span>
+                                <span class="summary-label" data-translate-key="blog_config_summary_label3">Trois profils de stations prêts à déployer</span>
+                                <span class="summary-meta" data-translate-key="blog_config_summary_meta3">Spécifications, coûts et impact utilisateur</span>
                             </a>
                         </li>
                         <li>
                             <a href="#infrastructure">
                                 <span class="summary-index">04</span>
-                                <span class="summary-label">Serveur PDM, stockage et réseau</span>
-                                <span class="summary-meta">Architecture type et points de vigilance</span>
+                                <span class="summary-label" data-translate-key="blog_config_summary_label4">Serveur PDM, stockage et réseau</span>
+                                <span class="summary-meta" data-translate-key="blog_config_summary_meta4">Architecture type et points de vigilance</span>
                             </a>
                         </li>
                         <li>
                             <a href="#plan-daction">
                                 <span class="summary-index">05</span>
-                                <span class="summary-label">Plan d'action 90 jours</span>
-                                <span class="summary-meta">Feuille de route et indicateurs de succès</span>
+                                <span class="summary-label" data-translate-key="blog_config_summary_label5">Plan d'action 90 jours</span>
+                                <span class="summary-meta" data-translate-key="blog_config_summary_meta5">Feuille de route et indicateurs de succès</span>
                             </a>
                         </li>
                     </ol>
                 </nav>
 
                 <section class="blog-section article-section" id="enjeux-performance">
-                    <h2>1. Pourquoi optimiser le matériel maintenant&nbsp;?</h2>
-                    <p>Depuis le début de 2025, la plupart des directions de bureaux d'études que j'accompagne cherchent à absorber une hausse des projets sans sacrifier la réactivité. Or les irritants que remontent les concepteurs SOLIDWORKS proviennent rarement de la modélisation elle-même&nbsp;: temps d'ouverture qui dépassent la minute, calculs Simulation qui bloquent un poste toute une après-midi, synchronisations PDM qui saturent les liens inter-sites. Ces signaux faibles finissent par freiner la mise sur le marché.</p>
+                    <h2 data-translate-key="blog_config_enjeux_title">1. Pourquoi optimiser le matériel maintenant&nbsp;?</h2>
+                    <p data-translate-key="blog_config_enjeux_p1">Depuis le début de 2025, la plupart des directions de bureaux d'études que j'accompagne cherchent à absorber une hausse des projets sans sacrifier la réactivité. Or les irritants que remontent les concepteurs SOLIDWORKS proviennent rarement de la modélisation elle-même&nbsp;: temps d'ouverture qui dépassent la minute, calculs Simulation qui bloquent un poste toute une après-midi, synchronisations PDM qui saturent les liens inter-sites. Ces signaux faibles finissent par freiner la mise sur le marché.</p>
                     <div class="callout">
                         <div class="quote-block">
-                            <blockquote>Une plateforme matérielle alignée sur les usages, c'est un dossier critique qui sort 30&nbsp;% plus vite, une production mieux alimentée en données et une DSI qui tient ses engagements de service sans surcoût.</blockquote>
-                            <cite>Mohamed Omar Baouch</cite>
+                            <blockquote data-translate-key="blog_config_enjeux_quote">Une plateforme matérielle alignée sur les usages, c'est un dossier critique qui sort 30&nbsp;% plus vite, une production mieux alimentée en données et une DSI qui tient ses engagements de service sans surcoût.</blockquote>
+                            <cite data-translate-key="blog_config_enjeux_quote_author">Mohamed Omar Baouch</cite>
                         </div>
                     </div>
-                    <p>Les organisations qui franchissent le cap de SOLIDWORKS 2025 avec sérénité partagent le même socle&nbsp;: un environnement matériel contrôlé et instrumenté. Ce guide synthétise les enseignements tirés d'une douzaine d'audits réalisés ces dix-huit derniers mois et propose un cadre opérationnel pour identifier les goulots d'étranglement, prioriser les investissements et sécuriser l'évolutivité.</p>
+                    <p data-translate-key="blog_config_enjeux_p2">Les organisations qui franchissent le cap de SOLIDWORKS 2025 avec sérénité partagent le même socle&nbsp;: un environnement matériel contrôlé et instrumenté. Ce guide synthétise les enseignements tirés d'une douzaine d'audits réalisés ces dix-huit derniers mois et propose un cadre opérationnel pour identifier les goulots d'étranglement, prioriser les investissements et sécuriser l'évolutivité.</p>
                 </section>
 
                 <section class="blog-section article-section" id="audit-initial">
-                    <h2>2. Audit express d'un parc CAO</h2>
-                    <p>L'objectif est de dresser une cartographie fiable des performances en moins de quinze jours. La démarche se structure autour de trois axes complémentaires qui se nourrissent l'un l'autre.</p>
+                    <h2 data-translate-key="blog_config_audit_title">2. Audit express d'un parc CAO</h2>
+                    <p data-translate-key="blog_config_audit_intro">L'objectif est de dresser une cartographie fiable des performances en moins de quinze jours. La démarche se structure autour de trois axes complémentaires qui se nourrissent l'un l'autre.</p>
                     <div class="media-grid">
                         <div class="media-card media-card--text">
-                            <h3>Mesures terrain</h3>
+                            <h3 data-translate-key="blog_config_audit_card1_title">Mesures terrain</h3>
                             <ul>
-                                <li>Journalisation des temps d'ouverture sur dix assemblages représentatifs</li>
-                                <li>Suivi CPU/GPU via SOLIDWORKS RX complété par HWinfo</li>
-                                <li>Analyse détaillée des temps de check-in/out PDM</li>
+                                <li data-translate-key="blog_config_audit_card1_item1">Journalisation des temps d'ouverture sur dix assemblages représentatifs</li>
+                                <li data-translate-key="blog_config_audit_card1_item2">Suivi CPU/GPU via SOLIDWORKS RX complété par HWinfo</li>
+                                <li data-translate-key="blog_config_audit_card1_item3">Analyse détaillée des temps de check-in/out PDM</li>
                             </ul>
                         </div>
                         <div class="media-card media-card--text">
-                            <h3>Entretien utilisateurs</h3>
+                            <h3 data-translate-key="blog_config_audit_card2_title">Entretien utilisateurs</h3>
                             <ul>
-                                <li>Cartographie des tâches critiques (assemblage, Simulation, Visualize)</li>
-                                <li>Identification des pics de charge hebdomadaires et saisonniers</li>
-                                <li>Évaluation de la maturité PDM&nbsp;: workflows, réplications, discipline documentaire</li>
+                                <li data-translate-key="blog_config_audit_card2_item1">Cartographie des tâches critiques (assemblage, Simulation, Visualize)</li>
+                                <li data-translate-key="blog_config_audit_card2_item2">Identification des pics de charge hebdomadaires et saisonniers</li>
+                                <li data-translate-key="blog_config_audit_card2_item3">Évaluation de la maturité PDM&nbsp;: workflows, réplications, discipline documentaire</li>
                             </ul>
                         </div>
                         <div class="media-card media-card--text">
-                            <h3>Inventaire IT</h3>
+                            <h3 data-translate-key="blog_config_audit_card3_title">Inventaire IT</h3>
                             <ul>
-                                <li>Âge, garantie et version de firmware des stations</li>
-                                <li>Topologie réseau, saturation des VLAN et qualité du câblage</li>
-                                <li>Stratégie de sauvegarde et PRA autour du coffre-fort PDM</li>
+                                <li data-translate-key="blog_config_audit_card3_item1">Âge, garantie et version de firmware des stations</li>
+                                <li data-translate-key="blog_config_audit_card3_item2">Topologie réseau, saturation des VLAN et qualité du câblage</li>
+                                <li data-translate-key="blog_config_audit_card3_item3">Stratégie de sauvegarde et PRA autour du coffre-fort PDM</li>
                             </ul>
                         </div>
                     </div>
                     <div class="callout callout--soft">
-                        <p><strong>Livrable clé :</strong> une matrice qui croise profils utilisateurs et workloads, assortie d'un indicateur de santé (vert / orange / rouge). Elle sert de boussole pour calibrer les investissements ciblés.</p>
+                        <p data-translate-key="blog_config_audit_callout"><strong>Livrable clé :</strong> une matrice qui croise profils utilisateurs et workloads, assortie d'un indicateur de santé (vert / orange / rouge). Elle sert de boussole pour calibrer les investissements ciblés.</p>
                     </div>
                 </section>
 
                 <section class="blog-section article-section" id="profils-workstations">
-                    <h2>3. Trois profils de stations prêts à déployer</h2>
-                    <p>Au lieu de multiplier les stations sur mesure, je préconise trois profils standardisés. Ils couvrent plus de 90&nbsp;% des cas observés, simplifient les achats et réduisent la variabilité lors des maintenances.</p>
+                    <h2 data-translate-key="blog_config_profils_title">3. Trois profils de stations prêts à déployer</h2>
+                    <p data-translate-key="blog_config_profils_intro">Au lieu de multiplier les stations sur mesure, je préconise trois profils standardisés. Ils couvrent plus de 90&nbsp;% des cas observés, simplifient les achats et réduisent la variabilité lors des maintenances.</p>
                     <table class="feature-table">
                         <thead>
                             <tr>
-                                <th>Profil</th>
-                                <th>CPU</th>
-                                <th>GPU</th>
-                                <th>RAM</th>
-                                <th>Stockage</th>
-                                <th>Usage principal</th>
+                                <th data-translate-key="blog_config_profils_table_header_profile">Profil</th>
+                                <th data-translate-key="blog_config_profils_table_header_cpu">CPU</th>
+                                <th data-translate-key="blog_config_profils_table_header_gpu">GPU</th>
+                                <th data-translate-key="blog_config_profils_table_header_ram">RAM</th>
+                                <th data-translate-key="blog_config_profils_table_header_storage">Stockage</th>
+                                <th data-translate-key="blog_config_profils_table_header_usage">Usage principal</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Bureau d'études</td>
+                                <td data-translate-key="blog_config_profils_row1_label">Bureau d'études</td>
                                 <td>Intel Core i7-14700K</td>
                                 <td>NVIDIA RTX 4000 Ada</td>
                                 <td>64&nbsp;Go DDR5</td>
                                 <td>2&nbsp;To NVMe Gen4 + 2&nbsp;To SATA</td>
-                                <td>Assemblages &lt; 5&nbsp;000 pièces, mise en plan</td>
+                                <td data-translate-key="blog_config_profils_row1_usage">Assemblages &lt; 5&nbsp;000 pièces, mise en plan</td>
                             </tr>
                             <tr>
-                                <td>Simulation avancée</td>
+                                <td data-translate-key="blog_config_profils_row2_label">Simulation avancée</td>
                                 <td>AMD Ryzen 9 7950X</td>
                                 <td>NVIDIA RTX 5000 Ada</td>
                                 <td>128&nbsp;Go DDR5</td>
                                 <td>2&nbsp;To NVMe Gen4 (RAID 1)</td>
-                                <td>Simulation statique / thermique / Flow</td>
+                                <td data-translate-key="blog_config_profils_row2_usage">Simulation statique / thermique / Flow</td>
                             </tr>
                             <tr>
-                                <td>Revue immersive</td>
+                                <td data-translate-key="blog_config_profils_row3_label">Revue immersive</td>
                                 <td>Intel Core i9-14900KF</td>
                                 <td>NVIDIA RTX 6000 Ada</td>
                                 <td>128&nbsp;Go DDR5</td>
                                 <td>2&nbsp;To NVMe Gen4 + 4&nbsp;To SSD</td>
-                                <td>VR, Visualize, revues clients</td>
+                                <td data-translate-key="blog_config_profils_row3_usage">VR, Visualize, revues clients</td>
                             </tr>
                         </tbody>
                     </table>
                     <figure class="media-figure">
                         <img src="/assets/img/blog/configuration-materielle-solidworks/workstation-profiles.svg" alt="Illustration des trois profils de stations de travail recommandés pour SOLIDWORKS" loading="lazy">
-                        <figcaption>Trois profils éprouvés sur le terrain&nbsp;: budget maîtrisé, maintenance prévisible et gains visibles dès les premières semaines.</figcaption>
+                        <figcaption data-translate-key="blog_config_profils_figcaption">Trois profils éprouvés sur le terrain&nbsp;: budget maîtrisé, maintenance prévisible et gains visibles dès les premières semaines.</figcaption>
                     </figure>
                     <figure class="chart-figure" data-blog-chart>
                         <canvas aria-label="Comparatif de charge selon les profils de stations"></canvas>
@@ -279,59 +279,59 @@
                         </script>
                     </figure>
                     <div class="callout">
-                        <p><strong>Astuce terrain :</strong> préparez des images Windows différenciées (Design, Simulation, VR) avec politiques d'alimentation adaptées. Vous évitez les BIOS sous-optimisés et sécurisez un comportement homogène sur tout le parc.</p>
+                        <p data-translate-key="blog_config_profils_callout"><strong>Astuce terrain :</strong> préparez des images Windows différenciées (Design, Simulation, VR) avec politiques d'alimentation adaptées. Vous évitez les BIOS sous-optimisés et sécurisez un comportement homogène sur tout le parc.</p>
                     </div>
                 </section>
 
                 <section class="blog-section article-section" id="infrastructure">
-                    <h2>4. Serveur PDM, stockage et réseau</h2>
-                    <p>Une station de travail performante ne suffit pas si le coffre-fort PDM ou le réseau devient le nouveau goulot d'étranglement. Les projets les plus fluides reposent sur une architecture complète&nbsp;: serveur applicatif dimensionné, stockage NVMe répliqué et réseau 10&nbsp;GbE qui priorise les flux CAO.</p>
+                    <h2 data-translate-key="blog_config_infra_title">4. Serveur PDM, stockage et réseau</h2>
+                    <p data-translate-key="blog_config_infra_intro">Une station de travail performante ne suffit pas si le coffre-fort PDM ou le réseau devient le nouveau goulot d'étranglement. Les projets les plus fluides reposent sur une architecture complète&nbsp;: serveur applicatif dimensionné, stockage NVMe répliqué et réseau 10&nbsp;GbE qui priorise les flux CAO.</p>
                     <figure class="media-figure">
                         <img src="/assets/img/blog/configuration-materielle-solidworks/network-backbone.svg" alt="Schéma d'une architecture matérielle SolidWorks PDM avec stockage NVMe et sauvegarde 3-2-1" loading="lazy">
-                        <figcaption>Backbone PDM prêt pour la montée en charge&nbsp;: NVMe en production, sauvegarde 3-2-1 et qualité de service appliquée aux flux critiques.</figcaption>
+                        <figcaption data-translate-key="blog_config_infra_figcaption">Backbone PDM prêt pour la montée en charge&nbsp;: NVMe en production, sauvegarde 3-2-1 et qualité de service appliquée aux flux critiques.</figcaption>
                     </figure>
                     <div class="grid grid--2">
                         <div>
-                            <h3>Serveur PDM</h3>
+                            <h3 data-translate-key="blog_config_infra_server_title">Serveur PDM</h3>
                             <ul>
-                                <li>CPU Xeon Silver ou AMD EPYC avec 12&nbsp;coeurs minimum</li>
-                                <li>128&nbsp;Go de RAM ECC pour absorber les pics de réplication</li>
-                                <li>Volumes NVMe en RAID&nbsp;1 pour le vault et SSD SATA pour les archives</li>
+                                <li data-translate-key="blog_config_infra_server_item1">CPU Xeon Silver ou AMD EPYC avec 12&nbsp;coeurs minimum</li>
+                                <li data-translate-key="blog_config_infra_server_item2">128&nbsp;Go de RAM ECC pour absorber les pics de réplication</li>
+                                <li data-translate-key="blog_config_infra_server_item3">Volumes NVMe en RAID&nbsp;1 pour le vault et SSD SATA pour les archives</li>
                             </ul>
                         </div>
                         <div>
-                            <h3>Réseau &amp; QoS</h3>
+                            <h3 data-translate-key="blog_config_infra_network_title">Réseau &amp; QoS</h3>
                             <ul>
-                                <li>Backbone 10&nbsp;GbE redondé, VLAN dédié aux flux CAO</li>
-                                <li>QoS priorisant PDM, Visualize et sauvegardes différées</li>
-                                <li>VPN avec compression et cache local pour les sites distants</li>
+                                <li data-translate-key="blog_config_infra_network_item1">Backbone 10&nbsp;GbE redondé, VLAN dédié aux flux CAO</li>
+                                <li data-translate-key="blog_config_infra_network_item2">QoS priorisant PDM, Visualize et sauvegardes différées</li>
+                                <li data-translate-key="blog_config_infra_network_item3">VPN avec compression et cache local pour les sites distants</li>
                             </ul>
                         </div>
                     </div>
                     <div class="chart-card" data-blog-chart data-chart-type="doughnut" data-chart-labels="Workstations,Serveur PDM,Stockage,Sauvegarde,Réseau" data-chart-values="45,18,14,10,13" data-chart-dataset-label="Répartition budget matériel" data-chart-options='{"plugins":{"legend":{"position":"bottom"}}}'>
-                        <p>Répartition indicative d'un budget de modernisation (en&nbsp;%). Ajustez-la à l'issue de votre audit&nbsp;: les gains rapides proviennent souvent du stockage et du réseau.</p>
+                        <p data-translate-key="blog_config_infra_chart_text">Répartition indicative d'un budget de modernisation (en&nbsp;%). Ajustez-la à l'issue de votre audit&nbsp;: les gains rapides proviennent souvent du stockage et du réseau.</p>
                     </div>
                     <div class="callout callout--soft">
-                        <p><strong>Point de vigilance :</strong> synchronisez vos maintenances avec les cycles de sauvegarde et institutionnalisez un test mensuel de restauration du coffre-fort. Un PRA documenté évite les arrêts de production lors des mises à jour SOLIDWORKS.</p>
+                        <p data-translate-key="blog_config_infra_callout"><strong>Point de vigilance :</strong> synchronisez vos maintenances avec les cycles de sauvegarde et institutionnalisez un test mensuel de restauration du coffre-fort. Un PRA documenté évite les arrêts de production lors des mises à jour SOLIDWORKS.</p>
                     </div>
                 </section>
 
                 <section class="blog-section article-section" id="plan-daction">
-                    <h2>5. Plan d'action 90 jours</h2>
-                    <p>Une fois la cible validée, structurez la mise en œuvre en trois sprints de trente jours. Objectif&nbsp;: livrer des améliorations visibles dès le premier mois tout en sécurisant la trajectoire long terme.</p>
+                    <h2 data-translate-key="blog_config_plan_title">5. Plan d'action 90 jours</h2>
+                    <p data-translate-key="blog_config_plan_intro">Une fois la cible validée, structurez la mise en œuvre en trois sprints de trente jours. Objectif&nbsp;: livrer des améliorations visibles dès le premier mois tout en sécurisant la trajectoire long terme.</p>
                     <ol>
-                        <li><strong>Sprint&nbsp;1&nbsp;:</strong> commandes et quick wins (SSD NVMe, BIOS à jour, tuning Windows). KPI&nbsp;: temps d'ouverture moyen &lt;&nbsp;45&nbsp;secondes.</li>
-                        <li><strong>Sprint&nbsp;2&nbsp;:</strong> déploiement des nouvelles stations et mise à niveau réseau. KPI&nbsp;: zéro erreur de check-in PDM, latence moyenne &lt;&nbsp;2&nbsp;ms.</li>
-                        <li><strong>Sprint&nbsp;3&nbsp;:</strong> bascule serveur PDM, sauvegarde 3-2-1, formation utilisateurs. KPI&nbsp;: satisfaction utilisateurs &gt;&nbsp;8/10, PRA testé et validé.</li>
+                        <li data-translate-key="blog_config_plan_item1"><strong>Sprint&nbsp;1&nbsp;:</strong> commandes et quick wins (SSD NVMe, BIOS à jour, tuning Windows). KPI&nbsp;: temps d'ouverture moyen &lt;&nbsp;45&nbsp;secondes.</li>
+                        <li data-translate-key="blog_config_plan_item2"><strong>Sprint&nbsp;2&nbsp;:</strong> déploiement des nouvelles stations et mise à niveau réseau. KPI&nbsp;: zéro erreur de check-in PDM, latence moyenne &lt;&nbsp;2&nbsp;ms.</li>
+                        <li data-translate-key="blog_config_plan_item3"><strong>Sprint&nbsp;3&nbsp;:</strong> bascule serveur PDM, sauvegarde 3-2-1, formation utilisateurs. KPI&nbsp;: satisfaction utilisateurs &gt;&nbsp;8/10, PRA testé et validé.</li>
                     </ol>
-                    <p>Ce plan permet d'engranger des gains dès le premier mois tout en alignant IT, bureau d'études et direction industrielle sur la même feuille de route.</p>
+                    <p data-translate-key="blog_config_plan_outro">Ce plan permet d'engranger des gains dès le premier mois tout en alignant IT, bureau d'études et direction industrielle sur la même feuille de route.</p>
                 </section>
 
                 <section class="blog-section article-cta" data-component="cta">
                     <div class="cta-card">
-                        <h2>Vous voulez fiabiliser votre environnement SOLIDWORKS&nbsp;?</h2>
-                        <p>Je vous aide à cadrer l'audit, hiérarchiser les investissements et orchestrer le déploiement sans interrompre la production. Discutons de vos priorités.</p>
-                        <a class="hero-btn" href="/#contact">Planifier un échange</a>
+                        <h2 data-translate-key="blog_config_cta_title">Vous voulez fiabiliser votre environnement SOLIDWORKS&nbsp;?</h2>
+                        <p data-translate-key="blog_config_cta_text">Je vous aide à cadrer l'audit, hiérarchiser les investissements et orchestrer le déploiement sans interrompre la production. Discutons de vos priorités.</p>
+                        <a class="hero-btn" href="/#contact" data-translate-key="blog_config_cta_button">Planifier un échange</a>
                     </div>
                 </section>
             </article>
