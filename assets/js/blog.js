@@ -98,6 +98,80 @@ const updateBlogTexts = (lang = currentLanguage) => {
     updateCards(blogDataCache.editorials, lang);
 };
 
+const enhanceArticleTables = () => {
+    const articleRoot = document.querySelector('[data-article-root]');
+    if (!articleRoot) return;
+
+    const tables = Array.from(articleRoot.querySelectorAll('table'));
+    if (!tables.length) return;
+
+    const wrappers = new Set();
+
+    tables.forEach((table) => {
+        const existingViewport = table.closest('.table-scroll__viewport');
+        if (existingViewport) {
+            const scroll = existingViewport.parentElement;
+            if (scroll) {
+                wrappers.add(scroll);
+            }
+            return;
+        }
+
+        const scroll = document.createElement('div');
+        scroll.className = 'table-scroll';
+        const viewport = document.createElement('div');
+        viewport.className = 'table-scroll__viewport';
+
+        table.parentNode?.insertBefore(scroll, table);
+        scroll.appendChild(viewport);
+        viewport.appendChild(table);
+
+        wrappers.add(scroll);
+    });
+
+    const updateState = (wrapper, viewport) => {
+        const maxScrollLeft = viewport.scrollWidth - viewport.clientWidth;
+        const tolerance = 2;
+        const isScrollable = maxScrollLeft > tolerance;
+        const atStart = !isScrollable || viewport.scrollLeft <= tolerance;
+        const atEnd = !isScrollable || viewport.scrollLeft >= maxScrollLeft - tolerance;
+
+        wrapper.classList.toggle('is-scrollable', isScrollable);
+        wrapper.classList.toggle('is-at-start', atStart);
+        wrapper.classList.toggle('is-at-end', atEnd);
+    };
+
+    wrappers.forEach((wrapper) => {
+        const viewport = wrapper.querySelector('.table-scroll__viewport');
+        if (!viewport) return;
+
+        const scheduleUpdate = () => {
+            requestAnimationFrame(() => updateState(wrapper, viewport));
+        };
+
+        scheduleUpdate();
+
+        if (wrapper.dataset.enhanced === 'true') {
+            return;
+        }
+
+        viewport.addEventListener('scroll', scheduleUpdate, { passive: true });
+
+        if (typeof ResizeObserver !== 'undefined') {
+            const observer = new ResizeObserver(scheduleUpdate);
+            observer.observe(viewport);
+            const table = viewport.querySelector('table');
+            if (table) {
+                observer.observe(table);
+            }
+        } else {
+            window.addEventListener('resize', scheduleUpdate);
+        }
+
+        wrapper.dataset.enhanced = 'true';
+    });
+};
+
 const applyFilter = (target, sections, buttons) => {
     buttons.forEach((button) => {
         const isActive = button.dataset.filter === target;
@@ -142,9 +216,11 @@ const initFilters = (blogData) => {
 
 const initBlogPage = () => {
     blogDataCache = parseBlogData();
-    if (!blogDataCache) return;
-    initFilters(blogDataCache);
-    updateBlogTexts(currentLanguage);
+    if (blogDataCache) {
+        initFilters(blogDataCache);
+        updateBlogTexts(currentLanguage);
+    }
+    enhanceArticleTables();
 };
 
 if (document.readyState !== 'loading') {
