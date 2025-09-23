@@ -20,10 +20,10 @@
     --glitch-color2: var(--accent-primary);
 
     /* Variables pour le thème clair (utilisées par JavaScript) */
-    --light-bg-color: #f4e9d8;
-    --light-text-color: #2a2a2a;
-    --light-hover-color: #e5b48e;
-    --light-secondary-color: #a8a29a;
+    --light-bg-color: #f5ede2;
+    --light-text-color: #2b2218;
+    --light-hover-color: #efe0cb;
+    --light-secondary-color: #d8c8b4;
 
     /* Variables spécifiques au blog */
     --blog-overlay: color-mix(in srgb, var(--bg-color) 30%, transparent);
@@ -78,26 +78,57 @@ body {
 }
 
 body.light-theme {
-    --blog-overlay: color-mix(in srgb, var(--text-color) 12%, transparent);
-    --blog-overlay-strong: color-mix(in srgb, var(--text-color) 18%, transparent);
-    --blog-surface: color-mix(in srgb, var(--text-color) 10%, transparent);
-    --blog-shadow-strong: color-mix(in srgb, var(--text-color) 20%, transparent);
-    --blog-shadow-accent: color-mix(in srgb, var(--accent-primary) 22%, transparent);
-    --blog-shadow-accent-strong: color-mix(in srgb, var(--accent-primary) 30%, transparent);
-    --blog-shadow-accent-soft: color-mix(in srgb, var(--accent-primary) 15%, transparent);
+    --bg-primary: var(--light-bg-color);
+    --bg-secondary: #ecdecb;
+    --bg-tertiary: #e2d2bf;
+    --text-primary: var(--light-text-color);
+    --text-secondary: #5c5144;
+    --accent-primary: #c86b6b;
+    --accent-secondary: #d89b6e;
+    --bg-color: var(--bg-primary);
+    --text-color: var(--text-primary);
+    --hover-color: var(--light-hover-color);
+    --secondary-color: var(--light-secondary-color);
+    --accent-gradient: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    --glitch-color1: var(--accent-secondary);
+    --glitch-color2: var(--accent-primary);
+    --blog-overlay: rgba(43, 34, 24, 0.04);
+    --blog-overlay-strong: rgba(43, 34, 24, 0.08);
+    --blog-surface: rgba(255, 255, 255, 0.88);
+    --blog-glass-faint: rgba(255, 255, 255, 0.55);
+    --blog-glass-muted: rgba(255, 255, 255, 0.6);
+    --blog-glass-soft: rgba(255, 255, 255, 0.7);
+    --blog-glass: rgba(255, 255, 255, 0.78);
+    --blog-glass-strong: rgba(255, 255, 255, 0.86);
+    --blog-border-soft: rgba(43, 34, 24, 0.08);
+    --blog-border-muted: rgba(43, 34, 24, 0.12);
+    --blog-border: rgba(43, 34, 24, 0.16);
+    --blog-border-strong: rgba(43, 34, 24, 0.22);
+    --blog-border-dashed: rgba(43, 34, 24, 0.3);
+    --blog-accent-border: color-mix(in srgb, var(--accent-secondary) 50%, transparent);
+    --blog-accent-border-strong: color-mix(in srgb, var(--accent-secondary) 65%, transparent);
+    --blog-accent-border-heavy: color-mix(in srgb, var(--accent-secondary) 75%, transparent);
+    --blog-accent-surface: color-mix(in srgb, var(--accent-secondary) 28%, transparent);
+    --blog-accent-surface-strong: color-mix(in srgb, var(--accent-secondary) 34%, transparent);
+    --blog-accent-surface-bold: color-mix(in srgb, var(--accent-secondary) 40%, transparent);
+    --blog-accent-surface-radar: color-mix(in srgb, var(--accent-primary) 32%, transparent);
+    --blog-shadow-strong: rgba(43, 34, 24, 0.15);
+    --blog-shadow-accent: color-mix(in srgb, var(--accent-primary) 24%, transparent);
+    --blog-shadow-accent-strong: color-mix(in srgb, var(--accent-primary) 32%, transparent);
+    --blog-shadow-accent-soft: color-mix(in srgb, var(--accent-primary) 18%, transparent);
     --blog-hero-gradient: linear-gradient(135deg,
-            color-mix(in srgb, var(--accent-primary) 12%, var(--bg-color) 88%),
-            color-mix(in srgb, var(--accent-secondary) 8%, var(--bg-color) 92%));
+            color-mix(in srgb, var(--accent-primary) 26%, rgba(255, 255, 255, 0.74)),
+            color-mix(in srgb, var(--accent-secondary) 20%, rgba(255, 255, 255, 0.76)));
     --blog-hero-overlay: radial-gradient(circle at 20% 20%,
-            color-mix(in srgb, var(--accent-secondary) 22%, var(--bg-color) 78%),
+            color-mix(in srgb, var(--accent-secondary) 48%, transparent),
             transparent 60%),
         radial-gradient(circle at 80% 0%,
-            color-mix(in srgb, var(--accent-primary) 18%, var(--bg-color) 82%),
+            color-mix(in srgb, var(--accent-primary) 38%, transparent),
             transparent 55%);
     --blog-card-highlight: radial-gradient(circle at top right,
-            color-mix(in srgb, var(--accent-primary) 12%, transparent),
-            transparent 60%);
-    --blog-badge-neutral-bg: color-mix(in srgb, var(--text-color) 12%, transparent);
+            color-mix(in srgb, var(--accent-primary) 24%, transparent),
+            transparent 65%);
+    --blog-badge-neutral-bg: rgba(43, 34, 24, 0.08);
 }
 body::before {
     content: '';

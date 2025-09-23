@@ -908,10 +908,15 @@ function handleContactForm() {
 }
 function init3DScrollEffect() {
     const sceneWrapper = document.getElementById('perspective-content');
+    if (!sceneWrapper) return;
+    if (document.body.classList.contains('blog-page')) {
+        sceneWrapper.style.transform = 'none';
+        sceneWrapper.style.transition = 'none';
+        return;
+    }
     let current = 0;
     let target = 0;
     let ease = 0.075;
-    if (!sceneWrapper) return;
     function smoothScroll() {
         current = parseFloat((current + (target - current) * ease).toFixed(2));
         const translateY = current * -0.5;
@@ -1071,6 +1076,10 @@ function enhanceCustomCursor() {
 function initScrollDistortion() {
     const content = document.getElementById('mainContainer');
     if (!content) return;
+    if (document.body.classList.contains('blog-page')) {
+        content.style.transform = 'none';
+        return;
+    }
     let currentScroll = 0;
     let targetScroll = 0;
     window.addEventListener('scroll', () => {
