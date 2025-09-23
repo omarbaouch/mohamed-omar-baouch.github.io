@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/blog.css">
 </head>
-<body class="blog-page" data-blog-page="index">
+<body class="blog-page">
     <canvas id="transition-canvas"></canvas>
     <div class="perspective-wrapper">
         <div id="perspective-content" class="perspective-content"></div>
@@ -33,12 +33,12 @@
             <a href="/" class="logo">M.BAOUCH</a>
             <div class="nav-right">
                 <ul class="menu" id="menu">
-                    <li><a href="/#about" class="nav-link" data-translate-key="nav_about">À propos</a></li>
-                    <li><a href="/#experience" class="nav-link" data-translate-key="nav_experience">Expérience</a></li>
-                    <li><a href="/#skills" class="nav-link" data-translate-key="nav_skills">Compétences</a></li>
-                    <li><a href="/#education" class="nav-link" data-translate-key="nav_education">Formation</a></li>
-                    <li><a href="/#contact" class="nav-link" data-translate-key="nav_contact">Contact</a></li>
-                    <li><a href="/blog/" class="nav-link" data-translate-key="nav_blog">Blog</a></li>
+                    <li><a href="/#about" class="nav-link">À propos</a></li>
+                    <li><a href="/#experience" class="nav-link">Expérience</a></li>
+                    <li><a href="/#skills" class="nav-link">Compétences</a></li>
+                    <li><a href="/#education" class="nav-link">Formation</a></li>
+                    <li><a href="/#contact" class="nav-link">Contact</a></li>
+                    <li><a href="/blog/" class="nav-link">Blog</a></li>
                 </ul>
                 <div class="language-switcher">
                     <button id="lang-fr" class="lang-btn active">FR</button>
@@ -89,38 +89,71 @@
                 -->
                 <section class="blog-hero" data-hero>
   <div class="hero-intro">
-    <h1 class="hero-title" data-hero-title>Configuration matérielle SOLIDWORKS 2025 : le guide terrain pour un bureau d'études réactif</h1>
-    <p class="hero-subtitle" data-hero-subtitle>Publié le <span data-date-iso="2025-09-21T00:00:00.000Z" data-date-format="long">21 septembre 2025</span>. Guide pratique de Mohamed Omar Baouch pour dimensionner stations de travail, serveur PDM et réseau autour de SOLIDWORKS 2025, avec benchmarks et feuilles de route opérationnelles.</p>
+    <span class="hero-eyebrow">Radar &amp; analyses PDM/PLM</span>
+    <h1 class="hero-title" data-hero-title>Radar PDM/PLM – 2025-09-23</h1>
+    <p class="hero-subtitle" data-hero-subtitle>Veille du 23 septembre 2025 — 7 signaux sélectionnés auprès de 1 source.</p>
     <div class="hero-actions">
-      <a class="hero-btn" data-hero-link href="/blog/configuration-materielle-solidworks/">Lire l'article</a>
+      <a class="hero-btn" data-hero-link href="/blog/radar-2025-09-23/">Consulter le radar du 23 septembre 2025</a>
+      <a class="hero-btn hero-btn--ghost" data-hero-secondary href="/blog/configuration-materielle-solidworks/">Lire l&#39;article de fond</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="hero-stat-value">1</span>
+      <span class="hero-stat-label">Radars en ligne</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-value">2</span>
+      <span class="hero-stat-label">Articles de fond</span>
+    </div>
+    
+    <div class="hero-stat">
+      <span class="hero-stat-value">23/09/2025</span>
+      <span class="hero-stat-label">Dernière mise à jour</span>
     </div>
   </div>
 </section><section class="blog-controls">
   <div class="filter-group" data-filter-group role="group" aria-label="Filtrer les contenus du blog">
-    <button class="filter-btn is-active" type="button" data-filter="all" aria-pressed="true" data-translate-key="blog_index_filter_all">Tout</button>
-    <button class="filter-btn" type="button" data-filter="editorial" aria-pressed="false" data-translate-key="blog_index_filter_editorial">Articles de fond</button>
+    <button class="filter-btn is-active" type="button" data-filter="all" aria-pressed="true">Tout</button>
+    <button class="filter-btn" type="button" data-filter="radar" aria-pressed="false">Radars</button>
+    <button class="filter-btn" type="button" data-filter="editorial" aria-pressed="false">Articles de fond</button>
   </div>
+</section><section class="blog-section" data-section="radar">
+  <div class="section-header">
+    <h2>Radars quotidiens</h2>
+    <p class="section-subtitle">Veille automatisée sur le PDM/PLM, actualisée chaque jour ouvré.</p>
+  </div>
+  <div class="card-grid"><article class="post-card" data-type="radar">
+  <div class="post-card__meta">
+    <span class="badge badge-radar">Radar</span>
+    <time datetime="2025-09-23T00:00:00.000Z">23 septembre 2025</time>
+    <span>7 liens</span>
+  </div>
+  <h3 class="post-card__title"><a href="/blog/radar-2025-09-23/">Radar PDM/PLM – 2025-09-23</a></h3>
+  <p class="post-card__excerpt">Veille du 23 septembre 2025. 7 signals sélectionnés.</p>
+  <a class="post-card__cta" href="/blog/radar-2025-09-23/">Consulter le radar</a>
+</article></div>
 </section>
 
 <section class="blog-section" data-section="editorial">
   <div class="section-header">
-    <h2 data-translate-key="blog_index_section_editorial_title">Articles de fond</h2>
-    <p class="section-subtitle" data-translate-key="blog_index_section_editorial_subtitle">Analyses éditoriales, retours d’expérience et bonnes pratiques terrain.</p>
+    <h2>Articles de fond</h2>
+    <p class="section-subtitle">Analyses éditoriales, retours d’expérience et bonnes pratiques terrain.</p>
   </div>
-  <div class="card-grid"><article class="post-card" data-type="editorial" data-post-slug="configuration-materielle-solidworks">
+  <div class="card-grid"><article class="post-card" data-type="editorial">
   <div class="post-card__meta">
-    <span class="badge badge-editorial" data-translate-key="blog_badge_editorial">Article de fond</span>
-    <time datetime="2025-09-21T00:00:00.000Z" data-date-format="long" data-date-iso="2025-09-21T00:00:00.000Z">21 septembre 2025</time>
-
+    <span class="badge badge-editorial">Article de fond</span>
+    <time datetime="2025-09-21T00:00:00.000Z">21 septembre 2025</time>
+    
   </div>
   <h3 class="post-card__title"><a href="/blog/configuration-materielle-solidworks/">Configuration matérielle SOLIDWORKS 2025 : le guide terrain pour un bureau d&#39;études réactif</a></h3>
-  <p class="post-card__excerpt">Guide pratique de Mohamed Omar Baouch pour dimensionner stations de travail, serveur PDM et réseau autour de SOLIDWORKS 2025, avec benchmarks et feuilles de route opérationnelles.</p>
+  <p class="post-card__excerpt">Plan d</p>
   <a class="post-card__cta" href="/blog/configuration-materielle-solidworks/">Lire l'article</a>
-</article><article class="post-card" data-type="editorial" data-post-slug="resolutions-problematiques-plm">
+</article><article class="post-card" data-type="editorial">
   <div class="post-card__meta">
-    <span class="badge badge-editorial" data-translate-key="blog_badge_editorial">Article de fond</span>
-    <time datetime="2025-09-15T00:00:00.000Z" data-date-format="long" data-date-iso="2025-09-15T00:00:00.000Z">15 septembre 2025</time>
-
+    <span class="badge badge-editorial">Article de fond</span>
+    <time datetime="2025-09-15T00:00:00.000Z">15 septembre 2025</time>
+    
   </div>
   <h3 class="post-card__title"><a href="/blog/resolutions-problematiques-plm/">Au-delà de la théorie : résoudre les 5 problématiques PLM que j&#39;ai vécues en tant qu&#39;Ingénieur Mécanique</a></h3>
   <p class="post-card__excerpt">Retour d</p>
@@ -128,69 +161,107 @@
 </article></div>
 </section>
 
-
+<section class="blog-section blog-timeline-section">
+  <div class="section-header">
+    <h2>Timeline du radar</h2>
+    <p class="section-subtitle">Évolution des 1 dernières publications (23 septembre 2025 → 23 septembre 2025).</p>
+  </div>
+  <ol class="blog-timeline">
+    <li class="timeline-item">
+  <span class="timeline-dot"></span>
+  <div class="timeline-content">
+    <time datetime="2025-09-23T00:00:00.000Z">23 septembre 2025</time>
+    <a href="/blog/radar-2025-09-23/">Radar PDM/PLM – 2025-09-23</a>
+    <span class="timeline-meta">7 liens</span>
+  </div>
+</li>
+  </ol>
+</section>
 
 <script type="application/json" id="blog-data">{
-  "generatedAt": "2025-09-21T19:15:20.844Z",
+  "generatedAt": "2025-09-23T07:16:38.572Z",
   "hero": {
+    "tagline": "Radar \u0026 analyses PDM/PLM",
+    "title": "Radar PDM/PLM – 2025-09-23",
+    "subtitle": "Veille du 23 septembre 2025 — 7 signaux sélectionnés auprès de 1 source.",
+    "radarHighlight": {
+      "title": "Radar PDM/PLM – 2025-09-23",
+      "url": "/blog/radar-2025-09-23/",
+      "dateIso": "2025-09-23T00:00:00.000Z",
+      "displayDate": "23 septembre 2025",
+      "shortDate": "23/09/2025",
+      "excerpt": "Veille du 23 septembre 2025. 7 signals sélectionnés.",
+      "heroSubtitle": "Veille du 23 septembre 2025 — 7 signaux sélectionnés auprès de 1 source.",
+      "itemsCount": 7,
+      "type": "radar"
+    },
     "editorialHighlight": {
-      "title": {
-        "fr": "Configuration matérielle SOLIDWORKS 2025 : le guide terrain pour un bureau d'études réactif",
-        "en": "SOLIDWORKS 2025 hardware configuration: the field guide for an agile design office"
-      },
+      "title": "Configuration matérielle SOLIDWORKS 2025 : le guide terrain pour un bureau d'études réactif",
       "url": "/blog/configuration-materielle-solidworks/",
       "dateIso": "2025-09-21T00:00:00.000Z",
-      "excerpt": {
-        "fr": "Guide pratique de Mohamed Omar Baouch pour dimensionner stations de travail, serveur PDM et réseau autour de SOLIDWORKS 2025, avec benchmarks et feuilles de route opérationnelles.",
-        "en": "Practical guide by Mohamed Omar Baouch to size workstations, the PDM server, and the network around SOLIDWORKS 2025, with benchmarks and actionable roadmaps."
-      },
-      "heroSubtitle": {
-        "fr": "Publié le <span data-date-iso=\"2025-09-21T00:00:00.000Z\" data-date-format=\"long\"></span>. Guide pratique de Mohamed Omar Baouch pour dimensionner stations de travail, serveur PDM et réseau autour de SOLIDWORKS 2025, avec benchmarks et feuilles de route opérationnelles.",
-        "en": "Published on <span data-date-iso=\"2025-09-21T00:00:00.000Z\" data-date-format=\"long\"></span>. Practical guide by Mohamed Omar Baouch to size workstations, the PDM server, and the network around SOLIDWORKS 2025, with benchmarks and actionable roadmaps."
-      },
-      "type": "editorial",
-      "ctaLabel": {
-        "fr": "Lire l'article",
-        "en": "Read the article"
-      }
+      "displayDate": "21 septembre 2025",
+      "shortDate": "21/09/2025",
+      "excerpt": "Plan d",
+      "heroSubtitle": "Publié le 21 septembre 2025. Plan d",
+      "itemsCount": null,
+      "type": "editorial"
+    },
+    "stats": {
+      "radarCount": 1,
+      "editorialCount": 2,
+      "lastRadar": "23/09/2025"
     }
   },
+  "radars": [
+    {
+      "slug": "radar-2025-09-23",
+      "url": "/blog/radar-2025-09-23/",
+      "title": "Radar PDM/PLM – 2025-09-23",
+      "dateIso": "2025-09-23T00:00:00.000Z",
+      "displayDate": "23 septembre 2025",
+      "shortDate": "23/09/2025",
+      "excerpt": "Veille du 23 septembre 2025. 7 signals sélectionnés.",
+      "heroSubtitle": "Veille du 23 septembre 2025 — 7 signaux sélectionnés auprès de 1 source.",
+      "itemsCount": 7,
+      "type": "radar"
+    }
+  ],
   "editorials": [
     {
       "slug": "configuration-materielle-solidworks",
       "url": "/blog/configuration-materielle-solidworks/",
-      "title": {
-        "fr": "Configuration matérielle SOLIDWORKS 2025 : le guide terrain pour un bureau d'études réactif",
-        "en": "SOLIDWORKS 2025 hardware configuration: the field guide for an agile design office"
-      },
+      "title": "Configuration matérielle SOLIDWORKS 2025 : le guide terrain pour un bureau d'études réactif",
       "dateIso": "2025-09-21T00:00:00.000Z",
-      "excerpt": {
-        "fr": "Guide pratique de Mohamed Omar Baouch pour dimensionner stations de travail, serveur PDM et réseau autour de SOLIDWORKS 2025, avec benchmarks et feuilles de route opérationnelles.",
-        "en": "Practical guide by Mohamed Omar Baouch to size workstations, the PDM server, and the network around SOLIDWORKS 2025, with benchmarks and actionable roadmaps."
-      },
-      "ctaLabel": {
-        "fr": "Lire l'article",
-        "en": "Read the article"
-      },
+      "displayDate": "21 septembre 2025",
+      "shortDate": "21/09/2025",
+      "excerpt": "Plan d",
+      "heroSubtitle": "Publié le 21 septembre 2025. Plan d",
       "type": "editorial"
     },
     {
       "slug": "resolutions-problematiques-plm",
       "url": "/blog/resolutions-problematiques-plm/",
-      "title": {
-        "fr": "Au-delà de la théorie : résoudre les 5 problématiques PLM que j'ai vécues en tant qu'Ingénieur Mécanique",
-        "en": "Beyond theory: solving the 5 PLM challenges I experienced as a Mechanical Engineer"
-      },
+      "title": "Au-delà de la théorie : résoudre les 5 problématiques PLM que j'ai vécues en tant qu'Ingénieur Mécanique",
       "dateIso": "2025-09-15T00:00:00.000Z",
-      "excerpt": {
-        "fr": "Retour d'expérience sur la résolution de problématiques PLM vécues sur le terrain.",
-        "en": "Field feedback on resolving PLM challenges encountered on the ground."
-      },
-      "ctaLabel": {
-        "fr": "Lire l'article",
-        "en": "Read the article"
-      },
+      "displayDate": "15 septembre 2025",
+      "shortDate": "15/09/2025",
+      "excerpt": "Retour d",
+      "heroSubtitle": "Publié le 15 septembre 2025. Retour d",
       "type": "editorial"
+    }
+  ],
+  "timeline": [
+    {
+      "slug": "radar-2025-09-23",
+      "url": "/blog/radar-2025-09-23/",
+      "title": "Radar PDM/PLM – 2025-09-23",
+      "dateIso": "2025-09-23T00:00:00.000Z",
+      "displayDate": "23 septembre 2025",
+      "shortDate": "23/09/2025",
+      "excerpt": "Veille du 23 septembre 2025. 7 signals sélectionnés.",
+      "heroSubtitle": "Veille du 23 septembre 2025 — 7 signaux sélectionnés auprès de 1 source.",
+      "itemsCount": 7,
+      "type": "radar"
     }
   ]
 }</script>
