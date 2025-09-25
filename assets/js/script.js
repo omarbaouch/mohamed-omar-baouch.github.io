@@ -909,26 +909,8 @@ function handleContactForm() {
 function init3DScrollEffect() {
     const sceneWrapper = document.getElementById('perspective-content');
     if (!sceneWrapper) return;
-    if (document.body.classList.contains('blog-page')) {
-        sceneWrapper.style.transform = 'none';
-        sceneWrapper.style.transition = 'none';
-        return;
-    }
-    let current = 0;
-    let target = 0;
-    let ease = 0.075;
-    function smoothScroll() {
-        current = parseFloat((current + (target - current) * ease).toFixed(2));
-        const translateY = current * -0.5;
-        const rotateX = current * 0.02;
-        sceneWrapper.style.transform = `translateY(${translateY}px) rotateX(${rotateX}deg)`;
-        requestAnimationFrame(smoothScroll);
-    }
-    window.addEventListener('scroll', () => {
-        const scrollTop = window.pageYOffset;
-        target = scrollTop * 0.1;
-    });
-    smoothScroll();
+    sceneWrapper.style.transform = 'none';
+    sceneWrapper.style.transition = 'none';
 }
 function initMagneticText() {
     const magneticElements = document.querySelectorAll('.magnetic-element');
@@ -1076,28 +1058,8 @@ function enhanceCustomCursor() {
 function initScrollDistortion() {
     const content = document.getElementById('mainContainer');
     if (!content) return;
-    if (document.body.classList.contains('blog-page')) {
-        content.style.transform = 'none';
-        return;
-    }
-    let currentScroll = 0;
-    let targetScroll = 0;
-    window.addEventListener('scroll', () => {
-        targetScroll = window.scrollY;
-    });
-    function distortionAnimation() {
-        currentScroll = lerp(currentScroll, targetScroll, 0.1);
-        const skewAmount = map(Math.abs(targetScroll - currentScroll), 0, 100, 0, 15);
-        content.style.transform = `skewY(${skewAmount * 0.02}deg)`;
-        requestAnimationFrame(distortionAnimation);
-    }
-    function lerp(start, end, factor) {
-        return start + (end - start) * factor;
-    }
-    function map(value, in_min, in_max, out_min, out_max) {
-        return (value - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-    }
-    distortionAnimation();
+    content.style.transform = 'none';
+    content.style.transition = 'none';
 }
 function initDynamicOverlay() {
     const overlay = document.getElementById('dynamicOverlay');
