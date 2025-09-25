@@ -531,6 +531,45 @@ const blogTranslations = {
     }
 };
 
+const motionPreference = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+let reduceMotionEnabled = motionPreference ? motionPreference.matches : false;
+
+function applyMotionPreferences(shouldReduce) {
+    document.documentElement.classList.toggle('reduce-motion', shouldReduce);
+    const customCursor = document.getElementById('customCursor');
+    const cursorDot = document.getElementById('cursorDot');
+    const overlay = document.getElementById('dynamicOverlay');
+    if (shouldReduce) {
+        document.querySelectorAll('.cursor-trail').forEach(trail => trail.remove());
+        if (customCursor) customCursor.style.display = 'none';
+        if (cursorDot) cursorDot.style.display = 'none';
+        if (overlay) overlay.style.display = 'none';
+        const particlesCanvas = document.querySelector('#particles-js canvas');
+        if (particlesCanvas) {
+            particlesCanvas.remove();
+        }
+    } else {
+        if (customCursor) customCursor.style.display = '';
+        if (cursorDot) cursorDot.style.display = '';
+        if (overlay) overlay.style.display = '';
+    }
+}
+
+if (motionPreference) {
+    applyMotionPreferences(reduceMotionEnabled);
+    const motionListener = event => {
+        reduceMotionEnabled = event.matches;
+        applyMotionPreferences(reduceMotionEnabled);
+    };
+    if (typeof motionPreference.addEventListener === 'function') {
+        motionPreference.addEventListener('change', motionListener);
+    } else if (typeof motionPreference.addListener === 'function') {
+        motionPreference.addListener(motionListener);
+    }
+} else {
+    applyMotionPreferences(false);
+}
+
 const SUPPORTED_LANGUAGES = ['fr', 'en'];
 
 function isBlogPage() {
@@ -817,16 +856,9 @@ function handleScrollAnimations() {
     });
 }
 function handleNavigation() {
-    const navContainer = document.getElementById('navContainer');
     const menuToggle = document.getElementById('menuToggle');
     const menu = document.getElementById('menu');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navContainer.classList.add('scrolled');
-        } else {
-            navContainer.classList.remove('scrolled');
-        }
-    });
+    if (!menuToggle || !menu) return;
     menuToggle.addEventListener('click', () => {
         menuToggle.classList.toggle('active');
         menu.classList.toggle('active');
@@ -857,6 +889,44 @@ function handleNavigation() {
             }
         });
     });
+}
+function initScrollEffects() {
+    const navContainer = document.getElementById('navContainer');
+    const scrollToTopButton = document.getElementById('scrollToTop');
+    const scrollProgressBar = document.getElementById('scrollProgress');
+    if (!navContainer && !scrollToTopButton && !scrollProgressBar) return;
+    let lastKnownScrollY = 0;
+    let ticking = false;
+    const scheduleFrame = window.requestAnimationFrame || function (callback) {
+        return setTimeout(callback, 16);
+    };
+    const update = () => {
+        const currentScroll = lastKnownScrollY;
+        if (navContainer) {
+            navContainer.classList.toggle('scrolled', currentScroll > 50);
+        }
+        if (scrollToTopButton) {
+            scrollToTopButton.classList.toggle('visible', currentScroll > 300);
+        }
+        if (scrollProgressBar) {
+            const totalHeight = document.body.scrollHeight - window.innerHeight;
+            const progress = totalHeight > 0 ? (currentScroll / totalHeight) * 100 : 0;
+            scrollProgressBar.style.width = progress + '%';
+        }
+        ticking = false;
+    };
+    const requestTick = () => {
+        if (!ticking) {
+            scheduleFrame(update);
+            ticking = true;
+        }
+    };
+    const onScroll = () => {
+        lastKnownScrollY = window.scrollY || window.pageYOffset;
+        requestTick();
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    update();
 }
 function handleContactForm() {
     (function () {
@@ -913,6 +983,7 @@ function init3DScrollEffect() {
     sceneWrapper.style.transition = 'none';
 }
 function initMagneticText() {
+    if (reduceMotionEnabled) return;
     const magneticElements = document.querySelectorAll('.magnetic-element');
     magneticElements.forEach(item => {
         item.addEventListener('mousemove', (e) => {
@@ -946,6 +1017,7 @@ function initWebGLTransitions() {
     }
 }
 function enhanceCustomCursor() {
+    if (reduceMotionEnabled) return;
     const cursor = document.getElementById('customCursor');
     const cursorDot = document.getElementById('cursorDot');
     if (!cursor || !cursorDot) return;
@@ -1062,6 +1134,7 @@ function initScrollDistortion() {
     content.style.transition = 'none';
 }
 function initDynamicOverlay() {
+    if (reduceMotionEnabled) return;
     const overlay = document.getElementById('dynamicOverlay');
     if (!overlay) return;
     overlay.style.display = 'block';
@@ -1073,6 +1146,7 @@ function initDynamicOverlay() {
     });
 }
 function initParticles() {
+    if (reduceMotionEnabled) return;
     const script = document.createElement('script');
     script.src = 'https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js';
     script.onload = function () {
@@ -1283,19 +1357,7 @@ function handleResize() {
 }
 function initScrollToTop() {
     const scrollToTopButton = document.getElementById('scrollToTop');
-    const scrollProgressBar = document.getElementById('scrollProgress');
-    if (!scrollToTopButton || !scrollProgressBar) return;
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            scrollToTopButton.classList.add('visible');
-        } else {
-            scrollToTopButton.classList.remove('visible');
-        }
-        const scrollPosition = window.pageYOffset;
-        const totalHeight = document.body.scrollHeight - window.innerHeight;
-        const scrollPercentage = (scrollPosition / totalHeight) * 100;
-        scrollProgressBar.style.width = scrollPercentage + '%';
-    });
+    if (!scrollToTopButton) return;
     scrollToTopButton.addEventListener('click', () => {
         window.scrollTo({
             top: 0,
@@ -1393,6 +1455,7 @@ function initThemeSwitcher() {
     }
 }
 function initParallax() {
+    if (reduceMotionEnabled) return;
     const parallaxLayers = document.querySelectorAll('.parallax-layer');
     if (parallaxLayers.length === 0) return;
     document.addEventListener('mousemove', (e) => {
@@ -1704,7 +1767,7 @@ document.addEventListener('DOMContentLoaded', () => {
             simulateLoading();
             const initializers = [
                 handleScrollAnimations, handleNavigation, handleContactForm, handleResize,
-                initScrollToTop, initLazyLoading, enhanceAccessibility, initParticles,
+                initScrollEffects, initScrollToTop, initLazyLoading, enhanceAccessibility, initParticles,
                 initThemeSwitcher, initParallax, enhanceCustomCursor, init3DScrollEffect,
                 initMagneticText, initWebGLTransitions, initScrollDistortion, initDynamicOverlay,
                 initAIAssistant, initProactiveAI

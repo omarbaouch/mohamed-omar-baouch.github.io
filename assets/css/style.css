@@ -77,6 +77,27 @@ body {
     overflow-x: hidden;
 }
 
+html.reduce-motion {
+    scroll-behavior: auto;
+}
+
+html.reduce-motion *,
+html.reduce-motion *::before,
+html.reduce-motion *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+}
+
+html.reduce-motion .custom-cursor,
+html.reduce-motion .cursor-dot,
+html.reduce-motion .cursor-trail,
+html.reduce-motion #dynamicOverlay,
+html.reduce-motion #particles-js {
+    display: none !important;
+}
+
 body.light-theme {
     --bg-primary: var(--light-bg-color);
     --bg-secondary: #ecdecb;
