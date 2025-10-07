@@ -118,21 +118,56 @@
     </div>
     <div class="container" id="mainContainer">
         <section class="hero">
-            <div class="hero-background">
+            <div class="hero-backdrop" aria-hidden="true">
+                <div class="hero-aurora"></div>
+                <div class="hero-aurora hero-aurora--secondary"></div>
                 <div class="hero-grid" id="heroGrid"></div>
             </div>
             <div class="hero-content">
-                <h1 class="hero-title" data-translate-key="hero_title">
-                    <span class="highlight glitch" data-text="Ingénieur Mécanique">Ingénieur Mécanique</span> & <br>
-                    Consultant <span class="glitch" data-text="PDM/PLM">PDM/PLM</span>
-                </h1>
-                <p class="hero-subtitle" data-translate-key="hero_subtitle">
-                    Expertise en conception, implémentation de solutions PDM et gestion du cycle de vie produit
-                </p>
-                <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary" data-translate-key="hero_cta1">Me contacter</a>
-                    <a href="#experience" class="btn btn-secondary" data-translate-key="hero_cta2">Découvrir mon
-                        parcours</a>
+                <div class="hero-copy">
+                    <div class="hero-badge" data-translate-key="hero_badge">Ingénierie &amp; stratégie produit</div>
+                    <h1 class="hero-title" data-translate-key="hero_title">
+                        <span class="hero-line">Ingénieur mécanique</span>
+                        <span class="hero-line">Consultant PDM/PLM</span>
+                    </h1>
+                    <p class="hero-subtitle" data-translate-key="hero_subtitle">
+                        Expertise en conception, implémentation de solutions PDM et gestion du cycle de vie produit
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#contact" class="btn btn-primary" data-translate-key="hero_cta1">Me contacter</a>
+                        <a href="#experience" class="btn btn-secondary" data-translate-key="hero_cta2">Découvrir mon
+                            parcours</a>
+                    </div>
+                    <div class="hero-metrics">
+                        <div class="hero-metric">
+                            <span class="hero-metric__value" data-translate-key="hero_metric1_value">12+</span>
+                            <span class="hero-metric__label" data-translate-key="hero_metric1_label">Migrations PDM orchestrées</span>
+                        </div>
+                        <div class="hero-metric">
+                            <span class="hero-metric__value" data-translate-key="hero_metric2_value">3</span>
+                            <span class="hero-metric__label" data-translate-key="hero_metric2_label">Secteurs industriels accompagnés</span>
+                        </div>
+                        <div class="hero-metric">
+                            <span class="hero-metric__value" data-translate-key="hero_metric3_value">90j</span>
+                            <span class="hero-metric__label" data-translate-key="hero_metric3_label">Feuille de route impact mesurable</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-portrait card-3d">
+                        <img data-src="baouch.jpeg" alt="Mohamed Omar Baouch" loading="lazy" class="lazy-image">
+                    </div>
+                    <div class="hero-panels">
+                        <article class="hero-panel hero-panel--primary">
+                            <h3 data-translate-key="hero_panel1_title">Architecte de systèmes PDM fiables</h3>
+                            <p data-translate-key="hero_panel1_body">Du cadrage au déploiement, j'aligne outils, équipes et données pour accélérer l'industrialisation.</p>
+                        </article>
+                        <article class="hero-panel hero-panel--secondary">
+                            <h3 data-translate-key="hero_panel2_title">Expériences terrain</h3>
+                            <p data-translate-key="hero_panel2_body">Visiativ, ABMI, Evolum : des missions menées au cœur des bureaux d'études et des ateliers.</p>
+                        </article>
+                        <div class="hero-visual-note" data-translate-key="hero_visual_note">Chaque mission commence par une immersion terrain pour comprendre vos contraintes réelles.</div>
+                    </div>
                 </div>
             </div>
             <div class="scroll-indicator" id="scrollIndicator">
@@ -177,6 +212,20 @@
                         j'accompagne les organisations dans leur transformation numérique et l'amélioration de leurs
                         flux de travail.
                     </p>
+                    <div class="about-highlights">
+                        <div class="about-highlight">
+                            <span class="about-highlight__label" data-translate-key="about_highlight1_label">Immersion</span>
+                            <p class="about-highlight__text" data-translate-key="about_highlight1_text">Diagnostics terrain, observation des flux et interviews d'utilisateurs pour prendre le pouls de vos équipes.</p>
+                        </div>
+                        <div class="about-highlight">
+                            <span class="about-highlight__label" data-translate-key="about_highlight2_label">Orchestration</span>
+                            <p class="about-highlight__text" data-translate-key="about_highlight2_text">Workflows PDM structurés, gouvernance des données et accompagnement du changement sur-mesure.</p>
+                        </div>
+                        <div class="about-highlight">
+                            <span class="about-highlight__label" data-translate-key="about_highlight3_label">Impact</span>
+                            <p class="about-highlight__text" data-translate-key="about_highlight3_text">Des feuilles de route 90 jours avec jalons mesurables et rituels de pilotage.</p>
+                        </div>
+                    </div>
                     <div class="skills-chart">
                         <div class="chart-container" style="position: relative; height: 60px; margin: 30px 0;">
                             <canvas id="skillsChart"></canvas>
@@ -284,6 +333,7 @@
         </section>
         <section id="experience" class="fade-up">
             <h2 class="section-title magnetic-element" data-translate-key="experience_title">Expérience</h2>
+            <p class="section-lead" data-translate-key="experience_intro">Des missions menées de bout en bout : cadrage stratégique, pilotage technique et accompagnement des équipes terrain.</p>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-content">
@@ -363,6 +413,7 @@
         </section>
         <section id="skills" class="fade-up">
             <h2 class="section-title magnetic-element" data-translate-key="skills_title">Compétences</h2>
+            <p class="section-lead" data-translate-key="skills_intro">Une expertise qui combine technologies PDM/PLM, conception avancée et pilotage de transformations industrielles.</p>
             <div class="skills-container">
                 <div class="skill-card">
                     <div class="skill-card-header" style="position: relative; z-index: 1;">
@@ -507,6 +558,7 @@
         </section>
         <section id="education" class="fade-up">
             <h2 class="section-title magnetic-element" data-translate-key="education_title">Formation</h2>
+            <p class="section-lead" data-translate-key="education_intro">Un parcours académique qui associe rigueur scientifique, design produit et innovation industrielle.</p>
             <div class="education-grid">
                 <div class="education-card">
                     <span class="education-year">2013-2015</span>
@@ -539,6 +591,7 @@
         </section>
         <section id="contact" class="fade-up">
             <h2 class="section-title magnetic-element" data-translate-key="contact_title">Contact</h2>
+            <p class="section-lead" data-translate-key="contact_intro">Explorons comment stabiliser vos données produit, accélérer vos projets et créer des rituels de pilotage efficaces.</p>
             <div class="contact-grid">
                 <div class="contact-info">
                     <div class="contact-item">
