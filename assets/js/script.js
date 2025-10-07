@@ -1265,83 +1265,110 @@ function initParticles() {
     document.body.appendChild(script);
 }
 function initGSAPAnimations() {
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-        gsap.registerPlugin(ScrollTrigger);
-        const heroTl = gsap.timeline();
-        heroTl.from('.hero-title', {
-            duration: 1.2,
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        return;
+    }
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (motionQuery.matches) {
+        gsap.set(['.hero-title', '.hero-subtitle', '.hero-cta .btn', '.scroll-indicator'], { clearProps: 'all' });
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        return;
+    }
+
+    const heroTimeline = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    heroTimeline.from('.hero-title', {
+        duration: 1.2,
+        y: 50,
+        opacity: 0
+    }).from('.hero-subtitle', {
+        duration: 1,
+        y: 30,
+        opacity: 0
+    }, '-=0.8');
+
+    const heroButtons = gsap.utils.toArray('.hero-cta .btn');
+    if (heroButtons.length) {
+        heroTimeline.from(heroButtons, {
+            duration: 0.7,
+            y: 26,
+            opacity: 0,
+            stagger: 0.12
+        }, '-=0.6');
+    }
+
+    if (document.querySelector('.scroll-indicator')) {
+        heroTimeline.from('.scroll-indicator', {
+            duration: 0.8,
+            y: 18,
+            opacity: 0
+        }, heroButtons.length ? '-=0.5' : '-=0.6');
+    }
+
+    const getScrollStart = (desktopValue, mobileValue = desktopValue) => () => window.matchMedia('(max-width: 768px)').matches ? mobileValue : desktopValue;
+
+    gsap.utils.toArray('section').forEach(section => {
+        const title = section.querySelector('.section-title');
+        if (!title) {
+            return;
+        }
+        gsap.from(title, {
+            scrollTrigger: {
+                trigger: section,
+                start: getScrollStart('top 78%', 'top 85%'),
+                once: true
+            },
+            duration: 1,
             y: 50,
             opacity: 0,
             ease: 'power3.out'
-        }).from('.hero-subtitle', {
+        });
+    });
+
+    gsap.utils.toArray('.timeline-content').forEach(item => {
+        gsap.from(item, {
+            scrollTrigger: {
+                trigger: item,
+                start: getScrollStart('top 84%', 'top 92%'),
+                once: true
+            },
             duration: 1,
             y: 30,
             opacity: 0,
             ease: 'power3.out'
-        }, '-=0.8').from('.hero-cta', {
+        });
+    });
+
+    gsap.utils.toArray('.skill-card').forEach((card, index) => {
+        gsap.from(card, {
+            scrollTrigger: {
+                trigger: card,
+                start: getScrollStart('top 82%', 'top 90%'),
+                once: true
+            },
             duration: 0.8,
-            y: 20,
+            y: 50,
+            opacity: 0,
+            ease: 'power3.out',
+            delay: index * 0.12
+        });
+    });
+
+    const contactGrid = document.querySelector('.contact-grid');
+    if (contactGrid) {
+        gsap.from(contactGrid, {
+            scrollTrigger: {
+                trigger: '#contact',
+                start: getScrollStart('top 78%', 'top 86%'),
+                once: true
+            },
+            duration: 1,
+            y: 50,
             opacity: 0,
             ease: 'power3.out'
-        }, '-=0.6').from('.scroll-indicator', {
-            duration: 0.8,
-            y: 20,
-            opacity: 0,
-            ease: 'power3.out'
-        }, '-=0.4');
-        gsap.utils.toArray('section').forEach(section => {
-            const title = section.querySelector('.section-title');
-            if (title) {
-                gsap.from(title, {
-                    scrollTrigger: {
-                        trigger: section,
-                        start: 'top 80%',
-                    },
-                    duration: 1,
-                    y: 50,
-                    opacity: 0,
-                    ease: 'power3.out'
-                });
-            }
         });
-        gsap.utils.toArray('.timeline-content').forEach(item => {
-            gsap.from(item, {
-                scrollTrigger: {
-                    trigger: item,
-                    start: 'top 85%',
-                },
-                duration: 1,
-                y: 30,
-                opacity: 0,
-                ease: 'power3.out'
-            });
-        });
-        gsap.utils.toArray('.skill-card').forEach((card, index) => {
-            gsap.from(card, {
-                scrollTrigger: {
-                    trigger: card,
-                    start: 'top 85%',
-                },
-                duration: 0.8,
-                y: 50,
-                opacity: 0,
-                ease: 'power3.out',
-                delay: index * 0.2
-            });
-        });
-        const contactGrid = document.querySelector('.contact-grid');
-        if (contactGrid) {
-            gsap.from(contactGrid, {
-                scrollTrigger: {
-                    trigger: '#contact',
-                    start: 'top 80%',
-                },
-                duration: 1,
-                y: 50,
-                opacity: 0,
-                ease: 'power3.out'
-            });
-        }
     }
 }
 function handleResize() {
