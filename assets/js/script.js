@@ -10,14 +10,21 @@ const translations = {
         "nav_education": "Formation",
         "nav_contact": "Contact",
         "nav_blog": "Blog",
-        "hero_title": `<span class="highlight glitch" data-text="Ingénieur Mécanique">Ingénieur Mécanique</span> & <br>Consultant <span class="glitch" data-text="PDM/PLM">PDM/PLM</span>`,
+        "hero_label": "Ingénierie & PDM",
+        "hero_title": "Ingénieur mécanique & consultant PDM/PLM",
         "hero_subtitle": "Expertise en conception, implémentation de solutions PDM et gestion du cycle de vie produit",
+        "hero_card_title": "Consultant PDM/PLM chez VISIATIV",
+        "hero_card_availability": "Basé à Strasbourg, mission possible sur toute la France",
         "hero_cta1": "Me contacter",
         "hero_cta2": "Découvrir mon parcours",
         "scroll_text": "Défiler",
+        "about_label": "Approche",
         "about_title": "À propos",
         "about_p1": "Ingénieur mécanique expérimenté et consultant PDM/PLM, je suis passionné par l'optimisation des processus de développement produit et la mise en œuvre de solutions techniques adaptées aux besoins spécifiques des entreprises.",
         "about_p2": "Fort de mon expertise en conception mécanique et en gestion du cycle de vie des produits, j'accompagne les organisations dans leur transformation numérique et l'amélioration de leurs flux de travail.",
+        "about_highlight_1": "Migrations SOLIDWORKS PDM orchestrées de bout en bout",
+        "about_highlight_2": "Workflows sur mesure connectés aux usages terrain",
+        "about_highlight_3": "Formation et coaching des équipes projet",
         "tooltip_location": "Situé dans la région Grand Est, disponible pour des projets dans toute la France",
         "tooltip_phone": "Disponible par téléphone du lundi au vendredi, 9h-18h",
         "driving_license": "Permis B, Véhiculé",
@@ -26,7 +33,9 @@ const translations = {
         "tooltip_linkedin": "Connectons-nous sur LinkedIn pour échanger professionnellement",
         "download_cv": "Télécharger mon CV",
         "cv_file": "/BAOUCH_CV_FR.pdf",
+        "experience_label": "Parcours",
         "experience_title": "Expérience",
+        "experience_intro": "Une expérience terrain au service des équipes industrielles.",
         "exp1_date": "Juin 2023 - Présent",
         "exp1_title": "Consultant PDM/PLM",
         "exp1_subtitle1": "Mise en œuvre technique:",
@@ -53,7 +62,9 @@ const translations = {
         "exp3_desc2": "Chiffrage de projets et réalisation de nomenclatures",
         "exp3_desc3": "Élaboration de plans d'exécution et dossiers techniques",
         "exp3_desc4": "Recherche et consultation de fournisseurs",
+        "skills_label": "Expertises",
         "skills_title": "Compétences",
+        "skills_intro": "Des compétences techniques et méthodologiques pour sécuriser vos environnements PDM/PLM.",
         "skill1_title": "Solutions PDM/PLM",
         "tooltip_skill1_1": "Expert en configuration, migration et personnalisation de SOLIDWORKS PDM pour optimiser les workflows d'entreprise",
         "tooltip_skill1_2": "Plateforme collaborative pour la gestion du cycle de vie des produits et l'innovation",
@@ -74,6 +85,7 @@ const translations = {
         "tooltip_skill3_3": "Animation de sessions de formation adaptées aux différents niveaux d'utilisateurs",
         "skill3_4": "Analyse des processus industriels",
         "tooltip_skill3_4": "Optimisation des processus métier et des workflows techniques",
+        "education_label": "Formation",
         "education_title": "Formation",
         "edu1_title": "CLASSES PRÉPARATOIRES",
         "edu1_desc": "Formation scientifique et technique approfondie",
@@ -81,7 +93,9 @@ const translations = {
         "edu2_desc": "Formation en techniques de transformation et conception de pièces plastiques",
         "edu3_title": "MASTER EN GÉNIE MÉCANIQUE",
         "edu3_desc": "Spécialisation en conception et simulation numérique",
+        "contact_label": "Contact",
         "contact_title": "Contact",
+        "contact_intro": "Parlons de votre projet PDM/PLM ou de vos besoins en conception.",
         "contact_phone": "Téléphone",
         "contact_address": "Adresse",
         "contact_languages": "Langues",
@@ -108,14 +122,21 @@ const translations = {
         "nav_education": "Education",
         "nav_contact": "Contact",
         "nav_blog": "Blog",
-        "hero_title": `<span class="highlight glitch" data-text="Mechanical Engineer">Mechanical Engineer</span> & <br>PDM/PLM <span class="glitch" data-text="Consultant">Consultant</span>`,
+        "hero_label": "Engineering & PDM",
+        "hero_title": "Mechanical engineer & PDM/PLM consultant",
         "hero_subtitle": "Expertise in design, PDM solution implementation, and product lifecycle management",
+        "hero_card_title": "PDM/PLM consultant at VISIATIV",
+        "hero_card_availability": "Based in Strasbourg, supporting teams across France",
         "hero_cta1": "Contact Me",
         "hero_cta2": "Explore My Journey",
         "scroll_text": "Scroll",
+        "about_label": "Approach",
         "about_title": "About Me",
         "about_p1": "As an experienced mechanical engineer and PDM/PLM consultant, I am passionate about optimizing product development processes and implementing technical solutions tailored to companies' specific needs.",
         "about_p2": "With strong expertise in mechanical design and product lifecycle management, I guide organizations through their digital transformation and the improvement of their workflows.",
+        "about_highlight_1": "End-to-end SOLIDWORKS PDM migrations",
+        "about_highlight_2": "Workflows tailored to real-world usage",
+        "about_highlight_3": "Training and coaching for project teams",
         "tooltip_location": "Based in the Grand Est region, available for projects throughout France",
         "tooltip_phone": "Available by phone Monday to Friday, 9am-6pm",
         "driving_license": "Driver's License",
@@ -124,7 +145,9 @@ const translations = {
         "tooltip_linkedin": "Let's connect on LinkedIn for professional exchanges",
         "download_cv": "Download RESUME",
         "cv_file": "/BAOUCH_CV_EN.pdf",
+        "experience_label": "Career",
         "experience_title": "Experience",
+        "experience_intro": "Field experience dedicated to industrial teams.",
         "exp1_date": "June 2023 - Present",
         "exp1_title": "PDM/PLM Consultant",
         "exp1_subtitle1": "Technical Implementation:",
@@ -151,7 +174,9 @@ const translations = {
         "exp3_desc2": "Project costing and creation of bills of materials",
         "exp3_desc3": "Development of execution plans and technical files",
         "exp3_desc4": "Supplier research and consultation",
+        "skills_label": "Expertise",
         "skills_title": "Skills",
+        "skills_intro": "Technical and methodological skills to secure your PDM/PLM landscape.",
         "skill1_title": "PDM/PLM Solutions",
         "tooltip_skill1_1": "Expert in configuring, migrating, and customizing SOLIDWORKS PDM to optimize company workflows",
         "tooltip_skill1_2": "Collaborative platform for product lifecycle management and innovation",
@@ -172,6 +197,7 @@ const translations = {
         "tooltip_skill3_3": "Conducting training sessions adapted to different user levels",
         "skill3_4": "Industrial Process Analysis",
         "tooltip_skill3_4": "Optimization of business processes and technical workflows",
+        "education_label": "Education",
         "education_title": "Education",
         "edu1_title": "PREPARATORY CLASSES",
         "edu1_desc": "In-depth scientific and technical training",
@@ -179,7 +205,9 @@ const translations = {
         "edu2_desc": "Training in processing techniques and plastic parts design",
         "edu3_title": "MASTER IN MECHANICAL ENGINEERING",
         "edu3_desc": "Specialization in design and numerical simulation",
+        "contact_label": "Let's connect",
         "contact_title": "Contact",
+        "contact_intro": "Let's discuss your PDM/PLM roadmap or mechanical design project.",
         "contact_phone": "Phone",
         "contact_address": "Address",
         "contact_languages": "Languages",
@@ -642,16 +670,6 @@ function applyPortfolioLanguage(langData, lang) {
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription && langData['meta_description']) {
         metaDescription.setAttribute('content', langData['meta_description']);
-    }
-    const glitchElements = document.querySelectorAll('.glitch');
-    if (glitchElements.length >= 2) {
-        if (lang === 'en') {
-            glitchElements[0].dataset.text = 'Mechanical Engineer';
-            glitchElements[1].dataset.text = 'Consultant';
-        } else {
-            glitchElements[0].dataset.text = 'Ingénieur Mécanique';
-            glitchElements[1].dataset.text = 'PDM/PLM';
-        }
     }
 }
 const frenchCountries = [
