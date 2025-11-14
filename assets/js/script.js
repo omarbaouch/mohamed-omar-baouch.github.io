@@ -10,14 +10,32 @@ const translations = {
         "nav_education": "Formation",
         "nav_contact": "Contact",
         "nav_blog": "Blog",
-        "hero_title": `<span class="highlight glitch" data-text="Ingénieur Mécanique">Ingénieur Mécanique</span> & <br>Consultant <span class="glitch" data-text="PDM/PLM">PDM/PLM</span>`,
+        "hero_badge": "Ingénierie &amp; stratégie produit",
+        "hero_title": `<span class="hero-line">Ingénieur mécanique</span><span class="hero-line">Consultant PDM/PLM</span>`,
         "hero_subtitle": "Expertise en conception, implémentation de solutions PDM et gestion du cycle de vie produit",
         "hero_cta1": "Me contacter",
         "hero_cta2": "Découvrir mon parcours",
         "scroll_text": "Défiler",
+        "hero_metric1_value": "12+",
+        "hero_metric1_label": "Migrations PDM orchestrées",
+        "hero_metric2_value": "3",
+        "hero_metric2_label": "Secteurs industriels accompagnés",
+        "hero_metric3_value": "90j",
+        "hero_metric3_label": "Feuille de route impact mesurable",
+        "hero_panel1_title": "Architecte de systèmes PDM fiables",
+        "hero_panel1_body": "Du cadrage au déploiement, j'aligne outils, équipes et données pour accélérer l'industrialisation.",
+        "hero_panel2_title": "Expériences terrain",
+        "hero_panel2_body": "Visiativ, ABMI, Evolum : des missions menées au cœur des bureaux d'études et des ateliers.",
+        "hero_visual_note": "Chaque mission commence par une immersion terrain pour comprendre vos contraintes réelles.",
         "about_title": "À propos",
         "about_p1": "Ingénieur mécanique expérimenté et consultant PDM/PLM, je suis passionné par l'optimisation des processus de développement produit et la mise en œuvre de solutions techniques adaptées aux besoins spécifiques des entreprises.",
         "about_p2": "Fort de mon expertise en conception mécanique et en gestion du cycle de vie des produits, j'accompagne les organisations dans leur transformation numérique et l'amélioration de leurs flux de travail.",
+        "about_highlight1_label": "Immersion",
+        "about_highlight1_text": "Diagnostics terrain, observation des flux et interviews d'utilisateurs pour prendre le pouls de vos équipes.",
+        "about_highlight2_label": "Orchestration",
+        "about_highlight2_text": "Workflows PDM structurés, gouvernance des données et accompagnement du changement sur-mesure.",
+        "about_highlight3_label": "Impact",
+        "about_highlight3_text": "Des feuilles de route 90 jours avec jalons mesurables et rituels de pilotage.",
         "tooltip_location": "Situé dans la région Grand Est, disponible pour des projets dans toute la France",
         "tooltip_phone": "Disponible par téléphone du lundi au vendredi, 9h-18h",
         "driving_license": "Permis B, Véhiculé",
@@ -27,6 +45,7 @@ const translations = {
         "download_cv": "Télécharger mon CV",
         "cv_file": "/BAOUCH_CV_FR.pdf",
         "experience_title": "Expérience",
+        "experience_intro": "Des missions menées de bout en bout : cadrage stratégique, pilotage technique et accompagnement des équipes terrain.",
         "exp1_date": "Juin 2023 - Présent",
         "exp1_title": "Consultant PDM/PLM",
         "exp1_subtitle1": "Mise en œuvre technique:",
@@ -54,6 +73,7 @@ const translations = {
         "exp3_desc3": "Élaboration de plans d'exécution et dossiers techniques",
         "exp3_desc4": "Recherche et consultation de fournisseurs",
         "skills_title": "Compétences",
+        "skills_intro": "Une expertise qui combine technologies PDM/PLM, conception avancée et pilotage de transformations industrielles.",
         "skill1_title": "Solutions PDM/PLM",
         "tooltip_skill1_1": "Expert en configuration, migration et personnalisation de SOLIDWORKS PDM pour optimiser les workflows d'entreprise",
         "tooltip_skill1_2": "Plateforme collaborative pour la gestion du cycle de vie des produits et l'innovation",
@@ -75,6 +95,7 @@ const translations = {
         "skill3_4": "Analyse des processus industriels",
         "tooltip_skill3_4": "Optimisation des processus métier et des workflows techniques",
         "education_title": "Formation",
+        "education_intro": "Un parcours académique qui associe rigueur scientifique, design produit et innovation industrielle.",
         "edu1_title": "CLASSES PRÉPARATOIRES",
         "edu1_desc": "Formation scientifique et technique approfondie",
         "edu2_title": "BACHELOR EN PLASTURGIE",
@@ -82,6 +103,7 @@ const translations = {
         "edu3_title": "MASTER EN GÉNIE MÉCANIQUE",
         "edu3_desc": "Spécialisation en conception et simulation numérique",
         "contact_title": "Contact",
+        "contact_intro": "Explorons comment stabiliser vos données produit, accélérer vos projets et créer des rituels de pilotage efficaces.",
         "contact_phone": "Téléphone",
         "contact_address": "Adresse",
         "contact_languages": "Langues",
@@ -108,14 +130,32 @@ const translations = {
         "nav_education": "Education",
         "nav_contact": "Contact",
         "nav_blog": "Blog",
-        "hero_title": `<span class="highlight glitch" data-text="Mechanical Engineer">Mechanical Engineer</span> & <br>PDM/PLM <span class="glitch" data-text="Consultant">Consultant</span>`,
+        "hero_badge": "Engineering &amp; product data strategy",
+        "hero_title": `<span class="hero-line">Mechanical Engineer</span><span class="hero-line">PDM/PLM Consultant</span>`,
         "hero_subtitle": "Expertise in design, PDM solution implementation, and product lifecycle management",
         "hero_cta1": "Contact Me",
         "hero_cta2": "Explore My Journey",
         "scroll_text": "Scroll",
+        "hero_metric1_value": "12+",
+        "hero_metric1_label": "PDM migrations orchestrated",
+        "hero_metric2_value": "3",
+        "hero_metric2_label": "Industries supported",
+        "hero_metric3_value": "90d",
+        "hero_metric3_label": "Roadmaps with measurable impact",
+        "hero_panel1_title": "Building reliable PDM ecosystems",
+        "hero_panel1_body": "From discovery to rollout, I align tools, teams, and data to accelerate industrialization.",
+        "hero_panel2_title": "Field-proven experience",
+        "hero_panel2_body": "Visiativ, ABMI, Evolum: missions delivered alongside design offices and production floors.",
+        "hero_visual_note": "Every engagement begins on the ground to understand the constraints your teams face daily.",
         "about_title": "About Me",
         "about_p1": "As an experienced mechanical engineer and PDM/PLM consultant, I am passionate about optimizing product development processes and implementing technical solutions tailored to companies' specific needs.",
         "about_p2": "With strong expertise in mechanical design and product lifecycle management, I guide organizations through their digital transformation and the improvement of their workflows.",
+        "about_highlight1_label": "Immersion",
+        "about_highlight1_text": "On-site diagnostics, workflow observation, and user interviews to feel your teams' reality.",
+        "about_highlight2_label": "Orchestration",
+        "about_highlight2_text": "Structured PDM workflows, data governance, and tailored change management.",
+        "about_highlight3_label": "Impact",
+        "about_highlight3_text": "90-day roadmaps with measurable milestones and governance rituals.",
         "tooltip_location": "Based in the Grand Est region, available for projects throughout France",
         "tooltip_phone": "Available by phone Monday to Friday, 9am-6pm",
         "driving_license": "Driver's License",
@@ -125,6 +165,7 @@ const translations = {
         "download_cv": "Download RESUME",
         "cv_file": "/BAOUCH_CV_EN.pdf",
         "experience_title": "Experience",
+        "experience_intro": "End-to-end missions: strategic framing, technical leadership, and hands-on coaching for field teams.",
         "exp1_date": "June 2023 - Present",
         "exp1_title": "PDM/PLM Consultant",
         "exp1_subtitle1": "Technical Implementation:",
@@ -152,6 +193,7 @@ const translations = {
         "exp3_desc3": "Development of execution plans and technical files",
         "exp3_desc4": "Supplier research and consultation",
         "skills_title": "Skills",
+        "skills_intro": "An expertise that blends PDM/PLM technologies, advanced design, and industrial transformation leadership.",
         "skill1_title": "PDM/PLM Solutions",
         "tooltip_skill1_1": "Expert in configuring, migrating, and customizing SOLIDWORKS PDM to optimize company workflows",
         "tooltip_skill1_2": "Collaborative platform for product lifecycle management and innovation",
@@ -173,6 +215,7 @@ const translations = {
         "skill3_4": "Industrial Process Analysis",
         "tooltip_skill3_4": "Optimization of business processes and technical workflows",
         "education_title": "Education",
+        "education_intro": "An academic path combining scientific rigor, product design, and industrial innovation.",
         "edu1_title": "PREPARATORY CLASSES",
         "edu1_desc": "In-depth scientific and technical training",
         "edu2_title": "BACHELOR IN PLASTICS ENGINEERING",
@@ -180,6 +223,7 @@ const translations = {
         "edu3_title": "MASTER IN MECHANICAL ENGINEERING",
         "edu3_desc": "Specialization in design and numerical simulation",
         "contact_title": "Contact",
+        "contact_intro": "Let's explore how to stabilize your product data, accelerate projects, and build efficient governance rituals.",
         "contact_phone": "Phone",
         "contact_address": "Address",
         "contact_languages": "Languages",
@@ -1250,27 +1294,50 @@ function initGSAPAnimations() {
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
         const heroTl = gsap.timeline();
-        heroTl.from('.hero-title', {
-            duration: 1.2,
-            y: 50,
-            opacity: 0,
-            ease: 'power3.out'
-        }).from('.hero-subtitle', {
-            duration: 1,
-            y: 30,
-            opacity: 0,
-            ease: 'power3.out'
-        }, '-=0.8').from('.hero-cta', {
+        heroTl.from('.hero-badge', {
             duration: 0.8,
             y: 20,
             opacity: 0,
             ease: 'power3.out'
+        }).from('.hero-title .hero-line', {
+            duration: 0.9,
+            y: 60,
+            opacity: 0,
+            ease: 'power3.out',
+            stagger: 0.12
+        }, '-=0.4').from('.hero-subtitle', {
+            duration: 0.9,
+            y: 30,
+            opacity: 0,
+            ease: 'power3.out'
+        }, '-=0.6').from('.hero-cta', {
+            duration: 0.8,
+            y: 20,
+            opacity: 0,
+            ease: 'power3.out'
+        }, '-=0.5').from('.hero-metric', {
+            duration: 0.7,
+            y: 25,
+            opacity: 0,
+            ease: 'power3.out',
+            stagger: 0.08
+        }, '-=0.5').from('.hero-portrait', {
+            duration: 1,
+            y: 60,
+            opacity: 0,
+            ease: 'power3.out'
+        }, '-=0.7').from('.hero-panel', {
+            duration: 0.8,
+            y: 30,
+            opacity: 0,
+            ease: 'power3.out',
+            stagger: 0.12
         }, '-=0.6').from('.scroll-indicator', {
             duration: 0.8,
             y: 20,
             opacity: 0,
             ease: 'power3.out'
-        }, '-=0.4');
+        }, '-=0.6');
         gsap.utils.toArray('section').forEach(section => {
             const title = section.querySelector('.section-title');
             if (title) {
