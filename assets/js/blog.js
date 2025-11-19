@@ -24,69 +24,202 @@ const getLocalizedValue = (value, lang) => {
 
 let blogDataCache = null;
 let currentLanguage = document.documentElement.lang || 'fr';
+let blogPosts = [];
+let currentFilter = 'all';
+let currentQuery = '';
 
-const updateHero = (heroData, lang = currentLanguage) => {
+const setHero = (heroData, lang = currentLanguage) => {
     if (!heroData) return;
+    const { radarHighlight, editorialHighlight, stats, tagline } = heroData;
+    const heroTagline = document.querySelector('[data-hero-tagline]');
     const heroTitle = document.querySelector('[data-hero-title]');
     const heroSubtitle = document.querySelector('[data-hero-subtitle]');
     const heroLink = document.querySelector('[data-hero-link]');
-    const heroActions = document.querySelector('.hero-actions');
+    const heroSecondary = document.querySelector('[data-hero-secondary]');
+    const statRadars = document.querySelector('[data-stat-radars]');
+    const statEditorials = document.querySelector('[data-stat-editorials]');
+    const statUpdated = document.querySelector('[data-stat-updated]');
 
-    const highlight = heroData.editorialHighlight;
-    if (!highlight) return;
-
-    if (heroTitle) {
-        heroTitle.textContent = getLocalizedValue(highlight.title, lang);
+    if (heroTagline && tagline) {
+        heroTagline.textContent = getLocalizedValue(tagline, lang);
     }
+
+    if (radarHighlight && heroTitle) {
+        heroTitle.textContent = getLocalizedValue(radarHighlight.title, lang) || 'Radar PDM/PLM';
+    }
+
     if (heroSubtitle) {
-        heroSubtitle.innerHTML = getLocalizedValue(highlight.heroSubtitle, lang) || getLocalizedValue(highlight.excerpt, lang) || '';
+        const subtitleSource = radarHighlight?.heroSubtitle || radarHighlight?.excerpt || heroData.subtitle;
+        heroSubtitle.textContent = getLocalizedValue(subtitleSource, lang);
     }
-    if (heroLink) {
-        if (highlight.url) {
-            heroLink.href = highlight.url;
-        }
-        const defaultCta = lang === 'fr' ? "Lire l'article" : 'Read the article';
-        heroLink.textContent = getLocalizedValue(highlight.ctaLabel, lang) || defaultCta;
-        heroLink.classList.remove('is-hidden');
+
+    if (heroLink && radarHighlight?.url) {
+        heroLink.href = radarHighlight.url;
+        heroLink.textContent = getLocalizedValue(radarHighlight.ctaLabel, lang) || 'Ouvrir le radar';
     }
-    if (heroActions) {
-        heroActions.classList.toggle('is-hidden', !highlight.url);
+
+    if (heroSecondary && editorialHighlight?.url) {
+        heroSecondary.href = editorialHighlight.url;
+        const defaultCta = lang === 'fr' ? 'Lire le guide' : 'Read the guide';
+        heroSecondary.textContent = getLocalizedValue(editorialHighlight.ctaLabel, lang) || defaultCta;
+    }
+
+    if (statRadars) {
+        statRadars.textContent = stats?.radarCount ?? blogDataCache?.radars?.length ?? '—';
+    }
+    if (statEditorials) {
+        statEditorials.textContent = stats?.editorialCount ?? blogDataCache?.editorials?.length ?? '—';
+    }
+    if (statUpdated) {
+        const lastRadar = radarHighlight?.shortDate || stats?.lastRadar;
+        statUpdated.textContent = lastRadar || '—';
     }
     window.formatBlogDates?.(lang);
 };
 
-const updateCards = (posts, lang = currentLanguage) => {
-    if (!Array.isArray(posts)) return;
-    const cards = document.querySelectorAll('.post-card');
-    cards.forEach((card) => {
-        const slug = card.dataset.postSlug;
-        if (!slug) return;
-        const postData = posts.find((post) => post.slug === slug);
-        if (!postData) return;
-        const titleLink = card.querySelector('.post-card__title a');
-        if (titleLink) {
-            titleLink.textContent = getLocalizedValue(postData.title, lang);
-            if (postData.url) {
-                titleLink.href = postData.url;
-            }
+const buildPostCard = (post, lang = currentLanguage) => {
+    const card = document.createElement('article');
+    card.className = 'post-card';
+    card.dataset.type = post.type || 'radar';
+    card.dataset.postSlug = post.slug || '';
+
+    const meta = document.createElement('div');
+    meta.className = 'post-card__meta';
+    const badge = document.createElement('span');
+    badge.className = `badge badge-${post.type || 'radar'}`;
+    badge.textContent = post.type === 'editorial' ? 'Article de fond' : 'Radar';
+    meta.appendChild(badge);
+
+    if (post.dateIso) {
+        const timeEl = document.createElement('time');
+        timeEl.setAttribute('datetime', post.dateIso);
+        timeEl.setAttribute('data-date-iso', post.dateIso);
+        timeEl.textContent = post.displayDate || post.shortDate || post.dateIso;
+        meta.appendChild(timeEl);
+    }
+
+    if (post.itemsCount) {
+        const count = document.createElement('span');
+        count.textContent = `${post.itemsCount} lien${post.itemsCount > 1 ? 's' : ''}`;
+        meta.appendChild(count);
+    }
+
+    const title = document.createElement('h3');
+    title.className = 'post-card__title';
+    const link = document.createElement('a');
+    link.href = post.url || '#';
+    link.textContent = getLocalizedValue(post.title, lang) || 'Article';
+    title.appendChild(link);
+
+    const excerpt = document.createElement('p');
+    excerpt.className = 'post-card__excerpt';
+    excerpt.textContent = getLocalizedValue(post.excerpt, lang) || '';
+
+    const cta = document.createElement('a');
+    cta.className = 'post-card__cta';
+    cta.href = post.url || '#';
+    const defaultCta = post.type === 'editorial' ? "Lire l'article" : 'Consulter le radar';
+    cta.textContent = getLocalizedValue(post.ctaLabel, lang) || defaultCta;
+
+    card.append(meta, title, excerpt, cta);
+    return card;
+};
+
+const renderPostGrid = (lang = currentLanguage) => {
+    const container = document.querySelector('[data-post-grid]');
+    if (!container) return;
+    container.innerHTML = '';
+    const normalizedQuery = currentQuery.trim().toLowerCase();
+
+    const filtered = blogPosts.filter((post) => {
+        const matchesFilter = currentFilter === 'all' || post.type === currentFilter;
+        if (!matchesFilter) return false;
+        if (!normalizedQuery) return true;
+        const haystack = `${getLocalizedValue(post.title, lang)} ${getLocalizedValue(post.excerpt, lang)}`.toLowerCase();
+        return haystack.includes(normalizedQuery);
+    });
+
+    if (!filtered.length) {
+        const empty = document.createElement('p');
+        empty.className = 'muted';
+        empty.textContent = 'Aucun article ne correspond à cette recherche pour le moment.';
+        container.appendChild(empty);
+        return;
+    }
+
+    filtered
+        .sort((a, b) => new Date(b.dateIso || b.displayDate) - new Date(a.dateIso || a.displayDate))
+        .forEach((post) => container.appendChild(buildPostCard(post, lang)));
+
+    window.formatBlogDates?.(lang);
+};
+
+const setFeatured = (heroData, lang = currentLanguage) => {
+    const radarCard = document.querySelector('[data-featured-radar]');
+    const editorialCard = document.querySelector('[data-featured-editorial]');
+    const radar = heroData?.radarHighlight || blogDataCache?.radars?.[0];
+    const editorial = heroData?.editorialHighlight || blogDataCache?.editorials?.[0];
+
+    if (radar && radarCard) {
+        const title = radarCard.querySelector('[data-featured-radar-title]');
+        const excerpt = radarCard.querySelector('[data-featured-radar-excerpt]');
+        const link = radarCard.querySelector('[data-featured-radar-link]');
+        const date = radarCard.querySelector('[data-featured-radar-date]');
+        if (title) title.textContent = getLocalizedValue(radar.title, lang);
+        if (excerpt) excerpt.textContent = getLocalizedValue(radar.heroSubtitle, lang) || getLocalizedValue(radar.excerpt, lang);
+        if (link) link.href = radar.url || '#';
+        if (date && radar.dateIso) {
+            date.setAttribute('datetime', radar.dateIso);
+            date.setAttribute('data-date-iso', radar.dateIso);
+            date.textContent = radar.displayDate || radar.shortDate || radar.dateIso;
         }
-        const excerptEl = card.querySelector('.post-card__excerpt');
-        if (excerptEl) {
-            excerptEl.textContent = getLocalizedValue(postData.excerpt, lang) || '';
+    }
+
+    if (editorial && editorialCard) {
+        const title = editorialCard.querySelector('[data-featured-editorial-title]');
+        const excerpt = editorialCard.querySelector('[data-featured-editorial-excerpt]');
+        const link = editorialCard.querySelector('[data-featured-editorial-link]');
+        const date = editorialCard.querySelector('[data-featured-editorial-date]');
+        if (title) title.textContent = getLocalizedValue(editorial.title, lang);
+        if (excerpt) excerpt.textContent = getLocalizedValue(editorial.heroSubtitle, lang) || getLocalizedValue(editorial.excerpt, lang);
+        if (link) link.href = editorial.url || '#';
+        if (date && editorial.dateIso) {
+            date.setAttribute('datetime', editorial.dateIso);
+            date.setAttribute('data-date-iso', editorial.dateIso);
+            date.textContent = editorial.displayDate || editorial.shortDate || editorial.dateIso;
         }
-        const ctaEl = card.querySelector('.post-card__cta');
-        if (ctaEl) {
-            const defaultCta = lang === 'fr' ? "Lire l'article" : 'Read the article';
-            ctaEl.textContent = getLocalizedValue(postData.ctaLabel, lang) || defaultCta;
-            if (postData.url) {
-                ctaEl.href = postData.url;
-            }
+    }
+    window.formatBlogDates?.(lang);
+};
+
+const renderTimeline = (radars, lang = currentLanguage) => {
+    const timeline = document.querySelector('[data-timeline]');
+    if (!timeline) return;
+    timeline.innerHTML = '';
+    const recent = [...radars].sort((a, b) => new Date(b.dateIso) - new Date(a.dateIso)).slice(0, 8);
+    recent.forEach((entry) => {
+        const item = document.createElement('li');
+        item.className = 'timeline-item';
+        const dot = document.createElement('span');
+        dot.className = 'timeline-dot';
+        const content = document.createElement('div');
+        content.className = 'timeline-content';
+        const timeEl = document.createElement('time');
+        timeEl.setAttribute('datetime', entry.dateIso);
+        timeEl.setAttribute('data-date-iso', entry.dateIso);
+        timeEl.textContent = entry.displayDate || entry.shortDate || entry.dateIso;
+        const link = document.createElement('a');
+        link.href = entry.url || '#';
+        link.textContent = getLocalizedValue(entry.title, lang);
+        content.append(timeEl, link);
+        if (entry.itemsCount) {
+            const meta = document.createElement('span');
+            meta.className = 'timeline-meta';
+            meta.textContent = `${entry.itemsCount} lien${entry.itemsCount > 1 ? 's' : ''}`;
+            content.appendChild(meta);
         }
-        const timeEl = card.querySelector('time');
-        if (timeEl && postData.dateIso) {
-            timeEl.setAttribute('datetime', postData.dateIso);
-            timeEl.setAttribute('data-date-iso', postData.dateIso);
-        }
+        item.append(dot, content);
+        timeline.appendChild(item);
     });
     window.formatBlogDates?.(lang);
 };
@@ -94,8 +227,10 @@ const updateCards = (posts, lang = currentLanguage) => {
 const updateBlogTexts = (lang = currentLanguage) => {
     currentLanguage = lang;
     if (!blogDataCache) return;
-    updateHero(blogDataCache.hero, lang);
-    updateCards(blogDataCache.editorials, lang);
+    setHero(blogDataCache.hero, lang);
+    setFeatured(blogDataCache.hero, lang);
+    renderPostGrid(lang);
+    renderTimeline(blogDataCache.radars || [], lang);
 };
 
 const enhanceArticleTables = () => {
@@ -172,34 +307,25 @@ const enhanceArticleTables = () => {
     });
 };
 
-const applyFilter = (target, sections, buttons) => {
+const applyFilter = (target, buttons) => {
     buttons.forEach((button) => {
         const isActive = button.dataset.filter === target;
         button.classList.toggle('is-active', isActive);
         button.setAttribute('aria-pressed', String(isActive));
     });
-
-    sections.forEach((section) => {
-        const sectionType = section.dataset.section;
-        const shouldShow = target === 'all' || sectionType === target;
-        section.classList.toggle('is-hidden', !shouldShow);
-    });
 };
 
-const initFilters = (blogData) => {
+const initFilters = () => {
     const filterGroup = document.querySelector('[data-filter-group]');
     if (!filterGroup) return;
 
     const buttons = Array.from(filterGroup.querySelectorAll('[data-filter]'));
-    const sections = Array.from(document.querySelectorAll('[data-section]'));
-    if (!buttons.length || !sections.length) return;
-
-    let currentFilter = 'all';
+    if (!buttons.length) return;
 
     const setFilter = (target) => {
         currentFilter = target;
-        applyFilter(target, sections, buttons);
-        updateHero(blogData?.hero, currentLanguage);
+        applyFilter(target, buttons);
+        renderPostGrid(currentLanguage);
     };
 
     filterGroup.addEventListener('click', (event) => {
@@ -210,15 +336,29 @@ const initFilters = (blogData) => {
         setFilter(target);
     });
 
-    // Initialise avec le filtre par défaut
     setFilter('all');
+};
+
+const initSearch = () => {
+    const searchInput = document.getElementById('blogSearch');
+    if (!searchInput) return;
+
+    searchInput.addEventListener('input', (event) => {
+        currentQuery = event.target.value || '';
+        renderPostGrid(currentLanguage);
+    });
 };
 
 const initBlogPage = () => {
     blogDataCache = parseBlogData();
     if (blogDataCache) {
-        initFilters(blogDataCache);
-        updateBlogTexts(currentLanguage);
+        blogPosts = [...(blogDataCache.radars || []), ...(blogDataCache.editorials || [])];
+        setHero(blogDataCache.hero, currentLanguage);
+        setFeatured(blogDataCache.hero, currentLanguage);
+        renderTimeline(blogDataCache.radars || [], currentLanguage);
+        renderPostGrid(currentLanguage);
+        initFilters();
+        initSearch();
     }
     enhanceArticleTables();
 };

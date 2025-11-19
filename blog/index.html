@@ -53,721 +53,131 @@
         </nav>
     </div>
 
-    <main id="mainContainer" class="container blog-container show">
+        <main id="mainContainer" class="container blog-container show">
         <div class="blog-shell" id="blogShell" data-shell>
             <article class="blog-article" data-article-root>
-                <!--
-                    🔢 Graphiques dans un article
-                    1. Variante JSON complète (Chart.js) :
-                        <figure data-blog-chart>
-                            <canvas aria-label="Titre du graphique"></canvas>
-                            <script type="application/json" data-chart-config>
-                                {
-                                    "type": "bar",
-                                    "data": {
-                                        "labels": ["Q1", "Q2", "Q3", "Q4"],
-                                        "datasets": [
-                                            { "label": "2024", "data": [10, 12, 8, 14] }
-                                        ]
-                                    }
-                                }
-                            </script>
-                        </figure>
-
-                    2. Variante rapide avec attributs inline :
-                        <div data-blog-chart
-                             data-chart-type="line"
-                             data-chart-labels="Janvier,Février,Mars"
-                             data-chart-values="12,18,9"
-                             data-chart-dataset-label="Nombre d'articles">
-                        </div>
-
-                    Options supplémentaires :
-                    - data-chart-target=".selector" pour pointer vers un <canvas> existant
-                    - data-chart-colors et data-chart-border-colors (liste de couleurs séparées par des virgules)
-                    - data-chart-options='{"plugins":{"legend":{"position":"bottom"}}}' pour fusionner des options Chart.js
-                -->
                 <section class="blog-hero" data-hero>
-  <div class="hero-intro">
-    <span class="hero-eyebrow">Radar &amp; analyses PDM/PLM</span>
-    <h1 class="hero-title" data-hero-title>Radar PDM/PLM – 2025-11-19</h1>
-    <p class="hero-subtitle" data-hero-subtitle>Aucune actualité détectée pour le 19 novembre 2025.</p>
-    <div class="hero-actions">
-      <a class="hero-btn" data-hero-link href="/blog/radar-2025-11-19/">Consulter le radar du 19 novembre 2025</a>
-      <a class="hero-btn hero-btn--ghost" data-hero-secondary href="/blog/configuration-materielle-solidworks/">Lire l&#39;article de fond</a>
-    </div>
-  </div>
-  <div class="hero-stats">
-    <div class="hero-stat">
-      <span class="hero-stat-value">58</span>
-      <span class="hero-stat-label">Radars en ligne</span>
-    </div>
-    <div class="hero-stat">
-      <span class="hero-stat-value">2</span>
-      <span class="hero-stat-label">Articles de fond</span>
-    </div>
-    
-    <div class="hero-stat">
-      <span class="hero-stat-value">19/11/2025</span>
-      <span class="hero-stat-label">Dernière mise à jour</span>
-    </div>
-  </div>
-</section><section class="blog-controls">
-  <div class="filter-group" data-filter-group role="group" aria-label="Filtrer les contenus du blog">
-    <button class="filter-btn is-active" type="button" data-filter="all" aria-pressed="true">Tout</button>
-    <button class="filter-btn" type="button" data-filter="radar" aria-pressed="false">Radars</button>
-    <button class="filter-btn" type="button" data-filter="editorial" aria-pressed="false">Articles de fond</button>
-  </div>
-</section><section class="blog-section" data-section="radar">
-  <div class="section-header">
-    <h2>Radars quotidiens</h2>
-    <p class="section-subtitle">Veille automatisée sur le PDM/PLM, actualisée chaque jour ouvré.</p>
-  </div>
-  <div class="card-grid"><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-11-19T00:00:00.000Z">19 novembre 2025</time>
-    
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-11-19/">Radar PDM/PLM – 2025-11-19</a></h3>
-  <p class="post-card__excerpt">Veille du 19 novembre 2025.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-11-19/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-11-18T00:00:00.000Z">18 novembre 2025</time>
-    
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-11-18/">Radar PDM/PLM – 2025-11-18</a></h3>
-  <p class="post-card__excerpt">Veille du 18 novembre 2025.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-11-18/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-11-17T00:00:00.000Z">17 novembre 2025</time>
-    
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-11-17/">Radar PDM/PLM – 2025-11-17</a></h3>
-  <p class="post-card__excerpt">Veille du 17 novembre 2025.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-11-17/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-11-16T00:00:00.000Z">16 novembre 2025</time>
-    <span>1 lien</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-11-16/">Radar PDM/PLM – 2025-11-16</a></h3>
-  <p class="post-card__excerpt">Veille du 16 novembre 2025. 1 signal sélectionné.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-11-16/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-11-15T00:00:00.000Z">15 novembre 2025</time>
-    <span>1 lien</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-11-15/">Radar PDM/PLM – 2025-11-15</a></h3>
-  <p class="post-card__excerpt">Veille du 15 novembre 2025. 1 signal sélectionné.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-11-15/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-11-14T00:00:00.000Z">14 novembre 2025</time>
-    <span>1 lien</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-11-14/">Radar PDM/PLM – 2025-11-14</a></h3>
-  <p class="post-card__excerpt">Veille du 14 novembre 2025. 1 signal sélectionné.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-11-14/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-11-13T00:00:00.000Z">13 novembre 2025</time>
-    <span>1 lien</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-11-13/">Radar PDM/PLM – 2025-11-13</a></h3>
-  <p class="post-card__excerpt">Veille du 13 novembre 2025. 1 signal sélectionné.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-11-13/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-11-12T00:00:00.000Z">12 novembre 2025</time>
-    <span>1 lien</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-11-12/">Radar PDM/PLM – 2025-11-12</a></h3>
-  <p class="post-card__excerpt">Veille du 12 novembre 2025. 1 signal sélectionné.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-11-12/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-11-11T00:00:00.000Z">11 novembre 2025</time>
-    <span>1 lien</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-11-11/">Radar PDM/PLM – 2025-11-11</a></h3>
-  <p class="post-card__excerpt">Veille du 11 novembre 2025. 1 signal sélectionné.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-11-11/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-11-10T00:00:00.000Z">10 novembre 2025</time>
-    
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-11-10/">Radar PDM/PLM – 2025-11-10</a></h3>
-  <p class="post-card__excerpt">Veille du 10 novembre 2025.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-11-10/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-11-09T00:00:00.000Z">9 novembre 2025</time>
-    
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-11-09/">Radar PDM/PLM – 2025-11-09</a></h3>
-  <p class="post-card__excerpt">Veille du 9 novembre 2025.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-11-09/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-11-08T00:00:00.000Z">8 novembre 2025</time>
-    
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-11-08/">Radar PDM/PLM – 2025-11-08</a></h3>
-  <p class="post-card__excerpt">Veille du 8 novembre 2025.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-11-08/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-11-07T00:00:00.000Z">7 novembre 2025</time>
-    
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-11-07/">Radar PDM/PLM – 2025-11-07</a></h3>
-  <p class="post-card__excerpt">Veille du 7 novembre 2025.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-11-07/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-11-06T00:00:00.000Z">6 novembre 2025</time>
-    <span>1 lien</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-11-06/">Radar PDM/PLM – 2025-11-06</a></h3>
-  <p class="post-card__excerpt">Veille du 6 novembre 2025. 1 signal sélectionné.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-11-06/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-11-05T00:00:00.000Z">5 novembre 2025</time>
-    <span>1 lien</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-11-05/">Radar PDM/PLM – 2025-11-05</a></h3>
-  <p class="post-card__excerpt">Veille du 5 novembre 2025. 1 signal sélectionné.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-11-05/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-11-04T00:00:00.000Z">4 novembre 2025</time>
-    <span>1 lien</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-11-04/">Radar PDM/PLM – 2025-11-04</a></h3>
-  <p class="post-card__excerpt">Veille du 4 novembre 2025. 1 signal sélectionné.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-11-04/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-11-03T00:00:00.000Z">3 novembre 2025</time>
-    
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-11-03/">Radar PDM/PLM – 2025-11-03</a></h3>
-  <p class="post-card__excerpt">Veille du 3 novembre 2025.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-11-03/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-11-02T00:00:00.000Z">2 novembre 2025</time>
-    <span>1 lien</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-11-02/">Radar PDM/PLM – 2025-11-02</a></h3>
-  <p class="post-card__excerpt">Veille du 2 novembre 2025. 1 signal sélectionné.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-11-02/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-11-01T00:00:00.000Z">1 novembre 2025</time>
-    <span>2 liens</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-11-01/">Radar PDM/PLM – 2025-11-01</a></h3>
-  <p class="post-card__excerpt">Veille du 1 novembre 2025. 2 signals sélectionnés.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-11-01/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-10-31T00:00:00.000Z">31 octobre 2025</time>
-    <span>1 lien</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-10-31/">Radar PDM/PLM – 2025-10-31</a></h3>
-  <p class="post-card__excerpt">Veille du 31 octobre 2025. 1 signal sélectionné.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-10-31/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-10-30T00:00:00.000Z">30 octobre 2025</time>
-    
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-10-30/">Radar PDM/PLM – 2025-10-30</a></h3>
-  <p class="post-card__excerpt">Veille du 30 octobre 2025.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-10-30/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-10-29T00:00:00.000Z">29 octobre 2025</time>
-    
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-10-29/">Radar PDM/PLM – 2025-10-29</a></h3>
-  <p class="post-card__excerpt">Veille du 29 octobre 2025.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-10-29/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-10-28T00:00:00.000Z">28 octobre 2025</time>
-    
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-10-28/">Radar PDM/PLM – 2025-10-28</a></h3>
-  <p class="post-card__excerpt">Veille du 28 octobre 2025.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-10-28/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-10-27T00:00:00.000Z">27 octobre 2025</time>
-    
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-10-27/">Radar PDM/PLM – 2025-10-27</a></h3>
-  <p class="post-card__excerpt">Veille du 27 octobre 2025.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-10-27/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-10-26T00:00:00.000Z">26 octobre 2025</time>
-    <span>1 lien</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-10-26/">Radar PDM/PLM – 2025-10-26</a></h3>
-  <p class="post-card__excerpt">Veille du 26 octobre 2025. 1 signal sélectionné.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-10-26/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-10-25T00:00:00.000Z">25 octobre 2025</time>
-    <span>1 lien</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-10-25/">Radar PDM/PLM – 2025-10-25</a></h3>
-  <p class="post-card__excerpt">Veille du 25 octobre 2025. 1 signal sélectionné.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-10-25/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-10-24T00:00:00.000Z">24 octobre 2025</time>
-    <span>1 lien</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-10-24/">Radar PDM/PLM – 2025-10-24</a></h3>
-  <p class="post-card__excerpt">Veille du 24 octobre 2025. 1 signal sélectionné.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-10-24/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-10-23T00:00:00.000Z">23 octobre 2025</time>
-    
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-10-23/">Radar PDM/PLM – 2025-10-23</a></h3>
-  <p class="post-card__excerpt">Veille du 23 octobre 2025.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-10-23/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-10-22T00:00:00.000Z">22 octobre 2025</time>
-    <span>1 lien</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-10-22/">Radar PDM/PLM – 2025-10-22</a></h3>
-  <p class="post-card__excerpt">Veille du 22 octobre 2025. 1 signal sélectionné.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-10-22/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-10-21T00:00:00.000Z">21 octobre 2025</time>
-    <span>1 lien</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-10-21/">Radar PDM/PLM – 2025-10-21</a></h3>
-  <p class="post-card__excerpt">Veille du 21 octobre 2025. 1 signal sélectionné.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-10-21/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-10-20T00:00:00.000Z">20 octobre 2025</time>
-    <span>1 lien</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-10-20/">Radar PDM/PLM – 2025-10-20</a></h3>
-  <p class="post-card__excerpt">Veille du 20 octobre 2025. 1 signal sélectionné.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-10-20/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-10-19T00:00:00.000Z">19 octobre 2025</time>
-    
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-10-19/">Radar PDM/PLM – 2025-10-19</a></h3>
-  <p class="post-card__excerpt">Veille du 19 octobre 2025.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-10-19/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-10-18T00:00:00.000Z">18 octobre 2025</time>
-    
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-10-18/">Radar PDM/PLM – 2025-10-18</a></h3>
-  <p class="post-card__excerpt">Veille du 18 octobre 2025.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-10-18/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-10-17T00:00:00.000Z">17 octobre 2025</time>
-    
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-10-17/">Radar PDM/PLM – 2025-10-17</a></h3>
-  <p class="post-card__excerpt">Veille du 17 octobre 2025.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-10-17/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-10-16T00:00:00.000Z">16 octobre 2025</time>
-    <span>2 liens</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-10-16/">Radar PDM/PLM – 2025-10-16</a></h3>
-  <p class="post-card__excerpt">Veille du 16 octobre 2025. 2 signals sélectionnés.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-10-16/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-10-15T00:00:00.000Z">15 octobre 2025</time>
-    <span>2 liens</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-10-15/">Radar PDM/PLM – 2025-10-15</a></h3>
-  <p class="post-card__excerpt">Veille du 15 octobre 2025. 2 signals sélectionnés.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-10-15/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-10-14T00:00:00.000Z">14 octobre 2025</time>
-    <span>1 lien</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-10-14/">Radar PDM/PLM – 2025-10-14</a></h3>
-  <p class="post-card__excerpt">Veille du 14 octobre 2025. 1 signal sélectionné.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-10-14/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-10-13T00:00:00.000Z">13 octobre 2025</time>
-    <span>1 lien</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-10-13/">Radar PDM/PLM – 2025-10-13</a></h3>
-  <p class="post-card__excerpt">Veille du 13 octobre 2025. 1 signal sélectionné.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-10-13/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-10-12T00:00:00.000Z">12 octobre 2025</time>
-    <span>2 liens</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-10-12/">Radar PDM/PLM – 2025-10-12</a></h3>
-  <p class="post-card__excerpt">Veille du 12 octobre 2025. 2 signals sélectionnés.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-10-12/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-10-11T00:00:00.000Z">11 octobre 2025</time>
-    <span>1 lien</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-10-11/">Radar PDM/PLM – 2025-10-11</a></h3>
-  <p class="post-card__excerpt">Veille du 11 octobre 2025. 1 signal sélectionné.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-10-11/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-10-10T00:00:00.000Z">10 octobre 2025</time>
-    <span>1 lien</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-10-10/">Radar PDM/PLM – 2025-10-10</a></h3>
-  <p class="post-card__excerpt">Veille du 10 octobre 2025. 1 signal sélectionné.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-10-10/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-10-09T00:00:00.000Z">9 octobre 2025</time>
-    <span>1 lien</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-10-09/">Radar PDM/PLM – 2025-10-09</a></h3>
-  <p class="post-card__excerpt">Veille du 9 octobre 2025. 1 signal sélectionné.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-10-09/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-10-08T00:00:00.000Z">8 octobre 2025</time>
-    <span>1 lien</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-10-08/">Radar PDM/PLM – 2025-10-08</a></h3>
-  <p class="post-card__excerpt">Veille du 8 octobre 2025. 1 signal sélectionné.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-10-08/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-10-07T00:00:00.000Z">7 octobre 2025</time>
-    
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-10-07/">Radar PDM/PLM – 2025-10-07</a></h3>
-  <p class="post-card__excerpt">Veille du 7 octobre 2025.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-10-07/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-10-06T00:00:00.000Z">6 octobre 2025</time>
-    
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-10-06/">Radar PDM/PLM – 2025-10-06</a></h3>
-  <p class="post-card__excerpt">Veille du 6 octobre 2025.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-10-06/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-10-05T00:00:00.000Z">5 octobre 2025</time>
-    <span>1 lien</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-10-05/">Radar PDM/PLM – 2025-10-05</a></h3>
-  <p class="post-card__excerpt">Veille du 5 octobre 2025. 1 signal sélectionné.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-10-05/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-10-04T00:00:00.000Z">4 octobre 2025</time>
-    <span>2 liens</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-10-04/">Radar PDM/PLM – 2025-10-04</a></h3>
-  <p class="post-card__excerpt">Veille du 4 octobre 2025. 2 signals sélectionnés.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-10-04/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-10-03T00:00:00.000Z">3 octobre 2025</time>
-    <span>1 lien</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-10-03/">Radar PDM/PLM – 2025-10-03</a></h3>
-  <p class="post-card__excerpt">Veille du 3 octobre 2025. 1 signal sélectionné.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-10-03/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-10-02T00:00:00.000Z">2 octobre 2025</time>
-    <span>2 liens</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-10-02/">Radar PDM/PLM – 2025-10-02</a></h3>
-  <p class="post-card__excerpt">Veille du 2 octobre 2025. 2 signals sélectionnés.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-10-02/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-10-01T00:00:00.000Z">1 octobre 2025</time>
-    <span>1 lien</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-10-01/">Radar PDM/PLM – 2025-10-01</a></h3>
-  <p class="post-card__excerpt">Veille du 1 octobre 2025. 1 signal sélectionné.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-10-01/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-09-30T00:00:00.000Z">30 septembre 2025</time>
-    <span>1 lien</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-09-30/">Radar PDM/PLM – 2025-09-30</a></h3>
-  <p class="post-card__excerpt">Veille du 30 septembre 2025. 1 signal sélectionné.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-09-30/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-09-29T00:00:00.000Z">29 septembre 2025</time>
-    
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-09-29/">Radar PDM/PLM – 2025-09-29</a></h3>
-  <p class="post-card__excerpt">Veille du 29 septembre 2025.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-09-29/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-09-28T00:00:00.000Z">28 septembre 2025</time>
-    <span>1 lien</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-09-28/">Radar PDM/PLM – 2025-09-28</a></h3>
-  <p class="post-card__excerpt">Veille du 28 septembre 2025. 1 signal sélectionné.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-09-28/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-09-27T00:00:00.000Z">27 septembre 2025</time>
-    <span>4 liens</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-09-27/">Radar PDM/PLM – 2025-09-27</a></h3>
-  <p class="post-card__excerpt">Veille du 27 septembre 2025. 4 signals sélectionnés.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-09-27/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-09-26T00:00:00.000Z">26 septembre 2025</time>
-    <span>3 liens</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-09-26/">Radar PDM/PLM – 2025-09-26</a></h3>
-  <p class="post-card__excerpt">Veille du 26 septembre 2025. 3 signals sélectionnés.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-09-26/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-09-25T00:00:00.000Z">25 septembre 2025</time>
-    <span>2 liens</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-09-25/">Radar PDM/PLM – 2025-09-25</a></h3>
-  <p class="post-card__excerpt">Veille du 25 septembre 2025. 2 signals sélectionnés.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-09-25/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-09-24T00:00:00.000Z">24 septembre 2025</time>
-    
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-09-24/">Radar PDM/PLM – 2025-09-24</a></h3>
-  <p class="post-card__excerpt">Veille du 24 septembre 2025.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-09-24/">Consulter le radar</a>
-</article><article class="post-card" data-type="radar">
-  <div class="post-card__meta">
-    <span class="badge badge-radar">Radar</span>
-    <time datetime="2025-09-23T00:00:00.000Z">23 septembre 2025</time>
-    <span>7 liens</span>
-  </div>
-  <h3 class="post-card__title"><a href="/blog/radar-2025-09-23/">Radar PDM/PLM – 2025-09-23</a></h3>
-  <p class="post-card__excerpt">Veille du 23 septembre 2025. 7 signals sélectionnés.</p>
-  <a class="post-card__cta" href="/blog/radar-2025-09-23/">Consulter le radar</a>
-</article></div>
-</section>
+                    <div class="hero-intro">
+                        <span class="hero-eyebrow" data-hero-tagline>Radar &amp; analyses PDM/PLM</span>
+                        <h1 class="hero-title" data-hero-title>Veille produit et retours terrain</h1>
+                        <p class="hero-subtitle" data-hero-subtitle>Des radars quotidiens et des guides concis pour maîtriser le PDM/PLM.</p>
+                        <div class="hero-actions">
+                            <a class="hero-btn" data-hero-link href="/blog/">Ouvrir le dernier radar</a>
+                            <a class="hero-btn hero-btn--ghost" data-hero-secondary href="/blog/">Découvrir les articles de fond</a>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-value" data-stat-radars>—</span>
+                            <span class="hero-stat-label">Radars en ligne</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value" data-stat-editorials>—</span>
+                            <span class="hero-stat-label">Articles de fond</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value" data-stat-updated>—</span>
+                            <span class="hero-stat-label">Dernière mise à jour</span>
+                        </div>
+                    </div>
+                </section>
 
-<section class="blog-section" data-section="editorial">
-  <div class="section-header">
-    <h2>Articles de fond</h2>
-    <p class="section-subtitle">Analyses éditoriales, retours d’expérience et bonnes pratiques terrain.</p>
-  </div>
-  <div class="card-grid"><article class="post-card" data-type="editorial">
-  <div class="post-card__meta">
-    <span class="badge badge-editorial">Article de fond</span>
-    <time datetime="2025-09-21T00:00:00.000Z">21 septembre 2025</time>
-    
-  </div>
-  <h3 class="post-card__title"><a href="/blog/configuration-materielle-solidworks/">Configuration matérielle SOLIDWORKS 2025 : le guide terrain pour un bureau d&#39;études réactif</a></h3>
-  <p class="post-card__excerpt">Plan d</p>
-  <a class="post-card__cta" href="/blog/configuration-materielle-solidworks/">Lire l'article</a>
-</article><article class="post-card" data-type="editorial">
-  <div class="post-card__meta">
-    <span class="badge badge-editorial">Article de fond</span>
-    <time datetime="2025-09-15T00:00:00.000Z">15 septembre 2025</time>
-    
-  </div>
-  <h3 class="post-card__title"><a href="/blog/resolutions-problematiques-plm/">Au-delà de la théorie : résoudre les 5 problématiques PLM que j&#39;ai vécues en tant qu&#39;Ingénieur Mécanique</a></h3>
-  <p class="post-card__excerpt">Retour d</p>
-  <a class="post-card__cta" href="/blog/resolutions-problematiques-plm/">Lire l'article</a>
-</article></div>
-</section>
+                <section class="blog-meta-bar">
+                    <div class="meta-bar__group">
+                        <div class="meta-pill" data-pill="cadence">
+                            <span class="pill-label">Cadence</span>
+                            <span class="pill-value">Radar quotidien + notes de synthèse</span>
+                        </div>
+                        <div class="meta-pill" data-pill="focus">
+                            <span class="pill-label">Focus</span>
+                            <span class="pill-value">PDM/PLM, SolidWorks PDM, 3DEXPERIENCE</span>
+                        </div>
+                        <div class="meta-pill" data-pill="formats">
+                            <span class="pill-label">Formats</span>
+                            <span class="pill-value">Veille courte, guides longs, FAQ</span>
+                        </div>
+                    </div>
+                    <div class="meta-bar__controls">
+                        <div class="filter-group" data-filter-group role="group" aria-label="Filtrer les contenus du blog">
+                            <button class="filter-btn is-active" type="button" data-filter="all" aria-pressed="true">Tout</button>
+                            <button class="filter-btn" type="button" data-filter="radar" aria-pressed="false">Radars</button>
+                            <button class="filter-btn" type="button" data-filter="editorial" aria-pressed="false">Articles de fond</button>
+                        </div>
+                        <label class="search" aria-label="Rechercher dans les articles">
+                            <input type="search" id="blogSearch" placeholder="Rechercher un titre ou un mot-clé" autocomplete="off">
+                            <span class="search__hint">Recherche instantanée</span>
+                        </label>
+                    </div>
+                </section>
 
-<section class="blog-section blog-timeline-section">
-  <div class="section-header">
-    <h2>Timeline du radar</h2>
-    <p class="section-subtitle">Évolution des 12 dernières publications (8 novembre 2025 → 19 novembre 2025).</p>
-  </div>
-  <ol class="blog-timeline">
-    <li class="timeline-item">
-  <span class="timeline-dot"></span>
-  <div class="timeline-content">
-    <time datetime="2025-11-19T00:00:00.000Z">19 novembre 2025</time>
-    <a href="/blog/radar-2025-11-19/">Radar PDM/PLM – 2025-11-19</a>
-    
-  </div>
-</li><li class="timeline-item">
-  <span class="timeline-dot"></span>
-  <div class="timeline-content">
-    <time datetime="2025-11-18T00:00:00.000Z">18 novembre 2025</time>
-    <a href="/blog/radar-2025-11-18/">Radar PDM/PLM – 2025-11-18</a>
-    
-  </div>
-</li><li class="timeline-item">
-  <span class="timeline-dot"></span>
-  <div class="timeline-content">
-    <time datetime="2025-11-17T00:00:00.000Z">17 novembre 2025</time>
-    <a href="/blog/radar-2025-11-17/">Radar PDM/PLM – 2025-11-17</a>
-    
-  </div>
-</li><li class="timeline-item">
-  <span class="timeline-dot"></span>
-  <div class="timeline-content">
-    <time datetime="2025-11-16T00:00:00.000Z">16 novembre 2025</time>
-    <a href="/blog/radar-2025-11-16/">Radar PDM/PLM – 2025-11-16</a>
-    <span class="timeline-meta">1 lien</span>
-  </div>
-</li><li class="timeline-item">
-  <span class="timeline-dot"></span>
-  <div class="timeline-content">
-    <time datetime="2025-11-15T00:00:00.000Z">15 novembre 2025</time>
-    <a href="/blog/radar-2025-11-15/">Radar PDM/PLM – 2025-11-15</a>
-    <span class="timeline-meta">1 lien</span>
-  </div>
-</li><li class="timeline-item">
-  <span class="timeline-dot"></span>
-  <div class="timeline-content">
-    <time datetime="2025-11-14T00:00:00.000Z">14 novembre 2025</time>
-    <a href="/blog/radar-2025-11-14/">Radar PDM/PLM – 2025-11-14</a>
-    <span class="timeline-meta">1 lien</span>
-  </div>
-</li><li class="timeline-item">
-  <span class="timeline-dot"></span>
-  <div class="timeline-content">
-    <time datetime="2025-11-13T00:00:00.000Z">13 novembre 2025</time>
-    <a href="/blog/radar-2025-11-13/">Radar PDM/PLM – 2025-11-13</a>
-    <span class="timeline-meta">1 lien</span>
-  </div>
-</li><li class="timeline-item">
-  <span class="timeline-dot"></span>
-  <div class="timeline-content">
-    <time datetime="2025-11-12T00:00:00.000Z">12 novembre 2025</time>
-    <a href="/blog/radar-2025-11-12/">Radar PDM/PLM – 2025-11-12</a>
-    <span class="timeline-meta">1 lien</span>
-  </div>
-</li><li class="timeline-item">
-  <span class="timeline-dot"></span>
-  <div class="timeline-content">
-    <time datetime="2025-11-11T00:00:00.000Z">11 novembre 2025</time>
-    <a href="/blog/radar-2025-11-11/">Radar PDM/PLM – 2025-11-11</a>
-    <span class="timeline-meta">1 lien</span>
-  </div>
-</li><li class="timeline-item">
-  <span class="timeline-dot"></span>
-  <div class="timeline-content">
-    <time datetime="2025-11-10T00:00:00.000Z">10 novembre 2025</time>
-    <a href="/blog/radar-2025-11-10/">Radar PDM/PLM – 2025-11-10</a>
-    
-  </div>
-</li><li class="timeline-item">
-  <span class="timeline-dot"></span>
-  <div class="timeline-content">
-    <time datetime="2025-11-09T00:00:00.000Z">9 novembre 2025</time>
-    <a href="/blog/radar-2025-11-09/">Radar PDM/PLM – 2025-11-09</a>
-    
-  </div>
-</li><li class="timeline-item">
-  <span class="timeline-dot"></span>
-  <div class="timeline-content">
-    <time datetime="2025-11-08T00:00:00.000Z">8 novembre 2025</time>
-    <a href="/blog/radar-2025-11-08/">Radar PDM/PLM – 2025-11-08</a>
-    
-  </div>
-</li>
-  </ol>
-</section>
+                <section class="blog-featured" data-featured>
+                    <div class="section-header">
+                        <h2>À la une</h2>
+                        <p class="section-subtitle">Le dernier radar et le guide long le plus utile en ce moment.</p>
+                    </div>
+                    <div class="featured-grid">
+                        <article class="featured-card" data-featured-radar>
+                            <div class="featured-meta">
+                                <span class="badge badge-radar">Radar</span>
+                                <time datetime="" data-featured-radar-date>—</time>
+                            </div>
+                            <h3 data-featured-radar-title>Radar quotidien</h3>
+                            <p data-featured-radar-excerpt>Suivi des signaux PDM/PLM.</p>
+                            <a class="featured-link" data-featured-radar-link href="/blog/">Consulter le dernier radar</a>
+                        </article>
+                        <article class="featured-card" data-featured-editorial>
+                            <div class="featured-meta">
+                                <span class="badge badge-editorial">Article de fond</span>
+                                <time datetime="" data-featured-editorial-date>—</time>
+                            </div>
+                            <h3 data-featured-editorial-title>Guide expert</h3>
+                            <p data-featured-editorial-excerpt>Conseils opérationnels pour vos équipes.</p>
+                            <a class="featured-link" data-featured-editorial-link href="/blog/">Lire l'article</a>
+                        </article>
+                    </div>
+                </section>
 
+                <section class="blog-section">
+                    <div class="section-header">
+                        <h2>Tous les articles</h2>
+                        <p class="section-subtitle">Une vue uniforme des radars quotidiens et des guides détaillés.</p>
+                    </div>
+                    <div class="card-grid" data-post-grid>
+                        <p class="muted">Chargement des articles...</p>
+                    </div>
+                </section>
+
+                <section class="blog-section blog-timeline">
+                    <div class="section-header">
+                        <h2>Radar — dernières éditions</h2>
+                        <p class="section-subtitle">Les huit dernières parutions pour remonter rapidement le temps.</p>
+                    </div>
+                    <ol class="timeline" data-timeline>
+                        <li class="timeline-item">
+                            <span class="timeline-dot"></span>
+                            <div class="timeline-content">
+                                <time>—</time>
+                                <span class="timeline-meta">Mise à jour en cours...</span>
+                            </div>
+                        </li>
+                    </ol>
+                </section>
+
+                <section class="blog-section blog-cta">
+                    <div class="cta-box">
+                        <div class="cta-copy">
+                            <h2>Recevoir les points clés</h2>
+                            <p>Un radar épuré et un guide pratique chaque semaine pour votre équipe PDM/PLM.</p>
+                        </div>
+                        <div class="cta-actions">
+                            <a class="hero-btn" href="mailto:mohamed.baouch@gmail.com?subject=Radar%20PDM/PLM">S'abonner par email</a>
+                            <a class="hero-btn hero-btn--ghost" href="/CNAME">Télécharger ma carte de contact</a>
+                        </div>
+                    </div>
+                </section>
+            </article>
+        </div>
+    </main>
 <script type="application/json" id="blog-data">{
   "generatedAt": "2025-11-19T07:16:56.431Z",
   "hero": {
