@@ -30,7 +30,8 @@ let currentQuery = '';
 
 const setHero = (heroData, lang = currentLanguage) => {
     if (!heroData) return;
-    const { radarHighlight, editorialHighlight, stats, tagline } = heroData;
+    const { radarHighlight, editorialHighlight, stats, tagline, title, subtitle } = heroData;
+    const primaryHighlight = radarHighlight || editorialHighlight || (blogDataCache?.editorials?.[0]);
     const heroTagline = document.querySelector('[data-hero-tagline]');
     const heroTitle = document.querySelector('[data-hero-title]');
     const heroSubtitle = document.querySelector('[data-hero-subtitle]');
@@ -44,18 +45,19 @@ const setHero = (heroData, lang = currentLanguage) => {
         heroTagline.textContent = getLocalizedValue(tagline, lang);
     }
 
-    if (radarHighlight && heroTitle) {
-        heroTitle.textContent = getLocalizedValue(radarHighlight.title, lang) || 'Radar PDM/PLM';
+    if (heroTitle) {
+        heroTitle.textContent = getLocalizedValue(primaryHighlight?.title, lang) || getLocalizedValue(title, lang) || 'Blog PDM/PLM';
     }
 
     if (heroSubtitle) {
-        const subtitleSource = radarHighlight?.heroSubtitle || radarHighlight?.excerpt || heroData.subtitle;
+        const subtitleSource = primaryHighlight?.heroSubtitle || primaryHighlight?.excerpt || subtitle;
         heroSubtitle.textContent = getLocalizedValue(subtitleSource, lang);
     }
 
-    if (heroLink && radarHighlight?.url) {
-        heroLink.href = radarHighlight.url;
-        heroLink.textContent = getLocalizedValue(radarHighlight.ctaLabel, lang) || 'Ouvrir le radar';
+    if (heroLink && primaryHighlight?.url) {
+        heroLink.href = primaryHighlight.url;
+        const defaultHeroCta = lang === 'fr' ? "Lire l'article" : 'Read the article';
+        heroLink.textContent = getLocalizedValue(primaryHighlight.ctaLabel, lang) || defaultHeroCta;
     }
 
     if (heroSecondary && editorialHighlight?.url) {
@@ -71,8 +73,8 @@ const setHero = (heroData, lang = currentLanguage) => {
         statEditorials.textContent = stats?.editorialCount ?? blogDataCache?.editorials?.length ?? '—';
     }
     if (statUpdated) {
-        const lastRadar = radarHighlight?.shortDate || stats?.lastRadar;
-        statUpdated.textContent = lastRadar || '—';
+        const lastUpdate = primaryHighlight?.shortDate || primaryHighlight?.displayDate || stats?.lastUpdated || stats?.lastRadar;
+        statUpdated.textContent = lastUpdate || '—';
     }
     window.formatBlogDates?.(lang);
 };
@@ -83,11 +85,22 @@ const buildPostCard = (post, lang = currentLanguage) => {
     card.dataset.type = post.type || 'radar';
     card.dataset.postSlug = post.slug || '';
 
+    if (post.image) {
+        const visual = document.createElement('div');
+        visual.className = 'post-card__image';
+        visual.style.backgroundImage = `url(${post.image})`;
+        const visualLabel = document.createElement('span');
+        visualLabel.className = 'post-card__image-label';
+        visualLabel.textContent = post.type === 'editorial' ? 'Article illustré' : 'Veille';
+        visual.appendChild(visualLabel);
+        card.appendChild(visual);
+    }
+
     const meta = document.createElement('div');
     meta.className = 'post-card__meta';
     const badge = document.createElement('span');
     badge.className = `badge badge-${post.type || 'radar'}`;
-    badge.textContent = post.type === 'editorial' ? 'Article de fond' : 'Radar';
+    badge.textContent = post.type === 'editorial' ? 'Article de fond' : 'Veille';
     meta.appendChild(badge);
 
     if (post.dateIso) {
@@ -160,6 +173,10 @@ const setFeatured = (heroData, lang = currentLanguage) => {
     const radar = heroData?.radarHighlight || blogDataCache?.radars?.[0];
     const editorial = heroData?.editorialHighlight || blogDataCache?.editorials?.[0];
 
+    if (radarCard) {
+        radarCard.style.display = radar ? '' : 'none';
+    }
+
     if (radar && radarCard) {
         const title = radarCard.querySelector('[data-featured-radar-title]');
         const excerpt = radarCard.querySelector('[data-featured-radar-excerpt]');
@@ -192,11 +209,12 @@ const setFeatured = (heroData, lang = currentLanguage) => {
     window.formatBlogDates?.(lang);
 };
 
-const renderTimeline = (radars, lang = currentLanguage) => {
+const renderTimeline = (entries, lang = currentLanguage) => {
     const timeline = document.querySelector('[data-timeline]');
     if (!timeline) return;
     timeline.innerHTML = '';
-    const recent = [...radars].sort((a, b) => new Date(b.dateIso) - new Date(a.dateIso)).slice(0, 8);
+    const source = entries?.length ? entries : blogDataCache?.editorials || [];
+    const recent = [...source].sort((a, b) => new Date(b.dateIso) - new Date(a.dateIso)).slice(0, 8);
     recent.forEach((entry) => {
         const item = document.createElement('li');
         item.className = 'timeline-item';
@@ -230,7 +248,7 @@ const updateBlogTexts = (lang = currentLanguage) => {
     setHero(blogDataCache.hero, lang);
     setFeatured(blogDataCache.hero, lang);
     renderPostGrid(lang);
-    renderTimeline(blogDataCache.radars || [], lang);
+    renderTimeline(blogPosts, lang);
 };
 
 const enhanceArticleTables = () => {
@@ -355,7 +373,7 @@ const initBlogPage = () => {
         blogPosts = [...(blogDataCache.radars || []), ...(blogDataCache.editorials || [])];
         setHero(blogDataCache.hero, currentLanguage);
         setFeatured(blogDataCache.hero, currentLanguage);
-        renderTimeline(blogDataCache.radars || [], currentLanguage);
+        renderTimeline(blogPosts, currentLanguage);
         renderPostGrid(currentLanguage);
         initFilters();
         initSearch();
