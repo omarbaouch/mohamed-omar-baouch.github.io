@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700;900&family=Space+Mono:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
         rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
@@ -84,10 +84,12 @@
     <div class="scroll-progress" id="scrollProgress"></div>
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-icon">
-            <div class="loading-circle"></div>
+            <div class="loading-ring"></div>
+            <div class="loading-gem"></div>
         </div>
-        <div class="loader-title" data-translate-key="loading_portfolio">CHARGEMENT DU PORTFOLIO</div>
+        <div class="loader-title" data-translate-key="loading_portfolio">Signature PDM/PLM en cours</div>
         <div class="loader-subtitle">Mohamed Omar Baouch</div>
+        <div class="loader-pill">Approche inspirée d'Apple · palette sable + beige</div>
         <div class="loading-bar-container">
             <div class="loading-bar" id="loadingBar"></div>
         </div>
@@ -122,13 +124,23 @@
                 <div class="hero-grid" id="heroGrid"></div>
             </div>
             <div class="hero-content">
+                <div class="hero-badges">
+                    <span class="pill-badge">Apple-inspired craft</span>
+                    <span class="pill-badge">PDM/PLM haute-fidélité</span>
+                    <span class="pill-badge">Palette sable + beige</span>
+                </div>
                 <h1 class="hero-title" data-translate-key="hero_title">
-                    <span class="highlight glitch" data-text="Ingénieur Mécanique">Ingénieur Mécanique</span> & <br>
-                    Consultant <span class="glitch" data-text="PDM/PLM">PDM/PLM</span>
+                    <span class="highlight" data-text="Ingénieur Mécanique">Ingénieur Mécanique</span> & <br>
+                    Consultant <span class="highlight" data-text="PDM/PLM">PDM/PLM</span>
                 </h1>
-                <p class="hero-subtitle" data-translate-key="hero_subtitle">
-                    Expertise en conception, implémentation de solutions PDM et gestion du cycle de vie produit
-                </p>
+                <div class="hero-subtitle" data-translate-key="hero_subtitle">
+                    <p>Expertise en conception, implémentation de solutions PDM et gestion du cycle de vie produit.</p>
+                    <div class="hero-submeta">
+                        <span>Guides premium</span>
+                        <span>Migrations pilotées</span>
+                        <span>Expérience raffinée</span>
+                    </div>
+                </div>
                 <div class="hero-cta">
                     <a href="#contact" class="btn btn-primary" data-translate-key="hero_cta1">Me contacter</a>
                     <a href="#experience" class="btn btn-secondary" data-translate-key="hero_cta2">Découvrir mon
