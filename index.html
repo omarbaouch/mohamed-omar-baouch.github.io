@@ -699,19 +699,43 @@
                 </div>
             </div>
         </section>
-        <section id="skills" class="fade-up">
-            <h2 class="section-title magnetic-element" data-translate-key="skills_title">Compétence Technique</h2>
-            <div class="skills-container">
+        <section id="skills" class="fade-up py-20">
+            <h2 class="section-title magnetic-element bg-clip-text text-transparent bg-gradient-to-r from-[#2f6e9b] to-[#6b8caf]"
+                data-translate-key="skills_title">Compétence Technique</h2>
+
+            <!-- Skills Radial Layout -->
+            <div class="skills-radial flex flex-wrap justify-center gap-16 mt-12">
+
+                <!-- Skill 1: Architecture PDM/SQL -->
                 <div
-                    class="skill-card group opacity-0 animate-fade-in-up stagger-1 hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_15px_35px_rgba(47,110,155,0.15)] relative overflow-hidden">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-br from-[#2f6e9b]/5 via-transparent to-[#6b8caf]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    </div>
-                    <div class="skill-card-header relative z-10" style="position: relative; z-index: 1;">
+                    class="skill-orbit group relative flex flex-col items-center opacity-0 animate-fade-in-up stagger-1">
+                    <!-- Animated Ring -->
+                    <div class="relative w-40 h-40 mb-6">
+                        <svg class="w-full h-full -rotate-90 transform" viewBox="0 0 100 100">
+                            <!-- Background ring -->
+                            <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="8"
+                                class="text-gray-200 dark:text-gray-700" />
+                            <!-- Progress ring -->
+                            <circle cx="50" cy="50" r="45" fill="none" stroke="url(#gradient1)" stroke-width="8"
+                                stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="28"
+                                class="transition-all duration-1000 group-hover:stroke-dashoffset-0" />
+                            <defs>
+                                <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#2f6e9b" />
+                                    <stop offset="100%" stop-color="#6b8caf" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <!-- Center content -->
+                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                            <span
+                                class="text-3xl font-bold text-[#2f6e9b] group-hover:scale-110 transition-transform">90%</span>
+                            <span class="text-xs text-gray-500 uppercase tracking-wider">Expert</span>
+                        </div>
+                        <!-- Floating icon -->
                         <div
-                            class="skill-icon w-10 h-10 rounded-lg bg-[#2f6e9b]/10 flex items-center justify-center group-hover:bg-[#2f6e9b]/20 transition-colors">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg" class="text-[#2f6e9b]">
+                            class="absolute -top-2 -right-2 w-12 h-12 rounded-full bg-gradient-to-br from-[#2f6e9b] to-[#6b8caf] flex items-center justify-center shadow-lg animate-bounce-subtle">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="text-white">
                                 <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="1.5"
                                     stroke-linecap="round" stroke-linejoin="round" />
                                 <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="1.5"
@@ -720,124 +744,187 @@
                                     stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </div>
-                        <h3 class="skill-title magnetic-element group-hover:text-[#2f6e9b] transition-colors"
-                            data-translate-key="skill1_title">Architecture PDM/SQL
-                        </h3>
                     </div>
-                    <ul class="skill-list relative z-10">
-                        <li class="tooltip hover:translate-x-1 transition-transform" data-translate-key="skill1_li1">
-                            Admin SQL Server
-                            <span class="tooltip-text" data-translate-key="skill1_tp1">Installation, Maintenance Plans,
-                                Sauvegardes, Tuning
-                                Performance</span>
-                        </li>
-                        <li class="tooltip hover:translate-x-1 transition-transform" data-translate-key="skill1_li2">
-                            Réplication & Cold Storage
-                            <span class="tooltip-text" data-translate-key="skill1_tp2">Architecture multisites, gestion
-                                de l'archivage froid</span>
-                        </li>
-                        <li class="tooltip hover:translate-x-1 transition-transform" data-translate-key="skill1_li3">
-                            Workflows Avancés
-                            <span class="tooltip-text" data-translate-key="skill1_tp3">Dispatch, Tâches Automatiques,
-                                Transitions conditionnelles,
-                                Notifications XML</span>
-                        </li>
-                        <li class="tooltip hover:translate-x-1 transition-transform" data-translate-key="skill1_li4">PDM
-                            Gateway (ERP)
-                            <span class="tooltip-text" data-translate-key="skill1_tp4">Export/Import de données XML/CSV
-                                vers ERP (Sage, Cegid,
-                                SAP)</span>
-                        </li>
-                    </ul>
+                    <h3 class="text-xl font-semibold mb-4 group-hover:text-[#2f6e9b] transition-colors"
+                        data-translate-key="skill1_title">Architecture PDM/SQL</h3>
+                    <!-- Floating Pills -->
+                    <div class="flex flex-wrap justify-center gap-2 max-w-xs">
+                        <span
+                            class="skill-pill px-3 py-1.5 text-sm rounded-full bg-[#2f6e9b]/10 text-[#2f6e9b] hover:bg-[#2f6e9b] hover:text-white transition-all cursor-default hover:scale-105 hover:-translate-y-1"
+                            data-translate-key="skill1_li1">Admin SQL Server</span>
+                        <span
+                            class="skill-pill px-3 py-1.5 text-sm rounded-full bg-[#2f6e9b]/10 text-[#2f6e9b] hover:bg-[#2f6e9b] hover:text-white transition-all cursor-default hover:scale-105 hover:-translate-y-1"
+                            data-translate-key="skill1_li2">Réplication</span>
+                        <span
+                            class="skill-pill px-3 py-1.5 text-sm rounded-full bg-[#2f6e9b]/10 text-[#2f6e9b] hover:bg-[#2f6e9b] hover:text-white transition-all cursor-default hover:scale-105 hover:-translate-y-1"
+                            data-translate-key="skill1_li3">Workflows Avancés</span>
+                        <span
+                            class="skill-pill px-3 py-1.5 text-sm rounded-full bg-[#2f6e9b]/10 text-[#2f6e9b] hover:bg-[#2f6e9b] hover:text-white transition-all cursor-default hover:scale-105 hover:-translate-y-1"
+                            data-translate-key="skill1_li4">PDM Gateway</span>
+                        <span
+                            class="skill-pill px-3 py-1.5 text-sm rounded-full bg-[#2f6e9b]/10 text-[#2f6e9b] hover:bg-[#2f6e9b] hover:text-white transition-all cursor-default hover:scale-105 hover:-translate-y-1">Cold
+                            Storage</span>
+                    </div>
                 </div>
+
+                <!-- Skill 2: Data & Migration -->
                 <div
-                    class="skill-card group opacity-0 animate-fade-in-up stagger-2 hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_15px_35px_rgba(47,110,155,0.15)] relative overflow-hidden">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    </div>
-                    <div class="skill-card-header relative z-10" style="position: relative; z-index: 1;">
-                        <div
-                            class="skill-icon w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center group-hover:bg-amber-500/20 transition-colors">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg" class="text-amber-600">
+                    class="skill-orbit group relative flex flex-col items-center opacity-0 animate-fade-in-up stagger-2">
+                    <!-- Animated Ring -->
+                    <div class="relative w-40 h-40 mb-6">
+                        <svg class="w-full h-full -rotate-90 transform" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="8"
+                                class="text-gray-200 dark:text-gray-700" />
+                            <circle cx="50" cy="50" r="45" fill="none" stroke="url(#gradient2)" stroke-width="8"
+                                stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="42"
+                                class="transition-all duration-1000" />
+                            <defs>
+                                <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#f59e0b" />
+                                    <stop offset="100%" stop-color="#f97316" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                            <span
+                                class="text-3xl font-bold text-amber-500 group-hover:scale-110 transition-transform">85%</span>
+                            <span class="text-xs text-gray-500 uppercase tracking-wider">Expert</span>
+                        </div>
+                        <div class="absolute -top-2 -right-2 w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center shadow-lg animate-bounce-subtle"
+                            style="animation-delay: 0.3s">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="text-white">
                                 <path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="1.5" />
                                 <path d="M4 9h16M9 20V9" stroke="currentColor" stroke-width="1.5" />
                             </svg>
                         </div>
-                        <h3 class="skill-title magnetic-element group-hover:text-amber-600 transition-colors"
-                            data-translate-key="skill2_title">Data & Migration</h3>
                     </div>
-                    <ul class="skill-list relative z-10">
-                        <li class="tooltip hover:translate-x-1 transition-transform" data-translate-key="skill2_li1">ETL
-                            & Reprise de Données
-                            <span class="tooltip-text" data-translate-key="skill2_tp1">Extraction, Transformation,
-                                Loading de données legacy vers
-                                PDM</span>
-                        </li>
-                        <li class="tooltip hover:translate-x-1 transition-transform" data-translate-key="skill2_li2">
-                            Nettoyage de Données
-                            <span class="tooltip-text" data-translate-key="skill2_tp2">Standardisation des propriétés,
-                                nommage, suppression des
-                                doublons</span>
-                        </li>
-                        <li class="tooltip hover:translate-x-1 transition-transform" data-translate-key="skill2_li3">
-                            Templates SOLIDWORKS
-                            <span class="tooltip-text" data-translate-key="skill2_tp3">Création de .prtdot, .asmdot,
-                                .drwdot, Property Tab
-                                Builder</span>
-                        </li>
-                        <li class="tooltip hover:translate-x-1 transition-transform" data-translate-key="skill2_li4">
-                            MyCADTools
-                            <span class="tooltip-text" data-translate-key="skill2_tp4">Usage expert de la suite pour
-                                l'audits et le batch
-                                processing</span>
-                        </li>
-                    </ul>
+                    <h3 class="text-xl font-semibold mb-4 group-hover:text-amber-500 transition-colors"
+                        data-translate-key="skill2_title">Data & Migration</h3>
+                    <div class="flex flex-wrap justify-center gap-2 max-w-xs">
+                        <span
+                            class="skill-pill px-3 py-1.5 text-sm rounded-full bg-amber-500/10 text-amber-600 hover:bg-amber-500 hover:text-white transition-all cursor-default hover:scale-105 hover:-translate-y-1"
+                            data-translate-key="skill2_li1">ETL</span>
+                        <span
+                            class="skill-pill px-3 py-1.5 text-sm rounded-full bg-amber-500/10 text-amber-600 hover:bg-amber-500 hover:text-white transition-all cursor-default hover:scale-105 hover:-translate-y-1"
+                            data-translate-key="skill2_li2">Nettoyage Données</span>
+                        <span
+                            class="skill-pill px-3 py-1.5 text-sm rounded-full bg-amber-500/10 text-amber-600 hover:bg-amber-500 hover:text-white transition-all cursor-default hover:scale-105 hover:-translate-y-1"
+                            data-translate-key="skill2_li3">Templates SW</span>
+                        <span
+                            class="skill-pill px-3 py-1.5 text-sm rounded-full bg-amber-500/10 text-amber-600 hover:bg-amber-500 hover:text-white transition-all cursor-default hover:scale-105 hover:-translate-y-1"
+                            data-translate-key="skill2_li4">MyCADTools</span>
+                        <span
+                            class="skill-pill px-3 py-1.5 text-sm rounded-full bg-amber-500/10 text-amber-600 hover:bg-amber-500 hover:text-white transition-all cursor-default hover:scale-105 hover:-translate-y-1">Property
+                            Tab</span>
+                    </div>
                 </div>
+
+                <!-- Skill 3: Documentaire -->
                 <div
-                    class="skill-card group opacity-0 animate-fade-in-up stagger-3 hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_15px_35px_rgba(47,110,155,0.15)] relative overflow-hidden">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    </div>
-                    <div class="skill-card-header relative z-10" style="position: relative; z-index: 1;">
-                        <div
-                            class="skill-icon w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center group-hover:bg-emerald-500/20 transition-colors">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg" class="text-emerald-600">
+                    class="skill-orbit group relative flex flex-col items-center opacity-0 animate-fade-in-up stagger-3">
+                    <!-- Animated Ring -->
+                    <div class="relative w-40 h-40 mb-6">
+                        <svg class="w-full h-full -rotate-90 transform" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="8"
+                                class="text-gray-200 dark:text-gray-700" />
+                            <circle cx="50" cy="50" r="45" fill="none" stroke="url(#gradient3)" stroke-width="8"
+                                stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="57"
+                                class="transition-all duration-1000" />
+                            <defs>
+                                <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#10b981" />
+                                    <stop offset="100%" stop-color="#14b8a6" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                            <span
+                                class="text-3xl font-bold text-emerald-500 group-hover:scale-110 transition-transform">80%</span>
+                            <span class="text-xs text-gray-500 uppercase tracking-wider">Avancé</span>
+                        </div>
+                        <div class="absolute -top-2 -right-2 w-12 h-12 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center shadow-lg animate-bounce-subtle"
+                            style="animation-delay: 0.6s">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="text-white">
                                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
                                     stroke="currentColor" stroke-width="1.5" />
                                 <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="currentColor" stroke-width="1.5" />
                             </svg>
                         </div>
-                        <h3 class="skill-title magnetic-element group-hover:text-emerald-600 transition-colors"
-                            data-translate-key="skill3_title">Documentaire</h3>
                     </div>
-                    <ul class="skill-list relative z-10">
-                        <li class="tooltip hover:translate-x-1 transition-transform" data-translate-key="skill3_li1">
-                            Dossiers Techniques (DTE)
-                            <span class="tooltip-text" data-translate-key="skill3_tp1">Rédaction de documentations
-                                d'installation et d'exploitation
-                                complètes</span>
-                        </li>
-                        <li class="tooltip hover:translate-x-1 transition-transform" data-translate-key="skill3_li2">
-                            Plans de Recette
-                            <span class="tooltip-text" data-translate-key="skill3_tp2">Création de cahiers de tests et
-                                PV de recette pour validation
-                                client</span>
-                        </li>
-                        <li class="tooltip hover:translate-x-1 transition-transform" data-translate-key="skill3_li3">
-                            Méthodologie de Reprise
-                            <span class="tooltip-text" data-translate-key="skill3_tp3">Documents de stratégie de
-                                migration de l'existant</span>
-                        </li>
-                        <li class="tooltip hover:translate-x-1 transition-transform" data-translate-key="skill3_li4">
-                            Supports de Formation
-                            <span class="tooltip-text" data-translate-key="skill3_tp4">Formation Administrateur et
-                                Utilisateur PDM</span>
-                        </li>
-                    </ul>
+                    <h3 class="text-xl font-semibold mb-4 group-hover:text-emerald-500 transition-colors"
+                        data-translate-key="skill3_title">Documentaire</h3>
+                    <div class="flex flex-wrap justify-center gap-2 max-w-xs">
+                        <span
+                            class="skill-pill px-3 py-1.5 text-sm rounded-full bg-emerald-500/10 text-emerald-600 hover:bg-emerald-500 hover:text-white transition-all cursor-default hover:scale-105 hover:-translate-y-1"
+                            data-translate-key="skill3_li1">DTE</span>
+                        <span
+                            class="skill-pill px-3 py-1.5 text-sm rounded-full bg-emerald-500/10 text-emerald-600 hover:bg-emerald-500 hover:text-white transition-all cursor-default hover:scale-105 hover:-translate-y-1"
+                            data-translate-key="skill3_li2">Plans Recette</span>
+                        <span
+                            class="skill-pill px-3 py-1.5 text-sm rounded-full bg-emerald-500/10 text-emerald-600 hover:bg-emerald-500 hover:text-white transition-all cursor-default hover:scale-105 hover:-translate-y-1"
+                            data-translate-key="skill3_li3">Méthodologie</span>
+                        <span
+                            class="skill-pill px-3 py-1.5 text-sm rounded-full bg-emerald-500/10 text-emerald-600 hover:bg-emerald-500 hover:text-white transition-all cursor-default hover:scale-105 hover:-translate-y-1"
+                            data-translate-key="skill3_li4">Formation</span>
+                        <span
+                            class="skill-pill px-3 py-1.5 text-sm rounded-full bg-emerald-500/10 text-emerald-600 hover:bg-emerald-500 hover:text-white transition-all cursor-default hover:scale-105 hover:-translate-y-1">PV
+                            Recette</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Tech Stack Marquee -->
+            <div class="mt-16 overflow-hidden">
+                <div class="flex animate-[shimmer_20s_linear_infinite] gap-8 py-4"
+                    style="width: max-content; animation: marquee 25s linear infinite;">
+                    <span
+                        class="text-2xl font-bold text-gray-300 dark:text-gray-600 whitespace-nowrap hover:text-[#2f6e9b] transition-colors cursor-default">SOLIDWORKS
+                        PDM</span>
+                    <span class="text-gray-400">•</span>
+                    <span
+                        class="text-2xl font-bold text-gray-300 dark:text-gray-600 whitespace-nowrap hover:text-amber-500 transition-colors cursor-default">SQL
+                        Server</span>
+                    <span class="text-gray-400">•</span>
+                    <span
+                        class="text-2xl font-bold text-gray-300 dark:text-gray-600 whitespace-nowrap hover:text-emerald-500 transition-colors cursor-default">Windows
+                        Server</span>
+                    <span class="text-gray-400">•</span>
+                    <span
+                        class="text-2xl font-bold text-gray-300 dark:text-gray-600 whitespace-nowrap hover:text-violet-500 transition-colors cursor-default">Creo
+                        / Windchill</span>
+                    <span class="text-gray-400">•</span>
+                    <span
+                        class="text-2xl font-bold text-gray-300 dark:text-gray-600 whitespace-nowrap hover:text-rose-500 transition-colors cursor-default">3DEXPERIENCE</span>
+                    <span class="text-gray-400">•</span>
+                    <span
+                        class="text-2xl font-bold text-gray-300 dark:text-gray-600 whitespace-nowrap hover:text-cyan-500 transition-colors cursor-default">MyCADTools</span>
+                    <span class="text-gray-400">•</span>
+                    <!-- Duplicate for seamless loop -->
+                    <span
+                        class="text-2xl font-bold text-gray-300 dark:text-gray-600 whitespace-nowrap hover:text-[#2f6e9b] transition-colors cursor-default">SOLIDWORKS
+                        PDM</span>
+                    <span class="text-gray-400">•</span>
+                    <span
+                        class="text-2xl font-bold text-gray-300 dark:text-gray-600 whitespace-nowrap hover:text-amber-500 transition-colors cursor-default">SQL
+                        Server</span>
+                    <span class="text-gray-400">•</span>
+                    <span
+                        class="text-2xl font-bold text-gray-300 dark:text-gray-600 whitespace-nowrap hover:text-emerald-500 transition-colors cursor-default">Windows
+                        Server</span>
                 </div>
             </div>
+            <style>
+                @keyframes marquee {
+                    0% {
+                        transform: translateX(0);
+                    }
+
+                    100% {
+                        transform: translateX(-50%);
+                    }
+                }
+            </style>
         </section>
         <section id="education" class="fade-up">
             <h2 class="section-title magnetic-element" data-translate-key="education_title">Formation</h2>
