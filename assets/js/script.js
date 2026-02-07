@@ -1719,7 +1719,30 @@ function initAIAssistant() {
         }
         return { pageType: 'portfolio', context: '' };
     }
-    const portfolioContext = getPortfolioContext();
+    function getPDFProjectContext() {
+        return `
+## Expérience Détaillée (Extraite des Rapports d'Intervention PDF):
+
+### 🏢 Projets Récents & Clients Clés (2024-2026)
+- **ASPIR ELEC (2025-2026)** : Installation complète SOLIDWORKS PDM 2025 SP3, configuration des serveurs (Archive/Database), et méthodologie de reprise de données (ETL).
+- **WATTS (2025)** : Migration majeure de PDM 2021 SP3 vers 2025 SP2. Mise à jour infrastructure SQL et PDM.
+- **SURGIRIS (2025)** : Mission "Set & Run", paramétrage avancé via MyCADTools (SmartProperties), optimisation.
+- **ENCHANTED TOOLS (2025)** : Définition de méthodologie de reprise de données et nettoyage pour intégration PDM.
+- **TOUT POUR LE GRAIN (2024)** : Migration de PDM 2021 SP3 vers 2024 SP2.
+- **ACTEMIUM (2025)** : Installation nouvelle infrastructure serveurs pour PDM.
+- **PEUGEOT SAVEURS (2025)** : Consulting PDM et assistance technique.
+- **FINANCIERE TRIO (MANUBOB)** : Migration PDM et consulting.
+
+### 🛠️ Compétences Techniques Validées
+- **Migration & Upgrade** : Expertise confirmée sur les sauts de versions (ex: 2021->2025) et changements d'infrastructure.
+- **Administration Serveur** : Installation et configuration SQL Server, Serveur d'Archives PDM, gestion des pare-feux et droits.
+- **Data Management** : Nettoyage de données, extraction de propriétés, renommage de fichiers en masse.
+- **Outils Visiativ** : Maîtrise de la suite MyCADTools (SmartProperties, etc.) et outils de déploiement (IVNC).
+- **Documentation** : Rédaction de Dossiers Techniques (DTE), Méthodologies de reprise, et Procès-Verbaux (PV) de recette.
+`;
+    }
+
+    const portfolioContext = getPortfolioContext() + "\n" + getPDFProjectContext();
     const detectedContext = determinePageContext();
     const hasSpecificContext = detectedContext.pageType !== 'portfolio' && detectedContext.context && detectedContext.context.trim().length > 0;
     const activeContext = hasSpecificContext ? `${detectedContext.context}\n\n${portfolioContext}` : portfolioContext;
