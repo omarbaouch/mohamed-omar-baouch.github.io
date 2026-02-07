@@ -148,7 +148,7 @@ const translations = {
         "hero_cta2": "Explore My Journey",
         "scroll_text": "Scroll",
         "about_title": "About Me",
-        "about_p1": "As an INSA Mechatronics Engineer, I evolved from pure mechanical design to technical information system architecture. My approach is pragmatic: technology must serve the business, not constrain it.",
+        "about_p1": "As an INSA Mechanical Engineer, I evolved from pure mechanical design to technical information system architecture. My approach is pragmatic: technology must serve the business, not constrain it.",
         "about_p2": "Today, I work on critical missions: sensitive data migration, server architecture redesign, and performance optimization for design offices ranging from 5 to 100 users.",
         "tooltip_location": "Based in the Grand Est region, available for projects throughout France",
         "tooltip_phone": "Available by phone Monday to Friday, 9am-6pm",
@@ -162,7 +162,7 @@ const translations = {
         "exp1_date": "June 2023 - Present",
         "exp1_title": "Expert PDM/PLM Consultant",
         "exp1_subtitle1": "Projects & Achievements (69 Clients):",
-        "exp1_li1": "<strong>57 Successful Migrations</strong> from PDM Standard to PDM Professional (ETL, History Recovery).",
+        "exp1_li1": "<strong>57 Server Migrations & Updates</strong> (ETL, History Recovery).",
         "exp1_li2": "<strong>11 Full Deployments</strong> of server architecture (SQL, Archive, Indexing on dedicated servers).",
         "exp1_li3": "<strong>Set & Run</strong>: Expert takeover of complex and distressed projects.",
         "exp1_subtitle2": "Technical Expertise:",
@@ -857,7 +857,7 @@ function createHeroGrid() {
             );
             if (distance < 150) {
                 const opacity = 0.2 - distance / 750;
-                cell.style.backgroundColor = `rgba(217, 122, 122, ${opacity})`;
+                cell.style.backgroundColor = `rgba(47, 110, 155, ${opacity})`;
                 cell.style.transform = `translateZ(${20 - distance / 10}px)`;
                 cell.classList.add('active');
             } else {
