@@ -946,6 +946,19 @@ const TicTacToe = {
         this.currentPlayer = 'X';
         document.body.classList.add('game-mode');
 
+        // Swap classes for shared cells using IDs (ROBUST FIX)
+        const sharedLeft = document.getElementById('play-replay-shared-cell');
+        const sharedRight = document.getElementById('play-close-shared-cell');
+
+        if (sharedLeft) {
+            sharedLeft.classList.remove('play-btn-left', 'play-button');
+            sharedLeft.classList.add('replay-btn-right');
+        }
+        if (sharedRight) {
+            sharedRight.classList.remove('play-btn-right', 'play-button');
+            sharedRight.classList.add('close-btn-left');
+        }
+
         // Show Overlay
         let overlay = document.querySelector('.game-active-overlay');
         if (!overlay) {
@@ -966,6 +979,15 @@ const TicTacToe = {
             ui.innerHTML = `<div class="game-status" id="gameStatus">TON TOUR</div>`;
             document.body.appendChild(ui);
         }
+
+        // Clear any lingering hover effects on grid cells
+        const allCells = document.querySelectorAll('.grid-cell');
+        allCells.forEach(cell => {
+            cell.style.backgroundColor = 'transparent';
+            cell.style.transform = 'translateZ(0)';
+            cell.classList.remove('active');
+            cell.classList.remove('play-hover-active', 'replay-hover-active', 'close-hover-active');
+        });
 
         this.updateUI();
         this.updateUIPosition(); // Position UI on start
@@ -1078,6 +1100,29 @@ const TicTacToe = {
     closeGame: function () {
         this.active = false;
         document.body.classList.remove('game-mode');
+
+        // Revert classes for shared cells using IDs (ROBUST FIX)
+        const sharedLeft = document.getElementById('play-replay-shared-cell');
+        const sharedRight = document.getElementById('play-close-shared-cell');
+
+        if (sharedLeft) {
+            sharedLeft.classList.remove('replay-btn-right');
+            sharedLeft.classList.add('play-btn-left', 'play-button');
+        }
+        if (sharedRight) {
+            sharedRight.classList.remove('close-btn-left');
+            sharedRight.classList.add('play-btn-right', 'play-button');
+        }
+
+        // Remove Overlay
+        const overlay = document.querySelector('.game-active-overlay');
+        if (overlay) overlay.remove();
+        if (overlay) overlay.remove();
+
+        // Reset UI
+        const ui = document.querySelector('.game-ui-container');
+        if (ui) ui.remove();
+
         this.cells.forEach(cell => {
             cell.classList.remove('game-cell', 'taken', 'x', 'o', 'win');
         });
@@ -1089,6 +1134,20 @@ const TicTacToe = {
         const status = document.getElementById('gameStatus');
         if (status) {
             status.textContent = this.currentPlayer === this.human ? 'À TOI DE JOUER' : 'L\'IA RÉFLÉCHIT...';
+        }
+    },
+
+    updateUIPosition: function () {
+        const ui = document.querySelector('.game-ui-container');
+        const heroGrid = document.getElementById('heroGrid');
+        if (ui && heroGrid) {
+            const rect = heroGrid.getBoundingClientRect();
+            // Position above the grid (top - 80px)
+            ui.style.top = (rect.top + window.scrollY - 80) + 'px';
+            ui.style.left = (rect.left + window.scrollX + rect.width / 2) + 'px';
+            ui.style.transform = 'translate(-50%, -50%)';
+            ui.style.width = Math.min(rect.width, 300) + 'px'; // Limit width
+            ui.style.textAlign = 'center';
         }
     },
 
@@ -1177,22 +1236,26 @@ function createHeroGrid() {
     }
     TicTacToe.cells = []; // Store DOM elements for game
 
-    // Define Play Button indices (3 cells below the game grid)
+    // Play Button: 3 cells (Left, Center, Right)
     const btnRow = centerRow + 3;
     const btnIndices = [
-        btnRow * columns + centerCol - 1,
-        btnRow * columns + centerCol,
-        btnRow * columns + centerCol + 1
+        btnRow * columns + centerCol - 1, // Play Left / Replay Right
+        btnRow * columns + centerCol,     // Play Center
+        btnRow * columns + centerCol + 1  // Play Right / Close Left
     ];
-    // Replay: 2 cells left of center
+
+    // Replay: 3 cells (Left, Center, Right) - Ending at Play Left
     const replayIndices = [
-        btnRow * columns + centerCol - 2,
-        btnRow * columns + centerCol - 1
+        btnRow * columns + centerCol - 3, // Replay Left
+        btnRow * columns + centerCol - 2, // Replay Center
+        btnRow * columns + centerCol - 1  // Replay Right (Overlaps Play Left)
     ];
-    // Close: 2 cells right of center
+
+    // Close: 3 cells (Left, Center, Right) - Starting at Play Right
     const closeIndices = [
-        btnRow * columns + centerCol + 1,
-        btnRow * columns + centerCol + 2
+        btnRow * columns + centerCol + 1, // Close Left (Overlaps Play Right)
+        btnRow * columns + centerCol + 2, // Close Center
+        btnRow * columns + centerCol + 3  // Close Right
     ];
 
     for (let i = 0; i < rows * columns; i++) {
@@ -1203,7 +1266,7 @@ function createHeroGrid() {
         const gameCellIndex = gameIndices.indexOf(i);
         if (gameCellIndex !== -1) {
             cell.dataset.gameIndex = gameCellIndex;
-            TicTacToe.cells[gameCellIndex] = cell; // Map logic index 0-8 to DOM
+            TicTacToe.cells[gameCellIndex] = cell;
             cell.addEventListener('click', () => {
                 if (TicTacToe.active) {
                     TicTacToe.handleCellClick(gameCellIndex);
@@ -1214,50 +1277,100 @@ function createHeroGrid() {
         // Setup Play Button
         if (btnIndices.includes(i)) {
             cell.classList.add('play-button');
-            if (i === btnIndices[1]) {
-                cell.innerText = "PLAY"; // Center cell gets text
+            cell.style.opacity = '1';
+
+            if (i === btnIndices[0]) {
+                cell.classList.add('play-btn-left');
+                cell.id = 'play-replay-shared-cell'; // Unique ID for shared cell
+            } else if (i === btnIndices[1]) {
+                cell.classList.add('play-btn-center');
+                cell.innerText = "PLAY";
+            } else if (i === btnIndices[2]) {
+                cell.classList.add('play-btn-right');
+                cell.id = 'play-close-shared-cell'; // Unique ID for shared cell
             }
+
+            // Click listener for Play - only active if NO game
             cell.addEventListener('click', (e) => {
-                e.stopPropagation();
-                TicTacToe.startGame();
+                if (!TicTacToe.active) {
+                    e.stopPropagation();
+                    TicTacToe.startGame();
+                }
             });
         }
 
         // Setup Replay Button
         if (replayIndices.includes(i)) {
-            cell.classList.add('game-btn-cell', 'replay-btn');
-            if (i === replayIndices[0]) {
-                cell.innerHTML = '<span style="position:absolute; width: 100px; text-align: center;">REJOUER</span>';
+            cell.classList.add('replay-button'); // Common class
+            // Assign specific parts
+            if (i === replayIndices[0]) cell.classList.add('replay-btn-left');
+            if (i === replayIndices[1]) {
+                cell.classList.add('replay-btn-center');
+                cell.innerText = "REJOUER"; // Text in center
             }
+            if (i === replayIndices[2]) cell.classList.add('replay-btn-right');
+
             cell.addEventListener('click', (e) => {
-                e.stopPropagation();
-                if (TicTacToe.active) TicTacToe.resetGame();
+                if (TicTacToe.active) {
+                    e.stopPropagation();
+                    TicTacToe.resetGame();
+                }
             });
         }
 
         // Setup Close Button
         if (closeIndices.includes(i)) {
-            cell.classList.add('game-btn-cell', 'close-btn');
-            if (i === closeIndices[0]) {
-                cell.innerHTML = '<span style="position:absolute; width: 100px; text-align: center;">FERMER</span>';
+            cell.classList.add('close-button'); // Common class
+            // Assign specific parts
+            if (i === closeIndices[0]) cell.classList.add('close-btn-left');
+            if (i === closeIndices[1]) {
+                cell.classList.add('close-btn-center');
+                cell.innerText = "FERMER"; // Text in center
             }
+            if (i === closeIndices[2]) cell.classList.add('close-btn-right');
+
             cell.addEventListener('click', (e) => {
-                e.stopPropagation();
-                if (TicTacToe.active) TicTacToe.closeGame();
+                if (TicTacToe.active) {
+                    e.stopPropagation();
+                    TicTacToe.closeGame();
+                }
             });
         }
 
         heroGrid.appendChild(cell);
     }
 
+    // Link hover effects for Button Groups
+    const linkHover = (selector, activeClass) => {
+        const parts = heroGrid.querySelectorAll(selector);
+        parts.forEach(part => {
+            part.addEventListener('mouseenter', () => {
+                if (activeClass === 'play-hover-active' && TicTacToe.active) return;
+                if (activeClass !== 'play-hover-active' && !TicTacToe.active) return;
+                parts.forEach(p => p.classList.add(activeClass));
+            });
+            part.addEventListener('mouseleave', () => {
+                parts.forEach(p => p.classList.remove(activeClass));
+            });
+        });
+    };
+
+    linkHover('.play-button', 'play-hover-active');
+    linkHover('.replay-button', 'replay-hover-active');
+    linkHover('.close-button', 'close-hover-active');
+
     document.addEventListener('mousemove', (e) => {
         // Disable hover effect if game is active or over game UI
         if (TicTacToe.active) return;
 
         const cells = document.querySelectorAll('.grid-cell');
+
         const mouseX = e.clientX;
         const mouseY = e.clientY;
         cells.forEach((cell) => {
+            // Skip Play Button parts - they have their own hover effect and should stay visible
+            if (cell.classList.contains('play-button')) return;
+
             const rect = cell.getBoundingClientRect();
             const cellX = rect.left + rect.width / 2;
             const cellY = rect.top + rect.height / 2;

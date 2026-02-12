@@ -3089,3 +3089,364 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+/* ============================================
+   TIC-TAC-TOE GAME STYLES
+   ============================================ */
+
+/* Play Button State */
+.grid-cell.play-button {
+    background-color: color-mix(in srgb, var(--accent-primary) 30%, transparent) !important;
+    border-color: var(--accent-primary) !important;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    color: var(--accent-color);
+}
+
+.grid-cell.play-button:hover {
+    background-color: var(--accent-primary) !important;
+    color: var(--bg-primary);
+    box-shadow: 0 0 15px var(--accent-primary);
+    transform: scale(1.05) translateZ(30px) !important;
+}
+
+/* Game Active State */
+.grid-cell.game-cell {
+    background-color: color-mix(in srgb, var(--bg-secondary) 80%, transparent) !important;
+    border-color: var(--accent-secondary) !important;
+    cursor: pointer;
+    z-index: 50;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-cell.game-cell:hover:not(.taken) {
+    background-color: color-mix(in srgb, var(--accent-secondary) 30%, transparent) !important;
+}
+
+/* Symbols (X / O) */
+.grid-cell.game-cell::after {
+    content: '';
+    font-size: 2rem;
+    font-weight: bold;
+    opacity: 0;
+    transform: scale(0);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+}
+
+.grid-cell.game-cell.x::after {
+    content: 'X';
+    color: var(--accent-primary);
+    /* Player Color */
+    opacity: 1;
+    transform: scale(1);
+    text-shadow: 0 0 10px var(--accent-primary);
+}
+
+.grid-cell.game-cell.o::after {
+    content: 'O';
+    color: var(--accent-secondary);
+    /* PC Color */
+    opacity: 1;
+    transform: scale(1);
+    text-shadow: 0 0 10px var(--accent-secondary);
+}
+
+/* Board Highlight on Start */
+.game-active-overlay {
+    position: fixed;
+    inset: 0;
+    /* backdrop-filter: blur(5px); REMOVED per user request */
+    z-index: 40;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+}
+
+body.game-mode .game-active-overlay {
+    opacity: 1;
+    pointer-events: none;
+    /* Allow clicks to pass through to grid */
+    /* Removed solid background to keep grid visible */
+}
+
+/* Hide Hero Content */
+/* Maintain Hero Content Visibility */
+body.game-mode .hero-content,
+body.game-mode .scroll-indicator,
+body.game-mode .nav-container,
+body.game-mode .logo {
+    /* Opacity changed to 1 to keep context fully visible per user request */
+    opacity: 1;
+    pointer-events: none;
+    /* Prevent clicks on text to allow grid interaction if overlapping */
+    transition: opacity 0.5s ease;
+}
+
+/* Bring Grid to Front in Game Mode & Highlight */
+body.game-mode .hero-background {
+    z-index: 45;
+    /* Above overlay */
+    pointer-events: none;
+}
+
+body.game-mode .hero-grid {
+    pointer-events: none;
+}
+
+body.game-mode .grid-cell {
+    opacity: 1;
+    /* Keep all grid cells visible */
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+/* Removed dimming for non-game cells */
+
+body.game-mode .grid-cell.game-cell {
+    opacity: 1;
+    background-color: color-mix(in srgb, var(--bg-secondary) 90%, transparent) !important;
+    border: 1px solid var(--accent-primary) !important;
+    box-shadow: 0 0 20px color-mix(in srgb, var(--accent-primary) 40%, transparent);
+    transform: scale(1.02);
+    z-index: 55;
+    pointer-events: auto !important;
+    /* Force clickable */
+}
+
+/* Game UI (Status / Close) */
+/* Game UI - Status Text */
+.game-ui-container {
+    position: absolute;
+    z-index: 60;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease 0.3s;
+    width: 300px;
+    /* Fixed width to ensure centering */
+    transform: translate(-50%, -50%);
+    /* Center on the target point */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body.game-mode .game-ui-container {
+    opacity: 1;
+    pointer-events: none;
+    /* Keep container non-blocking */
+}
+
+.game-status {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px color-mix(in srgb, var(--accent-primary) 60%, transparent);
+    pointer-events: none;
+}
+
+/* Integrated Grid Buttons */
+.grid-cell.game-btn-cell {
+    opacity: 0 !important;
+    /* Hidden by default */
+    pointer-events: none;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    z-index: 55;
+    border: 1px solid transparent;
+}
+
+body.game-mode .grid-cell.game-btn-cell.active-game-btn {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    cursor: pointer;
+    background-color: color-mix(in srgb, var(--bg-secondary) 90%, transparent) !important;
+    backdrop-filter: blur(2px);
+}
+
+.grid-cell.replay-btn.active-game-btn {
+    border-color: var(--accent-primary) !important;
+    color: var(--accent-primary);
+}
+
+.grid-cell.close-btn.active-game-btn {
+    border-color: var(--text-secondary) !important;
+    color: var(--text-secondary);
+}
+
+.grid-cell.replay-btn.active-game-btn:hover {
+    background-color: var(--accent-primary) !important;
+    color: var(--bg-primary);
+    box-shadow: 0 0 15px var(--accent-primary);
+}
+
+.grid-cell.close-btn.active-game-btn:hover {
+    background-color: var(--text-secondary) !important;
+    color: var(--bg-primary);
+    box-shadow: 0 0 15px var(--text-secondary);
+}
+
+/* Winning Line Animation */
+@keyframes win-pulse {
+
+    0%,
+    100% {
+        background-color: color-mix(in srgb, var(--accent-primary) 50%, transparent);
+    }
+
+    50% {
+        background-color: color-mix(in srgb, var(--accent-primary) 80%, transparent);
+    }
+}
+
+.grid-cell.game-cell.win {
+    animation: win-pulse 1s infinite;
+    z-index: 60;
+    border-color: #fff !important;
+    box-shadow: 0 0 30px var(--accent-primary);
+}
+
+/* Unified Play Button Styles */
+.play-button {
+    background-color: color-mix(in srgb, var(--accent-primary) 10%, transparent);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-color: var(--accent-primary) !important;
+    z-index: 50;
+    visibility: visible !important;
+}
+
+/* Base style for all Unified Buttons */
+.replay-button,
+.close-button {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 52;
+    /* Higher than Play button to catch clicks in Game Mode */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    /* Hidden by default */
+    pointer-events: none;
+}
+
+/* VISIBILITY LOGIC */
+/* When Game Active: Hide Play, Show Replay/Close */
+body.game-mode .play-button {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+}
+
+body.game-mode .replay-button,
+body.game-mode .close-button {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    visibility: visible !important;
+    border-color: var(--accent-primary) !important;
+    background-color: color-mix(in srgb, var(--accent-primary) 10%, transparent);
+}
+
+/* REPLAY & CLOSE HOVER STATES */
+.replay-button:hover,
+.replay-button.replay-hover-active,
+.close-button:hover,
+.close-button.close-hover-active {
+    background-color: var(--accent-primary) !important;
+    color: var(--bg-primary);
+    box-shadow: 0 0 20px var(--accent-primary);
+}
+
+.replay-button:hover .replay-btn-center,
+.replay-button.replay-hover-active .replay-btn-center,
+.close-button:hover .close-button.close-hover-active .close-btn-center {
+    color: var(--bg-primary);
+}
+
+/* Play/Replay/Close Styling (Borders etc) */
+.play-button:hover,
+.play-button.play-hover-active {
+    background-color: var(--accent-primary) !important;
+    color: var(--bg-primary);
+    box-shadow: 0 0 20px var(--accent-primary);
+}
+
+/* LEFT PARTS */
+.play-button .play-btn-left,
+body.game-mode .replay-btn-left,
+body.game-mode .close-btn-left {
+    border-right: none !important;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    pointer-events: auto !important;
+    /* Enable click */
+}
+
+/* CENTER PARTS */
+.play-button .play-btn-center,
+body.game-mode .replay-btn-center,
+body.game-mode .close-btn-center {
+    border-left: none !important;
+    border-right: none !important;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: var(--accent-primary);
+    z-index: 100 !important;
+    /* Ensure text is above side cells */
+    position: relative;
+    pointer-events: auto !important;
+    /* Enable click */
+}
+
+/* RIGHT PARTS */
+.play-button .play-btn-right,
+body.game-mode .replay-btn-right,
+body.game-mode .close-btn-right {
+    border-left: none !important;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    pointer-events: auto !important;
+    /* Enable click */
+}
+
+/* CONFLICT RESOLUTION FOR DUAL-ROLE CELLS IN GAME MODE */
+/* Fix Play Left (becomes Replay Right) */
+body.game-mode .play-btn-left {
+    border-right: 0.5px solid color-mix(in srgb, var(--accent-primary) 8%, transparent) !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+
+/* Fix Play Right (becomes Close Left) */
+body.game-mode .play-btn-right {
+    border-left: 0.5px solid color-mix(in srgb, var(--accent-primary) 8%, transparent) !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+/* Hover Content Color Change */
+.play-button:hover .play-btn-center,
+.play-button.play-hover-active .play-btn-center,
+.play-btn-center:hover {
+    color: var(--bg-primary);
+}
