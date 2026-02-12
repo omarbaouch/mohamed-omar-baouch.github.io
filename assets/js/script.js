@@ -10,13 +10,13 @@ const translations = {
         "nav_education": "Formation",
         "nav_contact": "Contact",
         "nav_blog": "Blog",
-        "hero_title": `<span class="highlight glitch" data-text="Ingénieur Mécanique">Ingénieur Mécanique</span> & <br>Consultant <span class="glitch" data-text="PDM/PLM">PDM/PLM</span>`,
+        "hero_title": `<span class="highlight glitch" data-text="Ingénieur Plasturgie">Ingénieur Plasturgie</span> & <br>Consultant <span class="glitch" data-text="PDM/PLM">PDM/PLM</span>`,
         "hero_subtitle": "Accompagnement de 69 industriels dans l'optimisation de leurs processus de développement produit.",
         "hero_cta1": "Me contacter",
         "hero_cta2": "Découvrir mon parcours",
         "scroll_text": "Défiler",
         "about_title": "À propos",
-        "about_p1": "Ingénieur Mécatronique INSA de formation, j'ai évolué de la conception mécanique pure vers l'architecture des systèmes d'information techniques. Mon approche est pragmatique : la technique doit servir le métier, et non le contraindre.",
+        "about_p1": "Ingénieur Plasturgie INSA de formation, j'ai évolué de la conception mécanique pure vers l'architecture des systèmes d'information techniques. Mon approche est pragmatique : la technique doit servir le métier, et non le contraindre.",
         "about_p2": "Aujourd'hui, j'interviens sur des missions critiques : migration de données sensibles, refonte d'architectures serveurs et optimisation de performance pour des bureaux d'études de 5 à 100 utilisateurs.",
         "tooltip_location": "Situé dans la région Grand Est, disponible pour des projets dans toute la France",
         "tooltip_phone": "Disponible par téléphone du lundi au vendredi, 9h-18h",
@@ -38,11 +38,11 @@ const translations = {
         "exp1_li5": "Rédaction de DTE (Dossiers Techniques d'Exploitation) et Plans de Recette.",
         "exp1_li6": "Mise en œuvre de réplications multisites et plans de maintenance SQL.",
         "exp2_date": "Septembre 2021 - Juin 2023",
-        "exp2_title": "Ingénieur Mécanique & PLM Lead",
-        "exp2_subtitle1": "IDEMIA (Défense & Sécurité) :",
+        "exp2_title": "Ingénieur Plasturgie & PLM Lead",
+        "exp2_subtitle1": "ACTEUR DÉFENSE & SÉCURITÉ :",
         "exp2_li1": "Conception de radars de nouvelle génération.",
         "exp2_li2": "Structuration de l'architecture PLM pour la gestion de configuration complexe.",
-        "exp2_subtitle2": "FLOWBIRD (Transport) :",
+        "exp2_subtitle2": "ACTEUR DU TRANSPORT & MOBILITÉ :",
         "exp2_li3": "Retrofit RATP : Gestion du cycle de vie des modifications (ECR/ECO).",
         "exp2_li4": "Calculs de structure avancés sous Creo Simulate.",
         "exp3_date": "Avril 2020 - Octobre 2020",
@@ -142,13 +142,13 @@ const translations = {
         "nav_education": "Education",
         "nav_contact": "Contact",
         "nav_blog": "Blog",
-        "hero_title": `<span class="highlight glitch" data-text="Mechanical Engineer">Mechanical Engineer</span> & <br>PDM/PLM <span class="glitch" data-text="Consultant">Consultant</span>`,
+        "hero_title": `<span class="highlight glitch" data-text="Plastics Engineer">Plastics Engineer</span> & <br>PDM/PLM <span class="glitch" data-text="Consultant">Consultant</span>`,
         "hero_subtitle": "Supporting 69 industrial companies in optimizing their product development processes.",
         "hero_cta1": "Contact Me",
         "hero_cta2": "Explore My Journey",
         "scroll_text": "Scroll",
         "about_title": "About Me",
-        "about_p1": "As an INSA Mechanical Engineer, I evolved from pure mechanical design to technical information system architecture. My approach is pragmatic: technology must serve the business, not constrain it.",
+        "about_p1": "As an INSA Plastics Engineer, I evolved from pure mechanical design to technical information system architecture. My approach is pragmatic: technology must serve the business, not constrain it.",
         "about_p2": "Today, I work on critical missions: sensitive data migration, server architecture redesign, and performance optimization for design offices ranging from 5 to 100 users.",
         "tooltip_location": "Based in the Grand Est region, available for projects throughout France",
         "tooltip_phone": "Available by phone Monday to Friday, 9am-6pm",
@@ -170,11 +170,11 @@ const translations = {
         "exp1_li5": "Drafting of Technical Operating Files (DTE) and Acceptance Plans.",
         "exp1_li6": "Implementation of multisite replication and SQL maintenance plans.",
         "exp2_date": "September 2021 - June 2023",
-        "exp2_title": "Mechanical Engineer & PLM Lead",
-        "exp2_subtitle1": "IDEMIA (Defense & Security):",
+        "exp2_title": "Plastics Engineer & PLM Lead",
+        "exp2_subtitle1": "DEFENSE & SECURITY ACTOR:",
         "exp2_li1": "Design of next-generation radars.",
         "exp2_li2": "Structuring of PLM architecture for complex configuration management.",
-        "exp2_subtitle2": "FLOWBIRD (Transport):",
+        "exp2_subtitle2": "TRANSPORT & MOBILITY ACTOR:",
         "exp2_li3": "Retrofit for RATP: Lifecycle management of modifications (ECR/ECO).",
         "exp2_li4": "Advanced structural calculations using Creo Simulate.",
         "exp3_date": "April 2020 - October 2020",
@@ -714,10 +714,10 @@ function applyPortfolioLanguage(langData, lang) {
     const glitchElements = document.querySelectorAll('.glitch');
     if (glitchElements.length >= 2) {
         if (lang === 'en') {
-            glitchElements[0].dataset.text = 'Mechanical Engineer';
+            glitchElements[0].dataset.text = 'Plastics Engineer';
             glitchElements[1].dataset.text = 'Consultant';
         } else {
-            glitchElements[0].dataset.text = 'Ingénieur Mécanique';
+            glitchElements[0].dataset.text = 'Ingénieur Plasturgie';
             glitchElements[1].dataset.text = 'PDM/PLM';
         }
     }
@@ -828,23 +828,340 @@ if (langEnButton) {
 }
 //--------- LANGUAGE SWITCHER SCRIPT END ---------//
 
+const TicTacToe = {
+    active: false,
+    board: Array(9).fill(null),
+    human: 'X',
+    pc: 'O',
+    currentPlayer: 'X',
+    winningLines: [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Cols
+        [0, 4, 8], [2, 4, 6]             // Diagonals
+    ],
+    cells: [],
+
+    initSVG: function () {
+        // SVG strings for symbols
+        this.svgX = '<svg viewBox="0 0 100 100" class="symbol-svg x"><path d="M20,20 L80,80 M80,20 L20,80" stroke="currentColor" stroke-width="10" stroke-linecap="round"/></svg>';
+        this.svgO = '<svg viewBox="0 0 100 100" class="symbol-svg o"><circle cx="50" cy="50" r="30" stroke="currentColor" stroke-width="10" fill="none"/></svg>';
+    },
+
+    startGame: function () {
+        if (this.active) return;
+        this.active = true;
+        this.board.fill(null);
+        this.currentPlayer = 'X';
+        document.body.classList.add('game-mode');
+
+        // Show Overlay
+        let overlay = document.querySelector('.game-active-overlay');
+        if (!overlay) {
+            overlay = document.createElement('div');
+            overlay.className = 'game-active-overlay';
+            document.body.appendChild(overlay);
+        }
+
+        // Handle Buttons Visibility
+        document.querySelectorAll('.play-button').forEach(el => el.style.opacity = '0');
+        document.querySelectorAll('.replay-btn, .close-btn').forEach(el => el.classList.add('active-game-btn'));
+
+        // Create UI if missing (Status Text only)
+        let ui = document.querySelector('.game-ui-container');
+        if (!ui) {
+            ui = document.createElement('div');
+            ui.className = 'game-ui-container';
+            ui.innerHTML = `<div class="game-status" id="gameStatus">TON TOUR</div>`;
+            document.body.appendChild(ui);
+        }
+
+        this.updateUI();
+        this.updateUIPosition(); // Position UI on start
+        window.addEventListener('resize', () => {
+            if (this.active) this.updateUIPosition();
+        });
+        this.highlightBoard();
+    },
+
+    updateUIPosition: function () {
+        const ui = document.querySelector('.game-ui-container');
+        if (!ui || !this.cells || this.cells.length < 9) return;
+
+        // Position Status Text in the row BELOW the board (gap between board and buttons)
+        // Bottom of board is cell[8]
+        const lastCell = this.cells[8];
+        const firstCell = this.cells[0];
+
+        if (firstCell && lastCell) {
+            const firstRect = firstCell.getBoundingClientRect();
+            const lastRect = lastCell.getBoundingClientRect();
+
+            const centerX = (firstRect.left + lastRect.right) / 2;
+            const bottomY = lastRect.bottom;
+
+            ui.style.left = `${centerX}px`;
+            ui.style.top = `${bottomY + 25}px`; // Centered in the 50px gap row
+        }
+    },
+
+    highlightBoard: function () {
+        this.cells.forEach((cell, index) => {
+            cell.classList.add('game-cell');
+            cell.classList.remove('x', 'o', 'win');
+            // Remove any existing content (pseudo-elements handle text, but just in case)
+        });
+    },
+
+    handleCellClick: function (index) {
+        if (!this.active || this.board[index] || this.currentPlayer !== this.human) return;
+
+        this.makeMove(index, this.human);
+
+        if (this.checkWin(this.human)) {
+            this.endGame('VICTOIRE !');
+            return;
+        }
+        if (this.checkDraw()) {
+            this.endGame('ÉGALITÉ');
+            return;
+        }
+
+        this.currentPlayer = this.pc;
+        this.updateUI();
+
+        // PC Move with slight delay for realism
+        setTimeout(() => {
+            const bestMove = this.minimax(this.board, this.pc).index;
+            this.makeMove(bestMove, this.pc);
+
+            if (this.checkWin(this.pc)) {
+                this.endGame('DÉFAITE...');
+            } else if (this.checkDraw()) {
+                this.endGame('ÉGALITÉ');
+            } else {
+                this.currentPlayer = this.human;
+                this.updateUI();
+            }
+        }, 600);
+    },
+
+    makeMove: function (index, player) {
+        this.board[index] = player;
+        const cell = this.cells[index];
+        cell.classList.add('taken', player.toLowerCase());
+
+        // Add specific class for CSS animation trigger
+        // cell.innerHTML = player === 'X' ? this.svgX : this.svgO; // CSS pseudo-elements used instead for cleaner code
+    },
+
+    checkWin: function (player) {
+        return this.winningLines.some(combination => {
+            if (combination.every(index => this.board[index] === player)) {
+                combination.forEach(index => this.cells[index].classList.add('win'));
+                return true;
+            }
+            return false;
+        });
+    },
+
+    checkDraw: function () {
+        return this.board.every(cell => cell !== null);
+    },
+
+    endGame: function (message) {
+        const status = document.getElementById('gameStatus');
+        if (status) status.textContent = message;
+        // Keep active true so user can see result, but prevent moves by checking active board in click handler or just leave as is since logic checks if cell taken
+    },
+
+    resetGame: function () {
+        this.board.fill(null);
+        this.cells.forEach(cell => {
+            cell.classList.remove('taken', 'x', 'o', 'win');
+        });
+        this.currentPlayer = 'X';
+        this.updateUI();
+    },
+
+    closeGame: function () {
+        this.active = false;
+        document.body.classList.remove('game-mode');
+        this.cells.forEach(cell => {
+            cell.classList.remove('game-cell', 'taken', 'x', 'o', 'win');
+        });
+        document.querySelectorAll('.play-button').forEach(el => el.style.opacity = '1');
+        document.querySelectorAll('.replay-btn, .close-btn').forEach(el => el.classList.remove('active-game-btn'));
+    },
+
+    updateUI: function () {
+        const status = document.getElementById('gameStatus');
+        if (status) {
+            status.textContent = this.currentPlayer === this.human ? 'À TOI DE JOUER' : 'L\'IA RÉFLÉCHIT...';
+        }
+    },
+
+    minimax: function (newBoard, player) {
+        const availSpots = newBoard.map((v, i) => v === null ? i : null).filter(v => v !== null);
+
+        if (this.checkWinState(newBoard, this.human)) return { score: -10 };
+        if (this.checkWinState(newBoard, this.pc)) return { score: 10 };
+        if (availSpots.length === 0) return { score: 0 };
+
+        const moves = [];
+
+        for (let i = 0; i < availSpots.length; i++) {
+            const move = {};
+            move.index = availSpots[i];
+            newBoard[availSpots[i]] = player;
+
+            if (player === this.pc) {
+                const result = this.minimax(newBoard, this.human);
+                move.score = result.score;
+            } else {
+                const result = this.minimax(newBoard, this.pc);
+                move.score = result.score;
+            }
+
+            newBoard[availSpots[i]] = null;
+            moves.push(move);
+        }
+
+        let bestMove;
+        if (player === this.pc) {
+            let bestScore = -10000;
+            for (let i = 0; i < moves.length; i++) {
+                if (moves[i].score > bestScore) {
+                    bestScore = moves[i].score;
+                    bestMove = i;
+                }
+            }
+        } else {
+            let bestScore = 10000;
+            for (let i = 0; i < moves.length; i++) {
+                if (moves[i].score < bestScore) {
+                    bestScore = moves[i].score;
+                    bestMove = i;
+                }
+            }
+        }
+        return moves[bestMove];
+    },
+
+    checkWinState: function (board, player) {
+        return this.winningLines.some(combination => {
+            return combination.every(index => board[index] === player);
+        });
+    }
+};
+
 function createHeroGrid() {
     const heroGrid = document.getElementById('heroGrid');
     if (!heroGrid) {
         return;
     }
-    const width = window.innerWidth;
-    const height = window.innerHeight;
+    const width = heroGrid.clientWidth;
+    const height = heroGrid.clientHeight;
     const cellSize = 50;
-    const columns = Math.ceil(width / cellSize);
+    const columns = Math.floor(width / cellSize);
     const rows = Math.ceil(height / cellSize);
     heroGrid.innerHTML = '';
+
+    // Identify center for 3x3 Grid
+    // Identify center for 3x3 Grid
+    let centerCol = Math.floor(columns / 2);
+    if (width > 992) {
+        centerCol = Math.floor(columns * 0.75);
+    }
+    const centerRow = Math.floor(rows / 2);
+
+    // Define the game cells indices (3x3 grid centered)
+    // Row indices: centerRow-1, centerRow, centerRow+1
+    // Col indices: centerCol-1, centerCol, centerCol+1
+    const gameIndices = [];
+    for (let r = centerRow - 1; r <= centerRow + 1; r++) {
+        for (let c = centerCol - 1; c <= centerCol + 1; c++) {
+            gameIndices.push(r * columns + c);
+        }
+    }
+    TicTacToe.cells = []; // Store DOM elements for game
+
+    // Define Play Button indices (3 cells below the game grid)
+    const btnRow = centerRow + 3;
+    const btnIndices = [
+        btnRow * columns + centerCol - 1,
+        btnRow * columns + centerCol,
+        btnRow * columns + centerCol + 1
+    ];
+    // Replay: 2 cells left of center
+    const replayIndices = [
+        btnRow * columns + centerCol - 2,
+        btnRow * columns + centerCol - 1
+    ];
+    // Close: 2 cells right of center
+    const closeIndices = [
+        btnRow * columns + centerCol + 1,
+        btnRow * columns + centerCol + 2
+    ];
+
     for (let i = 0; i < rows * columns; i++) {
         const cell = document.createElement('div');
         cell.classList.add('grid-cell');
+
+        // Setup Game Cells
+        const gameCellIndex = gameIndices.indexOf(i);
+        if (gameCellIndex !== -1) {
+            cell.dataset.gameIndex = gameCellIndex;
+            TicTacToe.cells[gameCellIndex] = cell; // Map logic index 0-8 to DOM
+            cell.addEventListener('click', () => {
+                if (TicTacToe.active) {
+                    TicTacToe.handleCellClick(gameCellIndex);
+                }
+            });
+        }
+
+        // Setup Play Button
+        if (btnIndices.includes(i)) {
+            cell.classList.add('play-button');
+            if (i === btnIndices[1]) {
+                cell.innerText = "PLAY"; // Center cell gets text
+            }
+            cell.addEventListener('click', (e) => {
+                e.stopPropagation();
+                TicTacToe.startGame();
+            });
+        }
+
+        // Setup Replay Button
+        if (replayIndices.includes(i)) {
+            cell.classList.add('game-btn-cell', 'replay-btn');
+            if (i === replayIndices[0]) {
+                cell.innerHTML = '<span style="position:absolute; width: 100px; text-align: center;">REJOUER</span>';
+            }
+            cell.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (TicTacToe.active) TicTacToe.resetGame();
+            });
+        }
+
+        // Setup Close Button
+        if (closeIndices.includes(i)) {
+            cell.classList.add('game-btn-cell', 'close-btn');
+            if (i === closeIndices[0]) {
+                cell.innerHTML = '<span style="position:absolute; width: 100px; text-align: center;">FERMER</span>';
+            }
+            cell.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (TicTacToe.active) TicTacToe.closeGame();
+            });
+        }
+
         heroGrid.appendChild(cell);
     }
+
     document.addEventListener('mousemove', (e) => {
+        // Disable hover effect if game is active or over game UI
+        if (TicTacToe.active) return;
+
         const cells = document.querySelectorAll('.grid-cell');
         const mouseX = e.clientX;
         const mouseY = e.clientY;
