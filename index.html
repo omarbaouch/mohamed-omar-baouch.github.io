@@ -29,6 +29,38 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
+        // Immediate Theme Check to prevent flash
+        (function () {
+            const theme = localStorage.getItem('theme');
+            const isDark = theme === 'dark' || (!theme && true); // Default to dark if not set
+            const root = document.documentElement;
+
+            if (isDark) {
+                root.classList.add('dark-theme');
+                root.classList.remove('light-theme');
+            } else {
+                root.classList.add('light-theme');
+                root.classList.remove('dark-theme');
+            }
+
+            // Force critical CSS variables for background immediately
+            const bg = isDark ? '#0f172a' : '#f6f3ed';
+            const text = isDark ? '#f1f5f9' : '#1f1b16';
+            const style = document.createElement('style');
+            style.id = 'critical-theme-style';
+            style.innerHTML = `
+                html, body {
+                    background-color: ${bg} !important;
+                    color: ${text} !important;
+                }
+                .loading-screen {
+                    background-color: ${bg} !important;
+                }
+            `;
+            document.head.appendChild(style);
+        })();
+    </script>
+    <script>
         tailwind.config = {
             theme: {
                 extend: {

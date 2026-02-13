@@ -969,7 +969,7 @@ const TicTacToe = {
 
         // Handle Buttons Visibility
         document.querySelectorAll('.play-button').forEach(el => el.style.opacity = '0');
-        document.querySelectorAll('.replay-btn, .close-btn').forEach(el => el.classList.add('active-game-btn'));
+        document.querySelectorAll('.replay-button, .close-button').forEach(el => el.classList.add('active-game-btn'));
 
         // Create UI if missing (Status Text only)
         let ui = document.querySelector('.game-ui-container');
@@ -1127,7 +1127,7 @@ const TicTacToe = {
             cell.classList.remove('game-cell', 'taken', 'x', 'o', 'win');
         });
         document.querySelectorAll('.play-button').forEach(el => el.style.opacity = '1');
-        document.querySelectorAll('.replay-btn, .close-btn').forEach(el => el.classList.remove('active-game-btn'));
+        document.querySelectorAll('.replay-button, .close-button').forEach(el => el.classList.remove('active-game-btn'));
     },
 
     updateUI: function () {
@@ -1212,7 +1212,16 @@ function createHeroGrid() {
     }
     const width = heroGrid.clientWidth;
     const height = heroGrid.clientHeight;
-    const cellSize = 50;
+
+    // Responsive: Ensure at least 7 columns for the buttons to fit
+    // Calculate cell size: Max 50px, but shrink if width < 7 * 50
+    let cellSize = 50;
+    if (width < 350) { // 7 * 50 = 350
+        cellSize = Math.floor(width / 7);
+    }
+    // Set CSS variable for cell size
+    heroGrid.style.setProperty('--cell-size', `${cellSize}px`);
+
     const columns = Math.floor(width / cellSize);
     const rows = Math.ceil(height / cellSize);
     heroGrid.innerHTML = '';
@@ -1274,8 +1283,9 @@ function createHeroGrid() {
             });
         }
 
-        // Setup Play Button
-        if (btnIndices.includes(i)) {
+        // Setup Play Button - ONLY ON DESKTOP (> 768px)
+        const isMobile = window.innerWidth <= 768;
+        if (!isMobile && btnIndices.includes(i)) {
             cell.classList.add('play-button');
             cell.style.opacity = '1';
 
@@ -1299,8 +1309,8 @@ function createHeroGrid() {
             });
         }
 
-        // Setup Replay Button
-        if (replayIndices.includes(i)) {
+        // Setup Replay Button - ONLY ON DESKTOP
+        if (!isMobile && replayIndices.includes(i)) {
             cell.classList.add('replay-button'); // Common class
             // Assign specific parts
             if (i === replayIndices[0]) cell.classList.add('replay-btn-left');
@@ -1309,6 +1319,12 @@ function createHeroGrid() {
                 cell.innerText = "REJOUER"; // Text in center
             }
             if (i === replayIndices[2]) cell.classList.add('replay-btn-right');
+
+            // Hide initially (Ghost Button Fix)
+            if (!btnIndices.includes(i)) {
+                cell.style.opacity = '0';
+                cell.style.pointerEvents = 'none';
+            }
 
             cell.addEventListener('click', (e) => {
                 if (TicTacToe.active) {
@@ -1328,6 +1344,12 @@ function createHeroGrid() {
                 cell.innerText = "FERMER"; // Text in center
             }
             if (i === closeIndices[2]) cell.classList.add('close-btn-right');
+
+            // Hide initially (Ghost Button Fix)
+            if (!btnIndices.includes(i)) {
+                cell.style.opacity = '0';
+                cell.style.pointerEvents = 'none';
+            }
 
             cell.addEventListener('click', (e) => {
                 if (TicTacToe.active) {
@@ -2031,16 +2053,16 @@ function initThemeSwitcher() {
             root.style.setProperty('--hover-color', 'var(--light-hover-color)');
             root.style.setProperty('--secondary-color', 'var(--light-secondary-color)');
             if (themeIcon) themeIcon.innerHTML = '🌙';
-            document.body.classList.add('light-theme');
-            document.body.classList.remove('dark-theme');
+            root.classList.add('light-theme');
+            root.classList.remove('dark-theme');
         } else {
             root.style.setProperty('--bg-color', 'var(--bg-primary)');
             root.style.setProperty('--text-color', 'var(--text-primary)');
             root.style.setProperty('--hover-color', 'var(--bg-tertiary)');
             root.style.setProperty('--secondary-color', 'var(--bg-secondary)');
             if (themeIcon) themeIcon.innerHTML = '☀️';
-            document.body.classList.add('dark-theme');
-            document.body.classList.remove('light-theme');
+            root.classList.add('dark-theme');
+            root.classList.remove('light-theme');
         }
     }
 }

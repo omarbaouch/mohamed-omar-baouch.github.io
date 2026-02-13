@@ -260,7 +260,7 @@ html.reduce-motion #particles-js {
     display: none !important;
 }
 
-body.light-theme {
+html.light-theme {
     /* Thème Clair - Crème/Beige avec Bleu foncé */
     --bg-primary: #f6f3ed;
     --bg-secondary: #e7e1d7;
@@ -316,7 +316,7 @@ body.light-theme {
 }
 
 /* Light theme premium background adjustments */
-body.light-theme::before {
+html.light-theme::before {
     background:
         /* Primary accent orb - warmer for light theme */
         radial-gradient(ellipse 80% 50% at 10% 20%,
@@ -340,29 +340,29 @@ body.light-theme::before {
             transparent 45%);
 }
 
-body.light-theme::after {
+html.light-theme::after {
     opacity: 0.02;
 }
 
-body.light-theme .bg-orb--1 {
+html.light-theme .bg-orb--1 {
     background: radial-gradient(circle,
             color-mix(in srgb, var(--accent-primary) 35%, transparent),
             transparent 70%);
 }
 
-body.light-theme .bg-orb--2 {
+html.light-theme .bg-orb--2 {
     background: radial-gradient(circle,
             color-mix(in srgb, var(--accent-secondary) 30%, transparent),
             transparent 70%);
 }
 
-body.light-theme .bg-orb--3 {
+html.light-theme .bg-orb--3 {
     background: radial-gradient(circle,
             color-mix(in srgb, var(--accent-primary) 25%, transparent),
             transparent 70%);
 }
 
-body.light-theme .bg-grid {
+html.light-theme .bg-grid {
     background-image:
         linear-gradient(color-mix(in srgb, var(--text-primary) 4%, transparent) 1px, transparent 1px),
         linear-gradient(90deg, color-mix(in srgb, var(--text-primary) 4%, transparent) 1px, transparent 1px);
@@ -740,8 +740,8 @@ nav {
 }
 
 .grid-cell {
-    width: 50px;
-    height: 50px;
+    width: var(--cell-size, 50px);
+    height: var(--cell-size, 50px);
     border: 0.5px solid color-mix(in srgb, var(--accent-primary) 8%, transparent);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
@@ -3449,4 +3449,35 @@ body.game-mode .play-btn-right {
 .play-button.play-hover-active .play-btn-center,
 .play-btn-center:hover {
     color: var(--bg-primary);
+}
+
+/* Mobile Adjustments for Grid Buttons */
+@media (max-width: 480px) {
+
+    .grid-cell.play-button,
+    .grid-cell.game-btn-cell {
+        font-size: 0.65rem !important;
+        letter-spacing: 0.5px !important;
+    }
+
+    .play-button .play-btn-center,
+    body.game-mode .replay-btn-center,
+    body.game-mode .close-btn-center {
+        letter-spacing: 1px !important;
+    }
+}
+
+/* Mobile UI Cleanup */
+@media (max-width: 768px) {
+
+    /* Hide Language Switcher "FR" */
+    .language-switcher {
+        display: none !important;
+    }
+
+    /* Remove "Formation" intersection line */
+    .education-card::before {
+        display: none !important;
+        width: 0 !important;
+    }
 }

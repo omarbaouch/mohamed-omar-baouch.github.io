@@ -23,9 +23,9 @@ export default async (req, res) => {
     const contextLabel = contextLabels[normalizedPageType] || contextLabels.portfolio;
 
     if (!GEMINI_API_KEY) {
-         return res.status(500).json({ error: 'API Key not configured on the server' });
+        return res.status(500).json({ error: 'API Key not configured on the server' });
     }
-    
+
     const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
 
 
@@ -211,7 +211,7 @@ Tu es maintenant entièrement compilé avec la version 8.0 de mon identité. Ce 
             const rawText = data.candidates[0].content.parts[0].text;
             res.status(200).json({ answer: rawText });
         } else {
-             res.status(500).json({ error: 'Invalid response structure from Gemini API' });
+            res.status(500).json({ error: 'Invalid response structure from Gemini API' });
         }
     } catch (error) {
         console.error('Error calling Gemini API:', error);
