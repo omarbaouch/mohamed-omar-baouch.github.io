@@ -2025,7 +2025,7 @@ function initParallax() {
     });
 }
 function initAIAssistant() {
-    const AI_API_ENDPOINT = '/api/ask-claude';
+    const AI_API_ENDPOINT = '/api/ask-gemini';
     const aiFab = document.getElementById('ai-fab');
     const aiContainer = document.getElementById('ai-container');
     const aiCloseBtn = document.getElementById('ai-close-btn');
