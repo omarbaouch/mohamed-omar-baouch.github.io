@@ -416,6 +416,42 @@ html.light-theme .contact-item:hover {
     box-shadow: 0 12px 30px rgba(47, 110, 155, 0.1);
 }
 
+html.light-theme .contact-form {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(47, 110, 155, 0.18);
+    box-shadow: 0 20px 45px rgba(31, 27, 22, 0.08);
+}
+
+html.light-theme .contact-form:hover {
+    background: rgba(255, 255, 255, 0.92);
+    border-color: rgba(47, 110, 155, 0.3);
+    box-shadow: 0 30px 55px rgba(47, 110, 155, 0.1);
+}
+
+html.light-theme .form-control {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-color: rgba(47, 110, 155, 0.2);
+    color: #1f1b16;
+}
+
+html.light-theme .form-control:focus {
+    background-color: #fff;
+    border-color: #2f6e9b;
+    box-shadow: 0 0 0 3px rgba(47, 110, 155, 0.15);
+}
+
+html.light-theme .form-control::placeholder {
+    color: rgba(75, 67, 56, 0.5);
+}
+
+html.light-theme .form-group label {
+    color: #4b4338;
+}
+
+html.light-theme .btn-form {
+    color: #fff;
+}
+
 html.light-theme .hero-subtitle {
     color: var(--text-secondary);
 }
