@@ -81,7 +81,7 @@
                         <div class="hero-badges">
                             <span class="badge badge-editorial" data-translate-key="blog_badge_editorial">Article de fond</span>
                             <span class="badge" data-translate-key="blog_migration_badge_type">SOLIDWORKS PDM</span>
-                            <span class="badge badge-reading-time">~18 min de lecture</span>
+                            <span class="badge badge-reading-time">~22 min de lecture</span>
                         </div>
                         <span class="hero-eyebrow" data-translate-key="blog_migration_hero_eyebrow">Migration &amp; reprise de donnees</span>
                         <h1 class="hero-title" data-translate-key="blog_migration_hero_title">Migration de donnees vers SOLIDWORKS PDM : le guide terrain pour reussir sans perdre un fichier</h1>
@@ -145,29 +145,36 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#migration-technique">
+                            <a href="#boite-outils">
                                 <span class="summary-index">05</span>
+                                <span class="summary-label" data-translate-key="blog_migration_summary_label4b">Dans les coulisses : ma boite a outils terrain</span>
+                                <span class="summary-meta" data-translate-key="blog_migration_summary_meta4b">DataRecovery, FindDocuments, Dependencies, flux de synchronisation</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#migration-technique">
+                                <span class="summary-index">06</span>
                                 <span class="summary-label" data-translate-key="blog_migration_summary_label5">Phase 4 : La migration technique</span>
                                 <span class="summary-meta" data-translate-key="blog_migration_summary_meta5">Outils, jeu de test, validation</span>
                             </a>
                         </li>
                         <li>
                             <a href="#formation-bascule">
-                                <span class="summary-index">06</span>
+                                <span class="summary-index">07</span>
                                 <span class="summary-label" data-translate-key="blog_migration_summary_label6">Phase 5 : Former et basculer</span>
                                 <span class="summary-meta" data-translate-key="blog_migration_summary_meta6">Accompagnement humain et jour J</span>
                             </a>
                         </li>
                         <li>
                             <a href="#post-migration">
-                                <span class="summary-index">07</span>
+                                <span class="summary-index">08</span>
                                 <span class="summary-label" data-translate-key="blog_migration_summary_label7">Phase 6 : Stabiliser et optimiser</span>
                                 <span class="summary-meta" data-translate-key="blog_migration_summary_meta7">Support, indicateurs, amelioration continue</span>
                             </a>
                         </li>
                         <li>
                             <a href="#erreurs-courantes">
-                                <span class="summary-index">08</span>
+                                <span class="summary-index">09</span>
                                 <span class="summary-label" data-translate-key="blog_migration_summary_label8">Les 7 erreurs que je vois sur chaque projet</span>
                                 <span class="summary-meta" data-translate-key="blog_migration_summary_meta8">Et comment les eviter</span>
                             </a>
@@ -408,6 +415,84 @@
                             }
                         </script>
                     </figure>
+                </section>
+
+                <!-- 4bis. BOITE A OUTILS TERRAIN -->
+                <section class="blog-section article-section" id="boite-outils">
+                    <h2 data-translate-key="blog_migration_s4b_title">Dans les coulisses : ma boite a outils terrain</h2>
+                    <p data-translate-key="blog_migration_s4b_p1">La theorie c'est bien, mais ce qui fait la difference entre une migration qui reussit et une qui deraille, ce sont les outils et les automatismes. Voici concretement ce que j'utilise sur le terrain, etape par etape. Chaque outil a un role precis dans la chaine &mdash; sauter une etape, c'est prendre le risque de contaminer tout le coffre-fort.</p>
+
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr>
+                                        <th data-translate-key="blog_migration_s4b_table_h_etape">Etape</th>
+                                        <th data-translate-key="blog_migration_s4b_table_h_outil">Outil</th>
+                                        <th data-translate-key="blog_migration_s4b_table_h_action">Ce qu'il fait</th>
+                                        <th data-translate-key="blog_migration_s4b_table_h_resultat">Resultat concret</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><strong>DataRecovery</strong></td>
+                                        <td data-translate-key="blog_migration_s4b_row1_action">Copie les fichiers Windows dans le coffre PDM et extrait les proprietes SOLIDWORKS en masse dans un fichier Excel</td>
+                                        <td data-translate-key="blog_migration_s4b_row1_resultat">Un fichier Excel avec tous les chemins, references internes (REF_INT), indices de revision et types de fichiers</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><strong>Fichier Excel d'analyse</strong></td>
+                                        <td data-translate-key="blog_migration_s4b_row2_action">Analyse automatique : extraction de la REF_INT, detection de la derniere revision, identification des doublons, indices invalides et contamination de groupe</td>
+                                        <td data-translate-key="blog_migration_s4b_row2_resultat">Chaque fichier classe en 3 categories : <strong>OUI</strong> (renommer), <strong>NON</strong> (archiver), <strong>ALERTE</strong> (traitement manuel)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td><strong>FindDocuments</strong></td>
+                                        <td data-translate-key="blog_migration_s4b_row3_action">Construit une base SQLite de tous les fichiers SOLIDWORKS et renomme en masse sans casser les liens de references</td>
+                                        <td data-translate-key="blog_migration_s4b_row3_resultat">Tous les fichiers RENOMMAGE=OUI renommes avec leur REF_INT, liens intacts entre assemblages et pieces</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td><strong>PDMreport</strong></td>
+                                        <td data-translate-key="blog_migration_s4b_row4_action">Detecte et liste les vrais doublons dans le coffre-fort (meme reference + meme indice)</td>
+                                        <td data-translate-key="blog_migration_s4b_row4_resultat">Liste nettoyee, suppression des doublons avant de passer a la restauration des liens</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td><strong>Dependencies</strong></td>
+                                        <td data-translate-key="blog_migration_s4b_row5_action">Analyse et corrige les references rompues dans les assemblages SOLIDWORKS &mdash; cherche le fichier dans le coffre et retablit le lien</td>
+                                        <td data-translate-key="blog_migration_s4b_row5_resultat">Zero croix rouge a l'ouverture des assemblages. A relancer une 2e fois pour verifier</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td><strong>Flux SYNCHRONISATION INDICES</strong></td>
+                                        <td data-translate-key="blog_migration_s4b_row6_action">Transition automatique dans le workflow PDM : synchronise le compteur de revision avec l'indice renseigne dans la carte (A&rarr;B&rarr;C&hellip;Z)</td>
+                                        <td data-translate-key="blog_migration_s4b_row6_resultat">Historique de versions coherent dans le coffre-fort, chaque fichier a son bon indice</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td><strong>TaskAction</strong></td>
+                                        <td data-translate-key="blog_migration_s4b_row7_action">Tache parametree dans MyPDMtools pour renommer les fichiers directement dans le coffre en se basant sur les variables de carte</td>
+                                        <td data-translate-key="blog_migration_s4b_row7_resultat">Renommage pilote par les metadonnees, avec nouvelle reference si besoin</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="callout">
+                        <div class="quote-block">
+                            <blockquote data-translate-key="blog_migration_s4b_quote">Sur le projet Enchanted Tools, on migrait depuis 3DEXPERIENCE vers SOLIDWORKS PDM. Le defi : les noms de fichiers dans 3DX ne correspondaient pas aux noms physiques. On a du construire une table de correspondance via le Part Number comme cle de liaison. DataRecovery extrait les chemins PDM, on croise avec la nomenclature 3DX, et le fichier Excel genere automatiquement les bons chemins pour l'injection des proprietes. Sans cette etape, on aurait attribue les mauvaises metadonnees a des centaines de fichiers.</blockquote>
+                            <cite>Mohamed Omar Baouch</cite>
+                        </div>
+                    </div>
+
+                    <p data-translate-key="blog_migration_s4b_p2">Le point crucial que je veux souligner : <strong>ces outils ne sont pas optionnels.</strong> Chaque etape de la chaine produit le livrable necessaire a l'etape suivante. DataRecovery alimente le fichier Excel d'analyse, qui pilote FindDocuments, qui prepare le terrain pour Dependencies. Sauter une etape &mdash; par exemple renommer sans avoir analyse &mdash; c'est contaminer toute la suite. J'ai vu des migrations reprises de zero parce que le nettoyage avait ete bacle.</p>
+
+                    <div class="callout callout--soft">
+                        <p data-translate-key="blog_migration_s4b_callout">Sur le projet Aspir Elec, le fichier Excel d'analyse a classe automatiquement chaque fichier en trois categories : <strong>OUI</strong> (derniere revision valide, a renommer avec la REF_INT), <strong>NON</strong> (ancienne revision, a archiver), et <strong>ALERTE</strong> (reference invalide, doublon ou indice non conforme &mdash; traitement manuel). Ce tri automatise a permis de traiter 95 % des fichiers sans intervention humaine. Seuls les 5 % en ALERTE ont necessite un examen au cas par cas &mdash; verification du cas d'emploi, correction de la carte, puis archivage ou renommage.</p>
+                    </div>
                 </section>
 
                 <!-- 5. MIGRATION TECHNIQUE -->
