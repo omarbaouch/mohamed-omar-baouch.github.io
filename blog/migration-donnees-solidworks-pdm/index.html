@@ -81,7 +81,7 @@
                         <div class="hero-badges">
                             <span class="badge badge-editorial" data-translate-key="blog_badge_editorial">Article de fond</span>
                             <span class="badge" data-translate-key="blog_migration_badge_type">SOLIDWORKS PDM</span>
-                            <span class="badge badge-reading-time">~25 min de lecture</span>
+                            <span class="badge badge-reading-time">~28 min de lecture</span>
                         </div>
                         <span class="hero-eyebrow" data-translate-key="blog_migration_hero_eyebrow">Migration &amp; reprise de donnees</span>
                         <h1 class="hero-title" data-translate-key="blog_migration_hero_title">Migration de donnees vers SOLIDWORKS PDM : le guide terrain pour reussir sans perdre un fichier</h1>
@@ -520,6 +520,34 @@
 
                     <div class="callout callout--soft">
                         <p data-translate-key="blog_migration_s4b_rev_callout"><strong>Cas particulier &mdash; migration Workgroup vers PDM :</strong> les fichiers avec des revisions "$" ou "$+" (notation Workgroup) restent avec ces valeurs dans PDM. Au premier passage en etat "MODIFICATION AVEC INDICE", ils basculent automatiquement en "A". Les fichiers deja en A/B/C sont cales sur leur indice et evoluent normalement. Les revisions intermediaires ("A+", "B+") necessitent un traitement manuel pour etre recalees proprement avant la montee d'indice standard.</p>
+                    </div>
+
+                    <h3 data-translate-key="blog_migration_s4b_dup_title">Focus : la gestion des doublons &mdash; le poison silencieux d'une migration</h3>
+                    <p data-translate-key="blog_migration_s4b_dup_p1">Les doublons sont le probleme le plus sous-estime dans une migration. Un doublon, c'est un fichier avec la <strong>meme reference (REF_INT) + meme type + meme indice</strong> qui existe a plusieurs endroits. Sur certains projets, j'ai vu plus de <strong>40 000 doublons</strong> dans un seul coffre-fort &mdash; souvent generes par des copies d'arborescence mal configurees ou des renommages manuels approximatifs accumules sur des annees.</p>
+
+                    <p data-translate-key="blog_migration_s4b_dup_p2">Le probleme n'est pas seulement l'espace disque. Un doublon cree de l'<strong>ambiguite</strong> : quel fichier est le bon ? Celui dans le dossier "Projet_2023" ou celui dans "Archive_ancien" ? L'assemblage pointe vers lequel des deux ? Sans traitement, on importe le chaos dans le coffre-fort &mdash; et on le multiplie.</p>
+
+                    <div class="grid grid--2">
+                        <div>
+                            <h4 data-translate-key="blog_migration_s4b_dup_detect_title">Detection avec PDMreport</h4>
+                            <ul>
+                                <li data-translate-key="blog_migration_s4b_dup_detect1"><strong>Rapport de doublons :</strong> PDMreport (via myPDMtools) genere un rapport CSV listant tous les fichiers dupliques &mdash; meme reference, meme indice, emplacements differents</li>
+                                <li data-translate-key="blog_migration_s4b_dup_detect2"><strong>Analyse par lot :</strong> on traite dossier par dossier, en commencant par les dossiers d'import. Chaque doublon est examine : date de creation, derniere modification, references entrantes</li>
+                                <li data-translate-key="blog_migration_s4b_dup_detect3"><strong>Regle :</strong> on conserve toujours la version la plus recente et on verifie l'integrite des references apres chaque suppression</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 data-translate-key="blog_migration_s4b_dup_prevent_title">Prevention post-migration</h4>
+                            <ul>
+                                <li data-translate-key="blog_migration_s4b_dup_prevent1"><strong>Parametre PDM :</strong> activer l'interdiction des noms de fichiers dupliques dans les parametres du coffre-fort &mdash; c'est la premiere chose a faire apres la migration</li>
+                                <li data-translate-key="blog_migration_s4b_dup_prevent2"><strong>Copie d'arborescence :</strong> configurer des filtres d'exclusion (bibliotheque de pieces standards, composants achetes) pour eviter que chaque nouveau projet duplique les memes pieces</li>
+                                <li data-translate-key="blog_migration_s4b_dup_prevent3"><strong>Renommage automatique :</strong> coupler TaskActions + SmartCounter pour que chaque nouveau fichier recoive automatiquement une reference unique &mdash; zero saisie manuelle, zero doublon</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="callout callout--soft">
+                        <p data-translate-key="blog_migration_s4b_dup_callout"><strong>Ordre critique :</strong> la suppression des doublons doit imperativement se faire <strong>apres</strong> le renommage (FindDocuments) et <strong>avant</strong> la restauration des liens (Dependencies). Pourquoi ? Parce que si vous corrigez les references alors que des doublons existent encore, Dependencies risque de pointer vers le mauvais fichier. Et une fois le lien cree, il est beaucoup plus couteux a corriger. La sequence renommer &rarr; dedoublonner &rarr; restaurer les liens n'est pas un detail methodologique, c'est un verrou de qualite.</p>
                     </div>
                 </section>
 
