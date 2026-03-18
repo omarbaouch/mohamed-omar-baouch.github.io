@@ -432,9 +432,16 @@
     border: 1px solid var(--blog-border);
     padding: 0.9rem 1rem;
     text-align: left;
-    word-break: break-word;
+    overflow-wrap: break-word;
+    word-break: normal;
     vertical-align: top;
     line-height: 1.5;
+}
+
+/* Prevent tool/step names from wrapping mid-word */
+.feature-table td:first-child,
+.feature-table td:nth-child(2) {
+    white-space: nowrap;
 }
 
 .feature-table thead {
@@ -519,7 +526,7 @@
 }
 
 .table-scroll__viewport > table {
-    width: max(100%, 560px);
+    width: max(100%, 780px);
     border-collapse: collapse;
     border-spacing: 0;
 }
@@ -1198,7 +1205,7 @@
     }
 
     .table-scroll__viewport > table {
-        width: max(100%, 520px);
+        width: max(100%, 700px);
     }
 }
 
@@ -1227,7 +1234,7 @@
     }
 
     .table-scroll__viewport > table {
-        width: max(100%, 480px);
+        width: max(100%, 650px);
     }
 }
 
