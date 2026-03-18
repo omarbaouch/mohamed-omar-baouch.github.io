@@ -81,7 +81,7 @@
                         <div class="hero-badges">
                             <span class="badge badge-editorial" data-translate-key="blog_badge_editorial">Article de fond</span>
                             <span class="badge" data-translate-key="blog_migration_badge_type">SOLIDWORKS PDM</span>
-                            <span class="badge badge-reading-time">~22 min de lecture</span>
+                            <span class="badge badge-reading-time">~25 min de lecture</span>
                         </div>
                         <span class="hero-eyebrow" data-translate-key="blog_migration_hero_eyebrow">Migration &amp; reprise de donnees</span>
                         <h1 class="hero-title" data-translate-key="blog_migration_hero_title">Migration de donnees vers SOLIDWORKS PDM : le guide terrain pour reussir sans perdre un fichier</h1>
@@ -359,7 +359,7 @@
 
                     <div class="callout">
                         <div class="quote-block">
-                            <blockquote data-translate-key="blog_migration_s3_quote">Sur le projet Pandrol, on a migre 180 000 fichiers en approche hybride : les 3 projets en cours d'etude ont bascule un vendredi soir, et l'historique (12 ans de donnees) a ete ingere progressivement sur 3 semaines. Le lundi matin, les 15 dessinateurs travaillaient dans le coffre-fort. Zero temps mort.</blockquote>
+                            <blockquote data-translate-key="blog_migration_s3_quote">Sur un projet industriel, on a migre 180 000 fichiers en approche hybride : les 3 projets en cours d'etude ont bascule un vendredi soir, et l'historique (12 ans de donnees) a ete ingere progressivement sur 3 semaines. Le lundi matin, les 15 dessinateurs travaillaient dans le coffre-fort. Zero temps mort.</blockquote>
                             <cite>Mohamed Omar Baouch</cite>
                         </div>
                     </div>
@@ -483,7 +483,7 @@
 
                     <div class="callout">
                         <div class="quote-block">
-                            <blockquote data-translate-key="blog_migration_s4b_quote">Sur le projet Enchanted Tools, on migrait depuis 3DEXPERIENCE vers SOLIDWORKS PDM. Le defi : les noms de fichiers dans 3DX ne correspondaient pas aux noms physiques. On a du construire une table de correspondance via le Part Number comme cle de liaison. DataRecovery extrait les chemins PDM, on croise avec la nomenclature 3DX, et le fichier Excel genere automatiquement les bons chemins pour l'injection des proprietes. Sans cette etape, on aurait attribue les mauvaises metadonnees a des centaines de fichiers.</blockquote>
+                            <blockquote data-translate-key="blog_migration_s4b_quote">Sur un projet de migration depuis 3DEXPERIENCE vers SOLIDWORKS PDM, le defi : les noms de fichiers dans 3DX ne correspondaient pas aux noms physiques. On a du construire une table de correspondance via le Part Number comme cle de liaison. DataRecovery extrait les chemins PDM, on croise avec la nomenclature 3DX, et le fichier Excel genere automatiquement les bons chemins pour l'injection des proprietes. Sans cette etape, on aurait attribue les mauvaises metadonnees a des centaines de fichiers.</blockquote>
                             <cite>Mohamed Omar Baouch</cite>
                         </div>
                     </div>
@@ -491,7 +491,35 @@
                     <p data-translate-key="blog_migration_s4b_p2">Le point crucial que je veux souligner : <strong>ces outils ne sont pas optionnels.</strong> Chaque etape de la chaine produit le livrable necessaire a l'etape suivante. DataRecovery alimente le fichier Excel d'analyse, qui pilote FindDocuments, qui prepare le terrain pour Dependencies. Sauter une etape &mdash; par exemple renommer sans avoir analyse &mdash; c'est contaminer toute la suite. J'ai vu des migrations reprises de zero parce que le nettoyage avait ete bacle.</p>
 
                     <div class="callout callout--soft">
-                        <p data-translate-key="blog_migration_s4b_callout">Sur le projet Aspir Elec, le fichier Excel d'analyse a classe automatiquement chaque fichier en trois categories : <strong>OUI</strong> (derniere revision valide, a renommer avec la REF_INT), <strong>NON</strong> (ancienne revision, a archiver), et <strong>ALERTE</strong> (reference invalide, doublon ou indice non conforme &mdash; traitement manuel). Ce tri automatise a permis de traiter 95 % des fichiers sans intervention humaine. Seuls les 5 % en ALERTE ont necessite un examen au cas par cas &mdash; verification du cas d'emploi, correction de la carte, puis archivage ou renommage.</p>
+                        <p data-translate-key="blog_migration_s4b_callout">Sur un projet de reprise, le fichier Excel d'analyse a classe automatiquement chaque fichier en trois categories : <strong>OUI</strong> (derniere revision valide, a renommer avec la REF_INT), <strong>NON</strong> (ancienne revision, a archiver), et <strong>ALERTE</strong> (reference invalide, doublon ou indice non conforme &mdash; traitement manuel). Ce tri automatise a permis de traiter 95 % des fichiers sans intervention humaine. Seuls les 5 % en ALERTE ont necessite un examen au cas par cas &mdash; verification du cas d'emploi, correction de la carte, puis archivage ou renommage.</p>
+                    </div>
+
+                    <h3 data-translate-key="blog_migration_s4b_rev_title">Focus : comment on recupere et synchronise les indices de revision</h3>
+                    <p data-translate-key="blog_migration_s4b_rev_p1">C'est la question que tout le monde pose &mdash; et celle ou la plupart des migrations deraillent. Quand un fichier s'appelle <code>SPF-AC8602-Piece-B.SLDPRT</code>, le "B" en fin de nom est l'indice de revision. On ne le devine pas : on l'<strong>extrait</strong>, soit depuis le nom de fichier (pattern de type <code>XXX-LLnnnn-Nom-INDICE.ext</code>), soit depuis une propriete personnalisee SOLIDWORKS (metadonnee "Revision" ou "Indice" dans la carte). Dans les deux cas, c'est le fichier Excel d'analyse qui fait le travail d'extraction.</p>
+
+                    <p data-translate-key="blog_migration_s4b_rev_p2"><strong>Regle fondamentale : on ne migre activement que la derniere revision.</strong> Si pour une meme reference <code>SPF-AC8602</code> il existe les fichiers A, B et C, seul le fichier a l'indice C sera renomme et integre comme document actif dans le coffre-fort (categorie <strong>OUI</strong>). Les fichiers A et B sont conserves mais envoyes en etat <strong>ARCHIVE</strong> dans le workflow PDM &mdash; ils restent accessibles pour l'historique, mais ne polluent pas l'espace de travail courant.</p>
+
+                    <div class="grid grid--2">
+                        <div>
+                            <h4 data-translate-key="blog_migration_s4b_rev_extract_title">Extraction de l'indice</h4>
+                            <ul>
+                                <li data-translate-key="blog_migration_s4b_rev_extract1"><strong>Depuis le nom :</strong> le script Excel parse le nom du fichier et isole la lettre (A-Z) en derniere position avant l'extension</li>
+                                <li data-translate-key="blog_migration_s4b_rev_extract2"><strong>Depuis les metadonnees :</strong> DataRecovery lit la propriete "Revision" ou "Indice" dans les proprietes personnalisees SOLIDWORKS</li>
+                                <li data-translate-key="blog_migration_s4b_rev_extract3"><strong>Cas des plans (SLDDRW) :</strong> le plan herite de la REF_INT et de l'indice de son modele 3D associe (meme nom de fichier). Si aucun 3D n'est trouve, extraction directe depuis le nom du plan</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 data-translate-key="blog_migration_s4b_rev_sync_title">Synchronisation dans PDM</h4>
+                            <ul>
+                                <li data-translate-key="blog_migration_s4b_rev_sync1"><strong>Transition "VALIDER REPRISE" :</strong> une transition speciale est configuree dans le workflow PDM pour caler le compteur de revision</li>
+                                <li data-translate-key="blog_migration_s4b_rev_sync2"><strong>Passe par indice :</strong> on execute la transition pour les fichiers a l'indice A (increment = 0), puis B (increment = 1), puis C (increment = 2)&hellip; jusqu'a Z</li>
+                                <li data-translate-key="blog_migration_s4b_rev_sync3"><strong>Resultat :</strong> le compteur interne PDM correspond exactement a l'indice reel du fichier &mdash; la montee d'indice fonctionnera normalement ensuite</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="callout callout--soft">
+                        <p data-translate-key="blog_migration_s4b_rev_callout"><strong>Cas particulier &mdash; migration Workgroup vers PDM :</strong> les fichiers avec des revisions "$" ou "$+" (notation Workgroup) restent avec ces valeurs dans PDM. Au premier passage en etat "MODIFICATION AVEC INDICE", ils basculent automatiquement en "A". Les fichiers deja en A/B/C sont cales sur leur indice et evoluent normalement. Les revisions intermediaires ("A+", "B+") necessitent un traitement manuel pour etre recalees proprement avant la montee d'indice standard.</p>
                     </div>
                 </section>
 
@@ -536,7 +564,7 @@
                                     <tr>
                                         <td>5</td>
                                         <td data-translate-key="blog_migration_s5_row5_action">Verification post-migration : references, metadonnees, workflows</td>
-                                        <td data-translate-key="blog_migration_s5_row5_validation">Checklist de 20 points (fournie par Visiativ)</td>
+                                        <td data-translate-key="blog_migration_s5_row5_validation">Checklist de 20 points de controle</td>
                                     </tr>
                                     <tr>
                                         <td>6</td>
