@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PBLRK58T');</script>
+    <script>(function(){var t=localStorage.getItem('theme'),d=t==='dark'||(!t&&true),r=document.documentElement;r.classList.add(d?'dark-theme':'light-theme');if(d)r.classList.add('dark');var bg=d?'#0f172a':'#f6f3ed',tx=d?'#f1f5f9':'#1f1b16',s=document.createElement('style');s.id='critical-theme-style';s.innerHTML='html,body{background-color:'+bg+' !important;color:'+tx+' !important;}';document.head.appendChild(s);})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nomenclature, BOM, eBOM, mBOM : la colonne vertébrale de vos données produit — et le rôle de PDM, PLM et ERP</title>
+    <meta name="description" content="Comprendre la BOM (Bill of Materials), la différence entre eBOM et mBOM, le rôle du PDM, du PLM et de l'ERP, et comment ces trois systèmes s'articulent pour piloter le cycle de vie produit.">
+    <meta name="author" content="Mohamed Omar Baouch">
+    <link rel="canonical" href="https://baouch.fr/blog/nomenclature-bom-pdm-plm-erp/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Nomenclature, BOM, eBOM, mBOM : la colonne vertébrale de vos données produit">
+    <meta property="og:description" content="Comprendre la BOM, la différence entre eBOM et mBOM, et le rôle de PDM, PLM et ERP pour piloter le cycle de vie produit.">
+    <meta property="og:url" content="https://baouch.fr/blog/nomenclature-bom-pdm-plm-erp/">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:site_name" content="Mohamed Omar Baouch">
+    <meta property="article:published_time" content="2026-03-16T00:00:00.000Z">
+    <meta property="article:author" content="Mohamed Omar Baouch">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nomenclature, BOM, eBOM, mBOM : la colonne vertébrale de vos données produit">
+    <meta name="twitter:description" content="Comprendre la BOM, la différence entre eBOM et mBOM, et le rôle de PDM, PLM et ERP.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/blog.css">
+</head>
+<body class="blog-page" data-blog-post="nomenclature-bom-pdm-plm-erp">
+    <canvas id="transition-canvas"></canvas>
+    <div class="perspective-wrapper">
+        <div id="perspective-content" class="perspective-content"></div>
+    </div>
+    <div class="dynamic-overlay" id="dynamicOverlay"></div>
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div id="particles-js"></div>
+    <div class="theme-switch" id="themeSwitch">
+        <div class="theme-icon">☀️</div>
+    </div>
+    <div class="scroll-to-top" id="scrollToTop"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <div class="nav-container" id="navContainer">
+        <nav>
+            <a href="/" class="logo">M.BAOUCH</a>
+            <div class="nav-right">
+                <ul class="menu" id="menu">
+                    <li><a href="/#about" class="nav-link" data-translate-key="nav_about">À propos</a></li>
+                    <li><a href="/#experience" class="nav-link" data-translate-key="nav_experience">Expérience</a></li>
+                    <li><a href="/#skills" class="nav-link" data-translate-key="nav_skills">Compétences</a></li>
+                    <li><a href="/#education" class="nav-link" data-translate-key="nav_education">Formation</a></li>
+                    <li><a href="/#contact" class="nav-link" data-translate-key="nav_contact">Contact</a></li>
+                    <li><a href="/blog/" class="nav-link" data-translate-key="nav_blog">Blog</a></li>
+                </ul>
+                <div class="language-switcher">
+                    <button id="lang-fr" class="lang-btn active">FR</button>
+                    <button id="lang-en" class="lang-btn">EN</button>
+                </div>
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <main id="mainContainer" class="container blog-container show">
+        <div class="blog-shell" id="blogShell" data-shell>
+            <article class="blog-article" data-article-root>
+                <nav class="article-breadcrumbs" aria-label="Navigation secondaire">
+                    <a class="back-link" href="/blog/" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                    <a class="back-link back-link--ghost" href="/" data-translate-key="blog_back_to_portfolio">Retour au portfolio</a>
+                </nav>
+
+                <header class="blog-hero post-hero" data-component="hero">
+                    <div class="hero-intro">
+                        <div class="hero-badges">
+                            <span class="badge badge-editorial" data-translate-key="blog_badge_editorial">Article de fond</span>
+                            <span class="badge" data-translate-key="blog_bom_badge_type">PDM · PLM · ERP</span>
+                            <span class="badge badge-reading-time">~12 min de lecture</span>
+                        </div>
+                        <span class="hero-eyebrow" data-translate-key="blog_bom_hero_eyebrow">Données produit &amp; systèmes d'information</span>
+                        <h1 class="hero-title" data-translate-key="blog_bom_hero_title">Nomenclature, BOM, eBOM, mBOM : la colonne vertébrale de vos données produit — et le rôle de PDM, PLM et ERP</h1>
+                        <p class="hero-subtitle" data-translate-key="blog_bom_hero_subtitle">Publié le <span data-date-iso="2026-03-16T00:00:00.000Z" data-date-format="long">16 mars 2026</span> — un retour terrain sur la façon dont BOM, PDM, PLM et ERP s'articulent (ou se déchirent) dans les bureaux d'études industriels.</p>
+                        <div class="hero-actions">
+                            <a class="hero-btn" href="#sommaire" data-translate-key="blog_cta_summary">Consulter le sommaire</a>
+                            <a class="hero-btn hero-btn--ghost" href="/#contact" data-translate-key="blog_cta_discuss_project">Me contacter</a>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-value" data-date-iso="2026-03-16T00:00:00.000Z" data-date-format="short">16/03/2026</span>
+                            <span class="hero-stat-label" data-translate-key="blog_bom_stat_publication">Date de publication</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">3</span>
+                            <span class="hero-stat-label" data-translate-key="blog_bom_stat_systems">Systèmes analysés</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">80+</span>
+                            <span class="hero-stat-label" data-translate-key="blog_bom_stat_clients">Clients accompagnés</span>
+                        </div>
+                    </div>
+                </header>
+
+                <figure class="article-figure">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1400&q=80" alt="Ingénieur en bureau d'études travaillant sur une nomenclature industrielle" loading="lazy">
+                    <figcaption data-translate-key="blog_bom_hero_figcaption">BOM, PDM, PLM, ERP : quatre notions fondamentales que tout ingénieur produit doit maîtriser pour piloter ses données sans friction.</figcaption>
+                </figure>
+
+                <nav class="blog-section article-summary" id="sommaire" aria-label="Sommaire de l'article">
+                    <h2 class="summary-title" data-translate-key="blog_summary_title">Sommaire</h2>
+                    <ol class="summary-list">
+                        <li>
+                            <a href="#quest-ce-quune-bom">
+                                <span class="summary-index">01</span>
+                                <span class="summary-label" data-translate-key="blog_bom_summary_label1">C'est quoi une nomenclature (BOM) ?</span>
+                                <span class="summary-meta" data-translate-key="blog_bom_summary_meta1">Définition, structure, niveaux, types</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#ebom-mbom">
+                                <span class="summary-index">02</span>
+                                <span class="summary-label" data-translate-key="blog_bom_summary_label2">eBOM vs mBOM : deux lectures d'un même produit</span>
+                                <span class="summary-meta" data-translate-key="blog_bom_summary_meta2">Bureau d'études vs fabrication</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#role-pdm">
+                                <span class="summary-index">03</span>
+                                <span class="summary-label" data-translate-key="blog_bom_summary_label3">Le PDM : gardien des données CAO et de la eBOM</span>
+                                <span class="summary-meta" data-translate-key="blog_bom_summary_meta3">Ce qu'il fait, ce qu'il ne fait pas</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#role-plm">
+                                <span class="summary-index">04</span>
+                                <span class="summary-label" data-translate-key="blog_bom_summary_label4">Le PLM : orchestrateur du cycle de vie</span>
+                                <span class="summary-meta" data-translate-key="blog_bom_summary_meta4">Gouvernance, ECO/ECR, config. management</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#role-erp">
+                                <span class="summary-index">05</span>
+                                <span class="summary-label" data-translate-key="blog_bom_summary_label5">L'ERP : la mBOM en production et en achat</span>
+                                <span class="summary-meta" data-translate-key="blog_bom_summary_meta5">SAP, Sage, Cegid et la réalité terrain</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#liens-entre-trois">
+                                <span class="summary-index">06</span>
+                                <span class="summary-label" data-translate-key="blog_bom_summary_label6">Les liens entre les trois systèmes</span>
+                                <span class="summary-meta" data-translate-key="blog_bom_summary_meta6">Flux, interfaces, points de friction</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#ce-qui-se-passe-sans-coherence">
+                                <span class="summary-index">07</span>
+                                <span class="summary-label" data-translate-key="blog_bom_summary_label7">Ce qui se passe quand rien n'est aligné</span>
+                                <span class="summary-meta" data-translate-key="blog_bom_summary_meta7">Erreurs terrain, coûts cachés, plan d'action</span>
+                            </a>
+                        </li>
+                    </ol>
+                </nav>
+
+                <!-- 1. BOM -->
+                <section class="blog-section article-section" id="quest-ce-quune-bom">
+                    <h2 data-translate-key="blog_bom_s1_title">1. C'est quoi une nomenclature (BOM) ?</h2>
+                    <p data-translate-key="blog_bom_s1_p1">La <strong>BOM</strong> (Bill of Materials — nomenclature en français) est la liste structurée de tous les composants, sous-assemblages et matières nécessaires pour fabriquer un produit. C'est le document pivot entre la conception, la production et les achats.</p>
+                    <p data-translate-key="blog_bom_s1_p2">Elle n'est pas un simple inventaire. Elle encode les relations hiérarchiques entre pièces : un vérin hydraulique est un sous-assemblage qui contient un corps, un piston, des joints, des vis. Supprimer une ligne ou se tromper de quantité peut déclencher un arrêt de ligne ou un rappel produit.</p>
+                    <div class="callout">
+                        <div class="quote-block">
+                            <blockquote data-translate-key="blog_bom_s1_quote">Chez un fabricant d'équipements industriels que j'accompagnais, une seule ligne BOM incorrecte dans Excel avait conduit à commander 12 fois trop de galets de renvoi. Le stock dormait depuis 8 mois. La BOM n'avait jamais été synchronisée entre le BE et la production.</blockquote>
+                            <cite>Mohamed Omar Baouch</cite>
+                        </div>
+                    </div>
+                    <div class="grid grid--2">
+                        <div>
+                            <h3 data-translate-key="blog_bom_s1_card1_title">Attributs de base</h3>
+                            <ul>
+                                <li data-translate-key="blog_bom_s1_card1_item1">Numéro de pièce (référence interne)</li>
+                                <li data-translate-key="blog_bom_s1_card1_item2">Désignation / description</li>
+                                <li data-translate-key="blog_bom_s1_card1_item3">Quantité et unité</li>
+                                <li data-translate-key="blog_bom_s1_card1_item4">Niveau hiérarchique (niveau 0 = produit fini, niveau 1 = sous-assemblages…)</li>
+                                <li data-translate-key="blog_bom_s1_card1_item5">Statut (en développement, validé, obsolète)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 data-translate-key="blog_bom_s1_card2_title">Attributs étendus</h3>
+                            <ul>
+                                <li data-translate-key="blog_bom_s1_card2_item1">Fournisseur et référence fournisseur</li>
+                                <li data-translate-key="blog_bom_s1_card2_item2">Coût standard / coût réel</li>
+                                <li data-translate-key="blog_bom_s1_card2_item3">Indice de révision</li>
+                                <li data-translate-key="blog_bom_s1_card2_item4">Documents associés (plan, spec, DFM)</li>
+                                <li data-translate-key="blog_bom_s1_card2_item5">Liens vers CAO (fichier SLDPRT, SLDASM…)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p data-translate-key="blog_bom_s1_types_intro">Il existe plusieurs <strong>types de BOM</strong> selon le stade du produit et l'utilisateur :</p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr>
+                                        <th data-translate-key="blog_bom_s1_table_h_type">Type</th>
+                                        <th data-translate-key="blog_bom_s1_table_h_name">Nom complet</th>
+                                        <th data-translate-key="blog_bom_s1_table_h_owner">Propriétaire</th>
+                                        <th data-translate-key="blog_bom_s1_table_h_system">Système</th>
+                                        <th data-translate-key="blog_bom_s1_table_h_usage">Usage principal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>eBOM</strong></td>
+                                        <td data-translate-key="blog_bom_s1_row1_name">Engineering BOM</td>
+                                        <td data-translate-key="blog_bom_s1_row1_owner">Bureau d'études</td>
+                                        <td>PDM / PLM</td>
+                                        <td data-translate-key="blog_bom_s1_row1_usage">Conception, révisions, plans</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>mBOM</strong></td>
+                                        <td data-translate-key="blog_bom_s1_row2_name">Manufacturing BOM</td>
+                                        <td data-translate-key="blog_bom_s1_row2_owner">Méthodes / Production</td>
+                                        <td>ERP</td>
+                                        <td data-translate-key="blog_bom_s1_row2_usage">OF, achats, coûts de revient</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>sBOM</strong></td>
+                                        <td data-translate-key="blog_bom_s1_row3_name">Service BOM</td>
+                                        <td data-translate-key="blog_bom_s1_row3_owner">SAV / Maintenance</td>
+                                        <td>ERP / PLM</td>
+                                        <td data-translate-key="blog_bom_s1_row3_usage">Pièces détachées, interventions</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>cBOM</strong></td>
+                                        <td data-translate-key="blog_bom_s1_row4_name">Configurator BOM</td>
+                                        <td data-translate-key="blog_bom_s1_row4_owner">Commercial / CPQ</td>
+                                        <td>CPQ / PLM</td>
+                                        <td data-translate-key="blog_bom_s1_row4_usage">Options, variantes, devis</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="callout callout--soft">
+                        <p data-translate-key="blog_bom_s1_callout_soft">Ce sont les deux premières — <strong>eBOM et mBOM</strong> — qui concentrent 80 % des problèmes dans les PME industrielles. La transformation de l'une vers l'autre est souvent le chantier le plus sous-estimé d'un projet PDM/ERP.</p>
+                    </div>
+                </section>
+
+                <!-- 2. eBOM vs mBOM -->
+                <section class="blog-section article-section" id="ebom-mbom">
+                    <h2 data-translate-key="blog_bom_s2_title">2. eBOM vs mBOM : deux lectures d'un même produit</h2>
+                    <p data-translate-key="blog_bom_s2_p1">La eBOM et la mBOM décrivent le même produit mais sous des angles radicalement différents. Confondre les deux, ou ne pas prévoir la transformation de l'une vers l'autre, est l'une des sources de friction les plus courantes entre bureaux d'études et ateliers.</p>
+
+                    <div class="media-grid">
+                        <div class="media-card media-card--text">
+                            <h3 data-translate-key="blog_bom_s2_card1_title">eBOM — Engineering BOM</h3>
+                            <ul>
+                                <li data-translate-key="blog_bom_s2_card1_item1">Produite par le <strong>bureau d'études</strong></li>
+                                <li data-translate-key="blog_bom_s2_card1_item2">Reflète la <strong>structure fonctionnelle</strong> du produit tel que conçu</li>
+                                <li data-translate-key="blog_bom_s2_card1_item3">Organisée autour des fonctions (module hydraulique, module électrique…)</li>
+                                <li data-translate-key="blog_bom_s2_card1_item4">Liée aux fichiers CAO (SOLIDWORKS, Creo, Catia…)</li>
+                                <li data-translate-key="blog_bom_s2_card1_item5">Gérée dans le <strong>PDM ou PLM</strong></li>
+                                <li data-translate-key="blog_bom_s2_card1_item6">Versionnée avec les indices de révision</li>
+                            </ul>
+                        </div>
+                        <div class="media-card media-card--text">
+                            <h3 data-translate-key="blog_bom_s2_card2_title">mBOM — Manufacturing BOM</h3>
+                            <ul>
+                                <li data-translate-key="blog_bom_s2_card2_item1">Produite par les <strong>méthodes / fabrication</strong></li>
+                                <li data-translate-key="blog_bom_s2_card2_item2">Reflète la <strong>séquence d'assemblage</strong> réelle</li>
+                                <li data-translate-key="blog_bom_s2_card2_item3">Peut éclater ou regrouper des niveaux de la eBOM selon les postes</li>
+                                <li data-translate-key="blog_bom_s2_card2_item4">Contient des composants fantômes, des kits, des opérations</li>
+                                <li data-translate-key="blog_bom_s2_card2_item5">Gérée dans l'<strong>ERP</strong> (SAP, Sage, Cegid, IFS…)</li>
+                                <li data-translate-key="blog_bom_s2_card2_item6">Pilote les ordres de fabrication et les achats</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <p data-translate-key="blog_bom_s2_p2">La transformation eBOM → mBOM est rarement automatique. Elle nécessite une étape de <strong>transformation structurelle</strong> : des pièces disparaissent (brutes → usinées), des opérations s'ajoutent, des niveaux hiérarchiques sont réorganisés selon les gammes de fabrication.</p>
+
+                    <div class="callout">
+                        <p data-translate-key="blog_bom_s2_callout">Un même produit peut avoir une eBOM à 4 niveaux et une mBOM à 7 niveaux — ou l'inverse. Ce n'est pas un bug, c'est la réalité de deux métiers qui ont des besoins différents.</p>
+                    </div>
+
+                    <figure class="chart-figure" data-blog-chart>
+                        <canvas aria-label="Comparatif des dimensions eBOM vs mBOM par domaine fonctionnel"></canvas>
+                        <script type="application/json" data-chart-config>
+                            {
+                                "type": "radar",
+                                "data": {
+                                    "labels": [
+                                        "Structure fonctionnelle",
+                                        "Séquence d'assemblage",
+                                        "Gestion des révisions",
+                                        "Coûts & achats",
+                                        "Lien fichiers CAO",
+                                        "Ordres de fabrication"
+                                    ],
+                                    "datasets": [
+                                        {
+                                            "label": "eBOM",
+                                            "data": [95, 20, 90, 25, 95, 5],
+                                            "backgroundColor": "rgba(37,99,235,0.2)",
+                                            "borderColor": "#2563eb",
+                                            "pointBackgroundColor": "#2563eb"
+                                        },
+                                        {
+                                            "label": "mBOM",
+                                            "data": [40, 95, 50, 90, 15, 95],
+                                            "backgroundColor": "rgba(124,58,237,0.2)",
+                                            "borderColor": "#7c3aed",
+                                            "pointBackgroundColor": "#7c3aed"
+                                        }
+                                    ]
+                                },
+                                "options": {
+                                    "plugins": {
+                                        "legend": { "position": "bottom" },
+                                        "title": {
+                                            "display": true,
+                                            "text": "eBOM vs mBOM — couverture par domaine (score /100)"
+                                        }
+                                    },
+                                    "scales": {
+                                        "r": {
+                                            "angleLines": { "color": "rgba(148,163,184,0.3)" },
+                                            "grid": { "color": "rgba(148,163,184,0.2)" },
+                                            "suggestedMin": 0,
+                                            "suggestedMax": 100
+                                        }
+                                    }
+                                }
+                            }
+                        </script>
+                    </figure>
+
+                    <figure class="chart-figure" data-blog-chart>
+                        <canvas aria-label="Usage des types de BOM dans les PME industrielles françaises"></canvas>
+                        <script type="application/json" data-chart-config>
+                            {
+                                "type": "bar",
+                                "data": {
+                                    "labels": ["eBOM", "mBOM", "sBOM", "cBOM"],
+                                    "datasets": [{
+                                        "label": "Usage observé dans les PME industrielles (%)",
+                                        "data": [65, 25, 7, 3],
+                                        "backgroundColor": [
+                                            "rgba(37,99,235,0.7)",
+                                            "rgba(124,58,237,0.7)",
+                                            "rgba(249,115,22,0.5)",
+                                            "rgba(16,185,129,0.5)"
+                                        ],
+                                        "borderColor": ["#2563eb","#7c3aed","#f97316","#10b981"],
+                                        "borderWidth": 2
+                                    }]
+                                },
+                                "options": {
+                                    "plugins": {
+                                        "legend": { "display": false },
+                                        "title": {
+                                            "display": true,
+                                            "text": "Types de BOM actifs sur 80 clients — % des sites concernés"
+                                        }
+                                    },
+                                    "scales": {
+                                        "y": {
+                                            "beginAtZero": true,
+                                            "max": 100,
+                                            "title": { "display": true, "text": "% des sites" }
+                                        }
+                                    }
+                                }
+                            }
+                        </script>
+                    </figure>
+                </section>
+
+                <!-- 3. PDM -->
+                <section class="blog-section article-section" id="role-pdm">
+                    <h2 data-translate-key="blog_bom_s3_title">3. Le PDM : gardien des données CAO et de la eBOM</h2>
+                    <p data-translate-key="blog_bom_s3_p1">Le <strong>PDM</strong> (Product Data Management) est un système de gestion des données techniques issues de la CAO. Son rôle principal est de stocker, versionner et sécuriser les fichiers SOLIDWORKS, les plans, les propriétés personnalisées, et d'en extraire automatiquement la nomenclature (eBOM).</p>
+
+                    <div class="media-grid">
+                        <div class="media-card media-card--text">
+                            <h3 data-translate-key="blog_bom_s3_card1_title">Ce que fait un PDM</h3>
+                            <ul>
+                                <li data-translate-key="blog_bom_s3_card1_item1">Coffre de données CAO avec gestion des droits</li>
+                                <li data-translate-key="blog_bom_s3_card1_item2">Versioning et indices de révision (A, B, C…)</li>
+                                <li data-translate-key="blog_bom_s3_card1_item3">Extraction automatique de la eBOM depuis les assemblages CAO</li>
+                                <li data-translate-key="blog_bom_s3_card1_item4">Gestion des états (En cours / Validé / Obsolète)</li>
+                                <li data-translate-key="blog_bom_s3_card1_item5">Workflows d'approbation (validation plan, visa BE)</li>
+                                <li data-translate-key="blog_bom_s3_card1_item6">Réplication multi-sites pour les entreprises distribuées</li>
+                                <li data-translate-key="blog_bom_s3_card1_item7">Archivage froid (Cold Storage) des données historiques</li>
+                            </ul>
+                        </div>
+                        <div class="media-card media-card--text">
+                            <h3 data-translate-key="blog_bom_s3_card2_title">Ce que ne fait pas un PDM</h3>
+                            <ul>
+                                <li data-translate-key="blog_bom_s3_card2_item1">Gérer les modifications produit (ECO/ECR) de façon formelle</li>
+                                <li data-translate-key="blog_bom_s3_card2_item2">Piloter les projets ou les jalons</li>
+                                <li data-translate-key="blog_bom_s3_card2_item3">Gérer les coûts ou les approvisionnements</li>
+                                <li data-translate-key="blog_bom_s3_card2_item4">Tracer la configuration produit sur plusieurs variantes</li>
+                                <li data-translate-key="blog_bom_s3_card2_item5">Orchestrer les échanges entre BE, méthodes et production</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <p data-translate-key="blog_bom_s3_solutions_intro">Les solutions PDM les plus répandues dans les PME industrielles françaises que j'accompagne :</p>
+                    <ul>
+                        <li data-translate-key="blog_bom_s3_pdm1"><strong>SOLIDWORKS PDM Standard / Professional</strong> — la solution la plus courante dans les BE sous SOLIDWORKS (80 % de mes clients)</li>
+                        <li data-translate-key="blog_bom_s3_pdm2"><strong>PTC Windchill PDMLink</strong> — couplé à Creo, orienté grands comptes</li>
+                        <li data-translate-key="blog_bom_s3_pdm3"><strong>3DEXPERIENCE Platform</strong> (Dassault Systèmes) — PDM intégré dans un environnement PLM complet</li>
+                        <li data-translate-key="blog_bom_s3_pdm4"><strong>Autodesk Vault</strong> — pour les BE sous Inventor</li>
+                    </ul>
+
+                    <div class="callout callout--soft">
+                        <p data-translate-key="blog_bom_s3_callout"><strong>Principe fondamental :</strong> un PDM bien configuré produit une eBOM propre et versionnée. C'est la matière première que le PLM va gouverner et que l'ERP va consommer. Sans PDM, la eBOM existe dans des fichiers Excel, et tout le reste est fragilisé.</p>
+                    </div>
+                </section>
+
+                <!-- 4. PLM -->
+                <section class="blog-section article-section" id="role-plm">
+                    <h2 data-translate-key="blog_bom_s4_title">4. Le PLM : orchestrateur du cycle de vie</h2>
+                    <p data-translate-key="blog_bom_s4_p1">Le <strong>PLM</strong> (Product Lifecycle Management) est une stratégie — autant qu'un système — qui couvre l'ensemble du cycle de vie d'un produit : de l'idéation à la mise hors service. Il englobe le PDM, mais va bien au-delà.</p>
+                    <p data-translate-key="blog_bom_s4_p2">Là où le PDM se concentre sur les <em>données</em> (fichiers, eBOM, états), le PLM se concentre sur les <em>processus</em> qui font évoluer ces données.</p>
+
+                    <div class="grid grid--2">
+                        <div>
+                            <h3 data-translate-key="blog_bom_s4_card1_title">Ce que fait un PLM</h3>
+                            <ul>
+                                <li data-translate-key="blog_bom_s4_card1_item1">Gestion des modifications formelles (ECR / ECO)</li>
+                                <li data-translate-key="blog_bom_s4_card1_item2">Configuration management (tracer quelle version est chez quel client)</li>
+                                <li data-translate-key="blog_bom_s4_card1_item3">Gestion de projet produit (jalons, livrables, ressources)</li>
+                                <li data-translate-key="blog_bom_s4_card1_item4">Intégration multi-disciplines (mécanique, électrique, logiciel)</li>
+                                <li data-translate-key="blog_bom_s4_card1_item5">Qualification et validation (DFMEA, DVP, plans de validation)</li>
+                                <li data-translate-key="blog_bom_s4_card1_item6">Gestion des exigences (traçabilité exigences → conception)</li>
+                                <li data-translate-key="blog_bom_s4_card1_item7">Portail fournisseurs (partage de données CAO avec sous-traitants)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 data-translate-key="blog_bom_s4_card2_title">Solutions PLM du marché</h3>
+                            <ul>
+                                <li data-translate-key="blog_bom_s4_card2_item1"><strong>3DEXPERIENCE</strong> (Dassault Systèmes) — PDM + PLM + collaboration</li>
+                                <li data-translate-key="blog_bom_s4_card2_item2"><strong>PTC Windchill</strong> — référence industrie aéronautique / défense</li>
+                                <li data-translate-key="blog_bom_s4_card2_item3"><strong>Siemens Teamcenter</strong> — automobile et aérospace</li>
+                                <li data-translate-key="blog_bom_s4_card2_item4"><strong>Arena PLM / Propel</strong> — orienté électronique et PME tech</li>
+                                <li data-translate-key="blog_bom_s4_card2_item5"><strong>OpenBOM, Aligni</strong> — PLM léger pour startups hardtech</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <p data-translate-key="blog_bom_s4_p3">En pratique, la frontière entre PDM et PLM est souvent floue. Beaucoup de PME n'ont qu'un PDM (SOLIDWORKS PDM) et appellent ça "leur PLM". Ce n'est pas faux dans l'usage, mais il faut savoir ce qui manque : la gestion formelle des modifications, la traçabilité de configuration, le lien avec les projets.</p>
+
+                    <div class="callout">
+                        <div class="quote-block">
+                            <blockquote data-translate-key="blog_bom_s4_quote">Le PDM vous dit <em>ce que</em> vous avez conçu et <em>quand</em>. Le PLM vous dit <em>pourquoi</em> c'est différent de la version précédente, <em>qui</em> a approuvé le changement, et <em>quelles</em> machines en service sont impactées.</blockquote>
+                            <cite>Mohamed Omar Baouch</cite>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5. ERP -->
+                <section class="blog-section article-section" id="role-erp">
+                    <h2 data-translate-key="blog_bom_s5_title">5. L'ERP : la mBOM en production et en achat</h2>
+                    <p data-translate-key="blog_bom_s5_p1">L'<strong>ERP</strong> (Enterprise Resource Planning) est le système de gestion de l'entreprise au sens large : finances, ressources humaines, achats, stocks, production, logistique. Dans notre contexte, ce qui nous intéresse c'est le module <strong>GPAO</strong> (Gestion de Production Assistée par Ordinateur) et la gestion des nomenclatures de fabrication.</p>
+
+                    <p data-translate-key="blog_bom_s5_p2">L'ERP consomme la <strong>mBOM</strong> pour :</p>
+                    <ul>
+                        <li data-translate-key="blog_bom_s5_li1">Générer les <strong>ordres de fabrication</strong> (OF) avec les composants nécessaires</li>
+                        <li data-translate-key="blog_bom_s5_li2">Déclencher les <strong>ordres d'achat</strong> selon les besoins nets (calcul MRP)</li>
+                        <li data-translate-key="blog_bom_s5_li3">Calculer les <strong>coûts de revient</strong> (coût standard × quantités BOM)</li>
+                        <li data-translate-key="blog_bom_s5_li4">Piloter le <strong>stock</strong> en consommant les composants à l'émission de chaque OF</li>
+                        <li data-translate-key="blog_bom_s5_li5">Tracer la <strong>traçabilité de production</strong> (numéro de lot, N/S)</li>
+                    </ul>
+
+                    <div class="grid grid--2">
+                        <div>
+                            <h3 data-translate-key="blog_bom_s5_card1_title">ERPs courants en industrie française</h3>
+                            <ul>
+                                <li data-translate-key="blog_bom_s5_card1_item1"><strong>SAP S/4HANA / SAP Business One</strong> — grands comptes et ETI</li>
+                                <li data-translate-key="blog_bom_s5_card1_item2"><strong>Sage X3 / Sage 100</strong> — PME industrielles, très répandu</li>
+                                <li data-translate-key="blog_bom_s5_card1_item3"><strong>Cegid XRP Flex</strong> — PME, souvent couplé à SOLIDWORKS PDM via Gateway</li>
+                                <li data-translate-key="blog_bom_s5_card1_item4"><strong>IFS Applications</strong> — industrie manufacturière, aéronautique</li>
+                                <li data-translate-key="blog_bom_s5_card1_item5"><strong>Odoo</strong> — PME / startups industrielles (open source)</li>
+                                <li data-translate-key="blog_bom_s5_card1_item6"><strong>Sylob</strong> — ERP dédié industrie manufacture</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 data-translate-key="blog_bom_s5_card2_title">Ce que l'ERP ne fait pas côté produit</h3>
+                            <ul>
+                                <li data-translate-key="blog_bom_s5_card2_item1">Gérer les fichiers CAO ou les plans</li>
+                                <li data-translate-key="blog_bom_s5_card2_item2">Versionner les pièces par indice de révision technique</li>
+                                <li data-translate-key="blog_bom_s5_card2_item3">Piloter les workflows de validation BE</li>
+                                <li data-translate-key="blog_bom_s5_card2_item4">Comprendre la structure fonctionnelle (eBOM)</li>
+                                <li data-translate-key="blog_bom_s5_card2_item5">Gérer les ECO/ECR formels</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="callout">
+                        <p data-translate-key="blog_bom_s5_callout">L'ERP est impitoyable sur la qualité de la mBOM. Une erreur de quantité dans la BOM ERP, c'est un stock erroné, un coût de revient faux, et potentiellement une ligne de production arrêtée. C'est pour ça que la synchronisation PDM → ERP (via un connecteur ou la PDM Gateway) est l'un des projets les plus critiques qu'on me demande de traiter.</p>
+                    </div>
+                </section>
+
+                <!-- 6. Liens entre les trois -->
+                <section class="blog-section article-section" id="liens-entre-trois">
+                    <h2 data-translate-key="blog_bom_s6_title">6. Les liens entre PDM, PLM et ERP</h2>
+                    <p data-translate-key="blog_bom_s6_p1">Les trois systèmes ne sont pas des silos indépendants. Ils échangent des données dans les deux sens, et c'est précisément là que les entreprises rencontrent le plus de difficultés.</p>
+
+                    <figure class="chart-figure" data-blog-chart>
+                        <canvas aria-label="Couverture fonctionnelle comparée de PDM, PLM et ERP"></canvas>
+                        <script type="application/json" data-chart-config>
+                            {
+                                "type": "radar",
+                                "data": {
+                                    "labels": [
+                                        "Données CAO",
+                                        "eBOM versionnée",
+                                        "Modifications (ECO)",
+                                        "Cycle de vie",
+                                        "mBOM / Production",
+                                        "Coûts / Achats",
+                                        "Configuration produit"
+                                    ],
+                                    "datasets": [
+                                        {
+                                            "label": "PDM",
+                                            "data": [95, 85, 25, 40, 10, 5, 20],
+                                            "backgroundColor": "rgba(37,99,235,0.2)",
+                                            "borderColor": "#2563eb",
+                                            "pointBackgroundColor": "#2563eb"
+                                        },
+                                        {
+                                            "label": "PLM",
+                                            "data": [60, 70, 90, 95, 30, 20, 90],
+                                            "backgroundColor": "rgba(124,58,237,0.2)",
+                                            "borderColor": "#7c3aed",
+                                            "pointBackgroundColor": "#7c3aed"
+                                        },
+                                        {
+                                            "label": "ERP",
+                                            "data": [5, 20, 35, 30, 95, 95, 40],
+                                            "backgroundColor": "rgba(249,115,22,0.2)",
+                                            "borderColor": "#f97316",
+                                            "pointBackgroundColor": "#f97316"
+                                        }
+                                    ]
+                                },
+                                "options": {
+                                    "plugins": {
+                                        "legend": { "position": "bottom" },
+                                        "title": {
+                                            "display": true,
+                                            "text": "PDM / PLM / ERP — couverture fonctionnelle (score /100)"
+                                        }
+                                    },
+                                    "scales": {
+                                        "r": {
+                                            "angleLines": { "color": "rgba(148,163,184,0.3)" },
+                                            "grid": { "color": "rgba(148,163,184,0.2)" },
+                                            "suggestedMin": 0,
+                                            "suggestedMax": 100
+                                        }
+                                    }
+                                }
+                            }
+                        </script>
+                    </figure>
+
+                    <h3 data-translate-key="blog_bom_s6_flux1_title">Le flux principal : PDM → ERP (eBOM → mBOM)</h3>
+                    <p data-translate-key="blog_bom_s6_flux1_p">C'est le flux le plus courant. À chaque validation d'une nomenclature dans le PDM, les données doivent être transmises à l'ERP pour créer ou mettre à jour la BOM de fabrication. Ce transfert est rarement automatique dans les PME : il se fait encore souvent manuellement, via des exports Excel.</p>
+                    <p data-translate-key="blog_bom_s6_flux1_mecas_intro">Les mécanismes d'intégration existants :</p>
+                    <ul>
+                        <li data-translate-key="blog_bom_s6_flux1_meca1"><strong>PDM Gateway</strong> (SOLIDWORKS PDM Pro) — connecteur natif vers SAP, Sage, Cegid et d'autres ERP via XML/CSV</li>
+                        <li data-translate-key="blog_bom_s6_flux1_meca2"><strong>API REST / Web Services</strong> — pour les intégrations sur mesure</li>
+                        <li data-translate-key="blog_bom_s6_flux1_meca3"><strong>Middleware EAI</strong> (Boomi, MuleSoft, Talend) — pour les architectures complexes multi-sites</li>
+                        <li data-translate-key="blog_bom_s6_flux1_meca4"><strong>Export/import CSV manuel</strong> — la réalité de 60 % des PME de moins de 100 personnes</li>
+                    </ul>
+
+                    <h3 data-translate-key="blog_bom_s6_flux2_title">Le flux PLM → ERP : les modifications produit</h3>
+                    <p data-translate-key="blog_bom_s6_flux2_p">Quand une modification produit (ECO) est validée dans le PLM, elle doit déclencher une mise à jour coordonnée : nouvelle révision dans le PDM <em>et</em> mise à jour de la mBOM dans l'ERP. C'est là que les BOM divergent si les processus ne sont pas formalisés.</p>
+
+                    <h3 data-translate-key="blog_bom_s6_flux3_title">Le flux ERP → PLM : remontée terrain</h3>
+                    <p data-translate-key="blog_bom_s6_flux3_p">Moins connu, mais crucial : les retours de production (rebuts, substitutions de composants, non-conformités) doivent remonter vers le PLM pour déclencher des modifications formelles. Sans cette boucle, le design reste figé sur une réalité de terrain qui a évolué.</p>
+
+                    <figure class="chart-figure" data-blog-chart>
+                        <canvas aria-label="Fréquence des flux de données entre PDM, PLM et ERP sur 80 clients"></canvas>
+                        <script type="application/json" data-chart-config>
+                            {
+                                "type": "bar",
+                                "data": {
+                                    "labels": ["PDM → ERP", "PDM → PLM", "PLM → ERP", "ERP → PLM"],
+                                    "datasets": [{
+                                        "label": "Fréquence des flux observés sur 80 clients (%)",
+                                        "data": [72, 45, 18, 8],
+                                        "backgroundColor": [
+                                            "rgba(37,99,235,0.7)",
+                                            "rgba(124,58,237,0.7)",
+                                            "rgba(249,115,22,0.7)",
+                                            "rgba(16,185,129,0.7)"
+                                        ],
+                                        "borderColor": ["#2563eb","#7c3aed","#f97316","#10b981"],
+                                        "borderWidth": 2
+                                    }]
+                                },
+                                "options": {
+                                    "plugins": {
+                                        "legend": { "display": false },
+                                        "title": {
+                                            "display": true,
+                                            "text": "Flux de données actifs — % des sites concernés (80 clients)"
+                                        }
+                                    },
+                                    "scales": {
+                                        "y": {
+                                            "beginAtZero": true,
+                                            "max": 100,
+                                            "title": { "display": true, "text": "% des sites" }
+                                        }
+                                    }
+                                }
+                            }
+                        </script>
+                    </figure>
+
+                    <div class="grid grid--2">
+                        <div>
+                            <h3 data-translate-key="blog_bom_s6_archi1_title">Architecture idéale (PME &gt; 50 pers.)</h3>
+                            <ul>
+                                <li data-translate-key="blog_bom_s6_archi1_item1">PDM = source de vérité des données CAO + eBOM</li>
+                                <li data-translate-key="blog_bom_s6_archi1_item2">PLM = gouvernance des modifications et de la configuration</li>
+                                <li data-translate-key="blog_bom_s6_archi1_item3">ERP = exécution production, achats, coûts via mBOM</li>
+                                <li data-translate-key="blog_bom_s6_archi1_item4">Connecteur PDM → ERP automatisé sur validation</li>
+                                <li data-translate-key="blog_bom_s6_archi1_item5">Processus ECO formalisé entre PLM et ERP</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 data-translate-key="blog_bom_s6_archi2_title">Architecture fréquente (PME &lt; 50 pers.)</h3>
+                            <ul>
+                                <li data-translate-key="blog_bom_s6_archi2_item1">PDM = SOLIDWORKS PDM Standard (coffre + eBOM basique)</li>
+                                <li data-translate-key="blog_bom_s6_archi2_item2">Pas de PLM dédié — ECO par email ou réunion</li>
+                                <li data-translate-key="blog_bom_s6_archi2_item3">ERP = Sage ou Cegid, BOM saisie manuellement</li>
+                                <li data-translate-key="blog_bom_s6_archi2_item4">Synchronisation PDM/ERP = export CSV hebdomadaire</li>
+                                <li data-translate-key="blog_bom_s6_archi2_item5">Divergences BOM régulières, détectées en production</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 7. Sans cohérence -->
+                <section class="blog-section article-section" id="ce-qui-se-passe-sans-coherence">
+                    <h2 data-translate-key="blog_bom_s7_title">7. Ce qui se passe quand rien n'est aligné</h2>
+                    <p data-translate-key="blog_bom_s7_p1">Après 80 clients et 95 projets PDM, voici les symptômes récurrents que j'observe quand PDM, PLM et ERP ne parlent pas le même langage :</p>
+
+                    <div class="media-grid">
+                        <div class="media-card media-card--text">
+                            <h3 data-translate-key="blog_bom_s7_card1_title">Dans le bureau d'études</h3>
+                            <ul>
+                                <li data-translate-key="blog_bom_s7_card1_item1">Plusieurs versions d'une même pièce en circulation sans contrôle d'indice</li>
+                                <li data-translate-key="blog_bom_s7_card1_item2">Nomenclatures CAO qui diffèrent des nomenclatures ERP sans raison connue</li>
+                                <li data-translate-key="blog_bom_s7_card1_item3">Ingénieurs qui "sauvegardent" les plans sur des dossiers réseau partagés en parallèle du PDM</li>
+                                <li data-translate-key="blog_bom_s7_card1_item4">Temps de recherche d'un fichier &gt; 15 minutes par occurrence</li>
+                            </ul>
+                        </div>
+                        <div class="media-card media-card--text">
+                            <h3 data-translate-key="blog_bom_s7_card2_title">En production et achats</h3>
+                            <ul>
+                                <li data-translate-key="blog_bom_s7_card2_item1">Ordres d'achat sur des références obsolètes</li>
+                                <li data-translate-key="blog_bom_s7_card2_item2">Stock de composants jamais utilisés (BOM ERP pas mise à jour)</li>
+                                <li data-translate-key="blog_bom_s7_card2_item3">Arrêts de ligne pour pièces manquantes non prévues dans la BOM</li>
+                                <li data-translate-key="blog_bom_s7_card2_item4">Coût de revient calculé sur une BOM qui ne correspond plus au produit réel</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <p data-translate-key="blog_bom_s7_p2">Ces dysfonctionnements ont un coût direct. Une étude Aberdeen Group régulièrement citée dans le secteur évalue à <strong>2 à 4 % du chiffre d'affaires</strong> le coût des erreurs BOM dans les entreprises manufacturières sans intégration PDM/ERP correcte.</p>
+
+                    <div class="callout">
+                        <div class="quote-block">
+                            <blockquote data-translate-key="blog_bom_s7_quote">La bonne nouvelle : dans la majorité des cas, les données ne sont pas perdues. Elles existent dans le PDM, dans l'ERP, parfois dans Excel. Le travail consiste à identifier l'écart, définir la source de vérité, et mettre en place la synchronisation. C'est un chantier de 2 à 6 mois, pas une révolution.</blockquote>
+                            <cite>Mohamed Omar Baouch</cite>
+                        </div>
+                    </div>
+
+                    <h3 data-translate-key="blog_bom_s7_plan_title">Par où commencer ?</h3>
+                    <ol>
+                        <li data-translate-key="blog_bom_s7_plan_item1"><strong>Auditer l'état de votre PDM</strong> — est-ce que la eBOM générée est propre, à jour, avec des propriétés standardisées ?</li>
+                        <li data-translate-key="blog_bom_s7_plan_item2"><strong>Comparer eBOM PDM et mBOM ERP</strong> sur un produit représentatif — mesurer l'écart</li>
+                        <li data-translate-key="blog_bom_s7_plan_item3"><strong>Formaliser un processus de modification</strong> — même simple, même sans outil PLM dédié</li>
+                        <li data-translate-key="blog_bom_s7_plan_item4"><strong>Automatiser le flux PDM → ERP</strong> si le volume le justifie (PDM Gateway ou script d'export structuré)</li>
+                        <li data-translate-key="blog_bom_s7_plan_item5"><strong>Former les acteurs</strong> — BE, méthodes et supply chain doivent parler le même langage BOM</li>
+                    </ol>
+
+                    <div class="callout callout--soft">
+                        <p data-translate-key="blog_bom_s7_callout_soft"><strong>Indicateur clé :</strong> comptez le nombre de BOM actives dans votre ERP dont l'indice de révision ne correspond pas à la dernière révision validée dans le PDM. Ce chiffre, seul, suffit à justifier ou non un chantier de synchronisation.</p>
+                    </div>
+                </section>
+
+                <section class="blog-section article-cta" data-component="cta">
+                    <div class="cta-card">
+                        <h2 data-translate-key="blog_bom_cta_title">Vous avez trouvé cet article utile ?</h2>
+                        <p data-translate-key="blog_bom_cta_text">Je partage régulièrement des retours d'expérience terrain sur la gestion des données techniques industrielles.</p>
+                        <a class="hero-btn" href="/#contact" data-translate-key="blog_bom_cta_button">Me contacter</a>
+                    </div>
+                </section>
+
+                <section class="blog-section article-related">
+                    <h2>À lire aussi</h2>
+                    <div class="media-grid">
+                        <a href="/blog/configuration-materielle-solidworks/" class="media-card media-card--text related-card">
+                            <h3>Configuration matérielle SOLIDWORKS 2025</h3>
+                            <p>Plan d'action pour calibrer stations de travail, serveur PDM et réseau — avec indicateurs terrain et repères budgétaires.</p>
+                            <span class="related-link">Lire l'article →</span>
+                        </a>
+                        <a href="/blog/resolutions-problematiques-plm/" class="media-card media-card--text related-card">
+                            <h3>Résoudre les 5 problématiques PLM</h3>
+                            <p>Retour d'expérience sur cinq problématiques PLM vécues sur le terrain et les solutions concrètes apportées.</p>
+                            <span class="related-link">Lire l'article →</span>
+                        </a>
+                    </div>
+                </section>
+
+                <footer class="article-footer">
+                    <div class="article-tags">
+                        <span class="article-tag">BOM</span>
+                        <span class="article-tag">eBOM</span>
+                        <span class="article-tag">mBOM</span>
+                        <span class="article-tag">PDM</span>
+                        <span class="article-tag">PLM</span>
+                        <span class="article-tag">ERP</span>
+                        <span class="article-tag">SOLIDWORKS PDM</span>
+                        <span class="article-tag">Nomenclature</span>
+                        <span class="article-tag">PDM Gateway</span>
+                        <span class="article-tag">ECO / ECR</span>
+                    </div>
+                    <div class="article-nav">
+                        <a href="/blog/" class="back-link" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                        <a href="/#contact" class="hero-btn" data-translate-key="blog_cta_linkedin">Me contacter</a>
+                    </div>
+                </footer>
+
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="copyright" data-translate-key="footer_copyright">
+                &copy; 2026 Mohamed Omar Baouch. Tous droits réservés.
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/mohamed-omar-baouch-9b4473180/" target="_blank" class="social-icon"><span>in</span></a>
+                <a href="mailto:mohamed.omar.baouch@gmail.com" class="social-icon"><span>📧</span></a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="ai-assistant-fab" id="ai-fab">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 8V4H8" />
+            <rect x="4" y="12" width="8" height="8" rx="2" />
+            <path d="M8 12v1.5a2.5 2.5 0 0 0 5 0V12" />
+            <path d="M2 12h2" />
+            <path d="M14 2h2" />
+            <path d="M14 8h2" />
+            <path d="M14 14h2" />
+        </svg>
+    </div>
+    <div class="ai-fab-notification" id="ai-fab-notification"></div>
+    <div class="ai-assistant-container" id="ai-container">
+        <div class="ai-assistant-header">
+            <div class="ai-header-profile">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--accent-color)" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 8V4H8" /><rect x="4" y="12" width="8" height="8" rx="2" /><path d="M8 12v1.5a2.5 2.5 0 0 0 5 0V12" /><path d="M2 12h2" /><path d="M14 2h2" /><path d="M14 8h2" /><path d="M14 14h2" />
+                </svg>
+                <h3 data-translate-key="ai_title">Assistant Virtuel</h3>
+            </div>
+            <button class="ai-close-btn" id="ai-close-btn">&times;</button>
+        </div>
+        <div class="ai-assistant-body" id="ai-chat-box">
+            <div class="ai-message assistant">
+                <p data-translate-key="ai_welcome">Bonjour ! Je suis l'assistant virtuel de Mohamed. Comment puis-je vous aider à découvrir son profil ?</p>
+            </div>
+            <div class="ai-suggestions" id="ai-suggestions">
+                <button class="suggestion-btn" data-translate-key="ai_sugg_1">Résume son expérience</button>
+                <button class="suggestion-btn" data-translate-key="ai_sugg_2">Quelles sont ses compétences en PDM ?</button>
+                <button class="suggestion-btn" data-translate-key="ai_sugg_3">Où a-t-il étudié ?</button>
+            </div>
+        </div>
+        <div class="ai-assistant-footer">
+            <input type="text" id="ai-input" placeholder="Posez votre question ici..." autocomplete="off">
+            <button id="ai-send-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script src="../../assets/js/loader.js"></script>
+    <script src="../../assets/js/script.js"></script>
+    <script type="module">
+        const CHART_DATA_SELECTORS = [
+            '[data-blog-chart]',
+            'script[type="application/json"][data-chart-config]',
+            'canvas[data-chart-config]',
+            'canvas[data-chart-type]'
+        ];
+
+        const hasChartData = () => CHART_DATA_SELECTORS.some((selector) => document.querySelector(selector));
+
+        const loadChartsModule = (() => {
+            let loaded = false;
+            return () => {
+                if (loaded) return;
+                loaded = true;
+                import('/assets/js/blog-charts.js').catch((error) => {
+                    console.error('[blog] Échec du chargement du module de graphiques.', error);
+                });
+            };
+        })();
+
+        const ensureChartsModule = () => {
+            if (hasChartData()) {
+                loadChartsModule();
+                return true;
+            }
+            return false;
+        };
+
+        if (!ensureChartsModule()) {
+            let observer;
+
+            const stopListening = () => {
+                if (observer) {
+                    observer.disconnect();
+                    observer = undefined;
+                }
+                document.removeEventListener('DOMContentLoaded', onReady);
+            };
+
+            const onReady = () => {
+                if (ensureChartsModule()) {
+                    stopListening();
+                }
+            };
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', onReady);
+            } else {
+                onReady();
+            }
+
+            const observeTarget = document.body || document.documentElement;
+            if (observeTarget) {
+                observer = new MutationObserver(() => {
+                    if (ensureChartsModule()) {
+                        stopListening();
+                    }
+                });
+                observer.observe(observeTarget, { childList: true, subtree: true });
+            }
+        }
+    </script>
+    <script type="module" src="../../assets/js/blog.js"></script>
+</body>
+</html>

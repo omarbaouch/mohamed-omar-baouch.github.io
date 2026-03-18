@@ -10,14 +10,27 @@
                 j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
                     'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-PBLRK58T');</script>
+    <script>(function(){var t=localStorage.getItem('theme'),d=t==='dark'||(!t&&true),r=document.documentElement;r.classList.add(d?'dark-theme':'light-theme');if(d)r.classList.add('dark');var bg=d?'#0f172a':'#f6f3ed',tx=d?'#f1f5f9':'#1f1b16',s=document.createElement('style');s.id='critical-theme-style';s.innerHTML='html,body{background-color:'+bg+' !important;color:'+tx+' !important;}';document.head.appendChild(s);})();</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Au-delà de la théorie : résoudre les 5 problématiques PLM que j'ai vécues en tant qu'Ingénieur Mécanique
     </title>
     <meta name="description"
         content="Retour d'expérience de Mohamed Omar Baouch sur cinq problématiques PLM vécues sur le terrain et les solutions apportées grâce à un PDM/PLM bien implémenté.">
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/assets/css/blog.css">
+    <meta name="author" content="Mohamed Omar Baouch">
+    <link rel="canonical" href="https://baouch.fr/blog/resolutions-problematiques-plm/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Résoudre les 5 problématiques PLM vécues en tant qu'Ingénieur Mécanique">
+    <meta property="og:description" content="Retour d'expérience sur cinq problématiques PLM vécues sur le terrain et les solutions apportées.">
+    <meta property="og:url" content="https://baouch.fr/blog/resolutions-problematiques-plm/">
+    <meta property="og:site_name" content="Mohamed Omar Baouch">
+    <meta property="article:published_time" content="2025-09-15T00:00:00.000Z">
+    <meta property="article:author" content="Mohamed Omar Baouch">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="5 problématiques PLM résolues sur le terrain">
+    <meta name="twitter:description" content="Retour d'expérience sur cinq problématiques PLM et les solutions concrètes apportées.">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/blog.css">
 </head>
 
 <body class="blog-page" data-blog-post="resolutions-problematiques-plm">
@@ -74,6 +87,7 @@
                         <div class="hero-badges">
                             <span class="badge badge-editorial" data-translate-key="blog_badge_editorial">Article de
                                 fond</span>
+                            <span class="badge badge-reading-time">~10 min de lecture</span>
                         </div>
                         <span class="hero-eyebrow" data-translate-key="blog_plm_hero_eyebrow">Expérience terrain</span>
                         <h1 class="hero-title" data-translate-key="blog_plm_hero_title">Au-delà de la théorie : résoudre
@@ -86,7 +100,7 @@
                             <a class="hero-btn" href="#sommaire" data-translate-key="blog_cta_summary">Consulter le
                                 sommaire</a>
                             <a class="hero-btn hero-btn--ghost" href="/#contact"
-                                data-translate-key="blog_cta_discuss_project">Discuter de votre projet</a>
+                                data-translate-key="blog_cta_discuss_project">Me contacter</a>
                         </div>
                     </div>
                     <div class="hero-stats">
@@ -332,14 +346,28 @@
                         au service des entreprises qui veulent éviter ces pièges.</p>
                 </section>
 
+                <section class="blog-section article-related">
+                    <h2>À lire aussi</h2>
+                    <div class="media-grid">
+                        <a href="/blog/nomenclature-bom-pdm-plm-erp/" class="media-card media-card--text related-card">
+                            <h3>Nomenclature & BOM : le guide complet</h3>
+                            <p>De la eBOM à la mBOM : comprendre, structurer et exploiter les nomenclatures dans l'écosystème PDM / PLM / ERP.</p>
+                            <span class="related-link">Lire l'article →</span>
+                        </a>
+                        <a href="/blog/configuration-materielle-solidworks/" class="media-card media-card--text related-card">
+                            <h3>Configuration matérielle SOLIDWORKS 2025</h3>
+                            <p>Plan d'action pour calibrer stations de travail, serveur PDM et réseau après douze missions de diagnostic.</p>
+                            <span class="related-link">Lire l'article →</span>
+                        </a>
+                    </div>
+                </section>
+
                 <section class="blog-section article-cta" data-component="cta">
                     <div class="cta-card">
-                        <h2 data-translate-key="blog_plm_cta_title">Envie de résoudre vos problématiques PLM&nbsp;?</h2>
-                        <p data-translate-key="blog_plm_cta_text">Construisons ensemble une feuille de route
-                            pragmatique, ancrée dans votre réalité terrain. Une simple discussion peut révéler les
-                            priorités à adresser en premier.</p>
-                        <a class="hero-btn" href="/#contact" data-translate-key="blog_plm_cta_button">Planifier un
-                            échange</a>
+                        <h2 data-translate-key="blog_plm_cta_title">Vous avez trouvé cet article utile ?</h2>
+                        <p data-translate-key="blog_plm_cta_text">Je partage régulièrement des retours d'expérience terrain sur les problématiques PLM rencontrées
+                            en industrie.</p>
+                        <a class="hero-btn" href="/#contact" data-translate-key="blog_plm_cta_button">Me contacter</a>
                     </div>
                 </section>
             </article>
@@ -413,8 +441,9 @@
         </div>
     </div>
 
-    <script src="/assets/js/script.js"></script>
-    <script type="module" src="/assets/js/blog.js"></script>
+    <script src="../../assets/js/loader.js"></script>
+    <script src="../../assets/js/script.js"></script>
+    <script type="module" src="../../assets/js/blog.js"></script>
 </body>
 
 </html>

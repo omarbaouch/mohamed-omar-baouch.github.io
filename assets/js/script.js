@@ -11,78 +11,81 @@ const translations = {
         "nav_contact": "Contact",
         "nav_blog": "Blog",
         "hero_title": `<span class="highlight glitch" data-text="Ingénieur Plasturgie">Ingénieur Plasturgie</span> & <br>Consultant <span class="glitch" data-text="PDM/PLM">PDM/PLM</span>`,
-        "hero_subtitle": "Accompagnement de 69 industriels dans l'optimisation de leurs processus de développement produit.",
+        "hero_subtitle": "Plus de <strong>80 clients industriels</strong> accompagnés — sécurisation, migration et optimisation de données techniques critiques.",
         "hero_cta1": "Me contacter",
-        "hero_cta2": "Découvrir mon parcours",
+        "hero_cta2": "Voir mon parcours",
         "scroll_text": "Défiler",
         "about_title": "À propos",
         "about_p1": "Ingénieur Plasturgie INSA de formation, j'ai évolué de la conception mécanique pure vers l'architecture des systèmes d'information techniques. Mon approche est pragmatique : la technique doit servir le métier, et non le contraindre.",
-        "about_p2": "Aujourd'hui, j'interviens sur des missions critiques : migration de données sensibles, refonte d'architectures serveurs et optimisation de performance pour des bureaux d'études de 5 à 100 utilisateurs.",
-        "tooltip_location": "Situé dans la région Grand Est, disponible pour des projets dans toute la France",
-        "tooltip_phone": "Disponible par téléphone du lundi au vendredi, 9h-18h",
+        "about_p2": "Aujourd'hui, je gère des projets critiques : migration de données sensibles, refonte d'architectures serveurs et optimisation de performance pour des bureaux d'études de 5 à 100 utilisateurs.",
+        "tooltip_location": "Basé dans la région Grand Est",
+        "tooltip_phone": "Téléphone professionnel",
         "driving_license": "Permis B, Véhiculé",
-        "tooltip_mobility": "Mobile pour des déplacements professionnels",
-        "tooltip_email": "N'hésitez pas à me contacter par email pour toute demande",
-        "tooltip_linkedin": "Connectons-nous sur LinkedIn pour échanger professionnellement",
+        "tooltip_mobility": "Mobilité France et international",
+        "tooltip_email": "Email professionnel",
+        "tooltip_linkedin": "Profil LinkedIn",
         "download_cv": "Télécharger mon CV",
         "cv_file": "/BAOUCH_CV_FR.pdf",
         "experience_title": "Expérience",
         "exp1_date": "Juin 2023 - Présent",
-        "exp1_title": "Consultant Expert PDM/PLM",
-        "exp1_subtitle1": "Projets & Réalisations (69 Clients):",
-        "exp1_li1": "<strong>57 Migrations</strong> réussies de PDM Standard vers PDM Professional (ETL, Reprise d'historique).",
-        "exp1_li2": "<strong>11 Déploiements Complets</strong> d'architecture serveur (SQL, Archive, Indexation sur serveurs dédiés).",
-        "exp1_li3": "<strong>Set & Run</strong> : Prise en main experte de projets complexes et en difficulté.",
+        "exp1_title": "Consultant PDM/PLM Confirmé",
+        "exp1_company": "VISIATIV",
+        "exp1_subtitle1": "Projets & Réalisations (80 Clients):",
+        "exp1_li1": "Pilotage d'implémentations PDM/PLM de l'analyse des besoins à la mise en production.",
+        "exp1_li2": "Architecture et paramétrage de systèmes PDM/PLM (SolidWorks) avec flux de travail personnalisés.",
+        "exp1_li3": "Gestion de projets de migration de données et montées de version des environnements PDM/PLM.",
         "exp1_subtitle2": "Expertise Technique:",
-        "exp1_li4": "Audit & Diagnostic d'infrastructure en <strong>72h</strong>.",
-        "exp1_li5": "Rédaction de DTE (Dossiers Techniques d'Exploitation) et Plans de Recette.",
+        "exp1_li4": "Conception et déploiement d'intégrations ERP-PDM/PLM pour la continuité numérique.",
+        "exp1_li5": "Formation des utilisateurs et administrateurs aux nouvelles méthodologies et outils PDM/PLM.",
         "exp1_li6": "Mise en œuvre de réplications multisites et plans de maintenance SQL.",
         "exp2_date": "Septembre 2021 - Juin 2023",
-        "exp2_title": "Ingénieur Plasturgie & PLM Lead",
-        "exp2_subtitle1": "ACTEUR DÉFENSE & SÉCURITÉ :",
-        "exp2_li1": "Conception de radars de nouvelle génération.",
-        "exp2_li2": "Structuration de l'architecture PLM pour la gestion de configuration complexe.",
-        "exp2_subtitle2": "ACTEUR DU TRANSPORT & MOBILITÉ :",
-        "exp2_li3": "Retrofit RATP : Gestion du cycle de vie des modifications (ECR/ECO).",
-        "exp2_li4": "Calculs de structure avancés sous Creo Simulate.",
-        "exp2_location": "ABMI / SECTEURS VARIES",
+        "exp2_title": "Ingénieur Concepteur Mécanique",
+        "exp2_subtitle1": "IDEMIA — DÉFENSE & SÉCURITÉ :",
+        "exp2_li1": "Développement de systèmes radar et composants usinés de précision.",
+        "exp2_li2": "Gestion du cycle de vie des données produit en environnement PLM, amélioration de la traçabilité.",
+        "exp2_subtitle2": "FLOWBIRD — TRANSPORT & MOBILITÉ :",
+        "exp2_li3": "Modernisation des distributeurs de tickets RATP, coordination d'équipe d'ingénieurs.",
+        "exp2_li4": "Analyse structurelle avancée (Creo Simulate) pour optimisation du poids des conceptions.",
+        "exp2_location": "ABMI GROUP",
         "exp3_date": "Avril 2020 - Octobre 2020",
-        "exp3_title": "Ingénieur Bureau d'Études",
-        "exp3_li1": "Gestion complète de l'affaire : du chiffrage à la livraison.",
-        "exp3_li2": "Optimisation des nomenclatures pour la production série.",
+        "exp3_title": "Spécialiste en Ingénierie de Conception",
+        "exp3_company": "EVOLUM CONTAINER SOLUTIONS",
+        "exp3_li1": "Analyse des besoins clients et chiffrage de solutions de conteneurs sur mesure.",
+        "exp3_li2": "Génération de nomenclatures détaillées et documentation technique via CAO et ERP.",
+        "exp3_li3": "Gestion des relations fournisseurs et des processus d'approvisionnement.",
         "skills_title": "Compétence Technique",
-        "skill1_title": "Architecture PDM/SQL",
+        "skill1_title": "Infrastructure PDM",
         "skill1_li1": "Admin SQL Server",
         "skill1_tp1": "Installation, Maintenance Plans, Sauvegardes, Tuning Performance",
-        "skill1_li2": "Réplication & Cold Storage",
-        "skill1_tp2": "Architecture multisites, gestion de l'archivage froid",
-        "skill1_li3": "Workflows Avancés",
-        "skill1_tp3": "Dispatch, Tâches Automatiques, Transitions conditionnelles, Notifications XML",
-        "skill1_li4": "PDM Gateway (ERP)",
-        "skill1_tp4": "Export/Import de données XML/CSV vers ERP (Sage, Cegid, SAP)",
-        "skill2_title": "Data & Migration",
-        "skill2_li1": "ETL & Reprise de Données",
-        "skill2_tp1": "Extraction, Transformation, Loading de données legacy vers PDM",
-        "skill2_li2": "Nettoyage de Données",
-        "skill2_tp2": "Standardisation des propriétés, nommage, suppression des doublons",
+        "skill1_li2": "Réplication Multi-sites",
+        "skill1_tp2": "Architecture multisites, synchronisation et gestion de l'archivage froid",
+        "skill1_li3": "Workflows & Dispatch",
+        "skill1_tp3": "Tâches automatiques, transitions conditionnelles, notifications XML",
+        "skill1_li4": "Déploiement & Installation",
+        "skill1_tp4": "Mise en place complète d'architectures PDM sur serveurs dédiés",
+        "skill2_title": "Migrations & Données",
+        "skill2_li1": "Migrations & Montées de Version",
+        "skill2_tp1": "Migrations de serveur, upgrades PDM Standard vers Professional, reprise d'historique",
+        "skill2_li2": "Admin Recovery",
+        "skill2_tp2": "Récupération d'accès administrateur, remise en état de coffres PDM",
         "skill2_li3": "Templates SOLIDWORKS",
         "skill2_tp3": "Création de .prtdot, .asmdot, .drwdot, Property Tab Builder",
         "skill2_li4": "MyCADTools",
-        "skill2_tp4": "Usage expert de la suite pour l'audits et le batch processing",
-        "skill3_title": "Documentaire",
-        "skill3_li1": "Dossiers Techniques (DTE)",
+        "skill2_tp4": "Usage expert de la suite pour les audits et le batch processing",
+        "skill3_title": "Documentation & Méthodologie",
+        "skill3_li1": "DTE (Dossiers Techniques)",
         "skill3_tp1": "Rédaction de documentations d'installation et d'exploitation complètes",
-        "skill3_li2": "Plans de Recette",
-        "skill3_tp2": "Création de cahiers de tests et PV de recette pour validation client",
-        "skill3_li3": "Méthodologie de Reprise",
-        "skill3_tp3": "Documents de stratégie de migration de l'existant",
-        "skill3_li4": "Supports de Formation",
-        "skill3_tp4": "Formation Administrateur et Utilisateur PDM",
+        "skill3_li2": "Plans & PV de Recette",
+        "skill3_tp2": "Cahiers de tests, PV de recette pour validation client",
+        "skill3_li3": "Formation Admin/User",
+        "skill3_tp3": "Transfert de compétences administrateur et utilisateur PDM",
+        "skill3_li4": "Missions en régie",
+        "skill3_tp4": "Prise en main de projets complexes, interventions en régie",
         "skill_level_expert": "Expert",
         "skill_level_advanced": "Avancé",
         "skill1_li5": "Cold Storage",
-        "skill2_li5": "Property Tab",
-        "skill3_li5": "PV Recette",
+        "skill2_li5": "Reprise ETL",
+        "skill3_li5": "Passation de Projet",
         "education_title": "Formation",
         "edu1_title": "CLASSES PRÉPARATOIRES",
         "edu1_desc": "Formation scientifique et technique approfondie",
@@ -110,48 +113,49 @@ const translations = {
         "ai_sugg_2": "Quelles sont ses compétences en PDM ?",
         "ai_sugg_3": "Où a-t-il étudié ?",
         "essentials_eyebrow": "Expérience terrain",
-        "essentials_heading": "Un accompagnement PDM/PLM <span class=\"highlight\">concret et orienté résultats</span>",
-        "essentials_lead": "J'optimise vos flux de données produit, structure vos standards d'équipe et documente les meilleures pratiques dans des guides opérationnels exploitables dès le premier jour.",
-        "stat_clients": "69 clients",
+        "essentials_heading": "Mon expertise <span class=\"highlight\">PDM/PLM en chiffres</span>",
+        "essentials_lead": "Optimisation de flux de données produit, structuration de standards d'équipe et rédaction de guides opérationnels — le tout acquis sur plus de 80 missions industrielles.",
+        "stat_clients": "80 clients",
         "stat_clients_desc": "Industrie, robotique, équipements...",
-        "stat_migrations": "57 migrations",
+        "stat_migrations": "65 migrations",
         "stat_migrations_desc": "Serveurs, mises à jour, réplications...",
-        "stat_diagnostic": "72h",
-        "stat_diagnostic_desc": "Diagnostic express avec plan d'action",
-        "stat_deployments": "11 déploiements",
+        "stat_diagnostic": "95 projets",
+        "stat_diagnostic_desc": "Livrés depuis 2020",
+        "stat_deployments": "13 déploiements",
         "stat_deployments_desc": "+ 1 Set & Run complet",
-        "card_conseil_kicker": "💡 Conseil",
-        "card_conseil_title": "Architecture PDM/PLM claire",
-        "card_conseil_desc": "Cartographie rapide de votre environnement, définition des droits utilisateurs, modèles de données et nomenclatures optimisées pour <strong>SOLIDWORKS PDM</strong>, <strong>3DEXPERIENCE</strong> ou <strong>Windchill</strong>.",
-        "card_conseil_li1": "✓ Ateliers de cadrage et audit express",
-        "card_conseil_li2": "✓ Plan de remédiation priorisé",
-        "card_conseil_li3": "✓ Documentation maintenable",
+        "card_conseil_kicker": "💡 Expertise",
+        "card_conseil_title": "Architecture & Audit PDM/PLM",
+        "card_conseil_desc": "Cartographie d'environnements, droits utilisateurs, modèles de données et nomenclatures — maîtrise de <strong>SOLIDWORKS PDM</strong>, <strong>3DEXPERIENCE</strong> et <strong>Windchill</strong>.",
+        "card_conseil_li1": "✓ Audits et diagnostics d'infrastructure",
+        "card_conseil_li2": "✓ Plans de remédiation et roadmaps",
+        "card_conseil_li3": "✓ Documentation technique complète",
         "card_badge": "POPULAIRE",
         "card_delivery_kicker": "🚀 Delivery",
-        "card_delivery_title": "Recettes et industrialisation",
-        "card_delivery_desc": "Mise en production accompagnée avec procédures de tests rigoureuses, checklists d'intégration détaillées et coaching personnalisé des référents internes.",
-        "card_delivery_li1": "✓ Scénarios de validation prêts à l'emploi",
-        "card_delivery_li2": "✓ Revues avec les métiers clés",
-        "card_delivery_li3": "✓ Capitalisation et transfert de compétences",
-        "card_veille_kicker": "📡 Veille",
-        "card_veille_title": "Radar quotidien & blog",
-        "card_veille_desc": "Un format épuré combinant signaux du marché PDM/PLM, résumés techniques et réponses aux questions fréquentes des équipes BE/IT.",
-        "card_veille_li1": "✓ Radars quotidiens PDM/PLM",
-        "card_veille_li2": "✓ Guides de fond réutilisables",
+        "card_delivery_title": "Mise en production & Recettes",
+        "card_delivery_desc": "Déploiements en production avec procédures de tests rigoureuses, checklists d'intégration et transfert de compétences aux équipes internes.",
+        "card_delivery_li1": "✓ Scénarios de validation éprouvés",
+        "card_delivery_li2": "✓ Revues avec les équipes métier",
+        "card_delivery_li3": "✓ Capitalisation des connaissances",
+        "card_veille_kicker": "📝 Blog",
+        "card_veille_title": "Articles de fond PDM/PLM",
+        "card_veille_desc": "Analyses approfondies sur la nomenclature, le PDM, le PLM et l'ERP — issus de 80 missions terrain, pas de contenu générique.",
+        "card_veille_li1": "✓ BOM, eBOM, mBOM et intégration ERP",
+        "card_veille_li2": "✓ Configuration matérielle SOLIDWORKS",
         "card_veille_link": "→ Accéder au blog",
-        "clients_title": "69 Clients accompagnés par secteur",
+        "clients_title": "80 clients accompagnés par secteur",
+        "sector_machines_title": "Machines & Équipements",
+        "sector_machines_desc": "Fabricants de machines & lignes de production",
+        "sector_industry_title": "Industrie & Énergie",
+        "sector_industry_desc": "Grands groupes & ETI industrielles",
         "sector_robotics_title": "Automatisme & Robotique",
         "sector_robotics_desc": "Startups, PME & ETI innovantes",
-        "sector_industry_title": "Industrie & Énergie",
-        "sector_industry_desc": "Grands Groupes & ETI",
-        "sector_machines_title": "Machines & Équipements",
-        "sector_machines_desc": "Fabricants de Machines & Lignes de Production",
-        "sector_transport_title": "Transport & Mobilité",
-        "sector_transport_desc": "Acteurs majeurs du secteur",
         "sector_metal_title": "Métallurgie & Traitement",
         "sector_metal_desc": "Industriels de la transformation",
+        "sector_btp_title": "BTP, Agro & Divers",
+        "sector_btp_desc": "Construction, agroalimentaire, médical, mobilier...",
         "sector_international_title": "International",
-        "sector_international_desc": "VISIATIV AFRICA - Projets Multi-sites",
+        "sector_international_desc": "Projets multi-sites & déploiements internationaux",
+        "project_types_title": "95 projets par type d'intervention",
         "featured_projects_title": "Projets phares",
         "project_type_robotics": "Robotique",
         "project_1_title": "ROBOTIQUE HUMANOÏDE",
@@ -189,78 +193,81 @@ const translations = {
         "nav_contact": "Contact",
         "nav_blog": "Blog",
         "hero_title": `<span class="highlight glitch" data-text="Plastics Engineer">Plastics Engineer</span> & <br>PDM/PLM <span class="glitch" data-text="Consultant">Consultant</span>`,
-        "hero_subtitle": "Supporting 69 industrial companies in optimizing their product development processes.",
+        "hero_subtitle": "Over <strong>80 industrial clients</strong> supported — securing, migrating and optimizing critical technical data.",
         "hero_cta1": "Contact Me",
-        "hero_cta2": "Explore My Journey",
+        "hero_cta2": "View My Background",
         "scroll_text": "Scroll",
         "about_title": "About Me",
         "about_p1": "As an INSA Plastics Engineer, I evolved from pure mechanical design to technical information system architecture. My approach is pragmatic: technology must serve the business, not constrain it.",
-        "about_p2": "Today, I work on critical missions: sensitive data migration, server architecture redesign, and performance optimization for design offices ranging from 5 to 100 users.",
-        "tooltip_location": "Based in the Grand Est region, available for projects throughout France",
-        "tooltip_phone": "Available by phone Monday to Friday, 9am-6pm",
+        "about_p2": "Today, I manage critical projects: sensitive data migration, server architecture redesign, and performance optimization for design offices ranging from 5 to 100 users.",
+        "tooltip_location": "Based in the Grand Est region",
+        "tooltip_phone": "Professional phone",
         "driving_license": "Driver's License",
-        "tooltip_mobility": "Available for business travel",
-        "tooltip_email": "Feel free to contact me by email for any inquiries",
-        "tooltip_linkedin": "Let's connect on LinkedIn for professional exchanges",
+        "tooltip_mobility": "Mobility across France and internationally",
+        "tooltip_email": "Professional email",
+        "tooltip_linkedin": "LinkedIn profile",
         "download_cv": "Download RESUME",
         "cv_file": "/BAOUCH_CV_EN.pdf",
         "experience_title": "Experience",
         "exp1_date": "June 2023 - Present",
-        "exp1_title": "Expert PDM/PLM Consultant",
-        "exp1_subtitle1": "Projects & Achievements (69 Clients):",
-        "exp1_li1": "<strong>57 Server Migrations & Updates</strong> (ETL, History Recovery).",
-        "exp1_li2": "<strong>11 Full Deployments</strong> of server architecture (SQL, Archive, Indexing on dedicated servers).",
-        "exp1_li3": "<strong>Set & Run</strong>: Expert takeover of complex and distressed projects.",
+        "exp1_title": "Confirmed PDM/PLM Consultant",
+        "exp1_company": "VISIATIV",
+        "exp1_subtitle1": "Projects & Achievements (80 Clients):",
+        "exp1_li1": "End-to-end PDM/PLM implementation management, from needs analysis to production rollout.",
+        "exp1_li2": "PDM/PLM system architecture and configuration (SolidWorks) with custom workflows.",
+        "exp1_li3": "Data migration projects and PDM/PLM environment version upgrades management.",
         "exp1_subtitle2": "Technical Expertise:",
-        "exp1_li4": "Infrastructure Audit & Diagnostic in <strong>72h</strong>.",
-        "exp1_li5": "Drafting of Technical Operating Files (DTE) and Acceptance Plans.",
+        "exp1_li4": "ERP-PDM/PLM integration design and deployment for digital continuity.",
+        "exp1_li5": "User and administrator training on new PDM/PLM methodologies and tools.",
         "exp1_li6": "Implementation of multisite replication and SQL maintenance plans.",
         "exp2_date": "September 2021 - June 2023",
-        "exp2_title": "Plastics Engineer & PLM Lead",
-        "exp2_subtitle1": "DEFENSE & SECURITY ACTOR:",
-        "exp2_li1": "Design of next-generation radars.",
-        "exp2_li2": "Structuring of PLM architecture for complex configuration management.",
-        "exp2_subtitle2": "TRANSPORT & MOBILITY ACTOR:",
-        "exp2_li3": "Retrofit for RATP: Lifecycle management of modifications (ECR/ECO).",
-        "exp2_li4": "Advanced structural calculations using Creo Simulate.",
-        "exp2_location": "ABMI / VARIOUS SECTORS",
+        "exp2_title": "Mechanical Design Engineer",
+        "exp2_subtitle1": "IDEMIA — DEFENSE & SECURITY:",
+        "exp2_li1": "Radar systems development and precision machined components.",
+        "exp2_li2": "Product data lifecycle management in PLM environment, traceability improvement.",
+        "exp2_subtitle2": "FLOWBIRD — TRANSPORT & MOBILITY:",
+        "exp2_li3": "RATP ticket distributor modernization, engineering team coordination.",
+        "exp2_li4": "Advanced structural analysis (Creo Simulate) for design weight optimization.",
+        "exp2_location": "ABMI GROUP",
         "exp3_date": "April 2020 - October 2020",
-        "exp3_title": "Design Engineer",
-        "exp3_li1": "Complete project management: from costing to delivery.",
-        "exp3_li2": "BOM optimization for series production.",
+        "exp3_title": "Design Engineering Specialist",
+        "exp3_company": "EVOLUM CONTAINER SOLUTIONS",
+        "exp3_li1": "Client needs analysis and custom container solution costing.",
+        "exp3_li2": "Detailed BOM generation and technical documentation via CAD and ERP.",
+        "exp3_li3": "Supplier relationship management and procurement processes.",
         "skills_title": "Technical Skills",
-        "skill1_title": "PDM/SQL Architecture",
+        "skill1_title": "PDM Infrastructure",
         "skill1_li1": "SQL Server Admin",
         "skill1_tp1": "Installation, Maintenance Plans, Backups, Performance Tuning",
-        "skill1_li2": "Replication & Cold Storage",
-        "skill1_tp2": "Multisite architecture, cold archiving management",
-        "skill1_li3": "Advanced Workflows",
-        "skill1_tp3": "Dispatch, Automatic Tasks, Conditional Transitions, XML Notifications",
-        "skill1_li4": "PDM Gateway (ERP)",
-        "skill1_tp4": "XML/CSV Data Export/Import to ERP (Sage, Cegid, SAP)",
-        "skill2_title": "Data & Migration",
-        "skill2_li1": "ETL & Data Recovery",
-        "skill2_tp1": "Extraction, Transformation, Loading of legacy data to PDM",
-        "skill2_li2": "Data Cleaning",
-        "skill2_tp2": "Property standardization, naming, deduplication",
+        "skill1_li2": "Multisite Replication",
+        "skill1_tp2": "Multisite architecture, synchronization and cold archiving management",
+        "skill1_li3": "Workflows & Dispatch",
+        "skill1_tp3": "Automatic Tasks, Conditional Transitions, XML Notifications",
+        "skill1_li4": "Deployment & Installation",
+        "skill1_tp4": "Full PDM architecture setup on dedicated servers",
+        "skill2_title": "Migrations & Data",
+        "skill2_li1": "Migrations & Version Upgrades",
+        "skill2_tp1": "Server migrations, PDM Standard to Professional upgrades, history recovery",
+        "skill2_li2": "Admin Recovery",
+        "skill2_tp2": "Admin access recovery, PDM vault restoration",
         "skill2_li3": "SOLIDWORKS Templates",
         "skill2_tp3": "Creation of .prtdot, .asmdot, .drwdot, Property Tab Builder",
         "skill2_li4": "MyCADTools",
         "skill2_tp4": "Expert usage of the suite for audits and batch processing",
-        "skill3_title": "Documentation",
+        "skill3_title": "Documentation & Methodology",
         "skill3_li1": "Technical Files (DTE)",
         "skill3_tp1": "Drafting of complete installation and operating documentation",
-        "skill3_li2": "Acceptance Plans",
-        "skill3_tp2": "Creation of test books and acceptance minutes for client validation",
-        "skill3_li3": "Recovery Methodology",
-        "skill3_tp3": "Strategy documents for legacy migration",
-        "skill3_li4": "Training Materials",
-        "skill3_tp4": "PDM Administrator and User Training",
+        "skill3_li2": "Acceptance Plans & Reports",
+        "skill3_tp2": "Test books and acceptance minutes for client sign-off",
+        "skill3_li3": "Admin/User Training",
+        "skill3_tp3": "Knowledge transfer for PDM administrators and end users",
+        "skill3_li4": "On-site Missions",
+        "skill3_tp4": "Takeover of complex projects, on-site assignments",
         "skill_level_expert": "Expert",
         "skill_level_advanced": "Advanced",
         "skill1_li5": "Cold Storage",
-        "skill2_li5": "Property Tab",
-        "skill3_li5": "Acceptance Report",
+        "skill2_li5": "ETL Recovery",
+        "skill3_li5": "Project Handover",
         "education_title": "Education",
         "edu1_title": "PREPARATORY CLASSES",
         "edu1_desc": "In-depth scientific and technical training",
@@ -288,48 +295,49 @@ const translations = {
         "ai_sugg_2": "What are his PDM skills?",
         "ai_sugg_3": "Where did he study?",
         "essentials_eyebrow": "Field Experience",
-        "essentials_heading": "Concrete, results-oriented <span class=\"highlight\">PDM/PLM support</span>",
-        "essentials_lead": "I optimize your product data flows, structure your team standards, and document best practices in operational guides usable from day one.",
-        "stat_clients": "69 clients",
+        "essentials_heading": "My <span class=\"highlight\">PDM/PLM expertise in numbers</span>",
+        "essentials_lead": "Product data flow optimization, team standards structuring and operational guide writing — built over 80+ industrial missions.",
+        "stat_clients": "80 clients",
         "stat_clients_desc": "Industry, robotics, equipment...",
-        "stat_migrations": "57 migrations",
+        "stat_migrations": "65 migrations",
         "stat_migrations_desc": "Servers, upgrades, replications...",
-        "stat_diagnostic": "72h",
-        "stat_diagnostic_desc": "Express diagnostic with action plan",
-        "stat_deployments": "11 deployments",
+        "stat_diagnostic": "95 projects",
+        "stat_diagnostic_desc": "Delivered since 2020",
+        "stat_deployments": "13 deployments",
         "stat_deployments_desc": "+ 1 complete Set & Run",
-        "card_conseil_kicker": "💡 Consulting",
-        "card_conseil_title": "Clear PDM/PLM Architecture",
-        "card_conseil_desc": "Quick mapping of your environment, user rights definition, data models and optimized BOMs for <strong>SOLIDWORKS PDM</strong>, <strong>3DEXPERIENCE</strong> or <strong>Windchill</strong>.",
-        "card_conseil_li1": "✓ Scoping workshops and express audit",
-        "card_conseil_li2": "✓ Prioritized remediation plan",
-        "card_conseil_li3": "✓ Maintainable documentation",
+        "card_conseil_kicker": "💡 Expertise",
+        "card_conseil_title": "Architecture & PDM/PLM Audit",
+        "card_conseil_desc": "Environment mapping, user rights, data models and BOMs — proficiency in <strong>SOLIDWORKS PDM</strong>, <strong>3DEXPERIENCE</strong> and <strong>Windchill</strong>.",
+        "card_conseil_li1": "✓ Infrastructure audits and diagnostics",
+        "card_conseil_li2": "✓ Remediation plans and roadmaps",
+        "card_conseil_li3": "✓ Comprehensive technical documentation",
         "card_badge": "POPULAR",
         "card_delivery_kicker": "🚀 Delivery",
-        "card_delivery_title": "Acceptance & Industrialization",
-        "card_delivery_desc": "Guided production deployment with rigorous test procedures, detailed integration checklists, and personalized coaching of internal leaders.",
-        "card_delivery_li1": "✓ Ready-to-use validation scenarios",
-        "card_delivery_li2": "✓ Reviews with key stakeholders",
-        "card_delivery_li3": "✓ Knowledge transfer and capitalization",
-        "card_veille_kicker": "📡 Watch",
-        "card_veille_title": "Daily Radar & blog",
-        "card_veille_desc": "A clean format combining PDM/PLM market signals, technical summaries, and answers to frequently asked questions from BE/IT teams.",
-        "card_veille_li1": "✓ Daily PDM/PLM radars",
-        "card_veille_li2": "✓ Reusable in-depth guides",
+        "card_delivery_title": "Production Rollout & Acceptance",
+        "card_delivery_desc": "Production deployments with rigorous test procedures, integration checklists and knowledge transfer to internal teams.",
+        "card_delivery_li1": "✓ Proven validation scenarios",
+        "card_delivery_li2": "✓ Reviews with business teams",
+        "card_delivery_li3": "✓ Knowledge capitalization",
+        "card_veille_kicker": "📝 Blog",
+        "card_veille_title": "In-depth PDM/PLM Articles",
+        "card_veille_desc": "Deep-dive analyses on BOM, PDM, PLM and ERP — drawn from 80+ real-world missions, not generic content.",
+        "card_veille_li1": "✓ BOM, eBOM, mBOM and ERP integration",
+        "card_veille_li2": "✓ SOLIDWORKS hardware configuration",
         "card_veille_link": "→ Access the blog",
-        "clients_title": "69 Clients supported by sector",
-        "sector_robotics_title": "Automation & Robotics",
-        "sector_robotics_desc": "Startups, SMEs & Innovative ETIs",
-        "sector_industry_title": "Industry & Energy",
-        "sector_industry_desc": "Large Groups & ETIs",
+        "clients_title": "80 clients supported by sector",
         "sector_machines_title": "Machines & Equipment",
-        "sector_machines_desc": "Machine & Production Line Manufacturers",
-        "sector_transport_title": "Transport & Mobility",
-        "sector_transport_desc": "Major Sector Players",
+        "sector_machines_desc": "Machine & production line manufacturers",
+        "sector_industry_title": "Industry & Energy",
+        "sector_industry_desc": "Large groups & industrial mid-caps",
+        "sector_robotics_title": "Automation & Robotics",
+        "sector_robotics_desc": "Startups, SMEs & innovative mid-caps",
         "sector_metal_title": "Metallurgy & Processing",
-        "sector_metal_desc": "Processing Industries",
+        "sector_metal_desc": "Processing industries",
+        "sector_btp_title": "Construction, Food & Other",
+        "sector_btp_desc": "Construction, food industry, medical, furniture...",
         "sector_international_title": "International",
-        "sector_international_desc": "VISIATIV AFRICA - Multi-site Projects",
+        "sector_international_desc": "Multi-site projects & international deployments",
+        "project_types_title": "95 projects by type of intervention",
         "featured_projects_title": "Featured Projects",
         "project_type_robotics": "Robotics",
         "project_1_title": "HUMANOID ROBOTICS",
@@ -365,7 +373,9 @@ const blogTranslations = {
             blog_back_to_portfolio: "Retour au portfolio",
             blog_badge_editorial: "Article de fond",
             blog_cta_summary: "Consulter le sommaire",
-            blog_cta_discuss_project: "Discuter de votre projet",
+            blog_cta_discuss_project: "Me contacter",
+            blog_cta_all_articles: "Tous les articles",
+            blog_cta_linkedin: "Me contacter",
             blog_summary_title: "Sommaire"
         },
         pages: {
@@ -450,9 +460,9 @@ const blogTranslations = {
                 blog_config_plan_item2: `<strong>Sprint&nbsp;2&nbsp;:</strong> déploiement des nouvelles stations et mise à niveau réseau. KPI&nbsp;: zéro erreur de check-in PDM, latence moyenne &lt;&nbsp;2&nbsp;ms.`,
                 blog_config_plan_item3: `<strong>Sprint&nbsp;3&nbsp;:</strong> bascule serveur PDM, sauvegarde 3-2-1, formation utilisateurs. KPI&nbsp;: satisfaction utilisateurs &gt;&nbsp;8/10, PRA testé et validé.`,
                 blog_config_plan_outro: "Ce plan permet d'engranger des gains dès le premier mois tout en alignant IT, bureau d'études et direction industrielle sur la même feuille de route.",
-                blog_config_cta_title: "Vous voulez fiabiliser votre environnement SOLIDWORKS&nbsp;?",
-                blog_config_cta_text: "Je vous aide à cadrer l'audit, hiérarchiser les investissements et orchestrer le déploiement sans interrompre la production. Discutons de vos priorités.",
-                blog_config_cta_button: "Planifier un échange"
+                blog_config_cta_title: "Vous avez trouvé cet article utile ?",
+                blog_config_cta_text: "Je partage régulièrement des retours d'expérience terrain sur SOLIDWORKS et la gestion des données techniques.",
+                blog_config_cta_button: "Me contacter"
             },
             "resolutions-problematiques-plm": {
                 blog_plm_hero_eyebrow: "Expérience terrain",
@@ -518,9 +528,198 @@ const blogTranslations = {
                 blog_plm_traceability_p1: "Dans des secteurs réglementés, prouver la conformité d'un produit est aussi important que le produit lui-même. Avant l'arrivée d'un PLM, la traçabilité reposait sur des dossiers papier et la mémoire des ingénieurs. J'ai vu un audit repoussé parce qu'il était impossible de démontrer la généalogie complète d'un composant.",
                 blog_plm_traceability_p2: "Avec un PLM, chaque décision, chaque validation et chaque version est enregistrée. Lors d'un projet piloté par Visiativ, nous avons pu répondre à un audit en quelques clics, fournissant l'historique complet des modifications d'une pièce critique. La confiance du client s'en est trouvée renforcée.",
                 blog_plm_outro_p1: "Ces cinq problématiques ne sont pas de simples cas d'école. Elles ont freiné des projets auxquels j'ai participé et m'ont parfois laissé un goût d'inachevé. Aujourd'hui, en tant que consultant PDM/PLM chez Visiativ, je mets cette expérience au service des entreprises qui veulent éviter ces pièges.",
-                blog_plm_cta_title: "Envie de résoudre vos problématiques PLM&nbsp;?",
-                blog_plm_cta_text: "Construisons ensemble une feuille de route pragmatique, ancrée dans votre réalité terrain. Une simple discussion peut révéler les priorités à adresser en premier.",
-                blog_plm_cta_button: "Planifier un échange"
+                blog_plm_cta_title: "Vous avez trouvé cet article utile ?",
+                blog_plm_cta_text: "Je partage régulièrement des retours d'expérience terrain sur les problématiques PLM rencontrées en industrie.",
+                blog_plm_cta_button: "Me contacter"
+            },
+            "nomenclature-bom-pdm-plm-erp": {
+                blog_bom_badge_type: "PDM · PLM · ERP",
+                blog_bom_hero_eyebrow: "Données produit &amp; systèmes d'information",
+                blog_bom_hero_title: "Nomenclature, BOM, eBOM, mBOM : la colonne vertébrale de vos données produit — et le rôle de PDM, PLM et ERP",
+                blog_bom_hero_subtitle: `Publié le <span data-date-iso="2026-03-16T00:00:00.000Z" data-date-format="long">16 mars 2026</span> — un retour terrain sur la façon dont BOM, PDM, PLM et ERP s'articulent (ou se déchirent) dans les bureaux d'études industriels.`,
+                blog_bom_stat_publication: "Date de publication",
+                blog_bom_stat_systems: "Systèmes analysés",
+                blog_bom_stat_clients: "Clients accompagnés",
+                blog_bom_hero_figcaption: "BOM, PDM, PLM, ERP : quatre notions fondamentales que tout ingénieur produit doit maîtriser pour piloter ses données sans friction.",
+                blog_bom_summary_label1: "C'est quoi une nomenclature (BOM) ?",
+                blog_bom_summary_meta1: "Définition, structure, niveaux, types",
+                blog_bom_summary_label2: "eBOM vs mBOM : deux lectures d'un même produit",
+                blog_bom_summary_meta2: "Bureau d'études vs fabrication",
+                blog_bom_summary_label3: "Le PDM : gardien des données CAO et de la eBOM",
+                blog_bom_summary_meta3: "Ce qu'il fait, ce qu'il ne fait pas",
+                blog_bom_summary_label4: "Le PLM : orchestrateur du cycle de vie",
+                blog_bom_summary_meta4: "Gouvernance, ECO/ECR, config. management",
+                blog_bom_summary_label5: "L'ERP : la mBOM en production et en achat",
+                blog_bom_summary_meta5: "SAP, Sage, Cegid et la réalité terrain",
+                blog_bom_summary_label6: "Les liens entre les trois systèmes",
+                blog_bom_summary_meta6: "Flux, interfaces, points de friction",
+                blog_bom_summary_label7: "Ce qui se passe quand rien n'est aligné",
+                blog_bom_summary_meta7: "Erreurs terrain, coûts cachés, plan d'action",
+                blog_bom_s1_title: "1. C'est quoi une nomenclature (BOM) ?",
+                blog_bom_s1_p1: "La <strong>BOM</strong> (Bill of Materials — nomenclature en français) est la liste structurée de tous les composants, sous-assemblages et matières nécessaires pour fabriquer un produit. C'est le document pivot entre la conception, la production et les achats.",
+                blog_bom_s1_p2: "Elle n'est pas un simple inventaire. Elle encode les relations hiérarchiques entre pièces : un vérin hydraulique est un sous-assemblage qui contient un corps, un piston, des joints, des vis. Supprimer une ligne ou se tromper de quantité peut déclencher un arrêt de ligne ou un rappel produit.",
+                blog_bom_s1_quote: "Chez un fabricant d'équipements industriels que j'accompagnais, une seule ligne BOM incorrecte dans Excel avait conduit à commander 12 fois trop de galets de renvoi. Le stock dormait depuis 8 mois. La BOM n'avait jamais été synchronisée entre le BE et la production.",
+                blog_bom_s1_card1_title: "Attributs de base",
+                blog_bom_s1_card1_item1: "Numéro de pièce (référence interne)",
+                blog_bom_s1_card1_item2: "Désignation / description",
+                blog_bom_s1_card1_item3: "Quantité et unité",
+                blog_bom_s1_card1_item4: "Niveau hiérarchique (niveau 0 = produit fini, niveau 1 = sous-assemblages…)",
+                blog_bom_s1_card1_item5: "Statut (en développement, validé, obsolète)",
+                blog_bom_s1_card2_title: "Attributs étendus",
+                blog_bom_s1_card2_item1: "Fournisseur et référence fournisseur",
+                blog_bom_s1_card2_item2: "Coût standard / coût réel",
+                blog_bom_s1_card2_item3: "Indice de révision",
+                blog_bom_s1_card2_item4: "Documents associés (plan, spec, DFM)",
+                blog_bom_s1_card2_item5: "Liens vers CAO (fichier SLDPRT, SLDASM…)",
+                blog_bom_s1_types_intro: "Il existe plusieurs <strong>types de BOM</strong> selon le stade du produit et l'utilisateur :",
+                blog_bom_s1_table_h_type: "Type",
+                blog_bom_s1_table_h_name: "Nom complet",
+                blog_bom_s1_table_h_owner: "Propriétaire",
+                blog_bom_s1_table_h_system: "Système",
+                blog_bom_s1_table_h_usage: "Usage principal",
+                blog_bom_s1_row1_name: "Engineering BOM",
+                blog_bom_s1_row1_owner: "Bureau d'études",
+                blog_bom_s1_row1_usage: "Conception, révisions, plans",
+                blog_bom_s1_row2_name: "Manufacturing BOM",
+                blog_bom_s1_row2_owner: "Méthodes / Production",
+                blog_bom_s1_row2_usage: "OF, achats, coûts de revient",
+                blog_bom_s1_row3_name: "Service BOM",
+                blog_bom_s1_row3_owner: "SAV / Maintenance",
+                blog_bom_s1_row3_usage: "Pièces détachées, interventions",
+                blog_bom_s1_row4_name: "Configurator BOM",
+                blog_bom_s1_row4_owner: "Commercial / CPQ",
+                blog_bom_s1_row4_usage: "Options, variantes, devis",
+                blog_bom_s1_callout_soft: "Ce sont les deux premières — <strong>eBOM et mBOM</strong> — qui concentrent 80 % des problèmes dans les PME industrielles. La transformation de l'une vers l'autre est souvent le chantier le plus sous-estimé d'un projet PDM/ERP.",
+                blog_bom_s2_title: "2. eBOM vs mBOM : deux lectures d'un même produit",
+                blog_bom_s2_p1: "La eBOM et la mBOM décrivent le même produit mais sous des angles radicalement différents. Confondre les deux, ou ne pas prévoir la transformation de l'une vers l'autre, est l'une des sources de friction les plus courantes entre bureaux d'études et ateliers.",
+                blog_bom_s2_card1_title: "eBOM — Engineering BOM",
+                blog_bom_s2_card1_item1: "Produite par le <strong>bureau d'études</strong>",
+                blog_bom_s2_card1_item2: "Reflète la <strong>structure fonctionnelle</strong> du produit tel que conçu",
+                blog_bom_s2_card1_item3: "Organisée autour des fonctions (module hydraulique, module électrique…)",
+                blog_bom_s2_card1_item4: "Liée aux fichiers CAO (SOLIDWORKS, Creo, Catia…)",
+                blog_bom_s2_card1_item5: "Gérée dans le <strong>PDM ou PLM</strong>",
+                blog_bom_s2_card1_item6: "Versionnée avec les indices de révision",
+                blog_bom_s2_card2_title: "mBOM — Manufacturing BOM",
+                blog_bom_s2_card2_item1: "Produite par les <strong>méthodes / fabrication</strong>",
+                blog_bom_s2_card2_item2: "Reflète la <strong>séquence d'assemblage</strong> réelle",
+                blog_bom_s2_card2_item3: "Peut éclater ou regrouper des niveaux de la eBOM selon les postes",
+                blog_bom_s2_card2_item4: "Contient des composants fantômes, des kits, des opérations",
+                blog_bom_s2_card2_item5: "Gérée dans l'<strong>ERP</strong> (SAP, Sage, Cegid, IFS…)",
+                blog_bom_s2_card2_item6: "Pilote les ordres de fabrication et les achats",
+                blog_bom_s2_p2: "La transformation eBOM → mBOM est rarement automatique. Elle nécessite une étape de <strong>transformation structurelle</strong> : des pièces disparaissent (brutes → usinées), des opérations s'ajoutent, des niveaux hiérarchiques sont réorganisés selon les gammes de fabrication.",
+                blog_bom_s2_callout: "Un même produit peut avoir une eBOM à 4 niveaux et une mBOM à 7 niveaux — ou l'inverse. Ce n'est pas un bug, c'est la réalité de deux métiers qui ont des besoins différents.",
+                blog_bom_s3_title: "3. Le PDM : gardien des données CAO et de la eBOM",
+                blog_bom_s3_p1: "Le <strong>PDM</strong> (Product Data Management) est un système de gestion des données techniques issues de la CAO. Son rôle principal est de stocker, versionner et sécuriser les fichiers SOLIDWORKS, les plans, les propriétés personnalisées, et d'en extraire automatiquement la nomenclature (eBOM).",
+                blog_bom_s3_card1_title: "Ce que fait un PDM",
+                blog_bom_s3_card1_item1: "Coffre de données CAO avec gestion des droits",
+                blog_bom_s3_card1_item2: "Versioning et indices de révision (A, B, C…)",
+                blog_bom_s3_card1_item3: "Extraction automatique de la eBOM depuis les assemblages CAO",
+                blog_bom_s3_card1_item4: "Gestion des états (En cours / Validé / Obsolète)",
+                blog_bom_s3_card1_item5: "Workflows d'approbation (validation plan, visa BE)",
+                blog_bom_s3_card1_item6: "Réplication multi-sites pour les entreprises distribuées",
+                blog_bom_s3_card1_item7: "Archivage froid (Cold Storage) des données historiques",
+                blog_bom_s3_card2_title: "Ce que ne fait pas un PDM",
+                blog_bom_s3_card2_item1: "Gérer les modifications produit (ECO/ECR) de façon formelle",
+                blog_bom_s3_card2_item2: "Piloter les projets ou les jalons",
+                blog_bom_s3_card2_item3: "Gérer les coûts ou les approvisionnements",
+                blog_bom_s3_card2_item4: "Tracer la configuration produit sur plusieurs variantes",
+                blog_bom_s3_card2_item5: "Orchestrer les échanges entre BE, méthodes et production",
+                blog_bom_s3_solutions_intro: "Les solutions PDM les plus répandues dans les PME industrielles françaises que j'accompagne :",
+                blog_bom_s3_pdm1: "<strong>SOLIDWORKS PDM Standard / Professional</strong> — la solution la plus courante dans les BE sous SOLIDWORKS (80 % de mes clients)",
+                blog_bom_s3_pdm2: "<strong>PTC Windchill PDMLink</strong> — couplé à Creo, orienté grands comptes",
+                blog_bom_s3_pdm3: "<strong>3DEXPERIENCE Platform</strong> (Dassault Systèmes) — PDM intégré dans un environnement PLM complet",
+                blog_bom_s3_pdm4: "<strong>Autodesk Vault</strong> — pour les BE sous Inventor",
+                blog_bom_s3_callout: "<strong>Principe fondamental :</strong> un PDM bien configuré produit une eBOM propre et versionnée. C'est la matière première que le PLM va gouverner et que l'ERP va consommer. Sans PDM, la eBOM existe dans des fichiers Excel, et tout le reste est fragilisé.",
+                blog_bom_s4_title: "4. Le PLM : orchestrateur du cycle de vie",
+                blog_bom_s4_p1: "Le <strong>PLM</strong> (Product Lifecycle Management) est une stratégie — autant qu'un système — qui couvre l'ensemble du cycle de vie d'un produit : de l'idéation à la mise hors service. Il englobe le PDM, mais va bien au-delà.",
+                blog_bom_s4_p2: "Là où le PDM se concentre sur les <em>données</em> (fichiers, eBOM, états), le PLM se concentre sur les <em>processus</em> qui font évoluer ces données.",
+                blog_bom_s4_card1_title: "Ce que fait un PLM",
+                blog_bom_s4_card1_item1: "Gestion des modifications formelles (ECR / ECO)",
+                blog_bom_s4_card1_item2: "Configuration management (tracer quelle version est chez quel client)",
+                blog_bom_s4_card1_item3: "Gestion de projet produit (jalons, livrables, ressources)",
+                blog_bom_s4_card1_item4: "Intégration multi-disciplines (mécanique, électrique, logiciel)",
+                blog_bom_s4_card1_item5: "Qualification et validation (DFMEA, DVP, plans de validation)",
+                blog_bom_s4_card1_item6: "Gestion des exigences (traçabilité exigences → conception)",
+                blog_bom_s4_card1_item7: "Portail fournisseurs (partage de données CAO avec sous-traitants)",
+                blog_bom_s4_card2_title: "Solutions PLM du marché",
+                blog_bom_s4_card2_item1: "<strong>3DEXPERIENCE</strong> (Dassault Systèmes) — PDM + PLM + collaboration",
+                blog_bom_s4_card2_item2: "<strong>PTC Windchill</strong> — référence industrie aéronautique / défense",
+                blog_bom_s4_card2_item3: "<strong>Siemens Teamcenter</strong> — automobile et aérospace",
+                blog_bom_s4_card2_item4: "<strong>Arena PLM / Propel</strong> — orienté électronique et PME tech",
+                blog_bom_s4_card2_item5: "<strong>OpenBOM, Aligni</strong> — PLM léger pour startups hardtech",
+                blog_bom_s4_p3: "En pratique, la frontière entre PDM et PLM est souvent floue. Beaucoup de PME n'ont qu'un PDM (SOLIDWORKS PDM) et appellent ça \"leur PLM\". Ce n'est pas faux dans l'usage, mais il faut savoir ce qui manque : la gestion formelle des modifications, la traçabilité de configuration, le lien avec les projets.",
+                blog_bom_s4_quote: "Le PDM vous dit <em>ce que</em> vous avez conçu et <em>quand</em>. Le PLM vous dit <em>pourquoi</em> c'est différent de la version précédente, <em>qui</em> a approuvé le changement, et <em>quelles</em> machines en service sont impactées.",
+                blog_bom_s5_title: "5. L'ERP : la mBOM en production et en achat",
+                blog_bom_s5_p1: "L'<strong>ERP</strong> (Enterprise Resource Planning) est le système de gestion de l'entreprise au sens large : finances, ressources humaines, achats, stocks, production, logistique. Dans notre contexte, ce qui nous intéresse c'est le module <strong>GPAO</strong> (Gestion de Production Assistée par Ordinateur) et la gestion des nomenclatures de fabrication.",
+                blog_bom_s5_p2: "L'ERP consomme la <strong>mBOM</strong> pour :",
+                blog_bom_s5_li1: "Générer les <strong>ordres de fabrication</strong> (OF) avec les composants nécessaires",
+                blog_bom_s5_li2: "Déclencher les <strong>ordres d'achat</strong> selon les besoins nets (calcul MRP)",
+                blog_bom_s5_li3: "Calculer les <strong>coûts de revient</strong> (coût standard × quantités BOM)",
+                blog_bom_s5_li4: "Piloter le <strong>stock</strong> en consommant les composants à l'émission de chaque OF",
+                blog_bom_s5_li5: "Tracer la <strong>traçabilité de production</strong> (numéro de lot, N/S)",
+                blog_bom_s5_card1_title: "ERPs courants en industrie française",
+                blog_bom_s5_card1_item1: "<strong>SAP S/4HANA / SAP Business One</strong> — grands comptes et ETI",
+                blog_bom_s5_card1_item2: "<strong>Sage X3 / Sage 100</strong> — PME industrielles, très répandu",
+                blog_bom_s5_card1_item3: "<strong>Cegid XRP Flex</strong> — PME, souvent couplé à SOLIDWORKS PDM via Gateway",
+                blog_bom_s5_card1_item4: "<strong>IFS Applications</strong> — industrie manufacturière, aéronautique",
+                blog_bom_s5_card1_item5: "<strong>Odoo</strong> — PME / startups industrielles (open source)",
+                blog_bom_s5_card1_item6: "<strong>Sylob</strong> — ERP dédié industrie manufacture",
+                blog_bom_s5_card2_title: "Ce que l'ERP ne fait pas côté produit",
+                blog_bom_s5_card2_item1: "Gérer les fichiers CAO ou les plans",
+                blog_bom_s5_card2_item2: "Versionner les pièces par indice de révision technique",
+                blog_bom_s5_card2_item3: "Piloter les workflows de validation BE",
+                blog_bom_s5_card2_item4: "Comprendre la structure fonctionnelle (eBOM)",
+                blog_bom_s5_card2_item5: "Gérer les ECO/ECR formels",
+                blog_bom_s5_callout: "L'ERP est impitoyable sur la qualité de la mBOM. Une erreur de quantité dans la BOM ERP, c'est un stock erroné, un coût de revient faux, et potentiellement une ligne de production arrêtée. C'est pour ça que la synchronisation PDM → ERP (via un connecteur ou la PDM Gateway) est l'un des projets les plus critiques qu'on me demande de traiter.",
+                blog_bom_s6_title: "6. Les liens entre PDM, PLM et ERP",
+                blog_bom_s6_p1: "Les trois systèmes ne sont pas des silos indépendants. Ils échangent des données dans les deux sens, et c'est précisément là que les entreprises rencontrent le plus de difficultés.",
+                blog_bom_s6_flux1_title: "Le flux principal : PDM → ERP (eBOM → mBOM)",
+                blog_bom_s6_flux1_p: "C'est le flux le plus courant. À chaque validation d'une nomenclature dans le PDM, les données doivent être transmises à l'ERP pour créer ou mettre à jour la BOM de fabrication. Ce transfert est rarement automatique dans les PME : il se fait encore souvent manuellement, via des exports Excel.",
+                blog_bom_s6_flux1_mecas_intro: "Les mécanismes d'intégration existants :",
+                blog_bom_s6_flux1_meca1: "<strong>PDM Gateway</strong> (SOLIDWORKS PDM Pro) — connecteur natif vers SAP, Sage, Cegid et d'autres ERP via XML/CSV",
+                blog_bom_s6_flux1_meca2: "<strong>API REST / Web Services</strong> — pour les intégrations sur mesure",
+                blog_bom_s6_flux1_meca3: "<strong>Middleware EAI</strong> (Boomi, MuleSoft, Talend) — pour les architectures complexes multi-sites",
+                blog_bom_s6_flux1_meca4: "<strong>Export/import CSV manuel</strong> — la réalité de 60 % des PME de moins de 100 personnes",
+                blog_bom_s6_flux2_title: "Le flux PLM → ERP : les modifications produit",
+                blog_bom_s6_flux2_p: "Quand une modification produit (ECO) est validée dans le PLM, elle doit déclencher une mise à jour coordonnée : nouvelle révision dans le PDM <em>et</em> mise à jour de la mBOM dans l'ERP. C'est là que les BOM divergent si les processus ne sont pas formalisés.",
+                blog_bom_s6_flux3_title: "Le flux ERP → PLM : remontée terrain",
+                blog_bom_s6_flux3_p: "Moins connu, mais crucial : les retours de production (rebuts, substitutions de composants, non-conformités) doivent remonter vers le PLM pour déclencher des modifications formelles. Sans cette boucle, le design reste figé sur une réalité de terrain qui a évolué.",
+                blog_bom_s6_archi1_title: "Architecture idéale (PME &gt; 50 pers.)",
+                blog_bom_s6_archi1_item1: "PDM = source de vérité des données CAO + eBOM",
+                blog_bom_s6_archi1_item2: "PLM = gouvernance des modifications et de la configuration",
+                blog_bom_s6_archi1_item3: "ERP = exécution production, achats, coûts via mBOM",
+                blog_bom_s6_archi1_item4: "Connecteur PDM → ERP automatisé sur validation",
+                blog_bom_s6_archi1_item5: "Processus ECO formalisé entre PLM et ERP",
+                blog_bom_s6_archi2_title: "Architecture fréquente (PME &lt; 50 pers.)",
+                blog_bom_s6_archi2_item1: "PDM = SOLIDWORKS PDM Standard (coffre + eBOM basique)",
+                blog_bom_s6_archi2_item2: "Pas de PLM dédié — ECO par email ou réunion",
+                blog_bom_s6_archi2_item3: "ERP = Sage ou Cegid, BOM saisie manuellement",
+                blog_bom_s6_archi2_item4: "Synchronisation PDM/ERP = export CSV hebdomadaire",
+                blog_bom_s6_archi2_item5: "Divergences BOM régulières, détectées en production",
+                blog_bom_s7_title: "7. Ce qui se passe quand rien n'est aligné",
+                blog_bom_s7_p1: "Après 80 clients et 95 projets PDM, voici les symptômes récurrents que j'observe quand PDM, PLM et ERP ne parlent pas le même langage :",
+                blog_bom_s7_card1_title: "Dans le bureau d'études",
+                blog_bom_s7_card1_item1: "Plusieurs versions d'une même pièce en circulation sans contrôle d'indice",
+                blog_bom_s7_card1_item2: "Nomenclatures CAO qui diffèrent des nomenclatures ERP sans raison connue",
+                blog_bom_s7_card1_item3: "Ingénieurs qui \"sauvegardent\" les plans sur des dossiers réseau partagés en parallèle du PDM",
+                blog_bom_s7_card1_item4: "Temps de recherche d'un fichier &gt; 15 minutes par occurrence",
+                blog_bom_s7_card2_title: "En production et achats",
+                blog_bom_s7_card2_item1: "Ordres d'achat sur des références obsolètes",
+                blog_bom_s7_card2_item2: "Stock de composants jamais utilisés (BOM ERP pas mise à jour)",
+                blog_bom_s7_card2_item3: "Arrêts de ligne pour pièces manquantes non prévues dans la BOM",
+                blog_bom_s7_card2_item4: "Coût de revient calculé sur une BOM qui ne correspond plus au produit réel",
+                blog_bom_s7_p2: "Ces dysfonctionnements ont un coût direct. Une étude Aberdeen Group régulièrement citée dans le secteur évalue à <strong>2 à 4 % du chiffre d'affaires</strong> le coût des erreurs BOM dans les entreprises manufacturières sans intégration PDM/ERP correcte.",
+                blog_bom_s7_quote: "La bonne nouvelle : dans la majorité des cas, les données ne sont pas perdues. Elles existent dans le PDM, dans l'ERP, parfois dans Excel. Le travail consiste à identifier l'écart, définir la source de vérité, et mettre en place la synchronisation. C'est un chantier de 2 à 6 mois, pas une révolution.",
+                blog_bom_s7_plan_title: "Par où commencer ?",
+                blog_bom_s7_plan_item1: "<strong>Auditer l'état de votre PDM</strong> — est-ce que la eBOM générée est propre, à jour, avec des propriétés standardisées ?",
+                blog_bom_s7_plan_item2: "<strong>Comparer eBOM PDM et mBOM ERP</strong> sur un produit représentatif — mesurer l'écart",
+                blog_bom_s7_plan_item3: "<strong>Formaliser un processus de modification</strong> — même simple, même sans outil PLM dédié",
+                blog_bom_s7_plan_item4: "<strong>Automatiser le flux PDM → ERP</strong> si le volume le justifie (PDM Gateway ou script d'export structuré)",
+                blog_bom_s7_plan_item5: "<strong>Former les acteurs</strong> — BE, méthodes et supply chain doivent parler le même langage BOM",
+                blog_bom_s7_callout_soft: "<strong>Indicateur clé :</strong> comptez le nombre de BOM actives dans votre ERP dont l'indice de révision ne correspond pas à la dernière révision validée dans le PDM. Ce chiffre, seul, suffit à justifier ou non un chantier de synchronisation.",
+                blog_bom_cta_title: "Vous avez trouvé cet article utile ?",
+                blog_bom_cta_text: "Je partage régulièrement des retours d'expérience terrain sur la gestion des données techniques industrielles.",
+                blog_bom_cta_button: "Me contacter"
             }
         }
     },
@@ -530,7 +729,9 @@ const blogTranslations = {
             blog_back_to_portfolio: "Back to the portfolio",
             blog_badge_editorial: "Feature article",
             blog_cta_summary: "View the outline",
-            blog_cta_discuss_project: "Discuss your project",
+            blog_cta_discuss_project: "Contact Me",
+            blog_cta_all_articles: "All articles",
+            blog_cta_linkedin: "Contact Me",
             blog_summary_title: "Outline"
         },
         pages: {
@@ -615,9 +816,9 @@ const blogTranslations = {
                 blog_config_plan_item2: `<strong>Sprint&nbsp;2:</strong> deploy new stations and upgrade the network. KPI: zero PDM check-in errors, average latency &lt;&nbsp;2&nbsp;ms.`,
                 blog_config_plan_item3: `<strong>Sprint&nbsp;3:</strong> switch the PDM server, implement 3-2-1 backups, train users. KPI: user satisfaction &gt;&nbsp;8/10, DR plan tested and approved.`,
                 blog_config_plan_outro: "This plan generates gains from the first month while aligning IT, the design office, and operations on the same roadmap.",
-                blog_config_cta_title: "Want to stabilize your SOLIDWORKS environment?",
-                blog_config_cta_text: "I help you frame the audit, prioritize investments, and orchestrate deployment without interrupting production. Let's discuss your priorities.",
-                blog_config_cta_button: "Schedule a call"
+                blog_config_cta_title: "Found this article useful?",
+                blog_config_cta_text: "I regularly share field experience on SOLIDWORKS and technical data management.",
+                blog_config_cta_button: "Contact Me"
             },
             "resolutions-problematiques-plm": {
                 blog_plm_hero_eyebrow: "Field experience",
@@ -683,9 +884,198 @@ const blogTranslations = {
                 blog_plm_traceability_p1: "In regulated industries, proving product compliance is as critical as the product itself. Before PLM, traceability relied on paper binders and engineers’ memory. I saw an audit postponed because it was impossible to demonstrate the full genealogy of a component.",
                 blog_plm_traceability_p2: "With a PLM, every decision, approval, and version is recorded. On a project led by Visiativ we answered an audit in just a few clicks, providing the complete change history of a critical part. Customer trust was strengthened.",
                 blog_plm_outro_p1: "These five challenges are not textbook examples. They slowed projects I worked on and sometimes left me frustrated. Today, as a PDM/PLM consultant at Visiativ, I leverage that experience to help companies avoid these pitfalls.",
-                blog_plm_cta_title: "Want to tackle your PLM challenges?",
-                blog_plm_cta_text: "Let's build a pragmatic roadmap anchored in your field reality. A short discussion can surface the priorities to address first.",
-                blog_plm_cta_button: "Schedule a call"
+                blog_plm_cta_title: "Found this article useful?",
+                blog_plm_cta_text: "I regularly share field experience on PLM challenges encountered in industry.",
+                blog_plm_cta_button: "Contact Me"
+            },
+            "nomenclature-bom-pdm-plm-erp": {
+                blog_bom_badge_type: "PDM · PLM · ERP",
+                blog_bom_hero_eyebrow: "Product data &amp; information systems",
+                blog_bom_hero_title: "BOM, eBOM, mBOM: the backbone of your product data — and the role of PDM, PLM and ERP",
+                blog_bom_hero_subtitle: `Published on <span data-date-iso="2026-03-16T00:00:00.000Z" data-date-format="long">March 16, 2026</span> — a field perspective on how BOM, PDM, PLM and ERP fit together (or fall apart) in industrial design offices.`,
+                blog_bom_stat_publication: "Publication date",
+                blog_bom_stat_systems: "Systems analysed",
+                blog_bom_stat_clients: "Clients supported",
+                blog_bom_hero_figcaption: "BOM, PDM, PLM, ERP: four fundamental concepts every product engineer must master to manage data without friction.",
+                blog_bom_summary_label1: "What is a BOM (Bill of Materials)?",
+                blog_bom_summary_meta1: "Definition, structure, levels, types",
+                blog_bom_summary_label2: "eBOM vs mBOM: two views of the same product",
+                blog_bom_summary_meta2: "Design office vs manufacturing",
+                blog_bom_summary_label3: "PDM: guardian of CAD data and the eBOM",
+                blog_bom_summary_meta3: "What it does, what it doesn't",
+                blog_bom_summary_label4: "PLM: lifecycle orchestrator",
+                blog_bom_summary_meta4: "Governance, ECO/ECR, configuration management",
+                blog_bom_summary_label5: "ERP: mBOM in production and purchasing",
+                blog_bom_summary_meta5: "SAP, Sage, Cegid and the field reality",
+                blog_bom_summary_label6: "The links between the three systems",
+                blog_bom_summary_meta6: "Data flows, interfaces, friction points",
+                blog_bom_summary_label7: "What happens when nothing is aligned",
+                blog_bom_summary_meta7: "Field errors, hidden costs, action plan",
+                blog_bom_s1_title: "1. What is a BOM (Bill of Materials)?",
+                blog_bom_s1_p1: "A <strong>BOM</strong> (Bill of Materials) is the structured list of all components, sub-assemblies and materials required to manufacture a product. It is the pivot document between design, production and purchasing.",
+                blog_bom_s1_p2: "It is not a simple inventory. It encodes hierarchical relationships between parts: a hydraulic cylinder is a sub-assembly containing a body, a piston, seals and bolts. Removing a line or entering the wrong quantity can trigger a production line stoppage or a product recall.",
+                blog_bom_s1_quote: "At an industrial equipment manufacturer I was working with, a single incorrect BOM line in Excel led to ordering 12 times too many return rollers. The stock had been sitting idle for 8 months. The BOM had never been synchronised between the design office and production.",
+                blog_bom_s1_card1_title: "Basic attributes",
+                blog_bom_s1_card1_item1: "Part number (internal reference)",
+                blog_bom_s1_card1_item2: "Name / description",
+                blog_bom_s1_card1_item3: "Quantity and unit",
+                blog_bom_s1_card1_item4: "Hierarchical level (level 0 = finished product, level 1 = sub-assemblies…)",
+                blog_bom_s1_card1_item5: "Status (in development, approved, obsolete)",
+                blog_bom_s1_card2_title: "Extended attributes",
+                blog_bom_s1_card2_item1: "Supplier and supplier reference",
+                blog_bom_s1_card2_item2: "Standard cost / actual cost",
+                blog_bom_s1_card2_item3: "Revision index",
+                blog_bom_s1_card2_item4: "Associated documents (drawing, spec, DFM)",
+                blog_bom_s1_card2_item5: "CAD file links (SLDPRT, SLDASM…)",
+                blog_bom_s1_types_intro: "There are several <strong>BOM types</strong> depending on the product stage and the user:",
+                blog_bom_s1_table_h_type: "Type",
+                blog_bom_s1_table_h_name: "Full name",
+                blog_bom_s1_table_h_owner: "Owner",
+                blog_bom_s1_table_h_system: "System",
+                blog_bom_s1_table_h_usage: "Main use",
+                blog_bom_s1_row1_name: "Engineering BOM",
+                blog_bom_s1_row1_owner: "Design office",
+                blog_bom_s1_row1_usage: "Design, revisions, drawings",
+                blog_bom_s1_row2_name: "Manufacturing BOM",
+                blog_bom_s1_row2_owner: "Methods / Production",
+                blog_bom_s1_row2_usage: "Work orders, purchasing, cost roll-up",
+                blog_bom_s1_row3_name: "Service BOM",
+                blog_bom_s1_row3_owner: "After-sales / Maintenance",
+                blog_bom_s1_row3_usage: "Spare parts, field interventions",
+                blog_bom_s1_row4_name: "Configurator BOM",
+                blog_bom_s1_row4_owner: "Sales / CPQ",
+                blog_bom_s1_row4_usage: "Options, variants, quotes",
+                blog_bom_s1_callout_soft: "The first two — <strong>eBOM and mBOM</strong> — account for 80% of problems in industrial SMEs. The transformation from one to the other is often the most underestimated workstream in a PDM/ERP project.",
+                blog_bom_s2_title: "2. eBOM vs mBOM: two views of the same product",
+                blog_bom_s2_p1: "The eBOM and mBOM describe the same product from radically different angles. Confusing the two, or failing to plan the transformation from one to the other, is one of the most common sources of friction between design offices and shop floors.",
+                blog_bom_s2_card1_title: "eBOM — Engineering BOM",
+                blog_bom_s2_card1_item1: "Created by the <strong>design office</strong>",
+                blog_bom_s2_card1_item2: "Reflects the <strong>functional structure</strong> of the product as designed",
+                blog_bom_s2_card1_item3: "Organised around functions (hydraulic module, electrical module…)",
+                blog_bom_s2_card1_item4: "Linked to CAD files (SOLIDWORKS, Creo, Catia…)",
+                blog_bom_s2_card1_item5: "Managed in <strong>PDM or PLM</strong>",
+                blog_bom_s2_card1_item6: "Versioned with revision indices",
+                blog_bom_s2_card2_title: "mBOM — Manufacturing BOM",
+                blog_bom_s2_card2_item1: "Created by <strong>methods / manufacturing</strong>",
+                blog_bom_s2_card2_item2: "Reflects the actual <strong>assembly sequence</strong>",
+                blog_bom_s2_card2_item3: "May split or merge eBOM levels based on work centres",
+                blog_bom_s2_card2_item4: "Includes phantom items, kits and operations",
+                blog_bom_s2_card2_item5: "Managed in the <strong>ERP</strong> (SAP, Sage, Cegid, IFS…)",
+                blog_bom_s2_card2_item6: "Drives work orders and purchasing",
+                blog_bom_s2_p2: "The eBOM → mBOM transformation is rarely automatic. It requires a <strong>structural transformation</strong> step: parts disappear (raw → machined), operations are added, and hierarchical levels are reorganised according to manufacturing routings.",
+                blog_bom_s2_callout: "The same product can have a 4-level eBOM and a 7-level mBOM — or vice versa. That's not a bug; it's the reality of two disciplines with different needs.",
+                blog_bom_s3_title: "3. PDM: guardian of CAD data and the eBOM",
+                blog_bom_s3_p1: "A <strong>PDM</strong> (Product Data Management) system manages the technical data produced by CAD. Its primary role is to store, version and secure SOLIDWORKS files, drawings and custom properties, and to automatically extract the bill of materials (eBOM).",
+                blog_bom_s3_card1_title: "What a PDM does",
+                blog_bom_s3_card1_item1: "CAD data vault with access rights management",
+                blog_bom_s3_card1_item2: "Versioning and revision indices (A, B, C…)",
+                blog_bom_s3_card1_item3: "Automatic eBOM extraction from CAD assemblies",
+                blog_bom_s3_card1_item4: "State management (In Progress / Approved / Obsolete)",
+                blog_bom_s3_card1_item5: "Approval workflows (drawing sign-off, design review)",
+                blog_bom_s3_card1_item6: "Multi-site replication for distributed companies",
+                blog_bom_s3_card1_item7: "Cold storage archiving for historical data",
+                blog_bom_s3_card2_title: "What a PDM does NOT do",
+                blog_bom_s3_card2_item1: "Formally manage product changes (ECO/ECR)",
+                blog_bom_s3_card2_item2: "Manage projects or milestones",
+                blog_bom_s3_card2_item3: "Handle costs or procurement",
+                blog_bom_s3_card2_item4: "Track product configuration across variants",
+                blog_bom_s3_card2_item5: "Orchestrate exchanges between design, methods and production",
+                blog_bom_s3_solutions_intro: "The most common PDM solutions in French industrial SMEs I work with:",
+                blog_bom_s3_pdm1: "<strong>SOLIDWORKS PDM Standard / Professional</strong> — the most common solution in SOLIDWORKS design offices (80% of my clients)",
+                blog_bom_s3_pdm2: "<strong>PTC Windchill PDMLink</strong> — paired with Creo, enterprise-focused",
+                blog_bom_s3_pdm3: "<strong>3DEXPERIENCE Platform</strong> (Dassault Systèmes) — PDM integrated in a full PLM environment",
+                blog_bom_s3_pdm4: "<strong>Autodesk Vault</strong> — for design offices using Inventor",
+                blog_bom_s3_callout: "<strong>Core principle:</strong> a well-configured PDM produces a clean, versioned eBOM. That is the raw material that PLM will govern and ERP will consume. Without PDM, the eBOM lives in Excel files, and everything else is weakened.",
+                blog_bom_s4_title: "4. PLM: lifecycle orchestrator",
+                blog_bom_s4_p1: "A <strong>PLM</strong> (Product Lifecycle Management) system is a strategy — as much as a tool — covering the entire product lifecycle: from ideation to end-of-life. It includes PDM, but goes far beyond it.",
+                blog_bom_s4_p2: "Where PDM focuses on <em>data</em> (files, eBOM, states), PLM focuses on the <em>processes</em> that evolve that data.",
+                blog_bom_s4_card1_title: "What a PLM does",
+                blog_bom_s4_card1_item1: "Formal change management (ECR / ECO)",
+                blog_bom_s4_card1_item2: "Configuration management (track which version is with which customer)",
+                blog_bom_s4_card1_item3: "Product project management (milestones, deliverables, resources)",
+                blog_bom_s4_card1_item4: "Multi-discipline integration (mechanical, electrical, software)",
+                blog_bom_s4_card1_item5: "Qualification and validation (DFMEA, DVP, validation plans)",
+                blog_bom_s4_card1_item6: "Requirements management (requirements → design traceability)",
+                blog_bom_s4_card1_item7: "Supplier portal (sharing CAD data with subcontractors)",
+                blog_bom_s4_card2_title: "PLM solutions on the market",
+                blog_bom_s4_card2_item1: "<strong>3DEXPERIENCE</strong> (Dassault Systèmes) — PDM + PLM + collaboration",
+                blog_bom_s4_card2_item2: "<strong>PTC Windchill</strong> — reference for aerospace and defence",
+                blog_bom_s4_card2_item3: "<strong>Siemens Teamcenter</strong> — automotive and aerospace",
+                blog_bom_s4_card2_item4: "<strong>Arena PLM / Propel</strong> — electronics and tech SMEs",
+                blog_bom_s4_card2_item5: "<strong>OpenBOM, Aligni</strong> — lightweight PLM for hardtech startups",
+                blog_bom_s4_p3: "In practice, the boundary between PDM and PLM is often blurry. Many SMEs only have a PDM (SOLIDWORKS PDM) and call it \"their PLM\". That's not wrong in usage, but it's worth knowing what's missing: formal change management, configuration traceability, project linkage.",
+                blog_bom_s4_quote: "PDM tells you <em>what</em> you designed and <em>when</em>. PLM tells you <em>why</em> it differs from the previous version, <em>who</em> approved the change, and <em>which</em> machines in the field are affected.",
+                blog_bom_s5_title: "5. ERP: mBOM in production and purchasing",
+                blog_bom_s5_p1: "An <strong>ERP</strong> (Enterprise Resource Planning) system manages the business broadly: finance, HR, purchasing, inventory, production, logistics. In our context, what matters is the <strong>MRP/production module</strong> and manufacturing BOM management.",
+                blog_bom_s5_p2: "The ERP consumes the <strong>mBOM</strong> to:",
+                blog_bom_s5_li1: "Generate <strong>work orders</strong> (WO) with the required components",
+                blog_bom_s5_li2: "Trigger <strong>purchase orders</strong> based on net requirements (MRP calculation)",
+                blog_bom_s5_li3: "Calculate <strong>cost roll-ups</strong> (standard cost × BOM quantities)",
+                blog_bom_s5_li4: "Drive <strong>inventory</strong> by consuming components when each WO is issued",
+                blog_bom_s5_li5: "Trace <strong>production traceability</strong> (batch number, serial number)",
+                blog_bom_s5_card1_title: "Common ERPs in French industry",
+                blog_bom_s5_card1_item1: "<strong>SAP S/4HANA / SAP Business One</strong> — large accounts and mid-market",
+                blog_bom_s5_card1_item2: "<strong>Sage X3 / Sage 100</strong> — industrial SMEs, widely used",
+                blog_bom_s5_card1_item3: "<strong>Cegid XRP Flex</strong> — SMEs, often coupled to SOLIDWORKS PDM via Gateway",
+                blog_bom_s5_card1_item4: "<strong>IFS Applications</strong> — manufacturing, aerospace",
+                blog_bom_s5_card1_item5: "<strong>Odoo</strong> — industrial SMEs / startups (open source)",
+                blog_bom_s5_card1_item6: "<strong>Sylob</strong> — ERP dedicated to manufacturing SMEs",
+                blog_bom_s5_card2_title: "What ERP does NOT do on the product side",
+                blog_bom_s5_card2_item1: "Manage CAD files or drawings",
+                blog_bom_s5_card2_item2: "Version parts by technical revision index",
+                blog_bom_s5_card2_item3: "Drive design approval workflows",
+                blog_bom_s5_card2_item4: "Understand the functional structure (eBOM)",
+                blog_bom_s5_card2_item5: "Manage formal ECO/ECR processes",
+                blog_bom_s5_callout: "ERP is unforgiving about mBOM quality. A quantity error in the ERP BOM means incorrect stock, a wrong cost roll-up, and potentially a stopped production line. That's why PDM → ERP synchronisation (via a connector or PDM Gateway) is one of the most critical projects I am asked to handle.",
+                blog_bom_s6_title: "6. The links between PDM, PLM and ERP",
+                blog_bom_s6_p1: "The three systems are not independent silos. They exchange data in both directions, and that is precisely where companies encounter the most difficulties.",
+                blog_bom_s6_flux1_title: "The main flow: PDM → ERP (eBOM → mBOM)",
+                blog_bom_s6_flux1_p: "This is the most common flow. Every time a BOM is approved in PDM, the data must be transferred to ERP to create or update the manufacturing BOM. This transfer is rarely automatic in SMEs: it is still often done manually via Excel exports.",
+                blog_bom_s6_flux1_mecas_intro: "Available integration mechanisms:",
+                blog_bom_s6_flux1_meca1: "<strong>PDM Gateway</strong> (SOLIDWORKS PDM Pro) — native connector to SAP, Sage, Cegid and other ERPs via XML/CSV",
+                blog_bom_s6_flux1_meca2: "<strong>REST API / Web Services</strong> — for custom integrations",
+                blog_bom_s6_flux1_meca3: "<strong>EAI Middleware</strong> (Boomi, MuleSoft, Talend) — for complex multi-site architectures",
+                blog_bom_s6_flux1_meca4: "<strong>Manual CSV export/import</strong> — the reality for 60% of SMEs with fewer than 100 employees",
+                blog_bom_s6_flux2_title: "The PLM → ERP flow: product changes",
+                blog_bom_s6_flux2_p: "When a product change (ECO) is approved in PLM, it must trigger a coordinated update: a new revision in PDM <em>and</em> an update to the mBOM in ERP. This is where BOMs diverge when processes are not formalised.",
+                blog_bom_s6_flux3_title: "The ERP → PLM flow: field feedback",
+                blog_bom_s6_flux3_p: "Less known but critical: production feedback (scrap, component substitutions, non-conformances) must flow back to PLM to trigger formal changes. Without this loop, the design remains frozen on a field reality that has moved on.",
+                blog_bom_s6_archi1_title: "Ideal architecture (SME &gt; 50 people)",
+                blog_bom_s6_archi1_item1: "PDM = single source of truth for CAD data + eBOM",
+                blog_bom_s6_archi1_item2: "PLM = governance of changes and configuration",
+                blog_bom_s6_archi1_item3: "ERP = production execution, purchasing, costs via mBOM",
+                blog_bom_s6_archi1_item4: "Automated PDM → ERP connector triggered on approval",
+                blog_bom_s6_archi1_item5: "Formalised ECO process between PLM and ERP",
+                blog_bom_s6_archi2_title: "Common architecture (SME &lt; 50 people)",
+                blog_bom_s6_archi2_item1: "PDM = SOLIDWORKS PDM Standard (vault + basic eBOM)",
+                blog_bom_s6_archi2_item2: "No dedicated PLM — ECO handled by email or meetings",
+                blog_bom_s6_archi2_item3: "ERP = Sage or Cegid, BOM entered manually",
+                blog_bom_s6_archi2_item4: "PDM/ERP sync = weekly CSV export",
+                blog_bom_s6_archi2_item5: "Regular BOM divergences, spotted in production",
+                blog_bom_s7_title: "7. What happens when nothing is aligned",
+                blog_bom_s7_p1: "After 80 clients and 95 PDM projects, here are the recurring symptoms I observe when PDM, PLM and ERP don't speak the same language:",
+                blog_bom_s7_card1_title: "In the design office",
+                blog_bom_s7_card1_item1: "Multiple versions of the same part circulating without revision control",
+                blog_bom_s7_card1_item2: "CAD BOMs that differ from ERP BOMs for no known reason",
+                blog_bom_s7_card1_item3: "Engineers \"saving\" drawings to shared network folders alongside the PDM",
+                blog_bom_s7_card1_item4: "File search time &gt; 15 minutes per occurrence",
+                blog_bom_s7_card2_title: "In production and purchasing",
+                blog_bom_s7_card2_item1: "Purchase orders against obsolete references",
+                blog_bom_s7_card2_item2: "Component stock that is never consumed (ERP BOM not updated)",
+                blog_bom_s7_card2_item3: "Line stoppages for parts missing from the BOM",
+                blog_bom_s7_card2_item4: "Cost roll-up calculated on a BOM that no longer matches the actual product",
+                blog_bom_s7_p2: "These failures have a direct cost. An Aberdeen Group study widely cited in the sector estimates BOM errors at <strong>2 to 4% of revenue</strong> for manufacturers without proper PDM/ERP integration.",
+                blog_bom_s7_quote: "The good news: in most cases, the data is not lost. It exists in PDM, in ERP, sometimes in Excel. The work is to identify the gap, define the source of truth, and put synchronisation in place. It's a 2 to 6-month project, not a revolution.",
+                blog_bom_s7_plan_title: "Where to start?",
+                blog_bom_s7_plan_item1: "<strong>Audit your PDM state</strong> — is the generated eBOM clean, up to date, with standardised properties?",
+                blog_bom_s7_plan_item2: "<strong>Compare PDM eBOM and ERP mBOM</strong> on a representative product — measure the gap",
+                blog_bom_s7_plan_item3: "<strong>Formalise a change process</strong> — even a simple one, even without a dedicated PLM tool",
+                blog_bom_s7_plan_item4: "<strong>Automate the PDM → ERP flow</strong> if volume justifies it (PDM Gateway or structured export script)",
+                blog_bom_s7_plan_item5: "<strong>Train the stakeholders</strong> — design, methods and supply chain must speak the same BOM language",
+                blog_bom_s7_callout_soft: "<strong>Key indicator:</strong> count the number of active BOMs in your ERP whose revision index does not match the latest approved revision in PDM. That number alone is enough to justify — or not — a synchronisation project.",
+                blog_bom_cta_title: "Found this article useful?",
+                blog_bom_cta_text: "I regularly share field experience on industrial technical data management.",
+                blog_bom_cta_button: "Contact Me"
             }
         }
     }
@@ -920,479 +1310,31 @@ if (langEnButton) {
 }
 //--------- LANGUAGE SWITCHER SCRIPT END ---------//
 
-const TicTacToe = {
-    active: false,
-    board: Array(9).fill(null),
-    human: 'X',
-    pc: 'O',
-    currentPlayer: 'X',
-    winningLines: [
-        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
-        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Cols
-        [0, 4, 8], [2, 4, 6]             // Diagonals
-    ],
-    cells: [],
-
-    initSVG: function () {
-        // SVG strings for symbols
-        this.svgX = '<svg viewBox="0 0 100 100" class="symbol-svg x"><path d="M20,20 L80,80 M80,20 L20,80" stroke="currentColor" stroke-width="10" stroke-linecap="round"/></svg>';
-        this.svgO = '<svg viewBox="0 0 100 100" class="symbol-svg o"><circle cx="50" cy="50" r="30" stroke="currentColor" stroke-width="10" fill="none"/></svg>';
-    },
-
-    startGame: function () {
-        if (this.active) return;
-        this.active = true;
-        this.board.fill(null);
-        this.currentPlayer = 'X';
-        document.body.classList.add('game-mode');
-
-        // Swap classes for shared cells using IDs (ROBUST FIX)
-        const sharedLeft = document.getElementById('play-replay-shared-cell');
-        const sharedRight = document.getElementById('play-close-shared-cell');
-
-        if (sharedLeft) {
-            sharedLeft.classList.remove('play-btn-left', 'play-button');
-            sharedLeft.classList.add('replay-btn-right');
-        }
-        if (sharedRight) {
-            sharedRight.classList.remove('play-btn-right', 'play-button');
-            sharedRight.classList.add('close-btn-left');
-        }
-
-        // Show Overlay
-        let overlay = document.querySelector('.game-active-overlay');
-        if (!overlay) {
-            overlay = document.createElement('div');
-            overlay.className = 'game-active-overlay';
-            document.body.appendChild(overlay);
-        }
-
-        // Handle Buttons Visibility
-        document.querySelectorAll('.play-button').forEach(el => el.style.opacity = '0');
-        document.querySelectorAll('.replay-button, .close-button').forEach(el => el.classList.add('active-game-btn'));
-
-        // Create UI if missing (Status Text only)
-        let ui = document.querySelector('.game-ui-container');
-        if (!ui) {
-            ui = document.createElement('div');
-            ui.className = 'game-ui-container';
-            ui.innerHTML = `<div class="game-status" id="gameStatus">TON TOUR</div>`;
-            document.body.appendChild(ui);
-        }
-
-        // Clear any lingering hover effects on grid cells
-        const allCells = document.querySelectorAll('.grid-cell');
-        allCells.forEach(cell => {
-            cell.style.backgroundColor = 'transparent';
-            cell.style.transform = 'translateZ(0)';
-            cell.classList.remove('active');
-            cell.classList.remove('play-hover-active', 'replay-hover-active', 'close-hover-active');
-        });
-
-        this.updateUI();
-        this.updateUIPosition(); // Position UI on start
-        window.addEventListener('resize', () => {
-            if (this.active) this.updateUIPosition();
-        });
-        this.highlightBoard();
-    },
-
-    updateUIPosition: function () {
-        const ui = document.querySelector('.game-ui-container');
-        if (!ui || !this.cells || this.cells.length < 9) return;
-
-        // Position Status Text in the row BELOW the board (gap between board and buttons)
-        // Bottom of board is cell[8]
-        const lastCell = this.cells[8];
-        const firstCell = this.cells[0];
-
-        if (firstCell && lastCell) {
-            const firstRect = firstCell.getBoundingClientRect();
-            const lastRect = lastCell.getBoundingClientRect();
-
-            const centerX = (firstRect.left + lastRect.right) / 2;
-            const bottomY = lastRect.bottom;
-
-            ui.style.left = `${centerX}px`;
-            ui.style.top = `${bottomY + 25}px`; // Centered in the 50px gap row
-        }
-    },
-
-    highlightBoard: function () {
-        this.cells.forEach((cell, index) => {
-            cell.classList.add('game-cell');
-            cell.classList.remove('x', 'o', 'win');
-            // Remove any existing content (pseudo-elements handle text, but just in case)
-        });
-    },
-
-    handleCellClick: function (index) {
-        if (!this.active || this.board[index] || this.currentPlayer !== this.human) return;
-
-        this.makeMove(index, this.human);
-
-        if (this.checkWin(this.human)) {
-            this.endGame('VICTOIRE !');
-            return;
-        }
-        if (this.checkDraw()) {
-            this.endGame('ÉGALITÉ');
-            return;
-        }
-
-        this.currentPlayer = this.pc;
-        this.updateUI();
-
-        // PC Move with slight delay for realism
-        setTimeout(() => {
-            const bestMove = this.minimax(this.board, this.pc).index;
-            this.makeMove(bestMove, this.pc);
-
-            if (this.checkWin(this.pc)) {
-                this.endGame('DÉFAITE...');
-            } else if (this.checkDraw()) {
-                this.endGame('ÉGALITÉ');
-            } else {
-                this.currentPlayer = this.human;
-                this.updateUI();
-            }
-        }, 600);
-    },
-
-    makeMove: function (index, player) {
-        this.board[index] = player;
-        const cell = this.cells[index];
-        cell.classList.add('taken', player.toLowerCase());
-
-        // Add specific class for CSS animation trigger
-        // cell.innerHTML = player === 'X' ? this.svgX : this.svgO; // CSS pseudo-elements used instead for cleaner code
-    },
-
-    checkWin: function (player) {
-        return this.winningLines.some(combination => {
-            if (combination.every(index => this.board[index] === player)) {
-                combination.forEach(index => this.cells[index].classList.add('win'));
-                return true;
-            }
-            return false;
-        });
-    },
-
-    checkDraw: function () {
-        return this.board.every(cell => cell !== null);
-    },
-
-    endGame: function (message) {
-        const status = document.getElementById('gameStatus');
-        if (status) status.textContent = message;
-        // Keep active true so user can see result, but prevent moves by checking active board in click handler or just leave as is since logic checks if cell taken
-    },
-
-    resetGame: function () {
-        this.board.fill(null);
-        this.cells.forEach(cell => {
-            cell.classList.remove('taken', 'x', 'o', 'win');
-        });
-        this.currentPlayer = 'X';
-        this.updateUI();
-    },
-
-    closeGame: function () {
-        this.active = false;
-        document.body.classList.remove('game-mode');
-
-        // Revert classes for shared cells using IDs (ROBUST FIX)
-        const sharedLeft = document.getElementById('play-replay-shared-cell');
-        const sharedRight = document.getElementById('play-close-shared-cell');
-
-        if (sharedLeft) {
-            sharedLeft.classList.remove('replay-btn-right');
-            sharedLeft.classList.add('play-btn-left', 'play-button');
-        }
-        if (sharedRight) {
-            sharedRight.classList.remove('close-btn-left');
-            sharedRight.classList.add('play-btn-right', 'play-button');
-        }
-
-        // Remove Overlay
-        const overlay = document.querySelector('.game-active-overlay');
-        if (overlay) overlay.remove();
-        if (overlay) overlay.remove();
-
-        // Reset UI
-        const ui = document.querySelector('.game-ui-container');
-        if (ui) ui.remove();
-
-        this.cells.forEach(cell => {
-            cell.classList.remove('game-cell', 'taken', 'x', 'o', 'win');
-        });
-        document.querySelectorAll('.play-button').forEach(el => el.style.opacity = '1');
-        document.querySelectorAll('.replay-button, .close-button').forEach(el => el.classList.remove('active-game-btn'));
-    },
-
-    updateUI: function () {
-        const status = document.getElementById('gameStatus');
-        if (status) {
-            status.textContent = this.currentPlayer === this.human ? 'À TOI DE JOUER' : 'L\'IA RÉFLÉCHIT...';
-        }
-    },
-
-    updateUIPosition: function () {
-        const ui = document.querySelector('.game-ui-container');
-        const heroGrid = document.getElementById('heroGrid');
-        if (ui && heroGrid) {
-            const rect = heroGrid.getBoundingClientRect();
-            // Position above the grid (top - 80px)
-            ui.style.top = (rect.top + window.scrollY - 80) + 'px';
-            ui.style.left = (rect.left + window.scrollX + rect.width / 2) + 'px';
-            ui.style.transform = 'translate(-50%, -50%)';
-            ui.style.width = Math.min(rect.width, 300) + 'px'; // Limit width
-            ui.style.textAlign = 'center';
-        }
-    },
-
-    minimax: function (newBoard, player) {
-        const availSpots = newBoard.map((v, i) => v === null ? i : null).filter(v => v !== null);
-
-        if (this.checkWinState(newBoard, this.human)) return { score: -10 };
-        if (this.checkWinState(newBoard, this.pc)) return { score: 10 };
-        if (availSpots.length === 0) return { score: 0 };
-
-        const moves = [];
-
-        for (let i = 0; i < availSpots.length; i++) {
-            const move = {};
-            move.index = availSpots[i];
-            newBoard[availSpots[i]] = player;
-
-            if (player === this.pc) {
-                const result = this.minimax(newBoard, this.human);
-                move.score = result.score;
-            } else {
-                const result = this.minimax(newBoard, this.pc);
-                move.score = result.score;
-            }
-
-            newBoard[availSpots[i]] = null;
-            moves.push(move);
-        }
-
-        let bestMove;
-        if (player === this.pc) {
-            let bestScore = -10000;
-            for (let i = 0; i < moves.length; i++) {
-                if (moves[i].score > bestScore) {
-                    bestScore = moves[i].score;
-                    bestMove = i;
-                }
-            }
-        } else {
-            let bestScore = 10000;
-            for (let i = 0; i < moves.length; i++) {
-                if (moves[i].score < bestScore) {
-                    bestScore = moves[i].score;
-                    bestMove = i;
-                }
-            }
-        }
-        return moves[bestMove];
-    },
-
-    checkWinState: function (board, player) {
-        return this.winningLines.some(combination => {
-            return combination.every(index => board[index] === player);
-        });
-    }
-};
-
 function createHeroGrid() {
     const heroGrid = document.getElementById('heroGrid');
-    if (!heroGrid) {
-        return;
-    }
+    if (!heroGrid) return;
     const width = heroGrid.clientWidth;
     const height = heroGrid.clientHeight;
 
-    // Responsive: Ensure at least 7 columns for the buttons to fit
-    // Calculate cell size: Max 50px, but shrink if width < 7 * 50
     let cellSize = 50;
-    if (width < 350) { // 7 * 50 = 350
-        cellSize = Math.floor(width / 7);
-    }
-    // Set CSS variable for cell size
+    if (width < 350) cellSize = Math.floor(width / 7);
     heroGrid.style.setProperty('--cell-size', `${cellSize}px`);
 
     const columns = Math.floor(width / cellSize);
     const rows = Math.ceil(height / cellSize);
     heroGrid.innerHTML = '';
 
-    // Identify center for 3x3 Grid
-    // Identify center for 3x3 Grid
-    let centerCol = Math.floor(columns / 2);
-    if (width > 992) {
-        centerCol = Math.floor(columns * 0.75);
-    }
-    const centerRow = Math.floor(rows / 2);
-
-    // Define the game cells indices (3x3 grid centered)
-    // Row indices: centerRow-1, centerRow, centerRow+1
-    // Col indices: centerCol-1, centerCol, centerCol+1
-    const gameIndices = [];
-    for (let r = centerRow - 1; r <= centerRow + 1; r++) {
-        for (let c = centerCol - 1; c <= centerCol + 1; c++) {
-            gameIndices.push(r * columns + c);
-        }
-    }
-    TicTacToe.cells = []; // Store DOM elements for game
-
-    // Play Button: 3 cells (Left, Center, Right)
-    const btnRow = centerRow + 3;
-    const btnIndices = [
-        btnRow * columns + centerCol - 1, // Play Left / Replay Right
-        btnRow * columns + centerCol,     // Play Center
-        btnRow * columns + centerCol + 1  // Play Right / Close Left
-    ];
-
-    // Replay: 3 cells (Left, Center, Right) - Ending at Play Left
-    const replayIndices = [
-        btnRow * columns + centerCol - 3, // Replay Left
-        btnRow * columns + centerCol - 2, // Replay Center
-        btnRow * columns + centerCol - 1  // Replay Right (Overlaps Play Left)
-    ];
-
-    // Close: 3 cells (Left, Center, Right) - Starting at Play Right
-    const closeIndices = [
-        btnRow * columns + centerCol + 1, // Close Left (Overlaps Play Right)
-        btnRow * columns + centerCol + 2, // Close Center
-        btnRow * columns + centerCol + 3  // Close Right
-    ];
-
     for (let i = 0; i < rows * columns; i++) {
         const cell = document.createElement('div');
         cell.classList.add('grid-cell');
-
-        // Setup Game Cells
-        const gameCellIndex = gameIndices.indexOf(i);
-        if (gameCellIndex !== -1) {
-            cell.dataset.gameIndex = gameCellIndex;
-            TicTacToe.cells[gameCellIndex] = cell;
-            cell.addEventListener('click', () => {
-                if (TicTacToe.active) {
-                    TicTacToe.handleCellClick(gameCellIndex);
-                }
-            });
-        }
-
-        // Setup Play Button - ONLY ON DESKTOP (> 768px)
-        const isMobile = window.innerWidth <= 768;
-        if (!isMobile && btnIndices.includes(i)) {
-            cell.classList.add('play-button');
-            cell.style.opacity = '1';
-
-            if (i === btnIndices[0]) {
-                cell.classList.add('play-btn-left');
-                cell.id = 'play-replay-shared-cell'; // Unique ID for shared cell
-            } else if (i === btnIndices[1]) {
-                cell.classList.add('play-btn-center');
-                cell.innerText = "PLAY";
-            } else if (i === btnIndices[2]) {
-                cell.classList.add('play-btn-right');
-                cell.id = 'play-close-shared-cell'; // Unique ID for shared cell
-            }
-
-            // Click listener for Play - only active if NO game
-            cell.addEventListener('click', (e) => {
-                if (!TicTacToe.active) {
-                    e.stopPropagation();
-                    TicTacToe.startGame();
-                }
-            });
-        }
-
-        // Setup Replay Button - ONLY ON DESKTOP
-        if (!isMobile && replayIndices.includes(i)) {
-            cell.classList.add('replay-button'); // Common class
-            // Assign specific parts
-            if (i === replayIndices[0]) cell.classList.add('replay-btn-left');
-            if (i === replayIndices[1]) {
-                cell.classList.add('replay-btn-center');
-                cell.innerText = "REJOUER"; // Text in center
-            }
-            if (i === replayIndices[2]) cell.classList.add('replay-btn-right');
-
-            // Hide initially (Ghost Button Fix)
-            if (!btnIndices.includes(i)) {
-                cell.style.opacity = '0';
-                cell.style.pointerEvents = 'none';
-            }
-
-            cell.addEventListener('click', (e) => {
-                if (TicTacToe.active) {
-                    e.stopPropagation();
-                    TicTacToe.resetGame();
-                }
-            });
-        }
-
-        // Setup Close Button
-        if (closeIndices.includes(i)) {
-            cell.classList.add('close-button'); // Common class
-            // Assign specific parts
-            if (i === closeIndices[0]) cell.classList.add('close-btn-left');
-            if (i === closeIndices[1]) {
-                cell.classList.add('close-btn-center');
-                cell.innerText = "FERMER"; // Text in center
-            }
-            if (i === closeIndices[2]) cell.classList.add('close-btn-right');
-
-            // Hide initially (Ghost Button Fix)
-            if (!btnIndices.includes(i)) {
-                cell.style.opacity = '0';
-                cell.style.pointerEvents = 'none';
-            }
-
-            cell.addEventListener('click', (e) => {
-                if (TicTacToe.active) {
-                    e.stopPropagation();
-                    TicTacToe.closeGame();
-                }
-            });
-        }
-
         heroGrid.appendChild(cell);
     }
 
-    // Link hover effects for Button Groups
-    const linkHover = (selector, activeClass) => {
-        const parts = heroGrid.querySelectorAll(selector);
-        parts.forEach(part => {
-            part.addEventListener('mouseenter', () => {
-                if (activeClass === 'play-hover-active' && TicTacToe.active) return;
-                if (activeClass !== 'play-hover-active' && !TicTacToe.active) return;
-                parts.forEach(p => p.classList.add(activeClass));
-            });
-            part.addEventListener('mouseleave', () => {
-                parts.forEach(p => p.classList.remove(activeClass));
-            });
-        });
-    };
-
-    linkHover('.play-button', 'play-hover-active');
-    linkHover('.replay-button', 'replay-hover-active');
-    linkHover('.close-button', 'close-hover-active');
-
     document.addEventListener('mousemove', (e) => {
-        // Disable hover effect if game is active or over game UI
-        if (TicTacToe.active) return;
-
-        const cells = document.querySelectorAll('.grid-cell');
-
+        const cells = heroGrid.querySelectorAll('.grid-cell');
         const mouseX = e.clientX;
         const mouseY = e.clientY;
         cells.forEach((cell) => {
-            // Skip Play Button parts - they have their own hover effect and should stay visible
-            if (cell.classList.contains('play-button')) return;
-
             const rect = cell.getBoundingClientRect();
             const cellX = rect.left + rect.width / 2;
             const cellY = rect.top + rect.height / 2;
@@ -2047,6 +1989,9 @@ function initThemeSwitcher() {
     });
     function applyTheme(isDark) {
         const root = document.documentElement;
+        // Remove the critical theme style injected at page load (has !important that blocks CSS)
+        const criticalStyle = document.getElementById('critical-theme-style');
+        if (criticalStyle) criticalStyle.remove();
         if (!isDark) {
             root.style.setProperty('--bg-color', 'var(--light-bg-color)');
             root.style.setProperty('--text-color', 'var(--light-text-color)');
@@ -2054,14 +1999,14 @@ function initThemeSwitcher() {
             root.style.setProperty('--secondary-color', 'var(--light-secondary-color)');
             if (themeIcon) themeIcon.innerHTML = '🌙';
             root.classList.add('light-theme');
-            root.classList.remove('dark-theme');
+            root.classList.remove('dark-theme', 'dark');
         } else {
             root.style.setProperty('--bg-color', 'var(--bg-primary)');
             root.style.setProperty('--text-color', 'var(--text-primary)');
             root.style.setProperty('--hover-color', 'var(--bg-tertiary)');
             root.style.setProperty('--secondary-color', 'var(--bg-secondary)');
             if (themeIcon) themeIcon.innerHTML = '☀️';
-            root.classList.add('dark-theme');
+            root.classList.add('dark-theme', 'dark');
             root.classList.remove('light-theme');
         }
     }

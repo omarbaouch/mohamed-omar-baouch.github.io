@@ -36,11 +36,11 @@
             const root = document.documentElement;
 
             if (isDark) {
-                root.classList.add('dark-theme');
+                root.classList.add('dark-theme', 'dark');
                 root.classList.remove('light-theme');
             } else {
                 root.classList.add('light-theme');
-                root.classList.remove('dark-theme');
+                root.classList.remove('dark-theme', 'dark');
             }
 
             // Force critical CSS variables for background immediately
@@ -62,6 +62,7 @@
     </script>
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     animation: {
@@ -223,14 +224,12 @@
                     SOLIDWORKS <span class="glitch" data-text="PDM / PLM">PDM / PLM</span>
                 </h1>
                 <p class="hero-subtitle" data-translate-key="hero_subtitle">
-                    J'accompagne plus de <strong>69 industriels</strong> dans la sécurisation, la migration et
-                    l'optimisation de leurs données techniques critiques.
+                    Plus de <strong>80 clients industriels</strong> accompagnés — sécurisation, migration et
+                    optimisation de données techniques critiques.
                 </p>
                 <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary" data-translate-key="hero_cta1">Discuter de votre
-                        projet</a>
-                    <a href="#experience" class="btn btn-secondary" data-translate-key="hero_cta2">Voir mes
-                        réalisations</a>
+                    <a href="#contact" class="btn btn-primary" data-translate-key="hero_cta1">Me contacter</a>
+                    <a href="#experience" class="btn btn-secondary" data-translate-key="hero_cta2">Voir mon parcours</a>
                 </div>
             </div>
             <div class="scroll-indicator" id="scrollIndicator">
@@ -243,30 +242,29 @@
                 <div>
                     <p class="section-eyebrow animate-pulse-text" data-translate-key="essentials_eyebrow">Expérience
                         terrain</p>
-                    <h2 data-translate-key="essentials_heading">Un accompagnement PDM/PLM <span
-                            class="highlight">concret et orienté résultats</span></h2>
-                    <p class="section-lead" data-translate-key="essentials_lead">J'optimise vos flux de données produit,
-                        structure vos standards d'équipe et documente les meilleures pratiques dans des guides
-                        opérationnels exploitables dès le premier jour.</p>
+                    <h2 data-translate-key="essentials_heading">Mon expertise <span
+                            class="highlight">PDM/PLM en chiffres</span></h2>
+                    <p class="section-lead" data-translate-key="essentials_lead">Optimisation de flux de données produit,
+                        structuration de standards d'équipe et rédaction de guides opérationnels — le tout acquis sur
+                        plus de 80 missions industrielles.</p>
                 </div>
                 <div class="essentials__stats">
-                    <div class="mini-stat animate-count" data-target="69">
-                        <span class="mini-stat__value" data-translate-key="stat_clients">69 clients</span>
-                        <span class="mini-stat__label" data-translate-key="stat_clients_desc">Industrie, robotique,
-                            équipements...</span>
+                    <div class="mini-stat animate-count" data-target="80">
+                        <span class="mini-stat__value" data-translate-key="stat_clients">80 clients</span>
+                        <span class="mini-stat__label" data-translate-key="stat_clients_desc">Industrie, robotique, équipements...</span>
                     </div>
-                    <div class="mini-stat animate-count" data-target="57">
-                        <span class="mini-stat__value" data-translate-key="stat_migrations">57 migrations</span>
+                    <div class="mini-stat animate-count" data-target="65">
+                        <span class="mini-stat__value" data-translate-key="stat_migrations">65 migrations</span>
                         <span class="mini-stat__label" data-translate-key="stat_migrations_desc">Serveurs, mises à jour,
                             réplications...</span>
                     </div>
-                    <div class="mini-stat">
-                        <span class="mini-stat__value" data-translate-key="stat_diagnostic">72h</span>
-                        <span class="mini-stat__label" data-translate-key="stat_diagnostic_desc">Diagnostic express avec
-                            plan d'action</span>
+                    <div class="mini-stat animate-count" data-target="95">
+                        <span class="mini-stat__value" data-translate-key="stat_diagnostic">95 projets</span>
+                        <span class="mini-stat__label" data-translate-key="stat_diagnostic_desc">Livrés depuis
+                            2020</span>
                     </div>
-                    <div class="mini-stat animate-count" data-target="11">
-                        <span class="mini-stat__value" data-translate-key="stat_deployments">11 déploiements</span>
+                    <div class="mini-stat animate-count" data-target="13">
+                        <span class="mini-stat__value" data-translate-key="stat_deployments">13 déploiements</span>
                         <span class="mini-stat__label" data-translate-key="stat_deployments_desc">+ 1 Set &amp; Run
                             complet</span>
                     </div>
@@ -285,7 +283,7 @@
                         <li data-translate-key="card_conseil_li3">✓ Documentation maintenable</li>
                     </ul>
                 </article>
-                <article class="essentials-card card-hover-lift featured-card">
+                <article class="essentials-card card-hover-lift" style="position:relative;">
                     <span class="card-badge" data-translate-key="card_badge">POPULAIRE</span>
                     <p class="card-kicker" data-translate-key="card_delivery_kicker">🚀 Delivery</p>
                     <h3 data-translate-key="card_delivery_title">Recettes et industrialisation</h3>
@@ -313,20 +311,19 @@
             </div>
             <!-- Clients & Projects Section -->
             <div class="projects-section fade-up">
-                <h3 class="highlights-title" data-translate-key="clients_title">69 Clients accompagnés par secteur</h3>
+                <h3 class="highlights-title" data-translate-key="clients_title">80 clients accompagnés par secteur</h3>
 
                 <!-- Sectors Grid -->
                 <div class="sectors-grid">
                     <div class="sector-card group opacity-0 animate-fade-in-up stagger-1 hover:scale-105 transition-all duration-300 hover:shadow-[0_0_40px_rgba(47,110,155,0.2)]"
-                        data-sector="robotique">
-                        <span class="sector-icon text-4xl group-hover:animate-bounce-subtle">🤖</span>
+                        data-sector="machines">
+                        <span class="sector-icon text-4xl group-hover:animate-bounce-subtle">⚙️</span>
                         <div class="sector-info">
                             <h4 class="group-hover:text-[#2f6e9b] transition-colors"
-                                data-translate-key="sector_robotics_title">Automatisme & Robotique</h4>
-                            <p class="sector-clients" data-translate-key="sector_robotics_desc">Startups, PME & ETI
-                                innovantes</p>
+                                data-translate-key="sector_machines_title">Machines & Équipements</h4>
+                            <p class="sector-clients" data-translate-key="sector_machines_desc">Fabricants de machines & lignes de production</p>
                             <span
-                                class="sector-count inline-block px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-[#2f6e9b]/20 to-[#6b8caf]/20 group-hover:from-[#2f6e9b]/40 group-hover:to-[#6b8caf]/40 transition-all">8
+                                class="sector-count inline-block px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-[#2f6e9b]/20 to-[#6b8caf]/20 group-hover:from-[#2f6e9b]/40 group-hover:to-[#6b8caf]/40 transition-all animate-pulse-glow">27
                                 clients</span>
                         </div>
                     </div>
@@ -336,48 +333,45 @@
                         <div class="sector-info">
                             <h4 class="group-hover:text-[#2f6e9b] transition-colors"
                                 data-translate-key="sector_industry_title">Industrie & Énergie</h4>
-                            <p class="sector-clients" data-translate-key="sector_industry_desc">Grands Groupes & ETI</p>
+                            <p class="sector-clients" data-translate-key="sector_industry_desc">Grands groupes & ETI industrielles</p>
                             <span
-                                class="sector-count inline-block px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-[#2f6e9b]/20 to-[#6b8caf]/20 group-hover:from-[#2f6e9b]/40 group-hover:to-[#6b8caf]/40 transition-all">4
+                                class="sector-count inline-block px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-[#2f6e9b]/20 to-[#6b8caf]/20 group-hover:from-[#2f6e9b]/40 group-hover:to-[#6b8caf]/40 transition-all">10
                                 clients</span>
                         </div>
                     </div>
                     <div class="sector-card group opacity-0 animate-fade-in-up stagger-3 hover:scale-105 transition-all duration-300 hover:shadow-[0_0_40px_rgba(47,110,155,0.2)]"
-                        data-sector="machines">
-                        <span class="sector-icon text-4xl group-hover:animate-bounce-subtle">⚙️</span>
+                        data-sector="robotique">
+                        <span class="sector-icon text-4xl group-hover:animate-bounce-subtle">🤖</span>
                         <div class="sector-info">
                             <h4 class="group-hover:text-[#2f6e9b] transition-colors"
-                                data-translate-key="sector_machines_title">Machines & Équipements</h4>
-                            <p class="sector-clients" data-translate-key="sector_machines_desc">Fabricants de Machines &
-                                Lignes de Production</p>
+                                data-translate-key="sector_robotics_title">Automatisme & Robotique</h4>
+                            <p class="sector-clients" data-translate-key="sector_robotics_desc">Startups, PME & ETI innovantes</p>
                             <span
-                                class="sector-count inline-block px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-[#2f6e9b]/20 to-[#6b8caf]/20 group-hover:from-[#2f6e9b]/40 group-hover:to-[#6b8caf]/40 transition-all animate-pulse-glow">40+
+                                class="sector-count inline-block px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-[#2f6e9b]/20 to-[#6b8caf]/20 group-hover:from-[#2f6e9b]/40 group-hover:to-[#6b8caf]/40 transition-all">8
                                 clients</span>
                         </div>
                     </div>
                     <div class="sector-card group opacity-0 animate-fade-in-up stagger-4 hover:scale-105 transition-all duration-300 hover:shadow-[0_0_40px_rgba(47,110,155,0.2)]"
-                        data-sector="transport">
-                        <span class="sector-icon text-4xl group-hover:animate-bounce-subtle">🚆</span>
-                        <div class="sector-info">
-                            <h4 class="group-hover:text-[#2f6e9b] transition-colors"
-                                data-translate-key="sector_transport_title">Transport & Mobilité</h4>
-                            <p class="sector-clients" data-translate-key="sector_transport_desc">Acteurs majeurs du
-                                secteur</p>
-                            <span
-                                class="sector-count inline-block px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-[#2f6e9b]/20 to-[#6b8caf]/20 group-hover:from-[#2f6e9b]/40 group-hover:to-[#6b8caf]/40 transition-all">3
-                                clients</span>
-                        </div>
-                    </div>
-                    <div class="sector-card group opacity-0 animate-fade-in-up stagger-5 hover:scale-105 transition-all duration-300 hover:shadow-[0_0_40px_rgba(47,110,155,0.2)]"
                         data-sector="metal">
                         <span class="sector-icon text-4xl group-hover:animate-bounce-subtle">🔧</span>
                         <div class="sector-info">
                             <h4 class="group-hover:text-[#2f6e9b] transition-colors"
                                 data-translate-key="sector_metal_title">Métallurgie & Traitement</h4>
-                            <p class="sector-clients" data-translate-key="sector_metal_desc">Industriels de la
-                                transformation</p>
+                            <p class="sector-clients" data-translate-key="sector_metal_desc">Industriels de la transformation</p>
                             <span
-                                class="sector-count inline-block px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-[#2f6e9b]/20 to-[#6b8caf]/20 group-hover:from-[#2f6e9b]/40 group-hover:to-[#6b8caf]/40 transition-all">3
+                                class="sector-count inline-block px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-[#2f6e9b]/20 to-[#6b8caf]/20 group-hover:from-[#2f6e9b]/40 group-hover:to-[#6b8caf]/40 transition-all">7
+                                clients</span>
+                        </div>
+                    </div>
+                    <div class="sector-card group opacity-0 animate-fade-in-up stagger-5 hover:scale-105 transition-all duration-300 hover:shadow-[0_0_40px_rgba(47,110,155,0.2)]"
+                        data-sector="divers">
+                        <span class="sector-icon text-4xl group-hover:animate-bounce-subtle">🏗️</span>
+                        <div class="sector-info">
+                            <h4 class="group-hover:text-[#2f6e9b] transition-colors"
+                                data-translate-key="sector_btp_title">BTP, Agro & Divers</h4>
+                            <p class="sector-clients" data-translate-key="sector_btp_desc">Construction, agroalimentaire, médical, mobilier...</p>
+                            <span
+                                class="sector-count inline-block px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-[#2f6e9b]/20 to-[#6b8caf]/20 group-hover:from-[#2f6e9b]/40 group-hover:to-[#6b8caf]/40 transition-all">25
                                 clients</span>
                         </div>
                     </div>
@@ -387,12 +381,24 @@
                         <div class="sector-info">
                             <h4 class="group-hover:text-[#2f6e9b] transition-colors"
                                 data-translate-key="sector_international_title">International</h4>
-                            <p class="sector-clients" data-translate-key="sector_international_desc">VISIATIV AFRICA -
-                                Projets Multi-sites</p>
+                            <p class="sector-clients" data-translate-key="sector_international_desc">Projets multi-sites & déploiements internationaux</p>
                             <span
-                                class="sector-count inline-block px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-[#2f6e9b]/20 to-[#6b8caf]/20 group-hover:from-[#2f6e9b]/40 group-hover:to-[#6b8caf]/40 transition-all">2
+                                class="sector-count inline-block px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-[#2f6e9b]/20 to-[#6b8caf]/20 group-hover:from-[#2f6e9b]/40 group-hover:to-[#6b8caf]/40 transition-all">3
                                 clients</span>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Project Types Summary -->
+                <div class="mt-8 p-4 rounded-2xl border dark:border-white/10 border-black/10 dark:bg-white/5 bg-black/[0.03] backdrop-blur-md">
+                    <h4 class="text-sm font-semibold uppercase tracking-wider mb-3 opacity-70" data-translate-key="project_types_title">95 projets par type d'intervention</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 text-xs font-medium rounded-full bg-blue-500/15 dark:text-blue-400 text-blue-600 border border-blue-500/20">Mise à jour PDM <strong>24</strong></span>
+                        <span class="px-3 py-1.5 text-xs font-medium rounded-full bg-violet-500/15 dark:text-violet-400 text-violet-600 border border-violet-500/20">Starter Pack <strong>16</strong></span>
+                        <span class="px-3 py-1.5 text-xs font-medium rounded-full bg-amber-500/15 dark:text-amber-400 text-amber-600 border border-amber-500/20">Consulting / Régie <strong>14</strong></span>
+                        <span class="px-3 py-1.5 text-xs font-medium rounded-full bg-emerald-500/15 dark:text-emerald-400 text-emerald-600 border border-emerald-500/20">Montée de version <strong>12</strong></span>
+                        <span class="px-3 py-1.5 text-xs font-medium rounded-full bg-rose-500/15 dark:text-rose-400 text-rose-600 border border-rose-500/20">Migration PDM <strong>8</strong></span>
+                        <span class="px-3 py-1.5 text-xs font-medium rounded-full bg-cyan-500/15 dark:text-cyan-400 text-cyan-600 border border-cyan-500/20">Déploiement & autres <strong>21</strong></span>
                     </div>
                 </div>
 
@@ -445,8 +451,7 @@
                         <h5 class="relative z-10 group-hover:text-[#2f6e9b] transition-colors"
                             data-translate-key="project_2_title">SYSTÈMES D'ASPIRATION
                         </h5>
-                        <p class="project-subtitle relative z-10" data-translate-key="project_2_subtitle">Installation
-                            complète</p>
+                        <p class="project-subtitle relative z-10" data-translate-key="project_2_subtitle">Installation complète</p>
                         <p class="project-desc relative z-10" data-translate-key="project_2_desc">DTE détaillé, 6
                             templates personnalisés (.prtdot, .asmdot,
                             .drwdot),
@@ -475,8 +480,7 @@
                         <h5 class="relative z-10 group-hover:text-[#2f6e9b] transition-colors"
                             data-translate-key="project_3_title">MÉCANIQUE INDUSTRIELLE
                         </h5>
-                        <p class="project-subtitle relative z-10" data-translate-key="project_3_subtitle">Migration &
-                            Upgrade</p>
+                        <p class="project-subtitle relative z-10" data-translate-key="project_3_subtitle">Migration & Upgrade</p>
                         <p class="project-desc relative z-10" data-translate-key="project_3_desc">Migration complète
                             avec upgrade serveur, reconfiguration
                             workflows,
@@ -504,9 +508,8 @@
                         </div>
                         <h5 class="relative z-10 group-hover:text-[#2f6e9b] transition-colors"
                             data-translate-key="project_4_title">CÂBLAGE MONDIAL</h5>
-                        <p class="project-subtitle relative z-10" data-translate-key="project_4_subtitle">Visiativ
-                            Africa</p>
-                        <p class="project-desc relative z-10" data-translate-key="project_4_desc">Migration PDM pour le
+                        <p class="project-subtitle relative z-10" data-translate-key="project_4_subtitle">Visiativ Africa</p>
+                        <p class="project-desc relative z-10" data-translate-key="project_4_desc">Migration PDM pour un
                             géant mondial des câbles,
                             coordination
                             multi-sites, déploiement international</p>
@@ -525,8 +528,7 @@
                             <div class="project-type" data-translate-key="project_type_transport">Transport</div>
                         </div>
                         <h5 data-translate-key="project_5_title">SOLUTIONS DE MOBILITÉ</h5>
-                        <p class="project-subtitle" data-translate-key="project_5_subtitle">RATP - Retrofit
-                            distributeurs</p>
+                        <p class="project-subtitle" data-translate-key="project_5_subtitle">RATP - Retrofit distributeurs</p>
                         <p class="project-desc" data-translate-key="project_5_desc">Conception mécanique, revues de
                             design, calculs de structure Creo
                             Simulate, intégration PLM</p>
@@ -588,7 +590,7 @@
                         la technique doit servir le métier, et non le contraindre.
                     </p>
                     <p class="highlight-hover" data-translate-key="about_p2">
-                        Avec plus de <strong>69 projets réussis</strong> (migrations complexes, déploiements
+                        Avec plus de <strong>95 projets réussis</strong> (migrations complexes, déploiements
                         multi-sites, audits de performance), j'apporte une méthodologie éprouvée pour résoudre vos défis
                         de gestion de données techniques, du bureau d'études jusqu'à l'atelier.
                     </p>
@@ -726,39 +728,40 @@
                             style="background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary))"
                             data-translate-key="exp1_date">Juin 2023 - Présent</span>
                         <h3 class="text-2xl font-bold mb-2" style="color: var(--text-primary)"
-                            data-translate-key="exp1_title">Consultant Expert PDM/PLM</h3>
+                            data-translate-key="exp1_title">Consultant PDM/PLM Confirmé</h3>
                         <p class="text-lg font-semibold mb-4" style="color: var(--accent-primary)">VISIATIV</p>
                     </div>
 
                     <!-- Content Right -->
                     <div class="md:w-1/2 md:pl-12 ml-16 md:ml-0 opacity-0 animate-slide-in-right stagger-2">
-                        <div class="p-6 rounded-2xl backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-                            style="background: color-mix(in srgb, var(--bg-secondary) 50%, transparent); border: 1px solid color-mix(in srgb, var(--accent-secondary) 20%, transparent)">
+                        <div class="timeline-card p-6 rounded-2xl backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                             <p class="font-semibold mb-3" style="color: var(--text-secondary)"
-                                data-translate-key="exp1_subtitle1">Projets & Réalisations (69 Clients):</p>
+                                data-translate-key="exp1_subtitle1">Projets & Réalisations (80 Clients):</p>
                             <div class="space-y-2">
-                                <div class="flex items-start gap-3 p-2 rounded-lg transition-colors"
-                                    style="--hover-bg: color-mix(in srgb, var(--accent-primary) 10%, transparent)">
+                                <div class="flex items-start gap-3 p-2 rounded-lg transition-colors">
                                     <span
                                         class="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm"
-                                        style="background: color-mix(in srgb, var(--accent-primary) 15%, transparent); color: var(--accent-primary)">57</span>
-                                    <span style="color: var(--text-secondary)" data-translate-key="exp1_li1">Migrations
-                                        de serveur & Mises à jour</span>
+                                        style="background: color-mix(in srgb, var(--accent-primary) 15%, transparent); color: var(--accent-primary)">▸</span>
+                                    <span style="color: var(--text-secondary)" data-translate-key="exp1_li1">Pilotage d'implémentations PDM/PLM de l'analyse des besoins à la mise en production.</span>
                                 </div>
                                 <div class="flex items-start gap-3 p-2 rounded-lg transition-colors">
                                     <span
                                         class="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm"
-                                        style="background: color-mix(in srgb, var(--accent-primary) 15%, transparent); color: var(--accent-primary)">11</span>
+                                        style="background: color-mix(in srgb, var(--accent-primary) 15%, transparent); color: var(--accent-primary)">▸</span>
                                     <span style="color: var(--text-secondary)"
-                                        data-translate-key="exp1_li2">Déploiements Complets d'architecture
-                                        serveur</span>
+                                        data-translate-key="exp1_li2">Architecture et paramétrage de systèmes PDM/PLM (SolidWorks) avec flux de travail personnalisés.</span>
                                 </div>
                                 <div class="flex items-start gap-3 p-2 rounded-lg transition-colors">
                                     <span
-                                        class="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center text-xs"
-                                        style="background: color-mix(in srgb, var(--accent-primary) 15%, transparent); color: var(--accent-primary)">72h</span>
-                                    <span style="color: var(--text-secondary)" data-translate-key="exp1_li4">Audit &
-                                        Diagnostic d'infrastructure</span>
+                                        class="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm"
+                                        style="background: color-mix(in srgb, var(--accent-primary) 15%, transparent); color: var(--accent-primary)">▸</span>
+                                    <span style="color: var(--text-secondary)" data-translate-key="exp1_li4">Conception et déploiement d'intégrations ERP-PDM/PLM pour la continuité numérique.</span>
+                                </div>
+                                <div class="flex items-start gap-3 p-2 rounded-lg transition-colors">
+                                    <span
+                                        class="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm"
+                                        style="background: color-mix(in srgb, var(--accent-primary) 15%, transparent); color: var(--accent-primary)">▸</span>
+                                    <span style="color: var(--text-secondary)" data-translate-key="exp1_li5">Formation des utilisateurs et administrateurs aux nouvelles méthodologies et outils PDM/PLM.</span>
                                 </div>
                             </div>
                         </div>
@@ -781,28 +784,30 @@
                             style="background: var(--accent-secondary)" data-translate-key="exp2_date">Sept 2021 - Juin
                             2023</span>
                         <h3 class="text-2xl font-bold mb-2" style="color: var(--text-primary)"
-                            data-translate-key="exp2_title">Ingénieur Plasturgie & PLM Lead</h3>
+                            data-translate-key="exp2_title">Ingénieur Concepteur Mécanique</h3>
                         <p class="text-lg font-semibold mb-4" style="color: var(--accent-secondary)"
-                            data-translate-key="exp2_location">ABMI / SECTEURS
-                            VARIES</p>
+                            data-translate-key="exp2_location">ABMI GROUP</p>
                     </div>
 
                     <!-- Content Left (reversed) -->
                     <div
                         class="md:w-1/2 md:pr-12 md:text-right ml-16 md:ml-0 opacity-0 animate-slide-in-left stagger-4">
-                        <div class="p-6 rounded-2xl backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-                            style="background: color-mix(in srgb, var(--bg-secondary) 50%, transparent); border: 1px solid color-mix(in srgb, var(--accent-secondary) 20%, transparent)">
+                        <div class="timeline-card p-6 rounded-2xl backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                             <div class="mb-4">
                                 <p class="font-semibold mb-2" style="color: var(--accent-primary)"
-                                    data-translate-key="exp2_subtitle1">ACTEUR DÉFENSE & SÉCURITÉ</p>
-                                <p class="text-sm" style="color: var(--text-secondary)" data-translate-key="exp2_li1">
-                                    Conception de radars nouvelle génération</p>
+                                    data-translate-key="exp2_subtitle1">IDEMIA — DÉFENSE & SÉCURITÉ</p>
+                                <p class="text-sm mb-1" style="color: var(--text-secondary)" data-translate-key="exp2_li1">
+                                    Développement de systèmes radar et composants usinés de précision.</p>
+                                <p class="text-sm" style="color: var(--text-secondary)" data-translate-key="exp2_li2">
+                                    Gestion du cycle de vie des données produit en environnement PLM, amélioration de la traçabilité.</p>
                             </div>
                             <div>
                                 <p class="font-semibold mb-2" style="color: var(--accent-primary)"
-                                    data-translate-key="exp2_subtitle2">ACTEUR DU TRANSPORT & MOBILITÉ</p>
-                                <p class="text-sm" style="color: var(--text-secondary)" data-translate-key="exp2_li3">
-                                    Retrofit RATP - Gestion ECR/ECO</p>
+                                    data-translate-key="exp2_subtitle2">FLOWBIRD — TRANSPORT & MOBILITÉ</p>
+                                <p class="text-sm mb-1" style="color: var(--text-secondary)" data-translate-key="exp2_li3">
+                                    Modernisation des distributeurs de tickets RATP, coordination d'équipe d'ingénieurs.</p>
+                                <p class="text-sm" style="color: var(--text-secondary)" data-translate-key="exp2_li4">
+                                    Analyse structurelle avancée (Creo Simulate) pour optimisation du poids.</p>
                             </div>
                         </div>
                     </div>
@@ -824,20 +829,17 @@
                             style="background: color-mix(in srgb, var(--accent-primary) 70%, var(--accent-secondary))"
                             data-translate-key="exp3_date">Avril 2020 - Oct 2020</span>
                         <h3 class="text-2xl font-bold mb-2" style="color: var(--text-primary)"
-                            data-translate-key="exp3_title">Ingénieur Bureau d'Études</h3>
-                        <p class="text-lg font-semibold mb-4" style="color: var(--accent-secondary)">EVOLUM CONTAINER
-                        </p>
+                            data-translate-key="exp3_title">Spécialiste en Ingénierie de Conception</h3>
+                        <p class="text-lg font-semibold mb-4" style="color: var(--accent-secondary)">EVOLUM CONTAINER SOLUTIONS</p>
                     </div>
 
                     <!-- Content Right -->
                     <div class="md:w-1/2 md:pl-12 ml-16 md:ml-0 opacity-0 animate-slide-in-right stagger-6">
-                        <div class="p-6 rounded-2xl backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-                            style="background: color-mix(in srgb, var(--bg-secondary) 50%, transparent); border: 1px solid color-mix(in srgb, var(--accent-secondary) 20%, transparent)">
+                        <div class="timeline-card p-6 rounded-2xl backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                             <div class="space-y-2">
-                                <p style="color: var(--text-secondary)" data-translate-key="exp3_li1">• Gestion complète
-                                    de l'affaire : du chiffrage à la livraison</p>
-                                <p style="color: var(--text-secondary)" data-translate-key="exp3_li2">• Optimisation des
-                                    nomenclatures pour la production série</p>
+                                <p style="color: var(--text-secondary)" data-translate-key="exp3_li1">▸ Analyse des besoins clients et chiffrage de solutions de conteneurs sur mesure.</p>
+                                <p style="color: var(--text-secondary)" data-translate-key="exp3_li2">▸ Génération de nomenclatures détaillées et documentation technique via CAO et ERP.</p>
+                                <p style="color: var(--text-secondary)" data-translate-key="exp3_li3">▸ Gestion des relations fournisseurs et des processus d'approvisionnement.</p>
                             </div>
                         </div>
                     </div>
@@ -859,7 +861,7 @@
                         <svg class="w-full h-full -rotate-90 transform" viewBox="0 0 100 100">
                             <!-- Background ring -->
                             <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="8"
-                                class="text-gray-200 dark:text-gray-700" />
+                                style="color: var(--bg-tertiary)" />
                             <!-- Progress ring -->
                             <circle cx="50" cy="50" r="45" fill="none" stroke="url(#gradient1)" stroke-width="8"
                                 stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="28"
@@ -892,7 +894,7 @@
                         </div>
                     </div>
                     <h3 class="text-xl font-semibold mb-4 text-[#f97316] transition-colors"
-                        data-translate-key="skill1_title">Architecture PDM/SQL</h3>
+                        data-translate-key="skill1_title">Infrastructure PDM</h3>
                     <!-- Floating Pills -->
                     <div class="flex flex-wrap justify-center gap-2 max-w-xs">
                         <span
@@ -900,17 +902,16 @@
                             data-translate-key="skill1_li1">Admin SQL Server</span>
                         <span
                             class="skill-pill px-3 py-1.5 text-sm rounded-full bg-[#f97316]/10 text-[#f97316] hover:bg-[#f97316] hover:text-white transition-all cursor-default hover:scale-105 hover:-translate-y-1"
-                            data-translate-key="skill1_li2">Réplication</span>
+                            data-translate-key="skill1_li2">Réplication Multi-sites</span>
                         <span
                             class="skill-pill px-3 py-1.5 text-sm rounded-full bg-[#f97316]/10 text-[#f97316] hover:bg-[#f97316] hover:text-white transition-all cursor-default hover:scale-105 hover:-translate-y-1"
-                            data-translate-key="skill1_li3">Workflows Avancés</span>
+                            data-translate-key="skill1_li3">Workflows & Dispatch</span>
                         <span
                             class="skill-pill px-3 py-1.5 text-sm rounded-full bg-[#f97316]/10 text-[#f97316] hover:bg-[#f97316] hover:text-white transition-all cursor-default hover:scale-105 hover:-translate-y-1"
-                            data-translate-key="skill1_li4">PDM Gateway</span>
+                            data-translate-key="skill1_li4">Déploiement & Installation</span>
                         <span
                             class="skill-pill px-3 py-1.5 text-sm rounded-full bg-[#f97316]/10 text-[#f97316] hover:bg-[#f97316] hover:text-white transition-all cursor-default hover:scale-105 hover:-translate-y-1"
-                            data-translate-key="skill1_li5">Cold
-                            Storage</span>
+                            data-translate-key="skill1_li5">Cold Storage</span>
                     </div>
                 </div>
 
@@ -921,7 +922,7 @@
                     <div class="relative w-40 h-40 mb-6">
                         <svg class="w-full h-full -rotate-90 transform" viewBox="0 0 100 100">
                             <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="8"
-                                class="text-gray-200 dark:text-gray-700" />
+                                style="color: var(--bg-tertiary)" />
                             <circle cx="50" cy="50" r="45" fill="none" stroke="url(#gradient2)" stroke-width="8"
                                 stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="42"
                                 class="transition-all duration-1000" />
@@ -935,7 +936,7 @@
                         <div class="absolute inset-0 flex flex-col items-center justify-center">
                             <span
                                 class="text-3xl font-bold text-[#2f6e9b] group-hover:scale-110 transition-transform">85%</span>
-                            <span class="text-xs text-gray-500 uppercase tracking-wider"
+                            <span class="text-xs uppercase tracking-wider" style="color: var(--accent-secondary)"
                                 data-translate-key="skill_level_expert">Expert</span>
                         </div>
                         <div class="absolute -top-2 -right-2 w-12 h-12 rounded-full bg-gradient-to-br from-[#2f6e9b] to-[#6b8caf] flex items-center justify-center shadow-lg animate-bounce-subtle"
@@ -947,24 +948,23 @@
                         </div>
                     </div>
                     <h3 class="text-xl font-semibold mb-4 group-hover:text-[#2f6e9b] transition-colors"
-                        data-translate-key="skill2_title">Data & Migration</h3>
+                        data-translate-key="skill2_title">Migrations & Données</h3>
                     <div class="flex flex-wrap justify-center gap-2 max-w-xs">
                         <span
                             class="skill-pill px-3 py-1.5 text-sm rounded-full bg-[#2f6e9b]/10 text-[#6b8caf] hover:bg-[#2f6e9b] hover:text-white transition-all cursor-default hover:scale-105 hover:-translate-y-1"
-                            data-translate-key="skill2_li1">ETL</span>
+                            data-translate-key="skill2_li1">Migrations & MAJ</span>
                         <span
                             class="skill-pill px-3 py-1.5 text-sm rounded-full bg-[#2f6e9b]/10 text-[#6b8caf] hover:bg-[#2f6e9b] hover:text-white transition-all cursor-default hover:scale-105 hover:-translate-y-1"
-                            data-translate-key="skill2_li2">Nettoyage Données</span>
+                            data-translate-key="skill2_li2">Admin Recovery</span>
                         <span
                             class="skill-pill px-3 py-1.5 text-sm rounded-full bg-[#2f6e9b]/10 text-[#6b8caf] hover:bg-[#2f6e9b] hover:text-white transition-all cursor-default hover:scale-105 hover:-translate-y-1"
-                            data-translate-key="skill2_li3">Templates SW</span>
+                            data-translate-key="skill2_li3">Templates SOLIDWORKS</span>
                         <span
                             class="skill-pill px-3 py-1.5 text-sm rounded-full bg-[#2f6e9b]/10 text-[#6b8caf] hover:bg-[#2f6e9b] hover:text-white transition-all cursor-default hover:scale-105 hover:-translate-y-1"
                             data-translate-key="skill2_li4">MyCADTools</span>
                         <span
                             class="skill-pill px-3 py-1.5 text-sm rounded-full bg-[#2f6e9b]/10 text-[#6b8caf] hover:bg-[#2f6e9b] hover:text-white transition-all cursor-default hover:scale-105 hover:-translate-y-1"
-                            data-translate-key="skill2_li5">Property
-                            Tab</span>
+                            data-translate-key="skill2_li5">Reprise ETL</span>
                     </div>
                 </div>
 
@@ -975,7 +975,7 @@
                     <div class="relative w-40 h-40 mb-6">
                         <svg class="w-full h-full -rotate-90 transform" viewBox="0 0 100 100">
                             <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="8"
-                                class="text-gray-200 dark:text-gray-700" />
+                                style="color: var(--bg-tertiary)" />
                             <circle cx="50" cy="50" r="45" fill="none" stroke="url(#gradient3)" stroke-width="8"
                                 stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="57"
                                 class="transition-all duration-1000" />
@@ -1002,24 +1002,23 @@
                         </div>
                     </div>
                     <h3 class="text-xl font-semibold mb-4 group-hover:text-emerald-500 transition-colors"
-                        data-translate-key="skill3_title">Documentaire</h3>
+                        data-translate-key="skill3_title">Accompagnement & Doc.</h3>
                     <div class="flex flex-wrap justify-center gap-2 max-w-xs">
                         <span
                             class="skill-pill px-3 py-1.5 text-sm rounded-full bg-emerald-500/10 text-emerald-600 hover:bg-emerald-500 hover:text-white transition-all cursor-default hover:scale-105 hover:-translate-y-1"
                             data-translate-key="skill3_li1">DTE</span>
                         <span
                             class="skill-pill px-3 py-1.5 text-sm rounded-full bg-emerald-500/10 text-emerald-600 hover:bg-emerald-500 hover:text-white transition-all cursor-default hover:scale-105 hover:-translate-y-1"
-                            data-translate-key="skill3_li2">Plans Recette</span>
+                            data-translate-key="skill3_li2">Plans & PV Recette</span>
                         <span
                             class="skill-pill px-3 py-1.5 text-sm rounded-full bg-emerald-500/10 text-emerald-600 hover:bg-emerald-500 hover:text-white transition-all cursor-default hover:scale-105 hover:-translate-y-1"
-                            data-translate-key="skill3_li3">Méthodologie</span>
+                            data-translate-key="skill3_li3">Formation Admin/User</span>
                         <span
                             class="skill-pill px-3 py-1.5 text-sm rounded-full bg-emerald-500/10 text-emerald-600 hover:bg-emerald-500 hover:text-white transition-all cursor-default hover:scale-105 hover:-translate-y-1"
-                            data-translate-key="skill3_li4">Formation</span>
+                            data-translate-key="skill3_li4">Consulting Régie</span>
                         <span
                             class="skill-pill px-3 py-1.5 text-sm rounded-full bg-emerald-500/10 text-emerald-600 hover:bg-emerald-500 hover:text-white transition-all cursor-default hover:scale-105 hover:-translate-y-1"
-                            data-translate-key="skill3_li5">PV
-                            Recette</span>
+                            data-translate-key="skill3_li5">Passation de Projet</span>
                     </div>
                 </div>
 
@@ -1027,42 +1026,26 @@
 
             <!-- Tech Stack Marquee -->
             <div class="mt-16 overflow-hidden">
-                <div class="flex animate-[shimmer_20s_linear_infinite] gap-8 py-4"
+                <div class="flex gap-8 py-4"
                     style="width: max-content; animation: marquee 25s linear infinite;">
-                    <span
-                        class="text-2xl font-bold text-gray-300 dark:text-gray-600 whitespace-nowrap hover:text-[#2f6e9b] transition-colors cursor-default">SOLIDWORKS
-                        PDM</span>
-                    <span class="text-gray-400">•</span>
-                    <span
-                        class="text-2xl font-bold text-gray-300 dark:text-gray-600 whitespace-nowrap hover:text-[#2f6e9b] transition-colors cursor-default">SQL
-                        Server</span>
-                    <span class="text-gray-400">•</span>
-                    <span
-                        class="text-2xl font-bold text-gray-300 dark:text-gray-600 whitespace-nowrap hover:text-emerald-500 transition-colors cursor-default">Windows
-                        Server</span>
-                    <span class="text-gray-400">•</span>
-                    <span
-                        class="text-2xl font-bold text-gray-300 dark:text-gray-600 whitespace-nowrap hover:text-violet-500 transition-colors cursor-default">Creo
-                        / Windchill</span>
-                    <span class="text-gray-400">•</span>
-                    <span
-                        class="text-2xl font-bold text-gray-300 dark:text-gray-600 whitespace-nowrap hover:text-rose-500 transition-colors cursor-default">3DEXPERIENCE</span>
-                    <span class="text-gray-400">•</span>
-                    <span
-                        class="text-2xl font-bold text-gray-300 dark:text-gray-600 whitespace-nowrap hover:text-cyan-500 transition-colors cursor-default">MyCADTools</span>
-                    <span class="text-gray-400">•</span>
+                    <span class="marquee-item text-2xl font-bold whitespace-nowrap hover:text-[#2f6e9b] transition-colors cursor-default">SOLIDWORKS PDM</span>
+                    <span class="marquee-sep">•</span>
+                    <span class="marquee-item text-2xl font-bold whitespace-nowrap hover:text-[#2f6e9b] transition-colors cursor-default">SQL Server</span>
+                    <span class="marquee-sep">•</span>
+                    <span class="marquee-item text-2xl font-bold whitespace-nowrap hover:text-emerald-500 transition-colors cursor-default">Windows Server</span>
+                    <span class="marquee-sep">•</span>
+                    <span class="marquee-item text-2xl font-bold whitespace-nowrap hover:text-violet-500 transition-colors cursor-default">Creo / Windchill</span>
+                    <span class="marquee-sep">•</span>
+                    <span class="marquee-item text-2xl font-bold whitespace-nowrap hover:text-rose-500 transition-colors cursor-default">3DEXPERIENCE</span>
+                    <span class="marquee-sep">•</span>
+                    <span class="marquee-item text-2xl font-bold whitespace-nowrap hover:text-cyan-500 transition-colors cursor-default">MyCADTools</span>
+                    <span class="marquee-sep">•</span>
                     <!-- Duplicate for seamless loop -->
-                    <span
-                        class="text-2xl font-bold text-gray-300 dark:text-gray-600 whitespace-nowrap hover:text-[#2f6e9b] transition-colors cursor-default">SOLIDWORKS
-                        PDM</span>
-                    <span class="text-gray-400">•</span>
-                    <span
-                        class="text-2xl font-bold text-gray-300 dark:text-gray-600 whitespace-nowrap hover:text-[#2f6e9b] transition-colors cursor-default">SQL
-                        Server</span>
-                    <span class="text-gray-400">•</span>
-                    <span
-                        class="text-2xl font-bold text-gray-300 dark:text-gray-600 whitespace-nowrap hover:text-emerald-500 transition-colors cursor-default">Windows
-                        Server</span>
+                    <span class="marquee-item text-2xl font-bold whitespace-nowrap hover:text-[#2f6e9b] transition-colors cursor-default">SOLIDWORKS PDM</span>
+                    <span class="marquee-sep">•</span>
+                    <span class="marquee-item text-2xl font-bold whitespace-nowrap hover:text-[#2f6e9b] transition-colors cursor-default">SQL Server</span>
+                    <span class="marquee-sep">•</span>
+                    <span class="marquee-item text-2xl font-bold whitespace-nowrap hover:text-emerald-500 transition-colors cursor-default">Windows Server</span>
                 </div>
             </div>
             <style>
@@ -1232,14 +1215,8 @@
                 <div class="contact-info">
                     <div class="contact-item">
                         <div class="contact-icon">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"
-                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                                <path d="M12 12L16 10M12 12V17M12 12L8 10" stroke="currentColor" stroke-width="1.5"
-                                    stroke-linecap="round" stroke-linejoin="round" />
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
                         <div class="contact-details">
@@ -1249,12 +1226,8 @@
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6M22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6M22 6L12 13L2 6"
-                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6M22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6M22 6L12 13L2 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
                         <div class="contact-details">
@@ -1264,16 +1237,9 @@
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z"
-                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                                <path
-                                    d="M12 22L5.8 11.4C5.4 10.6 5.4 9.8 5.8 9L8.8 3.8C9.3 2.7 10.6 2 12 2C13.4 2 14.7 2.7 15.2 3.8L18.2 9C18.6 9.8 18.6 10.6 18.2 11.4L12 22Z"
-                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 22L5.8 11.4C5.4 10.6 5.4 9.8 5.8 9L8.8 3.8C9.3 2.7 10.6 2 12 2C13.4 2 14.7 2.7 15.2 3.8L18.2 9C18.6 9.8 18.6 10.6 18.2 11.4L12 22Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
                         <div class="contact-details">
@@ -1283,20 +1249,14 @@
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M21 3H3C1.89543 3 1 3.89543 1 5V19C1 20.1046 1.89543 21 3 21H21C22.1046 21 23 20.1046 23 19V5C23 3.89543 22.1046 3 21 3Z"
-                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                                <path d="M1 9H23M12 9V21" stroke="currentColor" stroke-width="1.5"
-                                    stroke-linecap="round" stroke-linejoin="round" />
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 3H3C1.89543 3 1 3.89543 1 5V19C1 20.1046 1.89543 21 3 21H21C22.1046 21 23 20.1046 23 19V5C23 3.89543 22.1046 3 21 3Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M1 9H23M12 9V21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
                         <div class="contact-details">
                             <h4 data-translate-key="contact_languages">Langues</h4>
-                            <p data-translate-key="contact_languages_list">Arabe (Natale), Français (Bilingue), Anglais
-                                (Courant), Allemand (Débutant)</p>
+                            <p data-translate-key="contact_languages_list">Arabe (Natale), Français (Bilingue), Anglais (Courant), Allemand (Débutant)</p>
                         </div>
                     </div>
                 </div>
@@ -1321,23 +1281,10 @@
                         <button type="submit" id="submit-btn" class="btn btn-primary btn-form">
                             <span id="button-text" data-translate-key="form_send">Envoyer</span>
                             <span id="button-loading" style="display: none;">
-                                <svg width="20" height="20" viewBox="0 0 24 24"
-                                    style="animation: spin 1s linear infinite; display: inline-block;">
-                                    <style>
-                                        @keyframes spin {
-                                            0% {
-                                                transform: rotate(0deg);
-                                            }
-
-                                            100% {
-                                                transform: rotate(360deg);
-                                            }
-                                        }
-                                    </style>
-                                    <path fill="currentColor"
-                                        d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"
-                                        opacity="0.3" />
-                                    <path fill="currentColor" d="M12 4V2C6.5 2 2 6.5 2 12h2c0-4.4 3.6-8 8-8z" />
+                                <svg width="20" height="20" viewBox="0 0 24 24" style="animation: spin 1s linear infinite; display: inline-block;">
+                                    <style>@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }</style>
+                                    <path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z" opacity="0.3"/>
+                                    <path fill="currentColor" d="M12 4V2C6.5 2 2 6.5 2 12h2c0-4.4 3.6-8 8-8z"/>
                                 </svg>
                             </span>
                         </button>
@@ -1345,8 +1292,7 @@
                             Votre message a été envoyé avec succès ! Je vous répondrai dans les plus brefs délais.
                         </div>
                         <div id="form-error" class="form-error-message" data-translate-key="form_error">
-                            Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer ou me contacter
-                            directement par email.
+                            Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer ou me contacter directement par email.
                         </div>
                     </form>
                 </div>
