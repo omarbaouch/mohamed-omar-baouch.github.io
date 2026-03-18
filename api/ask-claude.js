@@ -134,8 +134,12 @@ Ta réponse :`;
 
         if (!claudeResponse.ok) {
             const errorBody = await claudeResponse.text();
-            console.error('Claude API Error:', errorBody);
-            throw new Error(`Claude API responded with status ${claudeResponse.status}`);
+            console.error('Claude API Error:', claudeResponse.status, errorBody);
+            return res.status(502).json({
+                error: 'Claude API error',
+                status: claudeResponse.status,
+                detail: errorBody
+            });
         }
 
         const data = await claudeResponse.json();
@@ -143,10 +147,10 @@ Ta réponse :`;
         if (data.content && data.content[0] && data.content[0].text) {
             res.status(200).json({ answer: data.content[0].text });
         } else {
-            res.status(500).json({ error: 'Invalid response structure from Claude API' });
+            res.status(500).json({ error: 'Invalid response structure from Claude API', data });
         }
     } catch (error) {
         console.error('Error calling Claude API:', error);
-        res.status(500).json({ error: "Failed to get a response from the AI assistant." });
+        res.status(500).json({ error: error.message || "Failed to get a response from the AI assistant." });
     }
 };
