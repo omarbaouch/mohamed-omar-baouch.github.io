@@ -81,7 +81,7 @@
                         <div class="hero-badges">
                             <span class="badge badge-editorial" data-translate-key="blog_badge_editorial">Article de fond</span>
                             <span class="badge" data-translate-key="blog_migration_badge_type">SOLIDWORKS PDM</span>
-                            <span class="badge badge-reading-time">~28 min de lecture</span>
+                            <span class="badge badge-reading-time">~30 min de lecture</span>
                         </div>
                         <span class="hero-eyebrow" data-translate-key="blog_migration_hero_eyebrow">Migration &amp; reprise de donnees</span>
                         <h1 class="hero-title" data-translate-key="blog_migration_hero_title">Migration de donnees vers SOLIDWORKS PDM : le guide terrain pour reussir sans perdre un fichier</h1>
@@ -448,9 +448,9 @@
                                     </tr>
                                     <tr>
                                         <td>3</td>
-                                        <td><strong>FindDocuments</strong></td>
-                                        <td data-translate-key="blog_migration_s4b_row3_action">Construit une base SQLite de tous les fichiers SOLIDWORKS et renomme en masse sans casser les liens de references</td>
-                                        <td data-translate-key="blog_migration_s4b_row3_resultat">Tous les fichiers RENOMMAGE=OUI renommes avec leur REF_INT, liens intacts entre assemblages et pieces</td>
+                                        <td><strong>FindDocuments</strong> <em>(mycadtools)</em></td>
+                                        <td data-translate-key="blog_migration_s4b_row3_action">Construit une base SQLite de tous les documents SOLIDWORKS et renomme en masse <strong>en dehors du coffre</strong>, sans casser les liens de references &mdash; indispensable sur PDM Standard ou l'API ne permet pas le renommage dans le coffre</td>
+                                        <td data-translate-key="blog_migration_s4b_row3_resultat">Tous les fichiers RENOMMAGE=OUI renommes avec leur REF_INT avant injection dans le coffre, liens intacts entre assemblages et pieces</td>
                                     </tr>
                                     <tr>
                                         <td>4</td>
@@ -472,9 +472,9 @@
                                     </tr>
                                     <tr>
                                         <td>7</td>
-                                        <td><strong>TaskAction</strong></td>
-                                        <td data-translate-key="blog_migration_s4b_row7_action">Tache parametree dans MyPDMtools pour renommer les fichiers directement dans le coffre en se basant sur les variables de carte</td>
-                                        <td data-translate-key="blog_migration_s4b_row7_resultat">Renommage pilote par les metadonnees, avec nouvelle reference si besoin</td>
+                                        <td><strong>TaskActions</strong> <em>(myPDMtools)</em></td>
+                                        <td data-translate-key="blog_migration_s4b_row7_action">Renommage en masse <strong>directement dans le coffre-fort</strong> via l'API PDM &mdash; disponible uniquement sur PDM Professional. Chaine plusieurs actions (numeros de serie, renommage, conversion, tamponnage) lors des transitions de workflow</td>
+                                        <td data-translate-key="blog_migration_s4b_row7_resultat">Renommage pilote par les variables de carte, avec generation automatique de reference unique (SmartCounter)</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -548,6 +548,32 @@
 
                     <div class="callout callout--soft">
                         <p data-translate-key="blog_migration_s4b_dup_callout"><strong>Ordre critique :</strong> la suppression des doublons doit imperativement se faire <strong>apres</strong> le renommage (FindDocuments) et <strong>avant</strong> la restauration des liens (Dependencies). Pourquoi ? Parce que si vous corrigez les references alors que des doublons existent encore, Dependencies risque de pointer vers le mauvais fichier. Et une fois le lien cree, il est beaucoup plus couteux a corriger. La sequence renommer &rarr; dedoublonner &rarr; restaurer les liens n'est pas un detail methodologique, c'est un verrou de qualite.</p>
+                    </div>
+
+                    <h3 data-translate-key="blog_migration_s4b_rename_title">Focus : renommage en masse &mdash; dans le coffre ou en dehors ?</h3>
+                    <p data-translate-key="blog_migration_s4b_rename_p1">C'est une question que je recois systematiquement : <em>"on peut renommer directement dans le coffre ?"</em> La reponse depend de votre version de PDM. C'est un point souvent mal compris, et il conditionne toute la strategie de reprise.</p>
+
+                    <div class="grid grid--2">
+                        <div>
+                            <h4 data-translate-key="blog_migration_s4b_rename_pro_title">PDM Professional &mdash; renommage dans le coffre</h4>
+                            <ul>
+                                <li data-translate-key="blog_migration_s4b_rename_pro1"><strong>API disponible :</strong> PDM Professional dispose d'une API de programmation complete qui autorise le renommage des fichiers directement dans le coffre-fort, sans extraire ni reimporter</li>
+                                <li data-translate-key="blog_migration_s4b_rename_pro2"><strong>TaskActions (myPDMtools) :</strong> permet de chainer des actions lors des transitions de workflow &mdash; generation de numeros de serie (SmartCounter), renommage automatique base sur les variables de carte, conversion, tamponnage PDF</li>
+                                <li data-translate-key="blog_migration_s4b_rename_pro3"><strong>Avantage :</strong> le renommage se fait sur des fichiers deja dans le coffre, avec mise a jour automatique de toutes les references PDM. Pas de risque de desynchronisation</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 data-translate-key="blog_migration_s4b_rename_std_title">PDM Standard &mdash; renommage en dehors du coffre</h4>
+                            <ul>
+                                <li data-translate-key="blog_migration_s4b_rename_std1"><strong>Pas d'API :</strong> sur PDM Standard, l'API PDM n'est pas disponible. Les outils comme myPDMtools (TaskActions) ne fonctionnent pas &mdash; impossible de renommer dans le coffre via script</li>
+                                <li data-translate-key="blog_migration_s4b_rename_std2"><strong>FindDocuments (mycadtools) :</strong> la solution consiste a construire une base SQLite de tous les documents SOLIDWORKS <em>avant</em> de les copier dans le coffre. FindDocuments renomme en masse en mettant a jour les liens de references internes &mdash; sans casser un seul assemblage</li>
+                                <li data-translate-key="blog_migration_s4b_rename_std3"><strong>Sequence :</strong> on renomme d'abord sur le systeme de fichiers local, puis on injecte dans le coffre les fichiers deja propres. Le coffre recoit des donnees pretes a l'emploi</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="callout callout--soft">
+                        <p data-translate-key="blog_migration_s4b_rename_callout"><strong>En resume :</strong> avec <strong>PDM Professional</strong>, on renomme dans le coffre grace a l'API (TaskActions + SmartCounter). Avec <strong>PDM Standard</strong>, on renomme en dehors du coffre avec FindDocuments (base SQLite) avant d'injecter les fichiers. Dans les deux cas, l'objectif est identique : chaque fichier porte sa bonne reference, et aucun lien d'assemblage n'est casse. Le choix de l'outil depend de votre licence &mdash; pas de la methodologie.</p>
                     </div>
                 </section>
 
