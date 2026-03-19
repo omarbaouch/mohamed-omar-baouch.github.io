@@ -1980,11 +1980,40 @@ function handleContactForm() {
         submitBtn.disabled = true;
         formSuccess.classList.remove('show');
         formError.classList.remove('show');
+        // Enrich with visitor intelligence data
+        var visitorData = {};
+        try {
+            var vi = JSON.parse(localStorage.getItem('bfr_visitor'));
+            if (vi) {
+                var recentPages = (vi.pages || []).slice(-10).map(function(p) { return p.path; }).join(' → ');
+                var source = vi.referrers && vi.referrers.length > 0 ? vi.referrers[vi.referrers.length - 1] : '(direct)';
+                var utmLast = vi.utmHistory && vi.utmHistory.length > 0 ? JSON.stringify(vi.utmHistory[vi.utmHistory.length - 1]) : '';
+                visitorData = {
+                    visitor_id: vi.id || '',
+                    visits: vi.visits || 1,
+                    first_visit: vi.firstVisit || '',
+                    pages_visited: recentPages,
+                    source: source,
+                    utm: utmLast,
+                    device: /Mobile|Android|iPhone/i.test(navigator.userAgent) ? 'mobile' : 'desktop',
+                    visitor_language: navigator.language
+                };
+            }
+        } catch(e) { /* no visitor data */ }
+
         const templateParams = {
             name: contactForm.name.value,
             email: contactForm.email.value,
             subject: contactForm.subject.value,
-            message: contactForm.message.value
+            message: contactForm.message.value,
+            visitor_id: visitorData.visitor_id || '',
+            visits: visitorData.visits || '',
+            first_visit: visitorData.first_visit || '',
+            pages_visited: visitorData.pages_visited || '',
+            source: visitorData.source || '',
+            utm: visitorData.utm || '',
+            device: visitorData.device || '',
+            visitor_language: visitorData.visitor_language || ''
         };
         emailjs.send('service_w29506o', 'template_2mkwm8s', templateParams)
             .then(function (response) {
