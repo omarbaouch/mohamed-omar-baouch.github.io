@@ -6,13 +6,11 @@
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-PBLRK58T');</script>
-    <script>(function(){var t=localStorage.getItem('theme'),d=t==='dark'||(!t&&true),r=document.documentElement;r.classList.add(d?'dark-theme':'light-theme');if(d)r.classList.add('dark');var bg=d?'#0f172a':'#f6f3ed',tx=d?'#f1f5f9':'#1f1b16',s=document.createElement('style');s.id='critical-theme-style';s.innerHTML='html,body{background-color:'+bg+' !important;color:'+tx+' !important;}';document.head.appendChild(s);})();</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog — Articles de fond PDM/PLM</title>
-    <meta name="description" content="Articles de fond sur le PDM, le PLM, la nomenclature BOM et la gestion des données techniques industrielles. Retours d'expérience terrain après 80 clients.">
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/blog.css">
+    <title>Blog — Radar &amp; guides PDM/PLM</title> <meta name="description" content="Veille PDM/PLM, guides SOLIDWORKS et retours d&#39;expérience terrain.">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/blog.css">
 </head>
 <body class="blog-page">
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBLRK58T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -27,7 +25,8 @@
     <div class="theme-switch" id="themeSwitch">
         <div class="theme-icon">☀️</div>
     </div>
-    <div class="scroll-to-top" id="scrollToTop"></div>
+    <div class="scroll-to-top" id="scrollToTop">
+        </div>
     <div class="scroll-progress" id="scrollProgress"></div>
 
     <div class="nav-container" id="navContainer">
@@ -58,117 +57,990 @@
     <main id="mainContainer" class="container blog-container show">
         <div class="blog-shell" id="blogShell" data-shell>
             <article class="blog-article" data-article-root>
+                <!--
+                    🔢 Graphiques dans un article
+                    1. Variante JSON complète (Chart.js) :
+                        <figure data-blog-chart>
+                            <canvas aria-label="Titre du graphique"></canvas>
+                            <script type="application/json" data-chart-config>
+                                {
+                                    "type": "bar",
+                                    "data": {
+                                        "labels": ["Q1", "Q2", "Q3", "Q4"],
+                                        "datasets": [
+                                            { "label": "2024", "data": [10, 12, 8, 14] }
+                                        ]
+                                    }
+                                }
+                            </script>
+                        </figure>
 
+                    2. Variante rapide avec attributs inline :
+                        <div data-blog-chart
+                             data-chart-type="line"
+                             data-chart-labels="Janvier,Février,Mars"
+                             data-chart-values="12,18,9"
+                             data-chart-dataset-label="Nombre d'articles">
+                        </div>
+
+                    Options supplémentaires :
+                    - data-chart-target=".selector" pour pointer vers un <canvas> existant
+                    - data-chart-colors et data-chart-border-colors (liste de couleurs séparées par des virgules)
+                    - data-chart-options='{"plugins":{"legend":{"position":"bottom"}}}' pour fusionner des options Chart.js
+                -->
                 <section class="blog-hero" data-hero>
-                    <div class="hero-intro">
-                        <span class="hero-eyebrow">Articles de fond PDM/PLM</span>
-                        <h1 class="hero-title" data-hero-title>Guides terrain et analyses approfondies</h1>
-                        <p class="hero-subtitle" data-hero-subtitle>Des articles de fond issus de 80 clients industriels accompagnés — nomenclature, PDM, PLM, ERP, configuration matérielle. Pas de veille automatique : uniquement des contenus construits sur l'expérience terrain.</p>
-                        <div class="hero-actions">
-                            <a class="hero-btn" href="#articles">Consulter les articles</a>
-                            <a class="hero-btn hero-btn--ghost" href="/#contact">Me contacter</a>
-                        </div>
-                    </div>
-                    <div class="hero-stats">
-                        <div class="hero-stat">
-                            <span class="hero-stat-value">4</span>
-                            <span class="hero-stat-label">Articles de fond</span>
-                        </div>
-                        <div class="hero-stat">
-                            <span class="hero-stat-value">80+</span>
-                            <span class="hero-stat-label">Clients accompagnés</span>
-                        </div>
-                        <div class="hero-stat">
-                            <span class="hero-stat-value">18/03/2026</span>
-                            <span class="hero-stat-label">Dernier article</span>
-                        </div>
-                    </div>
-                </section>
+  <div class="hero-intro">
+    <span class="hero-eyebrow">Radar &amp; analyses PDM/PLM</span>
+    <h1 class="hero-title" data-hero-title>Radar PDM/PLM – 2026-03-19</h1>
+    <p class="hero-subtitle" data-hero-subtitle>Veille du 19 mars 2026 — 2 signaux sélectionnés auprès de 2 sources.</p>
+    <div class="hero-actions">
+      <a class="hero-btn" data-hero-link href="/blog/radar-2026-03-19/">Consulter le radar du 19 mars 2026</a>
+      <a class="hero-btn hero-btn--ghost" data-hero-secondary href="/blog/migration-donnees-solidworks-pdm/">Lire l&#39;article de fond</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="hero-stat-value">20</span>
+      <span class="hero-stat-label">Radars en ligne</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-value">4</span>
+      <span class="hero-stat-label">Articles de fond</span>
+    </div>
+    
+    <div class="hero-stat">
+      <span class="hero-stat-value">19/03/2026</span>
+      <span class="hero-stat-label">Dernière mise à jour</span>
+    </div>
+  </div>
+</section><section class="blog-controls">
+  <div class="filter-group" data-filter-group role="group" aria-label="Filtrer les contenus du blog">
+    <button class="filter-btn is-active" type="button" data-filter="all" aria-pressed="true">Tout</button>
+    <button class="filter-btn" type="button" data-filter="radar" aria-pressed="false">Radars</button>
+    <button class="filter-btn" type="button" data-filter="editorial" aria-pressed="false">Articles de fond</button>
+  </div>
+</section><section class="blog-section" data-section="radar">
+  <div class="section-header">
+    <h2>Radars quotidiens</h2>
+    <p class="section-subtitle">Veille automatisée sur le PDM/PLM, actualisée chaque jour ouvré.</p>
+  </div>
+  <div class="card-grid"><article class="post-card" data-type="radar">
+  <div class="post-card__meta">
+    <span class="badge badge-radar">Radar</span>
+    <time datetime="2026-03-19T00:00:00.000Z">19 mars 2026</time>
+    <span>2 liens</span>
+  </div>
+  <h3 class="post-card__title"><a href="/blog/radar-2026-03-19/">Radar PDM/PLM – 2026-03-19</a></h3>
+  <p class="post-card__excerpt">Veille du 19 mars 2026. 2 signals sélectionnés.</p>
+  <a class="post-card__cta" href="/blog/radar-2026-03-19/">Consulter le radar</a>
+</article><article class="post-card" data-type="radar">
+  <div class="post-card__meta">
+    <span class="badge badge-radar">Radar</span>
+    <time datetime="2026-03-18T00:00:00.000Z">18 mars 2026</time>
+    <span>1 lien</span>
+  </div>
+  <h3 class="post-card__title"><a href="/blog/radar-2026-03-18/">Radar PDM/PLM – 2026-03-18</a></h3>
+  <p class="post-card__excerpt">Veille du 18 mars 2026. 1 signal sélectionné.</p>
+  <a class="post-card__cta" href="/blog/radar-2026-03-18/">Consulter le radar</a>
+</article><article class="post-card" data-type="radar">
+  <div class="post-card__meta">
+    <span class="badge badge-radar">Radar</span>
+    <time datetime="2026-03-14T00:00:00.000Z">14 mars 2026</time>
+    <span>1 lien</span>
+  </div>
+  <h3 class="post-card__title"><a href="/blog/radar-2026-03-14/">Radar PDM/PLM – 2026-03-14</a></h3>
+  <p class="post-card__excerpt">Veille du 14 mars 2026. 1 signal sélectionné.</p>
+  <a class="post-card__cta" href="/blog/radar-2026-03-14/">Consulter le radar</a>
+</article><article class="post-card" data-type="radar">
+  <div class="post-card__meta">
+    <span class="badge badge-radar">Radar</span>
+    <time datetime="2026-03-11T00:00:00.000Z">11 mars 2026</time>
+    <span>1 lien</span>
+  </div>
+  <h3 class="post-card__title"><a href="/blog/radar-2026-03-11/">Radar PDM/PLM – 2026-03-11</a></h3>
+  <p class="post-card__excerpt">Veille du 11 mars 2026. 1 signal sélectionné.</p>
+  <a class="post-card__cta" href="/blog/radar-2026-03-11/">Consulter le radar</a>
+</article><article class="post-card" data-type="radar">
+  <div class="post-card__meta">
+    <span class="badge badge-radar">Radar</span>
+    <time datetime="2026-03-10T00:00:00.000Z">10 mars 2026</time>
+    <span>1 lien</span>
+  </div>
+  <h3 class="post-card__title"><a href="/blog/radar-2026-03-10/">Radar PDM/PLM – 2026-03-10</a></h3>
+  <p class="post-card__excerpt">Veille du 10 mars 2026. 1 signal sélectionné.</p>
+  <a class="post-card__cta" href="/blog/radar-2026-03-10/">Consulter le radar</a>
+</article><article class="post-card" data-type="radar">
+  <div class="post-card__meta">
+    <span class="badge badge-radar">Radar</span>
+    <time datetime="2026-03-08T00:00:00.000Z">8 mars 2026</time>
+    
+  </div>
+  <h3 class="post-card__title"><a href="/blog/radar-2026-03-08/">Radar PDM/PLM – 2026-03-08</a></h3>
+  <p class="post-card__excerpt">Veille du 8 mars 2026.</p>
+  <a class="post-card__cta" href="/blog/radar-2026-03-08/">Consulter le radar</a>
+</article><article class="post-card" data-type="radar">
+  <div class="post-card__meta">
+    <span class="badge badge-radar">Radar</span>
+    <time datetime="2026-03-06T00:00:00.000Z">6 mars 2026</time>
+    
+  </div>
+  <h3 class="post-card__title"><a href="/blog/radar-2026-03-06/">Radar PDM/PLM – 2026-03-06</a></h3>
+  <p class="post-card__excerpt">Veille du 6 mars 2026.</p>
+  <a class="post-card__cta" href="/blog/radar-2026-03-06/">Consulter le radar</a>
+</article><article class="post-card" data-type="radar">
+  <div class="post-card__meta">
+    <span class="badge badge-radar">Radar</span>
+    <time datetime="2026-03-05T00:00:00.000Z">5 mars 2026</time>
+    <span>1 lien</span>
+  </div>
+  <h3 class="post-card__title"><a href="/blog/radar-2026-03-05/">Radar PDM/PLM – 2026-03-05</a></h3>
+  <p class="post-card__excerpt">Veille du 5 mars 2026. 1 signal sélectionné.</p>
+  <a class="post-card__cta" href="/blog/radar-2026-03-05/">Consulter le radar</a>
+</article><article class="post-card" data-type="radar">
+  <div class="post-card__meta">
+    <span class="badge badge-radar">Radar</span>
+    <time datetime="2026-03-03T00:00:00.000Z">3 mars 2026</time>
+    
+  </div>
+  <h3 class="post-card__title"><a href="/blog/radar-2026-03-03/">Radar PDM/PLM – 2026-03-03</a></h3>
+  <p class="post-card__excerpt">Veille du 3 mars 2026.</p>
+  <a class="post-card__cta" href="/blog/radar-2026-03-03/">Consulter le radar</a>
+</article><article class="post-card" data-type="radar">
+  <div class="post-card__meta">
+    <span class="badge badge-radar">Radar</span>
+    <time datetime="2026-03-02T00:00:00.000Z">2 mars 2026</time>
+    
+  </div>
+  <h3 class="post-card__title"><a href="/blog/radar-2026-03-02/">Radar PDM/PLM – 2026-03-02</a></h3>
+  <p class="post-card__excerpt">Veille du 2 mars 2026.</p>
+  <a class="post-card__cta" href="/blog/radar-2026-03-02/">Consulter le radar</a>
+</article><article class="post-card" data-type="radar">
+  <div class="post-card__meta">
+    <span class="badge badge-radar">Radar</span>
+    <time datetime="2026-02-25T00:00:00.000Z">25 février 2026</time>
+    
+  </div>
+  <h3 class="post-card__title"><a href="/blog/radar-2026-02-25/">Radar PDM/PLM – 2026-02-25</a></h3>
+  <p class="post-card__excerpt">Veille du 25 février 2026.</p>
+  <a class="post-card__cta" href="/blog/radar-2026-02-25/">Consulter le radar</a>
+</article><article class="post-card" data-type="radar">
+  <div class="post-card__meta">
+    <span class="badge badge-radar">Radar</span>
+    <time datetime="2026-02-24T00:00:00.000Z">24 février 2026</time>
+    
+  </div>
+  <h3 class="post-card__title"><a href="/blog/radar-2026-02-24/">Radar PDM/PLM – 2026-02-24</a></h3>
+  <p class="post-card__excerpt">Veille du 24 février 2026.</p>
+  <a class="post-card__cta" href="/blog/radar-2026-02-24/">Consulter le radar</a>
+</article><article class="post-card" data-type="radar">
+  <div class="post-card__meta">
+    <span class="badge badge-radar">Radar</span>
+    <time datetime="2026-02-22T00:00:00.000Z">22 février 2026</time>
+    
+  </div>
+  <h3 class="post-card__title"><a href="/blog/radar-2026-02-22/">Radar PDM/PLM – 2026-02-22</a></h3>
+  <p class="post-card__excerpt">Veille du 22 février 2026.</p>
+  <a class="post-card__cta" href="/blog/radar-2026-02-22/">Consulter le radar</a>
+</article><article class="post-card" data-type="radar">
+  <div class="post-card__meta">
+    <span class="badge badge-radar">Radar</span>
+    <time datetime="2026-02-20T00:00:00.000Z">20 février 2026</time>
+    <span>1 lien</span>
+  </div>
+  <h3 class="post-card__title"><a href="/blog/radar-2026-02-20/">Radar PDM/PLM – 2026-02-20</a></h3>
+  <p class="post-card__excerpt">Veille du 20 février 2026. 1 signal sélectionné.</p>
+  <a class="post-card__cta" href="/blog/radar-2026-02-20/">Consulter le radar</a>
+</article><article class="post-card" data-type="radar">
+  <div class="post-card__meta">
+    <span class="badge badge-radar">Radar</span>
+    <time datetime="2026-02-19T00:00:00.000Z">19 février 2026</time>
+    <span>1 lien</span>
+  </div>
+  <h3 class="post-card__title"><a href="/blog/radar-2026-02-19/">Radar PDM/PLM – 2026-02-19</a></h3>
+  <p class="post-card__excerpt">Veille du 19 février 2026. 1 signal sélectionné.</p>
+  <a class="post-card__cta" href="/blog/radar-2026-02-19/">Consulter le radar</a>
+</article><article class="post-card" data-type="radar">
+  <div class="post-card__meta">
+    <span class="badge badge-radar">Radar</span>
+    <time datetime="2026-02-18T00:00:00.000Z">18 février 2026</time>
+    <span>1 lien</span>
+  </div>
+  <h3 class="post-card__title"><a href="/blog/radar-2026-02-18/">Radar PDM/PLM – 2026-02-18</a></h3>
+  <p class="post-card__excerpt">Veille du 18 février 2026. 1 signal sélectionné.</p>
+  <a class="post-card__cta" href="/blog/radar-2026-02-18/">Consulter le radar</a>
+</article><article class="post-card" data-type="radar">
+  <div class="post-card__meta">
+    <span class="badge badge-radar">Radar</span>
+    <time datetime="2026-02-17T00:00:00.000Z">17 février 2026</time>
+    <span>1 lien</span>
+  </div>
+  <h3 class="post-card__title"><a href="/blog/radar-2026-02-17/">Radar PDM/PLM – 2026-02-17</a></h3>
+  <p class="post-card__excerpt">Veille du 17 février 2026. 1 signal sélectionné.</p>
+  <a class="post-card__cta" href="/blog/radar-2026-02-17/">Consulter le radar</a>
+</article><article class="post-card" data-type="radar">
+  <div class="post-card__meta">
+    <span class="badge badge-radar">Radar</span>
+    <time datetime="2026-02-16T00:00:00.000Z">16 février 2026</time>
+    
+  </div>
+  <h3 class="post-card__title"><a href="/blog/radar-2026-02-16/">Radar PDM/PLM – 2026-02-16</a></h3>
+  <p class="post-card__excerpt">Veille du 16 février 2026.</p>
+  <a class="post-card__cta" href="/blog/radar-2026-02-16/">Consulter le radar</a>
+</article><article class="post-card" data-type="radar">
+  <div class="post-card__meta">
+    <span class="badge badge-radar">Radar</span>
+    <time datetime="2026-02-15T00:00:00.000Z">15 février 2026</time>
+    <span>3 liens</span>
+  </div>
+  <h3 class="post-card__title"><a href="/blog/radar-2026-02-15/">Radar PDM/PLM – 2026-02-15</a></h3>
+  <p class="post-card__excerpt">Veille du 15 février 2026. 3 signals sélectionnés.</p>
+  <a class="post-card__cta" href="/blog/radar-2026-02-15/">Consulter le radar</a>
+</article><article class="post-card" data-type="radar">
+  <div class="post-card__meta">
+    <span class="badge badge-radar">Radar</span>
+    <time datetime="2026-02-14T00:00:00.000Z">14 février 2026</time>
+    <span>3 liens</span>
+  </div>
+  <h3 class="post-card__title"><a href="/blog/radar-2026-02-14/">Radar PDM/PLM – 2026-02-14</a></h3>
+  <p class="post-card__excerpt">Veille du 14 février 2026. 3 signals sélectionnés.</p>
+  <a class="post-card__cta" href="/blog/radar-2026-02-14/">Consulter le radar</a>
+</article></div>
+</section>
 
-                <section class="blog-section" id="articles" data-section="editorial">
-                    <div class="section-header">
-                        <h2>Articles de fond</h2>
-                        <p class="section-subtitle">Analyses, retours d'expérience et bonnes pratiques issues du terrain PDM/PLM.</p>
-                    </div>
-                    <div class="card-grid">
+<section class="blog-section" data-section="editorial">
+  <div class="section-header">
+    <h2>Articles de fond</h2>
+    <p class="section-subtitle">Analyses éditoriales, retours d’expérience et bonnes pratiques terrain.</p>
+  </div>
+  <div class="card-grid"><article class="post-card" data-type="editorial">
+  <div class="post-card__meta">
+    <span class="badge badge-editorial">Article de fond</span>
+    <time datetime="2026-03-18T00:00:00.000Z">18 mars 2026</time>
+    
+  </div>
+  <h3 class="post-card__title"><a href="/blog/migration-donnees-solidworks-pdm/">Migration de donnees vers SOLIDWORKS PDM : le guide terrain pour reussir sans perdre un fichier</a></h3>
+  <p class="post-card__excerpt">Guide complet de migration de donnees vers SOLIDWORKS PDM : methodologie en 6 phases, pieges courants, strategies de reprise, retours d</p>
+  <a class="post-card__cta" href="/blog/migration-donnees-solidworks-pdm/">Lire l'article</a>
+</article><article class="post-card" data-type="editorial">
+  <div class="post-card__meta">
+    <span class="badge badge-editorial">Article de fond</span>
+    <time datetime="2026-03-16T00:00:00.000Z">16 mars 2026</time>
+    
+  </div>
+  <h3 class="post-card__title"><a href="/blog/nomenclature-bom-pdm-plm-erp/">Nomenclature, BOM, eBOM, mBOM : la colonne vertébrale de vos données produit — et le rôle de PDM, PLM et ERP</a></h3>
+  <p class="post-card__excerpt">Comprendre la BOM (Bill of Materials), la différence entre eBOM et mBOM, le rôle du PDM, du PLM et de l</p>
+  <a class="post-card__cta" href="/blog/nomenclature-bom-pdm-plm-erp/">Lire l'article</a>
+</article><article class="post-card" data-type="editorial">
+  <div class="post-card__meta">
+    <span class="badge badge-editorial">Article de fond</span>
+    <time datetime="2025-09-21T00:00:00.000Z">21 septembre 2025</time>
+    
+  </div>
+  <h3 class="post-card__title"><a href="/blog/configuration-materielle-solidworks/">Configuration matérielle SOLIDWORKS 2025 : le guide terrain pour un bureau d&#39;études réactif</a></h3>
+  <p class="post-card__excerpt">Plan d</p>
+  <a class="post-card__cta" href="/blog/configuration-materielle-solidworks/">Lire l'article</a>
+</article><article class="post-card" data-type="editorial">
+  <div class="post-card__meta">
+    <span class="badge badge-editorial">Article de fond</span>
+    <time datetime="2025-09-15T00:00:00.000Z">15 septembre 2025</time>
+    
+  </div>
+  <h3 class="post-card__title"><a href="/blog/resolutions-problematiques-plm/">resolutions problematiques plm</a></h3>
+  <p class="post-card__excerpt">Retour d</p>
+  <a class="post-card__cta" href="/blog/resolutions-problematiques-plm/">Lire l'article</a>
+</article></div>
+</section>
 
-                        <article class="post-card" data-type="editorial">
-                            <div class="post-card__meta">
-                                <span class="badge badge-editorial">Article de fond</span>
-                                <time datetime="2026-03-18T00:00:00.000Z">18 mars 2026</time>
-                            </div>
-                            <h3 class="post-card__title"><a href="/blog/migration-donnees-solidworks-pdm/">Migration de données vers SOLIDWORKS PDM : le guide terrain pour réussir sans perdre un fichier</a></h3>
-                            <p class="post-card__excerpt">Méthodologie complète en 6 phases, pièges courants et retours d'expérience après 80+ migrations industrielles — de l'audit à la stabilisation.</p>
-                            <a class="post-card__cta" href="/blog/migration-donnees-solidworks-pdm/">Lire l'article</a>
-                        </article>
+<section class="blog-section blog-timeline-section">
+  <div class="section-header">
+    <h2>Timeline du radar</h2>
+    <p class="section-subtitle">Évolution des 12 dernières publications (24 février 2026 → 19 mars 2026).</p>
+  </div>
+  <ol class="blog-timeline">
+    <li class="timeline-item">
+  <span class="timeline-dot"></span>
+  <div class="timeline-content">
+    <time datetime="2026-03-19T00:00:00.000Z">19 mars 2026</time>
+    <a href="/blog/radar-2026-03-19/">Radar PDM/PLM – 2026-03-19</a>
+    <span class="timeline-meta">2 liens</span>
+  </div>
+</li><li class="timeline-item">
+  <span class="timeline-dot"></span>
+  <div class="timeline-content">
+    <time datetime="2026-03-18T00:00:00.000Z">18 mars 2026</time>
+    <a href="/blog/radar-2026-03-18/">Radar PDM/PLM – 2026-03-18</a>
+    <span class="timeline-meta">1 lien</span>
+  </div>
+</li><li class="timeline-item">
+  <span class="timeline-dot"></span>
+  <div class="timeline-content">
+    <time datetime="2026-03-14T00:00:00.000Z">14 mars 2026</time>
+    <a href="/blog/radar-2026-03-14/">Radar PDM/PLM – 2026-03-14</a>
+    <span class="timeline-meta">1 lien</span>
+  </div>
+</li><li class="timeline-item">
+  <span class="timeline-dot"></span>
+  <div class="timeline-content">
+    <time datetime="2026-03-11T00:00:00.000Z">11 mars 2026</time>
+    <a href="/blog/radar-2026-03-11/">Radar PDM/PLM – 2026-03-11</a>
+    <span class="timeline-meta">1 lien</span>
+  </div>
+</li><li class="timeline-item">
+  <span class="timeline-dot"></span>
+  <div class="timeline-content">
+    <time datetime="2026-03-10T00:00:00.000Z">10 mars 2026</time>
+    <a href="/blog/radar-2026-03-10/">Radar PDM/PLM – 2026-03-10</a>
+    <span class="timeline-meta">1 lien</span>
+  </div>
+</li><li class="timeline-item">
+  <span class="timeline-dot"></span>
+  <div class="timeline-content">
+    <time datetime="2026-03-08T00:00:00.000Z">8 mars 2026</time>
+    <a href="/blog/radar-2026-03-08/">Radar PDM/PLM – 2026-03-08</a>
+    
+  </div>
+</li><li class="timeline-item">
+  <span class="timeline-dot"></span>
+  <div class="timeline-content">
+    <time datetime="2026-03-06T00:00:00.000Z">6 mars 2026</time>
+    <a href="/blog/radar-2026-03-06/">Radar PDM/PLM – 2026-03-06</a>
+    
+  </div>
+</li><li class="timeline-item">
+  <span class="timeline-dot"></span>
+  <div class="timeline-content">
+    <time datetime="2026-03-05T00:00:00.000Z">5 mars 2026</time>
+    <a href="/blog/radar-2026-03-05/">Radar PDM/PLM – 2026-03-05</a>
+    <span class="timeline-meta">1 lien</span>
+  </div>
+</li><li class="timeline-item">
+  <span class="timeline-dot"></span>
+  <div class="timeline-content">
+    <time datetime="2026-03-03T00:00:00.000Z">3 mars 2026</time>
+    <a href="/blog/radar-2026-03-03/">Radar PDM/PLM – 2026-03-03</a>
+    
+  </div>
+</li><li class="timeline-item">
+  <span class="timeline-dot"></span>
+  <div class="timeline-content">
+    <time datetime="2026-03-02T00:00:00.000Z">2 mars 2026</time>
+    <a href="/blog/radar-2026-03-02/">Radar PDM/PLM – 2026-03-02</a>
+    
+  </div>
+</li><li class="timeline-item">
+  <span class="timeline-dot"></span>
+  <div class="timeline-content">
+    <time datetime="2026-02-25T00:00:00.000Z">25 février 2026</time>
+    <a href="/blog/radar-2026-02-25/">Radar PDM/PLM – 2026-02-25</a>
+    
+  </div>
+</li><li class="timeline-item">
+  <span class="timeline-dot"></span>
+  <div class="timeline-content">
+    <time datetime="2026-02-24T00:00:00.000Z">24 février 2026</time>
+    <a href="/blog/radar-2026-02-24/">Radar PDM/PLM – 2026-02-24</a>
+    
+  </div>
+</li>
+  </ol>
+</section>
 
-                        <article class="post-card" data-type="editorial">
-                            <div class="post-card__meta">
-                                <span class="badge badge-editorial">Article de fond</span>
-                                <time datetime="2026-03-16T00:00:00.000Z">16 mars 2026</time>
-                            </div>
-                            <h3 class="post-card__title"><a href="/blog/nomenclature-bom-pdm-plm-erp/">Nomenclature, BOM, eBOM, mBOM : la colonne vertébrale de vos données produit — et le rôle de PDM, PLM et ERP</a></h3>
-                            <p class="post-card__excerpt">Comprendre la BOM, la différence entre eBOM et mBOM, ce que fait (vraiment) un PDM, un PLM et un ERP, et comment ces trois systèmes s'articulent dans l'industrie.</p>
-                            <a class="post-card__cta" href="/blog/nomenclature-bom-pdm-plm-erp/">Lire l'article</a>
-                        </article>
-
-                        <article class="post-card" data-type="editorial">
-                            <div class="post-card__meta">
-                                <span class="badge badge-editorial">Article de fond</span>
-                                <time datetime="2025-09-21T00:00:00.000Z">21 septembre 2025</time>
-                            </div>
-                            <h3 class="post-card__title"><a href="/blog/configuration-materielle-solidworks/">Configuration matérielle SOLIDWORKS 2025 : le guide terrain pour un bureau d'études réactif</a></h3>
-                            <p class="post-card__excerpt">Plan d'action détaillé pour calibrer stations de travail, serveur PDM et réseau autour de SOLIDWORKS 2025, avec indicateurs de terrain et repères budgétaires.</p>
-                            <a class="post-card__cta" href="/blog/configuration-materielle-solidworks/">Lire l'article</a>
-                        </article>
-
-                        <article class="post-card" data-type="editorial">
-                            <div class="post-card__meta">
-                                <span class="badge badge-editorial">Article de fond</span>
-                                <time datetime="2025-09-15T00:00:00.000Z">15 septembre 2025</time>
-                            </div>
-                            <h3 class="post-card__title"><a href="/blog/resolutions-problematiques-plm/">Au-delà de la théorie : résoudre les 5 problématiques PLM que j'ai vécues en tant qu'Ingénieur Mécanique</a></h3>
-                            <p class="post-card__excerpt">Retour d'expérience direct sur cinq problèmes PLM récurrents — nomenclature, configuration, ECO, intégration ERP — et comment les résoudre concrètement.</p>
-                            <a class="post-card__cta" href="/blog/resolutions-problematiques-plm/">Lire l'article</a>
-                        </article>
-
-                    </div>
-                </section>
-
+<script type="application/json" id="blog-data">{
+  "generatedAt": "2026-03-19T07:41:07.161Z",
+  "hero": {
+    "tagline": "Radar \u0026 analyses PDM/PLM",
+    "title": "Radar PDM/PLM – 2026-03-19",
+    "subtitle": "Veille du 19 mars 2026 — 2 signaux sélectionnés auprès de 2 sources.",
+    "radarHighlight": {
+      "title": "Radar PDM/PLM – 2026-03-19",
+      "url": "/blog/radar-2026-03-19/",
+      "dateIso": "2026-03-19T00:00:00.000Z",
+      "displayDate": "19 mars 2026",
+      "shortDate": "19/03/2026",
+      "excerpt": "Veille du 19 mars 2026. 2 signals sélectionnés.",
+      "heroSubtitle": "Veille du 19 mars 2026 — 2 signaux sélectionnés auprès de 2 sources.",
+      "itemsCount": 2,
+      "type": "radar"
+    },
+    "editorialHighlight": {
+      "title": "Migration de donnees vers SOLIDWORKS PDM : le guide terrain pour reussir sans perdre un fichier",
+      "url": "/blog/migration-donnees-solidworks-pdm/",
+      "dateIso": "2026-03-18T00:00:00.000Z",
+      "displayDate": "18 mars 2026",
+      "shortDate": "18/03/2026",
+      "excerpt": "Guide complet de migration de donnees vers SOLIDWORKS PDM : methodologie en 6 phases, pieges courants, strategies de reprise, retours d",
+      "heroSubtitle": "Publié le 18 mars 2026. Guide complet de migration de donnees vers SOLIDWORKS PDM : methodologie en 6 phases, pieges courants, strategies de reprise, retours d",
+      "itemsCount": null,
+      "type": "editorial"
+    },
+    "stats": {
+      "radarCount": 20,
+      "editorialCount": 4,
+      "lastRadar": "19/03/2026"
+    }
+  },
+  "radars": [
+    {
+      "slug": "radar-2026-03-19",
+      "url": "/blog/radar-2026-03-19/",
+      "title": "Radar PDM/PLM – 2026-03-19",
+      "dateIso": "2026-03-19T00:00:00.000Z",
+      "displayDate": "19 mars 2026",
+      "shortDate": "19/03/2026",
+      "excerpt": "Veille du 19 mars 2026. 2 signals sélectionnés.",
+      "heroSubtitle": "Veille du 19 mars 2026 — 2 signaux sélectionnés auprès de 2 sources.",
+      "itemsCount": 2,
+      "type": "radar"
+    },
+    {
+      "slug": "radar-2026-03-18",
+      "url": "/blog/radar-2026-03-18/",
+      "title": "Radar PDM/PLM – 2026-03-18",
+      "dateIso": "2026-03-18T00:00:00.000Z",
+      "displayDate": "18 mars 2026",
+      "shortDate": "18/03/2026",
+      "excerpt": "Veille du 18 mars 2026. 1 signal sélectionné.",
+      "heroSubtitle": "Veille du 18 mars 2026 — 1 signal sélectionné auprès de 1 source.",
+      "itemsCount": 1,
+      "type": "radar"
+    },
+    {
+      "slug": "radar-2026-03-14",
+      "url": "/blog/radar-2026-03-14/",
+      "title": "Radar PDM/PLM – 2026-03-14",
+      "dateIso": "2026-03-14T00:00:00.000Z",
+      "displayDate": "14 mars 2026",
+      "shortDate": "14/03/2026",
+      "excerpt": "Veille du 14 mars 2026. 1 signal sélectionné.",
+      "heroSubtitle": "Veille du 14 mars 2026 — 1 signal sélectionné auprès de 1 source.",
+      "itemsCount": 1,
+      "type": "radar"
+    },
+    {
+      "slug": "radar-2026-03-11",
+      "url": "/blog/radar-2026-03-11/",
+      "title": "Radar PDM/PLM – 2026-03-11",
+      "dateIso": "2026-03-11T00:00:00.000Z",
+      "displayDate": "11 mars 2026",
+      "shortDate": "11/03/2026",
+      "excerpt": "Veille du 11 mars 2026. 1 signal sélectionné.",
+      "heroSubtitle": "Veille du 11 mars 2026 — 1 signal sélectionné auprès de 1 source.",
+      "itemsCount": 1,
+      "type": "radar"
+    },
+    {
+      "slug": "radar-2026-03-10",
+      "url": "/blog/radar-2026-03-10/",
+      "title": "Radar PDM/PLM – 2026-03-10",
+      "dateIso": "2026-03-10T00:00:00.000Z",
+      "displayDate": "10 mars 2026",
+      "shortDate": "10/03/2026",
+      "excerpt": "Veille du 10 mars 2026. 1 signal sélectionné.",
+      "heroSubtitle": "Veille du 10 mars 2026 — 1 signal sélectionné auprès de 1 source.",
+      "itemsCount": 1,
+      "type": "radar"
+    },
+    {
+      "slug": "radar-2026-03-08",
+      "url": "/blog/radar-2026-03-08/",
+      "title": "Radar PDM/PLM – 2026-03-08",
+      "dateIso": "2026-03-08T00:00:00.000Z",
+      "displayDate": "8 mars 2026",
+      "shortDate": "08/03/2026",
+      "excerpt": "Veille du 8 mars 2026.",
+      "heroSubtitle": "Aucune actualité détectée pour le 8 mars 2026.",
+      "itemsCount": null,
+      "type": "radar"
+    },
+    {
+      "slug": "radar-2026-03-06",
+      "url": "/blog/radar-2026-03-06/",
+      "title": "Radar PDM/PLM – 2026-03-06",
+      "dateIso": "2026-03-06T00:00:00.000Z",
+      "displayDate": "6 mars 2026",
+      "shortDate": "06/03/2026",
+      "excerpt": "Veille du 6 mars 2026.",
+      "heroSubtitle": "Aucune actualité détectée pour le 6 mars 2026.",
+      "itemsCount": null,
+      "type": "radar"
+    },
+    {
+      "slug": "radar-2026-03-05",
+      "url": "/blog/radar-2026-03-05/",
+      "title": "Radar PDM/PLM – 2026-03-05",
+      "dateIso": "2026-03-05T00:00:00.000Z",
+      "displayDate": "5 mars 2026",
+      "shortDate": "05/03/2026",
+      "excerpt": "Veille du 5 mars 2026. 1 signal sélectionné.",
+      "heroSubtitle": "Veille du 5 mars 2026 — 1 signal sélectionné auprès de 1 source.",
+      "itemsCount": 1,
+      "type": "radar"
+    },
+    {
+      "slug": "radar-2026-03-03",
+      "url": "/blog/radar-2026-03-03/",
+      "title": "Radar PDM/PLM – 2026-03-03",
+      "dateIso": "2026-03-03T00:00:00.000Z",
+      "displayDate": "3 mars 2026",
+      "shortDate": "03/03/2026",
+      "excerpt": "Veille du 3 mars 2026.",
+      "heroSubtitle": "Aucune actualité détectée pour le 3 mars 2026.",
+      "itemsCount": null,
+      "type": "radar"
+    },
+    {
+      "slug": "radar-2026-03-02",
+      "url": "/blog/radar-2026-03-02/",
+      "title": "Radar PDM/PLM – 2026-03-02",
+      "dateIso": "2026-03-02T00:00:00.000Z",
+      "displayDate": "2 mars 2026",
+      "shortDate": "02/03/2026",
+      "excerpt": "Veille du 2 mars 2026.",
+      "heroSubtitle": "Aucune actualité détectée pour le 2 mars 2026.",
+      "itemsCount": null,
+      "type": "radar"
+    },
+    {
+      "slug": "radar-2026-02-25",
+      "url": "/blog/radar-2026-02-25/",
+      "title": "Radar PDM/PLM – 2026-02-25",
+      "dateIso": "2026-02-25T00:00:00.000Z",
+      "displayDate": "25 février 2026",
+      "shortDate": "25/02/2026",
+      "excerpt": "Veille du 25 février 2026.",
+      "heroSubtitle": "Aucune actualité détectée pour le 25 février 2026.",
+      "itemsCount": null,
+      "type": "radar"
+    },
+    {
+      "slug": "radar-2026-02-24",
+      "url": "/blog/radar-2026-02-24/",
+      "title": "Radar PDM/PLM – 2026-02-24",
+      "dateIso": "2026-02-24T00:00:00.000Z",
+      "displayDate": "24 février 2026",
+      "shortDate": "24/02/2026",
+      "excerpt": "Veille du 24 février 2026.",
+      "heroSubtitle": "Aucune actualité détectée pour le 24 février 2026.",
+      "itemsCount": null,
+      "type": "radar"
+    },
+    {
+      "slug": "radar-2026-02-22",
+      "url": "/blog/radar-2026-02-22/",
+      "title": "Radar PDM/PLM – 2026-02-22",
+      "dateIso": "2026-02-22T00:00:00.000Z",
+      "displayDate": "22 février 2026",
+      "shortDate": "22/02/2026",
+      "excerpt": "Veille du 22 février 2026.",
+      "heroSubtitle": "Aucune actualité détectée pour le 22 février 2026.",
+      "itemsCount": null,
+      "type": "radar"
+    },
+    {
+      "slug": "radar-2026-02-20",
+      "url": "/blog/radar-2026-02-20/",
+      "title": "Radar PDM/PLM – 2026-02-20",
+      "dateIso": "2026-02-20T00:00:00.000Z",
+      "displayDate": "20 février 2026",
+      "shortDate": "20/02/2026",
+      "excerpt": "Veille du 20 février 2026. 1 signal sélectionné.",
+      "heroSubtitle": "Veille du 20 février 2026 — 1 signal sélectionné auprès de 1 source.",
+      "itemsCount": 1,
+      "type": "radar"
+    },
+    {
+      "slug": "radar-2026-02-19",
+      "url": "/blog/radar-2026-02-19/",
+      "title": "Radar PDM/PLM – 2026-02-19",
+      "dateIso": "2026-02-19T00:00:00.000Z",
+      "displayDate": "19 février 2026",
+      "shortDate": "19/02/2026",
+      "excerpt": "Veille du 19 février 2026. 1 signal sélectionné.",
+      "heroSubtitle": "Veille du 19 février 2026 — 1 signal sélectionné auprès de 1 source.",
+      "itemsCount": 1,
+      "type": "radar"
+    },
+    {
+      "slug": "radar-2026-02-18",
+      "url": "/blog/radar-2026-02-18/",
+      "title": "Radar PDM/PLM – 2026-02-18",
+      "dateIso": "2026-02-18T00:00:00.000Z",
+      "displayDate": "18 février 2026",
+      "shortDate": "18/02/2026",
+      "excerpt": "Veille du 18 février 2026. 1 signal sélectionné.",
+      "heroSubtitle": "Veille du 18 février 2026 — 1 signal sélectionné auprès de 1 source.",
+      "itemsCount": 1,
+      "type": "radar"
+    },
+    {
+      "slug": "radar-2026-02-17",
+      "url": "/blog/radar-2026-02-17/",
+      "title": "Radar PDM/PLM – 2026-02-17",
+      "dateIso": "2026-02-17T00:00:00.000Z",
+      "displayDate": "17 février 2026",
+      "shortDate": "17/02/2026",
+      "excerpt": "Veille du 17 février 2026. 1 signal sélectionné.",
+      "heroSubtitle": "Veille du 17 février 2026 — 1 signal sélectionné auprès de 1 source.",
+      "itemsCount": 1,
+      "type": "radar"
+    },
+    {
+      "slug": "radar-2026-02-16",
+      "url": "/blog/radar-2026-02-16/",
+      "title": "Radar PDM/PLM – 2026-02-16",
+      "dateIso": "2026-02-16T00:00:00.000Z",
+      "displayDate": "16 février 2026",
+      "shortDate": "16/02/2026",
+      "excerpt": "Veille du 16 février 2026.",
+      "heroSubtitle": "Aucune actualité détectée pour le 16 février 2026.",
+      "itemsCount": null,
+      "type": "radar"
+    },
+    {
+      "slug": "radar-2026-02-15",
+      "url": "/blog/radar-2026-02-15/",
+      "title": "Radar PDM/PLM – 2026-02-15",
+      "dateIso": "2026-02-15T00:00:00.000Z",
+      "displayDate": "15 février 2026",
+      "shortDate": "15/02/2026",
+      "excerpt": "Veille du 15 février 2026. 3 signals sélectionnés.",
+      "heroSubtitle": "Veille du 15 février 2026 — 3 signaux sélectionnés auprès de 1 source.",
+      "itemsCount": 3,
+      "type": "radar"
+    },
+    {
+      "slug": "radar-2026-02-14",
+      "url": "/blog/radar-2026-02-14/",
+      "title": "Radar PDM/PLM – 2026-02-14",
+      "dateIso": "2026-02-14T00:00:00.000Z",
+      "displayDate": "14 février 2026",
+      "shortDate": "14/02/2026",
+      "excerpt": "Veille du 14 février 2026. 3 signals sélectionnés.",
+      "heroSubtitle": "Veille du 14 février 2026 — 3 signaux sélectionnés auprès de 1 source.",
+      "itemsCount": 3,
+      "type": "radar"
+    }
+  ],
+  "editorials": [
+    {
+      "slug": "migration-donnees-solidworks-pdm",
+      "url": "/blog/migration-donnees-solidworks-pdm/",
+      "title": "Migration de donnees vers SOLIDWORKS PDM : le guide terrain pour reussir sans perdre un fichier",
+      "dateIso": "2026-03-18T00:00:00.000Z",
+      "displayDate": "18 mars 2026",
+      "shortDate": "18/03/2026",
+      "excerpt": "Guide complet de migration de donnees vers SOLIDWORKS PDM : methodologie en 6 phases, pieges courants, strategies de reprise, retours d",
+      "heroSubtitle": "Publié le 18 mars 2026. Guide complet de migration de donnees vers SOLIDWORKS PDM : methodologie en 6 phases, pieges courants, strategies de reprise, retours d",
+      "type": "editorial"
+    },
+    {
+      "slug": "nomenclature-bom-pdm-plm-erp",
+      "url": "/blog/nomenclature-bom-pdm-plm-erp/",
+      "title": "Nomenclature, BOM, eBOM, mBOM : la colonne vertébrale de vos données produit — et le rôle de PDM, PLM et ERP",
+      "dateIso": "2026-03-16T00:00:00.000Z",
+      "displayDate": "16 mars 2026",
+      "shortDate": "16/03/2026",
+      "excerpt": "Comprendre la BOM (Bill of Materials), la différence entre eBOM et mBOM, le rôle du PDM, du PLM et de l",
+      "heroSubtitle": "Publié le 16 mars 2026. Comprendre la BOM (Bill of Materials), la différence entre eBOM et mBOM, le rôle du PDM, du PLM et de l",
+      "type": "editorial"
+    },
+    {
+      "slug": "configuration-materielle-solidworks",
+      "url": "/blog/configuration-materielle-solidworks/",
+      "title": "Configuration matérielle SOLIDWORKS 2025 : le guide terrain pour un bureau d'études réactif",
+      "dateIso": "2025-09-21T00:00:00.000Z",
+      "displayDate": "21 septembre 2025",
+      "shortDate": "21/09/2025",
+      "excerpt": "Plan d",
+      "heroSubtitle": "Publié le 21 septembre 2025. Plan d",
+      "type": "editorial"
+    },
+    {
+      "slug": "resolutions-problematiques-plm",
+      "url": "/blog/resolutions-problematiques-plm/",
+      "title": "resolutions problematiques plm",
+      "dateIso": "2025-09-15T00:00:00.000Z",
+      "displayDate": "15 septembre 2025",
+      "shortDate": "15/09/2025",
+      "excerpt": "Retour d",
+      "heroSubtitle": "Publié le 15 septembre 2025. Retour d",
+      "type": "editorial"
+    }
+  ],
+  "timeline": [
+    {
+      "slug": "radar-2026-03-19",
+      "url": "/blog/radar-2026-03-19/",
+      "title": "Radar PDM/PLM – 2026-03-19",
+      "dateIso": "2026-03-19T00:00:00.000Z",
+      "displayDate": "19 mars 2026",
+      "shortDate": "19/03/2026",
+      "excerpt": "Veille du 19 mars 2026. 2 signals sélectionnés.",
+      "heroSubtitle": "Veille du 19 mars 2026 — 2 signaux sélectionnés auprès de 2 sources.",
+      "itemsCount": 2,
+      "type": "radar"
+    },
+    {
+      "slug": "radar-2026-03-18",
+      "url": "/blog/radar-2026-03-18/",
+      "title": "Radar PDM/PLM – 2026-03-18",
+      "dateIso": "2026-03-18T00:00:00.000Z",
+      "displayDate": "18 mars 2026",
+      "shortDate": "18/03/2026",
+      "excerpt": "Veille du 18 mars 2026. 1 signal sélectionné.",
+      "heroSubtitle": "Veille du 18 mars 2026 — 1 signal sélectionné auprès de 1 source.",
+      "itemsCount": 1,
+      "type": "radar"
+    },
+    {
+      "slug": "radar-2026-03-14",
+      "url": "/blog/radar-2026-03-14/",
+      "title": "Radar PDM/PLM – 2026-03-14",
+      "dateIso": "2026-03-14T00:00:00.000Z",
+      "displayDate": "14 mars 2026",
+      "shortDate": "14/03/2026",
+      "excerpt": "Veille du 14 mars 2026. 1 signal sélectionné.",
+      "heroSubtitle": "Veille du 14 mars 2026 — 1 signal sélectionné auprès de 1 source.",
+      "itemsCount": 1,
+      "type": "radar"
+    },
+    {
+      "slug": "radar-2026-03-11",
+      "url": "/blog/radar-2026-03-11/",
+      "title": "Radar PDM/PLM – 2026-03-11",
+      "dateIso": "2026-03-11T00:00:00.000Z",
+      "displayDate": "11 mars 2026",
+      "shortDate": "11/03/2026",
+      "excerpt": "Veille du 11 mars 2026. 1 signal sélectionné.",
+      "heroSubtitle": "Veille du 11 mars 2026 — 1 signal sélectionné auprès de 1 source.",
+      "itemsCount": 1,
+      "type": "radar"
+    },
+    {
+      "slug": "radar-2026-03-10",
+      "url": "/blog/radar-2026-03-10/",
+      "title": "Radar PDM/PLM – 2026-03-10",
+      "dateIso": "2026-03-10T00:00:00.000Z",
+      "displayDate": "10 mars 2026",
+      "shortDate": "10/03/2026",
+      "excerpt": "Veille du 10 mars 2026. 1 signal sélectionné.",
+      "heroSubtitle": "Veille du 10 mars 2026 — 1 signal sélectionné auprès de 1 source.",
+      "itemsCount": 1,
+      "type": "radar"
+    },
+    {
+      "slug": "radar-2026-03-08",
+      "url": "/blog/radar-2026-03-08/",
+      "title": "Radar PDM/PLM – 2026-03-08",
+      "dateIso": "2026-03-08T00:00:00.000Z",
+      "displayDate": "8 mars 2026",
+      "shortDate": "08/03/2026",
+      "excerpt": "Veille du 8 mars 2026.",
+      "heroSubtitle": "Aucune actualité détectée pour le 8 mars 2026.",
+      "itemsCount": null,
+      "type": "radar"
+    },
+    {
+      "slug": "radar-2026-03-06",
+      "url": "/blog/radar-2026-03-06/",
+      "title": "Radar PDM/PLM – 2026-03-06",
+      "dateIso": "2026-03-06T00:00:00.000Z",
+      "displayDate": "6 mars 2026",
+      "shortDate": "06/03/2026",
+      "excerpt": "Veille du 6 mars 2026.",
+      "heroSubtitle": "Aucune actualité détectée pour le 6 mars 2026.",
+      "itemsCount": null,
+      "type": "radar"
+    },
+    {
+      "slug": "radar-2026-03-05",
+      "url": "/blog/radar-2026-03-05/",
+      "title": "Radar PDM/PLM – 2026-03-05",
+      "dateIso": "2026-03-05T00:00:00.000Z",
+      "displayDate": "5 mars 2026",
+      "shortDate": "05/03/2026",
+      "excerpt": "Veille du 5 mars 2026. 1 signal sélectionné.",
+      "heroSubtitle": "Veille du 5 mars 2026 — 1 signal sélectionné auprès de 1 source.",
+      "itemsCount": 1,
+      "type": "radar"
+    },
+    {
+      "slug": "radar-2026-03-03",
+      "url": "/blog/radar-2026-03-03/",
+      "title": "Radar PDM/PLM – 2026-03-03",
+      "dateIso": "2026-03-03T00:00:00.000Z",
+      "displayDate": "3 mars 2026",
+      "shortDate": "03/03/2026",
+      "excerpt": "Veille du 3 mars 2026.",
+      "heroSubtitle": "Aucune actualité détectée pour le 3 mars 2026.",
+      "itemsCount": null,
+      "type": "radar"
+    },
+    {
+      "slug": "radar-2026-03-02",
+      "url": "/blog/radar-2026-03-02/",
+      "title": "Radar PDM/PLM – 2026-03-02",
+      "dateIso": "2026-03-02T00:00:00.000Z",
+      "displayDate": "2 mars 2026",
+      "shortDate": "02/03/2026",
+      "excerpt": "Veille du 2 mars 2026.",
+      "heroSubtitle": "Aucune actualité détectée pour le 2 mars 2026.",
+      "itemsCount": null,
+      "type": "radar"
+    },
+    {
+      "slug": "radar-2026-02-25",
+      "url": "/blog/radar-2026-02-25/",
+      "title": "Radar PDM/PLM – 2026-02-25",
+      "dateIso": "2026-02-25T00:00:00.000Z",
+      "displayDate": "25 février 2026",
+      "shortDate": "25/02/2026",
+      "excerpt": "Veille du 25 février 2026.",
+      "heroSubtitle": "Aucune actualité détectée pour le 25 février 2026.",
+      "itemsCount": null,
+      "type": "radar"
+    },
+    {
+      "slug": "radar-2026-02-24",
+      "url": "/blog/radar-2026-02-24/",
+      "title": "Radar PDM/PLM – 2026-02-24",
+      "dateIso": "2026-02-24T00:00:00.000Z",
+      "displayDate": "24 février 2026",
+      "shortDate": "24/02/2026",
+      "excerpt": "Veille du 24 février 2026.",
+      "heroSubtitle": "Aucune actualité détectée pour le 24 février 2026.",
+      "itemsCount": null,
+      "type": "radar"
+    }
+  ]
+}</script>
             </article>
         </div>
     </main>
 
-    <div class="ai-assistant" id="ai-assistant">
-        <div class="ai-fab" id="ai-fab">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+    <footer>
+        <div class="footer-content">
+            <div class="copyright" data-translate-key="footer_copyright">
+                &copy; 2025 Mohamed Omar Baouch. Tous droits réservés.
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/mohamed-omar-baouch-9b4473180/" target="_blank" class="social-icon"><span>in</span></a>
+                <a href="mailto:mohamed.omar.baouch@gmail.com" class="social-icon"><span>📧</span></a>
+            </div>
         </div>
-        <div class="ai-container" id="ai-container">
-            <div class="ai-assistant-header">
+    </footer>
+    
+    <div class="ai-assistant-fab" id="ai-fab">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 8V4H8" />
+            <rect x="4" y="12" width="8" height="8" rx="2" />
+            <path d="M8 12v1.5a2.5 2.5 0 0 0 5 0V12" />
+            <path d="M2 12h2" />
+            <path d="M14 2h2" />
+            <path d="M14 8h2" />
+            <path d="M14 14h2" />
+        </svg>
+    </div>
+    <div class="ai-fab-notification" id="ai-fab-notification"></div>
+    <div class="ai-assistant-container" id="ai-container">
+        <div class="ai-assistant-header">
+            <div class="ai-header-profile">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--accent-color)"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 8V4H8" /><rect x="4" y="12" width="8" height="8" rx="2" /><path d="M8 12v1.5a2.5 2.5 0 0 0 5 0V12" /><path d="M2 12h2" /><path d="M14 2h2" /><path d="M14 8h2" /><path d="M14 14h2" />
+                </svg>
                 <h3 data-translate-key="ai_title">Assistant Virtuel</h3>
-                <button class="ai-close-btn" id="ai-close-btn">&times;</button>
             </div>
-            <div class="ai-assistant-body" id="ai-chat-box">
-                <div class="ai-message assistant">
-                    <p data-translate-key="ai_welcome">Bonjour ! Je suis l'assistant virtuel de Mohamed. Comment puis-je vous aider à découvrir son profil ?</p>
-                </div>
-                <div class="ai-suggestions" id="ai-suggestions">
-                    <button class="suggestion-btn" data-translate-key="ai_sugg_1">Résume son expérience</button>
-                    <button class="suggestion-btn" data-translate-key="ai_sugg_2">Quelles sont ses compétences en PDM ?</button>
-                    <button class="suggestion-btn" data-translate-key="ai_sugg_3">Où a-t-il étudié ?</button>
-                </div>
+            <button class="ai-close-btn" id="ai-close-btn">&times;</button>
+        </div>
+        <div class="ai-assistant-body" id="ai-chat-box">
+            <div class="ai-message assistant">
+                <p data-translate-key="ai_welcome">Bonjour ! Je suis l'assistant virtuel de Mohamed. Comment puis-je
+                    vous aider à découvrir son profil ? Voici quelques suggestions :</p>
             </div>
-            <div class="ai-assistant-footer">
-                <input type="text" id="ai-input" placeholder="Posez votre question ici..." autocomplete="off">
-                <button id="ai-send-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                </button>
+            <div class="ai-suggestions" id="ai-suggestions">
+                <button class="suggestion-btn" data-translate-key="ai_sugg_1">Résume son expérience</button>
+                <button class="suggestion-btn" data-translate-key="ai_sugg_2">Quelles sont ses compétences en PDM ?</button>
+                <button class="suggestion-btn" data-translate-key="ai_sugg_3">Où a-t-il étudié ?</button>
             </div>
+        </div>
+        <div class="ai-assistant-footer">
+            <input type="text" id="ai-input" placeholder="Posez votre question ici..." autocomplete="off">
+            <button id="ai-send-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
         </div>
     </div>
 
-    <script src="../assets/js/loader.js"></script>
-    <script src="../assets/js/script.js"></script>
-    <script type="module" src="../assets/js/blog.js"></script>
+    <script src="/assets/js/script.js"></script>
+    <script type="module">
+        const CHART_DATA_SELECTORS = [
+            '[data-blog-chart]',
+            'script[type="application/json"][data-chart-config]',
+            'canvas[data-chart-config]',
+            'canvas[data-chart-type]'
+        ];
+
+        const hasChartData = () => CHART_DATA_SELECTORS.some((selector) => document.querySelector(selector));
+
+        const loadChartsModule = (() => {
+            let loaded = false;
+            return () => {
+                if (loaded) return;
+                loaded = true;
+                import('/assets/js/blog-charts.js').catch((error) => {
+                    console.error('[blog] Échec du chargement du module de graphiques.', error);
+                });
+            };
+        })();
+
+        const ensureChartsModule = () => {
+            if (hasChartData()) {
+                loadChartsModule();
+                return true;
+            }
+            return false;
+        };
+
+        if (!ensureChartsModule()) {
+            let observer;
+
+            const stopListening = () => {
+                if (observer) {
+                    observer.disconnect();
+                    observer = undefined;
+                }
+                document.removeEventListener('DOMContentLoaded', onReady);
+            };
+
+            const onReady = () => {
+                if (ensureChartsModule()) {
+                    stopListening();
+                }
+            };
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', onReady);
+            } else {
+                onReady();
+            }
+
+            const observeTarget = document.body || document.documentElement;
+            if (observeTarget) {
+                observer = new MutationObserver(() => {
+                    if (ensureChartsModule()) {
+                        stopListening();
+                    }
+                });
+                observer.observe(observeTarget, { childList: true, subtree: true });
+            }
+        }
+    </script>
+    <script type="module" src="/assets/js/blog.js"></script>
 </body>
 </html>
