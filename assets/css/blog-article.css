@@ -1,0 +1,263 @@
+/* =====================================================================
+   blog-article.css — couche d'animation & de finition « award-level »
+   pour les articles de fond. S'ajoute par-dessus blog.css sans le modifier.
+   ===================================================================== */
+
+/* ---------- 1. Bascule bilingue autonome (FR/EN co-localisés) ---------- */
+[data-i18n] [data-lang] { display: none; }
+html[lang="en"] [data-i18n] [data-lang="en"] { display: revert; }
+html:not([lang="en"]) [data-i18n] [data-lang="fr"] { display: revert; }
+
+/* ---------- 2. Révélation au scroll (staggered) ---------- */
+.reveal {
+    opacity: 0;
+    transform: translateY(34px) scale(0.985);
+    filter: blur(6px);
+    transition:
+        opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+}
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+}
+
+/* ---------- 3. Hero d'article : entrée cinématique ---------- */
+.blog-article .post-hero .hero-intro > * {
+    opacity: 0;
+    transform: translateY(26px);
+    animation: heroRise 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.blog-article .post-hero .hero-intro > *:nth-child(1) { animation-delay: 0.05s; }
+.blog-article .post-hero .hero-intro > *:nth-child(2) { animation-delay: 0.14s; }
+.blog-article .post-hero .hero-intro > *:nth-child(3) { animation-delay: 0.23s; }
+.blog-article .post-hero .hero-intro > *:nth-child(4) { animation-delay: 0.32s; }
+.blog-article .post-hero .hero-intro > *:nth-child(5) { animation-delay: 0.41s; }
+.blog-article .post-hero .hero-stats {
+    opacity: 0;
+    transform: translateY(26px);
+    animation: heroRise 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.48s forwards;
+}
+@keyframes heroRise {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Titre : dégradé animé subtil */
+.blog-article .post-hero .hero-title {
+    background: linear-gradient(100deg,
+        var(--text-primary) 0%,
+        var(--text-primary) 40%,
+        var(--accent-secondary) 55%,
+        var(--text-primary) 70%);
+    background-size: 220% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: titleSheen 9s ease-in-out infinite;
+}
+@keyframes titleSheen {
+    0%, 100% { background-position: 0% center; }
+    50% { background-position: 100% center; }
+}
+
+/* Compteurs du hero */
+.blog-article .hero-stat-value { font-variant-numeric: tabular-nums; }
+
+/* ---------- 4. Titres de section : barre d'accent animée ---------- */
+.blog-article .article-section > h2 {
+    position: relative;
+    padding-bottom: 0.55rem;
+}
+.blog-article .article-section > h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 0;
+    border-radius: 3px;
+    background: var(--accent-gradient);
+    box-shadow: 0 0 18px var(--blog-shadow-accent-soft);
+    transition: width 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+}
+.blog-article .article-section.is-visible > h2::after { width: 3.4rem; }
+
+/* ---------- 5. Figures : révélation en clip + parallaxe + zoom ---------- */
+.blog-article .article-figure,
+.blog-article .figure-inline {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    box-shadow: 0 24px 60px -30px var(--blog-shadow-strong);
+    clip-path: inset(0 0 0 0 round 18px);
+}
+.blog-article .article-figure img,
+.blog-article .figure-inline img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.12);
+    transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+}
+.blog-article .article-figure.is-visible img,
+.blog-article .figure-inline.is-visible img { transform: scale(1); }
+.blog-article .article-figure:hover img,
+.blog-article .figure-inline:hover img { transform: scale(1.05); }
+
+.blog-article .figure-inline {
+    margin: 2.4rem 0;
+    aspect-ratio: 16 / 8.2;
+}
+.blog-article .figure-inline figcaption,
+.blog-article .article-figure figcaption {
+    position: relative;
+}
+/* Légende en surimpression, façon éditorial */
+.blog-article .figure-inline figcaption {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    margin: 0;
+    padding: 2.6rem 1.4rem 1.1rem;
+    font-size: 0.86rem;
+    line-height: 1.4;
+    color: #eef2f7;
+    background: linear-gradient(to top, rgba(6, 12, 24, 0.85), rgba(6, 12, 24, 0.0));
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.7s ease 0.3s, transform 0.7s ease 0.3s;
+}
+.blog-article .figure-inline.is-visible figcaption { opacity: 1; transform: translateY(0); }
+
+/* ---------- 6. Callouts & citations : glow + entrée ---------- */
+.blog-article .callout {
+    position: relative;
+    overflow: hidden;
+}
+.blog-article .callout::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 0% 0%, var(--blog-accent-surface), transparent 45%);
+    opacity: 0;
+    transition: opacity 0.9s ease;
+    pointer-events: none;
+}
+.blog-article .callout.is-visible::before { opacity: 1; }
+
+.blog-article .quote-block blockquote {
+    position: relative;
+    padding-left: 2.6rem;
+}
+.blog-article .quote-block blockquote::before {
+    content: "\201C";
+    position: absolute;
+    left: -0.2rem;
+    top: -1.1rem;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 4.2rem;
+    line-height: 1;
+    color: var(--accent-secondary);
+    opacity: 0.35;
+}
+
+/* ---------- 7. Cartes (media / related / post) : lift au survol ---------- */
+.blog-article .media-card,
+.blog-article .post-card,
+.blog-article .related-card {
+    transition:
+        transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.5s ease;
+}
+.blog-article .media-card:hover,
+.blog-article .related-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 26px 50px -28px var(--blog-shadow-accent-strong);
+    border-color: var(--blog-accent-border-strong);
+}
+
+/* Puces animées dans les listes d'article */
+.blog-article .article-section ul:not(.summary-list) li {
+    position: relative;
+    transition: transform 0.35s ease;
+}
+.blog-article .article-section ul:not(.summary-list) li:hover { transform: translateX(4px); }
+
+/* ---------- 8. Sommaire : items interactifs ---------- */
+.blog-article .summary-list li a { transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), background 0.35s ease; }
+.blog-article .summary-list li a:hover { transform: translateX(6px); }
+.blog-article .summary-index {
+    transition: color 0.35s ease, transform 0.35s ease;
+}
+.blog-article .summary-list li a:hover .summary-index { color: var(--accent-secondary); transform: scale(1.12); }
+
+/* ---------- 9. CTA final : halo pulsé ---------- */
+.blog-article .cta-card {
+    position: relative;
+    overflow: hidden;
+}
+.blog-article .cta-card::after {
+    content: "";
+    position: absolute;
+    width: 42%;
+    aspect-ratio: 1;
+    right: -6%;
+    top: -40%;
+    background: radial-gradient(circle, var(--blog-shadow-accent-soft), transparent 70%);
+    filter: blur(8px);
+    animation: ctaFloat 7s ease-in-out infinite;
+    pointer-events: none;
+}
+@keyframes ctaFloat {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 0.75; }
+    50% { transform: translateY(18px) scale(1.08); opacity: 1; }
+}
+
+/* Boutons : brillance au survol */
+.blog-article .hero-btn { position: relative; overflow: hidden; }
+.blog-article .hero-btn::after {
+    content: "";
+    position: absolute;
+    top: 0; left: -120%;
+    width: 60%; height: 100%;
+    background: linear-gradient(100deg, transparent, rgba(255,255,255,0.28), transparent);
+    transform: skewX(-18deg);
+    transition: left 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.blog-article .hero-btn:hover::after { left: 140%; }
+
+/* ---------- 10. Deux images côte à côte ---------- */
+.blog-article .figure-duo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2.4rem 0;
+}
+.blog-article .figure-duo .figure-inline { margin: 0; aspect-ratio: 4 / 3.4; }
+@media (max-width: 640px) {
+    .blog-article .figure-duo { grid-template-columns: 1fr; }
+}
+
+/* ---------- 11. Respect de prefers-reduced-motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .blog-article .post-hero .hero-intro > *,
+    .blog-article .post-hero .hero-stats {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        animation: none !important;
+        transition: none !important;
+    }
+    .blog-article .post-hero .hero-title { animation: none; }
+    .blog-article .article-figure img,
+    .blog-article .figure-inline img { transform: none !important; }
+    .blog-article .article-section > h2::after { transition: none; width: 3.4rem; }
+    .blog-article .cta-card::after { animation: none; }
+}
