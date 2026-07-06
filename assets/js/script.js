@@ -2534,7 +2534,11 @@ function initParallax() {
     });
 }
 function initAIAssistant() {
-    const AI_API_ENDPOINT = '/api/ask-gemini';
+    // Ordre d'essai des backends : Claude d'abord (meilleures réponses si la
+    // clé est configurée), repli automatique sur Gemini sinon.
+    const AI_API_ENDPOINTS = ['/api/ask-claude', '/api/ask-gemini'];
+    const conversationHistory = []; // [{role:'user'|'assistant', content}]
+    const MAX_HISTORY = 16;
     const aiFab = document.getElementById('ai-fab');
     const aiContainer = document.getElementById('ai-container');
     const aiCloseBtn = document.getElementById('ai-close-btn');
@@ -2730,38 +2734,96 @@ function initAIAssistant() {
     }
     aiFab.addEventListener('click', toggleAssistant);
     aiCloseBtn.addEventListener('click', toggleAssistant);
+    // Rendu Markdown minimal et sûr (échappement d'abord, puis balises).
+    const renderMarkdown = (raw) => {
+        const esc = (s) => s
+            .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        const inline = (s) => esc(s)
+            .replace(/`([^`]+)`/g, '<code>$1</code>')
+            .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+            .replace(/(^|[^*])\*([^*\n]+)\*/g, '$1<em>$2</em>')
+            .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+|\/[^\s)]*)\)/g,
+                '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+        const lines = String(raw).replace(/\r/g, '').split('\n');
+        let html = '';
+        let list = null; // 'ul' | 'ol'
+        const closeList = () => { if (list) { html += `</${list}>`; list = null; } };
+        let para = [];
+        const flushPara = () => {
+            if (para.length) { html += `<p>${para.map(inline).join('<br>')}</p>`; para = []; }
+        };
+        for (const line of lines) {
+            const t = line.trim();
+            const ul = t.match(/^[-*]\s+(.*)$/);
+            const ol = t.match(/^\d+\.\s+(.*)$/);
+            if (ul) {
+                flushPara();
+                if (list !== 'ul') { closeList(); html += '<ul>'; list = 'ul'; }
+                html += `<li>${inline(ul[1])}</li>`;
+            } else if (ol) {
+                flushPara();
+                if (list !== 'ol') { closeList(); html += '<ol>'; list = 'ol'; }
+                html += `<li>${inline(ol[1])}</li>`;
+            } else if (!t) {
+                flushPara(); closeList();
+            } else {
+                closeList(); para.push(t);
+            }
+        }
+        flushPara(); closeList();
+        return html || `<p>${inline(String(raw).trim())}</p>`;
+    };
+
     const addMessage = (text, sender, isLoading = false) => {
         const messageDiv = document.createElement('div');
         messageDiv.classList.add('ai-message', sender);
         if (isLoading) {
             messageDiv.classList.add('loading');
             messageDiv.innerHTML = `<p><span></span><span></span><span></span></p>`;
+        } else if (sender === 'user') {
+            const p = document.createElement('p');
+            p.textContent = text;
+            messageDiv.appendChild(p);
         } else {
-            let formattedText = text.replace(/\*\s(.*?)(?:\n|<br>|$)/g, '<li>$1</li>');
-            if (formattedText.includes('<li>')) {
-                formattedText = `<ul>${formattedText.replace(/<\/li><li>/g, '</li><li>')}</ul>`;
-            }
-            messageDiv.innerHTML = formattedText.replace(/\n/g, '<br>');
+            messageDiv.innerHTML = renderMarkdown(text);
         }
         aiChatBox.appendChild(messageDiv);
         aiChatBox.scrollTop = aiChatBox.scrollHeight;
         return messageDiv;
     };
+    let isSending = false;
+    const setBusy = (busy) => {
+        isSending = busy;
+        if (aiInput) aiInput.disabled = busy;
+        if (aiSendBtn) aiSendBtn.disabled = busy;
+    };
     const handleSend = async () => {
+        if (isSending) return;
         const userInput = aiInput.value.trim();
         if (!userInput) return;
         addMessage(userInput, 'user');
         aiInput.value = '';
         if (aiSuggestions) aiSuggestions.style.display = 'none';
+        setBusy(true);
         const loadingMessage = addMessage('', 'assistant', true);
         try {
             const response = await callAIAssistant(userInput);
             loadingMessage.remove();
             addMessage(response, 'assistant');
+            // Mémorise l'échange pour les prochains tours.
+            conversationHistory.push({ role: 'user', content: userInput });
+            conversationHistory.push({ role: 'assistant', content: response });
+            while (conversationHistory.length > MAX_HISTORY) conversationHistory.shift();
         } catch (error) {
             console.error("Error with AI Assistant:", error);
             loadingMessage.remove();
-            addMessage("Désolé, une erreur est survenue. Veuillez réessayer plus tard.", 'assistant');
+            const isEN = (document.documentElement.lang || 'fr') === 'en';
+            addMessage(isEN
+                ? "Sorry, something went wrong. Please try again in a moment."
+                : "Désolé, une erreur est survenue. Réessayez dans un instant.", 'assistant');
+        } finally {
+            setBusy(false);
+            if (aiInput) aiInput.focus();
         }
     };
     aiSendBtn.addEventListener('click', handleSend);
@@ -2777,22 +2839,42 @@ function initAIAssistant() {
         });
     }
     async function callAIAssistant(question) {
-        const response = await fetch(AI_API_ENDPOINT, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                question: question,
-                context: activeContext,
-                pageType: activePageType
-            }),
-        });
-        if (!response.ok) {
-            throw new Error(`Server function failed with status ${response.status}`);
+        const payload = {
+            question,
+            context: activeContext,
+            pageType: activePageType,
+            lang: (document.documentElement.lang || 'fr') === 'en' ? 'en' : 'fr',
+            history: conversationHistory.slice(-MAX_HISTORY)
+        };
+        let lastError = null;
+        // Essaie chaque backend dans l'ordre ; bascule si l'un signale un repli.
+        for (let i = 0; i < AI_API_ENDPOINTS.length; i++) {
+            const endpoint = AI_API_ENDPOINTS[i];
+            try {
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data && data.answer) return data.answer;
+                    lastError = new Error('Empty answer');
+                } else {
+                    // 503/502 avec fallback → on tente le backend suivant.
+                    let body = {};
+                    try { body = await response.json(); } catch (_) {}
+                    lastError = new Error(`Backend ${endpoint} failed (${response.status})`);
+                    if (!body.fallback && response.status !== 503) {
+                        // Erreur non récupérable (ex: 400) : inutile d'insister.
+                        throw lastError;
+                    }
+                }
+            } catch (err) {
+                lastError = err; // erreur réseau → on tente le backend suivant
+            }
         }
-        const data = await response.json();
-        return data.answer;
+        throw lastError || new Error('AI assistant unavailable');
     }
 }
 function initProactiveAI() {
