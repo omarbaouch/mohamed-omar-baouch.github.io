@@ -32,15 +32,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog — Guides PDM/PLM &amp; SOLIDWORKS | Mohamed Omar Baouch</title>
-    <meta name="description" content="Articles de fond et retours d'expérience terrain sur le PDM, le PLM, SOLIDWORKS et la gestion des données produit — issus de 80 missions en industrie.">
+    <meta name="description" content="Articles de fond et retours d'expérience terrain sur le PDM, le PLM, SOLIDWORKS et la gestion des données produit — issus de 80+ missions en industrie.">
     <link rel="canonical" href="https://baouch.fr/blog/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Blog — Guides PDM/PLM & SOLIDWORKS">
     <meta property="og:description" content="Articles de fond et retours d'expérience terrain sur le PDM, le PLM, SOLIDWORKS et la gestion des données produit.">
     <meta property="og:url" content="https://baouch.fr/blog/">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/blog.css">
     <link rel="stylesheet" href="/assets/css/blog-article.css">
+    <link rel="stylesheet" href="/assets/css/blog-index.css">
 </head>
 <body class="blog-page">
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBLRK58T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -91,7 +93,7 @@
                     <div class="hero-intro">
                         <span class="hero-eyebrow" data-i18n><span data-lang="fr">Retours d'expérience PDM / PLM</span><span data-lang="en">PDM / PLM field insights</span></span>
                         <h1 class="hero-title" data-i18n><span data-lang="fr">Guides &amp; analyses PDM/PLM et SOLIDWORKS</span><span data-lang="en">PDM/PLM &amp; SOLIDWORKS guides and analysis</span></h1>
-                        <p class="hero-subtitle" data-i18n><span data-lang="fr">Des articles de fond tirés de 80 missions en bureau d'études industriel : performance PDM, gestion des modifications, nomenclatures, migration et qualité des données produit. Pas de contenu générique — du terrain.</span><span data-lang="en">In-depth articles drawn from 80 industrial engineering missions: PDM performance, change management, BOMs, migration and product-data quality. No generic content — field-tested.</span></p>
+                        <p class="hero-subtitle" data-i18n><span data-lang="fr">Des articles de fond tirés de 80+ missions en bureau d'études industriel : performance PDM, gestion des modifications, nomenclatures, migration et qualité des données produit. Pas de contenu générique — du terrain.</span><span data-lang="en">In-depth articles drawn from 80+ industrial engineering missions: PDM performance, change management, BOMs, migration and product-data quality. No generic content — field-tested.</span></p>
                         <div class="hero-actions">
                             <a class="hero-btn" href="#articles" data-i18n><span data-lang="fr">Parcourir les articles</span><span data-lang="en">Browse the articles</span></a>
                             <a class="hero-btn hero-btn--ghost" href="/#contact" data-i18n><span data-lang="fr">Me contacter</span><span data-lang="en">Get in touch</span></a>
@@ -113,92 +115,151 @@
                     </div>
                 </section>
 
-                <section class="blog-section article-section" data-section="editorial" id="articles">
+                <section class="blog-section article-section" id="articles">
                     <div class="section-header">
                         <h2 data-i18n><span data-lang="fr">Articles de fond</span><span data-lang="en">In-depth articles</span></h2>
                         <p class="section-subtitle" data-i18n><span data-lang="fr">Analyses, guides pratiques et retours d'expérience sur la gestion des données techniques industrielles.</span><span data-lang="en">Analysis, practical guides and field lessons on managing industrial technical data.</span></p>
                     </div>
-                    <div class="card-grid">
-                        <article class="post-card" data-type="editorial">
-                            <div class="post-card__meta">
-                                <span class="badge badge-editorial" data-i18n><span data-lang="fr">Article de fond</span><span data-lang="en">In-depth</span></span>
-                                <time datetime="2026-07-01T00:00:00.000Z" data-i18n><span data-lang="fr">1ᵉʳ juillet 2026</span><span data-lang="en">July 1, 2026</span></time>
+
+                    <div class="blog-filter" role="group" aria-label="Filtrer par catégorie">
+                        <button class="blog-filter__chip is-active" type="button" data-filter="all" aria-pressed="true" data-i18n><span data-lang="fr">Tous</span><span data-lang="en">All</span></button>
+                        <button class="blog-filter__chip" type="button" data-filter="plm" aria-pressed="false">PDM · PLM</button>
+                        <button class="blog-filter__chip" type="button" data-filter="perf" aria-pressed="false">Performance</button>
+                        <button class="blog-filter__chip" type="button" data-filter="migration" aria-pressed="false">Migration</button>
+                        <button class="blog-filter__chip" type="button" data-filter="data" aria-pressed="false" data-i18n><span data-lang="fr">Données</span><span data-lang="en">Data</span></button>
+                    </div>
+
+                    <!-- Article vedette -->
+                    <div class="article-featured">
+                        <div class="article-featured__media">
+                            <span class="article-featured__flag" data-i18n><span data-lang="fr">★ À la une</span><span data-lang="en">★ Featured</span></span>
+                            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1100&q=75" alt="Ingénieurs travaillant sur plusieurs écrans" loading="lazy">
+                        </div>
+                        <div class="article-featured__body">
+                            <span class="article-featured__eyebrow">PDM · PLM</span>
+                            <h2 class="article-featured__title"><a href="/blog/pdm-ou-plm-quand-basculer/" data-i18n><span data-lang="fr">PDM ou PLM : les 5 signaux qui prouvent que vous avez dépassé les limites de votre coffre</span><span data-lang="en">PDM or PLM: the 5 signals that you've outgrown your vault</span></a></h2>
+                            <p class="article-featured__excerpt" data-i18n><span data-lang="fr">La plupart des PME appellent « PLM » ce qui n'est qu'un PDM. Voici les 5 signaux concrets du moment où il faut vraiment basculer — sans surinvestir.</span><span data-lang="en">Most SMEs call "PLM" what is really just a PDM. Here are the 5 concrete signals of when you truly need to switch — without over-investing.</span></p>
+                            <div class="article-featured__meta">
+                                <span data-i18n><span data-lang="fr">1ᵉʳ juillet 2026</span><span data-lang="en">July 1, 2026</span></span>
+                                <span class="dot"></span>
+                                <span data-i18n><span data-lang="fr">9 min de lecture</span><span data-lang="en">9 min read</span></span>
                             </div>
-                            <h3 class="post-card__title"><a href="/blog/pdm-ou-plm-quand-basculer/" data-i18n><span data-lang="fr">PDM ou PLM : les 5 signaux qui prouvent que vous avez dépassé les limites de votre coffre</span><span data-lang="en">PDM or PLM: the 5 signals that you've outgrown your vault</span></a></h3>
-                            <p class="post-card__excerpt" data-i18n><span data-lang="fr">La plupart des PME appellent « PLM » ce qui n'est qu'un PDM. Voici les 5 signaux concrets du moment où il faut vraiment basculer — sans surinvestir.</span><span data-lang="en">Most SMEs call "PLM" what is really just a PDM. Here are the 5 concrete signals of when you truly need to switch — without over-investing.</span></p>
-                            <a class="post-card__cta" href="/blog/pdm-ou-plm-quand-basculer/" data-i18n><span data-lang="fr">Lire l'article</span><span data-lang="en">Read the article</span></a>
+                            <a class="article-featured__cta" href="/blog/pdm-ou-plm-quand-basculer/" data-i18n><span data-lang="fr">Lire l'article</span><span data-lang="en">Read the article</span> <span class="arrow" aria-hidden="true">→</span></a>
+                        </div>
+                    </div>
+
+                    <!-- Grille à vignettes -->
+                    <div class="article-grid">
+                        <article class="article-card" data-cat="plm">
+                            <a class="article-card__media" href="/blog/eco-ecr-gestion-modifications/" aria-hidden="true" tabindex="-1">
+                                <span class="article-card__cat">PDM · PLM</span>
+                                <span class="article-card__time">11 min</span>
+                                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=75" alt="Réunion d'équipe autour d'un tableau" loading="lazy">
+                            </a>
+                            <div class="article-card__body">
+                                <span class="article-card__date" data-i18n><span data-lang="fr">25 juin 2026</span><span data-lang="en">June 25, 2026</span></span>
+                                <h3 class="article-card__title"><a href="/blog/eco-ecr-gestion-modifications/" data-i18n><span data-lang="fr">La révision fantôme à 40 000 € : maîtriser les ECO/ECR</span><span data-lang="en">The €40,000 phantom revision: master ECO/ECR</span></a></h3>
+                                <p class="article-card__excerpt" data-i18n><span data-lang="fr">Une modification qui n'aurait jamais dû partir en production — et la méthode en 6 étapes qui l'aurait arrêtée.</span><span data-lang="en">A change that should never have reached production — and the 6-step method that would have stopped it.</span></p>
+                                <a class="article-card__more" href="/blog/eco-ecr-gestion-modifications/" data-i18n><span data-lang="fr">Lire</span><span data-lang="en">Read</span> <span class="arrow" aria-hidden="true">→</span></a>
+                            </div>
                         </article>
-                        <article class="post-card" data-type="editorial">
-                            <div class="post-card__meta">
-                                <span class="badge badge-editorial" data-i18n><span data-lang="fr">Article de fond</span><span data-lang="en">In-depth</span></span>
-                                <time datetime="2026-06-25T00:00:00.000Z" data-i18n><span data-lang="fr">25 juin 2026</span><span data-lang="en">June 25, 2026</span></time>
+
+                        <article class="article-card" data-cat="perf">
+                            <a class="article-card__media" href="/blog/solidworks-pdm-lent-7-causes/" aria-hidden="true" tabindex="-1">
+                                <span class="article-card__cat">Performance</span>
+                                <span class="article-card__time">10 min</span>
+                                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=75" alt="Baies de serveurs" loading="lazy">
+                            </a>
+                            <div class="article-card__body">
+                                <span class="article-card__date" data-i18n><span data-lang="fr">18 juin 2026</span><span data-lang="en">June 18, 2026</span></span>
+                                <h3 class="article-card__title"><a href="/blog/solidworks-pdm-lent-7-causes/" data-i18n><span data-lang="fr">SOLIDWORKS PDM lent : les 7 vraies causes</span><span data-lang="en">Slow SOLIDWORKS PDM: the 7 real causes</span></a></h3>
+                                <p class="article-card__excerpt" data-i18n><span data-lang="fr">Diagnostic terrain des lenteurs PDM — et les correctifs qui rendent 15 min/jour à chaque ingénieur.</span><span data-lang="en">Field diagnosis of PDM slowness — and the fixes that give 15 min/day back to each engineer.</span></p>
+                                <a class="article-card__more" href="/blog/solidworks-pdm-lent-7-causes/" data-i18n><span data-lang="fr">Lire</span><span data-lang="en">Read</span> <span class="arrow" aria-hidden="true">→</span></a>
                             </div>
-                            <h3 class="post-card__title"><a href="/blog/eco-ecr-gestion-modifications/" data-i18n><span data-lang="fr">La révision fantôme à 40 000 € : maîtriser les ECO/ECR avant qu'elles ne vous coûtent cher</span><span data-lang="en">The €40,000 phantom revision: master ECO/ECR before they cost you dearly</span></a></h3>
-                            <p class="post-card__excerpt" data-i18n><span data-lang="fr">L'histoire d'une modification produit qui n'aurait jamais dû partir en production — et la méthode en 6 étapes qui l'aurait arrêtée.</span><span data-lang="en">The story of a product change that should never have reached production — and the 6-step method that would have stopped it.</span></p>
-                            <a class="post-card__cta" href="/blog/eco-ecr-gestion-modifications/" data-i18n><span data-lang="fr">Lire l'article</span><span data-lang="en">Read the article</span></a>
                         </article>
-                        <article class="post-card" data-type="editorial">
-                            <div class="post-card__meta">
-                                <span class="badge badge-editorial" data-i18n><span data-lang="fr">Article de fond</span><span data-lang="en">In-depth</span></span>
-                                <time datetime="2026-06-18T00:00:00.000Z" data-i18n><span data-lang="fr">18 juin 2026</span><span data-lang="en">June 18, 2026</span></time>
+
+                        <article class="article-card" data-cat="data">
+                            <a class="article-card__media" href="/blog/codification-proprietes-solidworks/" aria-hidden="true" tabindex="-1">
+                                <span class="article-card__cat" data-i18n><span data-lang="fr">Données</span><span data-lang="en">Data</span></span>
+                                <span class="article-card__time">9 min</span>
+                                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=75" alt="Circuit imprimé" loading="lazy">
+                            </a>
+                            <div class="article-card__body">
+                                <span class="article-card__date" data-i18n><span data-lang="fr">10 juin 2026</span><span data-lang="en">June 10, 2026</span></span>
+                                <h3 class="article-card__title"><a href="/blog/codification-proprietes-solidworks/" data-i18n><span data-lang="fr">Codification &amp; propriétés SOLIDWORKS : réparer la chaîne BOM → ERP</span><span data-lang="en">SOLIDWORKS numbering &amp; properties: fix the BOM → ERP chain</span></a></h3>
+                                <p class="article-card__excerpt" data-i18n><span data-lang="fr">80 % des erreurs de nomenclature naissent dans la pièce, pas dans l'ERP. Comment tout réparer à la racine.</span><span data-lang="en">80% of BOM errors start in the part, not the ERP. How to fix it all at the root.</span></p>
+                                <a class="article-card__more" href="/blog/codification-proprietes-solidworks/" data-i18n><span data-lang="fr">Lire</span><span data-lang="en">Read</span> <span class="arrow" aria-hidden="true">→</span></a>
                             </div>
-                            <h3 class="post-card__title"><a href="/blog/solidworks-pdm-lent-7-causes/" data-i18n><span data-lang="fr">SOLIDWORKS PDM lent : les 7 vraies causes (et la 6ᵉ que personne ne regarde)</span><span data-lang="en">Slow SOLIDWORKS PDM: the 7 real causes (and the 6th nobody checks)</span></a></h3>
-                            <p class="post-card__excerpt" data-i18n><span data-lang="fr">Diagnostic terrain des lenteurs PDM — serveur d'archives, antivirus, SQL, réseau — et les correctifs qui rendent 15 min/jour à chaque ingénieur.</span><span data-lang="en">Field diagnosis of PDM slowness — archive server, antivirus, SQL, network — and the fixes that give 15 min/day back to each engineer.</span></p>
-                            <a class="post-card__cta" href="/blog/solidworks-pdm-lent-7-causes/" data-i18n><span data-lang="fr">Lire l'article</span><span data-lang="en">Read the article</span></a>
                         </article>
-                        <article class="post-card" data-type="editorial">
-                            <div class="post-card__meta">
-                                <span class="badge badge-editorial" data-i18n><span data-lang="fr">Article de fond</span><span data-lang="en">In-depth</span></span>
-                                <time datetime="2026-06-10T00:00:00.000Z" data-i18n><span data-lang="fr">10 juin 2026</span><span data-lang="en">June 10, 2026</span></time>
+
+                        <article class="article-card" data-cat="migration">
+                            <a class="article-card__media" href="/blog/migration-cloud-pdm-3dexperience/" aria-hidden="true" tabindex="-1">
+                                <span class="article-card__cat">Migration</span>
+                                <span class="article-card__time">10 min</span>
+                                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=75" alt="Réseau mondial connecté" loading="lazy">
+                            </a>
+                            <div class="article-card__body">
+                                <span class="article-card__date" data-i18n><span data-lang="fr">28 mai 2026</span><span data-lang="en">May 28, 2026</span></span>
+                                <h3 class="article-card__title"><a href="/blog/migration-cloud-pdm-3dexperience/" data-i18n><span data-lang="fr">Passer votre PDM dans le cloud : ce qu'on ne vous dit jamais</span><span data-lang="en">Moving your PDM to the cloud: what they never tell you</span></a></h3>
+                                <p class="article-card__excerpt" data-i18n><span data-lang="fr">Les 5 angles morts que les démos passent sous silence, et les 7 questions à poser avant de signer.</span><span data-lang="en">The 5 blind spots demos stay silent on, and the 7 questions to ask before signing.</span></p>
+                                <a class="article-card__more" href="/blog/migration-cloud-pdm-3dexperience/" data-i18n><span data-lang="fr">Lire</span><span data-lang="en">Read</span> <span class="arrow" aria-hidden="true">→</span></a>
                             </div>
-                            <h3 class="post-card__title"><a href="/blog/codification-proprietes-solidworks/" data-i18n><span data-lang="fr">Codification &amp; propriétés SOLIDWORKS : le petit chantier qui répare toute votre chaîne BOM → ERP</span><span data-lang="en">SOLIDWORKS numbering &amp; properties: the small project that fixes your whole BOM → ERP chain</span></a></h3>
-                            <p class="post-card__excerpt" data-i18n><span data-lang="fr">80 % des erreurs de nomenclature ne naissent pas dans l'ERP mais dans la pièce. Comment standardiser codification et propriétés pour tout réparer à la racine.</span><span data-lang="en">80% of BOM errors don't start in the ERP but in the part. How to standardize numbering and properties to fix it all at the root.</span></p>
-                            <a class="post-card__cta" href="/blog/codification-proprietes-solidworks/" data-i18n><span data-lang="fr">Lire l'article</span><span data-lang="en">Read the article</span></a>
                         </article>
-                        <article class="post-card" data-type="editorial">
-                            <div class="post-card__meta">
-                                <span class="badge badge-editorial" data-i18n><span data-lang="fr">Article de fond</span><span data-lang="en">In-depth</span></span>
-                                <time datetime="2026-05-28T00:00:00.000Z" data-i18n><span data-lang="fr">28 mai 2026</span><span data-lang="en">May 28, 2026</span></time>
+
+                        <article class="article-card" data-cat="migration">
+                            <a class="article-card__media" href="/blog/migration-donnees-solidworks-pdm/" aria-hidden="true" tabindex="-1">
+                                <span class="article-card__cat">Migration</span>
+                                <span class="article-card__time">12 min</span>
+                                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=75" alt="Écrans de données structurées" loading="lazy">
+                            </a>
+                            <div class="article-card__body">
+                                <span class="article-card__date" data-i18n><span data-lang="fr">18 mars 2026</span><span data-lang="en">March 18, 2026</span></span>
+                                <h3 class="article-card__title"><a href="/blog/migration-donnees-solidworks-pdm/" data-i18n><span data-lang="fr">Migration de données vers SOLIDWORKS PDM : le guide terrain</span><span data-lang="en">Migrating data to SOLIDWORKS PDM: the field guide</span></a></h3>
+                                <p class="article-card__excerpt" data-i18n><span data-lang="fr">Méthodologie en 6 phases, pièges courants et stratégies de reprise pour migrer sans perdre un fichier.</span><span data-lang="en">A 6-phase methodology, common pitfalls and recovery strategies to migrate without losing a file.</span></p>
+                                <a class="article-card__more" href="/blog/migration-donnees-solidworks-pdm/" data-i18n><span data-lang="fr">Lire</span><span data-lang="en">Read</span> <span class="arrow" aria-hidden="true">→</span></a>
                             </div>
-                            <h3 class="post-card__title"><a href="/blog/migration-cloud-pdm-3dexperience/" data-i18n><span data-lang="fr">Passer votre PDM dans le cloud : ce que les commerciaux ne vous diront jamais avant de signer</span><span data-lang="en">Moving your PDM to the cloud: what sales reps will never tell you before you sign</span></a></h3>
-                            <p class="post-card__excerpt" data-i18n><span data-lang="fr">Cloud PDM et 3DEXPERIENCE : les 5 angles morts que les démonstrations passent sous silence, et les 7 questions à poser avant de signer.</span><span data-lang="en">Cloud PDM and 3DEXPERIENCE: the 5 blind spots demos stay silent on, and the 7 questions to ask before signing.</span></p>
-                            <a class="post-card__cta" href="/blog/migration-cloud-pdm-3dexperience/" data-i18n><span data-lang="fr">Lire l'article</span><span data-lang="en">Read the article</span></a>
                         </article>
-                        <article class="post-card" data-type="editorial">
-                            <div class="post-card__meta">
-                                <span class="badge badge-editorial" data-i18n><span data-lang="fr">Article de fond</span><span data-lang="en">In-depth</span></span>
-                                <time datetime="2026-03-18T00:00:00.000Z" data-i18n><span data-lang="fr">18 mars 2026</span><span data-lang="en">March 18, 2026</span></time>
+
+                        <article class="article-card" data-cat="data">
+                            <a class="article-card__media" href="/blog/nomenclature-bom-pdm-plm-erp/" aria-hidden="true" tabindex="-1">
+                                <span class="article-card__cat" data-i18n><span data-lang="fr">Données</span><span data-lang="en">Data</span></span>
+                                <span class="article-card__time">12 min</span>
+                                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=75" alt="Ingénieur en bureau d'études" loading="lazy">
+                            </a>
+                            <div class="article-card__body">
+                                <span class="article-card__date" data-i18n><span data-lang="fr">16 mars 2026</span><span data-lang="en">March 16, 2026</span></span>
+                                <h3 class="article-card__title"><a href="/blog/nomenclature-bom-pdm-plm-erp/" data-i18n><span data-lang="fr">Nomenclature, BOM, eBOM, mBOM : la colonne vertébrale de vos données</span><span data-lang="en">BOM, eBOM, mBOM: the backbone of your product data</span></a></h3>
+                                <p class="article-card__excerpt" data-i18n><span data-lang="fr">Comprendre la BOM et comment PDM, PLM et ERP s'articulent pour piloter le cycle de vie produit.</span><span data-lang="en">Understand the BOM and how PDM, PLM and ERP fit together to drive the product lifecycle.</span></p>
+                                <a class="article-card__more" href="/blog/nomenclature-bom-pdm-plm-erp/" data-i18n><span data-lang="fr">Lire</span><span data-lang="en">Read</span> <span class="arrow" aria-hidden="true">→</span></a>
                             </div>
-                            <h3 class="post-card__title"><a href="/blog/migration-donnees-solidworks-pdm/" data-i18n><span data-lang="fr">Migration de données vers SOLIDWORKS PDM : le guide terrain pour réussir sans perdre un fichier</span><span data-lang="en">Migrating data to SOLIDWORKS PDM: the field guide to success without losing a file</span></a></h3>
-                            <p class="post-card__excerpt" data-i18n><span data-lang="fr">Méthodologie en 6 phases, pièges courants, stratégies de reprise et retours d'expérience pour migrer vers SOLIDWORKS PDM sans casse.</span><span data-lang="en">A 6-phase methodology, common pitfalls, recovery strategies and field lessons to migrate to SOLIDWORKS PDM without breakage.</span></p>
-                            <a class="post-card__cta" href="/blog/migration-donnees-solidworks-pdm/" data-i18n><span data-lang="fr">Lire l'article</span><span data-lang="en">Read the article</span></a>
                         </article>
-                        <article class="post-card" data-type="editorial">
-                            <div class="post-card__meta">
-                                <span class="badge badge-editorial" data-i18n><span data-lang="fr">Article de fond</span><span data-lang="en">In-depth</span></span>
-                                <time datetime="2026-03-16T00:00:00.000Z" data-i18n><span data-lang="fr">16 mars 2026</span><span data-lang="en">March 16, 2026</span></time>
+
+                        <article class="article-card" data-cat="perf">
+                            <a class="article-card__media" href="/blog/configuration-materielle-solidworks/" aria-hidden="true" tabindex="-1">
+                                <span class="article-card__cat">Performance</span>
+                                <span class="article-card__time">10 min</span>
+                                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=75" alt="Poste de travail d'ingénieur" loading="lazy">
+                            </a>
+                            <div class="article-card__body">
+                                <span class="article-card__date" data-i18n><span data-lang="fr">21 septembre 2025</span><span data-lang="en">September 21, 2025</span></span>
+                                <h3 class="article-card__title"><a href="/blog/configuration-materielle-solidworks/" data-i18n><span data-lang="fr">Configuration matérielle SOLIDWORKS 2025 : le guide terrain</span><span data-lang="en">SOLIDWORKS 2025 hardware setup: the field guide</span></a></h3>
+                                <p class="article-card__excerpt" data-i18n><span data-lang="fr">Calibrer stations, serveur PDM et réseau — avec indicateurs terrain et repères budgétaires.</span><span data-lang="en">Sizing workstations, PDM server and network — with field metrics and budget benchmarks.</span></p>
+                                <a class="article-card__more" href="/blog/configuration-materielle-solidworks/" data-i18n><span data-lang="fr">Lire</span><span data-lang="en">Read</span> <span class="arrow" aria-hidden="true">→</span></a>
                             </div>
-                            <h3 class="post-card__title"><a href="/blog/nomenclature-bom-pdm-plm-erp/" data-i18n><span data-lang="fr">Nomenclature, BOM, eBOM, mBOM : la colonne vertébrale de vos données produit — et le rôle de PDM, PLM et ERP</span><span data-lang="en">BOM, eBOM, mBOM: the backbone of your product data — and the role of PDM, PLM and ERP</span></a></h3>
-                            <p class="post-card__excerpt" data-i18n><span data-lang="fr">Comprendre la BOM, la différence entre eBOM et mBOM, et comment PDM, PLM et ERP s'articulent pour piloter le cycle de vie produit.</span><span data-lang="en">Understand the BOM, the difference between eBOM and mBOM, and how PDM, PLM and ERP fit together to drive the product lifecycle.</span></p>
-                            <a class="post-card__cta" href="/blog/nomenclature-bom-pdm-plm-erp/" data-i18n><span data-lang="fr">Lire l'article</span><span data-lang="en">Read the article</span></a>
                         </article>
-                        <article class="post-card" data-type="editorial">
-                            <div class="post-card__meta">
-                                <span class="badge badge-editorial" data-i18n><span data-lang="fr">Article de fond</span><span data-lang="en">In-depth</span></span>
-                                <time datetime="2025-09-21T00:00:00.000Z" data-i18n><span data-lang="fr">21 septembre 2025</span><span data-lang="en">September 21, 2025</span></time>
+
+                        <article class="article-card" data-cat="plm">
+                            <a class="article-card__media" href="/blog/resolutions-problematiques-plm/" aria-hidden="true" tabindex="-1">
+                                <span class="article-card__cat">PDM · PLM</span>
+                                <span class="article-card__time">8 min</span>
+                                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=75" alt="Équipe collaborant sur ordinateurs portables" loading="lazy">
+                            </a>
+                            <div class="article-card__body">
+                                <span class="article-card__date" data-i18n><span data-lang="fr">15 septembre 2025</span><span data-lang="en">September 15, 2025</span></span>
+                                <h3 class="article-card__title"><a href="/blog/resolutions-problematiques-plm/" data-i18n><span data-lang="fr">Résoudre les 5 problématiques PLM les plus fréquentes</span><span data-lang="en">Solving the 5 most common PLM challenges</span></a></h3>
+                                <p class="article-card__excerpt" data-i18n><span data-lang="fr">Cinq problématiques PLM vécues sur le terrain et les solutions concrètes apportées.</span><span data-lang="en">Five field-tested PLM challenges and the concrete solutions applied.</span></p>
+                                <a class="article-card__more" href="/blog/resolutions-problematiques-plm/" data-i18n><span data-lang="fr">Lire</span><span data-lang="en">Read</span> <span class="arrow" aria-hidden="true">→</span></a>
                             </div>
-                            <h3 class="post-card__title"><a href="/blog/configuration-materielle-solidworks/" data-i18n><span data-lang="fr">Configuration matérielle SOLIDWORKS 2025 : le guide terrain pour un bureau d'études réactif</span><span data-lang="en">SOLIDWORKS 2025 hardware setup: the field guide to a responsive engineering office</span></a></h3>
-                            <p class="post-card__excerpt" data-i18n><span data-lang="fr">Plan d'action pour calibrer stations de travail, serveur PDM et réseau — avec indicateurs terrain et repères budgétaires.</span><span data-lang="en">An action plan to size workstations, PDM server and network — with field metrics and budget benchmarks.</span></p>
-                            <a class="post-card__cta" href="/blog/configuration-materielle-solidworks/" data-i18n><span data-lang="fr">Lire l'article</span><span data-lang="en">Read the article</span></a>
-                        </article>
-                        <article class="post-card" data-type="editorial">
-                            <div class="post-card__meta">
-                                <span class="badge badge-editorial" data-i18n><span data-lang="fr">Article de fond</span><span data-lang="en">In-depth</span></span>
-                                <time datetime="2025-09-15T00:00:00.000Z" data-i18n><span data-lang="fr">15 septembre 2025</span><span data-lang="en">September 15, 2025</span></time>
-                            </div>
-                            <h3 class="post-card__title"><a href="/blog/resolutions-problematiques-plm/" data-i18n><span data-lang="fr">Résoudre les 5 problématiques PLM les plus fréquentes en bureau d'études</span><span data-lang="en">Solving the 5 most common PLM challenges in an engineering office</span></a></h3>
-                            <p class="post-card__excerpt" data-i18n><span data-lang="fr">Retour d'expérience sur cinq problématiques PLM vécues sur le terrain et les solutions concrètes apportées.</span><span data-lang="en">Field lessons on five real-world PLM challenges and the concrete solutions applied.</span></p>
-                            <a class="post-card__cta" href="/blog/resolutions-problematiques-plm/" data-i18n><span data-lang="fr">Lire l'article</span><span data-lang="en">Read the article</span></a>
                         </article>
                     </div>
                 </section>
@@ -210,24 +271,6 @@
                         <a class="hero-btn" href="/#contact" data-i18n><span data-lang="fr">Planifier un échange</span><span data-lang="en">Schedule a call</span></a>
                     </div>
                 </section>
-
-                <script type="application/json" id="blog-data">{
-  "generatedAt": "2026-07-05T00:00:00.000Z",
-  "hero": { "tagline": "Guides & analyses PDM/PLM", "title": "Guides & analyses PDM/PLM et SOLIDWORKS", "subtitle": "Des articles de fond tirés de 80 missions en bureau d'études industriel.", "radarHighlight": null, "editorialHighlight": { "type": "editorial", "url": "/blog/pdm-ou-plm-quand-basculer/", "title": "PDM ou PLM : les 5 signaux", "dateIso": "2026-07-01T00:00:00.000Z", "displayDate": "1er juillet 2026", "excerpt": "Les 5 signaux du moment où il faut basculer." }, "stats": { "radarCount": 0, "editorialCount": 9, "lastRadar": null } },
-  "radars": [],
-  "editorials": [
-    { "type": "editorial", "url": "/blog/pdm-ou-plm-quand-basculer/", "title": "PDM ou PLM : les 5 signaux qui prouvent que vous avez dépassé les limites de votre coffre", "dateIso": "2026-07-01T00:00:00.000Z", "displayDate": "1er juillet 2026", "excerpt": "Les 5 signaux concrets du moment où il faut vraiment basculer du PDM vers le PLM." },
-    { "type": "editorial", "url": "/blog/eco-ecr-gestion-modifications/", "title": "La révision fantôme à 40 000 € : maîtriser les ECO/ECR", "dateIso": "2026-06-25T00:00:00.000Z", "displayDate": "25 juin 2026", "excerpt": "Une modification mal gérée et la méthode en 6 étapes qui l'aurait arrêtée." },
-    { "type": "editorial", "url": "/blog/solidworks-pdm-lent-7-causes/", "title": "SOLIDWORKS PDM lent : les 7 vraies causes", "dateIso": "2026-06-18T00:00:00.000Z", "displayDate": "18 juin 2026", "excerpt": "Diagnostic terrain des lenteurs PDM et les correctifs qui rendent du temps." },
-    { "type": "editorial", "url": "/blog/codification-proprietes-solidworks/", "title": "Codification & propriétés SOLIDWORKS : le chantier qui répare la chaîne BOM → ERP", "dateIso": "2026-06-10T00:00:00.000Z", "displayDate": "10 juin 2026", "excerpt": "Standardiser codification et propriétés pour fiabiliser toute la chaîne de données." },
-    { "type": "editorial", "url": "/blog/migration-cloud-pdm-3dexperience/", "title": "Passer votre PDM dans le cloud : ce que les commerciaux ne vous diront jamais", "dateIso": "2026-05-28T00:00:00.000Z", "displayDate": "28 mai 2026", "excerpt": "Les 5 angles morts et les 7 questions à poser avant de signer." },
-    { "type": "editorial", "url": "/blog/migration-donnees-solidworks-pdm/", "title": "Migration de données vers SOLIDWORKS PDM : le guide terrain", "dateIso": "2026-03-18T00:00:00.000Z", "displayDate": "18 mars 2026", "excerpt": "Méthodologie en 6 phases pour migrer sans perdre un fichier." },
-    { "type": "editorial", "url": "/blog/nomenclature-bom-pdm-plm-erp/", "title": "Nomenclature, BOM, eBOM, mBOM : la colonne vertébrale de vos données produit", "dateIso": "2026-03-16T00:00:00.000Z", "displayDate": "16 mars 2026", "excerpt": "Comprendre la BOM et le rôle de PDM, PLM et ERP." },
-    { "type": "editorial", "url": "/blog/configuration-materielle-solidworks/", "title": "Configuration matérielle SOLIDWORKS 2025 : le guide terrain", "dateIso": "2025-09-21T00:00:00.000Z", "displayDate": "21 septembre 2025", "excerpt": "Calibrer stations, serveur PDM et réseau pour un BE réactif." },
-    { "type": "editorial", "url": "/blog/resolutions-problematiques-plm/", "title": "Résoudre les 5 problématiques PLM les plus fréquentes", "dateIso": "2025-09-15T00:00:00.000Z", "displayDate": "15 septembre 2025", "excerpt": "Cinq problématiques PLM vécues sur le terrain et leurs solutions." }
-  ],
-  "timeline": []
-}</script>
 
             </article>
         </div>
@@ -247,7 +290,28 @@
 
     <script src="/assets/js/script.js"></script>
     <script src="/assets/js/visitor-intelligence.js"></script>
-    <script type="module" src="/assets/js/blog.js"></script>
+    <script>
+    (function () {
+        var chips = document.querySelectorAll('.blog-filter__chip');
+        var cards = document.querySelectorAll('.article-card');
+        if (!chips.length) return;
+        chips.forEach(function (chip) {
+            chip.addEventListener('click', function () {
+                var f = chip.getAttribute('data-filter');
+                chips.forEach(function (c) {
+                    var active = c === chip;
+                    c.classList.toggle('is-active', active);
+                    c.setAttribute('aria-pressed', active ? 'true' : 'false');
+                });
+                cards.forEach(function (card) {
+                    var show = f === 'all' || card.getAttribute('data-cat') === f;
+                    card.classList.toggle('is-hidden', !show);
+                    if (show) card.classList.add('is-visible'); // évite les cartes bloquées invisibles
+                });
+            });
+        });
+    })();
+    </script>
     <script src="/assets/js/blog-reveal.js" defer></script>
 </body>
 </html>

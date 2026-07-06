@@ -29,7 +29,9 @@
         '.article-cta',
         '.article-related',
         '.article-footer',
-        '.post-card'
+        '.post-card',
+        '.article-featured',
+        '.article-card'
     ].join(',');
 
     const targets = Array.from(root.querySelectorAll(SELECTOR));
