@@ -2634,6 +2634,41 @@ footer {
     margin-bottom: 5px;
 }
 
+.ai-message ol {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.ai-message p {
+    margin: 0 0 8px;
+}
+
+.ai-message p:last-child {
+    margin-bottom: 0;
+}
+
+.ai-message a {
+    color: var(--accent-secondary);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.ai-message.user a {
+    color: inherit;
+}
+
+.ai-message code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.88em;
+    background: color-mix(in srgb, var(--text-color) 12%, transparent);
+    padding: 1px 5px;
+    border-radius: 5px;
+}
+
+.ai-message strong {
+    font-weight: 700;
+}
+
 .ai-message.assistant {
     background-color: var(--hover-color);
     align-self: flex-start;
