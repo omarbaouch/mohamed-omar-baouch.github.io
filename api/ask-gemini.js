@@ -9,9 +9,21 @@ import {
     normalizeLang,
     fetchWithTimeout
 } from './_assistant.js';
-import { buildKnowledge } from './_rag.js';
 
 const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent';
+
+// RAG optionnel et NON bloquant : si la base de connaissances échoue à charger
+// ou à s'exécuter (bundling, erreur runtime…), le chatbot répond quand même
+// normalement via Gemini, sans le bloc de connaissances.
+async function safeKnowledge(question, language) {
+    try {
+        const { buildKnowledge } = await import('./_rag.js');
+        return buildKnowledge(question, { lang: language, k: 4 }) || '';
+    } catch (err) {
+        console.error('RAG indisponible (ignoré):', err && err.message);
+        return '';
+    }
+}
 
 export default async (req, res) => {
     if (req.method !== 'POST') {
@@ -38,7 +50,7 @@ export default async (req, res) => {
         parts: [{ text: turn.content }]
     }));
     // RAG : récupère les faits pertinents de la base curée pour ancrer la réponse.
-    const knowledge = buildKnowledge(question, { lang: language, k: 4 });
+    const knowledge = await safeKnowledge(question, language);
     contents.push({
         role: 'user',
         parts: [{ text: buildUserMessage({ question, context, pageType: normalizedPageType, knowledge }) }]
