@@ -9,6 +9,7 @@ import {
     normalizeLang,
     fetchWithTimeout
 } from './_assistant.js';
+import { buildKnowledge } from './_rag.js';
 
 const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent';
 
@@ -36,9 +37,11 @@ export default async (req, res) => {
         role: turn.role === 'assistant' ? 'model' : 'user',
         parts: [{ text: turn.content }]
     }));
+    // RAG : récupère les faits pertinents de la base curée pour ancrer la réponse.
+    const knowledge = buildKnowledge(question, { lang: language, k: 4 });
     contents.push({
         role: 'user',
-        parts: [{ text: buildUserMessage({ question, context, pageType: normalizedPageType }) }]
+        parts: [{ text: buildUserMessage({ question, context, pageType: normalizedPageType, knowledge }) }]
     });
 
     const payload = {
