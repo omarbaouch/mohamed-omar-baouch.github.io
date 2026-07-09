@@ -210,7 +210,11 @@
 }
 
 .back-link--ghost {
-    color: var(--text-secondary);
+    color: var(--accent-secondary);
+}
+.back-link--ghost:hover,
+.back-link--ghost:focus-visible {
+    color: var(--accent-primary);
 }
 
 .hero-badges {
@@ -1554,6 +1558,13 @@ html.light-theme .article-breadcrumbs {
 }
 
 html.light-theme .back-link {
+    color: var(--accent-primary);
+}
+html.light-theme .back-link--ghost {
+    color: var(--accent-secondary);
+}
+html.light-theme .back-link--ghost:hover,
+html.light-theme .back-link--ghost:focus-visible {
     color: var(--accent-primary);
 }
 

@@ -99,8 +99,12 @@ Principe clé : « Ne jamais faire confiance aux données existantes » — l'au
 - Ton conversationnel mais net (« En fait… », « Concrètement… »). Direct et concret, avec un exemple terrain quand c'est pertinent.
 - Tiens compte de l'historique de la conversation : ne te répète pas, rebondis sur ce qui a déjà été dit.${blogHint}
 
+[BASE DE CONNAISSANCES]
+- Le message du visiteur peut être précédé d'une « BASE DE CONNAISSANCES » : des faits vérifiés (articles du blog, éditions SOLIDWORKS PDM, méthode, Visiativ). Sers-t'en en PRIORITÉ pour répondre avec précision, et reformule-les avec tes mots — ne les recopie pas mot pour mot.
+- Quand un fait provient d'un article, propose le lien correspondant au format Markdown [Titre](/blog/slug/). N'invente jamais de lien ni de contenu absent de la base.
+
 [GARDE-FOUS]
-- Tu ne connais QUE ce qui est dans ce prompt et dans le contexte de page fourni. Hors de ce périmètre, dis-le franchement plutôt que d'inventer : « Ça sort de mon domaine, je préfère ne pas improviser. »
+- Tu ne connais QUE ce qui est dans ce prompt, dans la base de connaissances et dans le contexte de page fourni. Hors de ce périmètre, dis-le franchement plutôt que d'inventer : « Ça sort de mon domaine, je préfère ne pas improviser. »
 - Ne donne JAMAIS de prix, de devis, ni d'engagement contractuel — invite plutôt à me contacter via la page /#contact.
 - Ne dénigre jamais un concurrent : reste factuel.
 - Ne prétends jamais avoir fait quelque chose que tu n'as pas fait.
@@ -108,12 +112,16 @@ Principe clé : « Ne jamais faire confiance aux données existantes » — l'au
 - Pour toute demande d'échange/projet, oriente vers la page contact (/#contact) ou LinkedIn.`;
 }
 
-// Message utilisateur enrichi (contexte de page + question) pour le dernier tour.
-export function buildUserMessage({ question, context, pageType }) {
+// Message utilisateur enrichi (base de connaissances RAG + contexte de page +
+// question) pour le dernier tour. `knowledge` = bloc issu de la récupération.
+export function buildUserMessage({ question, context, pageType, knowledge }) {
     const label = contextLabelFor(pageType);
     const ctx = clampText(context, MAX_CONTEXT_CHARS);
     const q = clampText(question, MAX_QUESTION_CHARS);
-    return `Type de page : ${pageType || 'portfolio'}
+    const kb = typeof knowledge === 'string' && knowledge.trim()
+        ? `--- ${knowledge.trim()}\n--- FIN DE LA BASE DE CONNAISSANCES ---\n\n`
+        : '';
+    return `${kb}Type de page : ${pageType || 'portfolio'}
 --- ${label} ---
 ${ctx}
 --- FIN DU CONTEXTE ---

@@ -2534,9 +2534,8 @@ function initParallax() {
     });
 }
 function initAIAssistant() {
-    // Ordre d'essai des backends : Claude d'abord (meilleures réponses si la
-    // clé est configurée), repli automatique sur Gemini sinon.
-    const AI_API_ENDPOINTS = ['/api/ask-claude', '/api/ask-gemini'];
+    // Backend de l'assistant : Gemini uniquement.
+    const AI_API_ENDPOINTS = ['/api/ask-gemini'];
     const conversationHistory = []; // [{role:'user'|'assistant', content}]
     const MAX_HISTORY = 16;
     const aiFab = document.getElementById('ai-fab');
