@@ -140,4 +140,20 @@ export async function fetchWithTimeout(url, options = {}, timeoutMs = 20000) {
     }
 }
 
+// Applique les en-têtes CORS et répond au préflight OPTIONS.
+// Nécessaire lorsque l'appel arrive en cross-origin (ex : un visiteur resté
+// sur le domaine apex baouch.fr dont la requête est redirigée vers www).
+// Retourne true si la requête a été traitée (préflight) et qu'il faut stopper.
+export function applyCors(req, res) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Max-Age', '86400');
+    if (req.method === 'OPTIONS') {
+        res.status(204).end();
+        return true;
+    }
+    return false;
+}
+
 export const LIMITS = { MAX_QUESTION_CHARS, MAX_CONTEXT_CHARS };

@@ -7,7 +7,8 @@ import {
     buildUserMessage,
     normalizeHistory,
     normalizeLang,
-    fetchWithTimeout
+    fetchWithTimeout,
+    applyCors
 } from './_assistant.js';
 
 const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent';
@@ -26,6 +27,7 @@ async function safeKnowledge(question, language) {
 }
 
 export default async (req, res) => {
+    if (applyCors(req, res)) return; // préflight OPTIONS traité
     if (req.method !== 'POST') {
         return res.status(405).json({ error: 'Method Not Allowed' });
     }
