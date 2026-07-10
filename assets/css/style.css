@@ -2423,11 +2423,11 @@ footer {
         gap: 15px;
     }
 
+    /* En mobile, FR/EN reste dans la barre de navigation, à côté du burger */
     .language-switcher {
-        padding-left: 15px;
+        padding-left: 0;
         border-left: none;
-        position: absolute;
-        bottom: 20px;
+        gap: 6px;
     }
 
     .menu.active {
@@ -3322,17 +3322,6 @@ footer {
     align-items: center;
 }
 
-/* Mobile UI Cleanup */
-@media (max-width: 768px) {
-
-    /* Hide Language Switcher "FR" */
-    .language-switcher {
-        display: none !important;
-    }
-
-    /* Remove "Formation" intersection line */
-    .education-card::before {
-        display: none !important;
-        width: 0 !important;
-    }
-}
+/* Mobile UI Cleanup — le sélecteur de langue reste visible (voir la règle
+   .language-switcher du bloc 768px plus haut) ; la ligne horizontale de la
+   timeline Formation est masquée en mobile via `hidden md:block` dans le HTML. */
