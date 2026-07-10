@@ -82,7 +82,12 @@ export default async (req, res) => {
             temperature: 0.6,
             topK: 40,
             topP: 0.95,
-            maxOutputTokens: 1024
+            // Gemini 2.5 Flash « pense » par défaut et ses tokens de réflexion
+            // se décomptent de maxOutputTokens → réponses tronquées en pleine
+            // phrase. On désactive la réflexion (inutile ici, plus rapide) et
+            // on garde un budget large pour la réponse elle-même.
+            maxOutputTokens: 2048,
+            thinkingConfig: { thinkingBudget: 0 }
         }
     };
 
@@ -103,7 +108,15 @@ export default async (req, res) => {
         }
 
         const data = await geminiResponse.json();
-        const answer = data.candidates?.[0]?.content?.parts?.map(p => p.text).filter(Boolean).join('').trim();
+        const candidate = data.candidates?.[0];
+        let answer = candidate?.content?.parts?.map(p => p.text).filter(Boolean).join('').trim();
+
+        // Filet de sécurité : si la génération a malgré tout atteint le budget,
+        // on coupe à la dernière phrase complète plutôt qu'en plein mot.
+        if (answer && candidate?.finishReason === 'MAX_TOKENS') {
+            const cut = Math.max(answer.lastIndexOf('.'), answer.lastIndexOf('!'), answer.lastIndexOf('?'), answer.lastIndexOf('\n'));
+            if (cut > answer.length * 0.5) answer = answer.slice(0, cut + 1).trim();
+        }
 
         if (answer) {
             return res.status(200).json({ answer, provider: 'gemini' });
