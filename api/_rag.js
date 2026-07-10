@@ -1,9 +1,16 @@
 // api/_rag.js
-// Récupération d'information (RAG) au-dessus de la base curée (_kb.js).
-// Ranking BM25 + normalisation accents + expansion de requête bilingue (FR/EN).
+// Récupération d'information (RAG) au-dessus de la base curée (_kb.js) ET du
+// corpus documentaire (api/_data/ : doc SOLIDWORKS PDM 2026 FR + help.visiativ.com).
+// Ranking BM25 + normalisation accents + stemming FR léger + expansion bilingue.
 // Le préfixe « _ » évite que Vercel en fasse une route HTTP.
 
 import { KB_DOCS } from './_kb.js';
+import { DOCS as CORPUS_SW } from './_data/corpus_sw.js';
+import { DOCS as CORPUS_VISIATIV } from './_data/corpus_visiativ.js';
+
+// La base curée reste prioritaire : elle porte le positionnement d'Omar.
+// Le corpus documentaire ancre les réponses techniques détaillées.
+const KB_BOOST = 1.5;
 
 // Mots vides FR + EN — retirés avant le scoring.
 const STOPWORDS = new Set([
@@ -64,18 +71,38 @@ function normalize(text) {
         .replace(/[\u0300-\u036f]/g, '');
 }
 
+// Stemming FR léger et symétrique (index + requête) : féminins/pluriels et
+// suffixes fréquents, suffisant pour rapprocher « révision(s) », « migrations »…
+function stem(t) {
+    if (t.length > 7 && /(ations|ements|ements)$/.test(t)) return t.slice(0, -1);
+    if (t.length > 5 && /(aux|eux)$/.test(t)) return t.slice(0, -3) + 'a';
+    if (t.length > 4 && /(es|s|x)$/.test(t)) return t.replace(/(es|s|x)$/, '');
+    return t;
+}
+
 // Tokenise en gardant les tokens utiles (>=2 caractères, hors mots vides).
 function tokenize(text) {
     return normalize(text)
         .split(/[^a-z0-9]+/)
-        .filter(t => t.length >= 2 && !STOPWORDS.has(t));
+        .filter(t => t.length >= 2 && !STOPWORDS.has(t))
+        .map(stem);
 }
+
+// Table de synonymes re-clefée sur les formes stemmées, pour rester
+// cohérente avec la tokenisation (index et requête passent par stem()).
+const STEMMED_SYNONYMS = (() => {
+    const map = new Map();
+    for (const [key, vals] of Object.entries(SYNONYMS)) {
+        map.set(stem(normalize(key)), vals.map(v => stem(normalize(v))));
+    }
+    return map;
+})();
 
 // Applique l'expansion de synonymes à une liste de tokens.
 function expand(tokens) {
     const out = new Set(tokens);
     for (const t of tokens) {
-        const syns = SYNONYMS[t];
+        const syns = STEMMED_SYNONYMS.get(t);
         if (syns) for (const s of syns) out.add(s);
     }
     return [...out];
@@ -86,12 +113,17 @@ const K1 = 1.5;
 const B = 0.75;
 
 const INDEX = (() => {
-    const docs = KB_DOCS.map(doc => {
+    const all = [
+        ...KB_DOCS.map(doc => ({ doc, boost: KB_BOOST })),
+        ...CORPUS_SW.map(doc => ({ doc, boost: 1 })),
+        ...CORPUS_VISIATIV.map(doc => ({ doc, boost: 1 }))
+    ];
+    const docs = all.map(({ doc, boost }) => {
         // Le texte + les tags sont indexés ; le titre est légèrement survalorisé.
         const tokens = tokenize(`${doc.title} ${doc.title} ${(doc.tags || []).join(' ')} ${doc.text}`);
         const tf = new Map();
         for (const t of tokens) tf.set(t, (tf.get(t) || 0) + 1);
-        return { doc, tf, len: tokens.length };
+        return { doc, boost, tf, len: tokens.length };
     });
     const N = docs.length;
     const avgdl = docs.reduce((s, d) => s + d.len, 0) / (N || 1);
@@ -129,12 +161,23 @@ export function retrieve(query, { k = 4, minScore = 0.1 } = {}) {
     const queryTerms = expand(baseTokens);
 
     const ranked = INDEX.docs
-        .map(entry => ({ doc: entry.doc, score: scoreDoc(entry, queryTerms) }))
+        .map(entry => ({ doc: entry.doc, score: scoreDoc(entry, queryTerms) * entry.boost }))
         .filter(r => r.score > minScore)
-        .sort((a, b) => b.score - a.score)
-        .slice(0, k);
+        .sort((a, b) => b.score - a.score);
 
-    return ranked;
+    // Diversité : au plus 2 chunks d'une même page pour ne pas saturer le
+    // budget avec un seul document long.
+    const perUrl = new Map();
+    const out = [];
+    for (const r of ranked) {
+        const key = r.doc.url || r.doc.id;
+        const n = perUrl.get(key) || 0;
+        if (n >= 2) continue;
+        perUrl.set(key, n + 1);
+        out.push(r);
+        if (out.length >= k) break;
+    }
+    return out;
 }
 
 /**
@@ -153,7 +196,8 @@ export function formatRetrieved(results, lang = 'fr', maxChars = 4200) {
     const parts = [header];
     let total = header.length;
     for (const { doc } of results) {
-        const block = `\n[${doc.title}] (${doc.url})\n${doc.text}`;
+        const label = doc.guide ? `${doc.guide} — ${doc.title}` : doc.title;
+        const block = `\n[${label}] (${doc.url})\n${doc.text}`;
         if (total + block.length > maxChars) break;
         parts.push(block);
         total += block.length;
