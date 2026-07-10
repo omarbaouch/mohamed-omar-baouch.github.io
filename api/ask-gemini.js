@@ -19,7 +19,7 @@ const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/
 async function safeKnowledge(question, language) {
     try {
         const { buildKnowledge } = await import('./_rag.js');
-        return buildKnowledge(question, { lang: language, k: 4 }) || '';
+        return buildKnowledge(question, { lang: language, k: 6, maxChars: 5200 }) || '';
     } catch (err) {
         console.error('RAG indisponible (ignoré):', err && err.message);
         return '';
