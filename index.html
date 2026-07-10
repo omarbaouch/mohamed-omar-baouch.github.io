@@ -1087,8 +1087,9 @@
 
             <!-- Horizontal Timeline -->
             <div class="relative mt-16 px-4">
-                <!-- Horizontal line -->
-                <div class="absolute top-1/2 left-0 right-0 h-1 -translate-y-1/2 rounded-full opacity-30"
+                <!-- Horizontal line (desktop only : en mobile les jalons s'empilent
+                     verticalement et la ligne traverserait les cartes) -->
+                <div class="hidden md:block absolute top-1/2 left-0 right-0 h-1 -translate-y-1/2 rounded-full opacity-30"
                     style="background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary))"></div>
 
                 <!-- Timeline items -->
