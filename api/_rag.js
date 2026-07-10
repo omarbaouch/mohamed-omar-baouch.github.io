@@ -1,12 +1,13 @@
 // api/_rag.js
 // Récupération d'information (RAG) au-dessus de la base curée (_kb.js) ET du
 // corpus documentaire (api/_data/ : doc SOLIDWORKS PDM 2026 FR + help.visiativ.com).
-// Ranking BM25 + normalisation accents + stemming FR léger + expansion bilingue.
+// Recherche HYBRIDE : BM25 (stemming FR léger + expansion bilingue) fusionné
+// par RRF avec la recherche dense (embeddings précalculés, api/_data/vectors.js)
+// quand un vecteur de requête est fourni.
 // Le préfixe « _ » évite que Vercel en fasse une route HTTP.
 
-import { KB_DOCS } from './_kb.js';
-import { DOCS as CORPUS_SW } from './_data/corpus_sw.js';
-import { DOCS as CORPUS_VISIATIV } from './_data/corpus_visiativ.js';
+import { ALL_DOCS } from './_alldocs.js';
+import { VECMETA, IDS, SCALES_B64, VEC_B64 } from './_data/vectors.js';
 
 // La base curée reste prioritaire : elle porte le positionnement d'Omar.
 // Le corpus documentaire ancre les réponses techniques détaillées.
@@ -133,11 +134,7 @@ const K1 = 1.5;
 const B = 0.75;
 
 const INDEX = (() => {
-    const all = [
-        ...KB_DOCS.map(doc => ({ doc, boost: KB_BOOST })),
-        ...CORPUS_SW.map(doc => ({ doc, boost: 1 })),
-        ...CORPUS_VISIATIV.map(doc => ({ doc, boost: 1 }))
-    ];
+    const all = ALL_DOCS.map(doc => ({ doc, boost: doc.source === 'kb' ? KB_BOOST : 1 }));
     const docs = all.map(({ doc, boost }) => {
         // Le texte + les tags sont indexés ; le titre est légèrement survalorisé.
         const tokens = tokenize(`${doc.title} ${doc.title} ${(doc.tags || []).join(' ')} ${doc.text}`);
@@ -169,32 +166,88 @@ function scoreDoc(entry, queryTerms) {
     return score;
 }
 
+// ── Recherche dense sur embeddings int8 précalculés ──
+const DENSE = (() => {
+    if (!VECMETA || !IDS.length) return null;
+    try {
+        const vecs = new Int8Array(Buffer.from(VEC_B64, 'base64').buffer,
+            Buffer.from(VEC_B64, 'base64').byteOffset, IDS.length * VECMETA.dim);
+        const scalesBuf = Buffer.from(SCALES_B64, 'base64');
+        const scales = new Float32Array(scalesBuf.buffer, scalesBuf.byteOffset, IDS.length);
+        // aligne les vecteurs sur les entrées de l'index par id
+        const byId = new Map(INDEX.docs.map((e, i) => [e.doc.id, i]));
+        const docIdx = IDS.map(id => byId.has(id) ? byId.get(id) : -1);
+        return { vecs, scales, docIdx, dim: VECMETA.dim };
+    } catch {
+        return null;
+    }
+})();
+
+export function hasDense() { return !!DENSE; }
+
+// Classement dense : produit scalaire requête (float) × document (int8·échelle).
+function denseRank(queryVec, topN) {
+    if (!DENSE || !Array.isArray(queryVec) || queryVec.length !== DENSE.dim) return null;
+    const { vecs, scales, docIdx, dim } = DENSE;
+    const scored = [];
+    for (let i = 0; i < docIdx.length; i++) {
+        if (docIdx[i] < 0) continue;
+        let dot = 0;
+        const off = i * dim;
+        for (let j = 0; j < dim; j++) dot += queryVec[j] * vecs[off + j];
+        scored.push({ idx: docIdx[i], score: dot * scales[i] });
+    }
+    scored.sort((a, b) => b.score - a.score);
+    return scored.slice(0, topN);
+}
+
 /**
  * Récupère les documents les plus pertinents pour une requête.
+ * Hybride : BM25 toujours ; si `queryVec` est fourni et que les embeddings
+ * sont chargés, fusion des deux classements par RRF (Reciprocal Rank Fusion).
  * @param {string} query   La question du visiteur.
- * @param {object} opts    { k = 4, minScore = 0.1 }
+ * @param {object} opts    { k = 4, minScore = 0.1, queryVec = null }
  * @returns {Array<{doc, score}>}
  */
-export function retrieve(query, { k = 4, minScore = 0.1 } = {}) {
+export function retrieve(query, { k = 4, minScore = 0.1, queryVec = null } = {}) {
     const baseTokens = tokenize(query);
-    if (!baseTokens.length) return [];
+    if (!baseTokens.length && !queryVec) return [];
     const queryTerms = expand(baseTokens);
 
-    const ranked = INDEX.docs
-        .map(entry => ({ doc: entry.doc, score: scoreDoc(entry, queryTerms) * entry.boost }))
+    const lexical = INDEX.docs
+        .map((entry, idx) => ({ idx, score: scoreDoc(entry, queryTerms) * entry.boost }))
         .filter(r => r.score > minScore)
-        .sort((a, b) => b.score - a.score);
+        .sort((a, b) => b.score - a.score)
+        .slice(0, Math.max(k * 6, 40));
+
+    const dense = denseRank(queryVec, Math.max(k * 6, 40));
+
+    let rankedIdx;
+    if (dense && dense.length) {
+        // RRF : score(d) = Σ 1/(60 + rang) sur les deux classements.
+        // La base curée garde son avantage via un léger bonus.
+        const rrf = new Map();
+        lexical.forEach((r, rank) => rrf.set(r.idx, (rrf.get(r.idx) || 0) + 1 / (60 + rank)));
+        dense.forEach((r, rank) => rrf.set(r.idx, (rrf.get(r.idx) || 0) + 1 / (60 + rank)));
+        for (const [idx] of rrf) {
+            if (INDEX.docs[idx].boost > 1) rrf.set(idx, rrf.get(idx) * 1.15);
+        }
+        rankedIdx = [...rrf.entries()].sort((a, b) => b[1] - a[1]).map(([idx, score]) => ({ idx, score }));
+    } else {
+        rankedIdx = lexical;
+    }
 
     // Diversité : au plus 2 chunks d'une même page pour ne pas saturer le
     // budget avec un seul document long.
     const perUrl = new Map();
     const out = [];
-    for (const r of ranked) {
-        const key = r.doc.url || r.doc.id;
+    for (const r of rankedIdx) {
+        const doc = INDEX.docs[r.idx].doc;
+        const key = doc.url || doc.id;
         const n = perUrl.get(key) || 0;
         if (n >= 2) continue;
         perUrl.set(key, n + 1);
-        out.push(r);
+        out.push({ doc, score: r.score });
         if (out.length >= k) break;
     }
     return out;

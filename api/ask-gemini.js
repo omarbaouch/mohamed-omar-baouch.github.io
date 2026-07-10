@@ -13,13 +13,29 @@ import {
 
 const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent';
 
-// RAG optionnel et NON bloquant : si la base de connaissances échoue à charger
-// ou à s'exécuter (bundling, erreur runtime…), le chatbot répond quand même
-// normalement via Gemini, sans le bloc de connaissances.
-async function safeKnowledge(question, language) {
+// RAG hybride multi-étages, optionnel et NON bloquant : chaque étage
+// (reformulation contextuelle, recherche dense, reranking LLM) échoue en
+// silence et le pipeline retombe sur l'étage précédent — au pire le chatbot
+// répond via Gemini seul, sans bloc de connaissances.
+async function safeKnowledge(question, history, language, apiKey) {
     try {
-        const { buildKnowledge } = await import('./_rag.js');
-        return buildKnowledge(question, { lang: language, k: 6, maxChars: 5200 }) || '';
+        const { retrieve, formatRetrieved, hasDense } = await import('./_rag.js');
+        const { rewriteQuestion, embedQuery, rerank } = await import('./_smart.js');
+
+        // 1) Question de suivi → question autonome (sinon la recherche rate).
+        let searchQ = question;
+        const rewritten = await rewriteQuestion(question, history, apiKey);
+        if (rewritten) searchQ = rewritten;
+
+        // 2) Recherche hybride : BM25 + dense (si vecteurs disponibles).
+        const queryVec = hasDense() ? await embedQuery(searchQ, apiKey) : null;
+        let results = retrieve(searchQ, { k: 18, queryVec });
+
+        // 3) Reranking LLM des candidats, puis coupe au budget final.
+        const reranked = await rerank(searchQ, results, apiKey, 6);
+        results = (reranked || results).slice(0, 6);
+
+        return formatRetrieved(results, language, 6500) || '';
     } catch (err) {
         console.error('RAG indisponible (ignoré):', err && err.message);
         return '';
@@ -47,12 +63,13 @@ export default async (req, res) => {
     const systemPrompt = buildSystemPrompt({ lang: language, pageType: normalizedPageType });
 
     // Historique → format Gemini (role "model" pour l'assistant).
-    const contents = normalizeHistory(history).map(turn => ({
+    const normalizedHistory = normalizeHistory(history);
+    const contents = normalizedHistory.map(turn => ({
         role: turn.role === 'assistant' ? 'model' : 'user',
         parts: [{ text: turn.content }]
     }));
-    // RAG : récupère les faits pertinents de la base curée pour ancrer la réponse.
-    const knowledge = await safeKnowledge(question, language);
+    // RAG hybride : reformulation contextuelle + BM25 + dense + reranking.
+    const knowledge = await safeKnowledge(question, normalizedHistory, language, GEMINI_API_KEY);
     contents.push({
         role: 'user',
         parts: [{ text: buildUserMessage({ question, context, pageType: normalizedPageType, knowledge }) }]

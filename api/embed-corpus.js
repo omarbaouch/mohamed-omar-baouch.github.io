@@ -2,20 +2,22 @@
 // ROUTE TEMPORAIRE D'INGESTION — à supprimer après le précalcul des embeddings.
 // Embarque une plage de chunks du corpus via l'API Gemini (la clé n'existe
 // qu'en variable d'environnement Vercel) et renvoie les vecteurs quantifiés.
-// Lecture seule sur un corpus figé ; protégée par jeton.
+// Protégée par la variable d'environnement EMBED_TOKEN (aucun secret dans le
+// code) : tant qu'elle n'est pas définie côté Vercel, la route est inerte.
 
 import { ALL_DOCS } from './_alldocs.js';
 import { fetchWithTimeout } from './_assistant.js';
 
-const TOKEN = '1369c20c0d64af2eb09fe403b69cd513';
 const MODEL = 'gemini-embedding-001';
 const DIM = 768;
 const URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:batchEmbedContents`;
 
 export default async (req, res) => {
     if (req.method !== 'POST') return res.status(405).json({ error: 'Method Not Allowed' });
+    const expected = process.env.EMBED_TOKEN;
+    if (!expected) return res.status(503).json({ error: 'EMBED_TOKEN not configured' });
     const { token, start = 0, count = 40 } = req.body || {};
-    if (token !== TOKEN) return res.status(403).json({ error: 'Forbidden' });
+    if (token !== expected) return res.status(403).json({ error: 'Forbidden' });
     const key = process.env.GEMINI_API_KEY;
     if (!key) return res.status(503).json({ error: 'No API key' });
 
