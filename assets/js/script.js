@@ -1685,7 +1685,7 @@ function applyPortfolioLanguage(langData, lang) {
     }
 }
 const frenchCountries = [
-    'BJ', 'BF', 'CG', 'CD', 'CI', 'GA', 'GN', 'ML', 'NE', 'SN', 'TG', 'TD', // Afrique Ouest/Centrale
+    'BJ', 'BF', 'CG', 'CD', 'CI', 'GA', 'GN', 'ML', 'NE', 'SN', 'TG', 'TD', 'CM', 'CF', 'GQ', 'BI', // Afrique Ouest/Centrale
     'FR', 'MC', 'LU', 'BE', 'CH', // Europe
     'GP', 'MQ', 'GF', 'RE', 'PM', 'YT', 'WF', 'PF', 'NC', // Territoires FR
     'CA', // Géré spécifiquement, mais FR par défaut si pas de province
