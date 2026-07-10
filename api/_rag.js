@@ -60,7 +60,27 @@ const SYNONYMS = {
     contact: ['devis', 'rendez-vous', 'projet', 'mail', 'email'],
     utilisateurs: ['users', 'postes', 'equipe', 'team'],
     replication: ['multi-site', 'multisite', 'sites'],
-    web: ['web2', 'distant', 'remote', 'navigateur']
+    web: ['web2', 'distant', 'remote', 'navigateur'],
+    archiver: ['archivage', 'checkin'],
+    archivage: ['archiver', 'checkin'],
+    checkin: ['archivage', 'archiver'],
+    extraire: ['extraction', 'checkout'],
+    extraction: ['extraire', 'checkout'],
+    checkout: ['extraction', 'extraire'],
+    workflow: ['flux', 'travail', 'transition'],
+    flux: ['workflow'],
+    carte: ['card', 'donnees'],
+    card: ['carte', 'donnees'],
+    revision: ['indice', 'version'],
+    indice: ['revision', 'version'],
+    tache: ['task', 'conversion'],
+    task: ['tache'],
+    notification: ['notifier', 'alerte'],
+    smartproperties: ['proprietes', 'variables'],
+    smartbom: ['nomenclature', 'bom'],
+    batchconverter: ['conversion', 'lot'],
+    mycadtools: ['visiativ', 'utilitaires'],
+    mypdmtools: ['visiativ', 'pdm']
 };
 
 // Normalise (minuscule, retire accents/diacritiques).
