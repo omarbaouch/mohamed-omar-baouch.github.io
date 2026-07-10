@@ -152,5 +152,19 @@ export const KB_DOCS = [
         url: '/blog/configuration-materielle-solidworks/',
         tags: ['configuration materielle', 'hardware', 'poste', 'workstation', 'cpu', 'gpu', 'ram', 'ssd', 'performance', 'specs', 'recommandations'],
         text: "Article sur la configuration matérielle recommandée pour SOLIDWORKS et PDM : privilégier un CPU à fréquence élevée (SOLIDWORKS exploite peu de cœurs pour le modelage), de la RAM confortable pour les gros assemblages, un GPU certifié, et surtout du stockage SSD/NVMe pour le cache du coffre. Côté serveurs PDM : SQL et Archive Server sur disques rapides, RAM suffisante. Le bon matériel est souvent le levier de performance le moins cher."
+    },
+    {
+        id: 'blog-ia-pdm',
+        title: "IA et SOLIDWORKS PDM : ce qui change en 2026",
+        url: '/blog/ia-solidworks-pdm-bureau-etudes/',
+        tags: ['ia', 'ai', 'intelligence artificielle', 'copilote', 'recherche semantique', 'semantic', 'rag', 'classification', 'deduplication', 'assistant', '3dexperience', 'donnees', 'data quality'],
+        text: "Article d'analyse sur l'IA appliquée à SOLIDWORKS et au PDM en 2026. Les 5 cas d'usage concrets et matures : recherche sémantique (retrouver une pièce sans connaître son nom exact) et similarité géométrique, classification et pré-remplissage automatique des propriétés/cartes de données, déduplication assistée, assistants documentaires RAG (répondre aux questions procédures/normes avec sources citées), contrôle qualité continu des données. Le message clé : le prérequis de toute IA utile est la qualité des données — un coffre PDM structuré avec cartes remplies et workflows respectés. Le chemin vers « prêt pour l'IA » est le même que vers un PDM bien déployé. Feuille de route en 4 trimestres : audit des données, réparation du socle, premier cas d'usage visible (recherche ou assistant), mesure et extension."
+    },
+    {
+        id: 'blog-cout-pdm',
+        title: "Combien coûte vraiment un projet SOLIDWORKS PDM",
+        url: '/blog/prix-cout-projet-solidworks-pdm/',
+        tags: ['prix', 'cout', 'budget', 'tarif', 'price', 'cost', 'licences', 'maintenance', 'sql server', 'roi', 'investissement', 'devis', 'chiffrage'],
+        text: "Guide budget d'un projet SOLIDWORKS PDM. Structure en 4 postes : licences (~1/3 du total), infrastructure, services (config, formation), reprise de données. PDM Standard est inclus avec SOLIDWORKS Pro/Premium ; PDM Professional est une licence séparée par utilisateur (CAD Editor vs Contributor/Viewer, le mix étant le premier levier d'économie) + SQL Server Standard + maintenance annuelle 18-25 %. Ordres de grandeur an 1 (indicatifs France 2026) : BE 5 postes en Standard ≈ 5-15 k€ ; PME 15 postes en Professional ≈ 40-90 k€ ; ETI 40 postes multi-sites + ERP ≈ 120-250 k€+. Le coût de la reprise dépend du désordre initial, pas du volume. ROI typique 12-24 mois. Les 5 pièges : budgéter seulement les licences, sur-licencier, découvrir l'état des données en cours de migration, zapper la formation, tout faire en phase 1. Pour un devis ferme : échange personnalisé via la page contact."
     }
 ];
