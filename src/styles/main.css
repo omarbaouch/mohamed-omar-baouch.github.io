@@ -12,6 +12,8 @@
 @import './components/base.css';
 @import './components/type.css';
 @import './components/interactive.css';
+@import './components/layout.css';
+@import './components/chatbot.css';
 
 /* Expose les tokens au moteur Tailwind (classes bg-paper, text-ink, etc.) */
 @theme inline {

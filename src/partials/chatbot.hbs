@@ -1,0 +1,39 @@
+<button class="ai-fab" id="ai-fab" aria-label="Ouvrir l'assistant virtuel" aria-expanded="false">
+  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 8V4H8" />
+    <rect x="4" y="12" width="8" height="8" rx="2" />
+    <path d="M8 12v1.5a2.5 2.5 0 0 0 5 0V12" />
+    <path d="M2 12h2" />
+    <path d="M14 2h2" />
+    <path d="M14 8h2" />
+    <path d="M14 14h2" />
+  </svg>
+</button>
+<div class="ai-panel" id="ai-container" role="dialog" aria-label="Assistant virtuel" hidden>
+  <div class="ai-panel-header">
+    <h3 data-translate-key="ai_title">Assistant Virtuel</h3>
+    <button class="ai-close" id="ai-close-btn" aria-label="Fermer l'assistant">&times;</button>
+  </div>
+  <div class="ai-panel-body" id="ai-chat-box">
+    <div class="ai-message assistant">
+      <p data-translate-key="ai_welcome">Bonjour ! Je suis l'assistant virtuel de Mohamed. Comment puis-je vous aider à découvrir son profil ? Voici quelques suggestions :</p>
+    </div>
+    <div class="ai-suggestions" id="ai-suggestions">
+      <button class="suggestion-btn" data-translate-key="ai_sugg_1">Résume son expérience</button>
+      <button class="suggestion-btn" data-translate-key="ai_sugg_2">Quelles sont ses compétences en PDM ?</button>
+      <button class="suggestion-btn" data-translate-key="ai_sugg_3">Où a-t-il étudié ?</button>
+    </div>
+  </div>
+  <div class="ai-panel-footer">
+    <label class="sr-only" for="ai-input" data-translate-key="ai_input_label">Votre question</label>
+    <input type="text" id="ai-input" placeholder="Posez votre question ici..." autocomplete="off">
+    <button id="ai-send-btn" aria-label="Envoyer">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="22" y1="2" x2="11" y2="13"></line>
+        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+      </svg>
+    </button>
+  </div>
+</div>
