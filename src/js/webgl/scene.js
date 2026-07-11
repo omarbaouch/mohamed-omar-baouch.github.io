@@ -75,6 +75,20 @@ export function initBlobScene() {
     pointer.ty = (e.clientY / window.innerHeight - 0.5) * 0.6;
   });
 
+  // signature : le blob « respire » avec le scroll — la vélocité augmente
+  // l'amplitude de déformation et accélère la rotation, puis retombe doucement
+  let scrollEnergy = 0;
+  let lastScrollY = window.scrollY;
+  window.addEventListener(
+    'scroll',
+    () => {
+      const dy = Math.abs(window.scrollY - lastScrollY);
+      lastScrollY = window.scrollY;
+      scrollEnergy = Math.min(1, scrollEnergy + dy * 0.004);
+    },
+    { passive: true }
+  );
+
   // le canvas remplace visuellement le dégradé CSS
   const canvas = renderer.domElement;
   canvas.style.cssText = 'position:absolute;inset:0;margin:auto;width:100%;height:100%;';
@@ -96,8 +110,8 @@ export function initBlobScene() {
     running = !document.hidden;
   });
 
-  function deform(time) {
-    const amp = 0.11;
+  function deform(time, energy) {
+    const amp = 0.11 + energy * 0.14;
     const freq = 0.65;
     for (let i = 0; i < count; i++) {
       const ix = i * 3;
@@ -114,15 +128,24 @@ export function initBlobScene() {
     geometry.computeVertexNormals();
   }
 
+  let spin = 0;
+  let prev = 0;
   function frame(now) {
     requestAnimationFrame(frame);
-    if (!running || !visible) return;
+    if (!running || !visible) {
+      prev = now;
+      return;
+    }
     t = now * 0.001;
+    const dt = Math.min(0.05, (now - prev) * 0.001 || 0.016);
+    prev = now;
+    scrollEnergy = Math.max(0, scrollEnergy - dt * 0.9); // retombée douce
     pointer.x += (pointer.tx - pointer.x) * 0.05;
     pointer.y += (pointer.ty - pointer.y) * 0.05;
-    blob.rotation.y = t * 0.16 + pointer.x;
+    spin += dt * (0.16 + scrollEnergy * 1.1);
+    blob.rotation.y = spin + pointer.x;
     blob.rotation.x = pointer.y * 0.8 + Math.sin(t * 0.1) * 0.1;
-    deform(t);
+    deform(t, scrollEnergy);
     renderer.render(scene, camera);
   }
   requestAnimationFrame(frame);

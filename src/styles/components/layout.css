@@ -701,3 +701,11 @@
     text-align: left;
   }
 }
+
+.project-case-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  font-weight: 550;
+  color: var(--accent);
+}

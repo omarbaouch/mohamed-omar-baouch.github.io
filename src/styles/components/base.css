@@ -102,3 +102,45 @@ body {
 .skip-link:focus {
   top: 1rem;
 }
+
+/* ---------- Transitions de page (View Transitions cross-document) ----------
+   Enrichissement progressif : navigateurs non compatibles = navigation normale. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+
+  ::view-transition-old(root) {
+    animation: vt-leave 0.4s var(--ease-in-out) both;
+  }
+
+  ::view-transition-new(root) {
+    animation: vt-enter 0.55s var(--ease-out) both;
+  }
+
+  @keyframes vt-leave {
+    to {
+      opacity: 0;
+      transform: translateY(-18px) scale(0.995);
+    }
+  }
+
+  @keyframes vt-enter {
+    from {
+      opacity: 0;
+      transform: translateY(22px);
+    }
+  }
+}
+
+/* la nav reste stable pendant la transition : seule la page glisse */
+@media (prefers-reduced-motion: no-preference) {
+  .site-nav {
+    view-transition-name: site-nav;
+  }
+
+  ::view-transition-old(site-nav),
+  ::view-transition-new(site-nav) {
+    animation: none;
+  }
+}
