@@ -29,3 +29,9 @@ function initNav() {
 initTheme();
 initI18n();
 initNav();
+
+// motion chargé dynamiquement (chunk séparé), jamais si l'utilisateur préfère
+// un mouvement réduit — la page reste alors entièrement statique et complète
+if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+  import('./modules/motion.js').then(({ initMotion }) => initMotion());
+}
