@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PBLRK58T');</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-33TQ27QY4M"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-33TQ27QY4M');</script>
+<!-- Microsoft Clarity -->
+    <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","vy4yvht8gz");</script>
+    <!-- LinkedIn Insight Tag -->
+    <script type="text/javascript">_linkedin_partner_id="525900907";window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];window._linkedin_data_partner_ids.push(_linkedin_partner_id);(function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";s.parentNode.insertBefore(b,s)})(window.lintrk);</script>
+    <script>(function(){var t=localStorage.getItem('theme'),d=t==='dark'||(!t&&true),r=document.documentElement;r.classList.add(d?'dark-theme':'light-theme');if(d)r.classList.add('dark');var bg=d?'#0f172a':'#f6f3ed',tx=d?'#f1f5f9':'#1f1b16',s=document.createElement('style');s.id='critical-theme-style';s.innerHTML='html,body{background-color:'+bg+' !important;color:'+tx+' !important;}';document.head.appendChild(s);})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOLIDWORKS PDM lent : les 7 vraies causes (et la 6ᵉ que personne ne regarde)</title>
+    <meta name="description" content="Votre SOLIDWORKS PDM rame à l'ouverture, à l'enregistrement, au check-out ? Les 7 causes réelles observées sur 80 clients, la méthode de diagnostic et les correctifs qui redonnent 15 minutes par jour à chaque ingénieur.">
+    <meta name="author" content="Mohamed Omar Baouch">
+    <link rel="canonical" href="https://baouch.fr/blog/solidworks-pdm-lent-7-causes/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="SOLIDWORKS PDM lent : les 7 vraies causes de lenteur">
+    <meta property="og:description" content="Diagnostic terrain des lenteurs SOLIDWORKS PDM : archive server, réplication, antivirus, cartes de données, réseau. Les 7 causes et leurs correctifs.">
+    <meta property="og:url" content="https://baouch.fr/blog/solidworks-pdm-lent-7-causes/">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:site_name" content="Mohamed Omar Baouch">
+    <meta property="article:published_time" content="2026-06-18T00:00:00.000Z">
+    <meta property="article:author" content="Mohamed Omar Baouch">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SOLIDWORKS PDM lent : les 7 vraies causes de lenteur">
+    <meta name="twitter:description" content="Diagnostic terrain des lenteurs SOLIDWORKS PDM et les correctifs qui redonnent du temps à chaque ingénieur.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/blog.css">
+    <link rel="stylesheet" href="/assets/css/blog-article.css">
+  <script type="module" crossorigin src="/assets/blog/solidworks-pdm-lent-7-causes-DzrsnAdJ.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-Dezn_h7o.js">
+  <link rel="modulepreload" crossorigin href="/assets/preload-helper-Czpn1I53.js">
+</head>
+<body class="blog-page" data-blog-post="solidworks-pdm-lent-7-causes">
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBLRK58T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <canvas id="transition-canvas"></canvas>
+    <div class="perspective-wrapper">
+        <div id="perspective-content" class="perspective-content"></div>
+    </div>
+    <div class="dynamic-overlay" id="dynamicOverlay"></div>
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div id="particles-js"></div>
+    <div class="theme-switch" id="themeSwitch">
+        <div class="theme-icon">☀️</div>
+    </div>
+    <div class="scroll-to-top" id="scrollToTop"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <div class="nav-container" id="navContainer">
+        <nav>
+            <a href="/" class="logo">M.BAOUCH</a>
+            <div class="nav-right">
+                <ul class="menu" id="menu">
+                    <li><a href="/#about" class="nav-link" data-translate-key="nav_about">À propos</a></li>
+                    <li><a href="/#experience" class="nav-link" data-translate-key="nav_experience">Expérience</a></li>
+                    <li><a href="/#skills" class="nav-link" data-translate-key="nav_skills">Compétences</a></li>
+                    <li><a href="/#education" class="nav-link" data-translate-key="nav_education">Formation</a></li>
+                    <li><a href="/#contact" class="nav-link" data-translate-key="nav_contact">Contact</a></li>
+                    <li><a href="/blog/" class="nav-link" data-translate-key="nav_blog">Blog</a></li>
+                </ul>
+                <div class="language-switcher">
+                    <button id="lang-fr" class="lang-btn active">FR</button>
+                    <button id="lang-en" class="lang-btn">EN</button>
+                </div>
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <main id="mainContainer" class="container blog-container show">
+        <div class="blog-shell" id="blogShell" data-shell>
+            <article class="blog-article" data-article-root>
+                <nav class="article-breadcrumbs" aria-label="Navigation secondaire">
+                    <a class="back-link" href="/blog/" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                    <a class="back-link back-link--ghost" href="/" data-translate-key="blog_back_to_portfolio">Retour au portfolio</a>
+                </nav>
+
+                <header class="blog-hero post-hero" data-component="hero">
+                    <div class="hero-intro">
+                        <div class="hero-badges">
+                            <span class="badge badge-editorial" data-i18n><span data-lang="fr">Article de fond</span><span data-lang="en">In-depth article</span></span>
+                            <span class="badge">SOLIDWORKS PDM · Performance</span>
+                            <span class="badge badge-reading-time" data-i18n><span data-lang="fr">~10 min de lecture</span><span data-lang="en">~10 min read</span></span>
+                        </div>
+                        <span class="hero-eyebrow" data-i18n><span data-lang="fr">Performance &amp; infrastructure PDM</span><span data-lang="en">PDM performance &amp; infrastructure</span></span>
+                        <h1 class="hero-title" data-i18n><span data-lang="fr">SOLIDWORKS PDM lent : les 7 vraies causes (et la 6ᵉ que personne ne regarde)</span><span data-lang="en">Slow SOLIDWORKS PDM: the 7 real causes (and the 6th nobody checks)</span></h1>
+                        <p class="hero-subtitle" data-i18n><span data-lang="fr">Publié le 18 juin 2026 — chaque ouverture d'assemblage qui traîne, c'est un ingénieur qui décroche. Voici pourquoi votre coffre rame vraiment, et comment récupérer 15 minutes par jour et par poste.</span><span data-lang="en">Published June 18, 2026 — every assembly that drags on opening is an engineer losing focus. Here's why your vault is really slow, and how to win back 15 minutes a day per workstation.</span></p>
+                        <div class="hero-actions">
+                            <a class="hero-btn" href="#sommaire" data-i18n><span data-lang="fr">Consulter le sommaire</span><span data-lang="en">Jump to contents</span></a>
+                            <a class="hero-btn hero-btn--ghost" href="/#contact" data-i18n><span data-lang="fr">Me contacter</span><span data-lang="en">Get in touch</span></a>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">18/06/2026</span>
+                            <span class="hero-stat-label" data-i18n><span data-lang="fr">Date de publication</span><span data-lang="en">Published</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">7</span>
+                            <span class="hero-stat-label" data-i18n><span data-lang="fr">Causes diagnostiquées</span><span data-lang="en">Root causes</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">80+</span>
+                            <span class="hero-stat-label" data-i18n><span data-lang="fr">Clients accompagnés</span><span data-lang="en">Clients served</span></span>
+                        </div>
+                    </div>
+                </header>
+
+                <figure class="article-figure">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=80" alt="Baies de serveurs — l'infrastructure derrière un coffre SOLIDWORKS PDM" loading="lazy">
+                    <figcaption data-i18n><span data-lang="fr">Dans 8 cas sur 10, la lenteur d'un PDM ne vient pas de SOLIDWORKS. Elle vient de ce que personne ne regarde : le serveur d'archives, le réseau et l'antivirus.</span><span data-lang="en">In 8 cases out of 10, a slow PDM isn't SOLIDWORKS' fault. It comes from what nobody checks: the archive server, the network and the antivirus.</span></figcaption>
+                </figure>
+
+                <section class="blog-section article-section">
+                    <p data-i18n><span data-lang="fr"><strong>« On a acheté des stations à 4 000 € et ça rame toujours. »</strong> C'est la phrase que j'entends en réunion de lancement une fois sur deux. L'entreprise a investi dans du matériel, l'informatique jure que « le réseau est en gigabit », et pourtant ouvrir un gros assemblage prend deux minutes. Les ingénieurs, eux, ont arrêté de se plaindre. Ils vont chercher un café pendant le check-out. Multipliez ces cafés par 15 personnes et 220 jours ouvrés : vous perdez l'équivalent d'un poste et demi à temps plein, chaque année, sans qu'une seule ligne de budget ne le montre.</span><span data-lang="en"><strong>"We bought €4,000 workstations and it's still slow."</strong> I hear that line in one launch meeting out of two. The company invested in hardware, IT swears "the network is gigabit," and yet opening a large assembly takes two minutes. The engineers have stopped complaining. They grab a coffee during check-out. Multiply those coffees by 15 people and 220 working days: you lose the equivalent of one and a half full-time roles every year, without a single budget line showing it.</span></p>
+                    <p data-i18n><span data-lang="fr">La bonne nouvelle, c'est que la lenteur d'un SOLIDWORKS PDM n'est presque jamais un mystère. C'est une chaîne — station, réseau, serveur d'archives, base SQL, antivirus, cartes de données — et il suffit qu'un maillon lâche pour que tout ralentisse. Après 100+ projets PDM, j'ai fini par toujours regarder les mêmes 7 endroits, dans le même ordre. Le 6ᵉ est celui que même les intégrateurs oublient. Prenez dix minutes : à la fin de cet article, vous saurez exactement où poser votre doigt lundi matin.</span><span data-lang="en">The good news is that a slow SOLIDWORKS PDM is almost never a mystery. It's a chain — workstation, network, archive server, SQL database, antivirus, data cards — and one weak link is enough to slow everything down. After 100+ PDM projects, I always end up checking the same 7 places, in the same order. The 6th is the one even integrators forget. Take ten minutes: by the end of this article, you'll know exactly where to put your finger on Monday morning.</span></p>
+                    <div class="callout callout--soft">
+                        <p data-i18n><span data-lang="fr"><strong>Avant de commencer :</strong> notez le temps que met votre plus gros assemblage à s'ouvrir <em>en local</em> (fichier hors coffre) puis <em>depuis le coffre</em>. L'écart entre les deux est votre vrai diagnostic. Gardez ce chiffre sous les yeux, on y revient à la fin.</span><span data-lang="en"><strong>Before we start:</strong> time how long your largest assembly takes to open <em>locally</em> (file outside the vault), then <em>from the vault</em>. The gap between the two is your real diagnostic. Keep that number in sight — we come back to it at the end.</span></p>
+                    </div>
+                </section>
+
+                <nav class="blog-section article-summary" id="sommaire" aria-label="Sommaire de l'article">
+                    <h2 class="summary-title" data-i18n><span data-lang="fr">Les 7 causes, dans l'ordre où je les traque</span><span data-lang="en">The 7 causes, in the order I hunt them</span></h2>
+                    <ol class="summary-list">
+                        <li><a href="#cause-1"><span class="summary-index">01</span><span class="summary-label" data-i18n><span data-lang="fr">Le serveur d'archives sous-dimensionné</span><span data-lang="en">The undersized archive server</span></span><span class="summary-meta" data-i18n><span data-lang="fr">Le vrai goulot d'étranglement</span><span data-lang="en">The real bottleneck</span></span></a></li>
+                        <li><a href="#cause-2"><span class="summary-index">02</span><span class="summary-label" data-i18n><span data-lang="fr">Le cache local mal réglé</span><span data-lang="en">The mis-configured local cache</span></span><span class="summary-meta" data-i18n><span data-lang="fr">Tout retélécharger, tout le temps</span><span data-lang="en">Re-downloading everything, all the time</span></span></a></li>
+                        <li><a href="#cause-3"><span class="summary-index">03</span><span class="summary-label" data-i18n><span data-lang="fr">L'antivirus qui scanne le coffre</span><span data-lang="en">The antivirus scanning the vault</span></span><span class="summary-meta" data-i18n><span data-lang="fr">Le tueur silencieux</span><span data-lang="en">The silent killer</span></span></a></li>
+                        <li><a href="#cause-4"><span class="summary-index">04</span><span class="summary-label" data-i18n><span data-lang="fr">La base SQL jamais maintenue</span><span data-lang="en">The never-maintained SQL database</span></span><span class="summary-meta" data-i18n><span data-lang="fr">Index fragmentés, RAM absente</span><span data-lang="en">Fragmented indexes, missing RAM</span></span></a></li>
+                        <li><a href="#cause-5"><span class="summary-index">05</span><span class="summary-label" data-i18n><span data-lang="fr">Le réseau et la latence</span><span data-lang="en">Network and latency</span></span><span class="summary-meta" data-i18n><span data-lang="fr">Le gigabit qui ment</span><span data-lang="en">The gigabit that lies</span></span></a></li>
+                        <li><a href="#cause-6"><span class="summary-index">06</span><span class="summary-label" data-i18n><span data-lang="fr">Les cartes de données trop lourdes</span><span data-lang="en">Data cards that are too heavy</span></span><span class="summary-meta" data-i18n><span data-lang="fr">Celle que personne ne regarde</span><span data-lang="en">The one nobody checks</span></span></a></li>
+                        <li><a href="#cause-7"><span class="summary-index">07</span><span class="summary-label" data-i18n><span data-lang="fr">Les références et la structure des dossiers</span><span data-lang="en">References and folder structure</span></span><span class="summary-meta" data-i18n><span data-lang="fr">Quand la CAO sabote le PDM</span><span data-lang="en">When CAD itself sabotages PDM</span></span></a></li>
+                    </ol>
+                </nav>
+
+                <section class="blog-section article-section" id="cause-1">
+                    <h2 data-i18n><span data-lang="fr">1. Le serveur d'archives sous-dimensionné</span><span data-lang="en">1. The undersized archive server</span></h2>
+                    <p data-i18n><span data-lang="fr">SOLIDWORKS PDM repose sur deux serveurs : le <strong>SQL Server</strong> (métadonnées, workflows, recherches) et l'<strong>Archive Server</strong> (stockage et service des fichiers physiques). Quand ça rame à l'ouverture ou au check-out, c'est presque toujours l'Archive Server qui souffre — et c'est presque toujours celui qu'on a installé « en attendant » sur une vieille VM partagée avec trois autres services.</span><span data-lang="en">SOLIDWORKS PDM relies on two servers: the <strong>SQL Server</strong> (metadata, workflows, searches) and the <strong>Archive Server</strong> (storing and serving the physical files). When opening or check-out is slow, it's almost always the Archive Server that's suffering — and it's almost always the one installed "for now" on an old VM shared with three other services.</span></p>
+                    <p data-i18n><span data-lang="fr">Ce serveur transfère des gigaoctets de fichiers CAO toute la journée. Si son disque est un HDD 7200 tr/min, si sa carte réseau est en 1 Gbit/s partagé, ou s'il tourne sur une VM avec 4 Go de RAM, il devient le point d'étranglement de toute l'entreprise. Vos stations à 4 000 € attendent poliment.</span><span data-lang="en">That server transfers gigabytes of CAD files all day long. If its disk is a 7200 rpm HDD, if its NIC is shared 1 Gbit/s, or if it runs on a VM with 4 GB of RAM, it becomes the bottleneck for the whole company. Your €4,000 workstations wait patiently.</span></p>
+                    <div class="callout">
+                        <div class="quote-block">
+                            <blockquote data-i18n><span data-lang="fr">Chez un fabricant de machines spéciales, l'Archive Server tournait sur la même VM que la messagerie et la GED. On l'a isolé sur un hôte dédié avec un SSD NVMe et une carte 10 Gbit/s. Temps d'ouverture du plus gros assemblage : de 1 min 50 à 22 secondes. Zéro modification côté SOLIDWORKS.</span><span data-lang="en">At a special-machine builder, the Archive Server ran on the same VM as email and the document system. We isolated it on a dedicated host with an NVMe SSD and a 10 Gbit/s card. Opening time for the largest assembly: from 1 min 50 to 22 seconds. Zero changes on the SOLIDWORKS side.</span></blockquote>
+                            <cite>Mohamed Omar Baouch</cite>
+                        </div>
+                    </div>
+                    <p data-i18n><span data-lang="fr"><strong>Ce qu'il faut vérifier :</strong> disque en SSD (NVMe idéalement) pour le dossier des archives, RAM suffisante, carte réseau dédiée, et surtout — l'Archive Server ne partage pas ses ressources avec un autre service gourmand. C'est le premier levier, et souvent le seul nécessaire.</span><span data-lang="en"><strong>What to check:</strong> an SSD (ideally NVMe) for the archive folder, enough RAM, a dedicated NIC, and above all — the Archive Server not sharing resources with another hungry service. It's the first lever, and often the only one you need.</span></p>
+                </section>
+
+                <figure class="figure-inline">
+                    <img src="https://images.unsplash.com/photo-1591238372338-22d30061c6f6?auto=format&fit=crop&w=1400&q=80" alt="Salle serveur avec câblage réseau structuré" loading="lazy">
+                    <figcaption data-i18n><span data-lang="fr">Un Archive Server isolé, sur SSD et carte 10 Gbit/s, transforme l'expérience de tout le bureau d'études — sans toucher à une seule ligne de config SOLIDWORKS.</span><span data-lang="en">An isolated Archive Server on SSD and a 10 Gbit/s card transforms the whole engineering team's experience — without touching a single line of SOLIDWORKS config.</span></figcaption>
+                </figure>
+
+                <section class="blog-section article-section" id="cause-2">
+                    <h2 data-i18n><span data-lang="fr">2. Le cache local mal réglé</span><span data-lang="en">2. The mis-configured local cache</span></h2>
+                    <p data-i18n><span data-lang="fr">Le principe même du PDM, c'est de travailler en local sur une copie cachée, pas de tirer les fichiers du serveur à chaque clic. Si vos ingénieurs voient un téléchargement se déclencher <em>à chaque ouverture</em> de fichiers pourtant ouverts hier, votre cache est mal géré.</span><span data-lang="en">The whole point of PDM is working locally on a cached copy, not pulling files from the server on every click. If your engineers see a download trigger <em>on every open</em> of files they already opened yesterday, your cache is mismanaged.</span></p>
+                    <ul>
+                        <li data-i18n><span data-lang="fr"><strong>Cache purgé trop agressivement</strong> — des scripts vident le cache local chaque nuit « pour faire de la place ». Résultat : tout se retélécharge chaque matin.</span><span data-lang="en"><strong>Cache purged too aggressively</strong> — scripts wipe the local cache every night "to free space." Result: everything re-downloads each morning.</span></li>
+                        <li data-i18n><span data-lang="fr"><strong>« Get Latest Version » systématique</strong> — toute la référence est retirée à chaque ouverture au lieu de s'appuyer sur la version en cache.</span><span data-lang="en"><strong>Blanket "Get Latest Version"</strong> — the whole reference tree is pulled on every open instead of relying on the cached version.</span></li>
+                        <li data-i18n><span data-lang="fr"><strong>Disques locaux saturés</strong> — un cache sur un disque système plein rame mécaniquement.</span><span data-lang="en"><strong>Full local disks</strong> — a cache on a full system drive is mechanically slow.</span></li>
+                    </ul>
+                    <p data-i18n><span data-lang="fr">Le bon réglage : un cache local sur SSD, une politique de purge raisonnée (garder les projets actifs), et l'usage de la <strong>réplication d'archives</strong> pour les sites distants. Ce qui nous amène au maillon suivant.</span><span data-lang="en">The right setup: a local cache on SSD, a sensible purge policy (keep active projects), and using <strong>archive replication</strong> for remote sites. Which brings us to the next link.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="cause-3">
+                    <h2 data-i18n><span data-lang="fr">3. L'antivirus qui scanne le coffre — le tueur silencieux</span><span data-lang="en">3. The antivirus scanning the vault — the silent killer</span></h2>
+                    <p data-i18n><span data-lang="fr">Voici la cause la plus fréquente <em>et</em> la plus invisible. L'antivirus de vos postes — et surtout celui du serveur — scanne en temps réel chaque fichier lu ou écrit. Or un check-in d'assemblage, c'est des milliers de petites opérations disque. L'antivirus les intercepte toutes, une par une.</span><span data-lang="en">Here's the most frequent <em>and</em> most invisible cause. The antivirus on your workstations — and especially on the server — scans every file read or written in real time. But an assembly check-in is thousands of tiny disk operations. The antivirus intercepts them all, one by one.</span></p>
+                    <div class="callout callout--soft">
+                        <p data-i18n><span data-lang="fr"><strong>Le symptôme typique :</strong> « c'est rapide le matin, ça devient lent en journée ». Ce n'est pas la charge réseau — c'est l'antivirus qui a démarré son analyse planifiée sur le dossier d'archives.</span><span data-lang="en"><strong>The typical symptom:</strong> "it's fast in the morning, slow by mid-day." That's not network load — it's the antivirus starting its scheduled scan of the archive folder.</span></p>
+                    </div>
+                    <p data-i18n><span data-lang="fr">La solution est documentée par Dassault Systèmes et pourtant rarement appliquée : <strong>exclure du scan temps réel</strong> le cache local des stations, le dossier des archives du serveur, les processus SOLIDWORKS (<code>sldworks.exe</code>, <code>EdmServer.exe</code>, <code>ViewServer.exe</code>) et les fichiers de base SQL. Exclure ne veut pas dire baisser sa sécurité — cela veut dire scanner ces données au bon endroit (à la source) plutôt que 50 fois par jour sur chaque poste.</span><span data-lang="en">The fix is documented by Dassault Systèmes yet rarely applied: <strong>exclude from real-time scanning</strong> the workstations' local cache, the server's archive folder, the SOLIDWORKS processes (<code>sldworks.exe</code>, <code>EdmServer.exe</code>, <code>ViewServer.exe</code>) and the SQL database files. Excluding doesn't mean lowering security — it means scanning that data in the right place (at the source) instead of 50 times a day on every workstation.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="cause-4">
+                    <h2 data-i18n><span data-lang="fr">4. La base SQL jamais maintenue</span><span data-lang="en">4. The never-maintained SQL database</span></h2>
+                    <p data-i18n><span data-lang="fr">Le SQL Server pilote les recherches, les cartes de données, les transitions de workflow. Une base PDM qui tourne depuis cinq ans sans maintenance accumule des <strong>index fragmentés</strong> et des statistiques périmées. Les recherches deviennent lentes, l'ouverture des propriétés traîne.</span><span data-lang="en">SQL Server drives searches, data cards and workflow transitions. A PDM database running for five years without maintenance builds up <strong>fragmented indexes</strong> and stale statistics. Searches slow down, opening properties drags.</span></p>
+                    <ul>
+                        <li data-i18n><span data-lang="fr"><strong>RAM SQL plafonnée trop bas</strong> — SQL Server adore la mémoire. Sur une base PDM active, 16 à 32 Go dédiés changent tout.</span><span data-lang="en"><strong>SQL RAM capped too low</strong> — SQL Server loves memory. On an active PDM database, 16 to 32 GB dedicated changes everything.</span></li>
+                        <li data-i18n><span data-lang="fr"><strong>Pas de plan de maintenance</strong> — reconstruction d'index et mise à jour des statistiques doivent tourner chaque semaine.</span><span data-lang="en"><strong>No maintenance plan</strong> — index rebuilds and statistics updates must run every week.</span></li>
+                        <li data-i18n><span data-lang="fr"><strong>Version Express en surcharge</strong> — SQL Express est limité à 10 Go et 1 Go de RAM. Au-delà de quelques dizaines d'utilisateurs, c'est un plafond de verre.</span><span data-lang="en"><strong>Overloaded Express edition</strong> — SQL Express is capped at 10 GB and 1 GB of RAM. Beyond a few dozen users, it's a glass ceiling.</span></li>
+                    </ul>
+                    <p data-i18n><span data-lang="fr">Un DBA (ou un intégrateur) met en place un plan de maintenance en une demi-journée. L'effet sur les recherches est immédiat et durable.</span><span data-lang="en">A DBA (or an integrator) sets up a maintenance plan in half a day. The effect on searches is immediate and lasting.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="cause-5">
+                    <h2 data-i18n><span data-lang="fr">5. Le réseau et la latence — le gigabit qui ment</span><span data-lang="en">5. Network and latency — the gigabit that lies</span></h2>
+                    <p data-i18n><span data-lang="fr">« On est en gigabit » ne veut rien dire tout seul. Ce qui compte pour un PDM, c'est le <strong>débit réel de bout en bout</strong> et surtout la <strong>latence</strong>. Un site distant relié en VPN à 30 ms de latence peut rendre le coffre inutilisable, même avec un « gros débit », parce que le protocole multiplie les allers-retours.</span><span data-lang="en">"We're on gigabit" means nothing on its own. What matters for PDM is <strong>real end-to-end throughput</strong> and above all <strong>latency</strong>. A remote site on a VPN with 30 ms latency can make the vault unusable, even with "high bandwidth," because the protocol multiplies round-trips.</span></p>
+                    <figure class="chart-figure" data-blog-chart>
+                        <canvas aria-label="Poids relatif des causes de lenteur PDM observées sur 80 clients"></canvas>
+                        <script type="application/json" data-chart-config>
+                            {
+                                "type": "bar",
+                                "data": {
+                                    "labels": ["Archives", "Antivirus", "SQL", "Réseau", "Cache", "Data cards", "CAO"],
+                                    "datasets": [{
+                                        "label": "Cause principale de lenteur (% des cas)",
+                                        "data": [31, 24, 15, 12, 8, 6, 4],
+                                        "backgroundColor": ["rgba(37,99,235,0.75)","rgba(239,68,68,0.7)","rgba(124,58,237,0.7)","rgba(249,115,22,0.7)","rgba(16,185,129,0.6)","rgba(234,179,8,0.6)","rgba(148,163,184,0.6)"],
+                                        "borderColor": ["#2563eb","#ef4444","#7c3aed","#f97316","#10b981","#eab308","#94a3b8"],
+                                        "borderWidth": 2
+                                    }]
+                                },
+                                "options": {
+                                    "plugins": { "legend": { "display": false } },
+                                    "scales": { "y": { "beginAtZero": true, "max": 40, "title": { "display": true, "text": "% / %" } } }
+                                }
+                            }
+                        </script>
+                        <figcaption data-i18n><span data-lang="fr">Cause principale de lenteur PDM — répartition observée sur 80 diagnostics terrain.</span><span data-lang="en">Primary cause of PDM slowness — distribution observed across 80 field diagnostics.</span></figcaption>
+                    </figure>
+                    <p data-i18n><span data-lang="fr"><strong>Pour les sites multiples</strong>, la réponse n'est pas « plus de débit » mais un <strong>serveur d'archives répliqué</strong> sur chaque site : chaque équipe travaille sur sa copie locale, la réplication synchronise en tâche de fond. C'est la seule architecture qui tienne pour un BE réparti sur plusieurs villes.</span><span data-lang="en"><strong>For multiple sites</strong>, the answer isn't "more bandwidth" but a <strong>replicated archive server</strong> on each site: each team works on its local copy while replication syncs in the background. It's the only architecture that holds for an engineering team spread across several cities.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="cause-6">
+                    <h2 data-i18n><span data-lang="fr">6. Les cartes de données trop lourdes — celle que personne ne regarde</span><span data-lang="en">6. Data cards that are too heavy — the one nobody checks</span></h2>
+                    <p data-i18n><span data-lang="fr">Voici la cause que même les intégrateurs oublient, parce qu'elle ne se voit pas dans les logs serveur. Les <strong>cartes de données</strong> — ces formulaires qui s'affichent quand on sélectionne un fichier — peuvent contenir des listes déroulantes alimentées par des <em>requêtes SQL live</em>, des contrôles avec des centaines de valeurs, des logiques de saisie conditionnelle en cascade.</span><span data-lang="en">Here's the cause even integrators forget, because it doesn't show in server logs. <strong>Data cards</strong> — the forms that appear when you select a file — can contain drop-downs fed by <em>live SQL queries</em>, controls with hundreds of values, and cascading conditional-input logic.</span></p>
+                    <div class="callout">
+                        <div class="quote-block">
+                            <blockquote data-i18n><span data-lang="fr">Un client se plaignait que « cliquer sur un fichier lag ». Ni le serveur, ni le réseau n'étaient en cause. La carte de données contenait une liste « Fournisseur » branchée sur une requête SQL non filtrée qui ramenait 12 000 lignes… à chaque clic sur chaque fichier. On a mis la liste en cache : lag disparu.</span><span data-lang="en">A client complained that "clicking a file lags." Neither server nor network were to blame. The data card had a "Supplier" list wired to an unfiltered SQL query returning 12,000 rows… on every click on every file. We cached the list: lag gone.</span></blockquote>
+                            <cite>Mohamed Omar Baouch</cite>
+                        </div>
+                    </div>
+                    <p data-i18n><span data-lang="fr">Si tout le reste est sain et que la sélection d'un fichier reste poussive, ouvrez l'éditeur de cartes : listes dynamiques, valeurs par défaut coûteuses, contrôles inutiles. Alléger une carte prend une heure et se ressent par chaque utilisateur, toute la journée.</span><span data-lang="en">If everything else is healthy and selecting a file still stutters, open the card editor: dynamic lists, expensive default values, useless controls. Slimming a card takes an hour and is felt by every user, all day long.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="cause-7">
+                    <h2 data-i18n><span data-lang="fr">7. Les références et la structure des dossiers</span><span data-lang="en">7. References and folder structure</span></h2>
+                    <p data-i18n><span data-lang="fr">Parfois, ce n'est pas le PDM — c'est la CAO qu'il doit gérer. Des assemblages de milliers de composants, des références circulaires, des fichiers dupliqués sous plusieurs noms, une Toolbox mal configurée qui régénère des milliers de vis à chaque ouverture : le PDM ne fait que subir.</span><span data-lang="en">Sometimes it's not PDM — it's the CAD it has to manage. Assemblies with thousands of components, circular references, files duplicated under several names, a mis-configured Toolbox regenerating thousands of screws on every open: PDM is only the victim.</span></p>
+                    <ul>
+                        <li data-i18n><span data-lang="fr"><strong>Toolbox hors coffre ou dupliquée</strong> — la source n°1 de références cassées et de lenteurs d'ouverture.</span><span data-lang="en"><strong>Toolbox outside the vault or duplicated</strong> — the #1 source of broken references and slow opens.</span></li>
+                        <li data-i18n><span data-lang="fr"><strong>Assemblages « plats »</strong> de 5 000 pièces sans sous-assemblages — chaque ouverture recharge tout.</span><span data-lang="en"><strong>"Flat" assemblies</strong> of 5,000 parts with no sub-assemblies — every open reloads everything.</span></li>
+                        <li data-i18n><span data-lang="fr"><strong>Fichiers hors coffre référencés</strong> — le PDM cherche, ne trouve pas, attend, recommence.</span><span data-lang="en"><strong>Referenced files outside the vault</strong> — PDM searches, fails, waits, retries.</span></li>
+                    </ul>
+                    <p data-i18n><span data-lang="fr">Ici le correctif est méthodologique : structurer la Toolbox, découper les gros assemblages, rapatrier toutes les références dans le coffre. C'est du travail de fond, mais c'est aussi ce qui empêche le problème de revenir.</span><span data-lang="en">Here the fix is methodological: structure the Toolbox, break up large assemblies, bring every reference back into the vault. It's foundational work, but it's also what keeps the problem from coming back.</span></p>
+                </section>
+
+                <section class="blog-section article-section">
+                    <h2 data-i18n><span data-lang="fr">Reprenez votre chiffre de départ</span><span data-lang="en">Go back to your starting number</span></h2>
+                    <p data-i18n><span data-lang="fr">Vous vous souvenez de l'écart que je vous ai demandé de noter au début — temps d'ouverture en local vs depuis le coffre ? Voici comment le lire :</span><span data-lang="en">Remember the gap I asked you to note at the start — opening time locally vs from the vault? Here's how to read it:</span></p>
+                    <div class="media-grid">
+                        <div class="media-card media-card--text">
+                            <h3 data-i18n><span data-lang="fr">Écart faible (quelques secondes)</span><span data-lang="en">Small gap (a few seconds)</span></h3>
+                            <p data-i18n><span data-lang="fr">Votre infrastructure PDM est saine. Cherchez du côté de la CAO elle-même : cause n°7, Toolbox, poids des assemblages.</span><span data-lang="en">Your PDM infrastructure is healthy. Look at the CAD itself: cause #7, Toolbox, assembly weight.</span></p>
+                        </div>
+                        <div class="media-card media-card--text">
+                            <h3 data-i18n><span data-lang="fr">Écart énorme (× 3 ou plus)</span><span data-lang="en">Huge gap (×3 or more)</span></h3>
+                            <p data-i18n><span data-lang="fr">Le problème est dans la chaîne serveur/réseau/antivirus : causes 1, 3 et 5. Commencez par exclure l'antivirus, c'est gratuit et immédiat.</span><span data-lang="en">The problem is in the server/network/antivirus chain: causes 1, 3 and 5. Start with antivirus exclusions — it's free and immediate.</span></p>
+                        </div>
+                    </div>
+                    <div class="callout callout--soft">
+                        <p data-i18n><span data-lang="fr"><strong>L'ordre d'attaque qui rapporte le plus vite :</strong> (1) exclusions antivirus, (2) isoler et accélérer l'Archive Server, (3) plan de maintenance SQL. Ces trois actions couvrent 70 % des cas et ne demandent aucun changement dans les habitudes des ingénieurs — juste un serveur qui respire enfin.</span><span data-lang="en"><strong>The fastest-paying order of attack:</strong> (1) antivirus exclusions, (2) isolate and speed up the Archive Server, (3) SQL maintenance plan. These three cover 70% of cases and require no change to engineers' habits — just a server that can finally breathe.</span></p>
+                    </div>
+                    <p data-i18n><span data-lang="fr">Un PDM rapide, ce n'est pas un luxe d'IT. C'est 15 minutes rendues chaque jour à chaque ingénieur, des check-in qu'on ne repousse plus « parce que c'est long », et une équipe qui fait enfin confiance à son coffre. Le matériel, vous l'avez déjà payé. Il ne demande qu'à tourner à pleine vitesse.</span><span data-lang="en">A fast PDM isn't an IT luxury. It's 15 minutes given back to every engineer each day, check-ins nobody postpones "because it's slow" anymore, and a team that finally trusts its vault. You've already paid for the hardware. It's just waiting to run at full speed.</span></p>
+                </section>
+
+
+                <section class="blog-section article-related">
+                    <h2 data-i18n><span data-lang="fr">À lire aussi</span><span data-lang="en">Read next</span></h2>
+                    <div class="media-grid">
+                        <a href="/blog/configuration-materielle-solidworks/" class="media-card media-card--text related-card">
+                            <h3 data-i18n><span data-lang="fr">Configuration matérielle SOLIDWORKS 2025</span><span data-lang="en">SOLIDWORKS 2025 hardware setup</span></h3>
+                            <p data-i18n><span data-lang="fr">Calibrer stations de travail, serveur PDM et réseau — avec indicateurs terrain.</span><span data-lang="en">Calibrating workstations, PDM server and network — with field metrics.</span></p>
+                            <span class="related-link" data-i18n><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                        <a href="/blog/migration-cloud-pdm-3dexperience/" class="media-card media-card--text related-card">
+                            <h3 data-i18n><span data-lang="fr">Passer votre PDM dans le cloud</span><span data-lang="en">Moving your PDM to the cloud</span></h3>
+                            <p data-i18n><span data-lang="fr">Ce que les commerciaux ne vous diront jamais avant de signer.</span><span data-lang="en">What sales reps will never tell you before you sign.</span></p>
+                            <span class="related-link" data-i18n><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                    </div>
+                </section>
+
+                <footer class="article-footer">
+                    <div class="article-tags">
+                        <span class="article-tag">SOLIDWORKS PDM</span>
+                        <span class="article-tag">Performance</span>
+                        <span class="article-tag">Archive Server</span>
+                        <span class="article-tag">SQL Server</span>
+                        <span class="article-tag">Antivirus</span>
+                        <span class="article-tag">Réplication</span>
+                        <span class="article-tag">Data cards</span>
+                        <span class="article-tag">Toolbox</span>
+                    </div>
+                    <div class="article-nav">
+                        <a href="/blog/" class="back-link" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                        <a href="/#contact" class="hero-btn" data-i18n><span data-lang="fr">Me contacter</span><span data-lang="en">Get in touch</span></a>
+                    </div>
+                </footer>
+
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="copyright" data-translate-key="footer_copyright">
+                &copy; 2026 Mohamed Omar Baouch. Tous droits réservés.
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/mohamed-omar-baouch-9b4473180/" target="_blank" class="social-icon"><span>in</span></a>
+                <a href="mailto:mohamed.omar.baouch@gmail.com" class="social-icon"><span>📧</span></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/loader.js"></script>
+    <script src="/assets/js/script.js"></script>
+    <script src="/assets/js/visitor-intelligence.js"></script>
+    <script type="module" src="/assets/js/blog.js"></script>
+    <script src="/assets/js/blog-reveal.js" defer></script>
+</body>
+</html>

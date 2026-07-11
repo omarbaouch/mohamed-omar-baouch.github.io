@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PBLRK58T');</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-33TQ27QY4M"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-33TQ27QY4M');</script>
+<!-- Microsoft Clarity -->
+    <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","vy4yvht8gz");</script>
+    <!-- LinkedIn Insight Tag -->
+    <script type="text/javascript">_linkedin_partner_id="525900907";window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];window._linkedin_data_partner_ids.push(_linkedin_partner_id);(function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";s.parentNode.insertBefore(b,s)})(window.lintrk);</script>
+    <script>(function(){var t=localStorage.getItem('theme'),d=t==='dark'||(!t&&true),r=document.documentElement;r.classList.add(d?'dark-theme':'light-theme');if(d)r.classList.add('dark');var bg=d?'#0f172a':'#f6f3ed',tx=d?'#f1f5f9':'#1f1b16',s=document.createElement('style');s.id='critical-theme-style';s.innerHTML='html,body{background-color:'+bg+' !important;color:'+tx+' !important;}';document.head.appendChild(s);})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codification &amp; propriétés SOLIDWORKS : le petit chantier qui répare toute votre chaîne BOM → ERP</title>
+    <meta name="description" content="Références bricolées, propriétés saisies au petit bonheur, doublons partout : la racine de 80 % des problèmes de nomenclature n'est pas dans l'ERP, elle est dans la pièce. Comment standardiser codification et propriétés SOLIDWORKS pour réparer toute la chaîne en aval.">
+    <meta name="author" content="Mohamed Omar Baouch">
+    <link rel="canonical" href="https://baouch.fr/blog/codification-proprietes-solidworks/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Codification & propriétés SOLIDWORKS : le chantier qui répare votre chaîne BOM → ERP">
+    <meta property="og:description" content="Standardiser la codification des pièces et les propriétés personnalisées SOLIDWORKS pour fiabiliser toute la chaîne de données produit.">
+    <meta property="og:url" content="https://baouch.fr/blog/codification-proprietes-solidworks/">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:site_name" content="Mohamed Omar Baouch">
+    <meta property="article:published_time" content="2026-06-10T00:00:00.000Z">
+    <meta property="article:author" content="Mohamed Omar Baouch">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Codification & propriétés SOLIDWORKS : le chantier qui répare votre chaîne BOM → ERP">
+    <meta name="twitter:description" content="Standardiser codification et propriétés SOLIDWORKS pour fiabiliser toute la chaîne de données produit.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/blog.css">
+    <link rel="stylesheet" href="/assets/css/blog-article.css">
+</head>
+<body class="blog-page" data-blog-post="codification-proprietes-solidworks">
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBLRK58T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <canvas id="transition-canvas"></canvas>
+    <div class="perspective-wrapper">
+        <div id="perspective-content" class="perspective-content"></div>
+    </div>
+    <div class="dynamic-overlay" id="dynamicOverlay"></div>
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div id="particles-js"></div>
+    <div class="theme-switch" id="themeSwitch">
+        <div class="theme-icon">☀️</div>
+    </div>
+    <div class="scroll-to-top" id="scrollToTop"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <div class="nav-container" id="navContainer">
+        <nav>
+            <a href="/" class="logo">M.BAOUCH</a>
+            <div class="nav-right">
+                <ul class="menu" id="menu">
+                    <li><a href="/#about" class="nav-link" data-translate-key="nav_about">À propos</a></li>
+                    <li><a href="/#experience" class="nav-link" data-translate-key="nav_experience">Expérience</a></li>
+                    <li><a href="/#skills" class="nav-link" data-translate-key="nav_skills">Compétences</a></li>
+                    <li><a href="/#education" class="nav-link" data-translate-key="nav_education">Formation</a></li>
+                    <li><a href="/#contact" class="nav-link" data-translate-key="nav_contact">Contact</a></li>
+                    <li><a href="/blog/" class="nav-link" data-translate-key="nav_blog">Blog</a></li>
+                </ul>
+                <div class="language-switcher">
+                    <button id="lang-fr" class="lang-btn active">FR</button>
+                    <button id="lang-en" class="lang-btn">EN</button>
+                </div>
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <main id="mainContainer" class="container blog-container show">
+        <div class="blog-shell" id="blogShell" data-shell>
+            <article class="blog-article" data-article-root>
+                <nav class="article-breadcrumbs" aria-label="Navigation secondaire">
+                    <a class="back-link" href="/blog/" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                    <a class="back-link back-link--ghost" href="/" data-translate-key="blog_back_to_portfolio">Retour au portfolio</a>
+                </nav>
+
+                <header class="blog-hero post-hero" data-component="hero">
+                    <div class="hero-intro">
+                        <div class="hero-badges">
+                            <span class="badge badge-editorial" data-i18n><span data-lang="fr">Article de fond</span><span data-lang="en">In-depth article</span></span>
+                            <span class="badge" data-i18n><span data-lang="fr">SOLIDWORKS · Données produit</span><span data-lang="en">SOLIDWORKS · Product data</span></span>
+                            <span class="badge badge-reading-time" data-i18n><span data-lang="fr">~9 min de lecture</span><span data-lang="en">~9 min read</span></span>
+                        </div>
+                        <span class="hero-eyebrow" data-i18n><span data-lang="fr">Le socle invisible de la qualité BOM</span><span data-lang="en">The invisible foundation of BOM quality</span></span>
+                        <h1 class="hero-title" data-i18n><span data-lang="fr">Codification &amp; propriétés SOLIDWORKS : le petit chantier qui répare toute votre chaîne BOM → ERP</span><span data-lang="en">SOLIDWORKS numbering &amp; properties: the small project that fixes your whole BOM → ERP chain</span></h1>
+                        <p class="hero-subtitle" data-i18n><span data-lang="fr">Publié le 10 juin 2026 — vous cherchez la source de vos erreurs de nomenclature dans l'ERP. Elle n'y est pas. Elle est dans la pièce, au moment où l'ingénieur la nomme.</span><span data-lang="en">Published June 10, 2026 — you're looking for the source of your BOM errors in the ERP. It's not there. It's in the part, the moment the engineer names it.</span></p>
+                        <div class="hero-actions">
+                            <a class="hero-btn" href="#sommaire" data-i18n><span data-lang="fr">Consulter le sommaire</span><span data-lang="en">Jump to contents</span></a>
+                            <a class="hero-btn hero-btn--ghost" href="/#contact" data-i18n><span data-lang="fr">Me contacter</span><span data-lang="en">Get in touch</span></a>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">10/06/2026</span>
+                            <span class="hero-stat-label" data-i18n><span data-lang="fr">Date de publication</span><span data-lang="en">Published</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">80 %</span>
+                            <span class="hero-stat-label" data-i18n><span data-lang="fr">Des erreurs BOM naissent ici</span><span data-lang="en">Of BOM errors start here</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">2 h</span>
+                            <span class="hero-stat-label" data-i18n><span data-lang="fr">Pour poser le socle</span><span data-lang="en">To lay the foundation</span></span>
+                        </div>
+                    </div>
+                </header>
+
+                <figure class="article-figure">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80" alt="Circuit imprimé — chaque composant a une référence unique" loading="lazy">
+                    <figcaption data-i18n><span data-lang="fr">Une pièce mal nommée à la conception devient une erreur de stock à l'ERP. La qualité des données ne se répare pas en aval : elle se décide au premier enregistrement.</span><span data-lang="en">A part poorly named at design time becomes a stock error in the ERP. Data quality isn't fixed downstream: it's decided at the first save.</span></figcaption>
+                </figure>
+
+                <section class="blog-section article-section">
+                    <p data-i18n><span data-lang="fr">On m'appelle presque toujours pour un problème « en bas de la chaîne » : la BOM ERP est fausse, le stock ne correspond à rien, on achète des pièces qu'on a déjà. Et presque toujours, après une journée d'audit, je remonte à la <strong>même origine</strong> : la manière dont les pièces sont nommées et renseignées dans SOLIDWORKS. Pas l'ERP. Pas le connecteur. La pièce elle-même, à la seconde où un ingénieur clique sur « Enregistrer sous ».</span><span data-lang="en">I'm almost always called for a problem "at the bottom of the chain": the ERP BOM is wrong, stock matches nothing, we buy parts we already have. And almost always, after a day of audit, I trace it to the <strong>same origin</strong>: how parts are named and filled in inside SOLIDWORKS. Not the ERP. Not the connector. The part itself, the second an engineer clicks "Save As."</span></p>
+                    <p data-i18n><span data-lang="fr">C'est frustrant à entendre, parce que ça veut dire que le problème coûteux d'aujourd'hui vient d'un geste anodin d'il y a deux ans. Mais c'est aussi une <strong>excellente nouvelle</strong> : si la racine est en haut de la chaîne, alors une correction en haut de la chaîne répare <em>tout ce qui est en dessous</em>. Deux heures pour poser le socle, et des mois d'erreurs qui s'évaporent.</span><span data-lang="en">It's frustrating to hear, because it means today's costly problem comes from a trivial gesture two years ago. But it's also <strong>excellent news</strong>: if the root is at the top of the chain, then a fix at the top repairs <em>everything below it</em>. Two hours to lay the foundation, and months of errors evaporate.</span></p>
+                    <p data-i18n><span data-lang="fr">Je vais vous montrer les trois piliers de ce socle, dans l'ordre où je les installe. Le troisième — l'automatisation — est celui qui transforme une bonne intention en habitude que personne ne peut contourner.</span><span data-lang="en">I'll show you the three pillars of that foundation, in the order I install them. The third — automation — is the one that turns good intentions into a habit nobody can bypass.</span></p>
+                    <div class="callout callout--soft">
+                        <p data-i18n><span data-lang="fr"><strong>Un test en 30 secondes :</strong> ouvrez votre ERP et cherchez « équerre ». Combien de résultats ? Si vous trouvez « Equerre », « équerre inox », « EQUERRE-01 » et « support d'angle » pour la même pièce, vous avez déjà votre diagnostic. Chaque doublon est un achat en trop qui attend son heure.</span><span data-lang="en"><strong>A 30-second test:</strong> open your ERP and search for "bracket." How many results? If you find "Bracket", "SS bracket", "BRACKET-01" and "corner support" for the same part, you already have your diagnosis. Every duplicate is an extra purchase waiting to happen.</span></p>
+                    </div>
+                </section>
+
+                <nav class="blog-section article-summary" id="sommaire" aria-label="Sommaire de l'article">
+                    <h2 class="summary-title" data-i18n><span data-lang="fr">Les 3 piliers du socle</span><span data-lang="en">The 3 pillars of the foundation</span></h2>
+                    <ol class="summary-list">
+                        <li><a href="#pilier-1"><span class="summary-index">01</span><span class="summary-label" data-i18n><span data-lang="fr">La codification des références</span><span data-lang="en">Part numbering</span></span><span class="summary-meta" data-i18n><span data-lang="fr">Significative ou séquentielle ?</span><span data-lang="en">Meaningful or sequential?</span></span></a></li>
+                        <li><a href="#pilier-2"><span class="summary-index">02</span><span class="summary-label" data-i18n><span data-lang="fr">Les propriétés personnalisées</span><span data-lang="en">Custom properties</span></span><span class="summary-meta" data-i18n><span data-lang="fr">Ce que la pièce doit dire d'elle-même</span><span data-lang="en">What the part must say about itself</span></span></a></li>
+                        <li><a href="#pilier-3"><span class="summary-index">03</span><span class="summary-label" data-i18n><span data-lang="fr">L'automatisation de la saisie</span><span data-lang="en">Automating data entry</span></span><span class="summary-meta" data-i18n><span data-lang="fr">Rendre la bonne pratique inévitable</span><span data-lang="en">Making good practice inevitable</span></span></a></li>
+                        <li><a href="#effet-levier"><span class="summary-index">04</span><span class="summary-label" data-i18n><span data-lang="fr">L'effet de levier sur toute la chaîne</span><span data-lang="en">The leverage across the whole chain</span></span><span class="summary-meta" data-i18n><span data-lang="fr">Pourquoi 2 h en amont valent des mois</span><span data-lang="en">Why 2 hours upstream beat months</span></span></a></li>
+                    </ol>
+                </nav>
+
+                <section class="blog-section article-section" id="pilier-1">
+                    <h2 data-i18n><span data-lang="fr">Pilier 1 — La codification des références</span><span data-lang="en">Pillar 1 — Part numbering</span></h2>
+                    <p data-i18n><span data-lang="fr">Chaque pièce a besoin d'un identifiant <strong>unique, stable et non ambigu</strong>. La grande question, celle qui fait débat dans tous les BE : référence <em>significative</em> ou <em>séquentielle</em> ?</span><span data-lang="en">Every part needs a <strong>unique, stable and unambiguous</strong> identifier. The big question, the one debated in every engineering office: <em>meaningful</em> or <em>sequential</em> part numbers?</span></p>
+                    <div class="media-grid">
+                        <div class="media-card media-card--text">
+                            <h3 data-i18n><span data-lang="fr">Codification significative</span><span data-lang="en">Meaningful numbering</span></h3>
+                            <p data-i18n><span data-lang="fr">La référence encode l'information : <code>MEC-VIS-M8x20-INX</code>. Lisible par l'humain, mais fragile : que se passe-t-il quand la pièce change de matière ou de catégorie ? La référence ment, ou vous en créez une nouvelle pour rien.</span><span data-lang="en">The number encodes the information: <code>MEC-SCR-M8x20-SS</code>. Human-readable, but fragile: what happens when the part changes material or category? The number lies, or you create a new one for nothing.</span></p>
+                        </div>
+                        <div class="media-card media-card--text">
+                            <h3 data-i18n><span data-lang="fr">Codification séquentielle</span><span data-lang="en">Sequential numbering</span></h3>
+                            <p data-i18n><span data-lang="fr">Un simple numéro unique : <code>P-100427</code>. Muet pour l'humain, mais increvable : la pièce peut évoluer, sa référence ne bouge jamais. L'information vit dans les <em>propriétés</em>, pas dans le nom.</span><span data-lang="en">A plain unique number: <code>P-100427</code>. Silent to humans, but indestructible: the part can evolve, its number never moves. The information lives in the <em>properties</em>, not the name.</span></p>
+                        </div>
+                    </div>
+                    <div class="callout">
+                        <div class="quote-block">
+                            <blockquote data-i18n><span data-lang="fr">Après 100+ projets, je recommande presque toujours le séquentiel muet, avec toute l'intelligence portée par les propriétés. La référence significative semble pratique le premier jour, et devient un piège le jour où le produit évolue. Une pièce, un numéro, pour la vie — et tout le reste est du metadata qu'on peut faire évoluer sans rien casser.</span><span data-lang="en">After 100+ projects, I almost always recommend silent sequential numbers, with all the intelligence carried by the properties. Meaningful numbers look handy on day one, and become a trap the day the product changes. One part, one number, for life — and everything else is metadata you can evolve without breaking anything.</span></blockquote>
+                            <cite>Mohamed Omar Baouch</cite>
+                        </div>
+                    </div>
+                    <p data-i18n><span data-lang="fr">Peu importe le camp que vous choisissez : ce qui tue, c'est l'<strong>absence de règle</strong>. Une codification médiocre appliquée par tout le monde vaut mieux qu'une codification parfaite que chacun interprète à sa façon.</span><span data-lang="en">Whichever side you pick: what kills you is the <strong>absence of a rule</strong>. A mediocre numbering scheme everyone follows beats a perfect one everyone interprets their own way.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="pilier-2">
+                    <h2 data-i18n><span data-lang="fr">Pilier 2 — Les propriétés personnalisées</span><span data-lang="en">Pillar 2 — Custom properties</span></h2>
+                    <p data-i18n><span data-lang="fr">Les <strong>propriétés personnalisées</strong> sont les données que la pièce transporte avec elle : désignation, matière, fournisseur, indice, masse, traitement de surface. Ce sont elles qui alimentent le cartouche du plan, la nomenclature SOLIDWORKS, la carte de données PDM, et in fine la BOM de l'ERP. <strong>Elles sont la source de vérité qui coule dans toute la chaîne.</strong></span><span data-lang="en"><strong>Custom properties</strong> are the data the part carries with it: description, material, supplier, revision, mass, surface treatment. They feed the drawing title block, the SOLIDWORKS BOM, the PDM data card, and ultimately the ERP BOM. <strong>They are the source of truth flowing through the whole chain.</strong></span></p>
+                    <p data-i18n><span data-lang="fr">Le problème récurrent : chacun les saisit à sa manière. « Acier », « acier », « ACIER », « S235 », « inox » (mais lequel ?). Chaque variante casse un filtre, fausse un regroupement d'achat, crée un faux doublon. Le remède tient en deux principes :</span><span data-lang="en">The recurring problem: everyone enters them their own way. "Steel", "steel", "STEEL", "S235", "stainless" (but which one?). Each variant breaks a filter, distorts a purchasing group, creates a false duplicate. The cure comes down to two principles:</span></p>
+                    <ul>
+                        <li data-i18n><span data-lang="fr"><strong>Une liste de propriétés obligatoire et figée</strong> — les mêmes champs pour toutes les pièces, définis une fois pour toutes.</span><span data-lang="en"><strong>A mandatory, fixed property list</strong> — the same fields for every part, defined once and for all.</span></li>
+                        <li data-i18n><span data-lang="fr"><strong>Des valeurs contraintes par listes déroulantes</strong> — pas de saisie libre là où une liste peut exister. On ne <em>tape</em> pas « inox », on le <em>choisit</em>.</span><span data-lang="en"><strong>Values constrained by drop-downs</strong> — no free text where a list can exist. You don't <em>type</em> "stainless," you <em>pick</em> it.</span></li>
+                    </ul>
+                    <p data-i18n><span data-lang="fr">SOLIDWORKS offre l'outil natif pour ça : le <strong>Property Tab Builder</strong>, un formulaire sur mesure qui s'affiche à droite de l'écran et impose les bons champs avec les bonnes listes. C'est le passage obligé pour arrêter l'hémorragie.</span><span data-lang="en">SOLIDWORKS provides the native tool for this: the <strong>Property Tab Builder</strong>, a custom form displayed on the right of the screen that enforces the right fields with the right lists. It's the mandatory step to stop the bleeding.</span></p>
+                </section>
+
+                <figure class="figure-inline">
+                    <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=80" alt="Écrans de code et de données structurées" loading="lazy">
+                    <figcaption data-i18n><span data-lang="fr">Des propriétés contraintes par listes déroulantes, c'est la fin des « acier / ACIER / S235 » qui cassent chaque filtre et chaque regroupement d'achat.</span><span data-lang="en">Properties constrained by drop-downs put an end to the "steel / STEEL / S235" chaos that breaks every filter and every purchasing group.</span></figcaption>
+                </figure>
+
+                <section class="blog-section article-section" id="pilier-3">
+                    <h2 data-i18n><span data-lang="fr">Pilier 3 — L'automatisation de la saisie</span><span data-lang="en">Pillar 3 — Automating data entry</span></h2>
+                    <p data-i18n><span data-lang="fr">Voici le pilier qui fait la différence entre « on a écrit une procédure que personne ne suit » et « c'est devenu impossible de mal faire ». Tant que bien nommer une pièce repose sur la bonne volonté, ça échoue un jour de rush. La solution : rendre la bonne pratique <strong>automatique et la mauvaise impossible.</strong></span><span data-lang="en">Here's the pillar that separates "we wrote a procedure nobody follows" from "it became impossible to do it wrong." As long as naming a part well relies on goodwill, it fails on a busy day. The solution: make good practice <strong>automatic and bad practice impossible.</strong></span></p>
+                    <ul>
+                        <li data-i18n><span data-lang="fr"><strong>Numéro de pièce auto-attribué</strong> — via le PDM (serial numbers), l'ingénieur ne choisit plus le numéro : le système le donne. Zéro doublon, zéro logique perso.</span><span data-lang="en"><strong>Auto-assigned part number</strong> — via the PDM (serial numbers), the engineer no longer chooses the number: the system does. Zero duplicates, zero personal logic.</span></li>
+                        <li data-i18n><span data-lang="fr"><strong>Property Tab Builder + valeurs par défaut</strong> — les champs critiques sont pré-remplis quand c'est possible, contraints par liste sinon.</span><span data-lang="en"><strong>Property Tab Builder + default values</strong> — critical fields are pre-filled where possible, list-constrained otherwise.</span></li>
+                        <li data-i18n><span data-lang="fr"><strong>Contrôles à la validation</strong> — un workflow PDM qui refuse le passage à l'état « Validé » tant qu'une propriété obligatoire est vide.</span><span data-lang="en"><strong>Checks at approval</strong> — a PDM workflow that refuses the transition to "Approved" while any mandatory property is empty.</span></li>
+                        <li data-i18n><span data-lang="fr"><strong>Templates de départ</strong> — les modèles de pièce, d'assemblage et de plan portent déjà la structure de propriétés. On part propre, on ne rattrape pas.</span><span data-lang="en"><strong>Starter templates</strong> — part, assembly and drawing templates already carry the property structure. You start clean instead of catching up.</span></li>
+                    </ul>
+                    <figure class="chart-figure" data-blog-chart>
+                        <canvas aria-label="Taux d'erreur de nomenclature avant et après standardisation"></canvas>
+                        <script type="application/json" data-chart-config>
+                            {
+                                "type": "bar",
+                                "data": {
+                                    "labels": ["Doublons réf.", "Propriétés incohérentes", "Faux manquants BOM", "Achats en double"],
+                                    "datasets": [
+                                        { "label": "Avant / Before (/mois)", "data": [22, 35, 18, 9], "backgroundColor": "rgba(239,68,68,0.7)", "borderColor": "#ef4444", "borderWidth": 2 },
+                                        { "label": "Après / After (/mois)", "data": [3, 6, 2, 1], "backgroundColor": "rgba(16,185,129,0.7)", "borderColor": "#10b981", "borderWidth": 2 }
+                                    ]
+                                },
+                                "options": {
+                                    "plugins": { "legend": { "position": "bottom" } },
+                                    "scales": { "y": { "beginAtZero": true, "title": { "display": true, "text": "Incidents / mo." } } }
+                                }
+                            }
+                        </script>
+                        <figcaption data-i18n><span data-lang="fr">Effet d'une standardisation codification + propriétés sur les incidents mensuels (cas type PME).</span><span data-lang="en">Effect of standardizing numbering + properties on monthly incidents (typical SME case).</span></figcaption>
+                    </figure>
+                    <p data-i18n><span data-lang="fr">Ce graphique illustre un cas type, mais l'ordre de grandeur est constant : quand la saisie devient automatique et contrainte, les incidents s'effondrent. Non pas parce que les gens deviennent plus rigoureux — mais parce qu'on ne leur demande plus de l'être.</span><span data-lang="en">This chart shows a typical case, but the order of magnitude is constant: when data entry becomes automatic and constrained, incidents collapse. Not because people become more rigorous — but because they're no longer asked to be.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="effet-levier">
+                    <h2 data-i18n><span data-lang="fr">L'effet de levier sur toute la chaîne</span><span data-lang="en">The leverage across the whole chain</span></h2>
+                    <p data-i18n><span data-lang="fr">Revenez à votre test des « équerres ». Maintenant, imaginez la même recherche <em>après</em> ce chantier : un numéro unique, une désignation normalisée, une matière choisie dans une liste. Un seul résultat. Un seul achat. Un stock qui dit la vérité.</span><span data-lang="en">Go back to your "bracket" test. Now imagine the same search <em>after</em> this project: one unique number, a standardized description, a material chosen from a list. One result. One purchase. A stock that tells the truth.</span></p>
+                    <p data-i18n><span data-lang="fr">C'est ça, l'effet de levier. La pièce bien née se propage proprement :</span><span data-lang="en">That's the leverage. A well-born part propagates cleanly:</span></p>
+                    <ul>
+                        <li data-i18n><span data-lang="fr">Le <strong>cartouche du plan</strong> est juste, automatiquement.</span><span data-lang="en">The <strong>drawing title block</strong> is correct, automatically.</span></li>
+                        <li data-i18n><span data-lang="fr">La <strong>eBOM SOLIDWORKS</strong> est cohérente, sans nettoyage manuel.</span><span data-lang="en">The <strong>SOLIDWORKS eBOM</strong> is consistent, with no manual cleanup.</span></li>
+                        <li data-i18n><span data-lang="fr">La <strong>carte de données PDM</strong> est complète, les recherches fonctionnent.</span><span data-lang="en">The <strong>PDM data card</strong> is complete, searches work.</span></li>
+                        <li data-i18n><span data-lang="fr">La <strong>BOM transmise à l'ERP</strong> arrive propre — le connecteur n'a plus à deviner.</span><span data-lang="en">The <strong>BOM sent to the ERP</strong> arrives clean — the connector no longer has to guess.</span></li>
+                        <li data-i18n><span data-lang="fr">Les <strong>achats</strong> regroupent, comparent, ne doublonnent plus.</span><span data-lang="en"><strong>Purchasing</strong> groups, compares, and stops duplicating.</span></li>
+                    </ul>
+                    <div class="callout callout--soft">
+                        <p data-i18n><span data-lang="fr"><strong>La hiérarchie à retenir :</strong> on ne répare pas la qualité des données en bout de chaîne, à l'ERP, à coups de nettoyages sans fin. On la décide en haut, à la pièce. Deux heures pour poser le socle valent plus que six mois de correction en aval. C'est le meilleur retour sur investissement de tout le métier.</span><span data-lang="en"><strong>The hierarchy to remember:</strong> you don't fix data quality at the end of the chain, in the ERP, through endless cleanups. You decide it at the top, at the part. Two hours to lay the foundation are worth more than six months of downstream correction. It's the best return on investment in the whole field.</span></p>
+                    </div>
+                    <p data-i18n><span data-lang="fr">Alors avant de relancer un énième nettoyage de votre base ERP, posez-vous la seule question qui compte : <strong>d'où viennent vraiment ces erreurs ?</strong> Neuf fois sur dix, la réponse tient dans le premier « Enregistrer sous » d'une pièce. Réglez ce geste-là, et vous n'aurez plus jamais à réparer la même chose deux fois.</span><span data-lang="en">So before launching yet another cleanup of your ERP database, ask yourself the only question that matters: <strong>where do these errors really come from?</strong> Nine times out of ten, the answer lies in a part's first "Save As." Fix that gesture, and you'll never have to repair the same thing twice.</span></p>
+                </section>
+
+
+                <section class="blog-section article-related">
+                    <h2 data-i18n><span data-lang="fr">À lire aussi</span><span data-lang="en">Read next</span></h2>
+                    <div class="media-grid">
+                        <a href="/blog/nomenclature-bom-pdm-plm-erp/" class="media-card media-card--text related-card">
+                            <h3 data-i18n><span data-lang="fr">Nomenclature, BOM, eBOM, mBOM</span><span data-lang="en">BOM, eBOM, mBOM explained</span></h3>
+                            <p data-i18n><span data-lang="fr">La colonne vertébrale de vos données produit et le rôle de PDM, PLM et ERP.</span><span data-lang="en">The backbone of your product data and the role of PDM, PLM and ERP.</span></p>
+                            <span class="related-link" data-i18n><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                        <a href="/blog/solidworks-pdm-lent-7-causes/" class="media-card media-card--text related-card">
+                            <h3 data-i18n><span data-lang="fr">SOLIDWORKS PDM lent : les 7 causes</span><span data-lang="en">Slow SOLIDWORKS PDM: the 7 causes</span></h3>
+                            <p data-i18n><span data-lang="fr">Diagnostic terrain des lenteurs et les correctifs qui redonnent du temps.</span><span data-lang="en">Field diagnosis of slowness and the fixes that give time back.</span></p>
+                            <span class="related-link" data-i18n><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                    </div>
+                </section>
+
+                <footer class="article-footer">
+                    <div class="article-tags">
+                        <span class="article-tag" data-i18n><span data-lang="fr">Codification</span><span data-lang="en">Part numbering</span></span>
+                        <span class="article-tag" data-i18n><span data-lang="fr">Propriétés</span><span data-lang="en">Custom properties</span></span>
+                        <span class="article-tag">SOLIDWORKS</span>
+                        <span class="article-tag">Property Tab Builder</span>
+                        <span class="article-tag">BOM</span>
+                        <span class="article-tag" data-i18n><span data-lang="fr">Qualité des données</span><span data-lang="en">Data quality</span></span>
+                        <span class="article-tag">PDM</span>
+                        <span class="article-tag">ERP</span>
+                    </div>
+                    <div class="article-nav">
+                        <a href="/blog/" class="back-link" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                        <a href="/#contact" class="hero-btn" data-i18n><span data-lang="fr">Me contacter</span><span data-lang="en">Get in touch</span></a>
+                    </div>
+                </footer>
+
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="copyright" data-translate-key="footer_copyright">
+                &copy; 2026 Mohamed Omar Baouch. Tous droits réservés.
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/mohamed-omar-baouch-9b4473180/" target="_blank" class="social-icon"><span>in</span></a>
+                <a href="mailto:mohamed.omar.baouch@gmail.com" class="social-icon"><span>📧</span></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/loader.js"></script>
+    <script src="/assets/js/script.js"></script>
+    <script src="/assets/js/visitor-intelligence.js"></script>
+    <script type="module">
+        const CHART_DATA_SELECTORS = ['[data-blog-chart]','script[type="application/json"][data-chart-config]','canvas[data-chart-config]','canvas[data-chart-type]'];
+        const hasChartData = () => CHART_DATA_SELECTORS.some((selector) => document.querySelector(selector));
+        const loadChartsModule = (() => { let loaded = false; return () => { if (loaded) return; loaded = true; import(/* @vite-ignore */ '/assets/js/blog-charts.js').catch((error) => { console.error('[blog] Échec du chargement du module de graphiques.', error); }); }; })();
+        const ensureChartsModule = () => { if (hasChartData()) { loadChartsModule(); return true; } return false; };
+        if (!ensureChartsModule()) {
+            let observer;
+            const stopListening = () => { if (observer) { observer.disconnect(); observer = undefined; } document.removeEventListener('DOMContentLoaded', onReady); };
+            const onReady = () => { if (ensureChartsModule()) { stopListening(); } };
+            if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', onReady); } else { onReady(); }
+            const observeTarget = document.body || document.documentElement;
+            if (observeTarget) { observer = new MutationObserver(() => { if (ensureChartsModule()) { stopListening(); } }); observer.observe(observeTarget, { childList: true, subtree: true }); }
+        }
+    </script>
+    <script type="module" src="/assets/js/blog.js"></script>
+    <script src="/assets/js/blog-reveal.js" defer></script>
+</body>
+</html>

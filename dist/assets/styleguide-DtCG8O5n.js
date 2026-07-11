@@ -1,0 +1,1 @@
+import"./modulepreload-polyfill-Dezn_h7o.js";document.getElementById(`theme-toggle`).addEventListener(`click`,()=>{let e=document.documentElement;e.getAttribute(`data-theme`)===`dark`?(e.removeAttribute(`data-theme`),localStorage.setItem(`theme`,`light`)):(e.setAttribute(`data-theme`,`dark`),localStorage.setItem(`theme`,`dark`))});

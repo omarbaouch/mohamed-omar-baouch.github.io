@@ -1,0 +1,84 @@
+/* Socle : reset doux, rythme vertical, séparateurs, conteneur. */
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: var(--bg-0);
+  color: var(--ink);
+  font-family: 'Instrument Sans Variable', 'Instrument Sans', system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg-0);
+}
+
+/* conteneur principal : large mais jamais collé aux bords */
+.container-site {
+  width: 100%;
+  max-width: 90rem;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* section standard : respiration généreuse + règle 1px optionnelle en tête */
+.section {
+  padding-block: var(--section-pad);
+}
+
+.section-rule {
+  border-top: 1px solid var(--line);
+}
+
+/* étiquette de section : `01 — À PROPOS` */
+.eyebrow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+.eyebrow .eyebrow-num {
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+/* focus visible cohérent partout */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* skip link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.6rem 1rem;
+  background: var(--ink);
+  color: var(--bg-0);
+  border-radius: 0.25rem;
+  transition: top 0.2s var(--ease-out);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
