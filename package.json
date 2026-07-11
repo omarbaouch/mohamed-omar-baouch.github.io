@@ -5,6 +5,7 @@
   "description": "Site personnel et blog PDM/PLM de Mohamed Omar Baouch (contenu éditorial statique).",
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.2",
+    "axe-core": "^4.12.1",
     "cheerio": "^1.2.0",
     "chrome-launcher": "^1.2.1",
     "fast-glob": "^3.3.3",

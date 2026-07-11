@@ -10,3 +10,5 @@ import { initNav } from './core/nav.js';
 initTheme();
 initI18n();
 initNav();
+
+import('./modules/chatbot.js').then(({ initChatbot }) => initChatbot());

@@ -9,6 +9,9 @@ initTheme();
 initI18n();
 initNav();
 
+import('./modules/chatbot.js').then(({ initChatbot }) => initChatbot());
+import('./modules/contact-form.js').then(({ initContactForm }) => initContactForm());
+
 // motion chargé dynamiquement (chunk séparé), jamais si l'utilisateur préfère
 // un mouvement réduit — la page reste alors entièrement statique et complète
 if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
