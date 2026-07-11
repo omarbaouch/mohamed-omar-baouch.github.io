@@ -13,7 +13,7 @@
   /* encres */
   --ink: #141517;
   --ink-dim: #6e6a63;
-  --ink-faint: #a3a099;
+  --ink-faint: #6f6b64;
 
   /* filets et séparateurs */
   --line: color-mix(in srgb, var(--ink) 12%, transparent);
@@ -46,7 +46,7 @@
 
   --ink: #f4f3f0;
   --ink-dim: #9b9891;
-  --ink-faint: #6b6963;
+  --ink-faint: #8a8780;
 
   --line: color-mix(in srgb, var(--ink) 14%, transparent);
   --line-strong: color-mix(in srgb, var(--ink) 30%, transparent);

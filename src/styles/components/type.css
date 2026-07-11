@@ -27,7 +27,7 @@
 
 /* Accent éditorial : 1-2 mots en serif italique dans un titre sans-serif */
 .serif-accent {
-  font-family: 'Instrument Serif', Georgia, serif;
+  font-family: 'Instrument Serif', 'Instrument Serif Fallback', Georgia, serif;
   font-style: italic;
   font-weight: 400;
   letter-spacing: -0.01em;

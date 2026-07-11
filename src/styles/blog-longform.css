@@ -265,7 +265,7 @@ html:not([lang='en']) [data-i18n] [data-lang='fr'] { display: revert; }
 }
 
 .quote-block blockquote {
-  font-family: 'Instrument Serif', Georgia, serif;
+  font-family: 'Instrument Serif', 'Instrument Serif Fallback', Georgia, serif;
   font-style: italic;
   font-size: 1.2rem;
   line-height: 1.55;

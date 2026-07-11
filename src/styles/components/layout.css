@@ -71,7 +71,7 @@
 .lang-btn {
   padding: 0.2rem 0.15rem;
   font-weight: 550;
-  color: var(--ink-faint);
+  color: var(--ink-dim);
   transition: color var(--dur-1) var(--ease-out);
 }
 
@@ -445,7 +445,7 @@
   font-size: clamp(1.4rem, 2.6vw, 2.1rem);
   font-weight: 600;
   letter-spacing: -0.02em;
-  color: var(--ink-faint);
+  color: var(--ink-dim);
 }
 
 .marquee-dot {

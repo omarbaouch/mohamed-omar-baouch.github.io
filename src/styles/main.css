@@ -2,11 +2,31 @@
 
 @import 'tailwindcss';
 
-/* fonts self-hosted (subset latin, woff2) */
-@import '@fontsource-variable/instrument-sans/index.css';
-@import '@fontsource-variable/instrument-sans/wght-italic.css';
-@import '@fontsource/instrument-serif/400.css';
-@import '@fontsource/instrument-serif/400-italic.css';
+/* fonts self-hosted à URL stable (public/fonts) : préchargeables depuis le
+   <head>, donc pas de swap tardif ni de layout shift */
+@font-face {
+  font-family: 'Instrument Sans Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('/fonts/instrument-sans-var.woff2') format('woff2-variations');
+}
+
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400;
+  src: url('/fonts/instrument-serif-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('/fonts/instrument-serif.woff2') format('woff2');
+}
 
 @import './tokens.css';
 @import './components/base.css';
@@ -26,8 +46,8 @@
   --color-accent: var(--accent);
   --color-line: var(--line);
 
-  --font-sans: 'Instrument Sans Variable', 'Instrument Sans', system-ui, sans-serif;
-  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'Instrument Sans Variable', 'Instrument Sans', 'Instrument Sans Fallback', system-ui, sans-serif;
+  --font-serif: 'Instrument Serif', 'Instrument Serif Fallback', Georgia, serif;
 }
 
 /* le thème sombre est piloté par data-theme / .dark-theme, pas par l'OS seul */

@@ -1,5 +1,25 @@
 /* Socle : reset doux, rythme vertical, séparateurs, conteneur. */
 
+/* Fallbacks à métriques compensées : le swap des webfonts ne décale plus la mise
+   en page (CLS). Valeurs calées sur les métriques d'Instrument Sans/Serif. */
+@font-face {
+  font-family: 'Instrument Sans Fallback';
+  src: local('Arial');
+  ascent-override: 96.8%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+  size-adjust: 100.5%;
+}
+
+@font-face {
+  font-family: 'Instrument Serif Fallback';
+  src: local('Georgia');
+  ascent-override: 90%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+  size-adjust: 95%;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -13,7 +33,7 @@ html {
 body {
   background-color: var(--bg-0);
   color: var(--ink);
-  font-family: 'Instrument Sans Variable', 'Instrument Sans', system-ui, sans-serif;
+  font-family: 'Instrument Sans Variable', 'Instrument Sans', 'Instrument Sans Fallback', system-ui, sans-serif;
   font-size: 1.0625rem;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
