@@ -1,4 +1,6 @@
-// Motion design : smooth scroll Lenis, reveals GSAP, compteurs, magnétisme, curseur.
+// Motion design : smooth scroll Lenis, reveals GSAP typographiques (lettres du
+// hero, mots des titres), marquee pilotée par la vélocité de scroll, tilt 3D
+// des cartes, parallax des filigranes, compteurs, magnétisme, curseur.
 // Ce module n'est chargé que si prefers-reduced-motion n'est pas demandé ;
 // sans lui, la page est complète et statique.
 import { gsap } from 'gsap';
@@ -7,8 +9,10 @@ import Lenis from 'lenis';
 
 gsap.registerPlugin(ScrollTrigger);
 
+let lenis = null;
+
 function initSmoothScroll() {
-  const lenis = new Lenis({
+  lenis = new Lenis({
     duration: 1.1,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
   });
@@ -16,7 +20,6 @@ function initSmoothScroll() {
   gsap.ticker.add((time) => lenis.raf(time * 1000));
   gsap.ticker.lagSmoothing(0);
 
-  // ancres internes via Lenis (offset pour la nav fixe)
   document.querySelectorAll('a[href^="#"], a[href^="/#"]').forEach((a) => {
     const hash = a.getAttribute('href').replace('/', '');
     if (hash.length < 2) return;
@@ -27,37 +30,132 @@ function initSmoothScroll() {
       lenis.scrollTo(target, { offset: -72 });
     });
   });
-  return lenis;
+}
+
+// découpe un élément en lettres, mot par mot : chaque mot reste insécable
+// (inline-block) pour ne jamais casser en milieu de mot au retour à la ligne
+function splitChars(el) {
+  const wordify = (text) => {
+    const frag = document.createDocumentFragment();
+    text.split(/(\s+)/).forEach((part) => {
+      if (!part) return;
+      if (/^\s+$/.test(part)) {
+        frag.appendChild(document.createTextNode(' '));
+        return;
+      }
+      const word = document.createElement('span');
+      word.style.display = 'inline-block';
+      word.style.whiteSpace = 'nowrap';
+      for (const ch of part) {
+        const s = document.createElement('span');
+        s.className = 'char';
+        s.style.display = 'inline-block';
+        s.style.willChange = 'transform';
+        s.textContent = ch;
+        word.appendChild(s);
+      }
+      frag.appendChild(word);
+    });
+    return frag;
+  };
+  const walk = (node) => {
+    [...node.childNodes].forEach((child) => {
+      if (child.nodeType === Node.TEXT_NODE) {
+        node.replaceChild(wordify(child.textContent), child);
+      } else if (child.nodeType === Node.ELEMENT_NODE) {
+        walk(child);
+      }
+    });
+  };
+  walk(el);
+  return el.querySelectorAll('.char');
+}
+
+// enveloppe chaque mot dans un masque pour un reveal ligne à ligne organique
+function splitWords(el) {
+  const walk = (node) => {
+    [...node.childNodes].forEach((child) => {
+      if (child.nodeType === Node.TEXT_NODE) {
+        const frag = document.createDocumentFragment();
+        child.textContent.split(/(\s+)/).forEach((part) => {
+          if (!part) return;
+          if (/^\s+$/.test(part)) {
+            frag.appendChild(document.createTextNode(' '));
+          } else {
+            const mask = document.createElement('span');
+            mask.className = 'word-mask';
+            const inner = document.createElement('span');
+            inner.className = 'word-inner';
+            inner.textContent = part;
+            mask.appendChild(inner);
+            frag.appendChild(mask);
+          }
+        });
+        node.replaceChild(frag, child);
+      } else if (child.nodeType === Node.ELEMENT_NODE && !child.classList.contains('word-mask')) {
+        // les accents serif deviennent eux-mêmes un mot masqué
+        const mask = document.createElement('span');
+        mask.className = 'word-mask';
+        node.replaceChild(mask, child);
+        const inner = document.createElement('span');
+        inner.className = 'word-inner';
+        inner.appendChild(child);
+        mask.appendChild(inner);
+      }
+    });
+  };
+  walk(el);
+  return el.querySelectorAll('.word-inner');
 }
 
 function initHeroIntro() {
+  const title = document.querySelector('.hero-title');
+  if (title) {
+    const chars = [];
+    title.querySelectorAll('.mask-inner').forEach((line) => chars.push(...splitChars(line)));
+    gsap.from(chars, {
+      yPercent: 118,
+      rotate: () => gsap.utils.random(-8, 8),
+      duration: 0.9,
+      ease: 'power4.out',
+      stagger: { each: 0.022, from: 'start' },
+    });
+  }
   const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-  tl.from('.hero-title .mask-inner', {
-    yPercent: 115,
-    duration: 1.05,
-    stagger: 0.12,
-  })
-    .from('.hero-kicker', { y: 14, autoAlpha: 0, duration: 0.7 }, 0.15)
-    .from('.hero-subtitle', { y: 20, autoAlpha: 0, duration: 0.8 }, 0.45)
-    .from('.hero-cta > *', { y: 18, autoAlpha: 0, duration: 0.7, stagger: 0.08 }, 0.6)
+  tl.from('.hero-kicker', { y: 14, autoAlpha: 0, duration: 0.7 }, 0.15)
+    .from('.hero-subtitle', { y: 20, autoAlpha: 0, duration: 0.8 }, 0.5)
+    .from('.hero-cta > *', { y: 18, autoAlpha: 0, duration: 0.7, stagger: 0.08 }, 0.65)
     .from('.hero-blob', { scale: 0.7, autoAlpha: 0, duration: 1.4, ease: 'power2.out' }, 0.2)
-    .from('.hero-stat', { y: 24, autoAlpha: 0, duration: 0.8, stagger: 0.07 }, 0.75);
+    .from('.orbit-badge', { scale: 0, autoAlpha: 0, duration: 0.9, ease: 'back.out(1.6)' }, 0.9)
+    .from('.hero-stat', { y: 24, autoAlpha: 0, duration: 0.8, stagger: 0.07 }, 0.8);
+}
+
+function initHeadingReveals() {
+  document.querySelectorAll('.section .display-2').forEach((h) => {
+    const words = splitWords(h);
+    gsap.from(words, {
+      yPercent: 115,
+      duration: 0.9,
+      ease: 'power4.out',
+      stagger: 0.05,
+      scrollTrigger: { trigger: h, start: 'top 86%', once: true },
+    });
+  });
 }
 
 function initReveals() {
   const groups = [
     '.section .eyebrow',
-    '.section .display-2',
     '.section-head .prose-lead',
     '.offer-card',
     '.sector-row',
     '.project-card',
     '.about-media',
-    '.about-copy > *',
+    '.about-copy > p, .about-copy > ul, .about-copy > div',
     '.index-row',
     '.skill-group',
     '.education-card',
-    '.contact-copy > *',
+    '.contact-copy > p, .contact-copy > ul',
     '.contact-form',
     '.footer-top > *',
   ];
@@ -75,11 +173,26 @@ function initReveals() {
   });
 }
 
+function initWatermarks() {
+  // les grands numéros dérivent lentement pendant la traversée de la section
+  gsap.utils.toArray('.section-watermark').forEach((el) => {
+    gsap.fromTo(
+      el,
+      { yPercent: 22 },
+      {
+        yPercent: -22,
+        ease: 'none',
+        scrollTrigger: { trigger: el.parentElement, start: 'top bottom', end: 'bottom top', scrub: 0.8 },
+      }
+    );
+  });
+}
+
 function initCounters() {
   gsap.utils.toArray('.stat-value').forEach((el) => {
     const num = parseInt(el.textContent, 10);
     if (!Number.isFinite(num)) return;
-    const target = el.firstChild; // le nœud texte avant le +
+    const target = el.firstChild;
     const state = { v: 0 };
     ScrollTrigger.create({
       trigger: el,
@@ -95,6 +208,54 @@ function initCounters() {
           },
         }),
     });
+  });
+}
+
+function initVelocityMarquee() {
+  const track = document.querySelector('.marquee-track');
+  if (!track) return;
+  track.style.animation = 'none'; // la boucle passe sous contrôle GSAP
+  let x = 0;
+  const setSkew = gsap.quickTo(track, 'skewX', { duration: 0.4, ease: 'power2.out' });
+  gsap.ticker.add(() => {
+    const vel = lenis ? lenis.velocity : 0;
+    const speed = 0.045 + Math.min(0.4, Math.abs(vel) * 0.012);
+    x -= speed;
+    if (x <= -50) x += 50;
+    gsap.set(track, { xPercent: x });
+    setSkew(gsap.utils.clamp(-8, 8, vel * 0.45));
+  });
+}
+
+function initCardTilt() {
+  document.querySelectorAll('.project-card, .offer-card').forEach((card) => {
+    const rx = gsap.quickTo(card, 'rotationX', { duration: 0.5, ease: 'power2.out' });
+    const ry = gsap.quickTo(card, 'rotationY', { duration: 0.5, ease: 'power2.out' });
+    card.addEventListener('mousemove', (e) => {
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - 0.5;
+      const py = (e.clientY - r.top) / r.height - 0.5;
+      ry(px * 7);
+      rx(-py * 7);
+      gsap.to(card, { transformPerspective: 800, z: 8, duration: 0.4 });
+    });
+    card.addEventListener('mouseleave', () => {
+      rx(0);
+      ry(0);
+      gsap.to(card, { z: 0, duration: 0.6 });
+    });
+  });
+}
+
+function initScrollProgress() {
+  const bar = document.createElement('div');
+  bar.className = 'scroll-progress-bar';
+  bar.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(bar);
+  gsap.to(bar, {
+    scaleX: 1,
+    ease: 'none',
+    scrollTrigger: { trigger: document.body, start: 'top top', end: 'bottom bottom', scrub: 0.3 },
   });
 }
 
@@ -139,7 +300,6 @@ function initCursor() {
 }
 
 function initBlobDrift() {
-  // légère dérive du blob avec le scroll + parallax souris (remplacé par WebGL en phase 5)
   const blob = document.querySelector('.hero-blob');
   if (!blob) return;
   gsap.to(blob, {
@@ -154,12 +314,33 @@ function initBlobDrift() {
   });
 }
 
+function initPhotoParallax() {
+  const img = document.querySelector('.about-photo img');
+  if (!img) return;
+  gsap.set(img, { scale: 1.12 });
+  gsap.fromTo(
+    img,
+    { yPercent: -6 },
+    {
+      yPercent: 6,
+      ease: 'none',
+      scrollTrigger: { trigger: '.about-photo', start: 'top bottom', end: 'bottom top', scrub: 0.6 },
+    }
+  );
+}
+
 export function initMotion() {
   initSmoothScroll();
   initHeroIntro();
+  initHeadingReveals();
   initReveals();
+  initWatermarks();
   initCounters();
+  initVelocityMarquee();
+  initCardTilt();
+  initScrollProgress();
   initMagnetic();
   initCursor();
   initBlobDrift();
+  initPhotoParallax();
 }

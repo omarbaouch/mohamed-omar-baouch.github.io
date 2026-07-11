@@ -709,3 +709,126 @@
   font-weight: 550;
   color: var(--accent);
 }
+
+/* ---------- Couche signature : filigranes, badge orbital, grain ---------- */
+.section {
+  position: relative;
+  overflow: clip;
+}
+
+.section-watermark {
+  position: absolute;
+  top: 0.5rem;
+  right: -1rem;
+  z-index: 0;
+  font-size: clamp(8rem, 22vw, 20rem);
+  font-weight: 700;
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px color-mix(in srgb, var(--ink) 9%, transparent);
+  pointer-events: none;
+  user-select: none;
+  font-variant-numeric: tabular-nums;
+}
+
+.section > .container-site {
+  position: relative;
+  z-index: 1;
+}
+
+.orbit-badge {
+  position: absolute;
+  z-index: 2;
+  top: 6%;
+  right: 4%;
+  width: clamp(6.5rem, 9vw, 8.5rem);
+  aspect-ratio: 1;
+  pointer-events: auto;
+}
+
+.orbit-badge svg {
+  width: 100%;
+  height: 100%;
+  animation: orbit-spin 18s linear infinite;
+}
+
+.orbit-badge text {
+  font-size: 10.2px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  fill: var(--ink-dim);
+}
+
+.orbit-badge-dot {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+@keyframes orbit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit-badge svg {
+    animation: none;
+  }
+}
+
+/* grain très léger : matière sur les grands aplats */
+body::after {
+  content: '';
+  position: fixed;
+  inset: -50%;
+  z-index: 80;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.028;
+  mix-blend-mode: multiply;
+}
+
+:root[data-theme='dark'] body::after,
+.dark-theme body::after {
+  mix-blend-mode: screen;
+  opacity: 0.045;
+}
+
+/* liseré de progression de lecture (piloté par JS) */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 70;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
+}
+
+/* les mots des titres se révèlent par masque (spans posés par JS) */
+.word-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.word-mask > .word-inner {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* tilt 3D des cartes (transformé par JS) */
+.projects-grid .project-card,
+.offers-grid .offer-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
