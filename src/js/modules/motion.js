@@ -314,6 +314,74 @@ function initBlobDrift() {
   });
 }
 
+// signature : les lettres du titre héro s'épaississent selon leur distance au
+// curseur (police variable Instrument Sans, axe wght) — effet « aimant de poids »
+function initVariableHeadline() {
+  const chars = document.querySelectorAll('.hero-title .char');
+  if (!chars.length) return;
+  const items = [...chars].map((el) => ({ el, cx: 0, cy: 0 }));
+  const measure = () => {
+    items.forEach((it) => {
+      const r = it.el.getBoundingClientRect();
+      it.cx = r.left + r.width / 2;
+      it.cy = r.top + r.height / 2;
+    });
+  };
+  measure();
+  window.addEventListener('resize', measure);
+  const R = 180;
+  let mx = -9999;
+  let my = -9999;
+  let dirty = false;
+  let settled = true;
+  window.addEventListener('mousemove', (e) => {
+    mx = e.clientX;
+    my = e.clientY;
+    dirty = true;
+  });
+  // ne recalcule que lorsque la souris bouge, plus une frame pour revenir au repos
+  gsap.ticker.add(() => {
+    if (!dirty && settled) return;
+    let near = false;
+    items.forEach((it) => {
+      const d = Math.hypot(mx - it.cx, my - it.cy);
+      const k = Math.max(0, 1 - d / R);
+      if (k > 0) near = true;
+      const wght = 500 + k * 400;
+      it.el.style.fontVariationSettings = `"wght" ${wght.toFixed(0)}`;
+    });
+    settled = !near;
+    dirty = false;
+  });
+}
+
+// signature : au survol d'une ligne secteur, son nombre de clients apparaît en
+// géant et suit le curseur
+function initSectorFloat() {
+  const rows = document.querySelectorAll('.sector-row');
+  if (!rows.length) return;
+  const float = document.createElement('div');
+  float.className = 'hover-float';
+  float.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(float);
+  const setX = gsap.quickTo(float, 'x', { duration: 0.5, ease: 'power3.out' });
+  const setY = gsap.quickTo(float, 'y', { duration: 0.5, ease: 'power3.out' });
+  rows.forEach((row) => {
+    const value = row.querySelector('.sector-count')?.textContent.trim() || '';
+    row.addEventListener('mouseenter', () => {
+      float.textContent = value;
+      gsap.to(float, { opacity: 1, scale: 1, duration: 0.4, ease: 'power2.out' });
+    });
+    row.addEventListener('mouseleave', () => {
+      gsap.to(float, { opacity: 0, scale: 0.6, duration: 0.3 });
+    });
+  });
+  window.addEventListener('mousemove', (e) => {
+    setX(e.clientX);
+    setY(e.clientY);
+  });
+}
+
 function initPhotoParallax() {
   const img = document.querySelector('.about-photo img');
   if (!img) return;
@@ -343,4 +411,6 @@ export function initMotion() {
   initCursor();
   initBlobDrift();
   initPhotoParallax();
+  initVariableHeadline();
+  initSectorFloat();
 }

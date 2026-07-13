@@ -150,15 +150,17 @@
 }
 
 /* curseur custom : point discret, agrandi sur interactifs (JS) */
+/* curseur créatif : cercle en mode difference — il inverse ce qu'il survole */
 .cursor-dot {
   position: fixed;
   z-index: 90;
   top: 0;
   left: 0;
-  width: 8px;
-  height: 8px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  background: var(--ink);
+  background: #fff;
+  mix-blend-mode: difference;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.3s ease;

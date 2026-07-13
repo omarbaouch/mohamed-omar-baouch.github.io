@@ -832,3 +832,111 @@ body::after {
   transform-style: preserve-3d;
   will-change: transform;
 }
+
+/* ---------- Preloader signature : compteur + rideau ---------- */
+.site-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--gutter);
+  background: #0e0f11;
+  color: #f4f3f0;
+  will-change: transform;
+}
+
+html.is-loading .site-loader {
+  display: flex;
+}
+
+html.is-loading {
+  overflow: hidden;
+}
+
+.loader-count {
+  font-size: clamp(6rem, 22vw, 16rem);
+  font-weight: 650;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.loader-name {
+  margin-top: 1.25rem;
+  font-size: 0.8rem;
+  font-weight: 550;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9b9891;
+}
+
+/* ---------- Bloc inversé : la finale sombre (contact + footer) ---------- */
+.theme-invert {
+  --bg-0: #0e0f11;
+  --bg-1: #16181b;
+  --bg-2: #1e2125;
+  --ink: #f4f3f0;
+  --ink-dim: #9b9891;
+  --ink-faint: #8a8780;
+  --line: color-mix(in srgb, #f4f3f0 14%, transparent);
+  --line-strong: color-mix(in srgb, #f4f3f0 30%, transparent);
+  --accent: #6fa8d6;
+  --shadow-soft: 0 24px 48px -24px rgb(0 0 0 / 0.6);
+  background: var(--bg-0);
+  color: var(--ink);
+}
+
+/* en thème sombre, le bloc s'inverse vers le papier clair : même geste, en miroir */
+:root[data-theme='dark'] .theme-invert,
+.dark-theme .theme-invert {
+  --bg-0: #faf9f6;
+  --bg-1: #f1efea;
+  --bg-2: #e9e6df;
+  --ink: #141517;
+  --ink-dim: #6e6a63;
+  --ink-faint: #6f6b64;
+  --line: color-mix(in srgb, #141517 12%, transparent);
+  --line-strong: color-mix(in srgb, #141517 28%, transparent);
+  --accent: #2f6e9b;
+  --shadow-soft: 0 24px 48px -24px color-mix(in srgb, #141517 18%, transparent);
+}
+
+.section.theme-invert {
+  border-top: none;
+  margin-top: var(--section-pad);
+}
+
+footer.theme-invert {
+  border-top: 1px solid var(--line);
+  padding-block: clamp(4rem, 9vw, 7rem) 2.5rem;
+}
+
+.theme-invert .btn-primary {
+  background: var(--ink);
+  color: var(--bg-0);
+}
+
+.theme-invert .btn-primary:hover {
+  background: var(--accent);
+  color: #0e0f11;
+}
+
+/* ---------- Chiffre géant qui suit la souris sur les lignes secteurs ---------- */
+.hover-float {
+  position: fixed;
+  z-index: 65;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 650;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--accent);
+  opacity: 0;
+  transform: translate(-50%, -60%);
+  will-change: transform, opacity;
+  font-variant-numeric: tabular-nums;
+}
