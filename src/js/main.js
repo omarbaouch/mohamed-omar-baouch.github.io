@@ -23,13 +23,13 @@ runLoader();
 import('./modules/chatbot.js').then(({ initChatbot }) => initChatbot());
 import('./modules/contact-form.js').then(({ initContactForm }) => initContactForm());
 
-// réseau de données du hero : chargé après le premier idle pour ne pas peser
-// sur le chargement (il gère lui-même le rendu statique en reduced-motion)
-const loadNetwork = () => import('./modules/network.js').then(({ initNetwork }) => initNetwork());
+// signature du hero : l'arbre d'assemblage PDM vivant — chargé après le
+// premier idle (il gère lui-même le rendu statique en reduced-motion)
+const loadTree = () => import('./modules/bom-tree.js').then(({ initBomTree }) => initBomTree());
 if ('requestIdleCallback' in window) {
-  requestIdleCallback(loadNetwork, { timeout: 2500 });
+  requestIdleCallback(loadTree, { timeout: 2500 });
 } else {
-  setTimeout(loadNetwork, 900);
+  setTimeout(loadTree, 900);
 }
 
 // motion chargé dynamiquement (chunk séparé), jamais si l'utilisateur préfère
