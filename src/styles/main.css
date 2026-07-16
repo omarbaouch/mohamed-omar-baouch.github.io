@@ -1,0 +1,54 @@
+/* Entrée CSS du nouveau design system (homepage, styleguide, puis blog). */
+
+@import 'tailwindcss';
+
+/* fonts self-hosted à URL stable (public/fonts) : préchargeables depuis le
+   <head>, donc pas de swap tardif ni de layout shift */
+@font-face {
+  font-family: 'Instrument Sans Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('/fonts/instrument-sans-var.woff2') format('woff2-variations');
+}
+
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400;
+  src: url('/fonts/instrument-serif-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('/fonts/instrument-serif.woff2') format('woff2');
+}
+
+@import './tokens.css';
+@import './components/base.css';
+@import './components/type.css';
+@import './components/interactive.css';
+@import './components/layout.css';
+@import './components/chatbot.css';
+
+/* Expose les tokens au moteur Tailwind (classes bg-paper, text-ink, etc.) */
+@theme inline {
+  --color-paper: var(--bg-0);
+  --color-paper-2: var(--bg-1);
+  --color-paper-3: var(--bg-2);
+  --color-ink: var(--ink);
+  --color-ink-dim: var(--ink-dim);
+  --color-ink-faint: var(--ink-faint);
+  --color-accent: var(--accent);
+  --color-line: var(--line);
+
+  --font-sans: 'Instrument Sans Variable', 'Instrument Sans', 'Instrument Sans Fallback', system-ui, sans-serif;
+  --font-serif: 'Instrument Serif', 'Instrument Serif Fallback', Georgia, serif;
+}
+
+/* le thème sombre est piloté par data-theme / .dark-theme, pas par l'OS seul */
+@custom-variant dark (&:where([data-theme='dark'] *, .dark-theme *));

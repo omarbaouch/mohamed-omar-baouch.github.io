@@ -1,0 +1,146 @@
+/* Socle : reset doux, rythme vertical, séparateurs, conteneur. */
+
+/* Fallbacks à métriques compensées : le swap des webfonts ne décale plus la mise
+   en page (CLS). Valeurs calées sur les métriques d'Instrument Sans/Serif. */
+@font-face {
+  font-family: 'Instrument Sans Fallback';
+  src: local('Arial');
+  ascent-override: 96.8%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+  size-adjust: 100.5%;
+}
+
+@font-face {
+  font-family: 'Instrument Serif Fallback';
+  src: local('Georgia');
+  ascent-override: 90%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+  size-adjust: 95%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: var(--bg-0);
+  color: var(--ink);
+  font-family: 'Instrument Sans Variable', 'Instrument Sans', 'Instrument Sans Fallback', system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg-0);
+}
+
+/* conteneur principal : large mais jamais collé aux bords */
+.container-site {
+  width: 100%;
+  max-width: 90rem;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* section standard : respiration généreuse + règle 1px optionnelle en tête */
+.section {
+  padding-block: var(--section-pad);
+}
+
+.section-rule {
+  border-top: 1px solid var(--line);
+}
+
+/* étiquette de section : `01 — À PROPOS` */
+.eyebrow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+.eyebrow .eyebrow-num {
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+/* focus visible cohérent partout */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* skip link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.6rem 1rem;
+  background: var(--ink);
+  color: var(--bg-0);
+  border-radius: 0.25rem;
+  transition: top 0.2s var(--ease-out);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ---------- Transitions de page (View Transitions cross-document) ----------
+   Enrichissement progressif : navigateurs non compatibles = navigation normale. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+
+  ::view-transition-old(root) {
+    animation: vt-leave 0.4s var(--ease-in-out) both;
+  }
+
+  ::view-transition-new(root) {
+    animation: vt-enter 0.55s var(--ease-out) both;
+  }
+
+  @keyframes vt-leave {
+    to {
+      opacity: 0;
+      transform: translateY(-18px) scale(0.995);
+    }
+  }
+
+  @keyframes vt-enter {
+    from {
+      opacity: 0;
+      transform: translateY(22px);
+    }
+  }
+}
+
+/* la nav reste stable pendant la transition : seule la page glisse */
+@media (prefers-reduced-motion: no-preference) {
+  .site-nav {
+    view-transition-name: site-nav;
+  }
+
+  ::view-transition-old(site-nav),
+  ::view-transition-new(site-nav) {
+    animation: none;
+  }
+}

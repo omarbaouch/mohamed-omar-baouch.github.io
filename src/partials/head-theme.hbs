@@ -1,0 +1,10 @@
+<script>
+    // Anti-flash de thème : doit rester inline (jamais bundlé) pour s'exécuter avant le premier paint.
+    // Nouveau défaut : clair. L'ancien site stockait 'dark' par défaut — on le respecte s'il est présent.
+    (function () {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    })();
+</script>

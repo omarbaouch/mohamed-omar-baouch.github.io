@@ -1,0 +1,17 @@
+{
+  "url": "http://localhost:4173/",
+  "scores": {
+    "performance": 72,
+    "accessibility": 92,
+    "best-practices": 96,
+    "seo": 100
+  },
+  "audits": {
+    "lcp": "3.8 s",
+    "cls": "0.008",
+    "tbt": "20 ms",
+    "fcp": "3.7 s",
+    "transfer": "Total size was 416 KiB"
+  },
+  "fetchTime": "2026-07-10T20:47:47.548Z"
+}

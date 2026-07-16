@@ -1,0 +1,59 @@
+/* ---------------------------------------------------------------------------
+   Design tokens — minimalisme premium
+   Thème clair par défaut, sombre via html[data-theme="dark"] (ou .dark-theme
+   hérité du localStorage de l'ancien site).
+--------------------------------------------------------------------------- */
+
+:root {
+  /* fonds — blanc cassé chaud, jamais de blanc pur */
+  --bg-0: #faf9f6;
+  --bg-1: #f1efea;
+  --bg-2: #e9e6df;
+
+  /* encres */
+  --ink: #141517;
+  --ink-dim: #6e6a63;
+  --ink-faint: #6f6b64;
+
+  /* filets et séparateurs */
+  --line: color-mix(in srgb, var(--ink) 12%, transparent);
+  --line-strong: color-mix(in srgb, var(--ink) 28%, transparent);
+
+  /* accent unique — bleu héritage de l'identité actuelle */
+  --accent: #2f6e9b;
+
+  /* élévation douce pour cartes/imgs sur fond clair */
+  --shadow-soft: 0 24px 48px -24px color-mix(in srgb, var(--ink) 18%, transparent);
+
+  /* rythme */
+  --section-pad: clamp(5rem, 12vw, 10rem);
+  --gutter: clamp(1.25rem, 4vw, 3.5rem);
+
+  /* courbes de mouvement */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-1: 0.45s;
+  --dur-2: 0.8s;
+
+  color-scheme: light;
+}
+
+:root[data-theme='dark'],
+:root.dark-theme {
+  --bg-0: #0e0f11;
+  --bg-1: #16181b;
+  --bg-2: #1e2125;
+
+  --ink: #f4f3f0;
+  --ink-dim: #9b9891;
+  --ink-faint: #8a8780;
+
+  --line: color-mix(in srgb, var(--ink) 14%, transparent);
+  --line-strong: color-mix(in srgb, var(--ink) 30%, transparent);
+
+  --accent: #6fa8d6;
+
+  --shadow-soft: 0 24px 48px -24px rgb(0 0 0 / 0.6);
+
+  color-scheme: dark;
+}
