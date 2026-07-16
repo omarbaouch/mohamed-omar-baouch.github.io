@@ -180,7 +180,7 @@
   "project_6_subtitle": "Développement radars",
   "project_6_desc": "Conception de nouveaux radars, pièces usinées, structuration architecture dossier PLM",
   "skip_to_content": "Aller au contenu principal",
-  "hero_kicker": "Basé à Strasbourg — missions France entière",
+  "hero_kicker": "Consultant PDM/PLM chez Visiativ — Strasbourg",
   "stat_clients_label": "Clients industriels",
   "stat_migrations_label": "Migrations & mises à jour",
   "stat_projects_label": "Projets livrés depuis 2020",
@@ -205,9 +205,9 @@
   "exp1_period": "2023 —",
   "exp2_period": "2021 — 23",
   "exp3_period": "2020",
-  "contact_heading_new": "Travaillons <em class=\"serif-accent\">ensemble</em>",
-  "contact_lead_new": "Un projet PDM/PLM, une migration à sécuriser, un audit de performance ? Parlons-en.",
-  "footer_eyebrow": "Une question, un projet ?",
+  "contact_heading_new": "Parlons <em class=\"serif-accent\">PDM/PLM</em>",
+  "contact_lead_new": "Une question technique, un retour sur un article du blog, ou simplement envie d'échanger entre passionnés de données produit ? Écrivez-moi.",
+  "footer_eyebrow": "Une question PDM/PLM ? Échangeons.",
   "ai_input_label": "Votre question",
   "case_study_link": "Lire l'étude de cas →"
 }

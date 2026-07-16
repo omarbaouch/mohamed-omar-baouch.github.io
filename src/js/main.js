@@ -23,20 +23,17 @@ runLoader();
 import('./modules/chatbot.js').then(({ initChatbot }) => initChatbot());
 import('./modules/contact-form.js').then(({ initContactForm }) => initContactForm());
 
+// réseau de données du hero : chargé après le premier idle pour ne pas peser
+// sur le chargement (il gère lui-même le rendu statique en reduced-motion)
+const loadNetwork = () => import('./modules/network.js').then(({ initNetwork }) => initNetwork());
+if ('requestIdleCallback' in window) {
+  requestIdleCallback(loadNetwork, { timeout: 2500 });
+} else {
+  setTimeout(loadNetwork, 900);
+}
+
 // motion chargé dynamiquement (chunk séparé), jamais si l'utilisateur préfère
 // un mouvement réduit — la page reste alors entièrement statique et complète
 if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
   import('./modules/motion.js').then(({ initMotion }) => initMotion());
-
-  // WebGL après le premier paint et seulement sur machine capable ;
-  // en cas d'échec, le blob dégradé CSS reste en place (fallback silencieux)
-  const loadWebGL = () =>
-    import('./webgl/scene.js')
-      .then(({ initBlobScene }) => initBlobScene())
-      .catch(() => null);
-  if ('requestIdleCallback' in window) {
-    requestIdleCallback(loadWebGL, { timeout: 3000 });
-  } else {
-    setTimeout(loadWebGL, 1200);
-  }
 }

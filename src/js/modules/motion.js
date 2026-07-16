@@ -125,8 +125,7 @@ function initHeroIntro() {
   tl.from('.hero-kicker', { y: 14, autoAlpha: 0, duration: 0.7 }, 0.15)
     .from('.hero-subtitle', { y: 20, autoAlpha: 0, duration: 0.8 }, 0.5)
     .from('.hero-cta > *', { y: 18, autoAlpha: 0, duration: 0.7, stagger: 0.08 }, 0.65)
-    .from('.hero-blob', { scale: 0.7, autoAlpha: 0, duration: 1.4, ease: 'power2.out' }, 0.2)
-    .from('.orbit-badge', { scale: 0, autoAlpha: 0, duration: 0.9, ease: 'back.out(1.6)' }, 0.9)
+    .from('.hero-net', { autoAlpha: 0, duration: 1.6, ease: 'power2.out' }, 0.3)
     .from('.hero-stat', { y: 24, autoAlpha: 0, duration: 0.8, stagger: 0.07 }, 0.8);
 }
 
@@ -299,21 +298,6 @@ function initCursor() {
   });
 }
 
-function initBlobDrift() {
-  const blob = document.querySelector('.hero-blob');
-  if (!blob) return;
-  gsap.to(blob, {
-    yPercent: 18,
-    ease: 'none',
-    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 0.6 },
-  });
-  window.addEventListener('mousemove', (e) => {
-    const x = (e.clientX / window.innerWidth - 0.5) * 24;
-    const y = (e.clientY / window.innerHeight - 0.5) * 24;
-    gsap.to(blob, { x, y, duration: 1.2, ease: 'power2.out' });
-  });
-}
-
 // signature : les lettres du titre héro s'épaississent selon leur distance au
 // curseur (police variable Instrument Sans, axe wght) — effet « aimant de poids »
 function initVariableHeadline() {
@@ -409,7 +393,6 @@ export function initMotion() {
   initScrollProgress();
   initMagnetic();
   initCursor();
-  initBlobDrift();
   initPhotoParallax();
   initVariableHeadline();
   initSectorFloat();
