@@ -951,3 +951,36 @@ body[data-blog-post] .article-section + .article-section {
   height: 6px;
   margin-right: 0;
 }
+
+/* ---------- Figures techniques des études de cas (SVG propriétaires) ---------- */
+.case-figure {
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg-1) 45%, var(--bg-0));
+  padding: clamp(1.25rem, 3vw, 2.25rem) clamp(1.25rem, 3vw, 2.25rem) 0;
+}
+
+.case-figure svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.case-figure svg text {
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  letter-spacing: 0.08em;
+}
+
+.case-figure figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: clamp(1rem, 2.5vw, 1.75rem);
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--line);
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
