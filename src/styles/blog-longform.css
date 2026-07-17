@@ -984,3 +984,17 @@ body[data-blog-post] .article-section + .article-section {
   text-transform: uppercase;
   color: var(--ink-faint);
 }
+
+/* chips de catégorie colorées par domaine */
+.article-card__cat {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, var(--bg-0));
+  border-color: color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+.article-card[data-cat='perf'] .article-card__cat,
+.article-card[data-cat='cao'] .article-card__cat {
+  color: var(--signal);
+  background: color-mix(in srgb, var(--signal) 10%, var(--bg-0));
+  border-color: color-mix(in srgb, var(--signal) 30%, transparent);
+}
