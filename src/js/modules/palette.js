@@ -4,6 +4,7 @@
 // restitué à la fermeture.
 
 const INDEX = [
+  { ref: 'OUTIL-01', fr: 'Mode mesure — coter la page (M)', en: 'Measure mode — dimension the page (M)', type: 'TOOL', action: 'measure' },
   { ref: 'ASM-BAOUCH', fr: 'Structure du portfolio', en: 'Portfolio structure', type: 'ASM', href: '/#structure' },
   { ref: 'DOC-PROFIL', fr: 'À propos', en: 'About', type: 'SECTION', href: '/#about' },
   { ref: 'ASM-01', fr: 'Expérience — journal de check-ins', en: 'Experience — check-in log', type: 'SECTION', href: '/#experience' },
@@ -30,8 +31,8 @@ const INDEX = [
 ];
 
 const T = {
-  fr: { placeholder: 'Référence ou titre…', label: 'RECHERCHE — COFFRE ASM-BAOUCH', empty: 'Aucun document trouvé dans le coffre', hint: '↑↓ naviguer — ↵ ouvrir — échap fermer', types: { ASM: 'ASSEMBLAGE', SECTION: 'SECTION', CASE: 'ÉTUDE DE CAS', DOC: 'ARTICLE' } },
-  en: { placeholder: 'Reference or title…', label: 'SEARCH — ASM-BAOUCH VAULT', empty: 'No document found in the vault', hint: '↑↓ navigate — ↵ open — esc close', types: { ASM: 'ASSEMBLY', SECTION: 'SECTION', CASE: 'CASE STUDY', DOC: 'ARTICLE' } },
+  fr: { placeholder: 'Référence ou titre…', label: 'RECHERCHE — COFFRE ASM-BAOUCH', empty: 'Aucun document trouvé dans le coffre', hint: '↑↓ naviguer — ↵ ouvrir — échap fermer', types: { ASM: 'ASSEMBLAGE', SECTION: 'SECTION', CASE: 'ÉTUDE DE CAS', DOC: 'ARTICLE', TOOL: 'OUTIL' } },
+  en: { placeholder: 'Reference or title…', label: 'SEARCH — ASM-BAOUCH VAULT', empty: 'No document found in the vault', hint: '↑↓ navigate — ↵ open — esc close', types: { ASM: 'ASSEMBLY', SECTION: 'SECTION', CASE: 'CASE STUDY', DOC: 'ARTICLE', TOOL: 'TOOL' } },
 };
 
 let root = null;
@@ -155,6 +156,10 @@ function paintActive() {
 function go(item) {
   if (!item) return;
   close();
+  if (item.action === 'measure') {
+    import('../core/tools.js').then((m) => m.openMeasure());
+    return;
+  }
   if (item.href.startsWith('/#') && location.pathname === '/') {
     const target = document.querySelector(item.href.slice(1));
     if (target) {
