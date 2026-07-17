@@ -54,6 +54,83 @@
                     </div>
                 </header>
 
+                <figure class="article-figure case-figure">
+                    <svg viewBox="0 0 960 320" fill="none" role="img" aria-label="Architecture avant/après : de fichiers dispersés multi-sites vers un coffre PDM central répliqué">
+                        <!-- séparation -->
+                        <path d="M480 24 V296" stroke="var(--line)" stroke-dasharray="4 6" />
+                        <text x="60" y="42" font-size="10" font-weight="650" fill="var(--ink-faint)">AVANT — SILOS PAR SITE</text>
+                        <text x="540" y="42" font-size="10" font-weight="650" fill="var(--accent)">APRÈS — COFFRE UNIQUE RÉPLIQUÉ</text>
+                        <!-- AVANT : 3 silos, échanges croisés -->
+                        <g stroke="var(--ink-dim)" stroke-opacity="0.55">
+                            <rect x="60" y="70" width="110" height="64" rx="2" />
+                            <rect x="180" y="176" width="110" height="64" rx="2" />
+                            <rect x="300" y="70" width="110" height="64" rx="2" />
+                        </g>
+                        <g font-size="9" font-weight="600" fill="var(--ink)" text-anchor="middle">
+                            <text x="115" y="94">SITE EUROPE</text>
+                            <text x="235" y="200">SITE AFRIQUE</text>
+                            <text x="355" y="94">SITE ASIE</text>
+                        </g>
+                        <g font-size="7.5" fill="var(--ink-faint)" text-anchor="middle">
+                            <text x="115" y="110">FICHIERS LOCAUX</text>
+                            <text x="235" y="216">COPIES PAR E-MAIL</text>
+                            <text x="355" y="110">VERSIONS DIVERGENTES</text>
+                        </g>
+                        <g font-size="7" fill="var(--ink-faint)" text-anchor="middle">
+                            <text x="115" y="122">V12? V14?</text>
+                            <text x="235" y="228">« _FINAL_2.SLDASM »</text>
+                            <text x="355" y="122">DOUBLONS</text>
+                        </g>
+                        <!-- flux chaotiques -->
+                        <g stroke="var(--ink-dim)" stroke-opacity="0.4" stroke-dasharray="3 4">
+                            <path d="M170 100 H298" />
+                            <path d="M150 134 L200 176" />
+                            <path d="M320 134 L272 176" />
+                            <path d="M170 90 C 230 40, 290 40, 300 84" />
+                        </g>
+                        <text x="235" y="58" font-size="7.5" fill="var(--ink-dim)" text-anchor="middle">ÉCHANGES NON TRACÉS</text>
+                        <!-- APRÈS : coffre central + réplication -->
+                        <rect x="662" y="120" width="116" height="76" stroke="var(--accent)" />
+                        <rect x="708" y="146" width="16" height="16" transform="rotate(45 716 154)" fill="var(--accent)" />
+                        <text x="720" y="186" font-size="8" fill="var(--accent)" text-anchor="middle">COFFRE PDM</text>
+                        <g stroke="var(--ink-dim)" stroke-opacity="0.55">
+                            <rect x="520" y="70" width="100" height="52" rx="2" />
+                            <rect x="520" y="216" width="100" height="52" rx="2" />
+                            <rect x="820" y="70" width="100" height="52" rx="2" />
+                        </g>
+                        <g font-size="8.5" font-weight="600" fill="var(--ink)" text-anchor="middle">
+                            <text x="570" y="92">SITE EUROPE</text>
+                            <text x="570" y="238">SITE AFRIQUE</text>
+                            <text x="870" y="92">SITE ASIE</text>
+                        </g>
+                        <g font-size="7" fill="var(--ink-faint)" text-anchor="middle">
+                            <text x="570" y="106">VUE LOCALE</text>
+                            <text x="570" y="252">VUE LOCALE</text>
+                            <text x="870" y="106">VUE LOCALE</text>
+                        </g>
+                        <!-- réplication propre -->
+                        <g stroke="var(--accent)" stroke-opacity="0.6">
+                            <path d="M620 108 L668 130" />
+                            <path d="M620 226 L668 190" />
+                            <path d="M820 108 L774 130" />
+                        </g>
+                        <g fill="var(--accent)">
+                            <path d="M664 124 l8 8 -11 1z" fill-opacity="0.8" />
+                            <path d="M664 196 l8 -8 -11 -1z" fill-opacity="0.8" />
+                            <path d="M778 124 l-8 8 11 1z" fill-opacity="0.8" />
+                        </g>
+                        <text x="720" y="290" font-size="8" fill="var(--ink-faint)" text-anchor="middle">RÉPLICATION · RÉFÉRENCE UNIQUE · HISTORIQUE COMPLET</text>
+                    </svg>
+                    <figcaption><span>FIG.01 — ARCHITECTURE AVANT / APRÈS</span><span>MIGRATION MULTI-SITES</span></figcaption>
+                </figure>
+
+                <!-- SLOT CAPTURE RÉELLE : décommenter et remplir dès réception des captures PDM anonymisées
+                <figure class="article-figure">
+                    <img src="/img/projets/migintl-capture-1.webp" alt="Environnement PDM multi-sites (anonymisé)" loading="lazy">
+                    <figcaption>Capture SOLIDWORKS PDM du projet — données anonymisées.</figcaption>
+                </figure>
+                -->
+
                 <section class="blog-section article-section">
                     <h2>Le contexte</h2>
                     <p>Un leader mondial du câblage doit faire évoluer son environnement SOLIDWORKS PDM. Les études sont réparties sur plusieurs sites, les données sont critiques et l'activité ne peut tolérer qu'une interruption minimale. La difficulté n'est pas seulement technique : chaque site a ses habitudes, son niveau de maturité PDM et ses contraintes locales.</p>
@@ -67,6 +144,52 @@
                         <li><strong>Reprise et contrôle des données</strong> : vérifications systématiques post-migration (références, métadonnées, droits) avant réouverture aux utilisateurs.</li>
                         <li><strong>Accompagnement des équipes</strong> : communication claire des jalons, formation ciblée là où les pratiques changeaient.</li>
                     </ul>
+                    <figure class="article-figure case-figure">
+                        <svg viewBox="0 0 960 150" fill="none" role="img" aria-label="Timeline de la migration en six phases, de l'audit au support">
+                            <path d="M50 78 H910" stroke="var(--line)" />
+                            <path d="M50 78 H660" stroke="var(--accent)" stroke-opacity="0.7" />
+                            <g transform="translate(0 0)">
+                                <g fill="var(--accent)">
+                                    <rect x="44" y="72" width="12" height="12" transform="rotate(45 50 78)" />
+                                    <rect x="216" y="72" width="12" height="12" transform="rotate(45 222 78)" />
+                                    <rect x="388" y="72" width="12" height="12" transform="rotate(45 394 78)" />
+                                    <rect x="560" y="72" width="12" height="12" transform="rotate(45 566 78)" />
+                                </g>
+                                <g fill="none" stroke="var(--ink-dim)">
+                                    <rect x="732" y="72" width="12" height="12" transform="rotate(45 738 78)" />
+                                    <rect x="904" y="72" width="12" height="12" transform="rotate(45 910 78)" />
+                                </g>
+                            </g>
+                            <g font-size="8" fill="var(--accent)">
+                                <text x="50" y="46" text-anchor="middle">01</text>
+                                <text x="222" y="46" text-anchor="middle">02</text>
+                                <text x="394" y="46" text-anchor="middle">03</text>
+                                <text x="566" y="46" text-anchor="middle">04</text>
+                            </g>
+                            <g font-size="8" fill="var(--ink-faint)">
+                                <text x="738" y="46" text-anchor="middle">05</text>
+                                <text x="910" y="46" text-anchor="middle">06</text>
+                            </g>
+                            <g font-size="9" font-weight="600" fill="var(--ink)" text-anchor="middle">
+                                <text x="50" y="62">AUDIT</text>
+                                <text x="222" y="62">CARTOGRAPHIE</text>
+                                <text x="394" y="62">RÉPÉTITION</text>
+                                <text x="566" y="62">REPRISE</text>
+                                <text x="738" y="62">BASCULE</text>
+                                <text x="910" y="62">SUPPORT</text>
+                            </g>
+                            <g font-size="7.2" fill="var(--ink-faint)" text-anchor="middle">
+                                <text x="50" y="104">EXISTANT · VOLUMES</text>
+                                <text x="222" y="104">SITES · CONTRAINTES</text>
+                                <text x="394" y="104">MIGRATION À BLANC</text>
+                                <text x="566" y="104">DONNÉES CONTRÔLÉES</text>
+                                <text x="738" y="104">PAR VAGUES · RETOUR ARRIÈRE PRÊT</text>
+                                <text x="910" y="104">RÉFÉRENTS FORMÉS</text>
+                            </g>
+                        </svg>
+                        <figcaption><span>FIG.02 — LES SIX PHASES DE LA BASCULE</span><span>INDISPONIBILITÉ MINIMALE</span></figcaption>
+                    </figure>
+
                     <div class="callout callout--soft">
                         <p><strong>Le principe directeur :</strong> sur une migration internationale, chaque heure d'indisponibilité se paie multipliée par le nombre de sites. La répétition en amont n'est pas du confort — c'est l'assurance-vie du projet.</p>
                     </div>
