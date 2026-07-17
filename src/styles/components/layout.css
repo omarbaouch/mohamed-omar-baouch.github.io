@@ -1554,3 +1554,57 @@ html.cmdk-lock body {
 .doc-state--live .bom-led {
   background: var(--signal);
 }
+
+/* ---------- Matière : papier millimétré, photo décor, lumière ---------- */
+
+/* trame de papier millimétré d'ingénierie : fine + majeure, à peine visible —
+   le hero et la finale sombre sont posés sur du papier à dessin */
+.hero,
+.section.theme-invert,
+.site-footer {
+  background-color: var(--bg-0);
+  background-image:
+    repeating-linear-gradient(0deg, color-mix(in srgb, var(--ink) 3%, transparent) 0 1px, transparent 1px 14px),
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--ink) 3%, transparent) 0 1px, transparent 1px 14px),
+    repeating-linear-gradient(0deg, color-mix(in srgb, var(--ink) 5%, transparent) 0 1px, transparent 1px 70px),
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--ink) 5%, transparent) 0 1px, transparent 1px 70px);
+}
+
+/* spot lumineux au sommet de la finale sombre : la matière prend la lumière */
+.section.theme-invert {
+  background-image:
+    radial-gradient(58% 42% at 50% 0%, color-mix(in srgb, var(--accent) 9%, transparent), transparent 72%),
+    repeating-linear-gradient(0deg, color-mix(in srgb, var(--ink) 3%, transparent) 0 1px, transparent 1px 14px),
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--ink) 3%, transparent) 0 1px, transparent 1px 14px),
+    repeating-linear-gradient(0deg, color-mix(in srgb, var(--ink) 5%, transparent) 0 1px, transparent 1px 70px),
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--ink) 5%, transparent) 0 1px, transparent 1px 70px);
+}
+
+/* photo décor fantôme derrière le contact : l'atelier en filigrane */
+.section.theme-invert::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('/img/home/atelier-1200.webp') center 30% / cover no-repeat;
+  opacity: 0.06;
+  filter: grayscale(1) contrast(1.1);
+  pointer-events: none;
+}
+
+/* en thème sombre le bloc contact devient clair : le filigrane s'adoucit */
+:root[data-theme='dark'] .section.theme-invert::before,
+.dark-theme .section.theme-invert::before {
+  opacity: 0.05;
+}
+
+/* cartes : un voile de papier en dégradé, la lumière vient d'en haut */
+.card {
+  background-image: linear-gradient(165deg, color-mix(in srgb, var(--bg-1) 70%, transparent), transparent 55%);
+}
+
+/* préloader : la même trame, pour que la matière soit là dès la 1ʳᵉ seconde */
+.site-loader {
+  background-image:
+    repeating-linear-gradient(0deg, rgb(244 243 240 / 0.04) 0 1px, transparent 1px 70px),
+    repeating-linear-gradient(90deg, rgb(244 243 240 / 0.04) 0 1px, transparent 1px 70px);
+}
