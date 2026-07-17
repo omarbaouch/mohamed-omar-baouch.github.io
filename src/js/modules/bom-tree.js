@@ -99,12 +99,26 @@ export function initBomTree() {
     });
   });
 
+  let guardRects = []; // zones interactives : l'arbre s'y efface totalement
   function measureTitle() {
     titleRects = [];
+    guardRects = [];
     const hb = hero.getBoundingClientRect();
-    hero.querySelectorAll('.hero-title .mask-line').forEach((line) => {
+    hero.querySelectorAll('.hero-title .mask-line').forEach((line, i) => {
       const r = line.getBoundingClientRect();
-      titleRects.push({ x: r.left - hb.left, y: r.top - hb.top, w: r.width, h: r.height });
+      // tissage : l'arbre passe DEVANT la ligne centrale (i === 1) et
+      // DERRIÈRE les deux autres — trois plans de profondeur
+      titleRects.push({
+        x: r.left - hb.left,
+        y: r.top - hb.top,
+        w: r.width,
+        h: r.height,
+        weaveFront: i === 1,
+      });
+    });
+    hero.querySelectorAll('.hero-under, .hero-kicker, .hero-baseline').forEach((el) => {
+      const r = el.getBoundingClientRect();
+      guardRects.push({ x: r.left - hb.left, y: r.top - hb.top, w: r.width, h: r.height });
     });
   }
 
@@ -317,6 +331,7 @@ export function initBomTree() {
     // ---- nœuds : halo + cœur + anneau orbital (assemblages)
     ctx.textBaseline = 'middle';
     if ('letterSpacing' in ctx) ctx.letterSpacing = '0.08em';
+    const placedLabels = []; // étiquettes déjà posées ce frame (anti-chevauchement)
     for (const n of nodes) {
       const k = ease((elapsed - n.t0) / 500);
       if (k <= 0) continue;
@@ -367,35 +382,70 @@ export function initBomTree() {
         ctx.fill();
       }
 
-      // étiquette avec dosseret discret pour la lisibilité
+      // étiquette avec dosseret discret ; elle ÉVITE les lettres du titre
+      // (bascule sous le nœud en cas de collision) au lieu de les recouvrir
       const fs = isRoot ? 12 : isBranch ? 11 : 10;
       ctx.font = `600 ${fs}px ui-monospace, "SF Mono", Menlo, monospace`;
       const alpha = k * (lit ? 1 : isRoot ? 0.9 : isBranch ? 0.72 : 0.5);
-      const tx = p.x + Math.max(size, 6) + 10;
       const tw = ctx.measureText(n.ref).width;
+      const labelHits = (x, y) =>
+        titleRects.some(
+          (r) => x + tw > r.x && x - 4 < r.x + r.w && y + fs > r.y && y - fs * 1.4 < r.y + r.h
+        ) ||
+        placedLabels.some(
+          (r) => x + tw > r.x && x - 6 < r.x + r.w && y + fs > r.y && y - fs * 1.4 < r.y + r.h
+        );
+      // positions candidates : droite du nœud, dessous, dessus, gauche —
+      // la première qui n'entre en collision ni avec le titre ni avec une
+      // étiquette déjà posée gagne (la dernière sert de repli)
+      const off = Math.max(size, 6);
+      const spots = [
+        [p.x + off + 10, p.y],
+        [p.x - tw / 2, p.y + off + fs + 6],
+        [p.x - tw / 2, p.y - off - fs - 2],
+        [p.x - off - 10 - tw, p.y],
+      ];
+      let [tx, ty] = spots[spots.length - 1];
+      for (const [sx, sy] of spots) {
+        if (!labelHits(sx, sy)) {
+          tx = sx;
+          ty = sy;
+          break;
+        }
+      }
+      placedLabels.push({ x: tx - 4, y: ty - fs, w: tw + 8, h: fs * 2.4 });
       ctx.fillStyle = `rgba(${P},${(alpha * 0.5).toFixed(3)})`;
-      ctx.fillRect(tx - 4, p.y - fs, tw + 8, isRoot || isBranch ? fs * 2.3 : fs * 1.6);
+      ctx.fillRect(tx - 4, ty - fs, tw + 8, isRoot || isBranch ? fs * 2.3 : fs * 1.6);
       ctx.fillStyle = `rgba(${I},${alpha.toFixed(3)})`;
-      ctx.fillText(n.ref, tx, p.y - (isRoot || isBranch ? 6 : 0));
+      ctx.fillText(n.ref, tx, ty - (isRoot || isBranch ? 6 : 0));
       if (isRoot || isBranch || lit) {
         ctx.font = `400 ${fs - 2}px ui-monospace, "SF Mono", Menlo, monospace`;
         ctx.fillStyle = `rgba(${A},${(alpha * 0.95).toFixed(3)})`;
-        ctx.fillText(n.rev, tx, p.y + 8);
+        ctx.fillText(n.rev, tx, ty + 8);
       }
     }
     if ('letterSpacing' in ctx) ctx.letterSpacing = '0px';
 
-    // ---- intégration typographique : l'arbre s'estompe derrière les lettres
+    // ---- tissage typographique : trois plans de profondeur.
+    // Le canvas est AU-DESSUS du texte ; on efface l'arbre derrière les lignes
+    // « arrière » (le texte réapparaît devant lui) et on le laisse passer
+    // DEVANT la ligne centrale. Les zones interactives sont toujours dégagées.
     ctx.save();
     ctx.globalCompositeOperation = 'destination-out';
     for (const r of titleRects) {
-      const g = ctx.createLinearGradient(0, r.y - 14, 0, r.y + r.h + 14);
+      if (r.weaveFront) continue; // l'arbre reste devant cette ligne
+      const g = ctx.createLinearGradient(0, r.y - 10, 0, r.y + r.h + 10);
+      const a = 0.94 - hoverGlow * 0.15;
       g.addColorStop(0, 'rgba(0,0,0,0)');
-      g.addColorStop(0.25, `rgba(0,0,0,${0.62 - hoverGlow * 0.25})`);
-      g.addColorStop(0.75, `rgba(0,0,0,${0.62 - hoverGlow * 0.25})`);
+      g.addColorStop(0.18, `rgba(0,0,0,${a})`);
+      g.addColorStop(0.82, `rgba(0,0,0,${a})`);
       g.addColorStop(1, 'rgba(0,0,0,0)');
       ctx.fillStyle = g;
-      ctx.fillRect(r.x - 20, r.y - 14, r.w + 40, r.h + 28);
+      ctx.fillRect(r.x - 20, r.y - 10, r.w + 40, r.h + 20);
+    }
+    for (const r of guardRects) {
+      ctx.fillStyle = 'rgba(0,0,0,1)';
+      ctx.fillRect(r.x - 12, r.y - 12, r.w + 24, r.h + 24);
     }
     ctx.restore();
   }
