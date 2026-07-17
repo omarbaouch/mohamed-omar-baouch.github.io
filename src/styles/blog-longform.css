@@ -831,3 +831,76 @@ body[data-blog-post] .article-section + .article-section {
   border-top: 1px solid var(--line);
   padding-top: clamp(1.75rem, 4vw, 2.5rem);
 }
+
+/* ---------- Grand écran : la scène s'élargit, la lecture reste calibrée ----------
+   .container est un utilitaire hérité (non centré) : neutralisé pour que la
+   coquille se centre vraiment. Sur PC, le hero, la figure d'ouverture, le
+   sommaire et les grilles occupent une scène large (76rem) tandis que les
+   paragraphes gardent une mesure de lecture centrée (~49rem). */
+.container.blog-container {
+  width: 100%;
+  max-width: none;
+}
+
+@media (min-width: 64rem) {
+  .blog-shell {
+    max-width: 76rem;
+  }
+
+  /* hero éditorial : intro à gauche, stats empilées à droite */
+  .post-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    gap: clamp(3rem, 6vw, 5.5rem);
+    align-items: end;
+  }
+
+  .blog-hero .hero-title {
+    font-size: clamp(2.5rem, 3.4vw, 3.8rem);
+  }
+
+  .blog-hero .hero-stats {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .blog-hero .hero-stat {
+    padding: 1.05rem 0;
+    border-top: 1px solid var(--line);
+  }
+
+  /* articles : mesure de lecture centrée… */
+  body[data-blog-post] .blog-article > .blog-section {
+    max-width: 49rem;
+    margin-inline: auto;
+  }
+
+  /* …mais le sommaire et les articles liés profitent de la largeur */
+  body[data-blog-post] .blog-article > .article-summary {
+    max-width: 62rem;
+  }
+
+  body[data-blog-post] .blog-article > .article-related {
+    max-width: none;
+  }
+
+  .summary-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 3rem;
+  }
+
+  /* figure d'ouverture : bandeau cinémascope pleine scène */
+  body[data-blog-post] .blog-article > .article-figure img {
+    aspect-ratio: 21 / 9;
+    object-fit: cover;
+  }
+
+  /* listing : trois vignettes par rangée */
+  .article-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+}
