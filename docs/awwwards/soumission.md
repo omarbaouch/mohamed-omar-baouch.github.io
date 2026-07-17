@@ -56,17 +56,15 @@
 | Minimal Gallery | gratuit | minimal.gallery/submit | correspond à la DA |
 | Dark Mode Design | gratuit | darkmodedesign.com | soumettre le thème sombre |
 
-**Timing recommandé** : soumettre partout la même semaine, APRÈS intégration
-des captures PDM réelles anonymisées dans les études de cas (slots déjà prêts
-dans le HTML, en commentaire). C'est le dernier point qui sépare une Honorable
-Mention d'un SOTD : le contenu authentique.
+**Timing recommandé** : soumettre sur toutes les plateformes la même semaine.
+Parti pris assumé : aucune capture d'outil dans les études de cas — les
+visuels sont des schémas techniques propriétaires dessinés dans le design
+system, plus cohérents avec la direction artistique qu'une capture d'écran.
 
 ## Ce qui reste à la main du propriétaire
 
-1. 4-5 captures SOLIDWORKS PDM anonymisées (études de cas + à-propos)
-2. 2-3 photos réelles cohérentes avec la direction artistique
-3. Relecture des chiffres des deux études de cas
-4. Création du compte Awwwards + paiement de la soumission
+1. Relecture des chiffres des deux études de cas
+2. Création du compte Awwwards + paiement de la soumission
 
 ## Matériel dans ce dossier
 
