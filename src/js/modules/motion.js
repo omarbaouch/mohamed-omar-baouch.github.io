@@ -110,31 +110,86 @@ function splitWords(el) {
 
 function initHeroIntro() {
   const title = document.querySelector('.hero-title');
-  if (title) {
+  const hero = document.querySelector('.hero');
+  const en = document.documentElement.lang === 'en';
+
+  // ---- SÉQUENCE D'ENTRÉE « ASSEMBLAGE » : le titre arrive en pièces
+  // détachées, posées comme sur un établi, et c'est LE SCROLL du visiteur
+  // qui les assemble — hero épinglé, compteur de progression, verrou final.
+  if (title && hero) {
+    title.classList.add('is-assembling'); // libère les masques : les pièces débordent des lignes
     const chars = [];
     title.querySelectorAll('.mask-inner').forEach((line) => chars.push(...splitChars(line)));
+
+    // amplitude de dispersion bornée au viewport (mobile compris)
+    const AX = Math.min(170, window.innerWidth * 0.13);
+    const AY = Math.min(150, window.innerHeight * 0.16);
+    const scatter = chars.map(() => ({
+      x: gsap.utils.random(-AX, AX),
+      y: gsap.utils.random(-AY, AY),
+      r: gsap.utils.random(-32, 32),
+    }));
+
+    // 1. au chargement : les pièces se déposent sur l'établi (état éclaté)
+    chars.forEach((c, i) => {
+      gsap.set(c, { x: scatter[i].x, y: scatter[i].y, rotation: scatter[i].r, opacity: 0.3 });
+    });
     gsap.from(chars, {
       yPercent: 118,
-      rotate: () => gsap.utils.random(-8, 8),
-      duration: 0.9,
-      ease: 'power4.out',
-      stagger: { each: 0.022, from: 'start' },
+      duration: 0.8,
+      ease: 'power3.out',
+      stagger: { each: 0.014, from: 'random' },
     });
+
+    // 2. le compteur d'assemblage, dans la composition
+    const readout = document.createElement('div');
+    readout.className = 'hero-assembly-readout';
+    readout.setAttribute('aria-hidden', 'true');
+    hero.appendChild(readout);
+    const DONE = en ? '⊕ ASSEMBLED — RÉV.2026' : '⊕ ASSEMBLÉ — RÉV.2026';
+    const WORD = en ? 'ASSEMBLY' : 'ASSEMBLAGE';
+    readout.textContent = `${WORD} — 00 % · 0/${chars.length}`;
+
+    // 3. le scroll assemble : chaque pièce rejoint sa position et se
+    // verrouille — la première interaction avec le site EST l'expérience
+    const asm = gsap.timeline({
+      scrollTrigger: {
+        trigger: hero,
+        start: 'top top',
+        end: '+=130%',
+        pin: true,
+        scrub: 0.35,
+        onUpdate: (st) => {
+          const p = Math.min(1, st.progress / 0.92);
+          const n = Math.round(p * chars.length);
+          if (p >= 1) {
+            readout.textContent = DONE;
+            readout.classList.add('is-done');
+          } else {
+            readout.textContent = `${WORD} — ${String(Math.round(p * 100)).padStart(2, '0')} % · ${n}/${chars.length}`;
+            readout.classList.remove('is-done');
+          }
+        },
+      },
+    });
+    asm.to(chars, {
+      x: 0,
+      y: 0,
+      rotation: 0,
+      opacity: 1,
+      ease: 'power2.inOut',
+      duration: 0.92,
+      stagger: { each: 0.55 / chars.length, from: 'random' },
+    });
+    asm.to({}, { duration: 0.08 }); // temps de lecture du verrou final
   }
+
   const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
   tl.from('.hero-kicker', { y: 14, autoAlpha: 0, duration: 0.7 }, 0.15)
     .from('.hero-subtitle', { y: 20, autoAlpha: 0, duration: 0.8 }, 0.5)
     .from('.hero-cta > *', { y: 18, autoAlpha: 0, duration: 0.7, stagger: 0.08 }, 0.65)
     .from('.hero-side, .hero-baseline', { autoAlpha: 0, duration: 0.9 }, 0.9)
     .from('.hero-stat', { y: 24, autoAlpha: 0, duration: 0.8, stagger: 0.07 }, 0.8);
-
-  // au scroll, la composition du hero se comprime et s'estompe doucement
-  gsap.to('.hero-copy', {
-    yPercent: -10,
-    autoAlpha: 0.15,
-    ease: 'none',
-    scrollTrigger: { trigger: '.hero', start: 'top top', end: '75% top', scrub: 0.5 },
-  });
 }
 
 function initHeadingReveals() {
