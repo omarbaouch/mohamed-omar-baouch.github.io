@@ -130,25 +130,6 @@
   overflow: hidden;
 }
 
-/* l'arbre PDM couvre tout le hero, AU-DESSUS du texte : il se tisse dans le
-   titre (devant la ligne centrale, effacé derrière les autres) — les zones
-   interactives sont dégagées par le masque côté canvas */
-.hero-net {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.hero-inner,
-.hero-baseline,
-.hero-side {
-  position: relative;
-  z-index: 1;
-}
-
 .hero-inner {
   position: relative;
   display: grid;
@@ -263,6 +244,110 @@
 
 .stat-plus {
   color: var(--accent);
+}
+
+/* ---------- Scène BOM : le viewport d'assemblage PDM ---------- */
+/* L'arbre a sa propre scène, cadrée comme une fenêtre SOLIDWORKS posée dans
+   la page : cartouche en tête, repères d'angle, règle et grille côté canvas. */
+.bom-stage {
+  padding: clamp(2rem, 5vw, 4rem) 0 clamp(1rem, 3vw, 2rem);
+}
+
+.bom-frame {
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg-1) 45%, var(--bg-0));
+}
+
+.bom-head,
+.bom-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0.75rem clamp(0.9rem, 2vw, 1.4rem);
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+.bom-head {
+  border-bottom: 1px solid var(--line);
+}
+
+.bom-foot {
+  border-top: 1px solid var(--line);
+  color: var(--ink-faint);
+}
+
+.bom-glyph,
+.bom-state {
+  color: var(--accent);
+}
+
+.bom-led {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 0.4rem;
+  border-radius: 50%;
+  background: var(--accent);
+  vertical-align: 1px;
+  animation: bom-led 2.4s ease-in-out infinite;
+}
+
+@keyframes bom-led {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bom-led {
+    animation: none;
+  }
+}
+
+.bom-viewport {
+  position: relative;
+  height: clamp(480px, 72vh, 760px);
+  overflow: hidden;
+}
+
+.bom-viewport canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* repères d'angle du viewport, comme un cartouche de mise en plan */
+.bom-tick {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 0 solid var(--accent);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.tick-tl { top: 10px; left: 10px; border-top-width: 1px; border-left-width: 1px; }
+.tick-tr { top: 10px; right: 10px; border-top-width: 1px; border-right-width: 1px; }
+.tick-bl { bottom: 10px; left: 10px; border-bottom-width: 1px; border-left-width: 1px; }
+.tick-br { bottom: 10px; right: 10px; border-bottom-width: 1px; border-right-width: 1px; }
+
+@media (max-width: 48rem) {
+  .bom-viewport {
+    height: clamp(430px, 64vh, 580px);
+  }
+
+  .bom-rev,
+  .bom-foot-right {
+    display: none;
+  }
 }
 
 /* ---------- Sections génériques ---------- */

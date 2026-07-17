@@ -125,7 +125,6 @@ function initHeroIntro() {
   tl.from('.hero-kicker', { y: 14, autoAlpha: 0, duration: 0.7 }, 0.15)
     .from('.hero-subtitle', { y: 20, autoAlpha: 0, duration: 0.8 }, 0.5)
     .from('.hero-cta > *', { y: 18, autoAlpha: 0, duration: 0.7, stagger: 0.08 }, 0.65)
-    .from('.hero-net', { autoAlpha: 0, duration: 1.6, ease: 'power2.out' }, 0.3)
     .from('.hero-side, .hero-baseline', { autoAlpha: 0, duration: 0.9 }, 0.9)
     .from('.hero-stat', { y: 24, autoAlpha: 0, duration: 0.8, stagger: 0.07 }, 0.8);
 
@@ -153,6 +152,7 @@ function initHeadingReveals() {
 
 function initReveals() {
   const groups = [
+    '.bom-frame',
     '.section .eyebrow',
     '.section-head .prose-lead',
     '.offer-card',

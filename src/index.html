@@ -64,8 +64,6 @@
     <main id="main">
         <!-- ============================== HERO ============================== -->
         <section class="hero" aria-label="Introduction">
-            <!-- réseau de données connectées : la signature du site, métaphore du PDM/PLM -->
-            <canvas class="hero-net" id="heroNet" aria-hidden="true"></canvas>
             <span class="hero-side" aria-hidden="true">PORTFOLIO — RÉV.2026</span>
             <div class="container-site hero-inner">
                 <div class="hero-copy">
@@ -109,6 +107,30 @@
                 <div class="hero-stat" role="listitem">
                     <div class="stat-value">20<span class="stat-plus">+</span></div>
                     <div class="stat-label" data-translate-key="stat_deployments_label">Déploiements complets</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================== STRUCTURE — le viewport d'assemblage PDM ============================== -->
+        <section class="bom-stage" id="structure" aria-label="Structure du portfolio, présentée comme un arbre d'assemblage PDM interactif">
+            <div class="container-site">
+                <div class="bom-frame">
+                    <div class="bom-head" aria-hidden="true">
+                        <span class="bom-file"><span class="bom-glyph">◇</span> ASM-BAOUCH.SLDASM</span>
+                        <span class="bom-state"><span class="bom-led"></span> ÉTAT — PUBLIÉ</span>
+                        <span class="bom-rev">RÉV.2026 · 4 SOUS-ASM · 11 COMPOSANTS</span>
+                    </div>
+                    <div class="bom-viewport">
+                        <canvas id="bomCanvas" aria-hidden="true"></canvas>
+                        <span class="bom-tick tick-tl" aria-hidden="true"></span>
+                        <span class="bom-tick tick-tr" aria-hidden="true"></span>
+                        <span class="bom-tick tick-bl" aria-hidden="true"></span>
+                        <span class="bom-tick tick-br" aria-hidden="true"></span>
+                    </div>
+                    <div class="bom-foot" aria-hidden="true">
+                        <span data-translate-key="bom_hint">Survolez un composant pour tracer sa chaîne — cliquez pour ouvrir</span>
+                        <span class="bom-foot-right">EBOM — STRUCTURE PRODUIT</span>
+                    </div>
                 </div>
             </div>
         </section>
