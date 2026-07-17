@@ -1845,3 +1845,34 @@ html.mzr-active button {
     animation: none;
   }
 }
+
+/* ---------- Séquence d'entrée « assemblage » : le scroll assemble le titre ---------- */
+.hero-title.is-assembling .mask-line {
+  overflow: visible;
+}
+
+.hero-assembly-readout {
+  position: absolute;
+  left: 50%;
+  top: 5.6rem;
+  transform: translateX(-50%);
+  z-index: 2;
+  padding: 0.45rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  background: color-mix(in srgb, var(--bg-0) 82%, transparent);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.hero-assembly-readout.is-done {
+  color: var(--signal);
+  border-color: color-mix(in srgb, var(--signal) 50%, transparent);
+}
