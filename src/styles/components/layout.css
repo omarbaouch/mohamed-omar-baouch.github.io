@@ -350,6 +350,111 @@
   }
 }
 
+/* ---------- Cartouches d'état : chaque contenu est un document du coffre ----------
+   Trois états : PUBLIÉ (pastille accent fixe), EXTRAIT/EN COURS (pastille qui
+   pulse — c'est le document actuellement travaillé), ARCHIVÉ (pastille éteinte). */
+.doc-state {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+
+.doc-state .bom-led {
+  width: 6px;
+  height: 6px;
+  margin-right: 0;
+  animation: none;
+}
+
+.doc-state--live .bom-led {
+  animation: bom-led 2.4s ease-in-out infinite;
+}
+
+.doc-state--archived .bom-led {
+  background: var(--ink-faint);
+  opacity: 0.55;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .doc-state--live .bom-led {
+    animation: none;
+  }
+}
+
+.card-topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* expérience : le journal de check-ins */
+.index-row summary .row-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.45rem;
+}
+
+/* footer : ligne cartouche du document site */
+.footer-cartouche {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+/* ---------- Page 404 : « référence introuvable » ---------- */
+.nf-main {
+  padding: clamp(8rem, 16vh, 11rem) 0 clamp(3rem, 7vw, 5rem);
+}
+
+.nf-led {
+  animation: none;
+  background: transparent;
+  border: 1px solid var(--accent);
+}
+
+.nf-body {
+  padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 4vw, 4rem);
+}
+
+.nf-schema {
+  width: min(320px, 60vw);
+  margin-bottom: 2rem;
+}
+
+.nf-title {
+  margin-top: 1.25rem;
+}
+
+.nf-desc {
+  margin-top: 1.25rem;
+  max-width: 52ch;
+}
+
+.nf-cta {
+  margin-top: 2.25rem;
+}
+
 /* ---------- Sections génériques ---------- */
 .section-head {
   display: grid;

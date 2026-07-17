@@ -16,6 +16,8 @@ const input = Object.fromEntries(
     .concat(fg.sync('styleguide/index.html', { cwd: srcDir }))
     .map((file) => [file.replace(/\/?index\.html$/, '') || 'main', resolve(srcDir, file)])
 );
+// page 404 signature (Vercel sert dist/404.html pour toute route inconnue)
+input['404'] = resolve(srcDir, '404.html');
 
 export default defineConfig({
   root: srcDir,
