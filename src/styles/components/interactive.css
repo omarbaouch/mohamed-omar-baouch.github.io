@@ -1,30 +1,56 @@
 /* Composants interactifs : boutons, liens animés, lignes d'index, curseur. */
 
-/* CTA pilule — magnétique via JS, mais complet sans */
+/* CTA éditorial : rectangle net, étiquette espacée, balayage au survol —
+   magnétique via JS, mais complet sans */
 .btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
-  padding: 0.9rem 1.75rem;
-  border-radius: 999px;
-  font-size: 0.95rem;
-  font-weight: 550;
-  letter-spacing: 0.01em;
+  gap: 0.7rem;
+  padding: 1rem 1.9rem;
+  border-radius: 2px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   border: 1px solid transparent;
+  overflow: hidden;
   transition:
-    background-color var(--dur-1) var(--ease-out),
     color var(--dur-1) var(--ease-out),
     border-color var(--dur-1) var(--ease-out),
     transform var(--dur-1) var(--ease-out);
 }
 
-.btn-primary {
-  background: var(--ink);
-  color: var(--bg-0);
+/* balayage : un calque accent monte depuis le bas (background-size animé) */
+.btn {
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 100% 0%;
+  transition:
+    color var(--dur-1) var(--ease-out),
+    border-color var(--dur-1) var(--ease-out),
+    background-size 0.45s var(--ease-out),
+    transform var(--dur-1) var(--ease-out);
 }
 
-.btn-primary:hover {
-  background: var(--accent);
+.btn:hover {
+  background-size: 100% 100%;
+}
+
+.btn::after {
+  content: '→';
+  font-size: 0.9em;
+  transition: transform 0.35s var(--ease-out);
+}
+
+.btn:hover::after {
+  transform: translateX(4px);
+}
+
+.btn-primary {
+  background-color: var(--ink);
+  color: var(--bg-0);
 }
 
 .btn-ghost {
@@ -33,7 +59,8 @@
 }
 
 .btn-ghost:hover {
-  border-color: var(--ink);
+  border-color: var(--accent);
+  color: var(--bg-0);
 }
 
 /* lien avec soulignement qui se déplie */

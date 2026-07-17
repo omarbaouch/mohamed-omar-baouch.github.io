@@ -20,6 +20,20 @@ initI18n();
 initNav();
 runLoader();
 
+// heure locale de Strasbourg (hero + footer) — détail vivant, mis à jour à la minute
+function tickClock() {
+  const t = new Intl.DateTimeFormat('fr-FR', {
+    hour: '2-digit',
+    minute: '2-digit',
+    timeZone: 'Europe/Paris',
+  }).format(new Date());
+  document.querySelectorAll('.js-time').forEach((el) => {
+    el.textContent = t;
+  });
+}
+tickClock();
+setInterval(tickClock, 30000);
+
 import('./modules/chatbot.js').then(({ initChatbot }) => initChatbot());
 import('./modules/contact-form.js').then(({ initContactForm }) => initContactForm());
 
