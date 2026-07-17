@@ -53,3 +53,10 @@ if ('requestIdleCallback' in window) {
 if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
   import('./modules/motion.js').then(({ initMotion }) => initMotion());
 }
+
+// cartouche console — pour les curieux qui ouvrent les DevTools
+console.log(
+  '%c◇ ASM-BAOUCH · RÉV.2026 · ÉTAT : PUBLIÉ\n%cSite fait main — Vite, canvas 2D, GSAP. Zéro template.\nUne question PDM/PLM ? mohamed.omar.baouch@gmail.com  ·  Ctrl+K pour explorer le coffre.',
+  'color:#6fa8d6;font-family:monospace;font-size:12px;font-weight:bold',
+  'color:#9b9891;font-family:monospace;font-size:11px'
+);
