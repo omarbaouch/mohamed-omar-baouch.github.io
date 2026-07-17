@@ -1,3 +1,4 @@
+<meta name="theme-color" id="metaThemeColor" content="#faf9f6">
 <script>
     // Anti-flash de thème : doit rester inline (jamais bundlé) pour s'exécuter avant le premier paint.
     // Nouveau défaut : clair. L'ancien site stockait 'dark' par défaut — on le respecte s'il est présent.
@@ -5,6 +6,8 @@
         var t = localStorage.getItem('theme');
         if (t === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
+            var m = document.getElementById('metaThemeColor');
+            if (m) m.setAttribute('content', '#0e0f11');
         }
     })();
 </script>

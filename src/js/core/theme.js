@@ -12,6 +12,8 @@ export function initTheme() {
     }
     // nettoie les classes héritées éventuelles
     root.classList.remove('dark-theme', 'light-theme', 'dark');
+    // la barre du navigateur suit le thème (mobile surtout)
+    document.getElementById('metaThemeColor')?.setAttribute('content', dark ? '#0e0f11' : '#faf9f6');
   };
 
   apply(localStorage.getItem('theme') === 'dark');
