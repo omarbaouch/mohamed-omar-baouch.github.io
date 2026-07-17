@@ -7,10 +7,12 @@ import '../styles/blog-longform.css';
 import { initI18n } from './core/i18n.js';
 import { initTheme } from './core/theme.js';
 import { initNav } from './core/nav.js';
+import { initCmdk } from './core/cmdk.js';
 
 initTheme();
 initI18n();
 initNav();
+initCmdk();
 
 import('./modules/chatbot.js').then(({ initChatbot }) => initChatbot());
 

@@ -312,6 +312,7 @@
 
 .bom-viewport {
   position: relative;
+  touch-action: pan-y;
   height: clamp(480px, 72vh, 760px);
   overflow: hidden;
 }
@@ -1154,4 +1155,194 @@ footer.theme-invert {
   transform: translate(-50%, -60%);
   will-change: transform, opacity;
   font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Palette « recherche PDM » (Ctrl+K) ---------- */
+.cmdk-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink-dim);
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: color var(--dur-1) var(--ease-out), border-color var(--dur-1) var(--ease-out);
+}
+
+.cmdk-btn kbd {
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+}
+
+.cmdk-btn:hover {
+  color: var(--ink);
+  border-color: var(--ink-dim);
+}
+
+html.cmdk-lock,
+html.cmdk-lock body {
+  overflow: hidden;
+}
+
+.cmdk {
+  position: fixed;
+  inset: 0;
+  z-index: 180;
+  display: none;
+}
+
+.cmdk.is-open {
+  display: block;
+}
+
+.cmdk-backdrop {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--bg-0) 55%, transparent);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+}
+
+.cmdk-panel {
+  position: relative;
+  width: min(620px, calc(100vw - 2rem));
+  margin: 16vh auto 0;
+  border: 1px solid var(--line-strong, var(--line));
+  background: var(--bg-0);
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.35);
+  animation: cmdk-in 0.22s var(--ease-out, ease) both;
+}
+
+@keyframes cmdk-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cmdk-panel {
+    animation: none;
+  }
+}
+
+.cmdk-head,
+.cmdk-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.cmdk-head {
+  border-bottom: 1px solid var(--line);
+}
+
+.cmdk-head .cmdk-label {
+  color: var(--accent);
+}
+
+.cmdk-foot {
+  border-top: 1px solid var(--line);
+}
+
+.cmdk-inputrow {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.cmdk-prompt {
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  color: var(--accent);
+}
+
+.cmdk-input {
+  flex: 1;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  color: var(--ink);
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+.cmdk-input::placeholder {
+  color: var(--ink-faint);
+}
+
+.cmdk-list {
+  max-height: min(46vh, 420px);
+  overflow-y: auto;
+  padding: 0.4rem 0;
+}
+
+.cmdk-item {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.62rem 1rem;
+  cursor: pointer;
+}
+
+.cmdk-item .cmdk-ref {
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cmdk-item .cmdk-title {
+  font-size: 0.92rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cmdk-item .cmdk-type {
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.56rem;
+  letter-spacing: 0.12em;
+  color: var(--ink-faint);
+}
+
+.cmdk-item[aria-selected='true'] {
+  background: color-mix(in srgb, var(--accent) 9%, transparent);
+  box-shadow: inset 2px 0 0 var(--accent);
+}
+
+.cmdk-empty {
+  padding: 1.4rem 1rem;
+  font-size: 0.9rem;
+  color: var(--ink-faint);
+}
+
+@media (max-width: 40rem) {
+  .cmdk-btn kbd {
+    display: none;
+  }
+
+  .cmdk-item {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .cmdk-item .cmdk-ref {
+    display: none;
+  }
 }

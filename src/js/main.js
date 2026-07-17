@@ -4,6 +4,7 @@ import '../styles/main.css';
 import { initI18n } from './core/i18n.js';
 import { initTheme } from './core/theme.js';
 import { initNav } from './core/nav.js';
+import { initCmdk } from './core/cmdk.js';
 import { runLoader } from './core/loader.js';
 
 // le rideau est armé le plus tôt possible pour éviter tout flash de contenu
@@ -18,6 +19,7 @@ if (
 initTheme();
 initI18n();
 initNav();
+initCmdk();
 runLoader();
 
 // heure locale de Strasbourg (hero + footer) — détail vivant, mis à jour à la minute

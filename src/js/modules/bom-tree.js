@@ -74,6 +74,14 @@ export function initBomTree() {
   let hovered = null;
   let hoverGlow = 0; // intensité lissée du survol
 
+  // manipulation : nœud saisi au pointeur (ressort) + vue éclatée (clic racine)
+  let dragging = null;
+  let dragMoved = 0;
+  const exploded = { target: 0, k: 0 };
+  const SPRING_K = 0.09;
+  const SPRING_DAMP = 0.86;
+  const DRAG_RADIUS = 110; // déplacement max d'un nœud saisi
+
   // impulsions : chacune suit un chemin racine→feuille complet, avec traînée
   const pulses = [];
 
@@ -134,6 +142,51 @@ export function initBomTree() {
     for (let i = 0; i < Math.min(3, leaves.length); i++) {
       pulses.push({ leaf: leaves[(i * 4 + 1) % leaves.length], t: -i * 0.45, trail: [] });
     }
+    // état de ressort de chaque nœud (déplacement + vitesse)
+    for (const n of nodes) {
+      n.dx = 0;
+      n.dy = 0;
+      n.vx = 0;
+      n.vy = 0;
+    }
+  }
+
+  // décalage de la vue éclatée : chaque nœud s'écarte de la racine
+  function explodeOffset(n) {
+    if (!exploded.k || n.depth === 0) return { x: 0, y: 0 };
+    const root0 = nodes[0];
+    return { x: (n.x - root0.x) * 0.16 * exploded.k, y: (n.y - root0.y) * 0.2 * exploded.k };
+  }
+
+  // position courante (base + ressort + éclatée), sans la dérive sinusoïdale
+  function curPos(n) {
+    const e = explodeOffset(n);
+    return { x: n.x + n.dx + e.x, y: n.y + n.dy + e.y };
+  }
+
+  // physique des ressorts : les nœuds voisins du nœud saisi sont entraînés,
+  // tout revient en place au relâcher
+  function physics() {
+    for (const n of nodes) {
+      if (n === dragging) continue;
+      let tx = 0;
+      let ty = 0;
+      if (dragging) {
+        if (n.parent === dragging) {
+          tx = dragging.dx * 0.35;
+          ty = dragging.dy * 0.35;
+        } else if (dragging.parent === n) {
+          tx = dragging.dx * 0.22;
+          ty = dragging.dy * 0.22;
+        }
+      }
+      n.vx = (n.vx + (tx - n.dx) * SPRING_K) * SPRING_DAMP;
+      n.vy = (n.vy + (ty - n.dy) * SPRING_K) * SPRING_DAMP;
+      n.dx += n.vx;
+      n.dy += n.vy;
+    }
+    exploded.k += (exploded.target - exploded.k) * 0.07;
+    if (Math.abs(exploded.k) < 0.001) exploded.k = 0;
   }
 
   // fond du viewport : grille de points + règle graduée, rendus une fois
@@ -184,8 +237,9 @@ export function initBomTree() {
 
   function nodePos(n, now) {
     if (reduce) return { x: n.x, y: n.y };
+    const p = curPos(n);
     const t = now * 0.001;
-    return { x: n.x + Math.sin(t * 0.5 + n.phase) * 3, y: n.y + Math.cos(t * 0.4 + n.phase) * 3 };
+    return { x: p.x + Math.sin(t * 0.5 + n.phase) * 3, y: p.y + Math.cos(t * 0.4 + n.phase) * 3 };
   }
 
   function inChain(n) {
@@ -270,6 +324,9 @@ export function initBomTree() {
       if (lit && !reduce) {
         ctx.setLineDash([6, 5]);
         ctx.lineDashOffset = -(now * 0.02);
+      } else if (exploded.k > 0.05 && !reduce) {
+        // vue éclatée : les liens deviennent des traits de construction
+        ctx.setLineDash([4, 4]);
       }
       linkPath(pa, pb, k);
       ctx.stroke();
@@ -414,6 +471,20 @@ export function initBomTree() {
         ctx.fillStyle = `rgba(${A},${(alpha * 0.95).toFixed(3)})`;
         ctx.fillText(n.rev, tx, ty + 8);
       }
+      // indice d'interaction sur la racine : elle pilote la vue éclatée
+      if (isRoot && n === hovered && !reduce && !dragging) {
+        const en = document.documentElement.lang === 'en';
+        const hint = exploded.target
+          ? en
+            ? 'CLICK — REASSEMBLE'
+            : 'CLIC — RÉASSEMBLER'
+          : en
+            ? 'CLICK — EXPLODED VIEW'
+            : 'CLIC — VUE ÉCLATÉE';
+        ctx.font = `500 9px ui-monospace, "SF Mono", Menlo, monospace`;
+        ctx.fillStyle = `rgba(${A},0.85)`;
+        ctx.fillText(hint, tx, ty + 22);
+      }
     }
     if ('letterSpacing' in ctx) ctx.letterSpacing = '0px';
   }
@@ -423,7 +494,8 @@ export function initBomTree() {
     let best = null;
     let bd = 26;
     for (const n of nodes) {
-      const d = Math.hypot(n.x - x, n.y - y);
+      const p = curPos(n);
+      const d = Math.hypot(p.x - x, p.y - y);
       if (d < bd) {
         bd = d;
         best = n;
@@ -431,22 +503,62 @@ export function initBomTree() {
     }
     return best;
   }
+  stage.addEventListener('pointerdown', (e) => {
+    if (reduce) return;
+    const b = stage.getBoundingClientRect();
+    const n = nodeAt(e.clientX - b.left, e.clientY - b.top);
+    if (n) {
+      dragging = n;
+      dragMoved = 0;
+      stage.setPointerCapture(e.pointerId);
+      e.preventDefault();
+    }
+  });
   stage.addEventListener(
     'pointermove',
     (e) => {
       const b = stage.getBoundingClientRect();
       pointer.x = e.clientX - b.left;
       pointer.y = e.clientY - b.top;
+      if (dragging) {
+        // le nœud saisi suit le pointeur, bridé à un rayon max
+        const ex = explodeOffset(dragging);
+        let ddx = pointer.x - dragging.x - ex.x;
+        let ddy = pointer.y - dragging.y - ex.y;
+        const len = Math.hypot(ddx, ddy);
+        if (len > DRAG_RADIUS) {
+          ddx = (ddx / len) * DRAG_RADIUS;
+          ddy = (ddy / len) * DRAG_RADIUS;
+        }
+        dragMoved = Math.max(dragMoved, len);
+        dragging.dx = ddx;
+        dragging.dy = ddy;
+        return;
+      }
       const n = nodeAt(pointer.x, pointer.y);
       if (n !== hovered) {
         hovered = n;
-        stage.style.cursor = n && n.href ? 'pointer' : '';
+        stage.style.cursor = n && (n.href || n.depth === 0) ? 'pointer' : '';
         if (reduce) draw(1e9);
       }
     },
-    { passive: true }
+    { passive: false }
   );
+  const release = () => {
+    dragging = null;
+  };
+  stage.addEventListener('pointerup', release);
+  stage.addEventListener('pointercancel', release);
   stage.addEventListener('click', () => {
+    // un drag n'est pas un clic
+    if (dragMoved > 8) {
+      dragMoved = 0;
+      return;
+    }
+    if (hovered && hovered.depth === 0 && !reduce) {
+      exploded.target = exploded.target ? 0 : 1;
+      return;
+    }
     if (hovered?.href) {
       if (hovered.href.startsWith('#')) {
         document.querySelector(hovered.href)?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
@@ -480,6 +592,7 @@ export function initBomTree() {
     if (!started || !visible || document.hidden) return;
     if (now - last < 32) return;
     last = now;
+    physics();
     draw(now);
   }
   requestAnimationFrame(frame);
