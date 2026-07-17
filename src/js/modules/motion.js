@@ -196,6 +196,21 @@ function initWatermarks() {
   });
 }
 
+function initPhotoBand() {
+  // la bande atelier glisse doucement pendant la traversée (parallax interne)
+  const img = document.querySelector('.photo-band img');
+  if (!img) return;
+  gsap.fromTo(
+    img,
+    { yPercent: -7 },
+    {
+      yPercent: 7,
+      ease: 'none',
+      scrollTrigger: { trigger: '.photo-band', start: 'top bottom', end: 'bottom top', scrub: 0.6 },
+    }
+  );
+}
+
 function initCounters() {
   gsap.utils.toArray('.stat-value').forEach((el) => {
     const num = parseInt(el.textContent, 10);
@@ -396,6 +411,7 @@ export function initMotion() {
   initHeadingReveals();
   initReveals();
   initWatermarks();
+  initPhotoBand();
   initCounters();
   initVelocityMarquee();
   initCardTilt();

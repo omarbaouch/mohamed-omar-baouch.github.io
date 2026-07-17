@@ -220,5 +220,6 @@
   "nf_desc": "The requested document does not exist in the vault — it may have been moved, renamed or archived without ownership transfer.",
   "nf_home": "Back to root",
   "nf_blog": "Browse the blog",
-  "nf_hint": "Requested path missing from the ASM-BAOUCH tree"
+  "nf_hint": "Requested path missing from the ASM-BAOUCH tree",
+  "band_caption": "IN THE FIELD — 80+ INDUSTRIAL SITES EQUIPPED"
 }

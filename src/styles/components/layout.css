@@ -1099,6 +1099,7 @@ html.is-loading {
   --line: color-mix(in srgb, #f4f3f0 14%, transparent);
   --line-strong: color-mix(in srgb, #f4f3f0 30%, transparent);
   --accent: #6fa8d6;
+  --signal: #e89457;
   --shadow-soft: 0 24px 48px -24px rgb(0 0 0 / 0.6);
   background: var(--bg-0);
   color: var(--ink);
@@ -1116,6 +1117,7 @@ html.is-loading {
   --line: color-mix(in srgb, #141517 12%, transparent);
   --line-strong: color-mix(in srgb, #141517 28%, transparent);
   --accent: #2f6e9b;
+  --signal: #c65a1e;
   --shadow-soft: 0 24px 48px -24px color-mix(in srgb, #141517 18%, transparent);
 }
 
@@ -1345,4 +1347,210 @@ html.cmdk-lock body {
   .cmdk-item .cmdk-ref {
     display: none;
   }
+}
+
+/* ---------- Sprint couleur & matière ---------- */
+
+/* halo aurora du hero : deux nappes accent + signal qui dérivent lentement */
+.hero::before,
+.hero::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  width: 46vw;
+  height: 46vw;
+  min-width: 420px;
+  min-height: 420px;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+
+.hero::before {
+  top: -12%;
+  right: -8%;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 16%, transparent), transparent 70%);
+  animation: aurora-a 26s var(--ease-in-out) infinite alternate;
+}
+
+.hero::after {
+  bottom: -18%;
+  left: -10%;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--signal) 11%, transparent), transparent 70%);
+  animation: aurora-b 32s var(--ease-in-out) infinite alternate;
+}
+
+@keyframes aurora-a {
+  to {
+    transform: translate3d(-9vw, 7vh, 0) scale(1.15);
+  }
+}
+
+@keyframes aurora-b {
+  to {
+    transform: translate3d(8vw, -6vh, 0) scale(1.12);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::before,
+  .hero::after {
+    animation: none;
+  }
+}
+
+.hero-inner,
+.hero-baseline,
+.hero-stats {
+  position: relative;
+  z-index: 1;
+}
+
+/* médias duotones des cartes projets : gris + teinte accent, la couleur
+   réelle revient au survol — même geste que sur le blog */
+.card-media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 1.15rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.05) brightness(0.96);
+  transition: filter 0.6s var(--ease-out), transform 0.9s var(--ease-out);
+}
+
+.card-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  mix-blend-mode: color;
+  opacity: 0.9;
+  transition: opacity 0.6s var(--ease-out);
+  pointer-events: none;
+}
+
+.project-card:nth-child(3n + 2) .card-media::after {
+  background: var(--signal);
+}
+
+.project-card:hover .card-media img {
+  filter: none;
+  transform: scale(1.04);
+}
+
+.project-card:hover .card-media::after {
+  opacity: 0;
+}
+
+/* bande photo pleine largeur : l'atelier, entre compétences et formation */
+.photo-band {
+  position: relative;
+  height: clamp(300px, 52vh, 560px);
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.photo-band img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 118%;
+  top: -9%;
+  object-fit: cover;
+  will-change: transform;
+}
+
+.photo-band::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(14 15 17 / 0.28), transparent 35%, transparent 60%, rgb(14 15 17 / 0.5));
+  pointer-events: none;
+}
+
+.photo-band-caption {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem var(--gutter);
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #f4f3f0;
+}
+
+/* marquee : un mot sur trois passe au signal */
+.stack-marquee .marquee-track span:not(.marquee-dot):nth-of-type(6n + 3) {
+  color: var(--signal);
+}
+
+.stack-marquee .marquee-dot {
+  color: var(--accent);
+}
+
+/* filigranes de section : chiffres en contour, teintés en alternance */
+.section-watermark {
+  color: transparent;
+  -webkit-text-stroke: 1.5px color-mix(in srgb, var(--accent) 26%, transparent);
+}
+
+.section:nth-of-type(even) .section-watermark {
+  -webkit-text-stroke-color: color-mix(in srgb, var(--signal) 26%, transparent);
+}
+
+/* formes techniques autour du portrait : losange accent + hachures signal */
+.about-media {
+  position: relative;
+}
+
+.about-media::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  width: 110px;
+  height: 110px;
+  border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+.about-media::after {
+  content: '';
+  position: absolute;
+  right: -20px;
+  bottom: -20px;
+  width: 150px;
+  height: 96px;
+  background: repeating-linear-gradient(
+    45deg,
+    color-mix(in srgb, var(--signal) 60%, transparent) 0 1px,
+    transparent 1px 8px
+  );
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* l'état « extrait » vit en orange — la couleur du check-out PDM */
+.doc-state--live {
+  color: var(--signal);
+}
+
+.doc-state--live .bom-led {
+  background: var(--signal);
 }

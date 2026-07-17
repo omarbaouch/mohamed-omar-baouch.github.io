@@ -87,6 +87,7 @@ export function initBomTree() {
 
   let ink = { r: 244, g: 243, b: 240 };
   let accent = { r: 111, g: 168, b: 214 };
+  let signal = { r: 198, g: 90, b: 30 }; // orange de sélection CAO
   let paper = { r: 14, g: 15, b: 17 };
   const hexToRgb = (hex) => {
     const m = /^#?([0-9a-f]{6})$/i.exec(hex.trim());
@@ -97,6 +98,7 @@ export function initBomTree() {
   function readTheme() {
     const s = getComputedStyle(document.documentElement);
     accent = hexToRgb(s.getPropertyValue('--accent')) || accent;
+    signal = hexToRgb(s.getPropertyValue('--signal')) || signal;
     ink = hexToRgb(s.getPropertyValue('--ink')) || ink;
     paper = hexToRgb(s.getPropertyValue('--bg-0')) || paper;
   }
@@ -293,6 +295,7 @@ export function initBomTree() {
     ctx.clearRect(0, 0, w, h);
     const elapsed = reduce ? 1e9 : now - startTime;
     const A = `${accent.r},${accent.g},${accent.b}`;
+    const S = `${signal.r},${signal.g},${signal.b}`; // sélection = orange CAO
     const I = `${ink.r},${ink.g},${ink.b}`;
     const P = `${paper.r},${paper.g},${paper.b}`;
     hoverGlow += ((hovered ? 1 : 0) - hoverGlow) * 0.12;
@@ -313,8 +316,8 @@ export function initBomTree() {
       const lit = hovered && inChain(l.b) && inChain(l.a);
       const grad = ctx.createLinearGradient(pa.x, pa.y, pb.x, pb.y);
       if (lit) {
-        grad.addColorStop(0, `rgba(${A},0.95)`);
-        grad.addColorStop(1, `rgba(${A},0.55)`);
+        grad.addColorStop(0, `rgba(${S},0.95)`);
+        grad.addColorStop(1, `rgba(${S},0.55)`);
       } else {
         grad.addColorStop(0, `rgba(${A},0.42)`);
         grad.addColorStop(1, `rgba(${A},0.12)`);
@@ -387,11 +390,12 @@ export function initBomTree() {
       const isBranch = n.depth === 1;
       const size = (isRoot ? 6.5 : isBranch ? 5 : 3.4) * k * (lit ? 1.25 : 1);
 
-      // halo lumineux
+      // halo lumineux — orange de sélection quand le nœud est dans la chaîne
+      const C = lit ? S : A;
       const hr = (isRoot ? 26 : isBranch ? 20 : 12) * k * (lit ? 1.5 : 1);
       const halo = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, hr);
-      halo.addColorStop(0, `rgba(${A},${lit ? 0.5 : isRoot ? 0.4 : 0.25})`);
-      halo.addColorStop(1, `rgba(${A},0)`);
+      halo.addColorStop(0, `rgba(${C},${lit ? 0.5 : isRoot ? 0.4 : 0.25})`);
+      halo.addColorStop(1, `rgba(${C},0)`);
       ctx.fillStyle = halo;
       ctx.beginPath();
       ctx.arc(p.x, p.y, hr, 0, 6.283);
@@ -402,7 +406,7 @@ export function initBomTree() {
         ctx.save();
         ctx.translate(p.x, p.y);
         ctx.rotate(Math.PI / 4);
-        ctx.fillStyle = `rgba(${A},${lit ? 1 : 0.9})`;
+        ctx.fillStyle = `rgba(${C},${lit ? 1 : 0.9})`;
         ctx.fillRect(-size, -size, size * 2, size * 2);
         ctx.fillStyle = `rgba(255,255,255,${lit ? 0.85 : 0.5})`;
         ctx.fillRect(-size * 0.38, -size * 0.38, size * 0.76, size * 0.76);
@@ -411,14 +415,14 @@ export function initBomTree() {
         if (!reduce) {
           const ro = (isRoot ? 13 : 10) + Math.sin(now * 0.0012 + n.phase) * 1.2;
           const a0 = now * 0.0009 + n.phase;
-          ctx.strokeStyle = `rgba(${A},${lit ? 0.7 : 0.32})`;
+          ctx.strokeStyle = `rgba(${C},${lit ? 0.7 : 0.32})`;
           ctx.lineWidth = 1;
           ctx.beginPath();
           ctx.arc(p.x, p.y, ro, a0, a0 + 4.2);
           ctx.stroke();
         }
       } else {
-        ctx.fillStyle = `rgba(${A},${lit ? 1 : 0.75})`;
+        ctx.fillStyle = `rgba(${C},${lit ? 1 : 0.75})`;
         ctx.beginPath();
         ctx.arc(p.x, p.y, size, 0, 6.283);
         ctx.fill();

@@ -19,8 +19,12 @@
   --line: color-mix(in srgb, var(--ink) 12%, transparent);
   --line-strong: color-mix(in srgb, var(--ink) 28%, transparent);
 
-  /* accent unique — bleu héritage de l'identité actuelle */
+  /* accent — bleu héritage de l'identité actuelle */
   --accent: #2f6e9b;
+
+  /* signal — l'orange de sélection CAO : mots-clés, états « extrait »,
+     sélection de l'arbre. Second accent, jamais dominant. */
+  --signal: #c65a1e;
 
   /* élévation douce pour cartes/imgs sur fond clair */
   --shadow-soft: 0 24px 48px -24px color-mix(in srgb, var(--ink) 18%, transparent);
@@ -52,6 +56,7 @@
   --line-strong: color-mix(in srgb, var(--ink) 30%, transparent);
 
   --accent: #6fa8d6;
+  --signal: #e89457;
 
   --shadow-soft: 0 24px 48px -24px rgb(0 0 0 / 0.6);
 
