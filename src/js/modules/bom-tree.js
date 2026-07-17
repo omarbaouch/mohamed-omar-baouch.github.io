@@ -1,11 +1,11 @@
-// Signature du site : l'ARBRE D'ASSEMBLAGE PDM — rendu « pièce maîtresse ».
-// La structure du site dessinée comme une nomenclature SOLIDWORKS PDM :
-// épine dorsale EBOM qui traverse la composition typographique, coudes à
-// congés arrondis (routage CAO), halos lumineux, anneaux orbitaux sur les
-// assemblages, impulsions de check-in à traînée circulant sur des chemins
-// complets, flux animé sur la chaîne des cas d'emploi au survol, et
-// estompage doux derrière les lettres du titre pour une vraie intégration.
-// Canvas 2D, thème-aware, 30 i/s, statique en reduced-motion.
+// Signature du site : l'ARBRE D'ASSEMBLAGE PDM, mis en scène dans son propre
+// viewport (section .bom-stage) comme une fenêtre SOLIDWORKS posée dans la
+// page. Arborescence gauche→droite type nomenclature : racine, sous-
+// assemblages, composants ; coudes à congés arrondis (routage CAO), halos,
+// anneaux orbitaux, impulsions de check-in à traînée, chaîne des cas
+// d'emploi animée au survol, grille et règle graduées en fond. L'assemblage
+// se construit quand la scène entre à l'écran. Canvas 2D, thème-aware,
+// 30 i/s, statique en reduced-motion.
 
 const TREE = {
   ref: 'ASM-BAOUCH',
@@ -55,20 +55,21 @@ const TREE = {
 };
 
 export function initBomTree() {
-  const canvas = document.getElementById('heroNet');
+  const canvas = document.getElementById('bomCanvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
-  const hero = canvas.parentElement;
+  const stage = canvas.parentElement; // .bom-viewport
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const startTime = performance.now();
+  // l'assemblage démarre quand la scène devient visible, pas au chargement
+  let started = reduce;
+  let startTime = performance.now();
 
   let w = 0;
   let h = 0;
   let compact = false;
   let nodes = [];
   let links = [];
-  let titleRects = []; // zones du titre : l'arbre s'y estompe
-  let spineY = 0;
+  let grid = null; // fond statique (grille + règle), redessiné au resize/thème
   const pointer = { x: -9999, y: -9999 };
   let hovered = null;
   let hoverGlow = 0; // intensité lissée du survol
@@ -95,58 +96,35 @@ export function initBomTree() {
   document.getElementById('themeSwitch')?.addEventListener('click', () => {
     requestAnimationFrame(() => {
       readTheme();
+      buildGrid();
       if (reduce) draw(1e9);
     });
   });
 
-  let guardRects = []; // zones interactives : l'arbre s'y efface totalement
-  function measureTitle() {
-    titleRects = [];
-    guardRects = [];
-    const hb = hero.getBoundingClientRect();
-    hero.querySelectorAll('.hero-title .mask-line').forEach((line, i) => {
-      const r = line.getBoundingClientRect();
-      // tissage : l'arbre passe DEVANT la ligne centrale (i === 1) et
-      // DERRIÈRE les deux autres — trois plans de profondeur
-      titleRects.push({
-        x: r.left - hb.left,
-        y: r.top - hb.top,
-        w: r.width,
-        h: r.height,
-        weaveFront: i === 1,
-      });
-    });
-    hero.querySelectorAll('.hero-under, .hero-kicker, .hero-baseline').forEach((el) => {
-      const r = el.getBoundingClientRect();
-      guardRects.push({ x: r.left - hb.left, y: r.top - hb.top, w: r.width, h: r.height });
-    });
-  }
-
+  // arborescence de nomenclature, gauche→droite : racine à gauche,
+  // sous-assemblages au centre, composants à droite — chaque niveau lisible
   function layout() {
     nodes = [];
     links = [];
     pulses.length = 0;
-    compact = w < 900;
-    const rootX = compact ? w * 0.5 : w * 0.6;
-    const rootY = compact ? h * 0.86 : h * 0.44;
-    spineY = rootY;
-    const spread = compact ? Math.min(w, 560) : Math.min(w * 0.36, 470);
+    compact = w < 760;
+    const rootX = compact ? w * 0.09 : w * 0.13;
+    const rootY = h * 0.5;
+    const branchX = compact ? w * 0.38 : w * 0.42;
+    const leafX = compact ? w * 0.72 : w * 0.68;
     const root = { ...TREE, x: rootX, y: rootY, depth: 0, parent: null, t0: 0, phase: Math.random() * 6.28 };
     nodes.push(root);
-    const arc = compact ? [200, 250, 290, 340] : [-72, -24, 24, 72];
+    const nB = TREE.children.length;
     TREE.children.forEach((branch, bi) => {
-      const angle = (arc[bi] * Math.PI) / 180;
-      const bx = rootX + Math.cos(angle) * spread * (compact ? 0.42 : 0.52);
-      const by = rootY + Math.sin(angle) * spread * (compact ? 0.42 : 0.52) * (compact ? 1 : 0.72);
-      const bNode = { ...branch, x: bx, y: by, depth: 1, parent: root, t0: 350 + bi * 220, phase: Math.random() * 6.28 };
+      const by = h * (0.15 + (bi * 0.7) / (nB - 1));
+      const bNode = { ...branch, x: branchX, y: by, depth: 1, parent: root, t0: 350 + bi * 220, phase: Math.random() * 6.28 };
       nodes.push(bNode);
       links.push({ a: root, b: bNode, t0: bNode.t0 - 150 });
-      (compact ? branch.children.slice(0, 2) : branch.children).forEach((leaf, li) => {
-        const la = angle + (li - (branch.children.length - 1) / 2) * (compact ? 0.5 : 0.42);
-        let lx = bx + Math.cos(la) * spread * (compact ? 0.3 : 0.34);
-        const ly = by + Math.sin(la) * spread * (compact ? 0.3 : 0.34) * (compact ? 1 : 0.72);
-        lx = Math.min(lx, w - 130);
-        const lNode = { ...leaf, x: lx, y: ly, depth: 2, parent: bNode, t0: bNode.t0 + 260 + li * 140, phase: Math.random() * 6.28 };
+      const kids = compact ? branch.children.slice(0, 2) : branch.children;
+      const step = Math.min(h * 0.09, compact ? 46 : 58);
+      kids.forEach((leaf, li) => {
+        const ly = by + (li - (kids.length - 1) / 2) * step;
+        const lNode = { ...leaf, x: leafX, y: ly, depth: 2, parent: bNode, t0: bNode.t0 + 260 + li * 140, phase: Math.random() * 6.28 };
         nodes.push(lNode);
         links.push({ a: bNode, b: lNode, t0: lNode.t0 - 120 });
       });
@@ -158,15 +136,47 @@ export function initBomTree() {
     }
   }
 
+  // fond du viewport : grille de points + règle graduée, rendus une fois
+  function buildGrid() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    grid = document.createElement('canvas');
+    grid.width = Math.max(1, Math.round(w * dpr));
+    grid.height = Math.max(1, Math.round(h * dpr));
+    const g = grid.getContext('2d');
+    g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const I = `${ink.r},${ink.g},${ink.b}`;
+    const A = `${accent.r},${accent.g},${accent.b}`;
+    g.fillStyle = `rgba(${I},0.07)`;
+    for (let gx = 28; gx < w; gx += 46) {
+      for (let gy = 28; gy < h; gy += 46) g.fillRect(gx, gy, 1, 1);
+    }
+    // règle graduée en pied de viewport, comme un cartouche de mise en plan
+    const ry = h - 22;
+    g.strokeStyle = `rgba(${A},0.2)`;
+    g.lineWidth = 1;
+    g.beginPath();
+    g.moveTo(24, ry);
+    g.lineTo(w - 24, ry);
+    g.stroke();
+    for (let gx = 24, i = 0; gx < w - 24; gx += 30, i++) {
+      const major = i % 5 === 0;
+      g.strokeStyle = `rgba(${A},${major ? 0.34 : 0.18})`;
+      g.beginPath();
+      g.moveTo(gx, ry);
+      g.lineTo(gx, ry - (major ? 8 : 4));
+      g.stroke();
+    }
+  }
+
   function resize() {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    w = hero.clientWidth;
-    h = hero.clientHeight;
+    w = stage.clientWidth;
+    h = stage.clientHeight;
     canvas.width = Math.round(w * dpr);
     canvas.height = Math.round(h * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     layout();
-    measureTitle();
+    buildGrid();
     if (reduce) draw(1e9);
   }
 
@@ -233,32 +243,11 @@ export function initBomTree() {
     const P = `${paper.r},${paper.g},${paper.b}`;
     hoverGlow += ((hovered ? 1 : 0) - hoverGlow) * 0.12;
 
-    // ---- épine dorsale EBOM : elle relie la composition typo à la racine
-    if (!compact) {
-      const sk = ease((elapsed - 100) / 900);
-      if (sk > 0) {
-        const x0 = w * 0.045;
-        const x1 = nodes[0].x;
-        ctx.strokeStyle = `rgba(${A},0.14)`;
-        ctx.lineWidth = 1;
-        ctx.setLineDash([1, 7]);
-        ctx.beginPath();
-        ctx.moveTo(x0, spineY);
-        ctx.lineTo(x0 + (x1 - x0) * sk, spineY);
-        ctx.stroke();
-        ctx.setLineDash([]);
-        // graduations
-        for (let gx = x0; gx < x0 + (x1 - x0) * sk; gx += 90) {
-          ctx.strokeStyle = `rgba(${A},0.22)`;
-          ctx.beginPath();
-          ctx.moveTo(gx, spineY - 4);
-          ctx.lineTo(gx, spineY + 4);
-          ctx.stroke();
-        }
-        ctx.font = `500 9px ui-monospace, "SF Mono", Menlo, monospace`;
-        ctx.fillStyle = `rgba(${I},${0.34 * sk})`;
-        ctx.fillText('EBOM — STRUCTURE PRODUIT', x0, spineY - 10);
-      }
+    // ---- fond : grille de points + règle graduée (pré-rendus)
+    if (grid) {
+      ctx.globalAlpha = Math.min(1, ease(elapsed / 700));
+      ctx.drawImage(grid, 0, 0, w, h);
+      ctx.globalAlpha = 1;
     }
 
     // ---- liens : congés arrondis + dégradé le long du lien
@@ -389,22 +378,23 @@ export function initBomTree() {
       const alpha = k * (lit ? 1 : isRoot ? 0.9 : isBranch ? 0.72 : 0.5);
       const tw = ctx.measureText(n.ref).width;
       const labelHits = (x, y) =>
-        titleRects.some(
-          (r) => x + tw > r.x && x - 4 < r.x + r.w && y + fs > r.y && y - fs * 1.4 < r.y + r.h
-        ) ||
         placedLabels.some(
           (r) => x + tw > r.x && x - 6 < r.x + r.w && y + fs > r.y && y - fs * 1.4 < r.y + r.h
         );
-      // positions candidates : droite du nœud, dessous, dessus, gauche —
-      // la première qui n'entre en collision ni avec le titre ni avec une
-      // étiquette déjà posée gagne (la dernière sert de repli)
+      // positions candidates selon le niveau : les assemblages étiquettent
+      // au-dessus (leurs liens partent à droite), les composants à droite ;
+      // la première position sans chevauchement d'étiquette gagne
       const off = Math.max(size, 6);
-      const spots = [
-        [p.x + off + 10, p.y],
-        [p.x - tw / 2, p.y + off + fs + 6],
-        [p.x - tw / 2, p.y - off - fs - 2],
-        [p.x - off - 10 - tw, p.y],
-      ];
+      const above = [p.x - tw / 2, p.y - off - fs - 4];
+      const below = [p.x - tw / 2, p.y + off + fs + 6];
+      const right = [p.x + off + 10, p.y];
+      const left = [p.x - off - 10 - tw, p.y];
+      const spots =
+        n.depth === 2
+          ? compact
+            ? [below, right, above, left]
+            : [right, below, above, left]
+          : [above, below, left, right];
       let [tx, ty] = spots[spots.length - 1];
       for (const [sx, sy] of spots) {
         if (!labelHits(sx, sy)) {
@@ -413,6 +403,7 @@ export function initBomTree() {
           break;
         }
       }
+      tx = Math.min(Math.max(tx, 8), w - tw - 8); // jamais rognée par le cadre
       placedLabels.push({ x: tx - 4, y: ty - fs, w: tw + 8, h: fs * 2.4 });
       ctx.fillStyle = `rgba(${P},${(alpha * 0.5).toFixed(3)})`;
       ctx.fillRect(tx - 4, ty - fs, tw + 8, isRoot || isBranch ? fs * 2.3 : fs * 1.6);
@@ -425,29 +416,6 @@ export function initBomTree() {
       }
     }
     if ('letterSpacing' in ctx) ctx.letterSpacing = '0px';
-
-    // ---- tissage typographique : trois plans de profondeur.
-    // Le canvas est AU-DESSUS du texte ; on efface l'arbre derrière les lignes
-    // « arrière » (le texte réapparaît devant lui) et on le laisse passer
-    // DEVANT la ligne centrale. Les zones interactives sont toujours dégagées.
-    ctx.save();
-    ctx.globalCompositeOperation = 'destination-out';
-    for (const r of titleRects) {
-      if (r.weaveFront) continue; // l'arbre reste devant cette ligne
-      const g = ctx.createLinearGradient(0, r.y - 10, 0, r.y + r.h + 10);
-      const a = 0.94 - hoverGlow * 0.15;
-      g.addColorStop(0, 'rgba(0,0,0,0)');
-      g.addColorStop(0.18, `rgba(0,0,0,${a})`);
-      g.addColorStop(0.82, `rgba(0,0,0,${a})`);
-      g.addColorStop(1, 'rgba(0,0,0,0)');
-      ctx.fillStyle = g;
-      ctx.fillRect(r.x - 20, r.y - 10, r.w + 40, r.h + 20);
-    }
-    for (const r of guardRects) {
-      ctx.fillStyle = 'rgba(0,0,0,1)';
-      ctx.fillRect(r.x - 12, r.y - 12, r.w + 24, r.h + 24);
-    }
-    ctx.restore();
   }
 
   // ---- interactions
@@ -463,23 +431,22 @@ export function initBomTree() {
     }
     return best;
   }
-  hero.addEventListener(
+  stage.addEventListener(
     'pointermove',
     (e) => {
-      const b = hero.getBoundingClientRect();
+      const b = stage.getBoundingClientRect();
       pointer.x = e.clientX - b.left;
       pointer.y = e.clientY - b.top;
       const n = nodeAt(pointer.x, pointer.y);
       if (n !== hovered) {
         hovered = n;
-        hero.style.cursor = n && n.href ? 'pointer' : '';
+        stage.style.cursor = n && n.href ? 'pointer' : '';
         if (reduce) draw(1e9);
       }
     },
     { passive: true }
   );
-  hero.addEventListener('click', (e) => {
-    if (e.target.closest('a, button, input, textarea, summary')) return;
+  stage.addEventListener('click', () => {
     if (hovered?.href) {
       if (hovered.href.startsWith('#')) {
         document.querySelector(hovered.href)?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
@@ -490,21 +457,27 @@ export function initBomTree() {
   });
 
   window.addEventListener('resize', resize);
-  // les fonts chargent après nous : re-mesure le titre une fois prêtes
-  document.fonts?.ready?.then(() => measureTitle());
   resize();
 
   if (reduce) return;
 
-  let visible = true;
-  new IntersectionObserver(([entry]) => {
-    visible = entry.isIntersecting;
-  }).observe(hero);
+  let visible = false;
+  new IntersectionObserver(
+    ([entry]) => {
+      visible = entry.isIntersecting;
+      // premier passage à l'écran : c'est là que l'assemblage se construit
+      if (visible && !started) {
+        started = true;
+        startTime = performance.now();
+      }
+    },
+    { threshold: 0.25 }
+  ).observe(stage);
 
   let last = 0;
   function frame(now) {
     requestAnimationFrame(frame);
-    if (!visible || document.hidden) return;
+    if (!started || !visible || document.hidden) return;
     if (now - last < 32) return;
     last = now;
     draw(now);
