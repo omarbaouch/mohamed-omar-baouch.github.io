@@ -138,6 +138,7 @@ function initHeroIntro() {
 }
 
 function initHeadingReveals() {
+  const en = document.documentElement.lang === 'en';
   document.querySelectorAll('.section .display-2').forEach((h) => {
     const words = splitWords(h);
     gsap.from(words, {
@@ -145,6 +146,19 @@ function initHeadingReveals() {
       duration: 0.9,
       ease: 'power4.out',
       stagger: 0.05,
+      scrollTrigger: { trigger: h, start: 'top 86%', once: true },
+    });
+    // une fois le titre en place, sa contrainte d'assemblage est posée
+    const chip = document.createElement('span');
+    chip.className = 'mate-chip';
+    chip.textContent = en ? '⊕ MATED' : '⊕ ASSEMBLÉ';
+    h.appendChild(chip);
+    gsap.from(chip, {
+      autoAlpha: 0,
+      scale: 0.6,
+      duration: 0.5,
+      ease: 'back.out(2.2)',
+      delay: 0.75,
       scrollTrigger: { trigger: h, start: 'top 86%', once: true },
     });
   });
@@ -193,6 +207,80 @@ function initWatermarks() {
         scrollTrigger: { trigger: el.parentElement, start: 'top bottom', end: 'bottom top', scrub: 0.8 },
       }
     );
+  });
+}
+
+function initAssemblyLine() {
+  // le fil de routage CAO : une ligne continue qui se trace au scroll le
+  // long de toute la page et s'articule sur chaque section — la visite
+  // entière devient la traversée d'un plan d'assemblage
+  if (window.matchMedia('(max-width: 64rem)').matches) return;
+  const sections = ['structure', 'expertise', 'about', 'experience', 'skills', 'education', 'contact']
+    .map((id) => document.getElementById(id))
+    .filter(Boolean);
+  if (sections.length < 2) return;
+
+  const wrap = document.createElement('div');
+  wrap.className = 'asm-line';
+  wrap.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(wrap);
+
+  const X = 40; // ligne principale (dans un SVG de 60px de large)
+  const NX = 22; // position des nœuds (décrochement vers la gauche)
+  let path = null;
+
+  function build() {
+    const H = document.documentElement.scrollHeight;
+    let d = `M ${X} ${Math.round(window.innerHeight * 0.62)}`;
+    const nodes = [];
+    for (const s of sections) {
+      const y = Math.round(s.getBoundingClientRect().top + window.scrollY + 120);
+      d += ` L ${X} ${y - 20} L ${NX} ${y} L ${X} ${y + 20}`;
+      nodes.push({ y, id: s.id });
+    }
+    d += ` L ${X} ${H - 60}`;
+    wrap.innerHTML = `<svg width="60" height="${H}" viewBox="0 0 60 ${H}" fill="none">
+      <path class="asm-path" d="${d}" />
+      ${nodes
+        .map(
+          (n) =>
+            `<rect class="asm-node" data-for="${n.id}" x="${NX - 4.5}" y="${n.y - 4.5}" width="9" height="9" transform="rotate(45 ${NX} ${n.y})" />`
+        )
+        .join('')}
+    </svg>`;
+    path = wrap.querySelector('.asm-path');
+    const len = path.getTotalLength();
+    path.style.strokeDasharray = `${len}`;
+    gsap.fromTo(
+      path,
+      { strokeDashoffset: len },
+      {
+        strokeDashoffset: 0,
+        ease: 'none',
+        scrollTrigger: { trigger: document.body, start: 'top top', end: 'bottom bottom', scrub: 0.4 },
+      }
+    );
+    // chaque nœud s'allume quand sa section est atteinte
+    wrap.querySelectorAll('.asm-node').forEach((node) => {
+      ScrollTrigger.create({
+        trigger: `#${node.dataset.for}`,
+        start: 'top 62%',
+        onEnter: () => node.classList.add('is-active'),
+        onLeaveBack: () => node.classList.remove('is-active'),
+      });
+    });
+  }
+
+  build();
+  let rid = 0;
+  window.addEventListener('resize', () => {
+    clearTimeout(rid);
+    rid = setTimeout(() => {
+      ScrollTrigger.getAll().forEach((st) => {
+        if (st.vars.trigger === document.body) st.kill();
+      });
+      build();
+    }, 250);
   });
 }
 
@@ -412,6 +500,7 @@ export function initMotion() {
   initReveals();
   initWatermarks();
   initPhotoBand();
+  initAssemblyLine();
   initCounters();
   initVelocityMarquee();
   initCardTilt();
