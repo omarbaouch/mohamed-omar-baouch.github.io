@@ -1608,3 +1608,126 @@ html.cmdk-lock body {
     repeating-linear-gradient(0deg, rgb(244 243 240 / 0.04) 0 1px, transparent 1px 70px),
     repeating-linear-gradient(90deg, rgb(244 243 240 / 0.04) 0 1px, transparent 1px 70px);
 }
+
+/* ---------- MODE MESURE : coter la page comme une mise en plan ---------- */
+html.mzr-active,
+html.mzr-active body,
+html.mzr-active a,
+html.mzr-active button {
+  cursor: crosshair !important;
+}
+
+.mzr {
+  position: fixed;
+  inset: 0;
+  z-index: 170;
+  display: none;
+  pointer-events: none;
+}
+
+.mzr.is-on {
+  display: block;
+}
+
+.mzr-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.mzr-svg line {
+  stroke: var(--signal);
+  stroke-width: 1;
+}
+
+.mzr-svg .mzr-cross {
+  stroke: color-mix(in srgb, var(--signal) 35%, transparent);
+  stroke-dasharray: 2 6;
+}
+
+.mzr-svg .mzr-ext {
+  stroke: color-mix(in srgb, var(--signal) 55%, transparent);
+}
+
+.mzr-svg .mzr-box {
+  fill: color-mix(in srgb, var(--signal) 6%, transparent);
+  stroke: var(--signal);
+  stroke-dasharray: 5 4;
+}
+
+.mzr-svg text {
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  fill: var(--signal);
+  paint-order: stroke;
+  stroke: var(--bg-0);
+  stroke-width: 3px;
+}
+
+.mzr-svg .mzr-vlabel {
+  writing-mode: vertical-rl;
+}
+
+.mzr-hud {
+  position: absolute;
+  top: 5.4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.45rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--signal) 45%, transparent);
+  background: color-mix(in srgb, var(--bg-0) 88%, transparent);
+  backdrop-filter: blur(6px);
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--signal);
+  white-space: nowrap;
+}
+
+/* ---------- Journal de session : la visite tracée comme un historique PDM ---------- */
+.session-log {
+  position: fixed;
+  left: clamp(0.8rem, 2vw, 2rem);
+  bottom: 1.1rem;
+  z-index: 60;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.3rem;
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.56rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  pointer-events: none;
+}
+
+.session-log-row {
+  animation: log-in 0.5s var(--ease-out) both;
+}
+
+.session-log-row span {
+  color: var(--accent);
+}
+
+.session-log-row em {
+  font-style: normal;
+  color: var(--signal);
+}
+
+.session-log-row:nth-child(2) { opacity: 0.65; }
+.session-log-row:nth-child(3) { opacity: 0.4; }
+.session-log-row:nth-child(4) { opacity: 0.2; }
+
+@keyframes log-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .session-log-row {
+    animation: none;
+  }
+}

@@ -8,11 +8,13 @@ import { initI18n } from './core/i18n.js';
 import { initTheme } from './core/theme.js';
 import { initNav } from './core/nav.js';
 import { initCmdk } from './core/cmdk.js';
+import { initTools } from './core/tools.js';
 
 initTheme();
 initI18n();
 initNav();
 initCmdk();
+initTools();
 
 import('./modules/chatbot.js').then(({ initChatbot }) => initChatbot());
 
