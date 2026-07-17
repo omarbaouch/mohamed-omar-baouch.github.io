@@ -93,6 +93,8 @@ const LOG_REFS = {
         row.innerHTML = `<span>${t}</span> ${LOG_REFS[id]} — <em>${document.documentElement.lang === 'en' ? 'VIEWED' : 'CONSULTÉ'}</em>`;
         hud.prepend(row);
         while (hud.children.length > 4) hud.lastChild.remove();
+        // la nav mémorise ce qui a été consulté (LED sur le lien)
+        document.querySelector(`.nav-link[href="/#${id}"]`)?.classList.add('is-seen');
       }
     },
     { threshold: 0.35 }

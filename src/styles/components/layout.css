@@ -1731,3 +1731,117 @@ html.mzr-active button {
     animation: none;
   }
 }
+
+/* ---------- Le fil de routage : toute la page est un plan d'assemblage ---------- */
+.asm-line {
+  position: absolute;
+  top: 0;
+  right: 8px;
+  width: 60px;
+  z-index: 40;
+  pointer-events: none;
+}
+
+.asm-line .asm-path {
+  stroke: color-mix(in srgb, var(--accent) 55%, transparent);
+  stroke-width: 1.5;
+}
+
+.asm-line .asm-node {
+  fill: var(--bg-0);
+  stroke: color-mix(in srgb, var(--accent) 45%, transparent);
+  transition: fill 0.5s var(--ease-out), stroke 0.5s var(--ease-out);
+}
+
+.asm-line .asm-node.is-active {
+  fill: var(--signal);
+  stroke: var(--signal);
+}
+
+/* ---------- Contrainte posée : le titre vient de s'assembler ---------- */
+.mate-chip {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 1rem;
+  padding: 0.28rem 0.6rem;
+  border: 1px solid color-mix(in srgb, var(--signal) 45%, transparent);
+  border-radius: 999px;
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--signal);
+  transform: translateY(-0.35em);
+  white-space: nowrap;
+}
+
+/* ---------- Poignées de sélection CAO : tout survol devient une sélection ---------- */
+.card,
+.case-figure,
+.about-photo,
+.article-card,
+.article-featured {
+  position: relative;
+}
+
+.card::before,
+.case-figure::before,
+.about-photo::after,
+.article-card::before,
+.article-featured::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  border: 1px dashed color-mix(in srgb, var(--accent) 55%, transparent);
+  background:
+    linear-gradient(var(--accent), var(--accent)) top left / 6px 6px no-repeat,
+    linear-gradient(var(--accent), var(--accent)) top right / 6px 6px no-repeat,
+    linear-gradient(var(--accent), var(--accent)) bottom left / 6px 6px no-repeat,
+    linear-gradient(var(--accent), var(--accent)) bottom right / 6px 6px no-repeat;
+  transition: opacity 0.25s var(--ease-out);
+}
+
+.card:hover::before,
+.case-figure:hover::before,
+.about-photo:hover::after,
+.article-card:hover::before,
+.article-featured:hover::before {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card::before,
+  .case-figure::before,
+  .about-photo::after,
+  .article-card::before,
+  .article-featured::before {
+    transition: none;
+  }
+}
+
+/* ---------- La nav mémorise : LED sur les sections consultées ---------- */
+.nav-link {
+  position: relative;
+}
+
+.nav-link.is-seen::before {
+  content: '';
+  position: absolute;
+  left: -11px;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  background: var(--signal);
+  animation: bom-led 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-link.is-seen::before {
+    animation: none;
+  }
+}
