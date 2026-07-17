@@ -904,3 +904,32 @@ body[data-blog-post] .article-section + .article-section {
     gap: 1.5rem;
   }
 }
+
+/* ---------- Étalonnage éditorial des images ----------
+   Les photos viennent de sources variées : une désaturation douce et un
+   contraste léger les ramènent dans la même gamme que la DA — la couleur
+   revient au survol, comme un révélateur. */
+.article-figure img,
+.figure-inline img,
+.media-figure img,
+.article-card__media img,
+.article-featured__media img {
+  filter: saturate(0.42) contrast(1.04);
+  transition: filter 0.5s var(--ease-out, ease);
+}
+
+.article-card:hover .article-card__media img,
+.article-featured:hover .article-featured__media img,
+.article-figure:hover img {
+  filter: saturate(0.95) contrast(1.02);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .article-figure img,
+  .figure-inline img,
+  .media-figure img,
+  .article-card__media img,
+  .article-featured__media img {
+    transition: none;
+  }
+}
