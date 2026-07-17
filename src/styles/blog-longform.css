@@ -933,3 +933,21 @@ body[data-blog-post] .article-section + .article-section {
     transition: none;
   }
 }
+
+/* badge documentaire des études de cas (cartouche PDM) */
+.badge-doc {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+.badge-doc .bom-led {
+  width: 6px;
+  height: 6px;
+  margin-right: 0;
+}

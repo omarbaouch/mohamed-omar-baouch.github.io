@@ -210,5 +210,15 @@
   "contact_lead_new": "A technical question, feedback on a blog article, or just keen to chat about product data? Drop me a line.",
   "footer_eyebrow": "A PDM/PLM question? Let's talk.",
   "ai_input_label": "Your question",
-  "case_study_link": "Read the case study →"
+  "case_study_link": "Read the case study →",
+  "state_published": "RELEASED",
+  "state_archived": "ARCHIVED",
+  "state_checkedout": "CHECKED OUT — ACTIVE",
+  "nf_state": "STATE — NOT FOUND",
+  "nf_kicker": "Change request rejected",
+  "nf_title": "Reference <em class=\"serif-accent\">not found</em>",
+  "nf_desc": "The requested document does not exist in the vault — it may have been moved, renamed or archived without ownership transfer.",
+  "nf_home": "Back to root",
+  "nf_blog": "Browse the blog",
+  "nf_hint": "Requested path missing from the ASM-BAOUCH tree"
 }

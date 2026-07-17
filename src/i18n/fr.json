@@ -210,5 +210,15 @@
   "contact_lead_new": "Une question technique, un retour sur un article du blog, ou simplement envie d'échanger entre passionnés de données produit ? Écrivez-moi.",
   "footer_eyebrow": "Une question PDM/PLM ? Échangeons.",
   "ai_input_label": "Votre question",
-  "case_study_link": "Lire l'étude de cas →"
+  "case_study_link": "Lire l'étude de cas →",
+  "state_published": "PUBLIÉ",
+  "state_archived": "ARCHIVÉ",
+  "state_checkedout": "EXTRAIT — EN COURS",
+  "nf_state": "ÉTAT — INTROUVABLE",
+  "nf_kicker": "Demande de modification refusée",
+  "nf_title": "Référence <em class=\"serif-accent\">introuvable</em>",
+  "nf_desc": "Le document demandé n'existe pas dans le coffre — il a peut-être été déplacé, renommé ou archivé sans transfert de propriété.",
+  "nf_home": "Retour à la racine",
+  "nf_blog": "Parcourir le blog",
+  "nf_hint": "Chemin demandé absent de l'arborescence ASM-BAOUCH"
 }
