@@ -175,7 +175,6 @@ function initReveals() {
     '.about-media',
     '.about-copy > p, .about-copy > ul, .about-copy > div',
     '.index-row',
-    '.skill-group',
     '.education-card',
     '.contact-copy > p, .contact-copy > ul',
     '.contact-form',
@@ -281,6 +280,32 @@ function initAssemblyLine() {
       });
       build();
     }, 250);
+  });
+}
+
+// la nomenclature de compétences s'imprime ligne à ligne, puis chaque cote
+// se remplit comme une mesure qui se prend — l'entête du coffre d'abord
+function initSkillsSheet() {
+  const sheet = document.querySelector('.skills-sheet');
+  if (!sheet) return;
+  const lines = sheet.querySelectorAll('.bom-head, .sheet-group-head, .sheet-row, .bom-foot');
+  gsap.from(lines, {
+    y: 22,
+    autoAlpha: 0,
+    duration: 0.7,
+    ease: 'power3.out',
+    stagger: 0.05,
+    scrollTrigger: { trigger: sheet, start: 'top 82%', once: true },
+  });
+  sheet.querySelectorAll('.level-gauge i').forEach((fill, i) => {
+    gsap.from(fill, {
+      scaleX: 0,
+      transformOrigin: 'left center',
+      duration: 1.05,
+      ease: 'power3.inOut',
+      delay: 0.3 + (i % 4) * 0.09,
+      scrollTrigger: { trigger: fill.closest('.sheet-row'), start: 'top 92%', once: true },
+    });
   });
 }
 
@@ -499,6 +524,7 @@ export function initMotion() {
   initHeadingReveals();
   initReveals();
   initWatermarks();
+  initSkillsSheet();
   initPhotoBand();
   initAssemblyLine();
   initCounters();

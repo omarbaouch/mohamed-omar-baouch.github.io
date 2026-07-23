@@ -673,29 +673,175 @@
   margin-top: 0;
 }
 
-/* ---------- Compétences ---------- */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 2rem;
+/* ---------- Compétences — la nomenclature ----------
+   Les compétences sont présentées comme une BOM d'ingénierie : chaque ligne
+   est référencée (REP), désignée, décrite et cotée. Le niveau est une cote
+   de plan (ligne de mesure à embouts) ; au survol, la valeur s'affiche
+   au-dessus de la cote comme en MODE MESURE. */
+.skills-sheet {
   margin-top: 3rem;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg-1) 45%, var(--bg-0));
 }
 
-.skill-list {
-  margin-top: 1.5rem;
+.sheet-group-head {
+  display: grid;
+  grid-template-columns: clamp(3.4rem, 6vw, 6rem) minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: clamp(0.9rem, 2vw, 1.5rem);
+  padding: 1.05rem clamp(0.9rem, 2vw, 1.4rem) 0.85rem;
+  background: color-mix(in srgb, var(--bg-2) 38%, transparent);
+}
+
+.sheet-group + .sheet-group {
   border-top: 1px solid var(--line);
 }
 
-.skill-list li {
-  padding: 0.75rem 0.15rem;
-  border-bottom: 1px solid var(--line);
-  color: var(--ink-dim);
-  transition: color var(--dur-1) var(--ease-out), padding-left var(--dur-1) var(--ease-out);
+.sheet-group-title {
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  font-weight: 650;
+  letter-spacing: 0.01em;
 }
 
-.skill-list li:hover {
+.sheet-ref,
+.sheet-count {
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--ink-faint);
+}
+
+.sheet-se {
+  color: var(--accent);
+}
+
+.sheet-rows {
+  display: block;
+}
+
+.sheet-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: clamp(3.4rem, 6vw, 6rem) minmax(0, 0.85fr) minmax(0, 1.2fr) clamp(11rem, 16vw, 15rem);
+  align-items: center;
+  gap: clamp(0.9rem, 2vw, 1.5rem);
+  padding: 1rem clamp(0.9rem, 2vw, 1.4rem);
+  border-top: 1px solid var(--line);
+  transition: background-color var(--dur-1) var(--ease-out);
+}
+
+.sheet-row .sheet-ref {
+  transition: color var(--dur-1) var(--ease-out);
+}
+
+/* le fil de routage de la ligne : se trace au survol, comme une chaîne
+   « où-utilisé » dans l'arbre */
+.sheet-row::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 -1px 0;
+  height: 1px;
+  background: var(--signal);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.55s var(--ease-out);
+  pointer-events: none;
+}
+
+.sheet-row:hover {
+  background: color-mix(in srgb, var(--signal) 4%, transparent);
+}
+
+.sheet-row:hover::after {
+  transform: scaleX(1);
+}
+
+.sheet-row:hover .sheet-ref {
+  color: var(--signal);
+}
+
+.sheet-name {
+  font-weight: 600;
+  font-size: 0.98rem;
+  line-height: 1.35;
+}
+
+.sheet-desc {
+  color: var(--ink-dim);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+/* la cote : ligne de mesure à embouts, remplissage usiné au niveau --lvl */
+.sheet-level {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.level-gauge {
+  position: relative;
+  flex: 1;
+  height: 9px;
+  border-left: 1px solid var(--line-strong);
+  border-right: 1px solid var(--line-strong);
+}
+
+.level-gauge::before {
+  content: '';
+  position: absolute;
+  inset: 50% 0 auto 0;
+  height: 1px;
+  background: var(--line-strong);
+}
+
+.level-gauge i {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 3px;
+  width: var(--lvl);
+  transform: translateY(-50%);
+  background: var(--accent);
+}
+
+/* la valeur de la cote apparaît au survol, posée sur l'extrémité usinée */
+.level-gauge::after {
+  content: attr(data-lvl) '%';
+  position: absolute;
+  left: var(--lvl);
+  bottom: 0.55rem;
+  transform: translate(-50%, 0.25rem);
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--signal);
+  opacity: 0;
+  transition: opacity var(--dur-1) var(--ease-out), transform var(--dur-1) var(--ease-out);
+  pointer-events: none;
+}
+
+.sheet-row:hover .level-gauge::after {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.level-label {
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  min-width: 3.9rem;
+  text-align: right;
+  transition: color var(--dur-1) var(--ease-out);
+}
+
+.sheet-row:hover .level-label {
   color: var(--ink);
-  padding-left: 0.6rem;
 }
 
 .stack-marquee {
@@ -873,9 +1019,29 @@
 
   .offers-grid,
   .projects-grid,
-  .skills-grid,
   .education-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* nomenclature : la description passe sous la désignation, la cote suit */
+  .sheet-row {
+    grid-template-columns: 3.2rem minmax(0, 1fr);
+    row-gap: 0.45rem;
+    padding-block: 0.95rem;
+  }
+
+  .sheet-desc {
+    grid-column: 2;
+  }
+
+  .sheet-level {
+    grid-column: 2;
+    max-width: 19rem;
+    margin-top: 0.25rem;
+  }
+
+  .sheet-group-head {
+    grid-template-columns: 3.2rem minmax(0, 1fr) auto;
   }
 
   .projects-grid {
