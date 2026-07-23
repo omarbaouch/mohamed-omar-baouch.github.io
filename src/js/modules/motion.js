@@ -477,30 +477,46 @@ function initVariableHeadline() {
 }
 
 // signature : au survol d'une ligne secteur, son nombre de clients apparaît en
-// géant et suit le curseur
+// géant et suit le curseur. La visibilité est réévaluée à chaque mousemove
+// (hit-test sous le curseur) plutôt que via mouseenter/mouseleave : avec le
+// smooth scroll, le contenu défile sous un curseur immobile sans déclencher de
+// mouseleave, ce qui laissait le chiffre affiché. Le scroll le masque aussi.
 function initSectorFloat() {
-  const rows = document.querySelectorAll('.sector-row');
-  if (!rows.length) return;
+  const list = document.querySelector('.sectors-list');
+  if (!list) return;
   const float = document.createElement('div');
   float.className = 'hover-float';
   float.setAttribute('aria-hidden', 'true');
   document.body.appendChild(float);
   const setX = gsap.quickTo(float, 'x', { duration: 0.5, ease: 'power3.out' });
   const setY = gsap.quickTo(float, 'y', { duration: 0.5, ease: 'power3.out' });
-  rows.forEach((row) => {
-    const value = row.querySelector('.sector-count')?.textContent.trim() || '';
-    row.addEventListener('mouseenter', () => {
-      float.textContent = value;
-      gsap.to(float, { opacity: 1, scale: 1, duration: 0.4, ease: 'power2.out' });
-    });
-    row.addEventListener('mouseleave', () => {
-      gsap.to(float, { opacity: 0, scale: 0.6, duration: 0.3 });
-    });
-  });
+  let shown = false;
+  const show = (value) => {
+    float.textContent = value;
+    if (shown) return;
+    shown = true;
+    gsap.to(float, { opacity: 1, scale: 1, duration: 0.4, ease: 'power2.out' });
+  };
+  const hide = () => {
+    if (!shown) return;
+    shown = false;
+    gsap.to(float, { opacity: 0, scale: 0.6, duration: 0.3 });
+  };
   window.addEventListener('mousemove', (e) => {
     setX(e.clientX);
     setY(e.clientY);
+    const row = e.target.closest?.('.sector-row');
+    if (row && list.contains(row)) {
+      show(row.querySelector('.sector-count')?.textContent.trim() || '');
+    } else {
+      hide();
+    }
   });
+  // le défilement (souvent sans mousemove, surtout en smooth scroll) et la
+  // sortie du curseur hors de la fenêtre doivent masquer le chiffre
+  window.addEventListener('scroll', hide, { passive: true });
+  lenis?.on('scroll', hide);
+  document.addEventListener('mouseleave', hide);
 }
 
 function initPhotoParallax() {
