@@ -1,6 +1,6 @@
 // Génère les images Open Graph (1200×630) façon cartouche PDM pour toutes
 // les pages, puis branche og:image/twitter:image sur les fichiers sources.
-// Usage : node scripts/og-images.mjs
+// Usage : node scripts/og-images.mjs [slug…]  (sans argument : toutes les pages)
 import { chromium } from 'playwright';
 import fs from 'node:fs';
 import { resolve } from 'node:path';
@@ -11,7 +11,7 @@ fs.mkdirSync(OUT, { recursive: true });
 
 const PAGES = [
   { file: 'src/index.html', slug: 'home', ref: 'ASM-BAOUCH · RÉV.2026', type: 'PORTFOLIO', title: 'Consultant Expert SOLIDWORKS — PDM / PLM' },
-  { file: 'src/blog/index.html', slug: 'blog', ref: 'ASM-04 · 13 DOCS', type: 'BLOG', title: 'Guides & analyses PDM/PLM et SOLIDWORKS' },
+  { file: 'src/blog/index.html', slug: 'blog', ref: 'ASM-04 · 14 DOCS', type: 'BLOG', title: 'Guides & analyses PDM/PLM et SOLIDWORKS' },
   { file: 'src/blog/pdm-ou-plm-quand-basculer/index.html', slug: 'pdm-ou-plm', ref: 'DOC-01', type: 'ARTICLE', title: 'PDM ou PLM : les 5 signaux qui prouvent que vous avez dépassé votre coffre' },
   { file: 'src/blog/solidworks-pdm-standard-vs-professional/index.html', slug: 'std-vs-pro', ref: 'DOC-02', type: 'ARTICLE', title: 'SOLIDWORKS PDM : Standard ou Professional, le guide complet' },
   { file: 'src/blog/solidworks-pdm-lent-7-causes/index.html', slug: 'pdm-lent', ref: 'DOC-03', type: 'ARTICLE', title: 'SOLIDWORKS PDM lent : les 7 vraies causes' },
@@ -25,6 +25,7 @@ const PAGES = [
   { file: 'src/blog/codification-proprietes-solidworks/index.html', slug: 'codification', ref: 'DOC-11', type: 'ARTICLE', title: 'Codification & propriétés SOLIDWORKS : réparer la chaîne BOM → ERP' },
   { file: 'src/blog/configuration-materielle-solidworks/index.html', slug: 'config-materielle', ref: 'DOC-12', type: 'ARTICLE', title: 'Configuration matérielle SOLIDWORKS : le guide terrain' },
   { file: 'src/blog/resolutions-problematiques-plm/index.html', slug: 'resolutions-plm', ref: 'DOC-13', type: 'ARTICLE', title: 'Résolutions de problématiques PLM : retours de terrain' },
+  { file: 'src/blog/raccourcis-clavier-solidworks/index.html', slug: 'raccourcis', ref: 'DOC-14', type: 'ARTICLE', title: 'Raccourcis clavier SOLIDWORKS : la liste complète et la méthode' },
   { file: 'src/projets/robot-orbita/index.html', slug: 'orbita', ref: 'PRT-ORBITA · RÉV.B', type: 'ÉTUDE DE CAS', title: 'Structurer le PDM d’un robot humanoïde' },
   { file: 'src/projets/migration-pdm-internationale/index.html', slug: 'mig-intl', ref: 'MIG-INTL · RÉV.C', type: 'ÉTUDE DE CAS', title: 'Migration PDM multi-sites pour un géant mondial du câblage' },
 ];
@@ -62,9 +63,16 @@ body {
 <div class="bottom mono"><span class="ref"><span class="led"></span>${ref} · PUBLIÉ</span><span>baouch.fr</span></div>
 </body></html>`;
 
+const only = process.argv.slice(2);
+const targets = only.length ? PAGES.filter((p) => only.includes(p.slug)) : PAGES;
+if (only.length && targets.length !== only.length) {
+  const manquants = only.filter((s) => !PAGES.some((p) => p.slug === s));
+  throw new Error(`slug inconnu : ${manquants.join(', ')}`);
+}
+
 const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium', args: ['--enable-unsafe-swiftshader'] });
 const page = await browser.newPage({ viewport: { width: 1200, height: 630 } });
-for (const p of PAGES) {
+for (const p of targets) {
   await page.setContent(template(p), { waitUntil: 'networkidle' });
   await page.evaluate(() => document.fonts.ready);
   await page.screenshot({ path: `${OUT}/${p.slug}.jpg`, type: 'jpeg', quality: 88 });
@@ -73,7 +81,7 @@ for (const p of PAGES) {
 await browser.close();
 
 // ---- branche les balises sur les sources
-for (const p of PAGES) {
+for (const p of targets) {
   const f = resolve(ROOT, p.file);
   let html = fs.readFileSync(f, 'utf8');
   const url = `https://baouch.fr/img/og/${p.slug}.jpg`;

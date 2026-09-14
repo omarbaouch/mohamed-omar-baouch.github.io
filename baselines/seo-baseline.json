@@ -159,6 +159,22 @@
     "h1": "Combien coûte vraiment un projet SOLIDWORKS PDM ?What does a SOLIDWORKS PDM project really cost?",
     "lang": "fr"
   },
+  "/blog/raccourcis-clavier-solidworks/": {
+    "title": "Raccourcis clavier SOLIDWORKS 2026 : la liste complète par famille + la méthode pour gagner 1 h par jour",
+    "description": "Tous les raccourcis clavier SOLIDWORKS par défaut (vues, fichier, esquisse, assemblage, mise en plan), la touche S et la touche D que 80 % des utilisateurs ignorent, les gestes de souris, comment créer les vôtres et les déployer sur toute l'équipe. Guide terrain d'un consultant PDM.",
+    "canonical": "https://baouch.fr/blog/raccourcis-clavier-solidworks/",
+    "robots": null,
+    "ogTitle": "Raccourcis clavier SOLIDWORKS 2026 : la liste complète et la méthode",
+    "ogDescription": "La liste complète des raccourcis par défaut, la touche S, la touche D, les gestes de souris, et comment déployer vos raccourcis sur toute l'équipe.",
+    "ogUrl": "https://baouch.fr/blog/raccourcis-clavier-solidworks/",
+    "ogImage": "https://baouch.fr/img/og/raccourcis.jpg",
+    "ogType": "article",
+    "twitterTitle": "Raccourcis clavier SOLIDWORKS 2026 : la liste complète",
+    "twitterDescription": "Vues, esquisse, assemblage, mise en plan : la liste par famille — plus la touche S, la touche D et les gestes de souris.",
+    "jsonldTypes": [],
+    "h1": "Raccourcis clavier SOLIDWORKS : la liste complète — et la méthode pour en tirer une heure par jourSOLIDWORKS keyboard shortcuts: the complete list — and the method that turns it into an hour a day",
+    "lang": "fr"
+  },
   "/blog/resolutions-problematiques-plm/": {
     "title": "Au-delà de la théorie : résoudre les 5 problématiques PLM que j'ai vécues en tant qu'Ingénieur Mécanique",
     "description": "Retour d'expérience de Mohamed Omar Baouch sur cinq problématiques PLM vécues sur le terrain et les solutions apportées grâce à un PDM/PLM bien implémenté.",
