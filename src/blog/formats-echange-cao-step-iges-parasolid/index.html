@@ -1,0 +1,412 @@
+<!DOCTYPE html><html lang="fr"><head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PBLRK58T');</script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-33TQ27QY4M"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-33TQ27QY4M');</script>
+<!-- Microsoft Clarity -->
+    <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","vy4yvht8gz");</script>
+    <!-- LinkedIn Insight Tag -->
+    <script type="text/javascript">_linkedin_partner_id="525900907";window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];window._linkedin_data_partner_ids.push(_linkedin_partner_id);(function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";s.parentNode.insertBefore(b,s)})(window.lintrk);</script>
+    <script>
+    // Anti-flash de thème : clair par défaut, sombre si stocké.
+    (function () {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    })();
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STEP, IGES, Parasolid, JT, STL : quel format d'échange CAO choisir (et comment éviter les pertes) ?</title>
+    <meta name="description" content="Guide des formats d'échange CAO : STEP AP203, AP214 et AP242, Parasolid, ACIS, IGES, JT, STL, 3MF, DXF et PDF 3D. Ce que chaque format transporte vraiment, ce qui se perd au passage, les 6 pièges classiques (unités, couture, assemblages) et le protocole de contrôle en 5 points.">
+    <meta name="author" content="Mohamed Omar Baouch">
+    <link rel="canonical" href="https://baouch.fr/blog/formats-echange-cao-step-iges-parasolid/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="STEP, IGES, Parasolid, JT, STL : quel format d'échange CAO choisir ?">
+    <meta property="og:description" content="Ce que chaque format transporte vraiment, ce qui se perd, les 6 pièges classiques et le protocole de contrôle avant d'envoyer un fichier à un client.">
+    <meta property="og:url" content="https://baouch.fr/blog/formats-echange-cao-step-iges-parasolid/">
+    <meta property="og:image" content="https://baouch.fr/img/og/formats-cao.jpg">
+    <meta property="og:site_name" content="Mohamed Omar Baouch">
+    <meta property="article:published_time" content="2026-09-14T00:00:00.000Z">
+    <meta property="article:author" content="Mohamed Omar Baouch">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Quel format d'échange CAO choisir ?">
+    <meta name="twitter:description" content="STEP AP242, Parasolid, IGES, JT, STL : le bon format pour chaque usage, et le contrôle à faire avant d'envoyer.">
+    <meta name="twitter:image" content="https://baouch.fr/img/og/formats-cao.jpg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "headline": "STEP, IGES, Parasolid, JT, STL : quel format d'échange CAO choisir ?",
+                "description": "Guide des formats d'échange CAO : STEP AP203, AP214 et AP242, Parasolid, ACIS, IGES, JT, STL, 3MF, DXF et PDF 3D. Ce que chaque format transporte vraiment, ce qui se perd au passage, les 6 pièges classiques (unités, couture, assemblages) et le protocole de contrôle en 5 points.",
+                "image": "https://baouch.fr/img/og/formats-cao.jpg",
+                "datePublished": "2026-09-14",
+                "dateModified": "2026-09-14",
+                "inLanguage": "fr-FR",
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://baouch.fr/blog/formats-echange-cao-step-iges-parasolid/"
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://baouch.fr",
+                    "jobTitle": "Ingénieur & Consultant PDM/PLM"
+                },
+                "publisher": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://baouch.fr"
+                },
+                "keywords": [
+                    "STEP",
+                    "IGES",
+                    "Parasolid",
+                    "JT",
+                    "STL",
+                    "CAO",
+                    "Échange de données",
+                    "PMI"
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Accueil",
+                        "item": "https://baouch.fr/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Blog",
+                        "item": "https://baouch.fr/blog/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "STEP, IGES, Parasolid, JT, STL : quel format d'échange CAO choisir ?",
+                        "item": "https://baouch.fr/blog/formats-echange-cao-step-iges-parasolid/"
+                    }
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Quelle différence entre STEP AP203, AP214 et AP242 ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "AP203 transporte la géométrie solide et la structure d'assemblage, sans couleurs. AP214 y ajoute couleurs, couches et certaines propriétés. AP242 fusionne les deux et transporte en plus le tolérancement porté par le modèle (PMI) et des métadonnées : c'est le protocole à demander par défaut aujourd'hui."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Pourquoi mon import STEP donne des surfaces au lieu d'un volume ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Parce que les surfaces ne se cousent pas : les écarts entre faces dépassent la tolérance du logiciel d'accueil. Essayez la couture avec une tolérance plus permissive, demandez un export en Parasolid si les noyaux coïncident, et en dernier recours faites régénérer l'export depuis le natif — c'est souvent plus rapide que de réparer."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Peut-on récupérer l'arbre de construction depuis un STEP ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Non. Certains outils proposent une reconnaissance de fonctions qui recrée des perçages ou des extrusions simples, mais ce n'est pas votre arbre d'origine : c'est une interprétation. Si vous devez reprendre la conception, réclamez le fichier natif."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Quel format envoyer à un sous-traitant qui usine ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "STEP AP242 pour la géométrie, accompagné du PDF de la mise en plan pour la matière, les traitements et les tolérances — sauf si votre chaîne est réellement MBD des deux côtés. Jamais de STL pour de l'usinage."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "STL ou 3MF pour l'impression 3D ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "3MF dès que votre chaîne l'accepte : il porte les unités, les couleurs et les matériaux, là où le STL n'est qu'un maillage nu. Le STL reste le dénominateur commun universel, rien de plus."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Faut-il archiver en natif ou en STEP ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Les deux. Le natif pour pouvoir reprendre la conception tant que vous disposez du logiciel ; le STEP et le PDF de la mise en plan pour rester lisible dans vingt ans, quels que soient vos outils d'alors. C'est la règle que j'applique dans toutes les migrations de données."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+    {{> head-fonts }}<script type="module" src="../../js/blog.js"></script>
+</head>
+<body class="blog-page" data-blog-post="formats-echange-cao-step-iges-parasolid">
+{{> nav }}
+
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBLRK58T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <main id="mainContainer" class="container blog-container show">
+        <div class="blog-shell" id="blogShell" data-shell="">
+            <article class="blog-article" data-article-root="">
+                <nav class="article-breadcrumbs" aria-label="Navigation secondaire">
+                    <a class="back-link" href="/blog/" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                    <a class="back-link back-link--ghost" href="/" data-translate-key="blog_back_to_portfolio">Retour au portfolio</a>
+                </nav>
+
+                <header class="blog-hero post-hero" data-component="hero">
+                    <div class="hero-intro">
+                        <div class="hero-badges">
+                            <span class="badge badge-editorial" data-i18n=""><span data-lang="fr">Guide pratique</span><span data-lang="en">Practical guide</span></span>
+                            <span class="badge" data-i18n=""><span data-lang="fr">Données</span><span data-lang="en">Data</span></span>
+                            <span class="badge badge-reading-time" data-i18n=""><span data-lang="fr">~13 min de lecture</span><span data-lang="en">~13 min read</span></span>
+                        </div>
+                        <span class="hero-eyebrow" data-i18n=""><span data-lang="fr">Le fichier que vous envoyez engage votre entreprise</span><span data-lang="en">The file you send commits your company</span></span>
+                        <h1 class="hero-title" data-i18n=""><span data-lang="fr">STEP, IGES, Parasolid, JT, STL : quel format d'échange CAO choisir — et comment éviter les pertes</span><span data-lang="en">STEP, IGES, Parasolid, JT, STL: which CAD exchange format to choose — and how to avoid losses</span></h1>
+                        <p class="hero-subtitle" data-i18n=""><span data-lang="fr">Publié le 14 septembre 2026 — ce que chaque format transporte réellement, ce qui disparaît en route, les six pièges qui produisent les fichiers inexploitables que je passe mes journées à réparer, et le protocole de contrôle en cinq points à appliquer avant d'envoyer quoi que ce soit à un client.</span><span data-lang="en">Published 14 September 2026 — what each format actually carries, what vanishes along the way, the six traps that produce the unusable files I spend my days repairing, and the five-point checking protocol to apply before sending anything to a customer.</span></p>
+                        <div class="hero-actions">
+                            <a class="hero-btn" href="#sommaire" data-i18n=""><span data-lang="fr">Consulter le sommaire</span><span data-lang="en">Jump to contents</span></a>
+                            <a class="hero-btn hero-btn--ghost" href="#usages" data-i18n=""><span data-lang="fr">Réponse rapide par usage</span><span data-lang="en">Quick answer by use case</span></a>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">AP242</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Le STEP à demander par défaut</span><span data-lang="en">The STEP to ask for by default</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">6</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Pièges à l'origine de presque tout</span><span data-lang="en">Traps behind nearly everything</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">5</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Contrôles avant envoi</span><span data-lang="en">Checks before sending</span></span>
+                        </div>
+                    </div>
+                </header>
+
+                <figure class="article-figure">
+                    <img src="/img/blog/photo-1518770660439-4636190af475-1600.webp" srcset="/img/blog/photo-1518770660439-4636190af475-800.webp 800w, /img/blog/photo-1518770660439-4636190af475-1600.webp 1600w" sizes="(min-width: 64rem) 1216px, 100vw" decoding="async" alt="Circuits et données techniques, illustration de l'échange de données industrielles" loading="lazy">
+                    <figcaption data-i18n=""><span data-lang="fr">Un format d'échange ne transporte pas votre modèle : il en transporte une <em>traduction</em>. Tout l'enjeu est de savoir ce que la traduction laisse derrière elle.</span><span data-lang="en">An exchange format doesn't carry your model: it carries a <em>translation</em> of it. The whole point is knowing what the translation leaves behind.</span></figcaption>
+                </figure>
+
+                <section class="blog-section article-section" id="usages">
+                    <h2 data-i18n=""><span data-lang="fr">La réponse courte, par usage</span><span data-lang="en">The short answer, by use case</span></h2>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr>
+                                        <th data-i18n=""><span data-lang="fr">Ce que vous voulez faire</span><span data-lang="en">What you want to do</span></th>
+                                        <th data-i18n=""><span data-lang="fr">Le format</span><span data-lang="en">The format</span></th>
+                                        <th data-i18n=""><span data-lang="fr">Pourquoi</span><span data-lang="en">Why</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td data-i18n=""><span data-lang="fr">Envoyer une pièce à fabriquer</span><span data-lang="en">Send a part out for manufacturing</span></td><td>STEP AP242</td><td data-i18n=""><span data-lang="fr">Solide exact, assemblages, couleurs et tolérancement portés par le modèle</span><span data-lang="en">Exact solid, assemblies, colours and model-based tolerancing</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Échanger entre deux logiciels du même noyau</span><span data-lang="en">Exchange between two tools sharing a kernel</span></td><td>Parasolid (.x_t)</td><td data-i18n=""><span data-lang="fr">Transfert direct de la représentation interne : fidélité maximale</span><span data-lang="en">Direct transfer of the internal representation: maximum fidelity</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Faire relire un assemblage sans donner la géométrie exacte</span><span data-lang="en">Have an assembly reviewed without handing over exact geometry</span></td><td data-i18n=""><span data-lang="fr">JT ou PDF 3D</span><span data-lang="en">JT or 3D PDF</span></td><td data-i18n=""><span data-lang="fr">Léger, lisible sans licence CAO, non exploitable pour copier</span><span data-lang="en">Light, readable without a CAD license, not usable for copying</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Imprimer en 3D</span><span data-lang="en">3D print</span></td><td data-i18n=""><span data-lang="fr">3MF, à défaut STL</span><span data-lang="en">3MF, failing that STL</span></td><td data-i18n=""><span data-lang="fr">3MF porte unités, couleurs et matériaux que STL ignore</span><span data-lang="en">3MF carries units, colours and materials that STL ignores</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Envoyer un dépliage de tôle au laser</span><span data-lang="en">Send a sheet-metal flat to the laser</span></td><td>DXF</td><td data-i18n=""><span data-lang="fr">Contours 2D, langage universel des machines de découpe</span><span data-lang="en">2D contours, the universal language of cutting machines</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Archiver pour dix ou vingt ans</span><span data-lang="en">Archive for ten or twenty years</span></td><td data-i18n=""><span data-lang="fr">STEP + PDF de la mise en plan</span><span data-lang="en">STEP + a PDF of the drawing</span></td><td data-i18n=""><span data-lang="fr">Norme ISO ouverte, lisible sans dépendre d'un éditeur</span><span data-lang="en">Open ISO standard, readable without depending on a vendor</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Reprendre un modèle pour le modifier</span><span data-lang="en">Take over a model to modify it</span></td><td data-i18n=""><span data-lang="fr">Le format natif — sinon rien</span><span data-lang="en">The native format — or nothing</span></td><td data-i18n=""><span data-lang="fr">Aucun format neutre ne transporte l'arbre de construction</span><span data-lang="en">No neutral format carries the feature tree</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="callout callout--soft">
+                        <p data-i18n=""><span data-lang="fr"><strong>La règle qui résume tout :</strong> demandez le <strong>natif</strong> si vous devez modifier, le <strong>STEP AP242</strong> si vous devez fabriquer, un format <strong>léger</strong> si vous devez seulement regarder. Les trois quarts des problèmes d'échange viennent d'un format choisi pour le mauvais usage.</span><span data-lang="en"><strong>The rule that sums it up:</strong> ask for <strong>native</strong> if you must modify, <strong>STEP AP242</strong> if you must manufacture, a <strong>lightweight</strong> format if you only need to look. Three quarters of exchange problems come from a format chosen for the wrong purpose.</span></p>
+                    </div>
+                </section>
+
+                <nav class="blog-section article-summary" id="sommaire" aria-label="Sommaire de l'article">
+                    <h2 class="summary-title" data-i18n=""><span data-lang="fr">Sommaire</span><span data-lang="en">Contents</span></h2>
+                    <ol class="summary-list">
+                        <li><a href="#natif-neutre"><span class="summary-index">01</span><span class="summary-label" data-i18n=""><span data-lang="fr">Natif ou neutre : ce que vous perdez vraiment</span><span data-lang="en">Native or neutral: what you really lose</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">Le modèle mort</span><span data-lang="en">The dumb solid</span></span></a></li>
+                        <li><a href="#step"><span class="summary-index">02</span><span class="summary-label" data-i18n=""><span data-lang="fr">STEP : AP203, AP214, AP242</span><span data-lang="en">STEP: AP203, AP214, AP242</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">Lequel demander</span><span data-lang="en">Which to ask for</span></span></a></li>
+                        <li><a href="#noyaux"><span class="summary-index">03</span><span class="summary-label" data-i18n=""><span data-lang="fr">Parasolid et ACIS : la voie directe</span><span data-lang="en">Parasolid and ACIS: the direct route</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">Quand les noyaux coïncident</span><span data-lang="en">When kernels match</span></span></a></li>
+                        <li><a href="#autres"><span class="summary-index">04</span><span class="summary-label" data-i18n=""><span data-lang="fr">IGES, JT, STL, 3MF, DXF, PDF 3D</span><span data-lang="en">IGES, JT, STL, 3MF, DXF, 3D PDF</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">Chacun à sa place</span><span data-lang="en">Each in its place</span></span></a></li>
+                        <li><a href="#pieges"><span class="summary-index">05</span><span class="summary-label" data-i18n=""><span data-lang="fr">Les 6 pièges qui cassent les imports</span><span data-lang="en">The 6 traps that break imports</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">Unités, couture, assemblages</span><span data-lang="en">Units, stitching, assemblies</span></span></a></li>
+                        <li><a href="#protocole"><span class="summary-index">06</span><span class="summary-label" data-i18n=""><span data-lang="fr">Le protocole de contrôle en 5 points</span><span data-lang="en">The 5-point checking protocol</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">Avant d'envoyer</span><span data-lang="en">Before sending</span></span></a></li>
+                        <li><a href="#gouvernance"><span class="summary-index">07</span><span class="summary-label" data-i18n=""><span data-lang="fr">Un fichier d'échange est un livrable</span><span data-lang="en">An exchange file is a deliverable</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">Donc il a une révision</span><span data-lang="en">So it has a revision</span></span></a></li>
+                        <li><a href="#faq"><span class="summary-index">08</span><span class="summary-label">FAQ</span><span class="summary-meta" data-i18n=""><span data-lang="fr">Les questions qui restent</span><span data-lang="en">Remaining questions</span></span></a></li>
+                    </ol>
+                </nav>
+
+                <section class="blog-section article-section" id="natif-neutre">
+                    <h2 data-i18n=""><span data-lang="fr">1. Natif ou neutre : ce que vous perdez vraiment</span><span data-lang="en">1. Native or neutral: what you really lose</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Un fichier <strong>natif</strong> contient l'intégralité de votre travail : la géométrie, mais aussi l'<strong>arbre de construction</strong>, les paramètres, les relations d'esquisse, les configurations, les propriétés personnalisées. C'est le modèle vivant — celui qu'on peut modifier en changeant une cote.</span><span data-lang="en">A <strong>native</strong> file holds all of your work: the geometry, but also the <strong>feature tree</strong>, parameters, sketch relations, configurations and custom properties. It's the living model — the one you can change by editing a dimension.</span></p>
+                    <p data-i18n=""><span data-lang="fr">Un format <strong>neutre</strong> transporte le résultat, pas la recette. Vous récupérez un solide exact, mais sans historique : impossible de « modifier l'extrusion », il n'y a plus d'extrusion. Le jargon parle de <em>modèle mort</em>, et c'est exactement ça. Les modifications se font alors en géométrie directe : décaler une face, supprimer un perçage, ajouter de la matière — c'est faisable et parfois suffisant, mais ce n'est plus du paramétrique.</span><span data-lang="en">A <strong>neutral</strong> format carries the result, not the recipe. You get an exact solid, but no history: you can't "edit the extrude", there is no extrude any more. The jargon calls it a <em>dumb solid</em>, and that's exactly right. Edits then happen through direct modelling: offset a face, remove a hole, add material — workable and sometimes enough, but no longer parametric.</span></p>
+                    <p data-i18n=""><span data-lang="fr">La conséquence pratique est simple et elle vaut pour tous les logiciels : <strong>si quelqu'un doit reprendre la conception, envoyez le natif ; si quelqu'un doit fabriquer, le neutre suffit.</strong> C'est aussi la raison pour laquelle un changement de modeleur ne se règle pas par un export massif, comme je l'explique dans le <a href="/blog/choisir-logiciel-cao-solidworks-inventor-fusion-catia/">comparatif des logiciels de CAO</a>.</span><span data-lang="en">The practical consequence is simple and applies across every tool: <strong>if someone must continue the design, send native; if someone must manufacture, neutral is enough.</strong> It's also why switching modellers isn't solved by a mass export, as I explain in the <a href="/blog/choisir-logiciel-cao-solidworks-inventor-fusion-catia/">CAD software comparison</a>.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="step">
+                    <h2 data-i18n=""><span data-lang="fr">2. STEP : AP203, AP214, AP242 — lequel demander</span><span data-lang="en">2. STEP: AP203, AP214, AP242 — which one to ask for</span></h2>
+                    <p data-i18n=""><span data-lang="fr">STEP est la norme ISO 10303, et c'est le format d'échange de référence de l'industrie mécanique. Le point que presque personne ne vérifie : <strong>« STEP » ne suffit pas à décrire ce que vous recevez</strong>. Il existe plusieurs protocoles d'application, et ils ne transportent pas la même chose.</span><span data-lang="en">STEP is ISO 10303, and it is the reference exchange format of mechanical industry. The point almost nobody checks: <strong>"STEP" alone does not describe what you're receiving</strong>. There are several application protocols, and they don't carry the same things.</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr>
+                                        <th data-i18n=""><span data-lang="fr">Protocole</span><span data-lang="en">Protocol</span></th>
+                                        <th data-i18n=""><span data-lang="fr">Ce qu'il transporte</span><span data-lang="en">What it carries</span></th>
+                                        <th data-i18n=""><span data-lang="fr">Quand l'utiliser</span><span data-lang="en">When to use it</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>AP203</strong></td><td data-i18n=""><span data-lang="fr">Géométrie solide et structure d'assemblage, sans couleurs</span><span data-lang="en">Solid geometry and assembly structure, no colours</span></td><td data-i18n=""><span data-lang="fr">Compatibilité maximale avec de vieux systèmes</span><span data-lang="en">Maximum compatibility with older systems</span></td></tr>
+                                    <tr><td><strong>AP214</strong></td><td data-i18n=""><span data-lang="fr">Idem, plus les couleurs, les couches et certaines propriétés</span><span data-lang="en">Same, plus colours, layers and some properties</span></td><td data-i18n=""><span data-lang="fr">Le choix sûr quand AP242 n'est pas proposé</span><span data-lang="en">The safe choice when AP242 isn't offered</span></td></tr>
+                                    <tr><td><strong>AP242</strong></td><td data-i18n=""><span data-lang="fr">Fusion des deux précédents, plus le tolérancement porté par le modèle (PMI/GD&amp;T) et les métadonnées</span><span data-lang="en">A merge of both, plus model-based tolerancing (PMI/GD&amp;T) and metadata</span></td><td data-i18n=""><span data-lang="fr">Le défaut à demander aujourd'hui</span><span data-lang="en">The default to ask for today</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr">L'apport majeur d'AP242, c'est le <strong>PMI</strong> : les tolérances, états de surface et références de cotation voyagent <em>avec le modèle</em>, de façon exploitable par un logiciel — et non plus seulement sur une mise en plan jointe. C'est la base de la démarche MBD (<em>model-based definition</em>), et c'est ce qui rend l'échange réellement lisible par une machine à mesurer ou un contrôle qualité.</span><span data-lang="en">AP242's major contribution is <strong>PMI</strong>: tolerances, surface finishes and datums travel <em>with the model</em>, in a form software can exploit — no longer only on an attached drawing. That's the foundation of MBD (model-based definition), and what makes an exchange genuinely readable by a measuring machine or quality control.</span></p>
+                    <div class="callout">
+                        <div class="quote-block">
+                            <blockquote data-i18n=""><span data-lang="fr">Quand un client me dit « je vous ai envoyé un STEP », ma première question est toujours : lequel ? Entre un AP203 sans couleurs et un AP242 avec tolérancement, ce n'est pas le même livrable — et parfois pas le même projet.</span><span data-lang="en">When a client tells me "I sent you a STEP", my first question is always: which one? Between a colourless AP203 and an AP242 carrying tolerancing, it isn't the same deliverable — and sometimes not the same project.</span></blockquote>
+                            <cite>Mohamed Omar Baouch</cite>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="blog-section article-section" id="noyaux">
+                    <h2 data-i18n=""><span data-lang="fr">3. Parasolid et ACIS : la voie directe quand les noyaux coïncident</span><span data-lang="en">3. Parasolid and ACIS: the direct route when kernels match</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Sous chaque modeleur tourne un <strong>noyau géométrique</strong>, le moteur qui calcule réellement les solides. Parasolid (Siemens) équipe notamment SOLIDWORKS, Solid Edge, NX et Onshape ; ACIS et ses dérivés se retrouvent dans d'autres outils.</span><span data-lang="en">Under every modeller runs a <strong>geometric kernel</strong>, the engine that actually computes solids. Parasolid (Siemens) powers SOLIDWORKS, Solid Edge, NX and Onshape among others; ACIS and its derivatives sit inside other tools.</span></p>
+                    <p data-i18n=""><span data-lang="fr">Quand les deux logiciels partagent le même noyau, exporter en <strong>Parasolid (.x_t en texte, .x_b en binaire)</strong> revient à transmettre la représentation interne sans traduction intermédiaire. Résultat : pas de reconstruction approximative, pas de surface qui refuse de se coudre, et souvent un import instantané là où un STEP demande du nettoyage. C'est le réflexe à avoir entre deux outils compatibles — et un excellent plan B quand un STEP arrive abîmé.</span><span data-lang="en">When both tools share the kernel, exporting to <strong>Parasolid (.x_t text, .x_b binary)</strong> means handing over the internal representation with no intermediate translation. The result: no approximate rebuild, no surface refusing to stitch, and often an instant import where a STEP needs cleaning. It's the reflex between two compatible tools — and an excellent plan B when a STEP arrives damaged.</span></p>
+                    <p data-i18n=""><span data-lang="fr">La limite : c'est un format d'éditeur, pas une norme ISO. Pour l'archivage long terme et pour les échanges contractuels, STEP reste le bon choix.</span><span data-lang="en">The limit: it's a vendor format, not an ISO standard. For long-term archiving and contractual exchanges, STEP remains the right choice.</span></p>
+                </section>
+
+                <figure class="figure-inline">
+                    <img src="/img/blog/photo-1531482615713-2afd69097998-800.webp" srcset="/img/blog/photo-1531482615713-2afd69097998-800.webp 800w, /img/blog/photo-1531482615713-2afd69097998-1600.webp 1600w" sizes="(min-width: 64rem) 26rem, (min-width: 40rem) 50vw, 100vw" decoding="async" alt="Poste de travail affichant des données techniques" loading="lazy">
+                    <figcaption data-i18n=""><span data-lang="fr">Le bon format dépend du destinataire : une machine de découpe, un client qui modifie, un dirigeant qui regarde — trois besoins, trois fichiers différents.</span><span data-lang="en">The right format depends on the recipient: a cutting machine, a customer who edits, an executive who looks — three needs, three different files.</span></figcaption>
+                </figure>
+
+                <section class="blog-section article-section" id="autres">
+                    <h2 data-i18n=""><span data-lang="fr">4. IGES, JT, STL, 3MF, DXF, PDF 3D : chacun à sa place</span><span data-lang="en">4. IGES, JT, STL, 3MF, DXF, 3D PDF: each in its place</span></h2>
+                    <ul>
+                        <li data-i18n=""><span data-lang="fr"><strong>IGES</strong> — l'ancêtre, hérité des années 1980. Il transporte des surfaces, souvent non cousues, ce qui donne ces imports en morceaux qu'il faut réparer à la main avant d'obtenir un volume. À n'utiliser que si votre interlocuteur ne sait vraiment rien lire d'autre.</span><span data-lang="en"><strong>IGES</strong> — the ancestor, inherited from the 1980s. It carries surfaces, often unstitched, producing those fragmented imports you must repair by hand before getting a solid. Use it only if your counterpart genuinely can't read anything else.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>JT</strong> (norme ISO 14306) — format léger de visualisation et de revue, très présent dans l'automobile. Permet de faire circuler de très gros assemblages sans distribuer la géométrie exacte.</span><span data-lang="en"><strong>JT</strong> (ISO 14306) — a lightweight visualisation and review format, widespread in automotive. Lets very large assemblies circulate without distributing exact geometry.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>STL</strong> — un maillage de triangles, rien d'autre : pas d'unités, pas de couleurs, pas de précision au-delà de la finesse du maillage. Parfait pour l'impression 3D, inadapté à tout le reste. Recevoir un STL pour fabriquer une pièce usinée est un mauvais signe.</span><span data-lang="en"><strong>STL</strong> — a triangle mesh, nothing more: no units, no colours, no precision beyond the mesh resolution. Perfect for 3D printing, wrong for everything else. Receiving an STL to machine a part is a bad sign.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>3MF</strong> — le successeur moderne du STL : il porte les unités, les couleurs et les matériaux. Préférez-le dès que la chaîne d'impression l'accepte.</span><span data-lang="en"><strong>3MF</strong> — STL's modern successor: it carries units, colours and materials. Prefer it as soon as your printing chain accepts it.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>DXF / DWG</strong> — le 2D. Indispensable pour envoyer un dépliage de tôle en découpe laser ou poinçonnage, et pour les plans d'implantation. Vérifiez toujours l'unité et l'échelle, source d'erreurs coûteuses.</span><span data-lang="en"><strong>DXF / DWG</strong> — 2D. Essential for sending a sheet-metal flat to laser cutting or punching, and for layout drawings. Always check units and scale, a costly source of errors.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>PDF 3D</strong> — sous-estimé : un modèle manipulable dans un simple lecteur PDF, idéal pour une revue avec des non-spécialistes, un service achats ou un client final.</span><span data-lang="en"><strong>3D PDF</strong> — underrated: a model you can manipulate in a plain PDF reader, ideal for a review with non-specialists, a purchasing department or an end customer.</span></li>
+                    </ul>
+                </section>
+
+                <section class="blog-section article-section" id="pieges">
+                    <h2 data-i18n=""><span data-lang="fr">5. Les 6 pièges qui cassent les imports</span><span data-lang="en">5. The 6 traps that break imports</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Presque tous les fichiers inexploitables que je reçois relèvent de l'un de ces six cas :</span><span data-lang="en">Almost every unusable file I receive falls into one of these six cases:</span></p>
+                    <ul>
+                        <li data-i18n=""><span data-lang="fr"><strong>Les unités.</strong> Un modèle en pouces importé en millimètres, ou l'inverse, donne une pièce au facteur 25,4 — parfois assez plausible pour passer inaperçue jusqu'à l'usinage. Contrôlez toujours une cote connue après import.</span><span data-lang="en"><strong>Units.</strong> A model in inches imported as millimetres, or the reverse, yields a part off by 25.4 — sometimes plausible enough to slip through until machining. Always check one known dimension after import.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>La tolérance de couture.</strong> Chaque logiciel a sa précision ; des surfaces jugées jointives d'un côté ne le sont plus de l'autre, et le volume refuse de se fermer. C'est la cause n°1 des « solides qui restent des surfaces ».</span><span data-lang="en"><strong>Stitching tolerance.</strong> Each tool has its own precision; surfaces considered contiguous on one side no longer are on the other, and the solid refuses to close. It's the number-one cause of "solids that stay surfaces".</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Les assemblages éclatés.</strong> Selon le format et les options d'export, un assemblage arrive soit structuré, soit fondu en un seul corps, soit en vrac. STEP sait conserver la structure — encore faut-il cocher la bonne option.</span><span data-lang="en"><strong>Exploded assemblies.</strong> Depending on format and export options, an assembly arrives either structured, or fused into a single body, or scattered. STEP can preserve the structure — provided the right option is ticked.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Les corps multiples.</strong> Une pièce multicorps exportée sans précaution peut revenir en un seul volume fusionné, ce qui rend le dépliage de tôle ou l'usinage impossible à reprendre.</span><span data-lang="en"><strong>Multi-body parts.</strong> A multi-body part exported carelessly can come back as a single merged volume, making sheet-metal unfolding or machining impossible to resume.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Les couleurs et les métadonnées perdues.</strong> Un AP203 ne transporte pas les couleurs ; les propriétés personnalisées — matière, désignation, indice — disparaissent presque toujours. Or ce sont elles qui alimentent votre <a href="/blog/nomenclature-bom-pdm-plm-erp/">nomenclature</a>.</span><span data-lang="en"><strong>Lost colours and metadata.</strong> AP203 carries no colours; custom properties — material, description, revision — almost always vanish. Yet those are exactly what feed your <a href="/blog/nomenclature-bom-pdm-plm-erp/">BOM</a>.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>La géométrie dégradée à l'export.</strong> Congés très petits, surfaces tangentes, arêtes coïncidentes : la traduction produit parfois des faces minuscules ou des trous invisibles à l'œil, qui bloqueront l'usinage plus tard.</span><span data-lang="en"><strong>Geometry degraded on export.</strong> Very small fillets, tangent surfaces, coincident edges: translation sometimes produces tiny faces or holes invisible to the eye, which will block machining later.</span></li>
+                    </ul>
+                </section>
+
+                <section class="blog-section article-section" id="protocole">
+                    <h2 data-i18n=""><span data-lang="fr">6. Le protocole de contrôle en 5 points, avant d'envoyer</span><span data-lang="en">6. The 5-point checking protocol, before you send</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Ce contrôle prend deux minutes et évite des semaines de malentendu. Je le fais systématiquement, et je le fais installer comme règle chez mes clients :</span><span data-lang="en">This check takes two minutes and prevents weeks of misunderstanding. I do it systematically, and I get it installed as a rule at my clients':</span></p>
+                    <ol>
+                        <li data-i18n=""><span data-lang="fr"><strong>Rouvrez votre propre export</strong> dans une session neuve, comme si vous étiez le destinataire. C'est le seul contrôle qui attrape vraiment tout.</span><span data-lang="en"><strong>Reopen your own export</strong> in a fresh session, as if you were the recipient. It's the only check that truly catches everything.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Comparez le volume ou la masse</strong> avec le modèle d'origine. Un écart signale immédiatement un problème d'unités, de couture ou de corps manquant.</span><span data-lang="en"><strong>Compare volume or mass</strong> against the original model. Any gap immediately flags a units, stitching or missing-body problem.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Vérifiez le nombre de corps et de composants</strong> : un assemblage de 47 pièces doit arriver avec 47 pièces.</span><span data-lang="en"><strong>Check the count of bodies and components</strong>: a 47-part assembly must arrive with 47 parts.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Mesurez une cote fonctionnelle connue</strong> — un entraxe, un diamètre d'alésage. Deux secondes, et vous êtes couvert sur l'échelle.</span><span data-lang="en"><strong>Measure one known functional dimension</strong> — a hole spacing, a bore diameter. Two seconds, and you're covered on scale.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Joignez ce que le format ne transporte pas</strong> : matière, traitement, tolérances générales, indice de révision. Un PDF de la mise en plan accompagne toujours utilement un fichier 3D — sauf si vous travaillez en AP242 avec PMI, et que votre destinataire sait l'exploiter.</span><span data-lang="en"><strong>Attach whatever the format doesn't carry</strong>: material, treatment, general tolerances, revision level. A PDF of the drawing always usefully accompanies a 3D file — unless you work in AP242 with PMI and your recipient can exploit it.</span></li>
+                    </ol>
+                </section>
+
+                <section class="blog-section article-section" id="gouvernance">
+                    <h2 data-i18n=""><span data-lang="fr">7. Un fichier d'échange est un livrable : il a une révision</span><span data-lang="en">7. An exchange file is a deliverable: it has a revision</span></h2>
+                    <p data-i18n=""><span data-lang="fr">C'est le point que je défends dans chaque mission, et c'est celui qui coûte le plus cher quand il est ignoré. Un STEP posé sur un serveur de partage, nommé <em>piece_finale_V2_ok.step</em>, sans indice ni traçabilité, <strong>est une bombe à retardement</strong> : personne ne saura, dans six mois, s'il correspond à la révision fabriquée.</span><span data-lang="en">This is the point I defend on every assignment, and the one that costs most when ignored. A STEP dropped on a file share, named <em>final_part_V2_ok.step</em>, with no revision level or traceability, <strong>is a time bomb</strong>: in six months nobody will know whether it matches the revision that was manufactured.</span></p>
+                    <p data-i18n=""><span data-lang="fr">Les trois règles à poser, qui ne coûtent rien :</span><span data-lang="en">The three rules to set, which cost nothing:</span></p>
+                    <ul>
+                        <li data-i18n=""><span data-lang="fr"><strong>Le fichier exporté porte la référence et l'indice</strong> de la pièce d'origine, pas un nom improvisé — c'est la base de toute <a href="/blog/codification-proprietes-solidworks/">codification saine</a>.</span><span data-lang="en"><strong>The exported file carries the part number and revision</strong> of the source item, not an improvised name — the foundation of any <a href="/blog/codification-proprietes-solidworks/">healthy numbering scheme</a>.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>L'export est généré depuis la version approuvée</strong>, pas depuis le poste de celui qui modélisait ce matin-là. C'est précisément ce qu'un coffre PDM garantit automatiquement.</span><span data-lang="en"><strong>The export is generated from the approved version</strong>, not from the workstation of whoever was modelling that morning. That's exactly what a PDM vault guarantees automatically.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Chaque envoi est tracé</strong> : qui, quoi, quand, quel indice. Le jour d'un litige sur une pièce non conforme, cette trace vaut très cher — et c'est la même logique que celle des <a href="/blog/eco-ecr-gestion-modifications/">demandes de modification</a>.</span><span data-lang="en"><strong>Every shipment is traced</strong>: who, what, when, which revision. The day a non-conformance dispute arises, that trace is worth a lot — and it follows the same logic as <a href="/blog/eco-ecr-gestion-modifications/">change requests</a>.</span></li>
+                    </ul>
+                </section>
+
+                <section class="blog-section article-section" id="faq">
+                    <h2>8. FAQ</h2>
+                    <h3 data-i18n=""><span data-lang="fr">Quelle différence entre STEP AP203, AP214 et AP242 ?</span><span data-lang="en">What's the difference between STEP AP203, AP214 and AP242?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">AP203 transporte la géométrie solide et la structure d'assemblage, sans couleurs. AP214 y ajoute couleurs, couches et certaines propriétés. AP242 fusionne les deux et transporte en plus le tolérancement porté par le modèle (PMI) et des métadonnées : c'est le protocole à demander par défaut aujourd'hui.</span><span data-lang="en">AP203 carries solid geometry and assembly structure, without colours. AP214 adds colours, layers and some properties. AP242 merges both and additionally carries model-based tolerancing (PMI) and metadata: it's the protocol to ask for by default today.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Pourquoi mon import STEP donne des surfaces au lieu d'un volume ?</span><span data-lang="en">Why does my STEP import give surfaces instead of a solid?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Parce que les surfaces ne se cousent pas : les écarts entre faces dépassent la tolérance du logiciel d'accueil. Essayez la couture avec une tolérance plus permissive, demandez un export en Parasolid si les noyaux coïncident, et en dernier recours faites régénérer l'export depuis le natif — c'est souvent plus rapide que de réparer.</span><span data-lang="en">Because the surfaces won't stitch: the gaps between faces exceed the receiving tool's tolerance. Try stitching with a looser tolerance, ask for a Parasolid export if the kernels match, and as a last resort have the export regenerated from the native file — often faster than repairing.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Peut-on récupérer l'arbre de construction depuis un STEP ?</span><span data-lang="en">Can you recover the feature tree from a STEP file?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Non. Certains outils proposent une reconnaissance de fonctions qui recrée des perçages ou des extrusions simples, mais ce n'est pas votre arbre d'origine : c'est une interprétation. Si vous devez reprendre la conception, réclamez le fichier natif.</span><span data-lang="en">No. Some tools offer feature recognition that recreates holes or simple extrudes, but that isn't your original tree: it's an interpretation. If you must continue the design, insist on the native file.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Quel format envoyer à un sous-traitant qui usine ?</span><span data-lang="en">Which format should I send to a machining subcontractor?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">STEP AP242 pour la géométrie, accompagné du PDF de la mise en plan pour la matière, les traitements et les tolérances — sauf si votre chaîne est réellement MBD des deux côtés. Jamais de STL pour de l'usinage.</span><span data-lang="en">STEP AP242 for the geometry, together with a PDF of the drawing for material, treatments and tolerances — unless your chain is genuinely MBD on both sides. Never STL for machining.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">STL ou 3MF pour l'impression 3D ?</span><span data-lang="en">STL or 3MF for 3D printing?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">3MF dès que votre chaîne l'accepte : il porte les unités, les couleurs et les matériaux, là où le STL n'est qu'un maillage nu. Le STL reste le dénominateur commun universel, rien de plus.</span><span data-lang="en">3MF as soon as your chain accepts it: it carries units, colours and materials, where STL is just a bare mesh. STL remains the universal common denominator, nothing more.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Faut-il archiver en natif ou en STEP ?</span><span data-lang="en">Should I archive in native or STEP?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Les deux. Le natif pour pouvoir reprendre la conception tant que vous disposez du logiciel ; le STEP et le PDF de la mise en plan pour rester lisible dans vingt ans, quels que soient vos outils d'alors. C'est la règle que j'applique dans toutes les <a href="/blog/migration-donnees-solidworks-pdm/">migrations de données</a>.</span><span data-lang="en">Both. Native so you can resume the design while you still have the software; STEP plus a PDF of the drawing so it stays readable in twenty years, whatever your tools are by then. It's the rule I apply in every <a href="/blog/migration-donnees-solidworks-pdm/">data migration</a>.</span></p>
+                    <div class="callout">
+                        <div class="quote-block">
+                            <blockquote data-i18n=""><span data-lang="fr">Le résumé en une ligne : natif pour modifier, STEP AP242 pour fabriquer, léger pour regarder — et rouvrez toujours votre propre export avant de l'envoyer.</span><span data-lang="en">The one-line summary: native to modify, STEP AP242 to manufacture, lightweight to look — and always reopen your own export before sending it.</span></blockquote>
+                            <cite>Mohamed Omar Baouch</cite>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="blog-section article-related">
+                    <h2 data-i18n=""><span data-lang="fr">À lire aussi</span><span data-lang="en">Read next</span></h2>
+                    <div class="media-grid">
+                        <a href="/blog/choisir-logiciel-cao-solidworks-inventor-fusion-catia/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">Quel logiciel de CAO choisir ?</span><span data-lang="en">Which CAD software should you choose?</span></h3>
+                            <p data-i18n=""><span data-lang="fr">SOLIDWORKS, Inventor, Fusion 360, CATIA : le comparatif par profil et les critères qui décident.</span><span data-lang="en">SOLIDWORKS, Inventor, Fusion 360, CATIA: the comparison by profile and the criteria that decide.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                        <a href="/blog/codification-proprietes-solidworks/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">Codification &amp; propriétés SOLIDWORKS</span><span data-lang="en">SOLIDWORKS numbering &amp; properties</span></h3>
+                            <p data-i18n=""><span data-lang="fr">Les métadonnées que vos exports perdent, et comment les tenir à la source.</span><span data-lang="en">The metadata your exports lose, and how to hold it at the source.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                    </div>
+                </section>
+
+                <footer class="article-footer">
+                    <div class="article-tags">
+                        <span class="article-tag">STEP</span>
+                        <span class="article-tag">IGES</span>
+                        <span class="article-tag">Parasolid</span>
+                        <span class="article-tag">JT</span>
+                        <span class="article-tag">STL</span>
+                        <span class="article-tag">CAO</span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Échange de données</span><span data-lang="en">Data exchange</span></span>
+                        <span class="article-tag">PMI</span>
+                    </div>
+                    <div class="article-nav">
+                        <a href="/blog/" class="back-link" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                        <a href="/#contact" class="hero-btn" data-i18n=""><span data-lang="fr">Parler d'un projet</span><span data-lang="en">Discuss a project</span></a>
+                    </div>
+                </footer>
+
+            </article>
+        </div>
+    </main>
+
+    <script src="/assets/js/loader.js"></script>
+    <script src="/assets/js/visitor-intelligence.js"></script>
+
+{{> footer }}
+{{> chatbot }}
+</body></html>

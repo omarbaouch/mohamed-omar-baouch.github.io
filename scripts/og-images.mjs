@@ -11,7 +11,7 @@ fs.mkdirSync(OUT, { recursive: true });
 
 const PAGES = [
   { file: 'src/index.html', slug: 'home', ref: 'ASM-BAOUCH · RÉV.2026', type: 'PORTFOLIO', title: 'Consultant Expert SOLIDWORKS — PDM / PLM' },
-  { file: 'src/blog/index.html', slug: 'blog', ref: 'ASM-04 · 14 DOCS', type: 'BLOG', title: 'Guides & analyses PDM/PLM et SOLIDWORKS' },
+  { file: 'src/blog/index.html', slug: 'blog', ref: 'ASM-04 · 16 DOCS', type: 'BLOG', title: 'Guides & analyses PDM/PLM et SOLIDWORKS' },
   { file: 'src/blog/pdm-ou-plm-quand-basculer/index.html', slug: 'pdm-ou-plm', ref: 'DOC-01', type: 'ARTICLE', title: 'PDM ou PLM : les 5 signaux qui prouvent que vous avez dépassé votre coffre' },
   { file: 'src/blog/solidworks-pdm-standard-vs-professional/index.html', slug: 'std-vs-pro', ref: 'DOC-02', type: 'ARTICLE', title: 'SOLIDWORKS PDM : Standard ou Professional, le guide complet' },
   { file: 'src/blog/solidworks-pdm-lent-7-causes/index.html', slug: 'pdm-lent', ref: 'DOC-03', type: 'ARTICLE', title: 'SOLIDWORKS PDM lent : les 7 vraies causes' },
@@ -26,6 +26,8 @@ const PAGES = [
   { file: 'src/blog/configuration-materielle-solidworks/index.html', slug: 'config-materielle', ref: 'DOC-12', type: 'ARTICLE', title: 'Configuration matérielle SOLIDWORKS : le guide terrain' },
   { file: 'src/blog/resolutions-problematiques-plm/index.html', slug: 'resolutions-plm', ref: 'DOC-13', type: 'ARTICLE', title: 'Résolutions de problématiques PLM : retours de terrain' },
   { file: 'src/blog/raccourcis-clavier-solidworks/index.html', slug: 'raccourcis', ref: 'DOC-14', type: 'ARTICLE', title: 'Raccourcis clavier SOLIDWORKS : la liste complète et la méthode' },
+  { file: 'src/blog/choisir-logiciel-cao-solidworks-inventor-fusion-catia/index.html', slug: 'choix-cao', ref: 'DOC-15', type: 'ARTICLE', title: 'SOLIDWORKS, Inventor, Fusion 360 ou CATIA : quel logiciel de CAO choisir ?' },
+  { file: 'src/blog/formats-echange-cao-step-iges-parasolid/index.html', slug: 'formats-cao', ref: 'DOC-16', type: 'ARTICLE', title: "STEP, IGES, Parasolid, STL : quel format d'échange CAO choisir ?" },
   { file: 'src/projets/robot-orbita/index.html', slug: 'orbita', ref: 'PRT-ORBITA · RÉV.B', type: 'ÉTUDE DE CAS', title: 'Structurer le PDM d’un robot humanoïde' },
   { file: 'src/projets/migration-pdm-internationale/index.html', slug: 'mig-intl', ref: 'MIG-INTL · RÉV.C', type: 'ÉTUDE DE CAS', title: 'Migration PDM multi-sites pour un géant mondial du câblage' },
 ];

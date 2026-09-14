@@ -46,6 +46,48 @@
     
     
     
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "CollectionPage",
+                "name": "Blog — Guides PDM/PLM & SOLIDWORKS",
+                "description": "Articles de fond et retours d'expérience terrain sur le PDM, le PLM, SOLIDWORKS et la gestion des données produit — issus de 80+ missions en industrie.",
+                "url": "https://baouch.fr/blog/",
+                "inLanguage": "fr-FR",
+                "isPartOf": {
+                    "@type": "WebSite",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://baouch.fr/"
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://baouch.fr",
+                    "jobTitle": "Ingénieur & Consultant PDM/PLM"
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Accueil",
+                        "item": "https://baouch.fr/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Blog",
+                        "item": "https://baouch.fr/blog/"
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
     {{> head-fonts }}<script type="module" src="../js/blog.js"></script>
 </head>
 <body class="blog-page">
@@ -80,7 +122,7 @@
                     </div>
                     <div class="hero-stats">
                         <div class="hero-stat">
-                            <span class="hero-stat-value">14</span>
+                            <span class="hero-stat-value">16</span>
                             <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Articles de fond</span><span data-lang="en">In-depth articles</span></span>
                         </div>
                         <div class="hero-stat">
@@ -130,6 +172,33 @@
 
                     <!-- Grille à vignettes -->
                     <div class="article-grid">
+                        <article class="article-card" data-cat="cao">
+                            <a class="article-card__media" href="/blog/choisir-logiciel-cao-solidworks-inventor-fusion-catia/" aria-hidden="true" tabindex="-1">
+                                <span class="article-card__cat">CAO</span>
+                                <span class="article-card__time">14 min</span>
+                                <img src="/img/blog/photo-1581091226825-a6a2a5aee158-800.webp" srcset="/img/blog/photo-1581091226825-a6a2a5aee158-800.webp 800w, /img/blog/photo-1581091226825-a6a2a5aee158-1600.webp 1600w" sizes="(min-width: 64rem) 26rem, (min-width: 40rem) 50vw, 100vw" decoding="async" alt="Ingénieurs comparant des solutions logicielles devant un écran" loading="lazy">
+                            </a>
+                            <div class="article-card__body">
+                                <span class="article-card__date" data-i18n=""><span data-lang="fr">14 septembre 2026</span><span data-lang="en">September 14, 2026</span></span>
+                                <h3 class="article-card__title"><a href="/blog/choisir-logiciel-cao-solidworks-inventor-fusion-catia/" data-i18n=""><span data-lang="fr">SOLIDWORKS, Inventor, Fusion 360 ou CATIA : quel logiciel de CAO choisir ?</span><span data-lang="en">SOLIDWORKS, Inventor, Fusion 360 or CATIA: which CAD software should you choose?</span></a></h3>
+                                <p class="article-card__excerpt" data-i18n=""><span data-lang="fr">Le comparatif par profil d'entreprise, les limites réelles de chaque outil, et les 5 critères qui décident vraiment — dont le coût total sur cinq ans.</span><span data-lang="en">The comparison by company profile, the real limits of each tool, and the 5 criteria that actually decide — including total cost over five years.</span></p>
+                                <a class="article-card__more" href="/blog/choisir-logiciel-cao-solidworks-inventor-fusion-catia/" data-i18n=""><span data-lang="fr">Lire</span><span data-lang="en">Read</span> <span class="arrow" aria-hidden="true">→</span></a>
+                            </div>
+                        </article>
+
+                        <article class="article-card" data-cat="data">
+                            <a class="article-card__media" href="/blog/formats-echange-cao-step-iges-parasolid/" aria-hidden="true" tabindex="-1">
+                                <span class="article-card__cat">Données</span>
+                                <span class="article-card__time">13 min</span>
+                                <img src="/img/blog/photo-1518770660439-4636190af475-800.webp" srcset="/img/blog/photo-1518770660439-4636190af475-800.webp 800w, /img/blog/photo-1518770660439-4636190af475-1600.webp 1600w" sizes="(min-width: 64rem) 26rem, (min-width: 40rem) 50vw, 100vw" decoding="async" alt="Circuits et données techniques, illustration de l'échange de données industrielles" loading="lazy">
+                            </a>
+                            <div class="article-card__body">
+                                <span class="article-card__date" data-i18n=""><span data-lang="fr">14 septembre 2026</span><span data-lang="en">September 14, 2026</span></span>
+                                <h3 class="article-card__title"><a href="/blog/formats-echange-cao-step-iges-parasolid/" data-i18n=""><span data-lang="fr">STEP, IGES, Parasolid, STL : quel format d'échange CAO choisir ?</span><span data-lang="en">STEP, IGES, Parasolid, STL: which CAD exchange format to choose?</span></a></h3>
+                                <p class="article-card__excerpt" data-i18n=""><span data-lang="fr">Ce que chaque format transporte vraiment, ce qui se perd au passage, les 6 pièges qui cassent les imports et le protocole de contrôle avant envoi.</span><span data-lang="en">What each format really carries, what gets lost on the way, the 6 traps that break imports and the checking protocol before sending.</span></p>
+                                <a class="article-card__more" href="/blog/formats-echange-cao-step-iges-parasolid/" data-i18n=""><span data-lang="fr">Lire</span><span data-lang="en">Read</span> <span class="arrow" aria-hidden="true">→</span></a>
+                            </div>
+                        </article>
                         <article class="article-card" data-cat="cao">
                             <a class="article-card__media" href="/blog/raccourcis-clavier-solidworks/" aria-hidden="true" tabindex="-1">
                                 <span class="article-card__cat">CAO</span>

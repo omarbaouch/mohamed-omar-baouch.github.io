@@ -24,11 +24,18 @@ function extract(file) {
   const html = readFileSync(resolve(root, file), 'utf8');
   const $ = cheerio.load(html);
   const meta = (sel) => $(sel).attr('content') ?? null;
+  // Les types déclarés par un bloc ld+json, qu'il soit un objet simple, un
+  // tableau ou un @graph. Sans le cas @graph, un bloc entier passait pour vide
+  // (le .map de cheerio écarte les null), et le garde-fou ne voyait plus rien.
+  const typesOf = (data) => {
+    if (Array.isArray(data)) return data.flatMap(typesOf);
+    if (Array.isArray(data?.['@graph'])) return data['@graph'].flatMap(typesOf);
+    return data?.['@type'] ? [data['@type']] : [];
+  };
   const jsonld = $('script[type="application/ld+json"]')
     .map((_, el) => {
       try {
-        const data = JSON.parse($(el).text());
-        return Array.isArray(data) ? data.map((d) => d['@type']).join(',') : data['@type'] ?? null;
+        return typesOf(JSON.parse($(el).text())).join(',') || 'SANS_TYPE';
       } catch {
         return 'PARSE_ERROR';
       }

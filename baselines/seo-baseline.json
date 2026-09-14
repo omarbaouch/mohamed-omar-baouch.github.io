@@ -1,4 +1,22 @@
 {
+  "/blog/choisir-logiciel-cao-solidworks-inventor-fusion-catia/": {
+    "title": "SOLIDWORKS, Inventor, Fusion 360 ou CATIA : quel logiciel de CAO choisir en 2026 ?",
+    "description": "Comparatif honnête des logiciels de CAO 3D pour la mécanique : SOLIDWORKS, Autodesk Inventor, Fusion 360, CATIA, Creo, NX, Onshape. Pour quel profil, avec quelles limites réelles, et les 5 critères qui décident vraiment — dont celui que tout le monde oublie : le coût total sur cinq ans.",
+    "canonical": "https://baouch.fr/blog/choisir-logiciel-cao-solidworks-inventor-fusion-catia/",
+    "robots": null,
+    "ogTitle": "SOLIDWORKS, Inventor, Fusion 360 ou CATIA : quel logiciel de CAO choisir ?",
+    "ogDescription": "Le comparatif par profil d'entreprise, les limites réelles de chaque outil et les 5 critères qui décident — dont le coût total sur cinq ans.",
+    "ogUrl": "https://baouch.fr/blog/choisir-logiciel-cao-solidworks-inventor-fusion-catia/",
+    "ogImage": "https://baouch.fr/img/og/choix-cao.jpg",
+    "ogType": "article",
+    "twitterTitle": "Quel logiciel de CAO choisir en 2026 ?",
+    "twitterDescription": "SOLIDWORKS, Inventor, Fusion 360, CATIA : pour quel profil, avec quelles limites, et les critères qui décident vraiment.",
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList,FAQPage"
+    ],
+    "h1": "SOLIDWORKS, Inventor, Fusion 360 ou CATIA : quel logiciel de CAO choisir ?SOLIDWORKS, Inventor, Fusion 360 or CATIA: which CAD software should you choose?",
+    "lang": "fr"
+  },
   "/blog/codification-proprietes-solidworks/": {
     "title": "Codification & propriétés SOLIDWORKS : le petit chantier qui répare toute votre chaîne BOM → ERP",
     "description": "Références bricolées, propriétés saisies au petit bonheur, doublons partout : la racine de 80 % des problèmes de nomenclature n'est pas dans l'ERP, elle est dans la pièce. Comment standardiser codification et propriétés SOLIDWORKS pour réparer toute la chaîne en aval.",
@@ -11,7 +29,9 @@
     "ogType": "article",
     "twitterTitle": "Codification & propriétés SOLIDWORKS : le chantier qui répare votre chaîne BOM → ERP",
     "twitterDescription": "Standardiser codification et propriétés SOLIDWORKS pour fiabiliser toute la chaîne de données produit.",
-    "jsonldTypes": [],
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList"
+    ],
     "h1": "Codification & propriétés SOLIDWORKS : le petit chantier qui répare toute votre chaîne BOM → ERPSOLIDWORKS numbering & properties: the small project that fixes your whole BOM → ERP chain",
     "lang": "fr"
   },
@@ -27,7 +47,9 @@
     "ogType": "article",
     "twitterTitle": "Configuration matérielle SOLIDWORKS 2025 : guide terrain",
     "twitterDescription": "Calibrer stations de travail, serveur PDM et réseau autour de SOLIDWORKS 2025.",
-    "jsonldTypes": [],
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList"
+    ],
     "h1": "Configuration matérielle SOLIDWORKS 2025 : le guide terrain pour un bureau d'études réactif",
     "lang": "fr"
   },
@@ -43,8 +65,28 @@
     "ogType": "article",
     "twitterTitle": "La révision fantôme à 40 000 € : maîtriser les ECO/ECR",
     "twitterDescription": "De la demande de modification à la clôture : le processus ECR/ECO qui protège votre production.",
-    "jsonldTypes": [],
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList"
+    ],
     "h1": "La révision fantôme à 40 000 € : maîtriser les ECO/ECR avant qu'elles ne vous coûtent cherThe €40,000 phantom revision: master ECO/ECR before they cost you dearly",
+    "lang": "fr"
+  },
+  "/blog/formats-echange-cao-step-iges-parasolid/": {
+    "title": "STEP, IGES, Parasolid, JT, STL : quel format d'échange CAO choisir (et comment éviter les pertes) ?",
+    "description": "Guide des formats d'échange CAO : STEP AP203, AP214 et AP242, Parasolid, ACIS, IGES, JT, STL, 3MF, DXF et PDF 3D. Ce que chaque format transporte vraiment, ce qui se perd au passage, les 6 pièges classiques (unités, couture, assemblages) et le protocole de contrôle en 5 points.",
+    "canonical": "https://baouch.fr/blog/formats-echange-cao-step-iges-parasolid/",
+    "robots": null,
+    "ogTitle": "STEP, IGES, Parasolid, JT, STL : quel format d'échange CAO choisir ?",
+    "ogDescription": "Ce que chaque format transporte vraiment, ce qui se perd, les 6 pièges classiques et le protocole de contrôle avant d'envoyer un fichier à un client.",
+    "ogUrl": "https://baouch.fr/blog/formats-echange-cao-step-iges-parasolid/",
+    "ogImage": "https://baouch.fr/img/og/formats-cao.jpg",
+    "ogType": "article",
+    "twitterTitle": "Quel format d'échange CAO choisir ?",
+    "twitterDescription": "STEP AP242, Parasolid, IGES, JT, STL : le bon format pour chaque usage, et le contrôle à faire avant d'envoyer.",
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList,FAQPage"
+    ],
+    "h1": "STEP, IGES, Parasolid, JT, STL : quel format d'échange CAO choisir — et comment éviter les pertesSTEP, IGES, Parasolid, JT, STL: which CAD exchange format to choose — and how to avoid losses",
     "lang": "fr"
   },
   "/blog/ia-solidworks-pdm-bureau-etudes/": {
@@ -59,7 +101,9 @@
     "ogType": "article",
     "twitterTitle": "IA et SOLIDWORKS PDM : ce qui change vraiment en 2026",
     "twitterDescription": "Copilotes, recherche sémantique, classification auto : l'IA dans la CAO et le PDM, sans hype.",
-    "jsonldTypes": [],
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList"
+    ],
     "h1": "IA et SOLIDWORKS PDM : ce qui change vraiment pour les bureaux d'études en 2026AI and SOLIDWORKS PDM: what actually changes for engineering teams in 2026",
     "lang": "fr"
   },
@@ -75,7 +119,9 @@
     "ogType": "website",
     "twitterTitle": null,
     "twitterDescription": null,
-    "jsonldTypes": [],
+    "jsonldTypes": [
+      "CollectionPage,BreadcrumbList"
+    ],
     "h1": "Guides & analyses PDM/PLM et SOLIDWORKSPDM/PLM & SOLIDWORKS guides and analysis",
     "lang": "fr"
   },
@@ -91,7 +137,9 @@
     "ogType": "article",
     "twitterTitle": "Passer votre PDM dans le cloud : ce que les commerciaux ne vous diront jamais",
     "twitterDescription": "Les angles morts d'une migration vers le cloud PDM / 3DEXPERIENCE et les questions à poser avant de signer.",
-    "jsonldTypes": [],
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList"
+    ],
     "h1": "Passer votre PDM dans le cloud : ce que les commerciaux ne vous diront jamais avant de signerMoving your PDM to the cloud: what sales reps will never tell you before you sign",
     "lang": "fr"
   },
@@ -107,7 +155,9 @@
     "ogType": "article",
     "twitterTitle": "Migration de donnees vers SOLIDWORKS PDM : le guide terrain",
     "twitterDescription": "Methodologie en 6 phases pour migrer vers SOLIDWORKS PDM sans perdre un fichier.",
-    "jsonldTypes": [],
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList"
+    ],
     "h1": "Migration de donnees vers SOLIDWORKS PDM : le guide terrain pour reussir sans perdre un fichier",
     "lang": "fr"
   },
@@ -123,7 +173,9 @@
     "ogType": "article",
     "twitterTitle": "Nomenclature, BOM, eBOM, mBOM : la colonne vertébrale de vos données produit",
     "twitterDescription": "Comprendre la BOM, la différence entre eBOM et mBOM, et le rôle de PDM, PLM et ERP.",
-    "jsonldTypes": [],
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList"
+    ],
     "h1": "Nomenclature, BOM, eBOM, mBOM : la colonne vertébrale de vos données produit — et le rôle de PDM, PLM et ERP",
     "lang": "fr"
   },
@@ -139,7 +191,9 @@
     "ogType": "article",
     "twitterTitle": "PDM ou PLM : les 5 signaux qui prouvent que votre coffre ne suffit plus",
     "twitterDescription": "Le cadre de décision terrain pour savoir quand passer d'un PDM à un vrai PLM.",
-    "jsonldTypes": [],
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList"
+    ],
     "h1": "PDM ou PLM : les 5 signaux qui prouvent que vous avez dépassé les limites de votre coffrePDM or PLM: the 5 signals that you've outgrown your vault",
     "lang": "fr"
   },
@@ -155,7 +209,9 @@
     "ogType": "article",
     "twitterTitle": "Combien coûte vraiment un projet SOLIDWORKS PDM ?",
     "twitterDescription": "Licences, infra, services, reprise de données : le vrai budget d'un projet PDM, poste par poste.",
-    "jsonldTypes": [],
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList"
+    ],
     "h1": "Combien coûte vraiment un projet SOLIDWORKS PDM ?What does a SOLIDWORKS PDM project really cost?",
     "lang": "fr"
   },
@@ -171,7 +227,9 @@
     "ogType": "article",
     "twitterTitle": "Raccourcis clavier SOLIDWORKS 2026 : la liste complète",
     "twitterDescription": "Vues, esquisse, assemblage, mise en plan : la liste par famille — plus la touche S, la touche D et les gestes de souris.",
-    "jsonldTypes": [],
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList,FAQPage"
+    ],
     "h1": "Raccourcis clavier SOLIDWORKS : la liste complète — et la méthode pour en tirer une heure par jourSOLIDWORKS keyboard shortcuts: the complete list — and the method that turns it into an hour a day",
     "lang": "fr"
   },
@@ -187,7 +245,9 @@
     "ogType": "article",
     "twitterTitle": "5 problématiques PLM résolues sur le terrain",
     "twitterDescription": "Retour d'expérience sur cinq problématiques PLM et les solutions concrètes apportées.",
-    "jsonldTypes": [],
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList"
+    ],
     "h1": "Au-delà de la théorie : résoudre les 5 problématiques PLM que j'ai vécues en tant qu'Ingénieur Mécanique",
     "lang": "fr"
   },
@@ -203,7 +263,9 @@
     "ogType": "article",
     "twitterTitle": "SOLIDWORKS gratuit en 2026 : les 7 solutions légales",
     "twitterDescription": "Étudiant, maker, startup, essai en ligne : le guide honnête, avec les limitations réelles et le vrai prix des licences.",
-    "jsonldTypes": [],
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList,FAQPage"
+    ],
     "h1": "SOLIDWORKS gratuit en 2026 : les 7 solutions légales — et le vrai prix quand il faut payerFree SOLIDWORKS in 2026: the 7 legal options — and the real price when you must pay",
     "lang": "fr"
   },
@@ -219,7 +281,9 @@
     "ogType": "article",
     "twitterTitle": "SOLIDWORKS PDM lent : les 7 vraies causes de lenteur",
     "twitterDescription": "Diagnostic terrain des lenteurs SOLIDWORKS PDM et les correctifs qui redonnent du temps à chaque ingénieur.",
-    "jsonldTypes": [],
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList"
+    ],
     "h1": "SOLIDWORKS PDM lent : les 7 vraies causes (et la 6ᵉ que personne ne regarde)Slow SOLIDWORKS PDM: the 7 real causes (and the 6th nobody checks)",
     "lang": "fr"
   },
@@ -235,7 +299,9 @@
     "ogType": "article",
     "twitterTitle": "SOLIDWORKS PDM : PDM expliqué, Standard vs Professional",
     "twitterDescription": "Comprendre le PDM, le rôle de SOLIDWORKS PDM et comment choisir entre Standard et Professional.",
-    "jsonldTypes": [],
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList"
+    ],
     "h1": "SOLIDWORKS PDM : comprendre le PDM et choisir entre Standard et ProfessionalSOLIDWORKS PDM: understand PDM and choose between Standard and Professional",
     "lang": "fr"
   },
