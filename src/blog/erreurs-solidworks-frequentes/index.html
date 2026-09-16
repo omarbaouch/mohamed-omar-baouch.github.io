@@ -1,0 +1,409 @@
+<!DOCTYPE html><html lang="fr"><head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PBLRK58T');</script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-33TQ27QY4M"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-33TQ27QY4M');</script>
+<!-- Microsoft Clarity -->
+    <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","vy4yvht8gz");</script>
+    <!-- LinkedIn Insight Tag -->
+    <script type="text/javascript">_linkedin_partner_id="525900907";window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];window._linkedin_data_partner_ids.push(_linkedin_partner_id);(function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";s.parentNode.insertBefore(b,s)})(window.lintrk);</script>
+    <script>
+    // Anti-flash de thème : clair par défaut, sombre si stocké.
+    (function () {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    })();
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les 10 erreurs SOLIDWORKS les plus fréquentes : causes réelles et corrections durables</title>
+    <meta name="description" content="Références manquantes, fichier en lecture seule, erreurs de reconstruction, Toolbox incohérente, « impossible d'enregistrer le document », mise en plan qui perd ses vues : les 10 pannes SOLIDWORKS les plus courantes en bureau d'études, la correction immédiate pour chacune, et la cause de fond qui les fait revenir.">
+    <meta name="author" content="Mohamed Omar Baouch">
+    <link rel="canonical" href="https://baouch.fr/blog/erreurs-solidworks-frequentes/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Les 10 erreurs SOLIDWORKS les plus fréquentes et comment les corriger">
+    <meta property="og:description" content="Références manquantes, lecture seule, erreurs de reconstruction, Toolbox : la correction immédiate et la cause de fond, panne par panne.">
+    <meta property="og:url" content="https://baouch.fr/blog/erreurs-solidworks-frequentes/">
+    <meta property="og:image" content="https://baouch.fr/img/og/erreurs-sw.jpg">
+    <meta property="og:site_name" content="Mohamed Omar Baouch">
+    <meta property="article:published_time" content="2026-09-16T00:00:00.000Z">
+    <meta property="article:author" content="Mohamed Omar Baouch">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Les 10 erreurs SOLIDWORKS les plus fréquentes">
+    <meta name="twitter:description" content="La correction immédiate et la cause de fond, panne par panne — par un consultant PDM.">
+    <meta name="twitter:image" content="https://baouch.fr/img/og/erreurs-sw.jpg">
+    <link rel="alternate" type="application/rss+xml" title="Blog — Mohamed Omar Baouch" href="https://baouch.fr/blog/rss.xml">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "headline": "Les 10 erreurs SOLIDWORKS les plus fréquentes et comment les corriger",
+                "description": "Références manquantes, fichier en lecture seule, erreurs de reconstruction, Toolbox incohérente, « impossible d'enregistrer le document », mise en plan qui perd ses vues : les 10 pannes SOLIDWORKS les plus courantes en bureau d'études, la correction immédiate pour chacune, et la cause de fond qui les fait revenir.",
+                "image": "https://baouch.fr/img/og/erreurs-sw.jpg",
+                "datePublished": "2026-09-16",
+                "dateModified": "2026-09-16",
+                "inLanguage": "fr-FR",
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://baouch.fr/blog/erreurs-solidworks-frequentes/"
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://baouch.fr",
+                    "jobTitle": "Ingénieur & Consultant PDM/PLM"
+                },
+                "publisher": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://baouch.fr"
+                },
+                "keywords": [
+                    "SOLIDWORKS",
+                    "Dépannage",
+                    "Références",
+                    "Toolbox",
+                    "PDM",
+                    "Bureau d'études"
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Accueil",
+                        "item": "https://baouch.fr/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Blog",
+                        "item": "https://baouch.fr/blog/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Les 10 erreurs SOLIDWORKS les plus fréquentes et comment les corriger",
+                        "item": "https://baouch.fr/blog/erreurs-solidworks-frequentes/"
+                    }
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Comment réparer des références manquantes dans un assemblage SOLIDWORKS ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Dans la boîte de dialogue Ouvrir, utilisez le bouton Références pour repointer les fichiers avant l'ouverture. Pour transmettre un ensemble complet, passez par Pack and Go. Si la panne revient régulièrement, le problème n'est pas le fichier mais l'absence de gestion des références : c'est ce qu'un coffre PDM apporte."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Pourquoi mon fichier SOLIDWORKS s'ouvre-t-il en lecture seule ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Soit il est extrait par quelqu'un dans le coffre, soit une session l'a laissé verrouillé sur un autre poste, soit vous n'avez pas les droits d'écriture sur le dossier, soit l'attribut lecture seule est posé sur le fichier. N'enregistrez jamais une copie « pour travailler quand même » : c'est ainsi que naissent les doublons divergents."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Que faire quand tout l'arbre de création se remplit d'erreurs ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Lancez une reconstruction forcée complète (Ctrl+Q), puis corrigez uniquement la première erreur de l'arbre : les suivantes en découlent presque toujours et disparaîtront d'elles-mêmes."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Pourquoi la visserie Toolbox diffère-t-elle d'un poste à l'autre ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Parce que chaque poste utilise sa propre copie locale de la bibliothèque. La correction est structurelle : une bibliothèque unique et partagée, en écriture pour un seul responsable, idéalement placée dans le coffre PDM."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "SOLIDWORKS plante souvent : est-ce le logiciel ou ma machine ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Le plus souvent la machine, et en tête de liste le pilote graphique. Installez un pilote certifié pour votre version plutôt que le dernier pilote grand public, puis regardez la mémoire disponible et l'état du disque."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Ces erreurs disparaissent-elles vraiment avec un PDM ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Celles qui touchent aux fichiers — références, verrous, doublons, renommages, plans orphelins — oui, structurellement. Celles qui relèvent de la méthode de modélisation ou du matériel, non : un PDM ne remplace ni une formation, ni une station correctement dimensionnée. Il faut traiter les trois."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+    {{> head-fonts }}<script type="module" src="../../js/blog.js"></script>
+</head>
+<body class="blog-page" data-blog-post="erreurs-solidworks-frequentes">
+{{> nav }}
+
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBLRK58T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <main id="mainContainer" class="container blog-container show">
+        <div class="blog-shell" id="blogShell" data-shell="">
+            <article class="blog-article" data-article-root="">
+                <nav class="article-breadcrumbs" aria-label="Navigation secondaire">
+                    <a class="back-link" href="/blog/" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                    <a class="back-link back-link--ghost" href="/" data-translate-key="blog_back_to_portfolio">Retour au portfolio</a>
+                </nav>
+
+                <header class="blog-hero post-hero" data-component="hero">
+                    <div class="hero-intro">
+                        <div class="hero-badges">
+                            <span class="badge badge-editorial" data-i18n=""><span data-lang="fr">Dépannage</span><span data-lang="en">Troubleshooting</span></span>
+                            <span class="badge">SOLIDWORKS</span>
+                            <span class="badge badge-reading-time" data-i18n=""><span data-lang="fr">~13 min de lecture</span><span data-lang="en">~13 min read</span></span>
+                        </div>
+                        <span class="hero-eyebrow" data-i18n=""><span data-lang="fr">Ce que je trouve dans neuf bureaux d'études sur dix</span><span data-lang="en">What I find in nine design offices out of ten</span></span>
+                        <h1 class="hero-title" data-i18n=""><span data-lang="fr">Les 10 erreurs SOLIDWORKS les plus fréquentes — et comment les corriger pour de bon</span><span data-lang="en">The 10 most common SOLIDWORKS errors — and how to fix them for good</span></h1>
+                        <p class="hero-subtitle" data-i18n=""><span data-lang="fr">Publié le 16 septembre 2026 — pour chaque panne : le message que vous voyez, la manipulation qui débloque tout de suite, et la cause de fond qui la fera revenir la semaine prochaine si vous vous arrêtez à la manipulation. C'est cette deuxième partie qui change une journée de travail.</span><span data-lang="en">Published 16 September 2026 — for each failure: the message you see, the move that unblocks you right now, and the root cause that will bring it back next week if you stop at the move. It's that second part that changes a working day.</span></p>
+                        <div class="hero-actions">
+                            <a class="hero-btn" href="#sommaire" data-i18n=""><span data-lang="fr">Consulter le sommaire</span><span data-lang="en">Jump to contents</span></a>
+                            <a class="hero-btn hero-btn--ghost" href="#table" data-i18n=""><span data-lang="fr">Trouver mon message d'erreur</span><span data-lang="en">Find my error message</span></a>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">10</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Pannes qui couvrent l'essentiel</span><span data-lang="en">Failures covering the bulk of it</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">3</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Causes de fond derrière presque toutes</span><span data-lang="en">Root causes behind nearly all</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">80+</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Bureaux d'études diagnostiqués</span><span data-lang="en">Design offices diagnosed</span></span>
+                        </div>
+                    </div>
+                </header>
+
+                <figure class="article-figure">
+                    <img src="/img/blog/photo-1504384308090-c894fdcc538d-1600.webp" srcset="/img/blog/photo-1504384308090-c894fdcc538d-800.webp 800w, /img/blog/photo-1504384308090-c894fdcc538d-1600.webp 1600w" sizes="(min-width: 64rem) 1216px, 100vw" decoding="async" alt="Poste de travail d'ingénierie avec messages d'erreur à l'écran" loading="lazy">
+                    <figcaption data-i18n=""><span data-lang="fr">La plupart des « bugs SOLIDWORKS » n'en sont pas : ce sont des conséquences prévisibles d'une organisation de fichiers qui n'a jamais été posée.</span><span data-lang="en">Most "SOLIDWORKS bugs" aren't bugs: they're the predictable consequences of a file organisation that was never set up.</span></figcaption>
+                </figure>
+
+                <section class="blog-section article-section" id="table">
+                    <h2 data-i18n=""><span data-lang="fr">Trouvez votre message d'erreur</span><span data-lang="en">Find your error message</span></h2>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr>
+                                        <th data-i18n=""><span data-lang="fr">Ce que vous voyez</span><span data-lang="en">What you see</span></th>
+                                        <th data-i18n=""><span data-lang="fr">Le geste qui débloque</span><span data-lang="en">The move that unblocks</span></th>
+                                        <th data-i18n=""><span data-lang="fr">Détail</span><span data-lang="en">Detail</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td data-i18n=""><span data-lang="fr">« Références manquantes » à l'ouverture</span><span data-lang="en">"Missing references" on open</span></td><td data-i18n=""><span data-lang="fr">Ouvrir &gt; Références, repointer le dossier</span><span data-lang="en">Open &gt; References, repoint the folder</span></td><td><a href="#references">§1</a></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Fichier en lecture seule</span><span data-lang="en">File opens read-only</span></td><td data-i18n=""><span data-lang="fr">Vérifier l'extraction et les droits du dossier</span><span data-lang="en">Check the check-out and folder rights</span></td><td><a href="#lecture-seule">§2</a></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">« Ce fichier est ouvert par un autre utilisateur »</span><span data-lang="en">"This file is open by another user"</span></td><td data-i18n=""><span data-lang="fr">Chercher la session fantôme, pas le collègue</span><span data-lang="en">Hunt the ghost session, not the colleague</span></td><td><a href="#lecture-seule">§2</a></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Panneaux d'erreurs après modification d'une pièce</span><span data-lang="en">Error flags after editing a part</span></td><td data-i18n=""><span data-lang="fr">Ctrl+Q, puis remonter à la première erreur</span><span data-lang="en">Ctrl+Q, then go back to the first error</span></td><td><a href="#reconstruction">§3</a></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Esquisse sur-contrainte ou en conflit</span><span data-lang="en">Over-defined or conflicting sketch</span></td><td data-i18n=""><span data-lang="fr">Diagnostiquer les relations, pas les cotes</span><span data-lang="en">Diagnose relations, not dimensions</span></td><td><a href="#esquisses">§4</a></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Visserie qui change d'un poste à l'autre</span><span data-lang="en">Hardware that differs between workstations</span></td><td data-i18n=""><span data-lang="fr">Une seule bibliothèque, partagée</span><span data-lang="en">One library, shared</span></td><td><a href="#toolbox">§5</a></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">« Impossible d'enregistrer le document »</span><span data-lang="en">"Unable to save the document"</span></td><td data-i18n=""><span data-lang="fr">Droits, verrou antivirus, longueur du chemin</span><span data-lang="en">Rights, antivirus lock, path length</span></td><td><a href="#enregistrer">§7</a></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Mise en plan qui perd ses vues</span><span data-lang="en">Drawing losing its views</span></td><td data-i18n=""><span data-lang="fr">Ne jamais renommer hors du coffre</span><span data-lang="en">Never rename outside the vault</span></td><td><a href="#mise-en-plan">§8</a></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <nav class="blog-section article-summary" id="sommaire" aria-label="Sommaire de l'article">
+                    <h2 class="summary-title" data-i18n=""><span data-lang="fr">Sommaire</span><span data-lang="en">Contents</span></h2>
+                    <ol class="summary-list">
+                        <li><a href="#references"><span class="summary-index">01</span><span class="summary-label" data-i18n=""><span data-lang="fr">Références manquantes</span><span data-lang="en">Missing references</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">La panne n°1</span><span data-lang="en">The number-one failure</span></span></a></li>
+                        <li><a href="#lecture-seule"><span class="summary-index">02</span><span class="summary-label" data-i18n=""><span data-lang="fr">Lecture seule et fichiers verrouillés</span><span data-lang="en">Read-only and locked files</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">Sessions fantômes</span><span data-lang="en">Ghost sessions</span></span></a></li>
+                        <li><a href="#reconstruction"><span class="summary-index">03</span><span class="summary-label" data-i18n=""><span data-lang="fr">Erreurs de reconstruction en cascade</span><span data-lang="en">Cascading rebuild errors</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">Parents et enfants</span><span data-lang="en">Parents and children</span></span></a></li>
+                        <li><a href="#esquisses"><span class="summary-index">04</span><span class="summary-label" data-i18n=""><span data-lang="fr">Esquisses sur-contraintes</span><span data-lang="en">Over-defined sketches</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">Relations automatiques</span><span data-lang="en">Automatic relations</span></span></a></li>
+                        <li><a href="#toolbox"><span class="summary-index">05</span><span class="summary-label" data-i18n=""><span data-lang="fr">La Toolbox non maîtrisée</span><span data-lang="en">The unmanaged Toolbox</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">Le piège classique</span><span data-lang="en">The classic trap</span></span></a></li>
+                        <li><a href="#lenteur"><span class="summary-index">06</span><span class="summary-label" data-i18n=""><span data-lang="fr">Assemblages interminables à ouvrir</span><span data-lang="en">Assemblies that never open</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">Où est le temps</span><span data-lang="en">Where the time goes</span></span></a></li>
+                        <li><a href="#enregistrer"><span class="summary-index">07</span><span class="summary-label" data-i18n=""><span data-lang="fr">« Impossible d'enregistrer le document »</span><span data-lang="en">"Unable to save the document"</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">Quatre causes</span><span data-lang="en">Four causes</span></span></a></li>
+                        <li><a href="#mise-en-plan"><span class="summary-index">08</span><span class="summary-label" data-i18n=""><span data-lang="fr">Mises en plan qui perdent leurs vues</span><span data-lang="en">Drawings that lose their views</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">Renommages sauvages</span><span data-lang="en">Wild renames</span></span></a></li>
+                        <li><a href="#plantages"><span class="summary-index">09</span><span class="summary-label" data-i18n=""><span data-lang="fr">Plantages et travail perdu</span><span data-lang="en">Crashes and lost work</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">Récupération</span><span data-lang="en">Recovery</span></span></a></li>
+                        <li><a href="#nomenclature"><span class="summary-index">10</span><span class="summary-label" data-i18n=""><span data-lang="fr">Nomenclatures fausses</span><span data-lang="en">Wrong BOMs</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">Propriétés à la main</span><span data-lang="en">Hand-typed properties</span></span></a></li>
+                        <li><a href="#racines"><span class="summary-index">11</span><span class="summary-label" data-i18n=""><span data-lang="fr">Les 3 causes derrière les 10</span><span data-lang="en">The 3 causes behind the 10</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">La vraie conclusion</span><span data-lang="en">The real conclusion</span></span></a></li>
+                        <li><a href="#faq"><span class="summary-index">12</span><span class="summary-label">FAQ</span><span class="summary-meta" data-i18n=""><span data-lang="fr">Les questions qui restent</span><span data-lang="en">Remaining questions</span></span></a></li>
+                    </ol>
+                </nav>
+
+                <section class="blog-section article-section" id="references">
+                    <h2 data-i18n=""><span data-lang="fr">1. « Références manquantes » : la panne n°1, de loin</span><span data-lang="en">1. "Missing references": the number-one failure, by far</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Vous ouvrez un assemblage, et SOLIDWORKS annonce qu'il ne trouve pas des composants. Certains apparaissent en jaune dans l'arbre, d'autres ont disparu.</span><span data-lang="en">You open an assembly and SOLIDWORKS announces it can't find components. Some show up yellow in the tree, others have vanished.</span></p>
+                    <p data-i18n=""><span data-lang="fr"><strong>Le geste qui débloque :</strong> dans la boîte de dialogue <em>Ouvrir</em>, le bouton <em>Références</em> affiche la liste des fichiers attendus et leur chemin ; vous pouvez y repointer le bon dossier avant l'ouverture. Pour transmettre un ensemble complet à quelqu'un d'autre, passez toujours par <em>Pack and Go</em> : il embarque pièces, mises en plan et références en un seul lot.</span><span data-lang="en"><strong>The move that unblocks:</strong> in the <em>Open</em> dialog, the <em>References</em> button lists the expected files and their paths; you can repoint the right folder before opening. To hand a complete set to someone else, always use <em>Pack and Go</em>: it bundles parts, drawings and references in one go.</span></p>
+                    <p data-i18n=""><span data-lang="fr"><strong>La cause de fond :</strong> un assemblage ne contient pas ses composants, il contient des <em>liens</em> vers eux. Déplacer, renommer ou copier un fichier dans l'explorateur Windows casse ce lien sans prévenir. Tant que les fichiers vivent dans des dossiers réseau libres d'accès, la panne reviendra — c'est mathématique. La seule correction durable est un coffre qui gère les références à votre place lors des déplacements et des renommages, ce qui est précisément la fonction d'un <a href="/blog/pdm-ou-plm-quand-basculer/">PDM</a>.</span><span data-lang="en"><strong>The root cause:</strong> an assembly doesn't contain its components, it contains <em>links</em> to them. Moving, renaming or copying a file in Windows Explorer breaks that link silently. As long as files live in freely accessible network folders, the failure will return — it's arithmetic. The only durable fix is a vault that maintains references for you on moves and renames, which is exactly what a <a href="/blog/pdm-ou-plm-quand-basculer/">PDM</a> does.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="lecture-seule">
+                    <h2 data-i18n=""><span data-lang="fr">2. Lecture seule, fichier verrouillé, « ouvert par un autre utilisateur »</span><span data-lang="en">2. Read-only, locked file, "open by another user"</span></h2>
+                    <p data-i18n=""><span data-lang="fr"><strong>Le geste qui débloque</strong> dépend du contexte. Dans un coffre PDM : le fichier est extrait par quelqu'un, l'historique vous dit par qui — demandez l'archivage plutôt que de contourner. Sur un simple partage réseau, trois suspects dans l'ordre : une <strong>session fantôme</strong> (le fichier est resté ouvert sur un poste en veille, ou une session s'est terminée anormalement), les <strong>droits du dossier</strong>, et l'<strong>attribut lecture seule</strong> posé sur le fichier lui-même.</span><span data-lang="en"><strong>The move that unblocks</strong> depends on context. In a PDM vault: the file is checked out by someone, and history tells you by whom — ask for a check-in rather than working around it. On a plain network share, three suspects in order: a <strong>ghost session</strong> (the file stayed open on a sleeping workstation, or a session ended abnormally), <strong>folder rights</strong>, and the <strong>read-only attribute</strong> set on the file itself.</span></p>
+                    <div class="callout callout--soft">
+                        <p data-i18n=""><span data-lang="fr"><strong>Le réflexe dangereux à bannir :</strong> enregistrer une copie « pour travailler quand même », en <em>piece_v2.sldprt</em>. C'est la naissance du doublon qui divergera, et le point de départ de la moitié des nomenclatures fausses que je corrige. Si vous ne pouvez pas écrire, réglez le verrou — ne le contournez pas.</span><span data-lang="en"><strong>The dangerous reflex to ban:</strong> saving a copy "to work anyway", as <em>part_v2.sldprt</em>. That's the birth of the duplicate that will diverge, and the starting point of half the wrong BOMs I fix. If you can't write, resolve the lock — don't route around it.</span></p>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr"><strong>La cause de fond :</strong> un partage réseau ne sait pas gérer la concurrence. Il n'a ni notion d'extraction, ni historique, ni moyen de dire qui détient quoi. Le verrou Windows est un pis-aller technique, pas une politique de travail à plusieurs.</span><span data-lang="en"><strong>The root cause:</strong> a network share cannot handle concurrency. It has no notion of check-out, no history, no way to say who holds what. The Windows lock is a technical stopgap, not a policy for working together.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="reconstruction">
+                    <h2 data-i18n=""><span data-lang="fr">3. Erreurs de reconstruction en cascade après une modification</span><span data-lang="en">3. Cascading rebuild errors after an edit</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Vous modifiez une pièce, et l'arbre se couvre de panneaux d'avertissement : « entité manquante », congés en échec, contraintes d'assemblage cassées.</span><span data-lang="en">You edit a part and the tree fills with warning flags: "missing entity", failed fillets, broken assembly mates.</span></p>
+                    <p data-i18n=""><span data-lang="fr"><strong>Le geste qui débloque :</strong> lancez d'abord une <strong>reconstruction forcée complète (Ctrl+Q)</strong> — une partie des erreurs affichées n'existe déjà plus. Puis remontez à la <strong>première</strong> erreur de l'arbre et corrigez-la seule : les suivantes sont presque toujours ses enfants et disparaîtront avec elle. Corriger de bas en haut fait perdre des heures.</span><span data-lang="en"><strong>The move that unblocks:</strong> first run a <strong>forced full rebuild (Ctrl+Q)</strong> — some of the displayed errors no longer exist. Then go to the <strong>first</strong> error in the tree and fix only that one: the rest are almost always its children and will vanish with it. Fixing bottom-up wastes hours.</span></p>
+                    <p data-i18n=""><span data-lang="fr"><strong>La cause de fond :</strong> des relations parent-enfant fragiles. Une esquisse posée sur une <em>face</em> ou contrainte sur une <em>arête</em> dépend d'une géométrie qui peut disparaître à la première modification amont. Esquissez sur les <strong>plans de référence</strong>, contraignez sur des entités stables, et vos modèles encaisseront les changements au lieu de s'effondrer. C'est de la méthode de modélisation, et elle s'enseigne.</span><span data-lang="en"><strong>The root cause:</strong> fragile parent-child relations. A sketch placed on a <em>face</em> or constrained to an <em>edge</em> depends on geometry that can disappear at the first upstream change. Sketch on <strong>reference planes</strong>, constrain to stable entities, and your models absorb change instead of collapsing. That's modelling method, and it can be taught.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="esquisses">
+                    <h2 data-i18n=""><span data-lang="fr">4. Esquisses sur-contraintes ou en conflit</span><span data-lang="en">4. Over-defined or conflicting sketches</span></h2>
+                    <p data-i18n=""><span data-lang="fr"><strong>Le geste qui débloque :</strong> cherchez d'abord du côté des <strong>relations</strong>, pas des cotes. Neuf fois sur dix, une relation automatique — horizontale, verticale, coïncidente — s'est ajoutée pendant que vous traciez, et elle entre en conflit avec la cote que vous venez de poser. Supprimez la relation, pas la cote.</span><span data-lang="en"><strong>The move that unblocks:</strong> look at <strong>relations</strong> first, not dimensions. Nine times out of ten an automatic relation — horizontal, vertical, coincident — was added while you were drawing, and it conflicts with the dimension you just placed. Delete the relation, not the dimension.</span></p>
+                    <p data-i18n=""><span data-lang="fr"><strong>La prévention :</strong> maintenez la touche <strong>Ctrl</strong> pendant le tracé pour empêcher la création des relations automatiques dans les zones sensibles — un réflexe qui figure parmi les <a href="/blog/raccourcis-clavier-solidworks/">raccourcis qui changent une journée de travail</a>. Et prenez l'habitude de contraindre entièrement vos esquisses : une esquisse sous-contrainte se déforme silencieusement à la première reconstruction, ce qui est bien pire qu'une erreur visible.</span><span data-lang="en"><strong>Prevention:</strong> hold <strong>Ctrl</strong> while drawing to suppress automatic relations in sensitive areas — a reflex that belongs among the <a href="/blog/raccourcis-clavier-solidworks/">shortcuts that change a working day</a>. And get into the habit of fully defining your sketches: an under-defined sketch deforms silently at the first rebuild, which is far worse than a visible error.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="toolbox">
+                    <h2 data-i18n=""><span data-lang="fr">5. La Toolbox non maîtrisée : le piège le plus coûteux</span><span data-lang="en">5. The unmanaged Toolbox: the costliest trap</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Symptôme typique : la même vis n'a pas la même référence d'un poste à l'autre, une nomenclature change de contenu selon qui l'ouvre, ou un assemblage réclame des composants de visserie introuvables.</span><span data-lang="en">Typical symptom: the same screw doesn't carry the same part number from one workstation to another, a BOM changes content depending on who opens it, or an assembly asks for hardware components that can't be found.</span></p>
+                    <p data-i18n=""><span data-lang="fr"><strong>La cause :</strong> chaque poste possède sa propre copie locale de la bibliothèque Toolbox, chacune configurée à sa façon et enrichie séparément au fil des projets. Les composants normalisés divergent alors poste par poste — et comme ils alimentent vos nomenclatures, l'erreur se propage jusqu'aux achats.</span><span data-lang="en"><strong>The cause:</strong> every workstation holds its own local copy of the Toolbox library, each configured its own way and enriched separately over projects. Standard components then diverge machine by machine — and since they feed your BOMs, the error propagates all the way to purchasing.</span></p>
+                    <p data-i18n=""><span data-lang="fr"><strong>La correction durable :</strong> <strong>une seule bibliothèque</strong>, à un emplacement partagé unique, déclarée sur tous les postes, en écriture pour une seule personne responsable et en lecture pour les autres. Placée dans le coffre PDM, elle est versionnée et protégée. C'est une demi-journée de mise en place qui évite des années de nomenclatures discutées.</span><span data-lang="en"><strong>The durable fix:</strong> <strong>one single library</strong>, at one shared location, declared on every workstation, writable by one responsible person and read-only for everyone else. Placed inside the PDM vault, it is versioned and protected. It's half a day of setup that avoids years of disputed BOMs.</span></p>
+                </section>
+
+                <figure class="figure-inline">
+                    <img src="/img/blog/photo-1544197150-b99a580bb7a8-800.webp" srcset="/img/blog/photo-1544197150-b99a580bb7a8-800.webp 800w, /img/blog/photo-1544197150-b99a580bb7a8-1600.webp 1600w" sizes="(min-width: 64rem) 26rem, (min-width: 40rem) 50vw, 100vw" decoding="async" alt="Salle serveur avec câblage réseau structuré" loading="lazy">
+                    <figcaption data-i18n=""><span data-lang="fr">Une partie des « erreurs SOLIDWORKS » se règle dans la salle serveur, pas dans le logiciel.</span><span data-lang="en">Part of the "SOLIDWORKS errors" gets fixed in the server room, not in the software.</span></figcaption>
+                </figure>
+
+                <section class="blog-section article-section" id="lenteur">
+                    <h2 data-i18n=""><span data-lang="fr">6. L'assemblage qui met trois minutes à s'ouvrir</span><span data-lang="en">6. The assembly that takes three minutes to open</span></h2>
+                    <p data-i18n=""><span data-lang="fr"><strong>Les gestes qui soulagent :</strong> ouvrez les gros ensembles en <strong>mode allégé</strong> ou en <strong>revue de grande conception</strong> quand vous ne faites que consulter ; supprimez les contraintes redondantes ; évitez les sous-assemblages flexibles inutiles ; et n'ouvrez pas des mises en plan lourdes uniquement pour lire une cote.</span><span data-lang="en"><strong>The moves that help:</strong> open large assemblies in <strong>lightweight</strong> mode or <strong>Large Design Review</strong> when you're only consulting; remove redundant mates; avoid needless flexible sub-assemblies; and don't open heavy drawings just to read one dimension.</span></p>
+                    <p data-i18n=""><span data-lang="fr"><strong>La cause de fond est rarement le modèle.</strong> Avant d'accuser votre conception, mesurez où part réellement le temps : le poste, le réseau ou le coffre. J'ai consacré deux articles entiers à ce diagnostic, parce que c'est le sujet sur lequel les bureaux d'études se trompent le plus souvent de coupable — <a href="/blog/solidworks-pdm-lent-7-causes/">les 7 causes réelles de lenteur du PDM</a> et le <a href="/blog/configuration-materielle-solidworks/">dimensionnement matériel</a>.</span><span data-lang="en"><strong>The root cause is rarely the model.</strong> Before blaming your design, measure where the time actually goes: workstation, network or vault. I devoted two full articles to that diagnosis, because it's the subject where design offices most often blame the wrong culprit — <a href="/blog/solidworks-pdm-lent-7-causes/">the 7 real causes of PDM slowness</a> and <a href="/blog/configuration-materielle-solidworks/">hardware sizing</a>.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="enregistrer">
+                    <h2 data-i18n=""><span data-lang="fr">7. « Impossible d'enregistrer le document »</span><span data-lang="en">7. "Unable to save the document"</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Le message qui fait peur, parce qu'il arrive après deux heures de travail. Quatre causes, à vérifier dans cet ordre :</span><span data-lang="en">The message that frightens, because it arrives after two hours of work. Four causes, to check in this order:</span></p>
+                    <ul>
+                        <li data-i18n=""><span data-lang="fr"><strong>Les droits d'écriture</strong> sur le dossier cible — le plus fréquent, surtout après une réorganisation des partages.</span><span data-lang="en"><strong>Write rights</strong> on the target folder — the most frequent, especially after a share reorganisation.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Le fichier ouvert ailleurs</strong> : une autre session, une visionneuse, ou une prévisualisation de l'explorateur Windows qui garde la main.</span><span data-lang="en"><strong>The file open elsewhere</strong>: another session, a viewer, or a Windows Explorer preview holding on to it.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>L'antivirus</strong> qui analyse le fichier au moment précis de l'écriture. Sur un poste de CAO, les dossiers de travail et le cache local méritent des exclusions — une recommandation à faire valider par votre informatique.</span><span data-lang="en"><strong>The antivirus</strong> scanning the file at the exact moment of writing. On a CAD workstation, working folders and the local cache deserve exclusions — a recommendation to get validated by your IT team.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>La longueur du chemin</strong> : des arborescences profondes avec des noms de projet à rallonge finissent par dépasser la limite historique de Windows, et l'enregistrement échoue sans explication claire.</span><span data-lang="en"><strong>Path length</strong>: deep folder trees with endless project names eventually exceed the historic Windows limit, and the save fails with no clear explanation.</span></li>
+                    </ul>
+                    <p data-i18n=""><span data-lang="fr"><strong>Le réflexe de survie</strong> en attendant : enregistrez immédiatement une copie sur votre disque local, fermez proprement, puis remettez le fichier à sa place une fois la cause levée. Ne quittez jamais SOLIDWORKS sur ce message sans avoir mis votre travail à l'abri.</span><span data-lang="en"><strong>The survival reflex</strong> meanwhile: immediately save a copy to your local disk, close cleanly, then put the file back once the cause is cleared. Never quit SOLIDWORKS on that message without securing your work first.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="mise-en-plan">
+                    <h2 data-i18n=""><span data-lang="fr">8. La mise en plan qui perd ses vues ou ses annotations</span><span data-lang="en">8. The drawing that loses its views or annotations</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Vous ouvrez un plan : les vues sont vides, ou les cotes se sont détachées et flottent dans le vide.</span><span data-lang="en">You open a drawing: the views are empty, or the dimensions have detached and float in space.</span></p>
+                    <p data-i18n=""><span data-lang="fr"><strong>La cause presque systématique :</strong> la pièce ou l'assemblage référencé a été <strong>renommé ou déplacé hors du logiciel</strong>, ou une fonction portant des cotes a été supprimée. Une annotation est rattachée à une entité précise : si l'entité disparaît, l'annotation devient orpheline.</span><span data-lang="en"><strong>The near-systematic cause:</strong> the referenced part or assembly was <strong>renamed or moved outside the software</strong>, or a feature carrying dimensions was deleted. An annotation is attached to a specific entity: if the entity goes, the annotation is orphaned.</span></p>
+                    <p data-i18n=""><span data-lang="fr"><strong>La règle qui supprime la panne :</strong> les renommages et déplacements se font <strong>depuis SOLIDWORKS ou depuis le coffre</strong>, jamais depuis l'explorateur Windows. Un coffre PDM répercute le changement sur toutes les références, y compris les mises en plan — c'est l'une de ses valeurs les plus concrètes et les moins spectaculaires.</span><span data-lang="en"><strong>The rule that eliminates the failure:</strong> renames and moves happen <strong>from SOLIDWORKS or from the vault</strong>, never from Windows Explorer. A PDM vault propagates the change across every reference, drawings included — one of its most concrete and least spectacular benefits.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="plantages">
+                    <h2 data-i18n=""><span data-lang="fr">9. Plantages à répétition et travail perdu</span><span data-lang="en">9. Repeated crashes and lost work</span></h2>
+                    <p data-i18n=""><span data-lang="fr"><strong>Après un plantage :</strong> au redémarrage, SOLIDWORKS propose la récupération des documents non enregistrés — ne fermez surtout pas ce panneau sans l'examiner. Vérifiez aussi vos réglages de <strong>sauvegarde automatique</strong> et de copies de sauvegarde : beaucoup de bureaux d'études découvrent qu'ils n'en avaient tout simplement pas le jour où ils en ont besoin.</span><span data-lang="en"><strong>After a crash:</strong> on restart SOLIDWORKS offers recovery of unsaved documents — never close that panel without looking at it. Also check your <strong>auto-recover</strong> and backup-copy settings: many design offices discover they had none precisely on the day they need them.</span></p>
+                    <p data-i18n=""><span data-lang="fr"><strong>Pour que ça ne se reproduise pas :</strong> un pilote graphique <strong>certifié</strong> pour votre version — pas le dernier pilote grand public — règle une proportion étonnante de plantages inexpliqués. Ensuite viennent la mémoire disponible et l'état du disque. Là encore, le sujet est matériel plus que logiciel.</span><span data-lang="en"><strong>To stop it recurring:</strong> a <strong>certified</strong> graphics driver for your version — not the latest consumer driver — resolves a surprising share of unexplained crashes. Next come available memory and disk health. Here too, the subject is hardware more than software.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="nomenclature">
+                    <h2 data-i18n=""><span data-lang="fr">10. La nomenclature fausse — l'erreur qui coûte le plus cher</span><span data-lang="en">10. The wrong BOM — the costliest error of all</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Celle-ci ne produit aucun message d'erreur. C'est précisément ce qui la rend chère : elle se découvre en production, ou à la réception d'une commande fausse.</span><span data-lang="en">This one produces no error message at all. That's exactly what makes it expensive: it surfaces in production, or when a wrong order arrives.</span></p>
+                    <p data-i18n=""><span data-lang="fr"><strong>La cause :</strong> des propriétés saisies à la main, pièce par pièce, sans contrôle. Une désignation orthographiée de trois façons, une matière absente, un indice jamais mis à jour — et la nomenclature extraite du modèle ne correspond plus à rien.</span><span data-lang="en"><strong>The cause:</strong> properties typed by hand, part by part, with no control. A description spelled three different ways, a missing material, a revision never updated — and the BOM extracted from the model no longer matches anything.</span></p>
+                    <p data-i18n=""><span data-lang="fr"><strong>La correction :</strong> des propriétés <strong>imposées et contrôlées à la saisie</strong> par des cartes de données et des listes fermées, jamais laissées au libre texte. J'ai détaillé la méthode dans <a href="/blog/codification-proprietes-solidworks/">codification et propriétés SOLIDWORKS</a>, et la chaîne complète jusqu'à l'ERP dans <a href="/blog/nomenclature-bom-pdm-plm-erp/">BOM, eBOM, mBOM</a>.</span><span data-lang="en"><strong>The fix:</strong> properties <strong>enforced and validated at entry</strong> through data cards and closed lists, never left to free text. I detailed the method in <a href="/blog/codification-proprietes-solidworks/">SOLIDWORKS numbering and properties</a>, and the full chain through to the ERP in <a href="/blog/nomenclature-bom-pdm-plm-erp/">BOM, eBOM, mBOM</a>.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="racines">
+                    <h2 data-i18n=""><span data-lang="fr">11. Les 3 causes qui expliquent les 10 erreurs</span><span data-lang="en">11. The 3 causes behind all 10 errors</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Relisez la liste : derrière dix symptômes très différents, il n'y a que trois causes de fond.</span><span data-lang="en">Read the list again: behind ten very different symptoms, there are only three root causes.</span></p>
+                    <ol>
+                        <li data-i18n=""><span data-lang="fr"><strong>Des fichiers gérés à la main, dans des dossiers.</strong> Références cassées, doublons, verrous, renommages sauvages, plans orphelins : tout cela disparaît le jour où un coffre gère les liens, les versions et les droits à votre place.</span><span data-lang="en"><strong>Files managed by hand, in folders.</strong> Broken references, duplicates, locks, wild renames, orphaned drawings: all of it goes away the day a vault handles links, versions and rights for you.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Une méthode de modélisation jamais formalisée.</strong> Esquisses posées sur des faces, relations automatiques subies, esquisses sous-contraintes : ce sont des habitudes, et les habitudes s'enseignent en une formation, pas en dix ans de tâtonnement.</span><span data-lang="en"><strong>Modelling method never formalised.</strong> Sketches placed on faces, automatic relations endured, under-defined sketches: these are habits, and habits are taught in one training session, not over ten years of trial and error.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Un poste et un réseau non dimensionnés.</strong> Lenteurs, plantages, enregistrements qui échouent : avant d'incriminer le logiciel, mesurez. Le coupable est souvent un pilote non certifié ou un partage saturé.</span><span data-lang="en"><strong>An undersized workstation and network.</strong> Slowness, crashes, failed saves: before blaming the software, measure. The culprit is often an uncertified driver or a saturated share.</span></li>
+                    </ol>
+                    <div class="callout">
+                        <div class="quote-block">
+                            <blockquote data-i18n=""><span data-lang="fr">En mission, je ne commence jamais par la liste des bugs qu'on me tend. Je demande où sont les fichiers, qui a le droit d'écrire dessus, et ce qui se passe quand deux personnes ouvrent la même pièce. Les trois quarts des « bugs » tombent avec la réponse.</span><span data-lang="en">On assignment I never start from the bug list I'm handed. I ask where the files live, who is allowed to write to them, and what happens when two people open the same part. Three quarters of the "bugs" fall away with the answer.</span></blockquote>
+                            <cite>Mohamed Omar Baouch</cite>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="blog-section article-section" id="faq">
+                    <h2>12. FAQ</h2>
+                    <h3 data-i18n=""><span data-lang="fr">Comment réparer des références manquantes dans un assemblage SOLIDWORKS ?</span><span data-lang="en">How do I repair missing references in a SOLIDWORKS assembly?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Dans la boîte de dialogue <em>Ouvrir</em>, utilisez le bouton <em>Références</em> pour repointer les fichiers avant l'ouverture. Pour transmettre un ensemble complet, passez par <em>Pack and Go</em>. Si la panne revient régulièrement, le problème n'est pas le fichier mais l'absence de gestion des références : c'est ce qu'un coffre PDM apporte.</span><span data-lang="en">In the <em>Open</em> dialog, use the <em>References</em> button to repoint files before opening. To hand over a complete set, use <em>Pack and Go</em>. If the failure keeps coming back, the problem isn't the file but the absence of reference management: that's what a PDM vault brings.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Pourquoi mon fichier SOLIDWORKS s'ouvre-t-il en lecture seule ?</span><span data-lang="en">Why does my SOLIDWORKS file open read-only?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Soit il est extrait par quelqu'un dans le coffre, soit une session l'a laissé verrouillé sur un autre poste, soit vous n'avez pas les droits d'écriture sur le dossier, soit l'attribut lecture seule est posé sur le fichier. N'enregistrez jamais une copie « pour travailler quand même » : c'est ainsi que naissent les doublons divergents.</span><span data-lang="en">Either it's checked out by someone in the vault, or a session left it locked on another workstation, or you lack write rights on the folder, or the read-only attribute is set on the file. Never save a copy "to work anyway": that's how diverging duplicates are born.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Que faire quand tout l'arbre de création se remplit d'erreurs ?</span><span data-lang="en">What should I do when the whole feature tree fills with errors?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Lancez une reconstruction forcée complète (Ctrl+Q), puis corrigez uniquement la <em>première</em> erreur de l'arbre : les suivantes en découlent presque toujours et disparaîtront d'elles-mêmes.</span><span data-lang="en">Run a forced full rebuild (Ctrl+Q), then fix only the <em>first</em> error in the tree: the others almost always derive from it and will clear on their own.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Pourquoi la visserie Toolbox diffère-t-elle d'un poste à l'autre ?</span><span data-lang="en">Why does Toolbox hardware differ between workstations?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Parce que chaque poste utilise sa propre copie locale de la bibliothèque. La correction est structurelle : une bibliothèque unique et partagée, en écriture pour un seul responsable, idéalement placée dans le coffre PDM.</span><span data-lang="en">Because each workstation uses its own local copy of the library. The fix is structural: a single shared library, writable by one owner, ideally placed inside the PDM vault.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">SOLIDWORKS plante souvent : est-ce le logiciel ou ma machine ?</span><span data-lang="en">SOLIDWORKS crashes often: is it the software or my machine?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Le plus souvent la machine, et en tête de liste le pilote graphique. Installez un pilote <em>certifié</em> pour votre version plutôt que le dernier pilote grand public, puis regardez la mémoire disponible et l'état du disque.</span><span data-lang="en">Most often the machine, and the graphics driver leads the list. Install a driver <em>certified</em> for your version rather than the latest consumer one, then look at available memory and disk health.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Ces erreurs disparaissent-elles vraiment avec un PDM ?</span><span data-lang="en">Do these errors really go away with a PDM?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Celles qui touchent aux fichiers — références, verrous, doublons, renommages, plans orphelins — oui, structurellement. Celles qui relèvent de la méthode de modélisation ou du matériel, non : un PDM ne remplace ni une formation, ni une station correctement dimensionnée. Il faut traiter les trois.</span><span data-lang="en">Those touching files — references, locks, duplicates, renames, orphaned drawings — yes, structurally. Those coming from modelling method or hardware, no: a PDM replaces neither training nor a properly sized workstation. All three need addressing.</span></p>
+                    <div class="callout">
+                        <div class="quote-block">
+                            <blockquote data-i18n=""><span data-lang="fr">Le résumé en une ligne : notez pendant deux semaines chaque erreur rencontrée et le temps perdu. Le total vous dira, sans que j'aie à vous convaincre, si le sujet mérite un projet.</span><span data-lang="en">The one-line summary: for two weeks, log every error you hit and the time it cost. The total will tell you, without any need for me to convince you, whether the subject deserves a project.</span></blockquote>
+                            <cite>Mohamed Omar Baouch</cite>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="blog-section article-related">
+                    <h2 data-i18n=""><span data-lang="fr">À lire aussi</span><span data-lang="en">Read next</span></h2>
+                    <div class="media-grid">
+                        <a href="/blog/solidworks-pdm-lent-7-causes/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">SOLIDWORKS PDM lent : les 7 vraies causes</span><span data-lang="en">Slow SOLIDWORKS PDM: the 7 real causes</span></h3>
+                            <p data-i18n=""><span data-lang="fr">Le diagnostic complet quand le temps perdu passe de l'erreur à l'attente.</span><span data-lang="en">The full diagnosis when lost time shifts from errors to waiting.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                        <a href="/blog/pdm-ou-plm-quand-basculer/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">PDM ou PLM : les 5 signaux</span><span data-lang="en">PDM or PLM: the 5 signals</span></h3>
+                            <p data-i18n=""><span data-lang="fr">Quand ces erreurs deviennent quotidiennes, c'est l'un des signaux.</span><span data-lang="en">When these errors become daily, that's one of the signals.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                    </div>
+                </section>
+
+                <footer class="article-footer">
+                    <div class="article-tags">
+                        <span class="article-tag">SOLIDWORKS</span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Dépannage</span><span data-lang="en">Troubleshooting</span></span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Références</span><span data-lang="en">References</span></span>
+                        <span class="article-tag">Toolbox</span>
+                        <span class="article-tag">PDM</span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Bureau d'études</span><span data-lang="en">Design office</span></span>
+                    </div>
+                    <div class="article-nav">
+                        <a href="/blog/" class="back-link" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                        <a href="/#contact" class="hero-btn" data-i18n=""><span data-lang="fr">Parler d'un projet</span><span data-lang="en">Discuss a project</span></a>
+                    </div>
+                </footer>
+
+            </article>
+        </div>
+    </main>
+
+    <script src="/assets/js/loader.js"></script>
+    <script src="/assets/js/visitor-intelligence.js"></script>
+
+{{> footer }}
+{{> chatbot }}
+</body></html>

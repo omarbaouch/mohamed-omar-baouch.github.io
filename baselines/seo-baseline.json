@@ -71,6 +71,24 @@
     "h1": "La révision fantôme à 40 000 € : maîtriser les ECO/ECR avant qu'elles ne vous coûtent cherThe €40,000 phantom revision: master ECO/ECR before they cost you dearly",
     "lang": "fr"
   },
+  "/blog/erreurs-solidworks-frequentes/": {
+    "title": "Les 10 erreurs SOLIDWORKS les plus fréquentes : causes réelles et corrections durables",
+    "description": "Références manquantes, fichier en lecture seule, erreurs de reconstruction, Toolbox incohérente, « impossible d'enregistrer le document », mise en plan qui perd ses vues : les 10 pannes SOLIDWORKS les plus courantes en bureau d'études, la correction immédiate pour chacune, et la cause de fond qui les fait revenir.",
+    "canonical": "https://baouch.fr/blog/erreurs-solidworks-frequentes/",
+    "robots": null,
+    "ogTitle": "Les 10 erreurs SOLIDWORKS les plus fréquentes et comment les corriger",
+    "ogDescription": "Références manquantes, lecture seule, erreurs de reconstruction, Toolbox : la correction immédiate et la cause de fond, panne par panne.",
+    "ogUrl": "https://baouch.fr/blog/erreurs-solidworks-frequentes/",
+    "ogImage": "https://baouch.fr/img/og/erreurs-sw.jpg",
+    "ogType": "article",
+    "twitterTitle": "Les 10 erreurs SOLIDWORKS les plus fréquentes",
+    "twitterDescription": "La correction immédiate et la cause de fond, panne par panne — par un consultant PDM.",
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList,FAQPage"
+    ],
+    "h1": "Les 10 erreurs SOLIDWORKS les plus fréquentes — et comment les corriger pour de bonThe 10 most common SOLIDWORKS errors — and how to fix them for good",
+    "lang": "fr"
+  },
   "/blog/formats-echange-cao-step-iges-parasolid/": {
     "title": "STEP, IGES, Parasolid, JT, STL : quel format d'échange CAO choisir (et comment éviter les pertes) ?",
     "description": "Guide des formats d'échange CAO : STEP AP203, AP214 et AP242, Parasolid, ACIS, IGES, JT, STL, 3MF, DXF et PDF 3D. Ce que chaque format transporte vraiment, ce qui se perd au passage, les 6 pièges classiques (unités, couture, assemblages) et le protocole de contrôle en 5 points.",
