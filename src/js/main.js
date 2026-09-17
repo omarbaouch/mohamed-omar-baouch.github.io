@@ -1,6 +1,8 @@
 // Entrée homepage : styles + comportements de base (i18n, thème, nav).
 // Le motion (Lenis/GSAP) et le WebGL arrivent dans des modules dédiés chargés ensuite.
 import '../styles/main.css';
+import '../styles/components/cinematic.css';
+import { initCinematic } from './modules/cinematic.js';
 import { initI18n } from './core/i18n.js';
 import { initTheme } from './core/theme.js';
 import { initNav } from './core/nav.js';
@@ -22,6 +24,7 @@ initI18n();
 initNav();
 initCmdk();
 initTools();
+initCinematic();
 runLoader();
 
 // heure locale de Strasbourg (hero + footer) — détail vivant, mis à jour à la minute
