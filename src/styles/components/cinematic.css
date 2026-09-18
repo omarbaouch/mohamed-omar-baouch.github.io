@@ -1,8 +1,13 @@
 /* A restrained engineering/editorial art direction, homepage only. */
 body.cinematic { --signal:#b24e20; --accent:#285c83; }
 [data-theme='dark'] body.cinematic { --signal:#efa471; --accent:#9bc6e6; }
-.cinematic .hero { padding-top:clamp(7rem,13vh,10rem); padding-bottom:3rem; }
-.cinematic .hero-inner { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); gap:3vw; align-items:center; }
+.cinematic .site-nav { background:#080e18f2; color:#f1f3f5; --bg-0:#080e18; --ink:#f1f3f5; --ink-dim:#b6c2d0; --ink-faint:#95a5b7; --accent:#9bc6e6; --line:#ffffff20; --line-strong:#ffffff45; }
+.cinematic .hero { padding-top:clamp(7rem,13vh,10rem); padding-bottom:3rem; background:#080e18; color:#f1f3f5; --ink:#f1f3f5; --ink-dim:#b6c2d0; --ink-faint:#95a5b7; --signal:#efa471; --accent:#9bc6e6; --line:#ffffff20; --line-strong:#ffffff35; }
+.cinematic .hero::before, .cinematic .hero::after { display:none; }
+.cinematic .hero-inner { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.3fr); gap:0; align-items:center; min-height:65svh; }
+.cinematic .hero-copy { position:relative; z-index:2; }
+.cinematic .hero .btn-primary { background:#efa471; color:#101722; border-color:#efa471; }
+.cinematic .hero .btn-ghost { color:#e4eaf0; border-color:#647081; }
 .cinematic .hero-title { font-size:clamp(3rem,5.6vw,6rem); line-height:1.02; letter-spacing:-.065em; }
 .cinematic .hero-title .hl-2, .cinematic .hero-title .hl-3 { margin-left:0; }
 .cinematic .hero-title .hl-3 { color:var(--ink-dim); }
@@ -19,11 +24,18 @@ body.cinematic { --signal:#b24e20; --accent:#285c83; }
 .cinematic .stat-value { font-size:clamp(2.1rem,3.8vw,3.4rem); font-weight:450; }
 .cinematic .stat-label { font-size:.75rem; letter-spacing:.075em; }
 .motion-study { position:relative; overflow:hidden; min-width:0; margin:0; color:#ebeff1; background:#0b1019; isolation:isolate; }
-.motion-study--assembly { aspect-ratio:4/5; border-radius:2px; }
-.engineering-art { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:73% center; transition:opacity .6s ease; }
-.motion-study.has-played .engineering-art { opacity:0; pointer-events:none; }
+.motion-study--assembly { aspect-ratio:4/3; border-radius:2px; transform:translate3d(0,var(--hero-depth,0px),0); }
 .motion-study--assembly::after { content:''; position:absolute; inset:55% 0 0; background:linear-gradient(transparent,#060d17e8); pointer-events:none; }
 .motion-study--assembly .motion-caption, .motion-study--assembly .motion-toggle { z-index:1; }
+.motion-timeline { position:absolute; bottom:0; inset-inline:1.4rem; height:1px; background:#ffffff25; z-index:1; }
+.motion-timeline::after { content:''; position:absolute; inset:0; background:#efa471; transform-origin:left; transform:scaleX(var(--film-progress,0)); }
+.precision-canvas { position:absolute; inset:0; width:100%; height:100%; display:block; }
+.precision-ready video { visibility:hidden; }
+.precision-control { position:absolute; right:1.4rem; bottom:1.25rem; z-index:2; display:grid; gap:.45rem; width:min(43%,calc(100% - 12rem)); font-size:.875rem; color:#f1f3f5; }
+.precision-control[hidden] { display:none; }
+.precision-control input { width:100%; min-height:24px; accent-color:#efa471; cursor:ew-resize; }
+.precision-control input:focus-visible { outline:2px solid #efa471; outline-offset:4px; }
+.cinema-chapter-art { width:100%; height:auto; display:block; }
 .motion-study video { width:100%; height:100%; display:block; object-fit:cover; }
 .motion-study--assembly video { position:absolute; inset:0; }
 .motion-caption { position:absolute; bottom:4.6rem; inset-inline:1.4rem; display:flex; justify-content:space-between; gap:1rem; font-size:.75rem; letter-spacing:.05em; text-transform:uppercase; }
@@ -61,6 +73,7 @@ body.cinematic { --signal:#b24e20; --accent:#285c83; }
 }
 @media (max-width:48rem) {
   .cinematic .hero-inner { grid-template-columns:1fr; }
+  .motion-study--assembly { transform:none; margin-top:1rem; }
   .cinematic .hero-title { font-size:clamp(2.4rem,10.8vw,4.8rem); }
   .cinematic .hero-kicker { font-size:.875rem; }
   .cinematic .hero-subtitle { max-width:100%; }
