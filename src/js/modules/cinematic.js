@@ -35,12 +35,14 @@ export function initCinematic() {
     const figure = document.createElement('figure');
     figure.className = `motion-study motion-study--${name}`;
     figure.innerHTML = `<video muted loop playsinline preload="none" poster="/motion/${name}.jpg" aria-hidden="true" tabindex="-1"></video>
+      ${name === 'assembly' ? '<img class="engineering-art" src="/motion/engineering-art.webp" width="1672" height="941" alt="" fetchpriority="high" decoding="async">' : ''}
       <figcaption class="motion-caption"><span data-cinema="${caption}"></span><span aria-hidden="true">${name==='assembly'?'01 / 02':'02 / 02'}</span></figcaption>
       <button class="motion-toggle" type="button"></button>`;
     const video = figure.querySelector('video');
     const button = figure.querySelector('button');
     video.muted = true;
-    let manualPause = false, visible = false, failed = false;
+    // Let the original artwork introduce the page; the visitor starts this study.
+    let manualPause = name === 'assembly', visible = false, failed = false;
     const label = () => { button.textContent = text(failed?'failed':video.paused?'play':'pause'); button.disabled = failed; };
     const play = () => {
       if (failed) return;
@@ -57,9 +59,9 @@ export function initCinematic() {
       else { manualPause=true; video.pause(); }
       label();
     });
-    video.addEventListener('play', label);
+    video.addEventListener('play', () => { figure.classList.add('has-played'); label(); });
     video.addEventListener('pause', label);
-    video.addEventListener('error', () => { failed=true; video.removeAttribute('src'); video.load(); label(); });
+    video.addEventListener('error', () => { failed=true; figure.classList.remove('has-played'); video.removeAttribute('src'); video.load(); label(); });
     new IntersectionObserver(entries => { visible=entries[0].isIntersecting; sync(); }, {threshold:.12}).observe(figure);
     document.addEventListener('visibilitychange',sync);
     reduce.addEventListener('change',sync);
