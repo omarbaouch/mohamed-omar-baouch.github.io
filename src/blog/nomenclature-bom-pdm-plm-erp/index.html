@@ -117,6 +117,43 @@
                         "item": "https://baouch.fr/blog/nomenclature-bom-pdm-plm-erp/"
                     }
                 ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Quelle différence entre eBOM et mBOM ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "L'eBOM est la nomenclature d'étude : la structure telle que le produit est conçu. La mBOM est la nomenclature de fabrication : la même matière vue comme on l'assemble réellement, avec les consommables, les gammes et les ensembles intermédiaires. Les deux diffèrent toujours, et croire le contraire est la source de la plupart des écarts entre bureau d'études et production."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "La nomenclature doit-elle venir de la CAO ou de l'ERP ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "L'eBOM vient de la conception, la mBOM se construit côté méthodes. Ce qui compte n'est pas l'outil d'origine mais la règle : un seul système fait autorité sur chaque nomenclature, et le sens de circulation est écrit. Deux systèmes qui se corrigent mutuellement finissent toujours par diverger."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Comment éviter les erreurs de nomenclature ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "En supprimant la saisie manuelle là où elle peut l'être : propriétés contrôlées à la source, listes fermées, extraction automatique depuis le modèle. Une nomenclature retapée dans Excel est une nomenclature qui divergera — la seule question est quand."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Faut-il un PLM pour gérer ses nomenclatures ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Pas nécessairement au démarrage : un PDM bien paramétré et des propriétés propres couvrent déjà l'eBOM. Le PLM devient utile quand la mBOM, les variantes et les modifications doivent être gérées ensemble, par plusieurs services."
+                        }
+                    }
+                ]
             }
         ]
     }
@@ -773,6 +810,18 @@
                     </div>
                 </section>
 
+
+                <section class="blog-section article-section" id="faq">
+                    <h2 data-i18n=""><span data-lang="fr">Questions fréquentes</span><span data-lang="en">Frequently asked questions</span></h2>
+                    <h3 data-i18n=""><span data-lang="fr">Quelle différence entre eBOM et mBOM ?</span><span data-lang="en">What's the difference between eBOM and mBOM?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">L'eBOM est la nomenclature d'étude : la structure telle que le produit est conçu. La mBOM est la nomenclature de fabrication : la même matière vue comme on l'assemble réellement, avec les consommables, les gammes et les ensembles intermédiaires. Les deux diffèrent toujours, et croire le contraire est la source de la plupart des écarts entre bureau d'études et production.</span><span data-lang="en">The eBOM is the engineering bill of materials: the structure as the product is designed. The mBOM is the manufacturing one: the same content seen as it is actually assembled, with consumables, routings and intermediate assemblies. The two always differ, and believing otherwise is the source of most gaps between engineering and production.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">La nomenclature doit-elle venir de la CAO ou de l'ERP ?</span><span data-lang="en">Should the BOM come from CAD or from the ERP?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">L'eBOM vient de la conception, la mBOM se construit côté méthodes. Ce qui compte n'est pas l'outil d'origine mais la règle : un seul système fait autorité sur chaque nomenclature, et le sens de circulation est écrit. Deux systèmes qui se corrigent mutuellement finissent toujours par diverger.</span><span data-lang="en">The eBOM comes from design, the mBOM is built on the methods side. What matters isn't the originating tool but the rule: one system is authoritative for each BOM, and the direction of flow is written down. Two systems correcting each other always end up diverging.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Comment éviter les erreurs de nomenclature ?</span><span data-lang="en">How do you avoid BOM errors?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">En supprimant la saisie manuelle là où elle peut l'être : propriétés contrôlées à la source, listes fermées, extraction automatique depuis le modèle. Une nomenclature retapée dans Excel est une nomenclature qui divergera — la seule question est quand.</span><span data-lang="en">By removing manual entry wherever possible: properties controlled at source, closed lists, automatic extraction from the model. A BOM retyped into Excel is a BOM that will diverge — the only question is when.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Faut-il un PLM pour gérer ses nomenclatures ?</span><span data-lang="en">Do you need a PLM to manage BOMs?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Pas nécessairement au démarrage : un PDM bien paramétré et des propriétés propres couvrent déjà l'eBOM. Le PLM devient utile quand la mBOM, les variantes et les modifications doivent être gérées ensemble, par plusieurs services.</span><span data-lang="en">Not necessarily at the start: a well-configured PDM and clean properties already cover the eBOM. PLM becomes useful when the mBOM, variants and changes must be managed together, across several departments.</span></p>
+                </section>
 
                 <section class="blog-section article-related">
                     <h2>À lire aussi</h2>

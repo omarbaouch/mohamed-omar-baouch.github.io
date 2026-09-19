@@ -40,54 +40,116 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@graph": [{
-            "@type": "BlogPosting",
-            "headline": "Raccourcis clavier SOLIDWORKS 2026 : la liste complète par famille",
-            "description": "Tous les raccourcis clavier SOLIDWORKS par défaut, la touche S, la touche D, les gestes de souris, et comment créer puis déployer les vôtres sur toute l'équipe.",
-            "image": "https://baouch.fr/img/og/raccourcis.jpg",
-            "datePublished": "2026-09-14",
-            "dateModified": "2026-09-14",
-            "inLanguage": "fr-FR",
-            "mainEntityOfPage": { "@type": "WebPage", "@id": "https://baouch.fr/blog/raccourcis-clavier-solidworks/" },
-            "author": {
-                "@type": "Person",
-                "name": "Mohamed Omar Baouch",
-                "url": "https://baouch.fr",
-                "jobTitle": "Ingénieur & Consultant PDM/PLM"
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "headline": "Raccourcis clavier SOLIDWORKS 2026 : la liste complète et la méthode",
+                "description": "Tous les raccourcis clavier SOLIDWORKS par défaut (vues, fichier, esquisse, assemblage, mise en plan), la touche S et la touche D que 80 % des utilisateurs ignorent, les gestes de souris, comment créer les vôtres et les déployer sur toute l'équipe. Guide terrain d'un consultant PDM.",
+                "image": "https://baouch.fr/img/og/raccourcis.jpg",
+                "datePublished": "2026-09-14",
+                "dateModified": "2026-09-14",
+                "inLanguage": "fr-FR",
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://baouch.fr/blog/raccourcis-clavier-solidworks/"
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://baouch.fr",
+                    "jobTitle": "Ingénieur & Consultant PDM/PLM"
+                },
+                "publisher": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://baouch.fr"
+                },
+                "keywords": [
+                    "SOLIDWORKS",
+                    "Raccourcis",
+                    "Productivité",
+                    "Bureau d'études",
+                    "CAO",
+                    "Méthode"
+                ]
             },
-            "publisher": { "@type": "Person", "name": "Mohamed Omar Baouch", "url": "https://baouch.fr" },
-            "about": ["SOLIDWORKS", "CAO", "Productivité en bureau d'études"]
-        }, {
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-                { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://baouch.fr/" },
-                { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://baouch.fr/blog/" },
-                { "@type": "ListItem", "position": 3, "name": "Raccourcis clavier SOLIDWORKS", "item": "https://baouch.fr/blog/raccourcis-clavier-solidworks/" }
-            ]
-        }, {
-            "@type": "FAQPage",
-            "mainEntity": [{
-                "@type": "Question",
-                "name": "Comment voir la liste de tous les raccourcis clavier SOLIDWORKS ?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Outils > Personnaliser > onglet Clavier. La liste affiche toutes les commandes avec leur raccourci actuel, se filtre par catégorie et par mot-clé, et le bouton d'impression fournit une liste papier à jour de votre poste — plus fiable que n'importe quel mémo trouvé en ligne, car il tient compte de vos propres personnalisations." }
-            }, {
-                "@type": "Question",
-                "name": "À quoi sert la touche S dans SOLIDWORKS ?",
-                "acceptedAnswer": { "@type": "Answer", "text": "La touche S ouvre la barre de raccourcis (Shortcut Bar) directement sous le curseur. Son contenu est contextuel : pièce, assemblage, esquisse et mise en plan ont chacun leur barre, personnalisable par glisser-déposer. C'est le meilleur rapport gain de temps sur effort d'apprentissage de tout SOLIDWORKS, car elle supprime les allers-retours vers les barres d'outils du haut de l'écran." }
-            }, {
-                "@type": "Question",
-                "name": "Mes raccourcis clavier SOLIDWORKS ne fonctionnent plus, que faire ?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Trois causes dans l'ordre de fréquence : un conflit avec un raccourci global de Windows ou du logiciel de la carte graphique, un profil de réglages écrasé lors d'une mise à jour, ou une personnalisation restée sur un ancien poste. Vérifiez Outils > Personnaliser > Clavier, et utilisez l'Assistant de copie des réglages pour réimporter votre profil sauvegardé." }
-            }, {
-                "@type": "Question",
-                "name": "Comment transférer ses raccourcis SOLIDWORKS sur un autre PC ?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Avec l'Assistant de copie des réglages (Copy Settings Wizard) livré avec SOLIDWORKS : il exporte les raccourcis, barres d'outils, gestes de souris et options système dans un fichier .sldreg que vous importez sur le nouveau poste. C'est aussi la méthode pour diffuser un jeu de raccourcis commun à tout un bureau d'études." }
-            }, {
-                "@type": "Question",
-                "name": "Les raccourcis suffisent-ils quand SOLIDWORKS est lent ?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Non. Un raccourci fait gagner des secondes sur une commande ; il ne change rien à une ouverture d'assemblage de trois minutes. Si l'attente vient des temps d'ouverture, de reconstruction ou d'enregistrement, le problème est ailleurs : configuration matérielle, réseau, ou paramétrage du coffre PDM." }
-            }]
-        }]
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Accueil",
+                        "item": "https://baouch.fr/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Blog",
+                        "item": "https://baouch.fr/blog/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Raccourcis clavier SOLIDWORKS 2026 : la liste complète et la méthode",
+                        "item": "https://baouch.fr/blog/raccourcis-clavier-solidworks/"
+                    }
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Comment voir la liste de tous les raccourcis clavier SOLIDWORKS ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Outils > Personnaliser > onglet Clavier. La liste affiche toutes les commandes avec leur raccourci actuel, se filtre par catégorie et par mot-clé, et s'imprime. C'est plus fiable que n'importe quel mémo trouvé en ligne, puisqu'elle tient compte de votre version et de vos personnalisations."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "À quoi sert exactement la touche S ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Elle ouvre la barre de raccourcis sous le curseur, avec un contenu différent en pièce, esquisse, assemblage et mise en plan. Elle se personnalise par glisser-déposer, et c'est le meilleur rapport gain/effort de tout le logiciel."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Mes raccourcis ne fonctionnent plus, que faire ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Trois causes, dans l'ordre de fréquence : un conflit avec un raccourci global de Windows ou du pilote de la carte graphique ; un profil de réglages écrasé lors d'une mise à jour ; une personnalisation restée sur l'ancien poste. Vérifiez d'abord l'onglet Clavier, puis réimportez votre fichier .sldreg."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Comment transférer mes raccourcis sur un nouveau PC ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Avec l'Assistant de copie des réglages : il exporte raccourcis, barres d'outils, gestes de souris et options système dans un fichier .sldreg, que vous importez sur le nouveau poste. C'est aussi la méthode pour diffuser un socle commun à toute l'équipe."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Faut-il un clavier ou une souris spécifique ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Non. Une souris à molette cliquable suffit pour tout ce qui est décrit ici. Les périphériques 3D (type SpaceMouse) sont agréables sur les grosses revues d'assemblage, mais ils ne remplacent ni la barre S ni les gestes de souris — ils s'y ajoutent."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Les raccourcis suffisent-ils à régler la lenteur de SOLIDWORKS ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Non, et c'est le point le plus important de cet article. Un raccourci fait gagner des secondes sur une commande ; il ne change rien à une ouverture d'assemblage de trois minutes. Quand l'attente domine, le sujet est ailleurs."
+                        }
+                    }
+                ]
+            }
+        ]
     }
     </script>
     <link rel="alternate" type="application/rss+xml" title="Blog — Mohamed Omar Baouch" href="https://baouch.fr/blog/rss.xml">

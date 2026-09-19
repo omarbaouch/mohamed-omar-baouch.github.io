@@ -113,6 +113,43 @@
                         "item": "https://baouch.fr/blog/migration-donnees-solidworks-pdm/"
                     }
                 ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Faut-il nettoyer les données avant de migrer ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Oui, toujours. Migrer des doublons et des références cassées revient à déménager des cartons sans les ouvrir : vous payez pour stocker le désordre, et vous le découvrez en production. Le nettoyage en amont est la variable qui décide de la durée du projet."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Combien de temps prend une migration PDM ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Cela dépend bien davantage de l'état des données que de leur volume. Un fonds propre de 200 000 fichiers migre plus vite qu'un fonds désordonné de 50 000. La phase de diagnostic initial est donc ce qui permet d'annoncer un délai crédible."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Big bang ou migration progressive ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Progressive dans la plupart des cas : elle permet de corriger au fur et à mesure et limite le risque d'arrêt. Le big bang se justifie sur des volumes modestes et des équipes réduites, quand la coexistence de deux systèmes coûterait plus cher que le risque."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Que faire des anciens fichiers obsolètes ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Archivez-les hors du coffre plutôt que de les importer : ils resteront consultables sans polluer les recherches ni les nomenclatures. La règle à écrire avant de commencer est celle qui distingue ce qui est vivant de ce qui est historique."
+                        }
+                    }
+                ]
             }
         ]
     }
@@ -886,6 +923,18 @@
                 <!-- CTA -->
 
                 <!-- ARTICLES LIES -->
+                <section class="blog-section article-section" id="faq">
+                    <h2 data-i18n=""><span data-lang="fr">Questions fréquentes</span><span data-lang="en">Frequently asked questions</span></h2>
+                    <h3 data-i18n=""><span data-lang="fr">Faut-il nettoyer les données avant de migrer ?</span><span data-lang="en">Should you clean the data before migrating?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Oui, toujours. Migrer des doublons et des références cassées revient à déménager des cartons sans les ouvrir : vous payez pour stocker le désordre, et vous le découvrez en production. Le nettoyage en amont est la variable qui décide de la durée du projet.</span><span data-lang="en">Yes, always. Migrating duplicates and broken references is like moving boxes without opening them: you pay to store the mess, and you discover it in production. Upstream cleaning is the variable that decides the project's duration.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Combien de temps prend une migration PDM ?</span><span data-lang="en">How long does a PDM migration take?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Cela dépend bien davantage de l'état des données que de leur volume. Un fonds propre de 200 000 fichiers migre plus vite qu'un fonds désordonné de 50 000. La phase de diagnostic initial est donc ce qui permet d'annoncer un délai crédible.</span><span data-lang="en">It depends far more on the state of the data than on its volume. A clean base of 200,000 files migrates faster than a messy one of 50,000. The initial diagnosis phase is what makes a credible schedule possible.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Big bang ou migration progressive ?</span><span data-lang="en">Big bang or progressive migration?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Progressive dans la plupart des cas : elle permet de corriger au fur et à mesure et limite le risque d'arrêt. Le big bang se justifie sur des volumes modestes et des équipes réduites, quand la coexistence de deux systèmes coûterait plus cher que le risque.</span><span data-lang="en">Progressive in most cases: it lets you fix as you go and limits the risk of a shutdown. Big bang is justified on modest volumes and small teams, when running two systems side by side would cost more than the risk.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Que faire des anciens fichiers obsolètes ?</span><span data-lang="en">What about old obsolete files?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Archivez-les hors du coffre plutôt que de les importer : ils resteront consultables sans polluer les recherches ni les nomenclatures. La règle à écrire avant de commencer est celle qui distingue ce qui est vivant de ce qui est historique.</span><span data-lang="en">Archive them outside the vault rather than importing them: they stay readable without polluting searches or BOMs. The rule to write before you start is the one separating what is live from what is history.</span></p>
+                </section>
+
                 <section class="blog-section article-related">
                     <h2>A lire aussi</h2>
                     <div class="media-grid">

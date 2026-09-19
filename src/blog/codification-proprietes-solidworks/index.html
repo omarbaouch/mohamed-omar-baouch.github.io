@@ -100,6 +100,43 @@
                         "item": "https://baouch.fr/blog/codification-proprietes-solidworks/"
                     }
                 ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Comment bien codifier ses pièces en bureau d'études ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Un identifiant court, non signifiant et non réutilisable, attribué automatiquement. La tentation du code parlant — matière, famille, client dans le numéro — se retourne toujours contre vous le jour où une pièce change de famille : l'identifiant devient faux et vous ne pouvez plus le corriger sans casser l'historique. Mettez l'information dans les propriétés, pas dans le numéro."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Faut-il un code parlant ou un numéro séquentiel ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Séquentiel, dans l'immense majorité des cas. Le code parlant rassure au démarrage puis devient ingérable : il faut arbitrer chaque exception, les longueurs explosent, et personne ne le lit vraiment une fois la recherche par propriétés en place."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Quelles propriétés personnalisées sont indispensables ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Au minimum : désignation, matière, indice de révision, et l'état du document. Ajoutez ensuite ce que consomment réellement votre cartouche et votre ERP — pas davantage. Chaque propriété non utilisée est une saisie que quelqu'un bâclera."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Peut-on corriger une codification après coup ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Oui, mais le coût croît avec le volume et l'ancienneté. Une reprise se mène comme une migration : gel des règles, correspondance ancien/nouveau, traitement par lots, contrôle. C'est faisable, ce n'est jamais gratuit — d'où l'intérêt de trancher avant la mise en production."
+                        }
+                    }
+                ]
             }
         ]
     }
@@ -273,6 +310,18 @@
                     <p data-i18n=""><span data-lang="fr">Alors avant de relancer un énième nettoyage de votre base ERP, posez-vous la seule question qui compte : <strong>d'où viennent vraiment ces erreurs ?</strong> Neuf fois sur dix, la réponse tient dans le premier « Enregistrer sous » d'une pièce. Réglez ce geste-là, et vous n'aurez plus jamais à réparer la même chose deux fois.</span><span data-lang="en">So before launching yet another cleanup of your ERP database, ask yourself the only question that matters: <strong>where do these errors really come from?</strong> Nine times out of ten, the answer lies in a part's first "Save As." Fix that gesture, and you'll never have to repair the same thing twice.</span></p>
                 </section>
 
+
+                <section class="blog-section article-section" id="faq">
+                    <h2 data-i18n=""><span data-lang="fr">Questions fréquentes</span><span data-lang="en">Frequently asked questions</span></h2>
+                    <h3 data-i18n=""><span data-lang="fr">Comment bien codifier ses pièces en bureau d'études ?</span><span data-lang="en">How should you number parts in a design office?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Un identifiant court, non signifiant et non réutilisable, attribué automatiquement. La tentation du code parlant — matière, famille, client dans le numéro — se retourne toujours contre vous le jour où une pièce change de famille : l'identifiant devient faux et vous ne pouvez plus le corriger sans casser l'historique. Mettez l'information dans les propriétés, pas dans le numéro.</span><span data-lang="en">A short, non-meaningful, non-reusable identifier, assigned automatically. The temptation of a talking code — material, family, customer inside the number — always backfires the day a part changes family: the identifier becomes wrong and you can't fix it without breaking history. Put the information in the properties, not in the number.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Faut-il un code parlant ou un numéro séquentiel ?</span><span data-lang="en">Talking code or sequential number?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Séquentiel, dans l'immense majorité des cas. Le code parlant rassure au démarrage puis devient ingérable : il faut arbitrer chaque exception, les longueurs explosent, et personne ne le lit vraiment une fois la recherche par propriétés en place.</span><span data-lang="en">Sequential, in the vast majority of cases. Talking codes feel reassuring at first, then become unmanageable: every exception needs arbitration, lengths explode, and nobody actually reads them once property-based search is in place.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Quelles propriétés personnalisées sont indispensables ?</span><span data-lang="en">Which custom properties are essential?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Au minimum : désignation, matière, indice de révision, et l'état du document. Ajoutez ensuite ce que consomment réellement votre cartouche et votre ERP — pas davantage. Chaque propriété non utilisée est une saisie que quelqu'un bâclera.</span><span data-lang="en">At minimum: description, material, revision level, and document state. Then add whatever your title block and ERP genuinely consume — nothing more. Every unused property is a field someone will fill carelessly.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Peut-on corriger une codification après coup ?</span><span data-lang="en">Can numbering be fixed after the fact?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Oui, mais le coût croît avec le volume et l'ancienneté. Une reprise se mène comme une migration : gel des règles, correspondance ancien/nouveau, traitement par lots, contrôle. C'est faisable, ce n'est jamais gratuit — d'où l'intérêt de trancher avant la mise en production.</span><span data-lang="en">Yes, but the cost grows with volume and age. A rework is run like a migration: freeze the rules, map old to new, process in batches, verify. It's doable, never free — hence the value of deciding before go-live.</span></p>
+                </section>
 
                 <section class="blog-section article-related">
                     <h2 data-i18n=""><span data-lang="fr">À lire aussi</span><span data-lang="en">Read next</span></h2>

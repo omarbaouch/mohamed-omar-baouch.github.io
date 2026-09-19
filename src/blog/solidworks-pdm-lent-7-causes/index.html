@@ -100,6 +100,43 @@
                         "item": "https://baouch.fr/blog/solidworks-pdm-lent-7-causes/"
                     }
                 ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Pourquoi SOLIDWORKS PDM est-il lent ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Dans l'ordre de fréquence : la base SQL mal dimensionnée ou non maintenue, le réseau entre le poste et le serveur d'archives, le cache local mal purgé, l'antivirus qui analyse chaque fichier, et les cartes de données ou workflows trop complexes. Le modèle CAO lui-même est rarement le coupable."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Comment savoir si le problème vient du réseau ou du poste ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Mesurez la même opération sur un poste vide de cache puis sur un poste déjà en cache : si l'écart est massif, le trajet réseau est en cause. Comparez ensuite avec un poste situé sur le même segment que le serveur. Sans mesure, on remplace du matériel au hasard."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Faut-il exclure le coffre de l'antivirus ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Les dossiers du coffre, le cache local et les répertoires d'archives méritent des exclusions ciblées, à faire valider par votre informatique. L'analyse temps réel sur des milliers de fichiers CAO produit des ralentissements spectaculaires et des échecs d'enregistrement."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Ajouter de la RAM résout-il la lenteur du PDM ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Rarement, parce que le problème n'est presque jamais sur le poste. La mémoire aide la CAO ; la lenteur du coffre se joue sur la base de données, le réseau et le stockage du serveur. Mesurez avant d'acheter."
+                        }
+                    }
+                ]
             }
         ]
     }
@@ -308,6 +345,18 @@
                     <p data-i18n=""><span data-lang="fr">Un PDM rapide, ce n'est pas un luxe d'IT. C'est 15 minutes rendues chaque jour à chaque ingénieur, des check-in qu'on ne repousse plus « parce que c'est long », et une équipe qui fait enfin confiance à son coffre. Le matériel, vous l'avez déjà payé. Il ne demande qu'à tourner à pleine vitesse.</span><span data-lang="en">A fast PDM isn't an IT luxury. It's 15 minutes given back to every engineer each day, check-ins nobody postpones "because it's slow" anymore, and a team that finally trusts its vault. You've already paid for the hardware. It's just waiting to run at full speed.</span></p>
                 </section>
 
+
+                <section class="blog-section article-section" id="faq">
+                    <h2 data-i18n=""><span data-lang="fr">Questions fréquentes</span><span data-lang="en">Frequently asked questions</span></h2>
+                    <h3 data-i18n=""><span data-lang="fr">Pourquoi SOLIDWORKS PDM est-il lent ?</span><span data-lang="en">Why is SOLIDWORKS PDM slow?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Dans l'ordre de fréquence : la base SQL mal dimensionnée ou non maintenue, le réseau entre le poste et le serveur d'archives, le cache local mal purgé, l'antivirus qui analyse chaque fichier, et les cartes de données ou workflows trop complexes. Le modèle CAO lui-même est rarement le coupable.</span><span data-lang="en">By frequency: an undersized or unmaintained SQL database, the network between workstation and archive server, a poorly purged local cache, antivirus scanning every file, and over-complex data cards or workflows. The CAD model itself is rarely the culprit.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Comment savoir si le problème vient du réseau ou du poste ?</span><span data-lang="en">How do you tell whether it's the network or the workstation?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Mesurez la même opération sur un poste vide de cache puis sur un poste déjà en cache : si l'écart est massif, le trajet réseau est en cause. Comparez ensuite avec un poste situé sur le même segment que le serveur. Sans mesure, on remplace du matériel au hasard.</span><span data-lang="en">Time the same operation on a workstation with an empty cache, then on one already cached: a massive gap points to the network path. Then compare with a workstation on the same segment as the server. Without measurement, you replace hardware at random.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Faut-il exclure le coffre de l'antivirus ?</span><span data-lang="en">Should the vault be excluded from antivirus scanning?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Les dossiers du coffre, le cache local et les répertoires d'archives méritent des exclusions ciblées, à faire valider par votre informatique. L'analyse temps réel sur des milliers de fichiers CAO produit des ralentissements spectaculaires et des échecs d'enregistrement.</span><span data-lang="en">The vault folders, the local cache and the archive directories deserve targeted exclusions, validated by your IT team. Real-time scanning across thousands of CAD files produces spectacular slowdowns and save failures.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Ajouter de la RAM résout-il la lenteur du PDM ?</span><span data-lang="en">Does adding RAM fix PDM slowness?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Rarement, parce que le problème n'est presque jamais sur le poste. La mémoire aide la CAO ; la lenteur du coffre se joue sur la base de données, le réseau et le stockage du serveur. Mesurez avant d'acheter.</span><span data-lang="en">Rarely, because the problem is almost never on the workstation. Memory helps CAD; vault slowness plays out in the database, the network and the server's storage. Measure before buying.</span></p>
+                </section>
 
                 <section class="blog-section article-related">
                     <h2 data-i18n=""><span data-lang="fr">À lire aussi</span><span data-lang="en">Read next</span></h2>
