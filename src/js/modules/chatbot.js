@@ -33,7 +33,7 @@ Langues : arabe (natal), français (bilingue), anglais (courant), allemand (déb
 
 ## Secteurs clients (80 clients)
 Machines & équipements (27), BTP/agro/divers (25), industrie & énergie (10), automatisme & robotique (8), métallurgie (7), international (3).
-Blog PDM/PLM avec articles de fond sur https://baouch.fr/blog/`;
+Blog PDM/PLM avec articles de fond sur https://www.baouch.fr/blog/`;
 
 function pageInfo() {
   const isBlog = document.body.classList.contains('blog-page') || location.pathname.startsWith('/blog');

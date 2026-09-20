@@ -8,7 +8,7 @@ import fg from 'fast-glob';
 import * as cheerio from 'cheerio';
 
 const ROOT = resolve(import.meta.dirname, '..');
-const SITE = 'https://baouch.fr';
+const SITE = 'https://www.baouch.fr';
 const FEED_URL = `${SITE}/blog/rss.xml`;
 const OUT = resolve(ROOT, 'public/blog/rss.xml');
 

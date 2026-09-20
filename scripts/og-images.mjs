@@ -90,7 +90,7 @@ await browser.close();
 for (const p of targets) {
   const f = resolve(ROOT, p.file);
   let html = fs.readFileSync(f, 'utf8');
-  const url = `https://baouch.fr/img/og/${p.slug}.jpg`;
+  const url = `https://www.baouch.fr/img/og/${p.slug}.jpg`;
   const hasOg = /property="og:image"/.test(html);
   const hasTw = /name="twitter:image"/.test(html);
   if (hasOg) html = html.replace(/(property="og:image"\s+content=")[^"]*(")/, `$1${url}$2`);

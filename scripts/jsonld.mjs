@@ -10,7 +10,7 @@ import fg from 'fast-glob';
 import * as cheerio from 'cheerio';
 
 const ROOT = resolve(import.meta.dirname, '..');
-const SITE = 'https://baouch.fr';
+const SITE = 'https://www.baouch.fr';
 const AUTHOR = {
   '@type': 'Person',
   name: 'Mohamed Omar Baouch',

@@ -2,170 +2,170 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog — Guides PDM/PLM &amp; SOLIDWORKS | Mohamed Omar Baouch</title>
-    <link>https://baouch.fr/blog/</link>
+    <link>https://www.baouch.fr/blog/</link>
     <description>Articles de fond et retours d'expérience terrain sur le PDM, le PLM, SOLIDWORKS et la gestion des données produit.</description>
     <language>fr-FR</language>
     <lastBuildDate>Sun, 20 Sep 2026 00:00:00 GMT</lastBuildDate>
-    <atom:link href="https://baouch.fr/blog/rss.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://www.baouch.fr/blog/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Glossaire PDM / PLM / CAO : 73 termes expliqués simplement</title>
-      <link>https://baouch.fr/blog/glossaire-pdm-plm/</link>
-      <guid isPermaLink="true">https://baouch.fr/blog/glossaire-pdm-plm/</guid>
+      <link>https://www.baouch.fr/blog/glossaire-pdm-plm/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/glossaire-pdm-plm/</guid>
       <pubDate>Sun, 20 Sep 2026 00:00:00 GMT</pubDate>
       <description>Le glossaire de référence de la gestion des données techniques : PDM, PLM, eBOM, mBOM, ECO, ECR, coffre, extraction, indice, révision, STEP, AP242, Parasolid, PMI, MBD, workflow, carte de données… 73 termes définis en langage clair par un consultant PDM/PLM, avec les pièges d'usage.</description>
-      <enclosure url="https://baouch.fr/img/og/glossaire.jpg" type="image/jpeg"/>
+      <enclosure url="https://www.baouch.fr/img/og/glossaire.jpg" type="image/jpeg"/>
     </item>
     <item>
       <title>PLM industriel : le guide complet</title>
-      <link>https://baouch.fr/blog/plm-guide-complet/</link>
-      <guid isPermaLink="true">https://baouch.fr/blog/plm-guide-complet/</guid>
+      <link>https://www.baouch.fr/blog/plm-guide-complet/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/plm-guide-complet/</guid>
       <pubDate>Sat, 19 Sep 2026 00:00:00 GMT</pubDate>
       <description>Qu'est-ce que le PLM, ce qu'il gère vraiment, sa frontière avec le PDM et l'ERP, les briques fonctionnelles, les plateformes du marché (3DEXPERIENCE, Windchill, Teamcenter, Aras), les ordres de grandeur de budget et de durée, et la séquence de démarrage en 6 étapes. Le guide de référence d'un consultant PDM/PLM.</description>
-      <enclosure url="https://baouch.fr/img/og/plm-guide.jpg" type="image/jpeg"/>
+      <enclosure url="https://www.baouch.fr/img/og/plm-guide.jpg" type="image/jpeg"/>
     </item>
     <item>
       <title>SOLIDWORKS PDM : le guide complet</title>
-      <link>https://baouch.fr/blog/solidworks-pdm-guide-complet/</link>
-      <guid isPermaLink="true">https://baouch.fr/blog/solidworks-pdm-guide-complet/</guid>
+      <link>https://www.baouch.fr/blog/solidworks-pdm-guide-complet/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/solidworks-pdm-guide-complet/</guid>
       <pubDate>Sat, 19 Sep 2026 00:00:00 GMT</pubDate>
       <description>Ce qu'est un PDM et ce qu'il résout, les 6 fonctions d'un coffre-fort (extraction, versions, cartes de données, workflows, recherche, références), l'architecture serveur, les 7 étapes d'un déploiement réussi, l'exploitation au quotidien et les erreurs à éviter. Le guide de référence d'un consultant qui déploie ces systèmes.</description>
-      <enclosure url="https://baouch.fr/img/og/pdm-guide.jpg" type="image/jpeg"/>
+      <enclosure url="https://www.baouch.fr/img/og/pdm-guide.jpg" type="image/jpeg"/>
     </item>
     <item>
       <title>Les 10 erreurs SOLIDWORKS les plus fréquentes et comment les corriger</title>
-      <link>https://baouch.fr/blog/erreurs-solidworks-frequentes/</link>
-      <guid isPermaLink="true">https://baouch.fr/blog/erreurs-solidworks-frequentes/</guid>
+      <link>https://www.baouch.fr/blog/erreurs-solidworks-frequentes/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/erreurs-solidworks-frequentes/</guid>
       <pubDate>Wed, 16 Sep 2026 00:00:00 GMT</pubDate>
       <description>Références manquantes, fichier en lecture seule, erreurs de reconstruction, Toolbox incohérente, « impossible d'enregistrer le document », mise en plan qui perd ses vues : les 10 pannes SOLIDWORKS les plus courantes en bureau d'études, la correction immédiate pour chacune, et la cause de fond qui les fait revenir.</description>
-      <enclosure url="https://baouch.fr/img/og/erreurs-sw.jpg" type="image/jpeg"/>
+      <enclosure url="https://www.baouch.fr/img/og/erreurs-sw.jpg" type="image/jpeg"/>
     </item>
     <item>
       <title>SOLIDWORKS, Inventor, Fusion 360 ou CATIA : quel logiciel de CAO choisir ?</title>
-      <link>https://baouch.fr/blog/choisir-logiciel-cao-solidworks-inventor-fusion-catia/</link>
-      <guid isPermaLink="true">https://baouch.fr/blog/choisir-logiciel-cao-solidworks-inventor-fusion-catia/</guid>
+      <link>https://www.baouch.fr/blog/choisir-logiciel-cao-solidworks-inventor-fusion-catia/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/choisir-logiciel-cao-solidworks-inventor-fusion-catia/</guid>
       <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
       <description>Comparatif honnête des logiciels de CAO 3D pour la mécanique : SOLIDWORKS, Autodesk Inventor, Fusion 360, CATIA, Creo, NX, Onshape. Pour quel profil, avec quelles limites réelles, et les 5 critères qui décident vraiment — dont celui que tout le monde oublie : le coût total sur cinq ans.</description>
-      <enclosure url="https://baouch.fr/img/og/choix-cao.jpg" type="image/jpeg"/>
+      <enclosure url="https://www.baouch.fr/img/og/choix-cao.jpg" type="image/jpeg"/>
     </item>
     <item>
       <title>STEP, IGES, Parasolid, JT, STL : quel format d'échange CAO choisir ?</title>
-      <link>https://baouch.fr/blog/formats-echange-cao-step-iges-parasolid/</link>
-      <guid isPermaLink="true">https://baouch.fr/blog/formats-echange-cao-step-iges-parasolid/</guid>
+      <link>https://www.baouch.fr/blog/formats-echange-cao-step-iges-parasolid/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/formats-echange-cao-step-iges-parasolid/</guid>
       <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
       <description>Guide des formats d'échange CAO : STEP AP203, AP214 et AP242, Parasolid, ACIS, IGES, JT, STL, 3MF, DXF et PDF 3D. Ce que chaque format transporte vraiment, ce qui se perd au passage, les 6 pièges classiques (unités, couture, assemblages) et le protocole de contrôle en 5 points.</description>
-      <enclosure url="https://baouch.fr/img/og/formats-cao.jpg" type="image/jpeg"/>
+      <enclosure url="https://www.baouch.fr/img/og/formats-cao.jpg" type="image/jpeg"/>
     </item>
     <item>
       <title>Raccourcis clavier SOLIDWORKS 2026 : la liste complète et la méthode</title>
-      <link>https://baouch.fr/blog/raccourcis-clavier-solidworks/</link>
-      <guid isPermaLink="true">https://baouch.fr/blog/raccourcis-clavier-solidworks/</guid>
+      <link>https://www.baouch.fr/blog/raccourcis-clavier-solidworks/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/raccourcis-clavier-solidworks/</guid>
       <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
       <description>Tous les raccourcis clavier SOLIDWORKS par défaut (vues, fichier, esquisse, assemblage, mise en plan), la touche S et la touche D que 80 % des utilisateurs ignorent, les gestes de souris, comment créer les vôtres et les déployer sur toute l'équipe. Guide terrain d'un consultant PDM.</description>
-      <enclosure url="https://baouch.fr/img/og/raccourcis.jpg" type="image/jpeg"/>
+      <enclosure url="https://www.baouch.fr/img/og/raccourcis.jpg" type="image/jpeg"/>
     </item>
     <item>
       <title>IA et SOLIDWORKS PDM : ce qui change vraiment en 2026</title>
-      <link>https://baouch.fr/blog/ia-solidworks-pdm-bureau-etudes/</link>
-      <guid isPermaLink="true">https://baouch.fr/blog/ia-solidworks-pdm-bureau-etudes/</guid>
+      <link>https://www.baouch.fr/blog/ia-solidworks-pdm-bureau-etudes/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/ia-solidworks-pdm-bureau-etudes/</guid>
       <pubDate>Fri, 10 Jul 2026 00:00:00 GMT</pubDate>
       <description>Copilotes de conception, recherche sémantique, classification automatique, chatbots documentaires : ce que l'IA change concrètement dans SOLIDWORKS et le PDM en 2026 — et pourquoi la qualité de vos données décidera de tout. Analyse terrain sans hype.</description>
-      <enclosure url="https://baouch.fr/img/og/ia-pdm.jpg" type="image/jpeg"/>
+      <enclosure url="https://www.baouch.fr/img/og/ia-pdm.jpg" type="image/jpeg"/>
     </item>
     <item>
       <title>Combien coûte vraiment un projet SOLIDWORKS PDM ?</title>
-      <link>https://baouch.fr/blog/prix-cout-projet-solidworks-pdm/</link>
-      <guid isPermaLink="true">https://baouch.fr/blog/prix-cout-projet-solidworks-pdm/</guid>
+      <link>https://www.baouch.fr/blog/prix-cout-projet-solidworks-pdm/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/prix-cout-projet-solidworks-pdm/</guid>
       <pubDate>Fri, 10 Jul 2026 00:00:00 GMT</pubDate>
       <description>Personne ne publie le budget réel d'un projet SOLIDWORKS PDM. Voici la structure de coûts complète — licences, SQL Server, infrastructure, services, reprise de données — avec les fourchettes constatées sur le terrain, les pièges qui font déraper le budget, et les leviers pour le réduire.</description>
-      <enclosure url="https://baouch.fr/img/og/prix-pdm.jpg" type="image/jpeg"/>
+      <enclosure url="https://www.baouch.fr/img/og/prix-pdm.jpg" type="image/jpeg"/>
     </item>
     <item>
       <title>SOLIDWORKS gratuit en 2026 : les 7 solutions légales et le vrai prix des licences</title>
-      <link>https://baouch.fr/blog/solidworks-gratuit-prix-guide/</link>
-      <guid isPermaLink="true">https://baouch.fr/blog/solidworks-gratuit-prix-guide/</guid>
+      <link>https://www.baouch.fr/blog/solidworks-gratuit-prix-guide/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/solidworks-gratuit-prix-guide/</guid>
       <pubDate>Fri, 10 Jul 2026 00:00:00 GMT</pubDate>
       <description>SOLIDWORKS gratuit, ça existe ? Oui — dans 7 cas précis : étudiants, enseignants, makers, startups, essai en ligne 30 jours, visionneuses. Le guide honnête avec les limitations de chaque option, la réponse pour Mac, le vrai prix des licences 2026 et pourquoi éviter les versions crackées.</description>
-      <enclosure url="https://baouch.fr/img/og/sw-gratuit.jpg" type="image/jpeg"/>
+      <enclosure url="https://www.baouch.fr/img/og/sw-gratuit.jpg" type="image/jpeg"/>
     </item>
     <item>
       <title>SOLIDWORKS PDM : PDM expliqué, Standard vs Professional</title>
-      <link>https://baouch.fr/blog/solidworks-pdm-standard-vs-professional/</link>
-      <guid isPermaLink="true">https://baouch.fr/blog/solidworks-pdm-standard-vs-professional/</guid>
+      <link>https://www.baouch.fr/blog/solidworks-pdm-standard-vs-professional/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/solidworks-pdm-standard-vs-professional/</guid>
       <pubDate>Wed, 08 Jul 2026 00:00:00 GMT</pubDate>
       <description>Qu'est-ce qu'un PDM, pourquoi SOLIDWORKS PDM est le socle du bureau d'études mécanique, et comment choisir entre l'édition Standard et Professional — comparatif détaillé, cas d'usage et critères de décision issus du terrain.</description>
-      <enclosure url="https://baouch.fr/img/og/std-vs-pro.jpg" type="image/jpeg"/>
+      <enclosure url="https://www.baouch.fr/img/og/std-vs-pro.jpg" type="image/jpeg"/>
     </item>
     <item>
       <title>PDM ou PLM : les 5 signaux qui prouvent que votre coffre ne suffit plus</title>
-      <link>https://baouch.fr/blog/pdm-ou-plm-quand-basculer/</link>
-      <guid isPermaLink="true">https://baouch.fr/blog/pdm-ou-plm-quand-basculer/</guid>
+      <link>https://www.baouch.fr/blog/pdm-ou-plm-quand-basculer/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/pdm-ou-plm-quand-basculer/</guid>
       <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
       <description>Beaucoup de PME appellent « leur PLM » ce qui n'est qu'un PDM. La confusion n'est pas grave — jusqu'au jour où elle le devient. Les 5 signaux concrets qui indiquent que votre PDM ne suffit plus, et comment décider sans surinvestir.</description>
-      <enclosure url="https://baouch.fr/img/og/pdm-ou-plm.jpg" type="image/jpeg"/>
+      <enclosure url="https://www.baouch.fr/img/og/pdm-ou-plm.jpg" type="image/jpeg"/>
     </item>
     <item>
       <title>La révision fantôme à 40 000 € : maîtriser les ECO/ECR</title>
-      <link>https://baouch.fr/blog/eco-ecr-gestion-modifications/</link>
-      <guid isPermaLink="true">https://baouch.fr/blog/eco-ecr-gestion-modifications/</guid>
+      <link>https://www.baouch.fr/blog/eco-ecr-gestion-modifications/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/eco-ecr-gestion-modifications/</guid>
       <pubDate>Thu, 25 Jun 2026 00:00:00 GMT</pubDate>
       <description>Une modification produit mal gérée, c'est un stock obsolète, un rappel client ou une ligne arrêtée. Comment structurer vos ECR/ECO — de la demande à la clôture — pour que plus aucune révision ne parte en production sans contrôle.</description>
-      <enclosure url="https://baouch.fr/img/og/eco-ecr.jpg" type="image/jpeg"/>
+      <enclosure url="https://www.baouch.fr/img/og/eco-ecr.jpg" type="image/jpeg"/>
     </item>
     <item>
       <title>SOLIDWORKS PDM lent : les 7 vraies causes de lenteur</title>
-      <link>https://baouch.fr/blog/solidworks-pdm-lent-7-causes/</link>
-      <guid isPermaLink="true">https://baouch.fr/blog/solidworks-pdm-lent-7-causes/</guid>
+      <link>https://www.baouch.fr/blog/solidworks-pdm-lent-7-causes/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/solidworks-pdm-lent-7-causes/</guid>
       <pubDate>Thu, 18 Jun 2026 00:00:00 GMT</pubDate>
       <description>Votre SOLIDWORKS PDM rame à l'ouverture, à l'enregistrement, au check-out ? Les 7 causes réelles observées sur 80 clients, la méthode de diagnostic et les correctifs qui redonnent 15 minutes par jour à chaque ingénieur.</description>
-      <enclosure url="https://baouch.fr/img/og/pdm-lent.jpg" type="image/jpeg"/>
+      <enclosure url="https://www.baouch.fr/img/og/pdm-lent.jpg" type="image/jpeg"/>
     </item>
     <item>
       <title>Codification &amp; propriétés SOLIDWORKS : le chantier qui répare votre chaîne BOM → ERP</title>
-      <link>https://baouch.fr/blog/codification-proprietes-solidworks/</link>
-      <guid isPermaLink="true">https://baouch.fr/blog/codification-proprietes-solidworks/</guid>
+      <link>https://www.baouch.fr/blog/codification-proprietes-solidworks/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/codification-proprietes-solidworks/</guid>
       <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
       <description>Références bricolées, propriétés saisies au petit bonheur, doublons partout : la racine de 80 % des problèmes de nomenclature n'est pas dans l'ERP, elle est dans la pièce. Comment standardiser codification et propriétés SOLIDWORKS pour réparer toute la chaîne en aval.</description>
-      <enclosure url="https://baouch.fr/img/og/codification.jpg" type="image/jpeg"/>
+      <enclosure url="https://www.baouch.fr/img/og/codification.jpg" type="image/jpeg"/>
     </item>
     <item>
       <title>Passer votre PDM dans le cloud : ce que les commerciaux ne vous diront jamais</title>
-      <link>https://baouch.fr/blog/migration-cloud-pdm-3dexperience/</link>
-      <guid isPermaLink="true">https://baouch.fr/blog/migration-cloud-pdm-3dexperience/</guid>
+      <link>https://www.baouch.fr/blog/migration-cloud-pdm-3dexperience/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/migration-cloud-pdm-3dexperience/</guid>
       <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
       <description>Cloud PDM, 3DEXPERIENCE, SaaS : la promesse est séduisante. Voici les 5 angles morts que les démonstrations passent sous silence, et les 7 questions à poser avant de signer.</description>
-      <enclosure url="https://baouch.fr/img/og/pdm-cloud.jpg" type="image/jpeg"/>
+      <enclosure url="https://www.baouch.fr/img/og/pdm-cloud.jpg" type="image/jpeg"/>
     </item>
     <item>
       <title>Migration de donnees vers SOLIDWORKS PDM : le guide terrain</title>
-      <link>https://baouch.fr/blog/migration-donnees-solidworks-pdm/</link>
-      <guid isPermaLink="true">https://baouch.fr/blog/migration-donnees-solidworks-pdm/</guid>
+      <link>https://www.baouch.fr/blog/migration-donnees-solidworks-pdm/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/migration-donnees-solidworks-pdm/</guid>
       <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
       <description>Guide complet de migration de donnees vers SOLIDWORKS PDM : methodologie en 6 phases, pieges courants, strategies de reprise, retours d'experience apres 80+ projets industriels.</description>
-      <enclosure url="https://baouch.fr/img/og/migration-pdm.jpg" type="image/jpeg"/>
+      <enclosure url="https://www.baouch.fr/img/og/migration-pdm.jpg" type="image/jpeg"/>
     </item>
     <item>
       <title>Nomenclature, BOM, eBOM, mBOM : la colonne vertébrale de vos données produit</title>
-      <link>https://baouch.fr/blog/nomenclature-bom-pdm-plm-erp/</link>
-      <guid isPermaLink="true">https://baouch.fr/blog/nomenclature-bom-pdm-plm-erp/</guid>
+      <link>https://www.baouch.fr/blog/nomenclature-bom-pdm-plm-erp/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/nomenclature-bom-pdm-plm-erp/</guid>
       <pubDate>Mon, 16 Mar 2026 00:00:00 GMT</pubDate>
       <description>Comprendre la BOM (Bill of Materials), la différence entre eBOM et mBOM, le rôle du PDM, du PLM et de l'ERP, et comment ces trois systèmes s'articulent pour piloter le cycle de vie produit.</description>
-      <enclosure url="https://baouch.fr/img/og/bom-erp.jpg" type="image/jpeg"/>
+      <enclosure url="https://www.baouch.fr/img/og/bom-erp.jpg" type="image/jpeg"/>
     </item>
     <item>
       <title>Configuration matérielle SOLIDWORKS 2025 : le guide terrain pour un bureau d'études réactif</title>
-      <link>https://baouch.fr/blog/configuration-materielle-solidworks/</link>
-      <guid isPermaLink="true">https://baouch.fr/blog/configuration-materielle-solidworks/</guid>
+      <link>https://www.baouch.fr/blog/configuration-materielle-solidworks/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/configuration-materielle-solidworks/</guid>
       <pubDate>Sun, 21 Sep 2025 00:00:00 GMT</pubDate>
       <description>Plan d'action détaillé pour calibrer stations de travail, serveur PDM et réseau autour de SOLIDWORKS 2025, avec indicateurs de terrain et repères budgétaires.</description>
-      <enclosure url="https://baouch.fr/img/og/config-materielle.jpg" type="image/jpeg"/>
+      <enclosure url="https://www.baouch.fr/img/og/config-materielle.jpg" type="image/jpeg"/>
     </item>
     <item>
       <title>Résoudre les 5 problématiques PLM vécues en tant qu'Ingénieur Mécanique</title>
-      <link>https://baouch.fr/blog/resolutions-problematiques-plm/</link>
-      <guid isPermaLink="true">https://baouch.fr/blog/resolutions-problematiques-plm/</guid>
+      <link>https://www.baouch.fr/blog/resolutions-problematiques-plm/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/resolutions-problematiques-plm/</guid>
       <pubDate>Mon, 15 Sep 2025 00:00:00 GMT</pubDate>
       <description>Retour d'expérience de Mohamed Omar Baouch sur cinq problématiques PLM vécues sur le terrain et les solutions apportées grâce à un PDM/PLM bien implémenté.</description>
-      <enclosure url="https://baouch.fr/img/og/resolutions-plm.jpg" type="image/jpeg"/>
+      <enclosure url="https://www.baouch.fr/img/og/resolutions-plm.jpg" type="image/jpeg"/>
     </item>
   </channel>
 </rss>
