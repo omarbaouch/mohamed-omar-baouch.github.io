@@ -1,0 +1,19 @@
+<script>
+    // Choix de la langue avant le premier paint : doit rester inline, comme
+    // l'anti-flash de thème. Sans cela la page s'affiche en français puis
+    // bascule en anglais pour un navigateur anglophone, et toute la mise en
+    // page se décale une fois le module i18n chargé (CLS mesuré à 0,161 sur
+    // les articles). La règle de choix est la même que dans js/core/i18n.js :
+    // préférence stockée, sinon langue du navigateur, sinon français.
+    (function () {
+        try {
+            var stored = localStorage.getItem('language');
+            var lang = stored === 'fr' || stored === 'en'
+                ? stored
+                : ((navigator.language || 'fr').slice(0, 2) === 'en' ? 'en' : 'fr');
+            if (lang === 'en') document.documentElement.lang = 'en';
+        } catch (e) {
+            // stockage indisponible : la page reste dans sa langue d'origine
+        }
+    })();
+</script>
