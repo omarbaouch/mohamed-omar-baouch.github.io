@@ -8,12 +8,36 @@
     <lastBuildDate>Sun, 20 Sep 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.baouch.fr/blog/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>eBOM vs mBOM : la différence, avec un exemple chiffré</title>
+      <link>https://www.baouch.fr/blog/ebom-vs-mbom/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/ebom-vs-mbom/</guid>
+      <pubDate>Sun, 20 Sep 2026 00:00:00 GMT</pubDate>
+      <description>eBOM et mBOM ne décrivent pas le même produit : l'une dit comment il est conçu, l'autre comment il est assemblé. Un exemple complet ligne par ligne, les 6 écarts systématiques entre les deux, qui possède quoi, et la méthode pour passer de l'une à l'autre sans ressaisie ni divergence.</description>
+      <enclosure url="https://www.baouch.fr/img/og/ebom-mbom.jpg" type="image/jpeg"/>
+    </item>
+    <item>
       <title>Glossaire PDM / PLM / CAO : 73 termes expliqués simplement</title>
       <link>https://www.baouch.fr/blog/glossaire-pdm-plm/</link>
       <guid isPermaLink="true">https://www.baouch.fr/blog/glossaire-pdm-plm/</guid>
       <pubDate>Sun, 20 Sep 2026 00:00:00 GMT</pubDate>
       <description>Le glossaire de référence de la gestion des données techniques : PDM, PLM, eBOM, mBOM, ECO, ECR, coffre, extraction, indice, révision, STEP, AP242, Parasolid, PMI, MBD, workflow, carte de données… 73 termes définis en langage clair par un consultant PDM/PLM, avec les pièges d'usage.</description>
       <enclosure url="https://www.baouch.fr/img/og/glossaire.jpg" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>Connecter la BOM à l'ERP : les 4 architectures possibles</title>
+      <link>https://www.baouch.fr/blog/integration-bom-erp/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/integration-bom-erp/</guid>
+      <pubDate>Sun, 20 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Comment faire circuler la nomenclature entre la CAO, le PDM/PLM et l'ERP : les 4 architectures d'intégration (ressaisie, fichier, connecteur unidirectionnel, transformation gérée), qui fait autorité sur quoi, les 6 pièges qui cassent une interface, et la séquence de mise en place.</description>
+      <enclosure url="https://www.baouch.fr/img/og/bom-erp-integration.jpg" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>Logiciel de gestion des nomenclatures : les 5 familles et comment choisir</title>
+      <link>https://www.baouch.fr/blog/logiciel-gestion-nomenclatures/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/logiciel-gestion-nomenclatures/</guid>
+      <pubDate>Sun, 20 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Tableur, ERP, PDM, PLM ou outil dédié : quel logiciel pour gérer vos nomenclatures produit ? Ce que chaque famille sait faire et où elle bloque, les 6 signes qu'Excel ne suffit plus, les 7 critères de choix et le piège de l'outil qui gère la liste mais pas les modifications.</description>
+      <enclosure url="https://www.baouch.fr/img/og/logiciel-bom.jpg" type="image/jpeg"/>
     </item>
     <item>
       <title>PLM industriel : le guide complet</title>

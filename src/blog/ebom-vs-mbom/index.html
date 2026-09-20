@@ -1,0 +1,424 @@
+<!DOCTYPE html><html lang="fr"><head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PBLRK58T');</script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-33TQ27QY4M"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-33TQ27QY4M');</script>
+<!-- Microsoft Clarity -->
+    <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","vy4yvht8gz");</script>
+    <!-- LinkedIn Insight Tag -->
+    <script type="text/javascript">_linkedin_partner_id="525900907";window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];window._linkedin_data_partner_ids.push(_linkedin_partner_id);(function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";s.parentNode.insertBefore(b,s)})(window.lintrk);</script>
+    <script>
+    // Anti-flash de thème : clair par défaut, sombre si stocké.
+    (function () {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    })();
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eBOM vs mBOM : la différence, avec un exemple chiffré et la méthode de passage</title>
+    <meta name="description" content="eBOM et mBOM ne décrivent pas le même produit : l'une dit comment il est conçu, l'autre comment il est assemblé. Un exemple complet ligne par ligne, les 6 écarts systématiques entre les deux, qui possède quoi, et la méthode pour passer de l'une à l'autre sans ressaisie ni divergence.">
+    <meta name="author" content="Mohamed Omar Baouch">
+    <link rel="canonical" href="https://www.baouch.fr/blog/ebom-vs-mbom/">
+    <link rel="alternate" type="application/rss+xml" title="Blog — Mohamed Omar Baouch" href="https://www.baouch.fr/blog/rss.xml">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="eBOM vs mBOM : la différence, avec un exemple chiffré">
+    <meta property="og:description" content="Les 6 écarts systématiques entre nomenclature d'étude et nomenclature de fabrication, et la méthode de passage sans ressaisie.">
+    <meta property="og:url" content="https://www.baouch.fr/blog/ebom-vs-mbom/">
+    <meta property="og:image" content="https://www.baouch.fr/img/og/ebom-mbom.jpg">
+    <meta property="og:site_name" content="Mohamed Omar Baouch">
+    <meta property="article:published_time" content="2026-09-20T00:00:00.000Z">
+    <meta property="article:author" content="Mohamed Omar Baouch">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="eBOM vs mBOM : la différence, avec un exemple chiffré">
+    <meta name="twitter:description" content="Une même vanne, deux nomenclatures : 9 lignes côté étude, 17 côté fabrication. Pourquoi, et comment passer de l'une à l'autre.">
+    <meta name="twitter:image" content="https://www.baouch.fr/img/og/ebom-mbom.jpg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "headline": "eBOM vs mBOM : la différence, avec un exemple chiffré",
+                "description": "eBOM et mBOM ne décrivent pas le même produit : l'une dit comment il est conçu, l'autre comment il est assemblé. Un exemple complet ligne par ligne, les 6 écarts systématiques entre les deux, qui possède quoi, et la méthode pour passer de l'une à l'autre sans ressaisie ni divergence.",
+                "image": "https://www.baouch.fr/img/og/ebom-mbom.jpg",
+                "datePublished": "2026-09-20",
+                "dateModified": "2026-09-20",
+                "inLanguage": "fr-FR",
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://www.baouch.fr/blog/ebom-vs-mbom/"
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://www.baouch.fr",
+                    "jobTitle": "Ingénieur & Consultant PDM/PLM"
+                },
+                "publisher": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://www.baouch.fr"
+                },
+                "keywords": [
+                    "eBOM",
+                    "mBOM",
+                    "BOM",
+                    "Nomenclature",
+                    "PLM",
+                    "ERP",
+                    "Méthodes"
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Accueil",
+                        "item": "https://www.baouch.fr/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Blog",
+                        "item": "https://www.baouch.fr/blog/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "eBOM vs mBOM : la différence, avec un exemple chiffré",
+                        "item": "https://www.baouch.fr/blog/ebom-vs-mbom/"
+                    }
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Quelle est la différence entre eBOM et mBOM ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "L'eBOM décrit le produit tel qu'il est conçu, avec une structure fonctionnelle issue de la CAO. La mBOM décrit comment on le fabrique réellement : sous-ensembles de montage, consommables, rebuts, emballage, et une structure qui suit l'ordre d'assemblage. Les deux sont justes, elles ne répondent simplement pas à la même question."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Peut-on n'avoir qu'une seule nomenclature ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Oui, et beaucoup de PME fonctionnent ainsi sans dommage tant que le produit reste simple et l'équipe réduite. Mais la conversion se fait quand même, quelque part, par quelqu'un — le plus souvent dans un tableur personnel. Le risque n'est pas l'absence de mBOM, c'est qu'elle existe sans être gérée."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Qui doit créer la mBOM : le bureau d'études ou les méthodes ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Les méthodes, parce qu'elles seules connaissent les postes, les gammes, les temps et les taux de rebut. Demander au bureau d'études de produire directement une mBOM revient à lui demander d'industrialiser — c'est un autre métier."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "La mBOM doit-elle vivre dans le PLM ou dans l'ERP ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Les deux approches existent et fonctionnent. Ce qui compte n'est pas l'emplacement mais la règle : un seul système fait autorité, le sens de circulation est écrit, et les ajouts des méthodes ne sont jamais écrasés par un transfert automatique."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Comment savoir si mes nomenclatures divergent ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Prenez trois produits au hasard, comparez la liste côté conception et celle qui a servi à acheter, ligne par ligne. Le nombre d'écarts inexpliqués vous donnera la mesure — et servira d'argument bien plus convaincant qu'un discours sur les bonnes pratiques."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Faut-il un PLM pour gérer les deux ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Pas nécessairement au démarrage : un PDM bien paramétré et des propriétés propres couvrent déjà l'eBOM. Le PLM devient utile quand les deux structures doivent être liées, tracées et modifiées ensemble par plusieurs services — c'est l'un des signaux de bascule."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+    {{> head-fonts }}<script type="module" src="../../js/blog.js"></script>
+</head>
+<body class="blog-page" data-blog-post="ebom-vs-mbom">
+{{> nav }}
+
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBLRK58T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <main id="mainContainer" class="container blog-container show">
+        <div class="blog-shell" id="blogShell" data-shell="">
+            <article class="blog-article" data-article-root="">
+                <nav class="article-breadcrumbs" aria-label="Navigation secondaire">
+                    <a class="back-link" href="/blog/" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                    <a class="back-link back-link--ghost" href="/" data-translate-key="blog_back_to_portfolio">Retour au portfolio</a>
+                </nav>
+
+                <header class="blog-hero post-hero" data-component="hero">
+                    <div class="hero-intro">
+                        <div class="hero-badges">
+                            <span class="badge badge-editorial" data-i18n=""><span data-lang="fr">Données produit</span><span data-lang="en">Product data</span></span>
+                            <span class="badge">BOM</span>
+                            <span class="badge badge-reading-time" data-i18n=""><span data-lang="fr">~12 min de lecture</span><span data-lang="en">~12 min read</span></span>
+                        </div>
+                        <span class="hero-eyebrow" data-i18n=""><span data-lang="fr">Deux listes, un seul produit, et beaucoup de malentendus</span><span data-lang="en">Two lists, one product, and a great deal of misunderstanding</span></span>
+                        <h1 class="hero-title" data-i18n=""><span data-lang="fr">eBOM vs mBOM : la vraie différence, avec un exemple ligne par ligne</span><span data-lang="en">eBOM vs mBOM: the real difference, with a line-by-line example</span></h1>
+                        <p class="hero-subtitle" data-i18n=""><span data-lang="fr">Publié le 20 septembre 2026 — la nomenclature d'étude dit comment le produit est <em>conçu</em>, celle de fabrication comment il est <em>assemblé</em>. Ce ne sont pas deux présentations d'une même liste : ce sont deux listes différentes, et croire le contraire est la première cause d'écarts entre le bureau d'études et l'atelier. Exemple complet, six écarts systématiques, et la méthode de passage.</span><span data-lang="en">Published 20 September 2026 — the engineering BOM says how the product is <em>designed</em>, the manufacturing one how it is <em>assembled</em>. These aren't two views of one list: they are two different lists, and believing otherwise is the leading cause of gaps between engineering and the shop floor. Full example, six systematic differences, and the method for moving between them.</span></p>
+                        <div class="hero-actions">
+                            <a class="hero-btn" href="#exemple" data-i18n=""><span data-lang="fr">Voir l'exemple chiffré</span><span data-lang="en">See the worked example</span></a>
+                            <a class="hero-btn hero-btn--ghost" href="#sommaire" data-i18n=""><span data-lang="fr">Consulter le sommaire</span><span data-lang="en">Jump to contents</span></a>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">9 → 17</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Lignes, pour la même vanne</span><span data-lang="en">Lines, for the same valve</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">6</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Écarts systématiques</span><span data-lang="en">Systematic differences</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">0</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Ressaisie tolérable</span><span data-lang="en">Acceptable re-keying</span></span>
+                        </div>
+                    </div>
+                </header>
+
+                <section class="blog-section article-section" id="resume">
+                    <h2 data-i18n=""><span data-lang="fr">La réponse en trois lignes</span><span data-lang="en">The answer in three lines</span></h2>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>eBOM</th>
+                                        <th>mBOM</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Question à laquelle elle répond</strong></span><span data-lang="en"><strong>Question it answers</strong></span></td><td data-i18n=""><span data-lang="fr">De quoi le produit est-il composé ?</span><span data-lang="en">What is the product made of?</span></td><td data-i18n=""><span data-lang="fr">Comment le fabrique-t-on réellement ?</span><span data-lang="en">How do we actually build it?</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Qui la produit</strong></span><span data-lang="en"><strong>Who produces it</strong></span></td><td data-i18n=""><span data-lang="fr">Le bureau d'études, depuis la CAO</span><span data-lang="en">Engineering, from the CAD model</span></td><td data-i18n=""><span data-lang="fr">Les méthodes / l'industrialisation</span><span data-lang="en">Methods / industrialisation</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Où elle vit</strong></span><span data-lang="en"><strong>Where it lives</strong></span></td><td data-i18n=""><span data-lang="fr">PDM / PLM</span><span data-lang="en">PDM / PLM</span></td><td data-i18n=""><span data-lang="fr">PLM ou ERP, selon l'organisation</span><span data-lang="en">PLM or ERP, depending on the setup</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Structure</strong></span><span data-lang="en"><strong>Structure</strong></span></td><td data-i18n=""><span data-lang="fr">Fonctionnelle : suit la logique de conception</span><span data-lang="en">Functional: follows the design logic</span></td><td data-i18n=""><span data-lang="fr">Opératoire : suit l'ordre de montage</span><span data-lang="en">Operational: follows the assembly order</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Contient les consommables ?</strong></span><span data-lang="en"><strong>Includes consumables?</strong></span></td><td data-i18n=""><span data-lang="fr">Non — colle, graisse, soudure n'y figurent pas</span><span data-lang="en">No — glue, grease, weld don't appear</span></td><td data-i18n=""><span data-lang="fr">Oui, avec leurs quantités</span><span data-lang="en">Yes, with their quantities</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr">Si vous n'avez qu'une seule nomenclature dans votre entreprise, ce n'est pas nécessairement un problème — beaucoup de PME fonctionnent ainsi. Mais alors quelqu'un fait le travail de conversion à la main quelque part, et c'est ce travail invisible qui mérite d'être regardé.</span><span data-lang="en">If you have only one BOM in your company, that isn't necessarily a problem — many SMEs work that way. But then someone is doing the conversion by hand somewhere, and it's that invisible work that deserves a look.</span></p>
+                </section>
+
+                <nav class="blog-section article-summary" id="sommaire" aria-label="Sommaire de l'article">
+                    <h2 class="summary-title" data-i18n=""><span data-lang="fr">Sommaire</span><span data-lang="en">Contents</span></h2>
+                    <ol class="summary-list">
+                        <li><a href="#exemple"><span class="summary-index">01</span><span class="summary-label" data-i18n=""><span data-lang="fr">Une vanne, deux nomenclatures</span><span data-lang="en">One valve, two BOMs</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">Exemple ligne par ligne</span><span data-lang="en">Line-by-line example</span></span></a></li>
+                        <li><a href="#ecarts"><span class="summary-index">02</span><span class="summary-label" data-i18n=""><span data-lang="fr">Les 6 écarts systématiques</span><span data-lang="en">The 6 systematic differences</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">Toujours les mêmes</span><span data-lang="en">Always the same</span></span></a></li>
+                        <li><a href="#passage"><span class="summary-index">03</span><span class="summary-label" data-i18n=""><span data-lang="fr">Passer de l'une à l'autre</span><span data-lang="en">Moving from one to the other</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">Trois façons, une bonne</span><span data-lang="en">Three ways, one good</span></span></a></li>
+                        <li><a href="#proprietaire"><span class="summary-index">04</span><span class="summary-label" data-i18n=""><span data-lang="fr">Qui possède quoi</span><span data-lang="en">Who owns what</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">La règle à écrire</span><span data-lang="en">The rule to write down</span></span></a></li>
+                        <li><a href="#sbom"><span class="summary-index">05</span><span class="summary-label" data-i18n=""><span data-lang="fr">Les autres BOM : sBOM, as-built</span><span data-lang="en">The other BOMs: sBOM, as-built</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">Pour aller plus loin</span><span data-lang="en">Going further</span></span></a></li>
+                        <li><a href="#faq"><span class="summary-index">06</span><span class="summary-label">FAQ</span><span class="summary-meta" data-i18n=""><span data-lang="fr">Les questions qui reviennent</span><span data-lang="en">Recurring questions</span></span></a></li>
+                    </ol>
+                </nav>
+
+                <section class="blog-section article-section" id="exemple">
+                    <h2 data-i18n=""><span data-lang="fr">1. Une vanne, deux nomenclatures</span><span data-lang="en">1. One valve, two bills of materials</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Prenons un exemple simple et parlant : une vanne d'arrêt assemblée sur une ligne. Voici ce que le bureau d'études transmet, tel qu'il sort de l'assemblage CAO.</span><span data-lang="en">Take a simple, telling example: a shut-off valve assembled on a line. Here is what engineering hands over, straight out of the CAD assembly.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">La nomenclature d'étude (eBOM) — 9 lignes</span><span data-lang="en">The engineering BOM (eBOM) — 9 lines</span></h3>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr>
+                                        <th data-i18n=""><span data-lang="fr">Rep.</span><span data-lang="en">Item</span></th>
+                                        <th data-i18n=""><span data-lang="fr">Désignation</span><span data-lang="en">Description</span></th>
+                                        <th data-i18n=""><span data-lang="fr">Qté</span><span data-lang="en">Qty</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1</td><td data-i18n=""><span data-lang="fr">Corps de vanne, fonte</span><span data-lang="en">Valve body, cast iron</span></td><td>1</td></tr>
+                                    <tr><td>2</td><td data-i18n=""><span data-lang="fr">Chapeau</span><span data-lang="en">Bonnet</span></td><td>1</td></tr>
+                                    <tr><td>3</td><td data-i18n=""><span data-lang="fr">Tige de manœuvre</span><span data-lang="en">Stem</span></td><td>1</td></tr>
+                                    <tr><td>4</td><td data-i18n=""><span data-lang="fr">Clapet</span><span data-lang="en">Disc</span></td><td>1</td></tr>
+                                    <tr><td>5</td><td data-i18n=""><span data-lang="fr">Joint torique</span><span data-lang="en">O-ring</span></td><td>2</td></tr>
+                                    <tr><td>6</td><td data-i18n=""><span data-lang="fr">Volant</span><span data-lang="en">Handwheel</span></td><td>1</td></tr>
+                                    <tr><td>7</td><td data-i18n=""><span data-lang="fr">Vis CHC M8×30</span><span data-lang="en">Socket screw M8×30</span></td><td>4</td></tr>
+                                    <tr><td>8</td><td data-i18n=""><span data-lang="fr">Écrou de tige</span><span data-lang="en">Stem nut</span></td><td>1</td></tr>
+                                    <tr><td>9</td><td data-i18n=""><span data-lang="fr">Plaque signalétique</span><span data-lang="en">Nameplate</span></td><td>1</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr">Cette liste est exacte, complète… et inutilisable telle quelle à l'atelier. Voici ce que les méthodes en font.</span><span data-lang="en">This list is accurate, complete… and unusable as-is on the shop floor. Here's what methods turn it into.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">La nomenclature de fabrication (mBOM) — 17 lignes, en 3 niveaux</span><span data-lang="en">The manufacturing BOM (mBOM) — 17 lines, across 3 levels</span></h3>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr>
+                                        <th data-i18n=""><span data-lang="fr">Niveau</span><span data-lang="en">Level</span></th>
+                                        <th data-i18n=""><span data-lang="fr">Désignation</span><span data-lang="en">Description</span></th>
+                                        <th data-i18n=""><span data-lang="fr">Qté</span><span data-lang="en">Qty</span></th>
+                                        <th data-i18n=""><span data-lang="fr">D'où ça vient</span><span data-lang="en">Where it comes from</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1</td><td data-i18n=""><span data-lang="fr"><strong>SE-01 Sous-ensemble corps</strong></span><span data-lang="en"><strong>SA-01 Body sub-assembly</strong></span></td><td>1</td><td data-i18n=""><span data-lang="fr">Créé par les méthodes — n'existe pas en CAO</span><span data-lang="en">Created by methods — doesn't exist in CAD</span></td></tr>
+                                    <tr><td>2</td><td data-i18n=""><span data-lang="fr">Corps brut de fonderie</span><span data-lang="en">Raw casting</span></td><td>1</td><td data-i18n=""><span data-lang="fr">Remplace « corps » : on achète le brut, on usine</span><span data-lang="en">Replaces "body": you buy the casting and machine it</span></td></tr>
+                                    <tr><td>2</td><td data-i18n=""><span data-lang="fr">Joint torique</span><span data-lang="en">O-ring</span></td><td>2</td><td>eBOM</td></tr>
+                                    <tr><td>2</td><td data-i18n=""><span data-lang="fr">Graisse silicone</span><span data-lang="en">Silicone grease</span></td><td data-i18n=""><span data-lang="fr">0,5 g</span><span data-lang="en">0.5 g</span></td><td data-i18n=""><span data-lang="fr">Consommable — absent de la CAO</span><span data-lang="en">Consumable — absent from CAD</span></td></tr>
+                                    <tr><td>1</td><td data-i18n=""><span data-lang="fr"><strong>SE-02 Sous-ensemble commande</strong></span><span data-lang="en"><strong>SA-02 Actuation sub-assembly</strong></span></td><td>1</td><td data-i18n=""><span data-lang="fr">Créé par les méthodes</span><span data-lang="en">Created by methods</span></td></tr>
+                                    <tr><td>2</td><td data-i18n=""><span data-lang="fr">Tige de manœuvre</span><span data-lang="en">Stem</span></td><td>1</td><td>eBOM</td></tr>
+                                    <tr><td>2</td><td data-i18n=""><span data-lang="fr">Écrou de tige</span><span data-lang="en">Stem nut</span></td><td>1</td><td>eBOM</td></tr>
+                                    <tr><td>2</td><td data-i18n=""><span data-lang="fr">Volant</span><span data-lang="en">Handwheel</span></td><td>1</td><td>eBOM</td></tr>
+                                    <tr><td>2</td><td data-i18n=""><span data-lang="fr">Frein-filet</span><span data-lang="en">Threadlocker</span></td><td data-i18n=""><span data-lang="fr">1 goutte</span><span data-lang="en">1 drop</span></td><td data-i18n=""><span data-lang="fr">Consommable</span><span data-lang="en">Consumable</span></td></tr>
+                                    <tr><td>1</td><td data-i18n=""><span data-lang="fr">Chapeau</span><span data-lang="en">Bonnet</span></td><td>1</td><td>eBOM</td></tr>
+                                    <tr><td>1</td><td data-i18n=""><span data-lang="fr">Clapet</span><span data-lang="en">Disc</span></td><td>1</td><td>eBOM</td></tr>
+                                    <tr><td>1</td><td data-i18n=""><span data-lang="fr">Vis CHC M8×30</span><span data-lang="en">Socket screw M8×30</span></td><td>4</td><td data-i18n=""><span data-lang="fr">eBOM — mais lot de 100 à l'achat</span><span data-lang="en">eBOM — but bought in packs of 100</span></td></tr>
+                                    <tr><td>1</td><td data-i18n=""><span data-lang="fr">Vis CHC M8×30 (rebut)</span><span data-lang="en">Socket screw M8×30 (scrap)</span></td><td data-i18n=""><span data-lang="fr">0,1</span><span data-lang="en">0.1</span></td><td data-i18n=""><span data-lang="fr">Taux de rebut constaté</span><span data-lang="en">Observed scrap rate</span></td></tr>
+                                    <tr><td>1</td><td data-i18n=""><span data-lang="fr">Plaque signalétique</span><span data-lang="en">Nameplate</span></td><td>1</td><td>eBOM</td></tr>
+                                    <tr><td>1</td><td data-i18n=""><span data-lang="fr">Rivets de plaque</span><span data-lang="en">Nameplate rivets</span></td><td>2</td><td data-i18n=""><span data-lang="fr">Oublié en CAO : la plaque était « posée »</span><span data-lang="en">Missed in CAD: the plate was simply "placed"</span></td></tr>
+                                    <tr><td>1</td><td data-i18n=""><span data-lang="fr">Étiquette de traçabilité</span><span data-lang="en">Traceability label</span></td><td>1</td><td data-i18n=""><span data-lang="fr">Exigence qualité, pas de conception</span><span data-lang="en">Quality requirement, not design</span></td></tr>
+                                    <tr><td>1</td><td data-i18n=""><span data-lang="fr">Carton d'emballage + notice</span><span data-lang="en">Packaging box + manual</span></td><td>1</td><td data-i18n=""><span data-lang="fr">Livrable client</span><span data-lang="en">Customer deliverable</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr">Neuf lignes d'un côté, dix-sept de l'autre, et aucune des deux n'est fausse. C'est le point que je passe le plus de temps à faire admettre en réunion : <strong>il ne s'agit pas de mettre les deux services d'accord sur une liste, mais d'accepter qu'il y en ait deux</strong>, et d'organiser proprement le passage de l'une à l'autre.</span><span data-lang="en">Nine lines on one side, seventeen on the other, and neither is wrong. This is the point I spend the most time getting accepted in meetings: <strong>it isn't about making two departments agree on one list, but about accepting that there are two</strong>, and organising the handover cleanly.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="ecarts">
+                    <h2 data-i18n=""><span data-lang="fr">2. Les 6 écarts systématiques</span><span data-lang="en">2. The 6 systematic differences</span></h2>
+                    <p data-i18n=""><span data-lang="fr">D'un secteur à l'autre, les mêmes six écarts reviennent. Les connaître permet d'anticiper le travail de conversion au lieu de le découvrir ligne par ligne.</span><span data-lang="en">Across industries, the same six differences recur. Knowing them lets you anticipate the conversion work instead of discovering it line by line.</span></p>
+                    <ul>
+                        <li data-i18n=""><span data-lang="fr"><strong>1. Les sous-ensembles de montage.</strong> Les méthodes regroupent des pièces que la conception n'avait pas regroupées, parce qu'on les assemble ensemble, sur un poste, avant de les monter. Ces sous-ensembles n'existent nulle part en CAO.</span><span data-lang="en"><strong>1. Assembly sub-assemblies.</strong> Methods group parts that design didn't group, because they're assembled together, at one station, before final assembly. Those sub-assemblies exist nowhere in CAD.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>2. Les consommables.</strong> Colle, graisse, frein-filet, fil de soudure, peinture : invisibles dans le modèle, indispensables à l'atelier et aux achats. Ils s'expriment souvent en unités que la CAO ne connaît pas — grammes, gouttes, mètres.</span><span data-lang="en"><strong>2. Consumables.</strong> Glue, grease, threadlocker, welding wire, paint: invisible in the model, essential on the floor and in purchasing. They're often expressed in units CAD doesn't know — grams, drops, metres.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>3. L'état d'approvisionnement.</strong> La conception dit « corps » ; la fabrication distingue le brut acheté et la pièce usinée, parfois avec deux références et une opération entre les deux.</span><span data-lang="en"><strong>3. Supply state.</strong> Design says "body"; manufacturing distinguishes the purchased casting from the machined part, sometimes with two part numbers and an operation between them.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>4. Les rebuts et les pertes.</strong> Un taux de chute sur la matière, un pourcentage de casse sur un composant fragile : des quantités qui n'ont aucun sens en conception et qui sont vitales pour calculer un besoin réel.</span><span data-lang="en"><strong>4. Scrap and losses.</strong> An offcut rate on raw material, a breakage percentage on a fragile component: quantities that mean nothing in design and are vital to compute real requirements.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>5. Ce qui n'est pas modélisé.</strong> Rivets, étiquettes, emballage, notice, visserie de fixation « évidente » : tout ce que le concepteur a laissé de côté parce que ça ne change pas la géométrie, et que l'atelier doit pourtant commander.</span><span data-lang="en"><strong>5. What isn't modelled.</strong> Rivets, labels, packaging, manuals, "obvious" fasteners: everything the designer left out because it doesn't change the geometry, and that the shop must nonetheless order.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>6. L'ordre et la hiérarchie.</strong> L'eBOM suit la logique fonctionnelle du produit ; la mBOM suit l'ordre dans lequel les mains se posent dessus. Deux arbres différents pour les mêmes feuilles.</span><span data-lang="en"><strong>6. Order and hierarchy.</strong> The eBOM follows the product's functional logic; the mBOM follows the order in which hands touch it. Two different trees for the same leaves.</span></li>
+                    </ul>
+                    <div class="callout">
+                        <div class="quote-block">
+                            <blockquote data-i18n=""><span data-lang="fr">Quand une entreprise me dit « nos nomenclatures sont fausses », je demande à voir qui ajoute les consommables et les emballages, et où. Neuf fois sur dix, la réponse est un tableur sur le poste d'une seule personne — et c'est là que vit réellement la mBOM.</span><span data-lang="en">When a company tells me "our BOMs are wrong", I ask to see who adds the consumables and the packaging, and where. Nine times out of ten the answer is a spreadsheet on one person's machine — and that's where the mBOM actually lives.</span></blockquote>
+                            <cite>Mohamed Omar Baouch</cite>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="blog-section article-section" id="passage">
+                    <h2 data-i18n=""><span data-lang="fr">3. Passer de l'eBOM à la mBOM : trois façons, une seule bonne</span><span data-lang="en">3. From eBOM to mBOM: three ways, only one good</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Le passage se fait toujours. La question est de savoir s'il se fait à la vue de tous ou dans un fichier que personne ne sauvegarde.</span><span data-lang="en">The handover always happens. The question is whether it happens in plain sight or in a file nobody backs up.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">La ressaisie manuelle — la plus répandue, la pire</span><span data-lang="en">Manual re-keying — the most common, the worst</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Quelqu'un exporte l'eBOM, la colle dans un tableur, ajoute ses lignes, réorganise, et saisit le résultat dans l'ERP. Cela fonctionne… jusqu'à la première modification. Dès lors, les deux listes divergent silencieusement, et personne ne sait laquelle fait foi. C'est le mécanisme exact qui produit les pièces fabriquées au mauvais indice.</span><span data-lang="en">Someone exports the eBOM, pastes it into a spreadsheet, adds their lines, reorganises, and keys the result into the ERP. It works… until the first change. From then on the two lists diverge silently, and nobody knows which one governs. It's the exact mechanism that produces parts built to the wrong revision.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Le transfert automatique brut — mieux, mais insuffisant</span><span data-lang="en">Raw automatic transfer — better, but not enough</span></h3>
+                    <p data-i18n=""><span data-lang="fr">L'eBOM est poussée automatiquement dans l'ERP, où les méthodes la complètent. On supprime la ressaisie, mais les ajouts faits côté ERP sont écrasés au transfert suivant si rien ne les protège. Il faut alors une règle explicite sur ce qui est réimporté et ce qui ne l'est pas.</span><span data-lang="en">The eBOM is pushed automatically into the ERP, where methods complete it. Re-keying disappears, but additions made on the ERP side get overwritten at the next transfer unless something protects them. You then need an explicit rule on what is re-imported and what isn't.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">La transformation gérée — la bonne réponse</span><span data-lang="en">Managed transformation — the right answer</span></h3>
+                    <p data-i18n=""><span data-lang="fr">L'eBOM et la mBOM coexistent comme deux structures distinctes et <strong>liées</strong> : chaque ligne de la mBOM sait de quelle ligne d'eBOM elle découle, et les ajouts propres aux méthodes sont marqués comme tels. Une modification de conception remonte alors comme un <em>écart à traiter</em>, pas comme un écrasement. C'est le rôle d'un PLM, et c'est précisément la frontière que décrit le <a href="/blog/nomenclature-bom-pdm-plm-erp/">guide complet sur la chaîne PDM → PLM → ERP</a>.</span><span data-lang="en">The eBOM and mBOM coexist as two distinct, <strong>linked</strong> structures: every mBOM line knows which eBOM line it derives from, and methods-only additions are flagged as such. A design change then surfaces as a <em>discrepancy to handle</em>, not as an overwrite. That's a PLM's job, and precisely the boundary described in the <a href="/blog/nomenclature-bom-pdm-plm-erp/">complete guide to the PDM → PLM → ERP chain</a>.</span></p>
+                    <div class="callout callout--soft">
+                        <p data-i18n=""><span data-lang="fr"><strong>Le test qui tranche :</strong> une vis change de longueur en conception un mardi. Combien de temps avant que l'atelier et les achats travaillent sur la bonne version, et combien de personnes doivent intervenir ? Si la réponse dépasse la journée ou mobilise plus de deux personnes, votre passage eBOM → mBOM est manuel, quel que soit le logiciel que vous possédez.</span><span data-lang="en"><strong>The decisive test:</strong> a screw changes length in design on a Tuesday. How long before the shop floor and purchasing work from the right version, and how many people must intervene? If the answer exceeds a day or involves more than two people, your eBOM → mBOM handover is manual, whatever software you own.</span></p>
+                    </div>
+                </section>
+
+                <section class="blog-section article-section" id="proprietaire">
+                    <h2 data-i18n=""><span data-lang="fr">4. Qui possède quoi : la règle à écrire noir sur blanc</span><span data-lang="en">4. Who owns what: the rule to write down</span></h2>
+                    <p data-i18n=""><span data-lang="fr">La plupart des conflits de nomenclature ne sont pas techniques : ce sont des questions de propriété mal tranchées. La règle tient en quatre lignes, et le seul travail consiste à la faire accepter par les deux services.</span><span data-lang="en">Most BOM conflicts aren't technical: they're unsettled ownership questions. The rule fits in four lines, and the only work is getting both departments to accept it.</span></p>
+                    <ul>
+                        <li data-i18n=""><span data-lang="fr"><strong>Le bureau d'études possède l'eBOM.</strong> Lui seul ajoute, retire ou modifie une pièce de définition. Personne d'autre n'y touche, jamais.</span><span data-lang="en"><strong>Engineering owns the eBOM.</strong> It alone adds, removes or modifies a definition part. Nobody else touches it, ever.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Les méthodes possèdent la mBOM.</strong> Elles ajoutent sous-ensembles, consommables, rebuts et emballages, et organisent la structure selon le montage.</span><span data-lang="en"><strong>Methods own the mBOM.</strong> They add sub-assemblies, consumables, scrap and packaging, and organise the structure by assembly order.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Une ligne de mBOM issue de l'eBOM n'est pas modifiable côté méthodes.</strong> Si elle pose problème, cela devient une <a href="/blog/eco-ecr-gestion-modifications/">demande de modification</a> vers le bureau d'études — pas une correction locale.</span><span data-lang="en"><strong>An mBOM line derived from the eBOM cannot be edited on the methods side.</strong> If it causes trouble, it becomes a <a href="/blog/eco-ecr-gestion-modifications/">change request</a> back to engineering — not a local fix.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Une seule liste fait foi pour l'achat</strong>, et tout le monde sait laquelle. C'est la question à laquelle votre organisation doit pouvoir répondre en une phrase.</span><span data-lang="en"><strong>One list governs purchasing</strong>, and everyone knows which. That's the question your organisation must be able to answer in one sentence.</span></li>
+                    </ul>
+                </section>
+
+                <section class="blog-section article-section" id="sbom">
+                    <h2 data-i18n=""><span data-lang="fr">5. Les autres nomenclatures qu'on croise</span><span data-lang="en">5. The other BOMs you'll meet</span></h2>
+                    <p data-i18n=""><span data-lang="fr">eBOM et mBOM sont les deux principales, mais d'autres apparaissent dès que le produit vit plus longtemps :</span><span data-lang="en">eBOM and mBOM are the two main ones, but others appear as soon as the product lives longer:</span></p>
+                    <ul>
+                        <li data-i18n=""><span data-lang="fr"><strong>La nomenclature de service (sBOM)</strong> : ce qu'un technicien peut remplacer sur le terrain. Elle ne contient ni les pièces soudées ni ce qui ne se démonte pas, et regroupe au contraire des kits de maintenance qui n'existent dans aucune des deux autres.</span><span data-lang="en"><strong>The service BOM (sBOM)</strong>: what a technician can replace in the field. It excludes welded parts and anything that doesn't come apart, and instead groups maintenance kits that exist in neither of the other two.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>La nomenclature telle que construite (as-built)</strong> : ce qui est réellement sorti d'atelier, numéro de série par numéro de série, avec les substitutions acceptées ce jour-là. Indispensable dès qu'il y a rappel produit ou garantie contractuelle.</span><span data-lang="en"><strong>The as-built BOM</strong>: what actually left the shop, serial number by serial number, with the substitutions accepted that day. Essential as soon as recalls or contractual warranties are involved.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>La nomenclature de configuration</strong> : la liste des options possibles plutôt que d'un exemplaire précis, pour les produits catalogués à variantes. Elle demande un outil qui sait gérer les règles de compatibilité entre options.</span><span data-lang="en"><strong>The configuration BOM</strong>: the list of possible options rather than one specific unit, for catalogued products with variants. It needs a tool that can manage compatibility rules between options.</span></li>
+                    </ul>
+                    <p data-i18n=""><span data-lang="fr">Inutile de toutes les mettre en place d'emblée. Mais savoir qu'elles existent évite de faire porter à la mBOM des besoins qui relèvent du service après-vente — une confusion fréquente, et coûteuse à démêler.</span><span data-lang="en">No need to set them all up at once. But knowing they exist prevents loading the mBOM with needs that belong to after-sales — a frequent confusion, and costly to untangle.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="faq">
+                    <h2>6. FAQ</h2>
+                    <h3 data-i18n=""><span data-lang="fr">Quelle est la différence entre eBOM et mBOM ?</span><span data-lang="en">What's the difference between eBOM and mBOM?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">L'eBOM décrit le produit tel qu'il est conçu, avec une structure fonctionnelle issue de la CAO. La mBOM décrit comment on le fabrique réellement : sous-ensembles de montage, consommables, rebuts, emballage, et une structure qui suit l'ordre d'assemblage. Les deux sont justes, elles ne répondent simplement pas à la même question.</span><span data-lang="en">The eBOM describes the product as designed, with a functional structure derived from CAD. The mBOM describes how it's actually built: assembly sub-assemblies, consumables, scrap, packaging, and a structure following the assembly order. Both are correct, they simply answer different questions.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Peut-on n'avoir qu'une seule nomenclature ?</span><span data-lang="en">Can you have just one BOM?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Oui, et beaucoup de PME fonctionnent ainsi sans dommage tant que le produit reste simple et l'équipe réduite. Mais la conversion se fait quand même, quelque part, par quelqu'un — le plus souvent dans un tableur personnel. Le risque n'est pas l'absence de mBOM, c'est qu'elle existe sans être gérée.</span><span data-lang="en">Yes, and many SMEs do so without harm while the product stays simple and the team small. But the conversion still happens, somewhere, by someone — usually in a personal spreadsheet. The risk isn't the absence of an mBOM, it's that it exists without being managed.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Qui doit créer la mBOM : le bureau d'études ou les méthodes ?</span><span data-lang="en">Who should create the mBOM: engineering or methods?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Les méthodes, parce qu'elles seules connaissent les postes, les gammes, les temps et les taux de rebut. Demander au bureau d'études de produire directement une mBOM revient à lui demander d'industrialiser — c'est un autre métier.</span><span data-lang="en">Methods, because they alone know the work centres, routings, times and scrap rates. Asking engineering to produce an mBOM directly means asking it to industrialise — that's another job.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">La mBOM doit-elle vivre dans le PLM ou dans l'ERP ?</span><span data-lang="en">Should the mBOM live in the PLM or the ERP?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Les deux approches existent et fonctionnent. Ce qui compte n'est pas l'emplacement mais la règle : un seul système fait autorité, le sens de circulation est écrit, et les ajouts des méthodes ne sont jamais écrasés par un transfert automatique.</span><span data-lang="en">Both approaches exist and work. What matters isn't the location but the rule: one system is authoritative, the direction of flow is written down, and methods' additions are never overwritten by an automatic transfer.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Comment savoir si mes nomenclatures divergent ?</span><span data-lang="en">How do I know whether my BOMs have diverged?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Prenez trois produits au hasard, comparez la liste côté conception et celle qui a servi à acheter, ligne par ligne. Le nombre d'écarts inexpliqués vous donnera la mesure — et servira d'argument bien plus convaincant qu'un discours sur les bonnes pratiques.</span><span data-lang="en">Take three products at random and compare the design list with the one used to purchase, line by line. The number of unexplained discrepancies gives you the measure — and makes a far more convincing argument than any talk about best practice.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Faut-il un PLM pour gérer les deux ?</span><span data-lang="en">Do you need a PLM to manage both?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Pas nécessairement au démarrage : un <a href="/blog/solidworks-pdm-guide-complet/">PDM bien paramétré</a> et des propriétés propres couvrent déjà l'eBOM. Le PLM devient utile quand les deux structures doivent être liées, tracées et modifiées ensemble par plusieurs services — c'est l'un des <a href="/blog/pdm-ou-plm-quand-basculer/">signaux de bascule</a>.</span><span data-lang="en">Not necessarily at the start: a <a href="/blog/solidworks-pdm-guide-complet/">well-configured PDM</a> and clean properties already cover the eBOM. PLM becomes useful when both structures must be linked, traced and modified together across departments — one of the <a href="/blog/pdm-ou-plm-quand-basculer/">signals to switch</a>.</span></p>
+                    <div class="callout">
+                        <div class="quote-block">
+                            <blockquote data-i18n=""><span data-lang="fr">Le résumé en une ligne : n'essayez pas de faire tenir la conception et la fabrication dans une seule liste. Acceptez qu'il y en ait deux, liez-les, et décidez par écrit qui possède quoi.</span><span data-lang="en">The one-line summary: don't try to squeeze design and manufacturing into one list. Accept that there are two, link them, and decide in writing who owns what.</span></blockquote>
+                            <cite>Mohamed Omar Baouch</cite>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="blog-section article-related">
+                    <h2 data-i18n=""><span data-lang="fr">À lire aussi</span><span data-lang="en">Read next</span></h2>
+                    <div class="media-grid">
+                        <a href="/blog/nomenclature-bom-pdm-plm-erp/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">BOM, eBOM, mBOM : la colonne vertébrale de vos données produit</span><span data-lang="en">BOM, eBOM, mBOM: the backbone of your product data</span></h3>
+                            <p data-i18n=""><span data-lang="fr">Le guide complet de la chaîne, du bureau d'études jusqu'à l'ERP.</span><span data-lang="en">The complete guide to the chain, from engineering through to the ERP.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                        <a href="/blog/codification-proprietes-solidworks/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">Codification &amp; propriétés SOLIDWORKS</span><span data-lang="en">SOLIDWORKS numbering &amp; properties</span></h3>
+                            <p data-i18n=""><span data-lang="fr">Ce qui alimente vos nomenclatures — et ce qui les rend fausses.</span><span data-lang="en">What feeds your BOMs — and what makes them wrong.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                    </div>
+                </section>
+
+                <footer class="article-footer">
+                    <div class="article-tags">
+                        <span class="article-tag">eBOM</span>
+                        <span class="article-tag">mBOM</span>
+                        <span class="article-tag">BOM</span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Nomenclature</span><span data-lang="en">Bill of materials</span></span>
+                        <span class="article-tag">PLM</span>
+                        <span class="article-tag">ERP</span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Méthodes</span><span data-lang="en">Methods</span></span>
+                    </div>
+                    <div class="article-nav">
+                        <a href="/blog/" class="back-link" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                        <a href="/#contact" class="hero-btn" data-i18n=""><span data-lang="fr">Parler d'un projet</span><span data-lang="en">Discuss a project</span></a>
+                    </div>
+                </footer>
+
+            </article>
+        </div>
+    </main>
+
+    <script src="/assets/js/loader.js"></script>
+    <script src="/assets/js/visitor-intelligence.js"></script>
+
+{{> footer }}
+{{> chatbot }}
+</body></html>

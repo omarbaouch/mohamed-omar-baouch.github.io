@@ -1,0 +1,338 @@
+<!DOCTYPE html><html lang="fr"><head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PBLRK58T');</script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-33TQ27QY4M"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-33TQ27QY4M');</script>
+<!-- Microsoft Clarity -->
+    <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","vy4yvht8gz");</script>
+    <!-- LinkedIn Insight Tag -->
+    <script type="text/javascript">_linkedin_partner_id="525900907";window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];window._linkedin_data_partner_ids.push(_linkedin_partner_id);(function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";s.parentNode.insertBefore(b,s)})(window.lintrk);</script>
+    <script>
+    // Anti-flash de thème : clair par défaut, sombre si stocké.
+    (function () {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    })();
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connecter la BOM à l'ERP : les 4 architectures possibles et celle qui tient</title>
+    <meta name="description" content="Comment faire circuler la nomenclature entre la CAO, le PDM/PLM et l'ERP : les 4 architectures d'intégration (ressaisie, fichier, connecteur unidirectionnel, transformation gérée), qui fait autorité sur quoi, les 6 pièges qui cassent une interface, et la séquence de mise en place.">
+    <meta name="author" content="Mohamed Omar Baouch">
+    <link rel="canonical" href="https://www.baouch.fr/blog/integration-bom-erp/">
+    <link rel="alternate" type="application/rss+xml" title="Blog — Mohamed Omar Baouch" href="https://www.baouch.fr/blog/rss.xml">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Connecter la BOM à l'ERP : les 4 architectures possibles">
+    <meta property="og:description" content="Ressaisie, fichier, connecteur, transformation gérée : ce que chaque architecture coûte vraiment, et les 6 pièges qui cassent une interface.">
+    <meta property="og:url" content="https://www.baouch.fr/blog/integration-bom-erp/">
+    <meta property="og:image" content="https://www.baouch.fr/img/og/bom-erp-integration.jpg">
+    <meta property="og:site_name" content="Mohamed Omar Baouch">
+    <meta property="article:published_time" content="2026-09-20T00:00:00.000Z">
+    <meta property="article:author" content="Mohamed Omar Baouch">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Connecter la BOM à l'ERP : les 4 architectures">
+    <meta name="twitter:description" content="Qui fait autorité sur quoi, et les 6 pièges qui cassent une interface PDM/PLM → ERP.">
+    <meta name="twitter:image" content="https://www.baouch.fr/img/og/bom-erp-integration.jpg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "headline": "Connecter la BOM à l'ERP : les 4 architectures possibles",
+                "description": "Comment faire circuler la nomenclature entre la CAO, le PDM/PLM et l'ERP : les 4 architectures d'intégration (ressaisie, fichier, connecteur unidirectionnel, transformation gérée), qui fait autorité sur quoi, les 6 pièges qui cassent une interface, et la séquence de mise en place.",
+                "image": "https://www.baouch.fr/img/og/bom-erp-integration.jpg",
+                "datePublished": "2026-09-20",
+                "dateModified": "2026-09-20",
+                "inLanguage": "fr-FR",
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://www.baouch.fr/blog/integration-bom-erp/"
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://www.baouch.fr",
+                    "jobTitle": "Ingénieur & Consultant PDM/PLM"
+                },
+                "publisher": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://www.baouch.fr"
+                },
+                "keywords": [
+                    "BOM",
+                    "ERP",
+                    "PLM",
+                    "PDM",
+                    "Intégration",
+                    "Architecture"
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Accueil",
+                        "item": "https://www.baouch.fr/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Blog",
+                        "item": "https://www.baouch.fr/blog/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Connecter la BOM à l'ERP : les 4 architectures possibles",
+                        "item": "https://www.baouch.fr/blog/integration-bom-erp/"
+                    }
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Faut-il envoyer l'eBOM ou la mBOM dans l'ERP ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "L'ERP a besoin de la nomenclature de fabrication, puisqu'il pilote les achats et la production. La question réelle est de savoir où la mBOM est construite : côté PLM puis transférée, ou côté ERP à partir de l'eBOM reçue. Les deux fonctionnent, à condition que le choix soit écrit — voir eBOM vs mBOM."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "L'intégration doit-elle être bidirectionnelle ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Rarement. Un flux descendant du PDM/PLM vers l'ERP, plus une remontée en lecture seule de quelques informations utiles au bureau d'études — stock, prix, fournisseur — couvre l'immense majorité des besoins sans créer de conflits d'écriture."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Combien de temps prend la mise en place d'une interface ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Le développement technique est rarement le poste le plus long. Ce qui prend du temps, c'est d'aligner la codification et de trancher la matrice de propriété — un travail d'organisation qui se compte en semaines, parfois en mois."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Peut-on se passer d'un PLM pour cette intégration ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Oui, dans les architectures 2 et 3 : un PDM bien paramétré suffit à pousser une eBOM fiable vers l'ERP. Le PLM devient nécessaire quand les deux nomenclatures doivent rester liées et que les modifications doivent être instruites entre les services."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Comment savoir si mon interface actuelle est fiable ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Prenez cinq produits au hasard et comparez la nomenclature des deux côtés, ligne par ligne. Puis modifiez une pièce en conception et chronométrez le temps qu'elle met à apparaître correctement dans l'ERP. Ces deux mesures valent tous les audits."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+    {{> head-fonts }}<script type="module" src="../../js/blog.js"></script>
+</head>
+<body class="blog-page" data-blog-post="integration-bom-erp">
+{{> nav }}
+
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBLRK58T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <main id="mainContainer" class="container blog-container show">
+        <div class="blog-shell" id="blogShell" data-shell="">
+            <article class="blog-article" data-article-root="">
+                <nav class="article-breadcrumbs" aria-label="Navigation secondaire">
+                    <a class="back-link" href="/blog/" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                    <a class="back-link back-link--ghost" href="/" data-translate-key="blog_back_to_portfolio">Retour au portfolio</a>
+                </nav>
+
+                <header class="blog-hero post-hero" data-component="hero">
+                    <div class="hero-intro">
+                        <div class="hero-badges">
+                            <span class="badge badge-editorial" data-i18n=""><span data-lang="fr">Architecture</span><span data-lang="en">Architecture</span></span>
+                            <span class="badge">BOM · ERP</span>
+                            <span class="badge badge-reading-time" data-i18n=""><span data-lang="fr">~12 min de lecture</span><span data-lang="en">~12 min read</span></span>
+                        </div>
+                        <span class="hero-eyebrow" data-i18n=""><span data-lang="fr">Le maillon où se perdent les données produit</span><span data-lang="en">The link where product data goes missing</span></span>
+                        <h1 class="hero-title" data-i18n=""><span data-lang="fr">Connecter la nomenclature à l'ERP : les 4 architectures possibles, et celle qui tient dans le temps</span><span data-lang="en">Connecting the BOM to the ERP: the 4 possible architectures, and the one that lasts</span></h1>
+                        <p class="hero-subtitle" data-i18n=""><span data-lang="fr">Publié le 20 septembre 2026 — entre la conception et l'achat, la nomenclature change de système. C'est le passage le plus fragile de toute la chaîne, et celui que les projets traitent en dernier. Les quatre façons de le franchir, ce que chacune coûte réellement, qui doit faire autorité sur quoi, et les six pièges qui cassent une interface six mois après sa mise en service.</span><span data-lang="en">Published 20 September 2026 — between design and purchasing, the bill of materials changes system. It's the most fragile crossing in the whole chain, and the one projects address last. The four ways to make it, what each really costs, who must be authoritative over what, and the six traps that break an interface six months after go-live.</span></p>
+                        <div class="hero-actions">
+                            <a class="hero-btn" href="#architectures" data-i18n=""><span data-lang="fr">Comparer les 4 architectures</span><span data-lang="en">Compare the 4 architectures</span></a>
+                            <a class="hero-btn hero-btn--ghost" href="#pieges" data-i18n=""><span data-lang="fr">Les 6 pièges</span><span data-lang="en">The 6 traps</span></a>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">4</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Architectures possibles</span><span data-lang="en">Possible architectures</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">1</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Système qui fait autorité</span><span data-lang="en">Authoritative system</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">6</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Pièges à désamorcer</span><span data-lang="en">Traps to defuse</span></span>
+                        </div>
+                    </div>
+                </header>
+
+                <section class="blog-section article-section" id="probleme">
+                    <h2 data-i18n=""><span data-lang="fr">Le problème, posé simplement</span><span data-lang="en">The problem, put simply</span></h2>
+                    <p data-i18n=""><span data-lang="fr">La nomenclature naît dans la conception et se consomme dans l'achat et la production. Entre les deux, elle traverse une frontière de systèmes : le PDM ou le PLM d'un côté, l'ERP de l'autre. Cette traversée est le point le plus fragile de toute la chaîne des données produit, pour une raison simple : <strong>les deux systèmes ne parlent pas du même objet</strong>.</span><span data-lang="en">The bill of materials is born in design and consumed in purchasing and production. In between, it crosses a system boundary: PDM or PLM on one side, ERP on the other. That crossing is the most fragile point in the whole product-data chain, for one simple reason: <strong>the two systems aren't talking about the same object</strong>.</span></p>
+                    <p data-i18n=""><span data-lang="fr">Côté conception, l'objet de base est un <em>fichier</em> qui décrit une pièce. Côté ERP, c'est un <em>article</em> qu'on achète, stocke et valorise. Un article peut exister sans fichier — une prestation de traitement de surface, par exemple — et plusieurs fichiers peuvent décrire un même article. Tant que cette distinction n'est pas tranchée, aucune interface ne tiendra.</span><span data-lang="en">On the design side, the basic object is a <em>file</em> describing a part. On the ERP side, it's an <em>item</em> you buy, stock and cost. An item can exist without a file — a surface-treatment service, for instance — and several files can describe one item. Until that distinction is settled, no interface will hold.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="architectures">
+                    <h2 data-i18n=""><span data-lang="fr">Les 4 architectures, de la pire à la meilleure</span><span data-lang="en">The 4 architectures, worst to best</span></h2>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr>
+                                        <th data-i18n=""><span data-lang="fr">Architecture</span><span data-lang="en">Architecture</span></th>
+                                        <th data-i18n=""><span data-lang="fr">Comment ça marche</span><span data-lang="en">How it works</span></th>
+                                        <th data-i18n=""><span data-lang="fr">Ce que ça coûte vraiment</span><span data-lang="en">What it really costs</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>1. La ressaisie</strong></span><span data-lang="en"><strong>1. Re-keying</strong></span></td><td data-i18n=""><span data-lang="fr">Quelqu'un lit la nomenclature d'un côté et la tape de l'autre</span><span data-lang="en">Someone reads the BOM on one side and types it on the other</span></td><td data-i18n=""><span data-lang="fr">Un taux d'erreur incompressible et un délai qui dépend d'une personne</span><span data-lang="en">An irreducible error rate and a delay that depends on one person</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>2. Le fichier pivot</strong></span><span data-lang="en"><strong>2. The pivot file</strong></span></td><td data-i18n=""><span data-lang="fr">Export CSV d'un côté, import de l'autre, à la main ou planifié</span><span data-lang="en">CSV export on one side, import on the other, manual or scheduled</span></td><td data-i18n=""><span data-lang="fr">Moins d'erreurs de frappe, mais aucune gestion des conflits ni des suppressions</span><span data-lang="en">Fewer typos, but no handling of conflicts or deletions</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>3. Le connecteur unidirectionnel</strong></span><span data-lang="en"><strong>3. One-way connector</strong></span></td><td data-i18n=""><span data-lang="fr">Le PDM/PLM pousse la nomenclature dans l'ERP à l'approbation</span><span data-lang="en">PDM/PLM pushes the BOM into the ERP on approval</span></td><td data-i18n=""><span data-lang="fr">Solide, à condition de protéger ce que les méthodes ajoutent côté ERP</span><span data-lang="en">Solid, provided what methods add on the ERP side is protected</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>4. La transformation gérée</strong></span><span data-lang="en"><strong>4. Managed transformation</strong></span></td><td data-i18n=""><span data-lang="fr">eBOM et mBOM coexistent, liées ligne à ligne ; l'ERP reçoit la mBOM</span><span data-lang="en">eBOM and mBOM coexist, linked line by line; the ERP receives the mBOM</span></td><td data-i18n=""><span data-lang="fr">Le plus exigeant à mettre en place, le seul qui survive aux modifications</span><span data-lang="en">The most demanding to set up, the only one that survives changes</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr">La progression n'est pas une échelle de maturité qu'il faudrait gravir à tout prix. <strong>Une PME avec un produit stable vit très bien en architecture 3</strong>, et beaucoup s'épuisent à viser la 4 sans en avoir le besoin. En revanche, l'architecture 1 finit toujours par coûter plus cher que son remplacement — c'est la seule dont je déconseille systématiquement le maintien.</span><span data-lang="en">This progression isn't a maturity ladder you must climb at all costs. <strong>An SME with a stable product lives very well on architecture 3</strong>, and many exhaust themselves aiming for 4 without needing it. Architecture 1, on the other hand, always ends up costing more than its replacement — the only one I systematically advise against keeping.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="autorite">
+                    <h2 data-i18n=""><span data-lang="fr">Qui fait autorité sur quoi</span><span data-lang="en">Who is authoritative over what</span></h2>
+                    <p data-i18n=""><span data-lang="fr">C'est la décision structurante, et elle se prend avant tout développement d'interface. Voici la répartition qui fonctionne dans la grande majorité des cas :</span><span data-lang="en">This is the structuring decision, and it's taken before any interface development. Here's the split that works in the vast majority of cases:</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr>
+                                        <th data-i18n=""><span data-lang="fr">Donnée</span><span data-lang="en">Data</span></th>
+                                        <th data-i18n=""><span data-lang="fr">Fait autorité</span><span data-lang="en">Authoritative system</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td data-i18n=""><span data-lang="fr">Identifiant de l'article, désignation, matière, indice</span><span data-lang="en">Item number, description, material, revision</span></td><td>PDM / PLM</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Structure de la nomenclature d'étude</span><span data-lang="en">Engineering BOM structure</span></td><td>PDM / PLM</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Sous-ensembles de montage, consommables, rebuts</span><span data-lang="en">Assembly sub-assemblies, consumables, scrap</span></td><td data-i18n=""><span data-lang="fr">PLM ou ERP, selon l'architecture retenue</span><span data-lang="en">PLM or ERP, depending on the chosen architecture</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Gammes, temps, postes de charge</span><span data-lang="en">Routings, times, work centres</span></td><td>ERP</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Fournisseurs, prix, délais, stocks</span><span data-lang="en">Suppliers, prices, lead times, stock</span></td><td>ERP</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr">Une règle simple découle de ce tableau : <strong>une donnée n'a qu'un seul propriétaire, et l'autre système l'affiche sans pouvoir la modifier.</strong> Dès que deux systèmes peuvent écrire le même champ, la divergence n'est qu'une question de temps — et personne ne saura dire laquelle des deux valeurs est la bonne.</span><span data-lang="en">One simple rule follows: <strong>a piece of data has exactly one owner, and the other system displays it without being able to change it.</strong> As soon as two systems can write the same field, divergence is only a matter of time — and nobody will be able to say which value is right.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="pieges">
+                    <h2 data-i18n=""><span data-lang="fr">Les 6 pièges qui cassent une interface</span><span data-lang="en">The 6 traps that break an interface</span></h2>
+                    <ul>
+                        <li data-i18n=""><span data-lang="fr"><strong>1. Les articles sans fichier.</strong> Traitements de surface, prestations, matières premières au mètre : ils existent dans l'ERP et nulle part en conception. L'interface doit les accepter dans une nomenclature sans chercher un fichier correspondant.</span><span data-lang="en"><strong>1. Items with no file.</strong> Surface treatments, services, raw material by the metre: they exist in the ERP and nowhere in design. The interface must accept them in a BOM without looking for a matching file.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>2. Les unités de mesure.</strong> La CAO compte des occurrences, l'ERP des grammes, des mètres et des litres. Sans table de conversion explicite, le premier joint de colle fausse la nomenclature et, par ricochet, le calcul des besoins.</span><span data-lang="en"><strong>2. Units of measure.</strong> CAD counts occurrences, the ERP counts grams, metres and litres. Without an explicit conversion table, the first bead of glue corrupts the BOM and, in turn, the requirements calculation.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>3. Les suppressions.</strong> Tous les connecteurs savent créer et mettre à jour. Beaucoup ne savent pas supprimer proprement une ligne retirée de la conception — elle reste alors dans l'ERP et se commande encore des mois après.</span><span data-lang="en"><strong>3. Deletions.</strong> Every connector can create and update. Many can't cleanly remove a line dropped from the design — it then lingers in the ERP and keeps getting ordered months later.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>4. Les indices.</strong> Que fait l'ERP quand une pièce passe de l'indice B à l'indice C ? Nouvel article, ou même article avec un indice modifié ? Les deux choix se défendent ; ne pas trancher ne se défend pas, et produit les pièces fabriquées au mauvais indice.</span><span data-lang="en"><strong>4. Revisions.</strong> What does the ERP do when a part moves from revision B to C? A new item, or the same item with a changed revision? Both choices are defensible; not deciding isn't, and it produces parts built to the wrong revision.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>5. Le moment du transfert.</strong> Pousser une nomenclature dès sa création remplit l'ERP de brouillons. Le bon déclencheur est l'<em>approbation</em>, c'est-à-dire un état de <a href="/blog/solidworks-pdm-guide-complet/">workflow</a> — pas une action manuelle qu'on oublie.</span><span data-lang="en"><strong>5. Transfer timing.</strong> Pushing a BOM as soon as it's created fills the ERP with drafts. The right trigger is <em>approval</em>, that is a <a href="/blog/solidworks-pdm-guide-complet/">workflow</a> state — not a manual action someone forgets.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>6. Les doublons d'articles.</strong> Sans règle de codification unique et partagée, la même pièce entre deux fois dans l'ERP sous deux références. C'est le symptôme le plus visible d'une <a href="/blog/codification-proprietes-solidworks/">codification non maîtrisée</a>, et le plus coûteux en achats.</span><span data-lang="en"><strong>6. Duplicate items.</strong> Without a single shared numbering rule, the same part enters the ERP twice under two references. It's the most visible symptom of <a href="/blog/codification-proprietes-solidworks/">uncontrolled part numbering</a>, and the costliest in purchasing.</span></li>
+                    </ul>
+                    <div class="callout">
+                        <div class="quote-block">
+                            <blockquote data-i18n=""><span data-lang="fr">Quand on me demande de réparer une interface qui « ne marche plus », le problème est presque toujours l'un de ces six points — et il était présent dès le premier jour. Il n'apparaît qu'au premier cas réel qui sort du scénario de démonstration.</span><span data-lang="en">When I'm asked to fix an interface that "stopped working", the problem is almost always one of these six — and it was there from day one. It only surfaces with the first real case that steps outside the demo scenario.</span></blockquote>
+                            <cite>Mohamed Omar Baouch</cite>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="blog-section article-section" id="sequence">
+                    <h2 data-i18n=""><span data-lang="fr">La séquence de mise en place</span><span data-lang="en">The implementation sequence</span></h2>
+                    <ol>
+                        <li data-i18n=""><span data-lang="fr"><strong>Aligner la codification</strong> des deux côtés. Sans identifiant commun et fiable, tout le reste est inutile.</span><span data-lang="en"><strong>Align part numbering</strong> on both sides. Without a common, reliable identifier, everything else is pointless.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Écrire la matrice de propriété</strong> champ par champ, et la faire valider par les deux services. Une page suffit ; c'est la page qui évitera six mois de discussions.</span><span data-lang="en"><strong>Write the ownership matrix</strong> field by field, and have both departments approve it. One page is enough; it's the page that saves six months of argument.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Définir le déclencheur</strong> du transfert et ce qui se passe en cas d'échec. Une interface qui échoue en silence est pire qu'une ressaisie manuelle.</span><span data-lang="en"><strong>Define the trigger</strong> for the transfer and what happens on failure. An interface that fails silently is worse than manual re-keying.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Tester sur les cas tordus</strong>, pas sur une nomenclature propre : article sans fichier, pièce multicorps, consommable au gramme, ligne supprimée, changement d'indice.</span><span data-lang="en"><strong>Test on the awkward cases</strong>, not on a clean BOM: item without a file, multi-body part, consumable by the gram, deleted line, revision change.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Démarrer sur une famille de produits</strong> pendant un trimestre avant de généraliser, comme pour toute <a href="/blog/migration-donnees-solidworks-pdm/">reprise de données</a>.</span><span data-lang="en"><strong>Start with one product family</strong> for a quarter before rolling out, as with any <a href="/blog/migration-donnees-solidworks-pdm/">data migration</a>.</span></li>
+                    </ol>
+                </section>
+
+                <section class="blog-section article-section" id="faq">
+                    <h2>FAQ</h2>
+                    <h3 data-i18n=""><span data-lang="fr">Faut-il envoyer l'eBOM ou la mBOM dans l'ERP ?</span><span data-lang="en">Should the eBOM or the mBOM go into the ERP?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">L'ERP a besoin de la nomenclature de fabrication, puisqu'il pilote les achats et la production. La question réelle est de savoir <em>où</em> la mBOM est construite : côté PLM puis transférée, ou côté ERP à partir de l'eBOM reçue. Les deux fonctionnent, à condition que le choix soit écrit — voir <a href="/blog/ebom-vs-mbom/">eBOM vs mBOM</a>.</span><span data-lang="en">The ERP needs the manufacturing BOM, since it drives purchasing and production. The real question is <em>where</em> the mBOM is built: on the PLM side then transferred, or on the ERP side from the received eBOM. Both work, provided the choice is written down — see <a href="/blog/ebom-vs-mbom/">eBOM vs mBOM</a>.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">L'intégration doit-elle être bidirectionnelle ?</span><span data-lang="en">Should the integration be bidirectional?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Rarement. Un flux descendant du PDM/PLM vers l'ERP, plus une remontée en lecture seule de quelques informations utiles au bureau d'études — stock, prix, fournisseur — couvre l'immense majorité des besoins sans créer de conflits d'écriture.</span><span data-lang="en">Rarely. A downward flow from PDM/PLM to the ERP, plus a read-only return of a few items useful to engineering — stock, price, supplier — covers the vast majority of needs without creating write conflicts.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Combien de temps prend la mise en place d'une interface ?</span><span data-lang="en">How long does building an interface take?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Le développement technique est rarement le poste le plus long. Ce qui prend du temps, c'est d'aligner la codification et de trancher la matrice de propriété — un travail d'organisation qui se compte en semaines, parfois en mois.</span><span data-lang="en">Technical development is rarely the longest item. What takes time is aligning part numbering and settling the ownership matrix — organisational work counted in weeks, sometimes months.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Peut-on se passer d'un PLM pour cette intégration ?</span><span data-lang="en">Can you do this integration without a PLM?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Oui, dans les architectures 2 et 3 : un PDM bien paramétré suffit à pousser une eBOM fiable vers l'ERP. Le PLM devient nécessaire quand les deux nomenclatures doivent rester liées et que les modifications doivent être instruites entre les services.</span><span data-lang="en">Yes, in architectures 2 and 3: a well-configured PDM is enough to push a reliable eBOM into the ERP. PLM becomes necessary when both BOMs must stay linked and changes must be assessed across departments.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Comment savoir si mon interface actuelle est fiable ?</span><span data-lang="en">How do I know whether my current interface is reliable?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Prenez cinq produits au hasard et comparez la nomenclature des deux côtés, ligne par ligne. Puis modifiez une pièce en conception et chronométrez le temps qu'elle met à apparaître correctement dans l'ERP. Ces deux mesures valent tous les audits.</span><span data-lang="en">Take five products at random and compare the BOM on both sides, line by line. Then change a part in design and time how long it takes to appear correctly in the ERP. Those two measurements are worth any audit.</span></p>
+                    <div class="callout">
+                        <div class="quote-block">
+                            <blockquote data-i18n=""><span data-lang="fr">Le résumé en une ligne : une interface ne se construit pas, elle se décide. La matrice de propriété tient sur une page, et c'est cette page qui détermine si votre projet réussit.</span><span data-lang="en">The one-line summary: an interface isn't built, it's decided. The ownership matrix fits on one page, and that page determines whether your project succeeds.</span></blockquote>
+                            <cite>Mohamed Omar Baouch</cite>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="blog-section article-related">
+                    <h2 data-i18n=""><span data-lang="fr">À lire aussi</span><span data-lang="en">Read next</span></h2>
+                    <div class="media-grid">
+                        <a href="/blog/ebom-vs-mbom/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">eBOM vs mBOM : la vraie différence</span><span data-lang="en">eBOM vs mBOM: the real difference</span></h3>
+                            <p data-i18n=""><span data-lang="fr">Ce qui traverse l'interface, et pourquoi les deux listes diffèrent toujours.</span><span data-lang="en">What crosses the interface, and why the two lists always differ.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                        <a href="/blog/logiciel-gestion-nomenclatures/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">Quel logiciel pour gérer vos nomenclatures ?</span><span data-lang="en">Which software should manage your BOMs?</span></h3>
+                            <p data-i18n=""><span data-lang="fr">Les 5 familles d'outils et celle qui correspond à votre situation.</span><span data-lang="en">The 5 families of tools and the one that fits your situation.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                    </div>
+                </section>
+
+                <footer class="article-footer">
+                    <div class="article-tags">
+                        <span class="article-tag">BOM</span>
+                        <span class="article-tag">ERP</span>
+                        <span class="article-tag">PLM</span>
+                        <span class="article-tag">PDM</span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Intégration</span><span data-lang="en">Integration</span></span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Architecture</span><span data-lang="en">Architecture</span></span>
+                    </div>
+                    <div class="article-nav">
+                        <a href="/blog/" class="back-link" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                        <a href="/#contact" class="hero-btn" data-i18n=""><span data-lang="fr">Parler d'un projet</span><span data-lang="en">Discuss a project</span></a>
+                    </div>
+                </footer>
+
+            </article>
+        </div>
+    </main>
+
+    <script src="/assets/js/loader.js"></script>
+    <script src="/assets/js/visitor-intelligence.js"></script>
+
+{{> footer }}
+{{> chatbot }}
+</body></html>

@@ -53,6 +53,24 @@
     "h1": "Configuration matérielle SOLIDWORKS 2025 : le guide terrain pour un bureau d'études réactif",
     "lang": "fr"
   },
+  "/blog/ebom-vs-mbom/": {
+    "title": "eBOM vs mBOM : la différence, avec un exemple chiffré et la méthode de passage",
+    "description": "eBOM et mBOM ne décrivent pas le même produit : l'une dit comment il est conçu, l'autre comment il est assemblé. Un exemple complet ligne par ligne, les 6 écarts systématiques entre les deux, qui possède quoi, et la méthode pour passer de l'une à l'autre sans ressaisie ni divergence.",
+    "canonical": "https://www.baouch.fr/blog/ebom-vs-mbom/",
+    "robots": null,
+    "ogTitle": "eBOM vs mBOM : la différence, avec un exemple chiffré",
+    "ogDescription": "Les 6 écarts systématiques entre nomenclature d'étude et nomenclature de fabrication, et la méthode de passage sans ressaisie.",
+    "ogUrl": "https://www.baouch.fr/blog/ebom-vs-mbom/",
+    "ogImage": "https://www.baouch.fr/img/og/ebom-mbom.jpg",
+    "ogType": "article",
+    "twitterTitle": "eBOM vs mBOM : la différence, avec un exemple chiffré",
+    "twitterDescription": "Une même vanne, deux nomenclatures : 9 lignes côté étude, 17 côté fabrication. Pourquoi, et comment passer de l'une à l'autre.",
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList,FAQPage"
+    ],
+    "h1": "eBOM vs mBOM : la vraie différence, avec un exemple ligne par ligneeBOM vs mBOM: the real difference, with a line-by-line example",
+    "lang": "fr"
+  },
   "/blog/eco-ecr-gestion-modifications/": {
     "title": "La révision fantôme à 40 000 € : maîtriser les ECO/ECR avant qu'elles ne vous coûtent cher",
     "description": "Une modification produit mal gérée, c'est un stock obsolète, un rappel client ou une ligne arrêtée. Comment structurer vos ECR/ECO — de la demande à la clôture — pour que plus aucune révision ne parte en production sans contrôle.",
@@ -159,6 +177,42 @@
       "CollectionPage,BreadcrumbList"
     ],
     "h1": "Guides & analyses PDM/PLM et SOLIDWORKSPDM/PLM & SOLIDWORKS guides and analysis",
+    "lang": "fr"
+  },
+  "/blog/integration-bom-erp/": {
+    "title": "Connecter la BOM à l'ERP : les 4 architectures possibles et celle qui tient",
+    "description": "Comment faire circuler la nomenclature entre la CAO, le PDM/PLM et l'ERP : les 4 architectures d'intégration (ressaisie, fichier, connecteur unidirectionnel, transformation gérée), qui fait autorité sur quoi, les 6 pièges qui cassent une interface, et la séquence de mise en place.",
+    "canonical": "https://www.baouch.fr/blog/integration-bom-erp/",
+    "robots": null,
+    "ogTitle": "Connecter la BOM à l'ERP : les 4 architectures possibles",
+    "ogDescription": "Ressaisie, fichier, connecteur, transformation gérée : ce que chaque architecture coûte vraiment, et les 6 pièges qui cassent une interface.",
+    "ogUrl": "https://www.baouch.fr/blog/integration-bom-erp/",
+    "ogImage": "https://www.baouch.fr/img/og/bom-erp-integration.jpg",
+    "ogType": "article",
+    "twitterTitle": "Connecter la BOM à l'ERP : les 4 architectures",
+    "twitterDescription": "Qui fait autorité sur quoi, et les 6 pièges qui cassent une interface PDM/PLM → ERP.",
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList,FAQPage"
+    ],
+    "h1": "Connecter la nomenclature à l'ERP : les 4 architectures possibles, et celle qui tient dans le tempsConnecting the BOM to the ERP: the 4 possible architectures, and the one that lasts",
+    "lang": "fr"
+  },
+  "/blog/logiciel-gestion-nomenclatures/": {
+    "title": "Logiciel de gestion des nomenclatures : les 5 familles d'outils et comment choisir",
+    "description": "Tableur, ERP, PDM, PLM ou outil dédié : quel logiciel pour gérer vos nomenclatures produit ? Ce que chaque famille sait faire et où elle bloque, les 6 signes qu'Excel ne suffit plus, les 7 critères de choix et le piège de l'outil qui gère la liste mais pas les modifications.",
+    "canonical": "https://www.baouch.fr/blog/logiciel-gestion-nomenclatures/",
+    "robots": null,
+    "ogTitle": "Logiciel de gestion des nomenclatures : les 5 familles et comment choisir",
+    "ogDescription": "Tableur, ERP, PDM, PLM ou outil dédié : ce que chacun sait faire, où il bloque, et les 6 signes qu'Excel ne suffit plus.",
+    "ogUrl": "https://www.baouch.fr/blog/logiciel-gestion-nomenclatures/",
+    "ogImage": "https://www.baouch.fr/img/og/logiciel-bom.jpg",
+    "ogType": "article",
+    "twitterTitle": "Quel logiciel pour gérer vos nomenclatures ?",
+    "twitterDescription": "Les 5 familles d'outils, ce que chacune sait faire, et les 6 signes qu'Excel ne suffit plus.",
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList,FAQPage"
+    ],
+    "h1": "Quel logiciel pour gérer vos nomenclatures ? Les 5 familles d'outils, et celle qui vous correspondWhich software should manage your BOMs? The 5 families of tools, and the one that fits you",
     "lang": "fr"
   },
   "/blog/migration-cloud-pdm-3dexperience/": {

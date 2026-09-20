@@ -11,7 +11,7 @@ fs.mkdirSync(OUT, { recursive: true });
 
 const PAGES = [
   { file: 'src/index.html', slug: 'home', ref: 'ASM-BAOUCH · RÉV.2026', type: 'PORTFOLIO', title: 'Consultant Expert SOLIDWORKS — PDM / PLM' },
-  { file: 'src/blog/index.html', slug: 'blog', ref: 'ASM-04 · 20 DOCS', type: 'BLOG', title: 'Guides & analyses PDM/PLM et SOLIDWORKS' },
+  { file: 'src/blog/index.html', slug: 'blog', ref: 'ASM-04 · 23 DOCS', type: 'BLOG', title: 'Guides & analyses PDM/PLM et SOLIDWORKS' },
   { file: 'src/blog/pdm-ou-plm-quand-basculer/index.html', slug: 'pdm-ou-plm', ref: 'DOC-01', type: 'ARTICLE', title: 'PDM ou PLM : les 5 signaux qui prouvent que vous avez dépassé votre coffre' },
   { file: 'src/blog/solidworks-pdm-standard-vs-professional/index.html', slug: 'std-vs-pro', ref: 'DOC-02', type: 'ARTICLE', title: 'SOLIDWORKS PDM : Standard ou Professional, le guide complet' },
   { file: 'src/blog/solidworks-pdm-lent-7-causes/index.html', slug: 'pdm-lent', ref: 'DOC-03', type: 'ARTICLE', title: 'SOLIDWORKS PDM lent : les 7 vraies causes' },
@@ -32,6 +32,9 @@ const PAGES = [
   { file: 'src/blog/plm-guide-complet/index.html', slug: 'plm-guide', ref: 'GUI-01', type: 'GUIDE', title: "Le PLM industriel de A à Z : ce que c'est vraiment et par où commencer" },
   { file: 'src/blog/solidworks-pdm-guide-complet/index.html', slug: 'pdm-guide', ref: 'GUI-02', type: 'GUIDE', title: 'SOLIDWORKS PDM : le guide complet, du coffre à l’exploitation' },
   { file: 'src/blog/glossaire-pdm-plm/index.html', slug: 'glossaire', ref: 'REF-01', type: 'GLOSSAIRE', title: 'Glossaire de la donnée technique : 73 termes du PDM, du PLM et de la CAO' },
+  { file: 'src/blog/ebom-vs-mbom/index.html', slug: 'ebom-mbom', ref: 'BOM-01', type: 'ARTICLE', title: 'eBOM vs mBOM : la vraie différence, avec un exemple ligne par ligne' },
+  { file: 'src/blog/logiciel-gestion-nomenclatures/index.html', slug: 'logiciel-bom', ref: 'BOM-02', type: 'ARTICLE', title: 'Quel logiciel pour gérer vos nomenclatures ? Les 5 familles d’outils' },
+  { file: 'src/blog/integration-bom-erp/index.html', slug: 'bom-erp-integration', ref: 'BOM-03', type: 'ARTICLE', title: 'Connecter la nomenclature à l’ERP : les 4 architectures possibles' },
   { file: 'src/projets/robot-orbita/index.html', slug: 'orbita', ref: 'PRT-ORBITA · RÉV.B', type: 'ÉTUDE DE CAS', title: 'Structurer le PDM d’un robot humanoïde' },
   { file: 'src/projets/migration-pdm-internationale/index.html', slug: 'mig-intl', ref: 'MIG-INTL · RÉV.C', type: 'ÉTUDE DE CAS', title: 'Migration PDM multi-sites pour un géant mondial du câblage' },
 ];
