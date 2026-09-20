@@ -5,8 +5,16 @@
     <link>https://baouch.fr/blog/</link>
     <description>Articles de fond et retours d'expérience terrain sur le PDM, le PLM, SOLIDWORKS et la gestion des données produit.</description>
     <language>fr-FR</language>
-    <lastBuildDate>Sat, 19 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 20 Sep 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://baouch.fr/blog/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Glossaire PDM / PLM / CAO : 73 termes expliqués simplement</title>
+      <link>https://baouch.fr/blog/glossaire-pdm-plm/</link>
+      <guid isPermaLink="true">https://baouch.fr/blog/glossaire-pdm-plm/</guid>
+      <pubDate>Sun, 20 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Le glossaire de référence de la gestion des données techniques : PDM, PLM, eBOM, mBOM, ECO, ECR, coffre, extraction, indice, révision, STEP, AP242, Parasolid, PMI, MBD, workflow, carte de données… 73 termes définis en langage clair par un consultant PDM/PLM, avec les pièges d'usage.</description>
+      <enclosure url="https://baouch.fr/img/og/glossaire.jpg" type="image/jpeg"/>
+    </item>
     <item>
       <title>PLM industriel : le guide complet</title>
       <link>https://baouch.fr/blog/plm-guide-complet/</link>

@@ -1,0 +1,897 @@
+<!DOCTYPE html><html lang="fr"><head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PBLRK58T');</script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-33TQ27QY4M"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-33TQ27QY4M');</script>
+<!-- Microsoft Clarity -->
+    <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","vy4yvht8gz");</script>
+    <!-- LinkedIn Insight Tag -->
+    <script type="text/javascript">_linkedin_partner_id="525900907";window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];window._linkedin_data_partner_ids.push(_linkedin_partner_id);(function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";s.parentNode.insertBefore(b,s)})(window.lintrk);</script>
+    <script>
+    // Anti-flash de thème : clair par défaut, sombre si stocké.
+    (function () {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    })();
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glossaire PDM / PLM / CAO : 73 termes de la donnée technique expliqués simplement</title>
+    <meta name="description" content="Le glossaire de référence de la gestion des données techniques : PDM, PLM, eBOM, mBOM, ECO, ECR, coffre, extraction, indice, révision, STEP, AP242, Parasolid, PMI, MBD, workflow, carte de données… 73 termes définis en langage clair par un consultant PDM/PLM, avec les pièges d'usage.">
+    <meta name="author" content="Mohamed Omar Baouch">
+    <link rel="canonical" href="https://baouch.fr/blog/glossaire-pdm-plm/">
+    <link rel="alternate" type="application/rss+xml" title="Blog — Mohamed Omar Baouch" href="https://baouch.fr/blog/rss.xml">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Glossaire PDM / PLM / CAO : 73 termes expliqués simplement">
+    <meta property="og:description" content="PDM, PLM, eBOM, mBOM, ECO, coffre, indice, STEP, AP242, PMI, MBD : le vocabulaire de la donnée technique, défini sans jargon.">
+    <meta property="og:url" content="https://baouch.fr/blog/glossaire-pdm-plm/">
+    <meta property="og:image" content="https://baouch.fr/img/og/glossaire.jpg">
+    <meta property="og:site_name" content="Mohamed Omar Baouch">
+    <meta property="article:published_time" content="2026-09-20T00:00:00.000Z">
+    <meta property="article:author" content="Mohamed Omar Baouch">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Glossaire PDM / PLM / CAO">
+    <meta name="twitter:description" content="73 termes de la gestion des données techniques, définis en langage clair — avec les pièges d'usage.">
+    <meta name="twitter:image" content="https://baouch.fr/img/og/glossaire.jpg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "headline": "Glossaire PDM / PLM / CAO : 73 termes expliqués simplement",
+                "description": "Le glossaire de référence de la gestion des données techniques : PDM, PLM, eBOM, mBOM, ECO, ECR, coffre, extraction, indice, révision, STEP, AP242, Parasolid, PMI, MBD, workflow, carte de données… 73 termes définis en langage clair par un consultant PDM/PLM, avec les pièges d'usage.",
+                "image": "https://baouch.fr/img/og/glossaire.jpg",
+                "datePublished": "2026-09-20",
+                "dateModified": "2026-09-20",
+                "inLanguage": "fr-FR",
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://baouch.fr",
+                    "jobTitle": "Ingénieur & Consultant PDM/PLM"
+                },
+                "publisher": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://baouch.fr"
+                },
+                "keywords": [
+                    "Glossaire",
+                    "PDM",
+                    "PLM",
+                    "CAO",
+                    "Vocabulaire",
+                    "Données produit"
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Accueil",
+                        "item": "https://baouch.fr/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Blog",
+                        "item": "https://baouch.fr/blog/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Glossaire PDM / PLM / CAO : 73 termes expliqués simplement",
+                        "item": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    }
+                ]
+            },
+            {
+                "@type": "DefinedTermSet",
+                "@id": "https://baouch.fr/blog/glossaire-pdm-plm/",
+                "name": "Glossaire PDM / PLM / CAO : 73 termes expliqués simplement",
+                "description": "Le glossaire de référence de la gestion des données techniques : PDM, PLM, eBOM, mBOM, ECO, ECR, coffre, extraction, indice, révision, STEP, AP242, Parasolid, PMI, MBD, workflow, carte de données… 73 termes définis en langage clair par un consultant PDM/PLM, avec les pièges d'usage.",
+                "inLanguage": "fr-FR",
+                "hasDefinedTerm": [
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "3DEXPERIENCE",
+                        "description": "La plateforme de Dassault Systèmes réunissant conception, données et collaboration, en cloud ou sur site. Continuité naturelle pour une maison déjà sous SOLIDWORKS ou CATIA — mais c'est un changement de paradigme, pas une mise à jour.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "ACIS (.sat)",
+                        "description": "Noyau géométrique concurrent de Parasolid, et le format d'échange associé. Comme pour Parasolid, l'échange est plus fidèle entre deux logiciels bâtis sur le même noyau qu'en passant par un format neutre.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "AP203 / AP214 / AP242",
+                        "description": "Les protocoles d'application de la norme STEP. AP203 transporte la géométrie et la structure d'assemblage, AP214 y ajoute couleurs et couches, AP242 fusionne les deux et transporte en plus le tolérancement porté par le modèle. Demandez AP242 par défaut — détail des différences ici.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Approbation",
+                        "description": "La transition qui fait passer un document à l'état approuvé, par une personne qui en a le droit. C'est elle qui autorise la diffusion en production — et sa traçabilité est ce qu'un auditeur demande en premier.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Archivage (check-in)",
+                        "description": "Opération par laquelle on rend un fichier au coffre après modification : elle libère le verrou et crée une nouvelle version. L'inverse de l'extraction. Un fichier laissé extrait le week-end bloque tout le monde le lundi.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Article (item)",
+                        "description": "L'objet de gestion de base d'un PLM : une référence unique désignant une pièce, un ensemble, un composant acheté ou un consommable. À ne pas confondre avec le fichier qui le décrit — un article peut exister sans fichier CAO, et plusieurs fichiers peuvent décrire un même article.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Assemblage",
+                        "description": "Fichier CAO qui positionne des composants les uns par rapport aux autres par des contraintes. Il ne contient pas ses pièces : il pointe vers elles, d'où l'importance de la gestion des références.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "B-Rep",
+                        "description": "Boundary representation : la façon dont un modeleur décrit un volume par ses faces, arêtes et sommets. C'est ce que transportent STEP et Parasolid — la géométrie exacte, sans l'historique qui l'a produite.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Cache local",
+                        "description": "La copie de travail des fichiers du coffre sur le poste de l'utilisateur. C'est elle qui donne l'impression de rapidité — et un cache mal purgé est une cause classique de lenteur et d'incohérences d'affichage.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Carte de données",
+                        "description": "Le formulaire attaché à chaque fichier dans un coffre : désignation, matière, indice, client, projet. C'est lui qui alimente les nomenclatures et les cartouches. Règle d'or : des listes fermées plutôt que du texte libre, sinon les données deviennent inexploitables en quelques mois.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "CAO (CAD)",
+                        "description": "Conception assistée par ordinateur : les logiciels de modélisation 3D et de mise en plan. La CAO produit la définition géométrique ; le PDM la gère ; le PLM l'inscrit dans le cycle de vie du produit.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Codification",
+                        "description": "Les règles d'attribution des identifiants de pièces. Un bon système est court, non signifiant, non réutilisable et attribué automatiquement — le code parlant se retourne toujours contre vous le jour où une pièce change de famille. La méthode complète.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Coffre (vault)",
+                        "description": "L'espace géré par un PDM où vivent les fichiers, avec leur historique, leurs métadonnées et leurs liens. La différence avec un dossier réseau : un dossier stocke des fichiers, un coffre comprend ce qu'il stocke.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Configuration (SOLIDWORKS)",
+                        "description": "Variante d'une pièce ou d'un assemblage définie dans le même fichier : longueurs différentes, options présentes ou non. Pratique, mais piégeux côté nomenclature — chaque configuration doit correspondre à un article distinct si elle s'achète ou se fabrique séparément.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Contrainte d'assemblage (mate)",
+                        "description": "La relation géométrique qui positionne un composant par rapport à un autre. Les contraintes redondantes ou posées sur des entités instables sont une cause majeure de lenteur et d'erreurs dans les gros assemblages.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Conversion par lots",
+                        "description": "Traitement automatique d'un grand nombre de fichiers : export PDF ou STEP en masse, mise à jour de propriétés, impression. Indispensable lors d'une migration, et réservé aux éditions avancées d'un PDM.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "CSWA / CSWP",
+                        "description": "Certifications officielles SOLIDWORKS, respectivement niveau associé et niveau professionnel. Utiles à l'embauche pour objectiver un niveau ; elles ne remplacent pas l'expérience des assemblages réels et des données mal rangées.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Digital thread / digital twin",
+                        "description": "Le fil numérique désigne la continuité de l'information sur tout le cycle de vie ; le jumeau numérique désigne une réplique numérique d'un produit en service, alimentée par des données réelles. Deux termes très employés en marketing : exigez qu'on vous montre les données qui circulent avant d'y croire.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Droits (permissions)",
+                        "description": "Ce que chaque utilisateur peut voir, modifier ou faire passer à l'état suivant dans un coffre. Les droits doivent interdire techniquement les manipulations hors coffre — une consigne orale ne tient jamais.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "DXF / DWG",
+                        "description": "Formats 2D issus du monde AutoCAD. Le DXF reste le langage universel des machines de découpe : c'est lui qu'on envoie pour un dépliage de tôle. Vérifiez toujours l'unité et l'échelle avant envoi.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "eBOM",
+                        "description": "La nomenclature d'étude : la structure du produit telle qu'il est conçu, généralement issue de l'assemblage CAO. Elle diffère toujours de la nomenclature de fabrication, et croire le contraire est la source de la plupart des écarts entre bureau d'études et production.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "ECR / ECO / ECN",
+                        "description": "Les trois temps d'une modification : la demande (Engineering Change Request), l'ordre une fois l'impact analysé et la décision prise (Engineering Change Order), et la notification qui diffuse le changement (Engineering Change Notice). Beaucoup d'entreprises n'ont que la troisième — et c'est précisément le problème.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "eDrawings",
+                        "description": "Visionneuse gratuite qui ouvre pièces, assemblages et mises en plan SOLIDWORKS, avec mesure et annotation. Beaucoup d'entreprises paient des licences complètes à des gens qui n'ont besoin que de ça.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "ERP",
+                        "description": "Le système qui gère l'exécution : achats, stocks, ordres de fabrication, facturation. La frontière avec le PLM se résume ainsi : le PLM définit le produit, l'ERP l'exécute. Entre les deux passe la nomenclature.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "État (state)",
+                        "description": "La position d'un document dans son workflow : en conception, en vérification, approuvé, obsolète. Chaque état porte ses propres droits — c'est ce qui empêche l'atelier de travailler sur un plan non validé.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Exigence (requirement)",
+                        "description": "Ce que le produit doit satisfaire : performance, norme, contrainte client. Dans un PLM mature, chaque exigence est tracée jusqu'aux pièces qui la remplissent — c'est la base des dossiers de conformité.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Extraction (check-out)",
+                        "description": "L'opération qui réserve un fichier pour le modifier : les autres le voient en lecture seule et savent qui le détient. C'est le mécanisme qui supprime les écrasements mutuels et les copies parallèles qui divergent.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Format natif / format neutre",
+                        "description": "Le natif contient tout votre travail, arbre de construction compris ; le neutre (STEP, Parasolid, IGES) ne transporte que le résultat géométrique. Règle simple : natif pour modifier, neutre pour fabriquer.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Gamme de fabrication",
+                        "description": "La suite des opérations nécessaires pour fabriquer une pièce, avec leurs postes et leurs temps. Elle vit côté méthodes et ERP, et c'est l'une des raisons pour lesquelles la nomenclature de fabrication diffère de celle d'étude.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "GD&T",
+                        "description": "Le tolérancement géométrique : la façon normalisée d'exprimer les tolérances de forme, d'orientation et de position. Porté par la mise en plan traditionnellement, et par le modèle lui-même dans une démarche MBD.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "IGES",
+                        "description": "Format d'échange hérité des années 1980, qui transporte des surfaces souvent non cousues — d'où ces imports en morceaux qu'il faut réparer. À n'utiliser que si votre interlocuteur ne sait vraiment rien lire d'autre.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Indice de révision",
+                        "description": "La marque d'un état approuvé et diffusé : A, B, C. Il change dès que le document parti en production évolue. À ne pas confondre avec la version, qui retrace le travail en cours.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "ISO 10303",
+                        "description": "La norme internationale derrière le format STEP. C'est ce statut de norme ouverte qui en fait le bon choix pour l'archivage long terme : elle reste lisible sans dépendre de la survie d'un éditeur.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Jalon",
+                        "description": "Point de contrôle formel dans un projet produit : revue de conception, gel de définition, lancement série. Dans un PLM, le jalon conditionne souvent le passage d'un ensemble de documents à l'état approuvé.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "JT",
+                        "description": "Format léger de visualisation et de revue (norme ISO 14306), très présent dans l'automobile. Il permet de faire circuler de très gros assemblages sans distribuer la géométrie exacte.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Licence flottante (réseau)",
+                        "description": "Licence partagée par un serveur entre plusieurs postes, au lieu d'être attachée à une machine. Adaptée aux équipes où tout le monde ne conçoit pas en même temps ; elle exige en revanche que le serveur de licences soit joignable.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Maquette numérique (DMU)",
+                        "description": "La représentation 3D complète d'un produit assemblé, utilisée pour les revues, les contrôles d'interférence et l'ergonomie de montage — sans prototype physique.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "mBOM",
+                        "description": "La nomenclature de fabrication : le produit vu comme on l'assemble réellement, avec les consommables, les gammes et les ensembles intermédiaires. Sa construction à partir de l'eBOM est le point de friction classique entre bureau d'études et méthodes — la chaîne complète est détaillée ici.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "MBD (model-based definition)",
+                        "description": "Démarche où le modèle 3D porte lui-même toute la définition — tolérances, états de surface, notes — au lieu de renvoyer à une mise en plan. Elle suppose que le destinataire sache exploiter le PMI, ce qui reste à vérifier avant de supprimer les plans.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "MES",
+                        "description": "Le système d'exécution de la production : ce qui se passe à l'atelier, machine par machine, en temps réel. En aval de l'ERP, qui lui-même est en aval du PLM.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Métadonnée",
+                        "description": "L'information sur le fichier plutôt que dans sa géométrie : désignation, matière, indice, auteur, état. C'est elle qui rend la recherche possible et les nomenclatures exploitables — et c'est elle que les formats neutres perdent presque toujours.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Migration",
+                        "description": "Le transfert d'un fonds de fichiers existant vers un nouveau système. Sa durée dépend bien davantage de l'état des données que de leur volume : un fonds propre de 200 000 fichiers migre plus vite qu'un fonds désordonné de 50 000 — méthode complète.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Mise en plan",
+                        "description": "Le document 2D qui porte cotes, tolérances et annotations d'une pièce ou d'un assemblage. Elle référence le modèle 3D : renommer ce dernier hors du coffre la vide de ses vues.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Modèle mort (dumb solid)",
+                        "description": "Un solide importé sans arbre de construction : la géométrie est exacte mais il n'y a plus ni paramètres ni historique. On le modifie en géométrie directe — décaler une face, supprimer un perçage — mais on ne « change plus la cote ».",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Nomenclature (BOM)",
+                        "description": "La liste structurée de tout ce qui compose un produit. C'est l'objet le plus sensible de toute la chaîne : elle circule du bureau d'études aux achats et à la production, et toute erreur s'y propage jusqu'à la commande fournisseur.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Noyau géométrique",
+                        "description": "Le moteur qui calcule réellement les solides sous un modeleur — Parasolid, ACIS et quelques autres. Deux logiciels partageant le même noyau échangent leur géométrie avec une fidélité qu'aucun format neutre n'égale.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Obsolète",
+                        "description": "État d'un document retiré de la circulation mais conservé pour l'historique. Marquer obsolète plutôt que supprimer est la règle : vous devrez un jour prouver ce qui avait été livré.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Pack and Go",
+                        "description": "Fonction SOLIDWORKS qui rassemble un assemblage, ses pièces et ses mises en plan dans un lot cohérent. C'est la bonne façon d'envoyer un ensemble complet à quelqu'un — bien meilleure que de copier des fichiers à la main.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Paramétrique",
+                        "description": "Se dit d'un modèle dont la géométrie découle de cotes et de relations modifiables : changer une valeur reconstruit la pièce. C'est ce que l'on perd en passant par un format neutre.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Parasolid (.x_t, .x_b)",
+                        "description": "Noyau géométrique de Siemens, utilisé notamment par SOLIDWORKS, Solid Edge, NX et Onshape — et le format d'échange associé. Entre deux logiciels du même noyau, c'est le transfert le plus fidèle, et un excellent plan B quand un STEP arrive abîmé.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "PDM",
+                        "description": "Product Data Management : la gestion des fichiers de conception — versions, droits, références, recherche — pour le bureau d'études. C'est la première brique, et souvent la seule nécessaire dans une PME. Le guide complet.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "PLM",
+                        "description": "Product Lifecycle Management : la gestion de la définition du produit sur tout son cycle de vie, de l'idée au retrait — articles, nomenclatures, modifications, exigences, conformité. Il concerne toute l'entreprise technique, pas le seul bureau d'études. Le guide complet.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "PMI",
+                        "description": "Product Manufacturing Information : les tolérances, états de surface et références de cotation portés par le modèle 3D lui-même, de façon exploitable par un logiciel. C'est l'apport majeur du STEP AP242 et le socle du MBD.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Propriété personnalisée",
+                        "description": "Champ d'information stocké dans le fichier CAO : désignation, matière, indice, fournisseur. C'est ce qui alimente cartouches et nomenclatures. Laissée en texte libre, elle devient inexploitable ; contrôlée par une liste, elle devient un actif.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Reconstruction (rebuild)",
+                        "description": "Le recalcul du modèle après modification. La reconstruction normale ne traite que ce qui a changé ; la reconstruction forcée complète (Ctrl+Q dans SOLIDWORKS) recalcule tout et révèle les erreurs qu'une reconstruction normale laisse dormir.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Référence externe",
+                        "description": "Le lien d'un fichier vers un autre : un assemblage vers ses pièces, une mise en plan vers son modèle. Un assemblage ne contient pas ses composants, il pointe vers eux — c'est pourquoi déplacer un fichier hors du coffre casse tout.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Réplication",
+                        "description": "Mécanisme qui maintient une copie synchronisée du coffre sur un site distant, pour que les utilisateurs éloignés travaillent à vitesse locale. C'est l'une des raisons principales de passer en édition Professional.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Révision vs version",
+                        "description": "La confusion la plus répandue du métier. La version est créée à chaque archivage et retrace le travail ; la révision marque un état approuvé et diffusé. Vous pouvez avoir douze versions entre la révision A et la révision B.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "RoHS / REACH",
+                        "description": "Réglementations européennes sur les substances dangereuses dans les produits. Elles imposent de savoir, matière par matière, ce que contient chaque pièce — une exigence de traçabilité qui justifie à elle seule beaucoup de projets PLM.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Solide / surfacique",
+                        "description": "Deux approches de modélisation : le solide manipule des volumes fermés, le surfacique des peaux que l'on coud ensuite. Le surfacique domine dans l'automobile et l'aéronautique pour les formes complexes ; c'est là que CATIA et NX creusent l'écart.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "SQL Server",
+                        "description": "La base de données qui stocke les métadonnées d'un coffre SOLIDWORKS PDM : qui détient quoi, quelles versions existent, quelles valeurs portent les cartes. Petite en volume mais sollicitée en permanence — c'est le premier endroit à regarder quand le coffre ralentit.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Squelette (skeleton)",
+                        "description": "Méthode de conception où un fichier maître porte la géométrie de référence dont dépendent les composants. Elle rend les gros assemblages pilotables, à condition d'être posée dès le départ.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "STEP",
+                        "description": "Le format d'échange de référence de la mécanique, normalisé ISO 10303. Précisez toujours le protocole : « STEP » ne dit pas si vous recevez de l'AP203 sans couleurs ou de l'AP242 avec tolérancement.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "STL / 3MF",
+                        "description": "Formats de maillage pour l'impression 3D. Le STL n'est qu'un ensemble de triangles — ni unités, ni couleurs, ni précision au-delà du maillage. Le 3MF, son successeur moderne, porte unités, couleurs et matériaux. Ni l'un ni l'autre ne conviennent à l'usinage.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Sur-contrainte",
+                        "description": "État d'une esquisse où cotes et relations se contredisent. Le réflexe utile : chercher du côté des relations automatiques créées pendant le tracé, pas du côté des cotes que vous venez de poser.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Tâche planifiée",
+                        "description": "Traitement automatique lancé par le coffre : conversion en PDF à l'approbation, impression, mise à jour de propriétés. Réservé à l'édition Professional, et souvent ce qui déclenche le passage à cette édition.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Teamcenter",
+                        "description": "Le PLM de Siemens, référence des grands groupes automobiles et aéronautiques, avec une couverture fonctionnelle très large. Rarement le bon choix pour une PME isolée.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Toolbox",
+                        "description": "La bibliothèque de composants normalisés de SOLIDWORKS — visserie, roulements, profilés. Piège classique : chaque poste conserve sa copie locale, les références divergent, et les nomenclatures deviennent fausses. Une seule bibliothèque partagée, en écriture pour un seul responsable.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Traçabilité",
+                        "description": "La capacité à démontrer qui a fait quoi, quand, et sur quelle version. Exigée par l'ISO 9001 et les réglementations sectorielles, elle est quasi automatique dans un coffre et très coûteuse à reconstituer dans une organisation par dossiers partagés.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Variante",
+                        "description": "Déclinaison d'un produit selon des options ou des dimensions. Bien gérée, elle évite de dupliquer cent fois la même conception ; mal gérée, elle produit des catalogues d'articles ingérables. C'est l'un des sujets qui font basculer une PME vers le PLM.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Visionneuse",
+                        "description": "Application permettant de consulter, mesurer et annoter un modèle sans licence de conception. Le bon outil pour les achats, la production et les sous-traitants — et une économie de licences souvent ignorée.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Windchill",
+                        "description": "Le PLM de PTC, très implanté dans l'industrie de série et chez les équipementiers, robuste sur les modifications et les configurations complexes. Exigeant en paramétrage et en gouvernance.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "name": "Workflow",
+                        "description": "Le circuit qu'un document parcourt entre ses états, avec les droits et les notifications associés à chaque transition. Conseil de terrain : commencez à trois états. Huit états et quatre approbateurs dès le premier jour, personne ne suit et tout le monde contourne.",
+                        "inDefinedTermSet": "https://baouch.fr/blog/glossaire-pdm-plm/"
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+    {{> head-fonts }}<script type="module" src="../../js/blog.js"></script>
+</head>
+<body class="blog-page" data-blog-post="glossaire-pdm-plm">
+{{> nav }}
+
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBLRK58T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <main id="mainContainer" class="container blog-container show">
+        <div class="blog-shell" id="blogShell" data-shell="">
+            <article class="blog-article" data-article-root="">
+                <nav class="article-breadcrumbs" aria-label="Navigation secondaire">
+                    <a class="back-link" href="/blog/" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                    <a class="back-link back-link--ghost" href="/" data-translate-key="blog_back_to_portfolio">Retour au portfolio</a>
+                </nav>
+
+                <header class="blog-hero post-hero" data-component="hero">
+                    <div class="hero-intro">
+                        <div class="hero-badges">
+                            <span class="badge badge-editorial" data-i18n=""><span data-lang="fr">Référence</span><span data-lang="en">Reference</span></span>
+                            <span class="badge">PDM · PLM · CAO</span>
+                            <span class="badge badge-reading-time" data-i18n=""><span data-lang="fr">Consultation libre</span><span data-lang="en">Browse freely</span></span>
+                        </div>
+                        <span class="hero-eyebrow" data-i18n=""><span data-lang="fr">Le vocabulaire que tout le monde emploie sans toujours l'accorder</span><span data-lang="en">The vocabulary everyone uses without always agreeing on it</span></span>
+                        <h1 class="hero-title" data-i18n=""><span data-lang="fr">Glossaire de la donnée technique : 73 termes du PDM, du PLM et de la CAO</span><span data-lang="en">Technical data glossary: 73 terms from PDM, PLM and CAD</span></h1>
+                        <p class="hero-subtitle" data-i18n=""><span data-lang="fr">Publié le 20 septembre 2026 — les définitions que j'aurais aimé avoir sous la main à mes débuts : en langage clair, avec le piège d'usage quand il y en a un, et le renvoi vers l'article de fond quand le sujet le mérite. Version et révision, eBOM et mBOM, ECR et ECO : ce sont les confusions les plus banales qui coûtent le plus cher.</span><span data-lang="en">Published 20 September 2026 — the definitions I wish I'd had at hand when I started: in plain language, with the usage trap where there is one, and a link to the in-depth article where the subject deserves it. Version and revision, eBOM and mBOM, ECR and ECO: the most ordinary confusions are the ones that cost the most.</span></p>
+                        <div class="hero-actions">
+                            <a class="hero-btn" href="#a-c" data-i18n=""><span data-lang="fr">Parcourir le glossaire</span><span data-lang="en">Browse the glossary</span></a>
+                            <a class="hero-btn hero-btn--ghost" href="/blog/plm-guide-complet/" data-i18n=""><span data-lang="fr">Le guide PLM complet</span><span data-lang="en">The full PLM guide</span></a>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">73</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Termes définis</span><span data-lang="en">Terms defined</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">3</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Domaines : PDM, PLM, CAO</span><span data-lang="en">Domains: PDM, PLM, CAD</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">FR/EN</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Chaque définition</span><span data-lang="en">Every definition</span></span>
+                        </div>
+                    </div>
+                </header>
+
+                <nav class="blog-section article-summary" id="sommaire" aria-label="Navigation alphabétique">
+                    <h2 class="summary-title" data-i18n=""><span data-lang="fr">Par ordre alphabétique</span><span data-lang="en">In alphabetical order</span></h2>
+                    <ol class="summary-list">
+                        <li><a href="#a-c"><span class="summary-index">A–C</span><span class="summary-label" data-i18n=""><span data-lang="fr">Archivage, article, BOM, carte de données, coffre, configuration…</span><span data-lang="en">Check-in, item, BOM, data card, vault, configuration…</span></span></a></li>
+                        <li><a href="#d-i"><span class="summary-index">D–I</span><span class="summary-label" data-i18n=""><span data-lang="fr">eBOM, ECO, ECR, ERP, exigence, format neutre, indice…</span><span data-lang="en">eBOM, ECO, ECR, ERP, requirement, neutral format, revision level…</span></span></a></li>
+                        <li><a href="#j-p"><span class="summary-index">J–P</span><span class="summary-label" data-i18n=""><span data-lang="fr">JT, mBOM, MBD, migration, nomenclature, Parasolid, PDM, PLM…</span><span data-lang="en">JT, mBOM, MBD, migration, BOM, Parasolid, PDM, PLM…</span></span></a></li>
+                        <li><a href="#q-z"><span class="summary-index">Q–Z</span><span class="summary-label" data-i18n=""><span data-lang="fr">Révision, STEP, Toolbox, traçabilité, variante, version, workflow…</span><span data-lang="en">Revision, STEP, Toolbox, traceability, variant, version, workflow…</span></span></a></li>
+                    </ol>
+                </nav>
+
+                <section class="blog-section article-section" id="a-c" data-glossary="">
+                    <h2>A – C</h2>
+
+                    <h3 data-i18n=""><span data-lang="fr">3DEXPERIENCE</span><span data-lang="en">3DEXPERIENCE</span></h3>
+                    <p data-i18n=""><span data-lang="fr">La plateforme de Dassault Systèmes réunissant conception, données et collaboration, en cloud ou sur site. Continuité naturelle pour une maison déjà sous SOLIDWORKS ou CATIA — mais c'est un changement de paradigme, pas une mise à jour.</span><span data-lang="en">Dassault Systèmes' platform bringing design, data and collaboration together, cloud or on-premise. A natural continuation for a shop already on SOLIDWORKS or CATIA — but a paradigm change, not an upgrade.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">ACIS (.sat)</span><span data-lang="en">ACIS (.sat)</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Noyau géométrique concurrent de Parasolid, et le format d'échange associé. Comme pour Parasolid, l'échange est plus fidèle entre deux logiciels bâtis sur le même noyau qu'en passant par un format neutre.</span><span data-lang="en">A geometric kernel competing with Parasolid, and its associated exchange format. As with Parasolid, exchange is more faithful between two tools built on the same kernel than through a neutral format.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">AP203 / AP214 / AP242</span><span data-lang="en">AP203 / AP214 / AP242</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Les protocoles d'application de la norme STEP. AP203 transporte la géométrie et la structure d'assemblage, AP214 y ajoute couleurs et couches, AP242 fusionne les deux et transporte en plus le tolérancement porté par le modèle. Demandez AP242 par défaut — <a href="/blog/formats-echange-cao-step-iges-parasolid/">détail des différences ici</a>.</span><span data-lang="en">The application protocols of the STEP standard. AP203 carries geometry and assembly structure, AP214 adds colours and layers, AP242 merges both and additionally carries model-based tolerancing. Ask for AP242 by default — <a href="/blog/formats-echange-cao-step-iges-parasolid/">the differences in detail here</a>.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Approbation</span><span data-lang="en">Approval</span></h3>
+                    <p data-i18n=""><span data-lang="fr">La transition qui fait passer un document à l'état approuvé, par une personne qui en a le droit. C'est elle qui autorise la diffusion en production — et sa traçabilité est ce qu'un auditeur demande en premier.</span><span data-lang="en">The transition moving a document to the approved state, by someone entitled to do it. It authorises release to production — and its traceability is the first thing an auditor asks for.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Archivage (check-in)</span><span data-lang="en">Check-in</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Opération par laquelle on rend un fichier au coffre après modification : elle libère le verrou et crée une nouvelle version. L'inverse de l'extraction. Un fichier laissé extrait le week-end bloque tout le monde le lundi.</span><span data-lang="en">The operation that returns a file to the vault after editing: it releases the lock and creates a new version. The opposite of check-out. A file left checked out over the weekend blocks everyone on Monday.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Article (item)</span><span data-lang="en">Item</span></h3>
+                    <p data-i18n=""><span data-lang="fr">L'objet de gestion de base d'un PLM : une référence unique désignant une pièce, un ensemble, un composant acheté ou un consommable. À ne pas confondre avec le <em>fichier</em> qui le décrit — un article peut exister sans fichier CAO, et plusieurs fichiers peuvent décrire un même article.</span><span data-lang="en">The basic managed object of a PLM: a unique reference designating a part, an assembly, a purchased component or a consumable. Not to be confused with the <em>file</em> that describes it — an item can exist without a CAD file, and several files may describe one item.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Assemblage</span><span data-lang="en">Assembly</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Fichier CAO qui positionne des composants les uns par rapport aux autres par des contraintes. Il ne contient pas ses pièces : il pointe vers elles, d'où l'importance de la gestion des références.</span><span data-lang="en">A CAD file positioning components relative to one another through mates. It doesn't contain its parts: it points at them, hence the importance of reference management.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">B-Rep</span><span data-lang="en">B-Rep</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Boundary representation : la façon dont un modeleur décrit un volume par ses faces, arêtes et sommets. C'est ce que transportent STEP et Parasolid — la géométrie exacte, sans l'historique qui l'a produite.</span><span data-lang="en">Boundary representation: how a modeller describes a volume through its faces, edges and vertices. It's what STEP and Parasolid carry — exact geometry, without the history that produced it.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Cache local</span><span data-lang="en">Local cache</span></h3>
+                    <p data-i18n=""><span data-lang="fr">La copie de travail des fichiers du coffre sur le poste de l'utilisateur. C'est elle qui donne l'impression de rapidité — et un cache mal purgé est une cause classique de lenteur et d'incohérences d'affichage.</span><span data-lang="en">The working copy of vault files on the user's workstation. It's what creates the feeling of speed — and a poorly purged cache is a classic cause of slowness and display inconsistencies.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Carte de données</span><span data-lang="en">Data card</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Le formulaire attaché à chaque fichier dans un coffre : désignation, matière, indice, client, projet. C'est lui qui alimente les nomenclatures et les cartouches. Règle d'or : des listes fermées plutôt que du texte libre, sinon les données deviennent inexploitables en quelques mois.</span><span data-lang="en">The form attached to each file in a vault: description, material, revision, customer, project. It feeds BOMs and title blocks. Golden rule: closed lists rather than free text, otherwise the data becomes unusable within months.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">CAO (CAD)</span><span data-lang="en">CAD</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Conception assistée par ordinateur : les logiciels de modélisation 3D et de mise en plan. La CAO produit la définition géométrique ; le PDM la gère ; le PLM l'inscrit dans le cycle de vie du produit.</span><span data-lang="en">Computer-aided design: 3D modelling and drafting software. CAD produces the geometric definition; PDM manages it; PLM places it within the product lifecycle.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Codification</span><span data-lang="en">Part numbering</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Les règles d'attribution des identifiants de pièces. Un bon système est court, non signifiant, non réutilisable et attribué automatiquement — le code parlant se retourne toujours contre vous le jour où une pièce change de famille. <a href="/blog/codification-proprietes-solidworks/">La méthode complète</a>.</span><span data-lang="en">The rules for assigning part identifiers. A good system is short, non-meaningful, non-reusable and automatically assigned — talking codes always backfire the day a part changes family. <a href="/blog/codification-proprietes-solidworks/">The full method</a>.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Coffre (vault)</span><span data-lang="en">Vault</span></h3>
+                    <p data-i18n=""><span data-lang="fr">L'espace géré par un PDM où vivent les fichiers, avec leur historique, leurs métadonnées et leurs liens. La différence avec un dossier réseau : un dossier stocke des fichiers, un coffre comprend ce qu'il stocke.</span><span data-lang="en">The PDM-managed space where files live, with their history, metadata and links. The difference from a network folder: a folder stores files, a vault understands what it stores.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Configuration (SOLIDWORKS)</span><span data-lang="en">Configuration (SOLIDWORKS)</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Variante d'une pièce ou d'un assemblage définie dans le même fichier : longueurs différentes, options présentes ou non. Pratique, mais piégeux côté nomenclature — chaque configuration doit correspondre à un article distinct si elle s'achète ou se fabrique séparément.</span><span data-lang="en">A variant of a part or assembly defined inside the same file: different lengths, options present or not. Convenient, but treacherous for BOMs — each configuration must map to a distinct item if it's bought or built separately.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Contrainte d'assemblage (mate)</span><span data-lang="en">Mate</span></h3>
+                    <p data-i18n=""><span data-lang="fr">La relation géométrique qui positionne un composant par rapport à un autre. Les contraintes redondantes ou posées sur des entités instables sont une cause majeure de lenteur et d'erreurs dans les gros assemblages.</span><span data-lang="en">The geometric relation positioning one component relative to another. Redundant mates, or mates on unstable entities, are a major cause of slowness and errors in large assemblies.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Conversion par lots</span><span data-lang="en">Batch conversion</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Traitement automatique d'un grand nombre de fichiers : export PDF ou STEP en masse, mise à jour de propriétés, impression. Indispensable lors d'une migration, et réservé aux éditions avancées d'un PDM.</span><span data-lang="en">Automatic processing of many files at once: bulk PDF or STEP export, property updates, printing. Essential during a migration, and reserved for advanced PDM editions.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">CSWA / CSWP</span><span data-lang="en">CSWA / CSWP</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Certifications officielles SOLIDWORKS, respectivement niveau associé et niveau professionnel. Utiles à l'embauche pour objectiver un niveau ; elles ne remplacent pas l'expérience des assemblages réels et des données mal rangées.</span><span data-lang="en">Official SOLIDWORKS certifications, associate and professional level respectively. Useful when hiring to objectify a skill level; they don't replace experience with real assemblies and badly organised data.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="d-i" data-glossary="">
+                    <h2>D – I</h2>
+
+                    <h3 data-i18n=""><span data-lang="fr">Digital thread / digital twin</span><span data-lang="en">Digital thread / digital twin</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Le <em>fil numérique</em> désigne la continuité de l'information sur tout le cycle de vie ; le <em>jumeau numérique</em> désigne une réplique numérique d'un produit en service, alimentée par des données réelles. Deux termes très employés en marketing : exigez qu'on vous montre les données qui circulent avant d'y croire.</span><span data-lang="en">The <em>digital thread</em> is the continuity of information across the lifecycle; the <em>digital twin</em> is a digital replica of a product in service, fed by real data. Two heavily marketed terms: ask to see the data actually flowing before believing either.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Droits (permissions)</span><span data-lang="en">Permissions</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Ce que chaque utilisateur peut voir, modifier ou faire passer à l'état suivant dans un coffre. Les droits doivent interdire techniquement les manipulations hors coffre — une consigne orale ne tient jamais.</span><span data-lang="en">What each user may see, edit or move to the next state inside a vault. Permissions must technically forbid manipulations outside the vault — a verbal instruction never holds.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">DXF / DWG</span><span data-lang="en">DXF / DWG</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Formats 2D issus du monde AutoCAD. Le DXF reste le langage universel des machines de découpe : c'est lui qu'on envoie pour un dépliage de tôle. Vérifiez toujours l'unité et l'échelle avant envoi.</span><span data-lang="en">2D formats from the AutoCAD world. DXF remains the universal language of cutting machines: it's what you send for a sheet-metal flat. Always check units and scale before sending.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">eBOM</span><span data-lang="en">eBOM</span></h3>
+                    <p data-i18n=""><span data-lang="fr">La nomenclature d'étude : la structure du produit telle qu'il est conçu, généralement issue de l'assemblage CAO. Elle diffère toujours de la nomenclature de fabrication, et croire le contraire est la source de la plupart des écarts entre bureau d'études et production.</span><span data-lang="en">The engineering bill of materials: the product structure as designed, usually derived from the CAD assembly. It always differs from the manufacturing BOM, and believing otherwise causes most gaps between engineering and production.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">ECR / ECO / ECN</span><span data-lang="en">ECR / ECO / ECN</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Les trois temps d'une modification : la <strong>demande</strong> (Engineering Change Request), l'<strong>ordre</strong> une fois l'impact analysé et la décision prise (Engineering Change Order), et la <strong>notification</strong> qui diffuse le changement (Engineering Change Notice). Beaucoup d'entreprises n'ont que la troisième — <a href="/blog/eco-ecr-gestion-modifications/">et c'est précisément le problème</a>.</span><span data-lang="en">The three phases of a change: the <strong>request</strong> (ECR), the <strong>order</strong> once impact is assessed and the decision taken (ECO), and the <strong>notice</strong> that releases the change (ECN). Many companies have only the third — <a href="/blog/eco-ecr-gestion-modifications/">and that's exactly the problem</a>.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">eDrawings</span><span data-lang="en">eDrawings</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Visionneuse gratuite qui ouvre pièces, assemblages et mises en plan SOLIDWORKS, avec mesure et annotation. Beaucoup d'entreprises paient des licences complètes à des gens qui n'ont besoin que de ça.</span><span data-lang="en">A free viewer that opens SOLIDWORKS parts, assemblies and drawings, with measurement and annotation. Many companies pay for full licenses for people who only need this.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">ERP</span><span data-lang="en">ERP</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Le système qui gère l'exécution : achats, stocks, ordres de fabrication, facturation. La frontière avec le PLM se résume ainsi : le PLM définit le produit, l'ERP l'exécute. Entre les deux passe la nomenclature.</span><span data-lang="en">The system that manages execution: purchasing, stock, work orders, invoicing. The boundary with PLM comes down to this: PLM defines the product, ERP executes it. The BOM runs between them.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">État (state)</span><span data-lang="en">State</span></h3>
+                    <p data-i18n=""><span data-lang="fr">La position d'un document dans son workflow : en conception, en vérification, approuvé, obsolète. Chaque état porte ses propres droits — c'est ce qui empêche l'atelier de travailler sur un plan non validé.</span><span data-lang="en">A document's position in its workflow: in design, under review, approved, obsolete. Each state carries its own permissions — that's what keeps the shop floor off unapproved drawings.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Exigence (requirement)</span><span data-lang="en">Requirement</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Ce que le produit doit satisfaire : performance, norme, contrainte client. Dans un PLM mature, chaque exigence est tracée jusqu'aux pièces qui la remplissent — c'est la base des dossiers de conformité.</span><span data-lang="en">What the product must satisfy: performance, standard, customer constraint. In a mature PLM, each requirement is traced to the parts that fulfil it — the foundation of compliance files.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Extraction (check-out)</span><span data-lang="en">Check-out</span></h3>
+                    <p data-i18n=""><span data-lang="fr">L'opération qui réserve un fichier pour le modifier : les autres le voient en lecture seule et savent qui le détient. C'est le mécanisme qui supprime les écrasements mutuels et les copies parallèles qui divergent.</span><span data-lang="en">The operation that reserves a file for editing: others see it read-only and know who holds it. It's the mechanism that eliminates mutual overwrites and diverging parallel copies.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Format natif / format neutre</span><span data-lang="en">Native / neutral format</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Le natif contient tout votre travail, arbre de construction compris ; le neutre (STEP, Parasolid, IGES) ne transporte que le résultat géométrique. Règle simple : natif pour modifier, neutre pour fabriquer.</span><span data-lang="en">Native holds all your work, feature tree included; neutral (STEP, Parasolid, IGES) carries only the geometric result. Simple rule: native to modify, neutral to manufacture.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Gamme de fabrication</span><span data-lang="en">Routing</span></h3>
+                    <p data-i18n=""><span data-lang="fr">La suite des opérations nécessaires pour fabriquer une pièce, avec leurs postes et leurs temps. Elle vit côté méthodes et ERP, et c'est l'une des raisons pour lesquelles la nomenclature de fabrication diffère de celle d'étude.</span><span data-lang="en">The sequence of operations needed to make a part, with work centres and times. It lives on the methods and ERP side, and is one reason the manufacturing BOM differs from the engineering one.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">GD&amp;T</span><span data-lang="en">GD&amp;T</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Le tolérancement géométrique : la façon normalisée d'exprimer les tolérances de forme, d'orientation et de position. Porté par la mise en plan traditionnellement, et par le modèle lui-même dans une démarche MBD.</span><span data-lang="en">Geometric dimensioning and tolerancing: the standardised way of expressing form, orientation and position tolerances. Traditionally carried by the drawing, and by the model itself in an MBD approach.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">IGES</span><span data-lang="en">IGES</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Format d'échange hérité des années 1980, qui transporte des surfaces souvent non cousues — d'où ces imports en morceaux qu'il faut réparer. À n'utiliser que si votre interlocuteur ne sait vraiment rien lire d'autre.</span><span data-lang="en">An exchange format inherited from the 1980s, carrying often-unstitched surfaces — hence those fragmented imports you must repair. Use only if your counterpart genuinely can't read anything else.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Indice de révision</span><span data-lang="en">Revision level</span></h3>
+                    <p data-i18n=""><span data-lang="fr">La marque d'un état approuvé et diffusé : A, B, C. Il change dès que le document parti en production évolue. À ne pas confondre avec la version, qui retrace le travail en cours.</span><span data-lang="en">The mark of an approved, released state: A, B, C. It changes as soon as a document that went to production evolves. Not to be confused with the version, which traces work in progress.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">ISO 10303</span><span data-lang="en">ISO 10303</span></h3>
+                    <p data-i18n=""><span data-lang="fr">La norme internationale derrière le format STEP. C'est ce statut de norme ouverte qui en fait le bon choix pour l'archivage long terme : elle reste lisible sans dépendre de la survie d'un éditeur.</span><span data-lang="en">The international standard behind the STEP format. That open-standard status is what makes it the right choice for long-term archiving: it stays readable without depending on a vendor's survival.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="j-p" data-glossary="">
+                    <h2>J – P</h2>
+
+                    <h3 data-i18n=""><span data-lang="fr">Jalon</span><span data-lang="en">Milestone</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Point de contrôle formel dans un projet produit : revue de conception, gel de définition, lancement série. Dans un PLM, le jalon conditionne souvent le passage d'un ensemble de documents à l'état approuvé.</span><span data-lang="en">A formal checkpoint in a product project: design review, definition freeze, production launch. In a PLM, a milestone often gates a set of documents moving to the approved state.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">JT</span><span data-lang="en">JT</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Format léger de visualisation et de revue (norme ISO 14306), très présent dans l'automobile. Il permet de faire circuler de très gros assemblages sans distribuer la géométrie exacte.</span><span data-lang="en">A lightweight visualisation and review format (ISO 14306), widespread in automotive. It lets very large assemblies circulate without distributing exact geometry.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Licence flottante (réseau)</span><span data-lang="en">Floating (network) license</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Licence partagée par un serveur entre plusieurs postes, au lieu d'être attachée à une machine. Adaptée aux équipes où tout le monde ne conçoit pas en même temps ; elle exige en revanche que le serveur de licences soit joignable.</span><span data-lang="en">A license shared by a server across several workstations, instead of being tied to one machine. Suited to teams where not everyone designs at once; it does require the license server to be reachable.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Maquette numérique (DMU)</span><span data-lang="en">Digital mock-up (DMU)</span></h3>
+                    <p data-i18n=""><span data-lang="fr">La représentation 3D complète d'un produit assemblé, utilisée pour les revues, les contrôles d'interférence et l'ergonomie de montage — sans prototype physique.</span><span data-lang="en">The complete 3D representation of an assembled product, used for reviews, interference checks and assembly ergonomics — without a physical prototype.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">mBOM</span><span data-lang="en">mBOM</span></h3>
+                    <p data-i18n=""><span data-lang="fr">La nomenclature de fabrication : le produit vu comme on l'assemble réellement, avec les consommables, les gammes et les ensembles intermédiaires. Sa construction à partir de l'eBOM est le point de friction classique entre bureau d'études et méthodes — <a href="/blog/nomenclature-bom-pdm-plm-erp/">la chaîne complète est détaillée ici</a>.</span><span data-lang="en">The manufacturing bill of materials: the product as actually assembled, with consumables, routings and intermediate assemblies. Building it from the eBOM is the classic friction point between engineering and methods — <a href="/blog/nomenclature-bom-pdm-plm-erp/">the full chain is detailed here</a>.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">MBD (model-based definition)</span><span data-lang="en">MBD (model-based definition)</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Démarche où le modèle 3D porte lui-même toute la définition — tolérances, états de surface, notes — au lieu de renvoyer à une mise en plan. Elle suppose que le destinataire sache exploiter le PMI, ce qui reste à vérifier avant de supprimer les plans.</span><span data-lang="en">An approach where the 3D model itself carries the full definition — tolerances, surface finishes, notes — instead of deferring to a drawing. It assumes the recipient can exploit PMI, which is worth confirming before dropping drawings.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">MES</span><span data-lang="en">MES</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Le système d'exécution de la production : ce qui se passe à l'atelier, machine par machine, en temps réel. En aval de l'ERP, qui lui-même est en aval du PLM.</span><span data-lang="en">The manufacturing execution system: what happens on the shop floor, machine by machine, in real time. Downstream of the ERP, which is itself downstream of PLM.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Métadonnée</span><span data-lang="en">Metadata</span></h3>
+                    <p data-i18n=""><span data-lang="fr">L'information <em>sur</em> le fichier plutôt que dans sa géométrie : désignation, matière, indice, auteur, état. C'est elle qui rend la recherche possible et les nomenclatures exploitables — et c'est elle que les formats neutres perdent presque toujours.</span><span data-lang="en">Information <em>about</em> the file rather than in its geometry: description, material, revision, author, state. It makes search possible and BOMs usable — and it's what neutral formats almost always lose.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Migration</span><span data-lang="en">Migration</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Le transfert d'un fonds de fichiers existant vers un nouveau système. Sa durée dépend bien davantage de l'état des données que de leur volume : un fonds propre de 200 000 fichiers migre plus vite qu'un fonds désordonné de 50 000 — <a href="/blog/migration-donnees-solidworks-pdm/">méthode complète</a>.</span><span data-lang="en">Transferring an existing file base into a new system. Its duration depends far more on data condition than on volume: a clean base of 200,000 files migrates faster than a messy one of 50,000 — <a href="/blog/migration-donnees-solidworks-pdm/">full method</a>.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Mise en plan</span><span data-lang="en">Drawing</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Le document 2D qui porte cotes, tolérances et annotations d'une pièce ou d'un assemblage. Elle référence le modèle 3D : renommer ce dernier hors du coffre la vide de ses vues.</span><span data-lang="en">The 2D document carrying dimensions, tolerances and annotations for a part or assembly. It references the 3D model: renaming that model outside the vault empties its views.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Modèle mort (dumb solid)</span><span data-lang="en">Dumb solid</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Un solide importé sans arbre de construction : la géométrie est exacte mais il n'y a plus ni paramètres ni historique. On le modifie en géométrie directe — décaler une face, supprimer un perçage — mais on ne « change plus la cote ».</span><span data-lang="en">A solid imported without a feature tree: the geometry is exact but there are no parameters or history left. You edit it by direct modelling — offset a face, remove a hole — but you can no longer "change the dimension".</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Nomenclature (BOM)</span><span data-lang="en">Bill of materials (BOM)</span></h3>
+                    <p data-i18n=""><span data-lang="fr">La liste structurée de tout ce qui compose un produit. C'est l'objet le plus sensible de toute la chaîne : elle circule du bureau d'études aux achats et à la production, et toute erreur s'y propage jusqu'à la commande fournisseur.</span><span data-lang="en">The structured list of everything a product is made of. It's the most sensitive object in the whole chain: it travels from engineering to purchasing and production, and any error propagates as far as the supplier order.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Noyau géométrique</span><span data-lang="en">Geometric kernel</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Le moteur qui calcule réellement les solides sous un modeleur — Parasolid, ACIS et quelques autres. Deux logiciels partageant le même noyau échangent leur géométrie avec une fidélité qu'aucun format neutre n'égale.</span><span data-lang="en">The engine that actually computes solids inside a modeller — Parasolid, ACIS and a few others. Two tools sharing a kernel exchange geometry with a fidelity no neutral format matches.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Obsolète</span><span data-lang="en">Obsolete</span></h3>
+                    <p data-i18n=""><span data-lang="fr">État d'un document retiré de la circulation mais conservé pour l'historique. Marquer obsolète plutôt que supprimer est la règle : vous devrez un jour prouver ce qui avait été livré.</span><span data-lang="en">The state of a document withdrawn from circulation but kept for history. Marking obsolete rather than deleting is the rule: one day you'll need to prove what was delivered.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Pack and Go</span><span data-lang="en">Pack and Go</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Fonction SOLIDWORKS qui rassemble un assemblage, ses pièces et ses mises en plan dans un lot cohérent. C'est la bonne façon d'envoyer un ensemble complet à quelqu'un — bien meilleure que de copier des fichiers à la main.</span><span data-lang="en">A SOLIDWORKS function that gathers an assembly, its parts and its drawings into one consistent bundle. It's the right way to send a complete set to someone — far better than hand-copying files.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Paramétrique</span><span data-lang="en">Parametric</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Se dit d'un modèle dont la géométrie découle de cotes et de relations modifiables : changer une valeur reconstruit la pièce. C'est ce que l'on perd en passant par un format neutre.</span><span data-lang="en">Said of a model whose geometry derives from editable dimensions and relations: change a value and the part rebuilds. It's what you lose when going through a neutral format.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Parasolid (.x_t, .x_b)</span><span data-lang="en">Parasolid (.x_t, .x_b)</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Noyau géométrique de Siemens, utilisé notamment par SOLIDWORKS, Solid Edge, NX et Onshape — et le format d'échange associé. Entre deux logiciels du même noyau, c'est le transfert le plus fidèle, et un excellent plan B quand un STEP arrive abîmé.</span><span data-lang="en">Siemens' geometric kernel, used by SOLIDWORKS, Solid Edge, NX and Onshape among others — and its associated exchange format. Between two tools on the same kernel it's the most faithful transfer, and an excellent plan B when a STEP arrives damaged.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">PDM</span><span data-lang="en">PDM</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Product Data Management : la gestion des fichiers de conception — versions, droits, références, recherche — pour le bureau d'études. C'est la première brique, et souvent la seule nécessaire dans une PME. <a href="/blog/solidworks-pdm-guide-complet/">Le guide complet</a>.</span><span data-lang="en">Product Data Management: managing design files — versions, rights, references, search — for the design office. It's the first building block, and often the only one an SME needs. <a href="/blog/solidworks-pdm-guide-complet/">The complete guide</a>.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">PLM</span><span data-lang="en">PLM</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Product Lifecycle Management : la gestion de la définition du produit sur tout son cycle de vie, de l'idée au retrait — articles, nomenclatures, modifications, exigences, conformité. Il concerne toute l'entreprise technique, pas le seul bureau d'études. <a href="/blog/plm-guide-complet/">Le guide complet</a>.</span><span data-lang="en">Product Lifecycle Management: managing the product definition across its whole lifecycle, from idea to withdrawal — items, BOMs, changes, requirements, compliance. It concerns the whole technical enterprise, not just engineering. <a href="/blog/plm-guide-complet/">The complete guide</a>.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">PMI</span><span data-lang="en">PMI</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Product Manufacturing Information : les tolérances, états de surface et références de cotation portés par le modèle 3D lui-même, de façon exploitable par un logiciel. C'est l'apport majeur du STEP AP242 et le socle du MBD.</span><span data-lang="en">Product Manufacturing Information: tolerances, surface finishes and datums carried by the 3D model itself, in a software-readable form. It's STEP AP242's major contribution and the foundation of MBD.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Propriété personnalisée</span><span data-lang="en">Custom property</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Champ d'information stocké dans le fichier CAO : désignation, matière, indice, fournisseur. C'est ce qui alimente cartouches et nomenclatures. Laissée en texte libre, elle devient inexploitable ; contrôlée par une liste, elle devient un actif.</span><span data-lang="en">An information field stored in the CAD file: description, material, revision, supplier. It feeds title blocks and BOMs. Left as free text it becomes unusable; controlled by a list, it becomes an asset.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="q-z" data-glossary="">
+                    <h2>Q – Z</h2>
+
+                    <h3 data-i18n=""><span data-lang="fr">Reconstruction (rebuild)</span><span data-lang="en">Rebuild</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Le recalcul du modèle après modification. La reconstruction normale ne traite que ce qui a changé ; la reconstruction forcée complète (Ctrl+Q dans SOLIDWORKS) recalcule tout et révèle les erreurs qu'une reconstruction normale laisse dormir.</span><span data-lang="en">Recomputing the model after a change. A normal rebuild handles only what changed; a forced full rebuild (Ctrl+Q in SOLIDWORKS) recomputes everything and surfaces errors a normal rebuild leaves asleep.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Référence externe</span><span data-lang="en">External reference</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Le lien d'un fichier vers un autre : un assemblage vers ses pièces, une mise en plan vers son modèle. Un assemblage ne contient pas ses composants, il pointe vers eux — c'est pourquoi déplacer un fichier hors du coffre casse tout.</span><span data-lang="en">A file's link to another: an assembly to its parts, a drawing to its model. An assembly doesn't contain its components, it points at them — which is why moving a file outside the vault breaks everything.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Réplication</span><span data-lang="en">Replication</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Mécanisme qui maintient une copie synchronisée du coffre sur un site distant, pour que les utilisateurs éloignés travaillent à vitesse locale. C'est l'une des raisons principales de passer en édition Professional.</span><span data-lang="en">A mechanism keeping a synchronised copy of the vault at a remote site, so distant users work at local speed. It's one of the main reasons to move to the Professional edition.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Révision vs version</span><span data-lang="en">Revision vs version</span></h3>
+                    <p data-i18n=""><span data-lang="fr">La confusion la plus répandue du métier. La <strong>version</strong> est créée à chaque archivage et retrace le travail ; la <strong>révision</strong> marque un état approuvé et diffusé. Vous pouvez avoir douze versions entre la révision A et la révision B.</span><span data-lang="en">The most widespread confusion in the field. A <strong>version</strong> is created at each check-in and traces the work; a <strong>revision</strong> marks an approved, released state. You may have twelve versions between revision A and revision B.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">RoHS / REACH</span><span data-lang="en">RoHS / REACH</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Réglementations européennes sur les substances dangereuses dans les produits. Elles imposent de savoir, matière par matière, ce que contient chaque pièce — une exigence de traçabilité qui justifie à elle seule beaucoup de projets PLM.</span><span data-lang="en">European regulations on hazardous substances in products. They require knowing, material by material, what each part contains — a traceability requirement that alone justifies many PLM projects.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Solide / surfacique</span><span data-lang="en">Solid / surface modelling</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Deux approches de modélisation : le solide manipule des volumes fermés, le surfacique des peaux que l'on coud ensuite. Le surfacique domine dans l'automobile et l'aéronautique pour les formes complexes ; c'est là que CATIA et NX creusent l'écart.</span><span data-lang="en">Two modelling approaches: solid modelling manipulates closed volumes, surface modelling builds skins that are then stitched. Surfacing dominates automotive and aerospace for complex shapes; that's where CATIA and NX pull ahead.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">SQL Server</span><span data-lang="en">SQL Server</span></h3>
+                    <p data-i18n=""><span data-lang="fr">La base de données qui stocke les métadonnées d'un coffre SOLIDWORKS PDM : qui détient quoi, quelles versions existent, quelles valeurs portent les cartes. Petite en volume mais sollicitée en permanence — c'est le premier endroit à regarder quand le coffre ralentit.</span><span data-lang="en">The database storing a SOLIDWORKS PDM vault's metadata: who holds what, which versions exist, what values the cards carry. Small in volume but constantly queried — the first place to look when the vault slows down.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Squelette (skeleton)</span><span data-lang="en">Skeleton</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Méthode de conception où un fichier maître porte la géométrie de référence dont dépendent les composants. Elle rend les gros assemblages pilotables, à condition d'être posée dès le départ.</span><span data-lang="en">A design method where a master file carries the reference geometry components depend on. It makes large assemblies drivable, provided it's set up from the start.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">STEP</span><span data-lang="en">STEP</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Le format d'échange de référence de la mécanique, normalisé ISO 10303. Précisez toujours le protocole : « STEP » ne dit pas si vous recevez de l'AP203 sans couleurs ou de l'AP242 avec tolérancement.</span><span data-lang="en">The reference exchange format in mechanical engineering, standardised as ISO 10303. Always specify the protocol: "STEP" doesn't say whether you're getting colourless AP203 or AP242 with tolerancing.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">STL / 3MF</span><span data-lang="en">STL / 3MF</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Formats de maillage pour l'impression 3D. Le STL n'est qu'un ensemble de triangles — ni unités, ni couleurs, ni précision au-delà du maillage. Le 3MF, son successeur moderne, porte unités, couleurs et matériaux. Ni l'un ni l'autre ne conviennent à l'usinage.</span><span data-lang="en">Mesh formats for 3D printing. STL is just a set of triangles — no units, no colours, no precision beyond the mesh. 3MF, its modern successor, carries units, colours and materials. Neither is suitable for machining.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Sur-contrainte</span><span data-lang="en">Over-defined</span></h3>
+                    <p data-i18n=""><span data-lang="fr">État d'une esquisse où cotes et relations se contredisent. Le réflexe utile : chercher du côté des relations automatiques créées pendant le tracé, pas du côté des cotes que vous venez de poser.</span><span data-lang="en">The state of a sketch where dimensions and relations contradict each other. The useful reflex: look at the automatic relations created while drawing, not at the dimensions you just placed.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Tâche planifiée</span><span data-lang="en">Scheduled task</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Traitement automatique lancé par le coffre : conversion en PDF à l'approbation, impression, mise à jour de propriétés. Réservé à l'édition Professional, et souvent ce qui déclenche le passage à cette édition.</span><span data-lang="en">An automatic process launched by the vault: PDF conversion on approval, printing, property updates. Reserved for the Professional edition, and often what triggers the move to it.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Teamcenter</span><span data-lang="en">Teamcenter</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Le PLM de Siemens, référence des grands groupes automobiles et aéronautiques, avec une couverture fonctionnelle très large. Rarement le bon choix pour une PME isolée.</span><span data-lang="en">Siemens' PLM, the reference among large automotive and aerospace groups, with very broad functional coverage. Rarely the right pick for a standalone SME.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Toolbox</span><span data-lang="en">Toolbox</span></h3>
+                    <p data-i18n=""><span data-lang="fr">La bibliothèque de composants normalisés de SOLIDWORKS — visserie, roulements, profilés. Piège classique : chaque poste conserve sa copie locale, les références divergent, et les nomenclatures deviennent fausses. Une seule bibliothèque partagée, en écriture pour un seul responsable.</span><span data-lang="en">SOLIDWORKS' library of standard components — fasteners, bearings, profiles. Classic trap: each workstation keeps its own local copy, references diverge, and BOMs go wrong. One shared library, writable by a single owner.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Traçabilité</span><span data-lang="en">Traceability</span></h3>
+                    <p data-i18n=""><span data-lang="fr">La capacité à démontrer qui a fait quoi, quand, et sur quelle version. Exigée par l'ISO 9001 et les réglementations sectorielles, elle est quasi automatique dans un coffre et très coûteuse à reconstituer dans une organisation par dossiers partagés.</span><span data-lang="en">The ability to demonstrate who did what, when, and on which version. Required by ISO 9001 and sector regulations, it's nearly automatic in a vault and very expensive to reconstruct in a shared-folder organisation.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Variante</span><span data-lang="en">Variant</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Déclinaison d'un produit selon des options ou des dimensions. Bien gérée, elle évite de dupliquer cent fois la même conception ; mal gérée, elle produit des catalogues d'articles ingérables. C'est l'un des sujets qui font basculer une PME vers le PLM.</span><span data-lang="en">A product declination by options or dimensions. Well managed, it avoids duplicating the same design a hundred times; badly managed, it produces unmanageable item catalogues. It's one of the subjects that pushes an SME toward PLM.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Visionneuse</span><span data-lang="en">Viewer</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Application permettant de consulter, mesurer et annoter un modèle sans licence de conception. Le bon outil pour les achats, la production et les sous-traitants — et une économie de licences souvent ignorée.</span><span data-lang="en">An application for viewing, measuring and annotating a model without a design license. The right tool for purchasing, production and subcontractors — and a license saving that's often overlooked.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Windchill</span><span data-lang="en">Windchill</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Le PLM de PTC, très implanté dans l'industrie de série et chez les équipementiers, robuste sur les modifications et les configurations complexes. Exigeant en paramétrage et en gouvernance.</span><span data-lang="en">PTC's PLM, well established in series manufacturing and among tier suppliers, robust on changes and complex configurations. Demanding in configuration and governance.</span></p>
+
+                    <h3 data-i18n=""><span data-lang="fr">Workflow</span><span data-lang="en">Workflow</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Le circuit qu'un document parcourt entre ses états, avec les droits et les notifications associés à chaque transition. Conseil de terrain : commencez à trois états. Huit états et quatre approbateurs dès le premier jour, personne ne suit et tout le monde contourne.</span><span data-lang="en">The route a document travels between its states, with the rights and notifications attached to each transition. Field advice: start with three states. Eight states and four approvers from day one, and nobody follows while everybody bypasses.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="suite">
+                    <h2 data-i18n=""><span data-lang="fr">Les confusions qui coûtent le plus cher</span><span data-lang="en">The confusions that cost the most</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Si vous ne deviez retenir que trois distinctions de ce glossaire, ce sont celles-là — je les vois mal comprises dans presque toutes les entreprises que j'accompagne :</span><span data-lang="en">If you took only three distinctions from this glossary, take these — I find them misunderstood in almost every company I work with:</span></p>
+                    <ul>
+                        <li data-i18n=""><span data-lang="fr"><strong>Version et révision.</strong> L'une retrace le travail, l'autre engage l'entreprise vis-à-vis de la production et du client.</span><span data-lang="en"><strong>Version and revision.</strong> One traces the work, the other commits the company toward production and the customer.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>eBOM et mBOM.</strong> Croire qu'elles sont identiques est la source de la plupart des écarts entre bureau d'études et atelier.</span><span data-lang="en"><strong>eBOM and mBOM.</strong> Believing they're identical is the source of most gaps between engineering and the shop floor.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Article et fichier.</strong> Un article peut exister sans fichier, et plusieurs fichiers décrire un même article. Confondre les deux rend toute intégration ERP douloureuse.</span><span data-lang="en"><strong>Item and file.</strong> An item can exist without a file, and several files can describe one item. Conflating them makes any ERP integration painful.</span></li>
+                    </ul>
+                    <div class="callout">
+                        <div class="quote-block">
+                            <blockquote data-i18n=""><span data-lang="fr">Un vocabulaire partagé n'est pas un détail de forme : la plupart des désaccords que j'arbitre en réunion ne sont pas des désaccords, mais deux personnes qui emploient le même mot pour deux choses différentes.</span><span data-lang="en">Shared vocabulary isn't a cosmetic detail: most disagreements I arbitrate in meetings aren't disagreements at all, but two people using the same word for two different things.</span></blockquote>
+                            <cite>Mohamed Omar Baouch</cite>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="blog-section article-related">
+                    <h2 data-i18n=""><span data-lang="fr">À lire aussi</span><span data-lang="en">Read next</span></h2>
+                    <div class="media-grid">
+                        <a href="/blog/plm-guide-complet/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">Le PLM industriel de A à Z</span><span data-lang="en">Industrial PLM from A to Z</span></h3>
+                            <p data-i18n=""><span data-lang="fr">Le guide complet : périmètre, briques, plateformes, budget et démarrage.</span><span data-lang="en">The complete guide: scope, blocks, platforms, budget and getting started.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                        <a href="/blog/solidworks-pdm-guide-complet/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">SOLIDWORKS PDM : le guide complet</span><span data-lang="en">SOLIDWORKS PDM: the complete guide</span></h3>
+                            <p data-i18n=""><span data-lang="fr">Du principe du coffre au déploiement et à l'exploitation quotidienne.</span><span data-lang="en">From the vault principle to deployment and daily operation.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                    </div>
+                </section>
+
+                <footer class="article-footer">
+                    <div class="article-tags">
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Glossaire</span><span data-lang="en">Glossary</span></span>
+                        <span class="article-tag">PDM</span>
+                        <span class="article-tag">PLM</span>
+                        <span class="article-tag">CAO</span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Vocabulaire</span><span data-lang="en">Vocabulary</span></span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Données produit</span><span data-lang="en">Product data</span></span>
+                    </div>
+                    <div class="article-nav">
+                        <a href="/blog/" class="back-link" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                        <a href="/#contact" class="hero-btn" data-i18n=""><span data-lang="fr">Parler d'un projet</span><span data-lang="en">Discuss a project</span></a>
+                    </div>
+                </footer>
+
+            </article>
+        </div>
+    </main>
+
+    <script src="/assets/js/loader.js"></script>
+    <script src="/assets/js/visitor-intelligence.js"></script>
+
+{{> footer }}
+{{> chatbot }}
+</body></html>

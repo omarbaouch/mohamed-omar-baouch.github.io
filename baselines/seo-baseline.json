@@ -107,6 +107,24 @@
     "h1": "STEP, IGES, Parasolid, JT, STL : quel format d'échange CAO choisir — et comment éviter les pertesSTEP, IGES, Parasolid, JT, STL: which CAD exchange format to choose — and how to avoid losses",
     "lang": "fr"
   },
+  "/blog/glossaire-pdm-plm/": {
+    "title": "Glossaire PDM / PLM / CAO : 73 termes de la donnée technique expliqués simplement",
+    "description": "Le glossaire de référence de la gestion des données techniques : PDM, PLM, eBOM, mBOM, ECO, ECR, coffre, extraction, indice, révision, STEP, AP242, Parasolid, PMI, MBD, workflow, carte de données… 73 termes définis en langage clair par un consultant PDM/PLM, avec les pièges d'usage.",
+    "canonical": "https://baouch.fr/blog/glossaire-pdm-plm/",
+    "robots": null,
+    "ogTitle": "Glossaire PDM / PLM / CAO : 73 termes expliqués simplement",
+    "ogDescription": "PDM, PLM, eBOM, mBOM, ECO, coffre, indice, STEP, AP242, PMI, MBD : le vocabulaire de la donnée technique, défini sans jargon.",
+    "ogUrl": "https://baouch.fr/blog/glossaire-pdm-plm/",
+    "ogImage": "https://baouch.fr/img/og/glossaire.jpg",
+    "ogType": "article",
+    "twitterTitle": "Glossaire PDM / PLM / CAO",
+    "twitterDescription": "73 termes de la gestion des données techniques, définis en langage clair — avec les pièges d'usage.",
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList,DefinedTermSet"
+    ],
+    "h1": "Glossaire de la donnée technique : 73 termes du PDM, du PLM et de la CAOTechnical data glossary: 73 terms from PDM, PLM and CAD",
+    "lang": "fr"
+  },
   "/blog/ia-solidworks-pdm-bureau-etudes/": {
     "title": "IA et SOLIDWORKS PDM : ce qui change vraiment pour les bureaux d'études en 2026",
     "description": "Copilotes de conception, recherche sémantique, classification automatique, chatbots documentaires : ce que l'IA change concrètement dans SOLIDWORKS et le PDM en 2026 — et pourquoi la qualité de vos données décidera de tout. Analyse terrain sans hype.",

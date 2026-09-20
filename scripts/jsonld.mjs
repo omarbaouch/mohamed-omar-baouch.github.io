@@ -91,6 +91,30 @@ function buildGraph(file, $) {
 
   const graph = [posting, breadcrumb];
 
+  // DefinedTermSet : les pages de glossaire, dont les sections portent
+  // data-glossary et alignent un <h3> terme suivi de sa définition.
+  const glossaire = $('[data-glossary]');
+  if (glossaire.length) {
+    const terms = [];
+    glossaire.find('h3').each((_, h3) => {
+      const name = frText($, h3);
+      const def = $(h3).nextAll('p').first();
+      if (!name || !def.length) return;
+      const description = frText($, def);
+      if (description) terms.push({ '@type': 'DefinedTerm', name, description, inDefinedTermSet: canonical });
+    });
+    if (terms.length) {
+      graph.push({
+        '@type': 'DefinedTermSet',
+        '@id': canonical,
+        name: headline,
+        description,
+        inLanguage: 'fr-FR',
+        hasDefinedTerm: terms,
+      });
+    }
+  }
+
   // FAQPage : uniquement si l'article contient réellement une section FAQ.
   const faq = $('#faq');
   if (faq.length) {
