@@ -105,6 +105,43 @@
                         "item": "https://baouch.fr/blog/configuration-materielle-solidworks/"
                     }
                 ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Quel processeur choisir pour SOLIDWORKS ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Privilégiez la fréquence par cœur plutôt que le nombre de cœurs : la modélisation et la reconstruction restent largement mono-thread. Les cœurs supplémentaires servent au rendu, à la simulation et aux conversions par lots, pas à votre travail quotidien de conception."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Faut-il une carte graphique professionnelle certifiée ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Pour un usage professionnel, oui — moins pour la puissance brute que pour le pilote certifié, qui règle une grande partie des plantages et anomalies d'affichage inexpliqués. Une carte grand public très puissante avec un pilote non certifié reste un mauvais choix en production."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Combien de RAM pour des assemblages lourds ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Dimensionnez sur votre plus gros assemblage réel, pas sur une moyenne : c'est lui qui décide. Quand la mémoire sature, le système bascule sur le disque et les performances s'effondrent d'un coup plutôt que progressivement — le symptôme est très reconnaissable."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Le SSD change-t-il vraiment quelque chose ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Oui, et c'est souvent l'amélioration la plus rentable : ouverture des assemblages, cache PDM local, fichiers temporaires. Sur un poste de CAO, le NVMe n'est plus un luxe mais le minimum."
+                        }
+                    }
+                ]
             }
         ]
     }
@@ -406,6 +443,18 @@
                         <li data-translate-key="blog_config_plan_item3"><strong>Sprint&nbsp;3&nbsp;:</strong> bascule serveur PDM, sauvegarde 3-2-1, formation utilisateurs. KPI&nbsp;: satisfaction utilisateurs &gt;&nbsp;8/10, PRA testé et validé.</li>
                     </ol>
                     <p data-translate-key="blog_config_plan_outro">Ce plan permet d'engranger des gains dès le premier mois tout en alignant IT, bureau d'études et direction industrielle sur la même feuille de route.</p>
+                </section>
+
+                <section class="blog-section article-section" id="faq">
+                    <h2 data-i18n=""><span data-lang="fr">Questions fréquentes</span><span data-lang="en">Frequently asked questions</span></h2>
+                    <h3 data-i18n=""><span data-lang="fr">Quel processeur choisir pour SOLIDWORKS ?</span><span data-lang="en">Which processor should you choose for SOLIDWORKS?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Privilégiez la fréquence par cœur plutôt que le nombre de cœurs : la modélisation et la reconstruction restent largement mono-thread. Les cœurs supplémentaires servent au rendu, à la simulation et aux conversions par lots, pas à votre travail quotidien de conception.</span><span data-lang="en">Favour per-core frequency over core count: modelling and rebuild remain largely single-threaded. Extra cores serve rendering, simulation and batch conversion, not your daily design work.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Faut-il une carte graphique professionnelle certifiée ?</span><span data-lang="en">Do you need a certified professional graphics card?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Pour un usage professionnel, oui — moins pour la puissance brute que pour le pilote certifié, qui règle une grande partie des plantages et anomalies d'affichage inexpliqués. Une carte grand public très puissante avec un pilote non certifié reste un mauvais choix en production.</span><span data-lang="en">For professional use, yes — less for raw power than for the certified driver, which resolves a large share of unexplained crashes and display glitches. A very powerful consumer card with an uncertified driver remains a poor production choice.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Combien de RAM pour des assemblages lourds ?</span><span data-lang="en">How much RAM for large assemblies?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Dimensionnez sur votre plus gros assemblage réel, pas sur une moyenne : c'est lui qui décide. Quand la mémoire sature, le système bascule sur le disque et les performances s'effondrent d'un coup plutôt que progressivement — le symptôme est très reconnaissable.</span><span data-lang="en">Size for your largest real assembly, not an average: that's what decides. When memory saturates, the system falls back to disk and performance collapses abruptly rather than gradually — a very recognisable symptom.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Le SSD change-t-il vraiment quelque chose ?</span><span data-lang="en">Does an SSD really make a difference?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Oui, et c'est souvent l'amélioration la plus rentable : ouverture des assemblages, cache PDM local, fichiers temporaires. Sur un poste de CAO, le NVMe n'est plus un luxe mais le minimum.</span><span data-lang="en">Yes, and it's often the most cost-effective upgrade: assembly opening, local PDM cache, temporary files. On a CAD workstation, NVMe is no longer a luxury but the baseline.</span></p>
                 </section>
 
                 <section class="blog-section article-related">

@@ -5,8 +5,24 @@
     <link>https://baouch.fr/blog/</link>
     <description>Articles de fond et retours d'expérience terrain sur le PDM, le PLM, SOLIDWORKS et la gestion des données produit.</description>
     <language>fr-FR</language>
-    <lastBuildDate>Wed, 16 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 19 Sep 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://baouch.fr/blog/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>PLM industriel : le guide complet</title>
+      <link>https://baouch.fr/blog/plm-guide-complet/</link>
+      <guid isPermaLink="true">https://baouch.fr/blog/plm-guide-complet/</guid>
+      <pubDate>Sat, 19 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Qu'est-ce que le PLM, ce qu'il gère vraiment, sa frontière avec le PDM et l'ERP, les briques fonctionnelles, les plateformes du marché (3DEXPERIENCE, Windchill, Teamcenter, Aras), les ordres de grandeur de budget et de durée, et la séquence de démarrage en 6 étapes. Le guide de référence d'un consultant PDM/PLM.</description>
+      <enclosure url="https://baouch.fr/img/og/plm-guide.jpg" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>SOLIDWORKS PDM : le guide complet</title>
+      <link>https://baouch.fr/blog/solidworks-pdm-guide-complet/</link>
+      <guid isPermaLink="true">https://baouch.fr/blog/solidworks-pdm-guide-complet/</guid>
+      <pubDate>Sat, 19 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Ce qu'est un PDM et ce qu'il résout, les 6 fonctions d'un coffre-fort (extraction, versions, cartes de données, workflows, recherche, références), l'architecture serveur, les 7 étapes d'un déploiement réussi, l'exploitation au quotidien et les erreurs à éviter. Le guide de référence d'un consultant qui déploie ces systèmes.</description>
+      <enclosure url="https://baouch.fr/img/og/pdm-guide.jpg" type="image/jpeg"/>
+    </item>
     <item>
       <title>Les 10 erreurs SOLIDWORKS les plus fréquentes et comment les corriger</title>
       <link>https://baouch.fr/blog/erreurs-solidworks-frequentes/</link>
