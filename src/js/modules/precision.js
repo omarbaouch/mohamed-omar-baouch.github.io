@@ -1,12 +1,13 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 // The original Blender model is rendered locally: no iframe or external service.
 export async function createPrecisionScene(host) {
   const renderer = new THREE.WebGLRenderer({ alpha:true, antialias:true, powerPreference:'low-power' });
   let disposed=false, raf=0, running=false, phase=Math.acos(-.4), last=0, pointerX=0, pointerY=0;
-  let observer;
+  let observer, controls=null, manipule=false;
   let environment;
   const scene = new THREE.Scene();
   const slider=host.querySelector('input[type="range"]');
@@ -48,9 +49,11 @@ export async function createPrecisionScene(host) {
       g.position.x=(i-2)*(.44+.84*opening);
       g.rotation.x=i===3 ? phase*.7 : .12*Math.sin(phase);
     });
-    camera.position.x=6.5+pointerX*.6;
-    camera.position.y=5.2+pointerY*.35;
-    camera.lookAt(0,0,0);
+    if(!manipule){
+      camera.position.x=6.5+pointerX*.6;
+      camera.position.y=5.2+pointerY*.35;
+      camera.lookAt(0,0,0);
+    }
     renderer.render(scene,camera);
   };
   let opening=.7;
@@ -62,6 +65,33 @@ export async function createPrecisionScene(host) {
     camera.aspect=width/height; camera.updateProjectionMatrix(); draw(opening);
   };
   host.append(renderer.domElement);
+
+  // Manipulation à la souris : rotation au glisser, zoom à la molette. Le
+  // tactile est neutralisé plus bas (controls.touches) pour que le doigt
+  // continue de faire défiler la page. Dès la première prise en main, la caméra
+  // cesse de suivre le survol pour ne pas contrarier le geste de l'utilisateur.
+  {
+    controls = new OrbitControls(camera, renderer.domElement);
+    controls.touches = { ONE: null, TWO: null };
+    controls.enableDamping = false;
+    controls.enablePan = false;
+    controls.rotateSpeed = .55;
+    controls.zoomSpeed = .7;
+    controls.minDistance = 7;
+    controls.maxDistance = 22;
+    controls.minPolarAngle = .2;
+    controls.maxPolarAngle = Math.PI / 2 - .04;
+    // OrbitControls pose lui-même le curseur en style inline, donc une règle CSS
+    // resterait sans effet. Attention au nom : « cursor » est le point de visée
+    // 3D (un Vector3), « cursorStyle » est bien l'apparence du pointeur.
+    controls.cursorStyle = 'grab';
+    controls.target.set(0, 0, 0);
+    controls.update();
+    controls.addEventListener('start', () => { manipule = true; });
+    // hors animation, chaque geste doit redessiner : la boucle est à l'arrêt
+    controls.addEventListener('change', () => { if (!running && !disposed) draw(opening); });
+  }
+
   observer=new ResizeObserver(resize); observer.observe(host); resize();
   const tick=now=>{
     if(!running || disposed) return;
@@ -76,7 +106,7 @@ export async function createPrecisionScene(host) {
   const pause=()=>{ running=false;cancelAnimationFrame(raf); };
   const dispose=()=>{
     if(disposed) return;
-    pause();disposed=true;observer.disconnect();environment.dispose();
+    pause();disposed=true;controls?.dispose();observer.disconnect();environment.dispose();
     model.traverse(o=>{
       o.geometry?.dispose();
       const materials=Array.isArray(o.material)?o.material:[o.material];
@@ -89,6 +119,14 @@ export async function createPrecisionScene(host) {
   });
   return {
     play(){ if(running||disposed)return;running=true;last=performance.now();raf=requestAnimationFrame(tick); },
+    recentrer(){
+      manipule=false;
+      camera.position.set(6.5,5.2,10.2);
+      camera.lookAt(0,0,0);
+      controls?.target.set(0,0,0);
+      controls?.update();
+      draw(opening);
+    },
     pause,
     seek(value){pause();opening=value;phase=Math.acos(1-2*value);draw(value);host.style.setProperty('--film-progress',value);},
     point(x,y){pointerX=x;pointerY=y;},

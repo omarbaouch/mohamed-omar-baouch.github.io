@@ -1631,6 +1631,9 @@ html.cmdk-lock body {
   height: 118%;
   top: -9%;
   object-fit: cover;
+  /* le sujet (robots et caisse) est dans la moitié basse du cliché : sans ce
+     recentrage, le cadrage retient surtout la verrière et tronque la voiture */
+  object-position: 50% 68%;
   will-change: transform;
 }
 

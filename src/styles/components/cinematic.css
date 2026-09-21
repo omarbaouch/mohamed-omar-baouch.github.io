@@ -4,7 +4,7 @@ body.cinematic { --signal:#b24e20; --accent:#285c83; }
 .cinematic .site-nav { background:#080e18f2; color:#f1f3f5; --bg-0:#080e18; --ink:#f1f3f5; --ink-dim:#b6c2d0; --ink-faint:#95a5b7; --accent:#9bc6e6; --line:#ffffff20; --line-strong:#ffffff45; }
 .cinematic .hero { padding-top:clamp(7rem,13vh,10rem); padding-bottom:3rem; background:#080e18; color:#f1f3f5; --ink:#f1f3f5; --ink-dim:#b6c2d0; --ink-faint:#95a5b7; --signal:#efa471; --accent:#9bc6e6; --line:#ffffff20; --line-strong:#ffffff35; }
 .cinematic .hero::before, .cinematic .hero::after { display:none; }
-.cinematic .hero-inner { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.3fr); gap:0; align-items:center; min-height:65svh; }
+.cinematic .hero-inner { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.3fr); gap:clamp(1.5rem,3.5vw,3.5rem); align-items:center; min-height:65svh; }
 .cinematic .hero-copy { position:relative; z-index:2; }
 .cinematic .hero .btn-primary { background:#efa471; color:#101722; border-color:#efa471; }
 .cinematic .hero .btn-ghost { color:#e4eaf0; border-color:#647081; }
@@ -29,7 +29,9 @@ body.cinematic { --signal:#b24e20; --accent:#285c83; }
 .motion-study--assembly .motion-caption, .motion-study--assembly .motion-toggle { z-index:1; }
 .motion-timeline { position:absolute; bottom:0; inset-inline:1.4rem; height:1px; background:#ffffff25; z-index:1; }
 .motion-timeline::after { content:''; position:absolute; inset:0; background:#efa471; transform-origin:left; transform:scaleX(var(--film-progress,0)); }
-.precision-canvas { position:absolute; inset:0; width:100%; height:100%; display:block; }
+.precision-canvas { position:absolute; inset:0; width:100%; height:100%; display:block; touch-action:pan-y; }
+/* le curseur de manipulation est posé par les contrôles 3D eux-mêmes (style
+   inline), pas ici : une règle CSS serait sans effet */
 .precision-ready video { visibility:hidden; }
 .precision-control { position:absolute; right:1.4rem; bottom:1.25rem; z-index:2; display:grid; gap:.45rem; width:min(43%,calc(100% - 12rem)); font-size:.875rem; color:#f1f3f5; }
 .precision-control[hidden] { display:none; }

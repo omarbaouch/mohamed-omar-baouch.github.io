@@ -88,6 +88,19 @@ export function initCinematic() {
     });
     video.addEventListener('error',()=>{failed=true;playing=false;video.removeAttribute('src');video.load();label();});
     new IntersectionObserver(entries => { visible=entries[0].isIntersecting; sync(); }, {threshold:.12}).observe(figure);
+    // L'observation est posée avant que la figure rejoigne le document, et la
+    // première intersection n'est alors pas signalée : le film restait sur son
+    // image d'attente jusqu'à ce qu'un aller-retour de défilement réveille
+    // l'observateur. On mesure donc nous-mêmes, au frame suivant, une fois la
+    // figure en place.
+    requestAnimationFrame(() => {
+      if (visible || !figure.isConnected) return;
+      const rect = figure.getBoundingClientRect();
+      if (rect.top < innerHeight && rect.bottom > 0 && rect.left < innerWidth && rect.right > 0) {
+        visible = true;
+        sync();
+      }
+    });
     document.addEventListener('visibilitychange',sync);
     reduce.addEventListener('change',()=>{explicitPlay=false;sync();});
     window.addEventListener('pagehide',()=>{engine?.pause();video.pause();playing=false;});
