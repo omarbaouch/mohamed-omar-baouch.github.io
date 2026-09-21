@@ -5,10 +5,13 @@ body.cinematic { --signal:#b24e20; --accent:#285c83; }
 .cinematic .hero { padding-top:clamp(7rem,13vh,10rem); padding-bottom:3rem; background:#080e18; color:#f1f3f5; --ink:#f1f3f5; --ink-dim:#b6c2d0; --ink-faint:#95a5b7; --signal:#efa471; --accent:#9bc6e6; --line:#ffffff20; --line-strong:#ffffff35; }
 .cinematic .hero::before, .cinematic .hero::after { display:none; }
 .cinematic .hero-inner { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.3fr); gap:clamp(1.5rem,3.5vw,3.5rem); align-items:center; min-height:65svh; }
-.cinematic .hero-copy { position:relative; z-index:2; }
+.cinematic .hero-copy { position:relative; z-index:2; container-type:inline-size; }
+/* Le titre se dimensionne sur SA colonne (cqw), pas sur la fenêtre : au-delà
+   de 1440px le conteneur du site est bloqué à 90rem alors que le vw continue
+   de grandir, et le S de SOLIDWORKS passait à la ligne / se faisait couper. */
 .cinematic .hero .btn-primary { background:#efa471; color:#101722; border-color:#efa471; }
 .cinematic .hero .btn-ghost { color:#e4eaf0; border-color:#647081; }
-.cinematic .hero-title { font-size:clamp(3rem,5.6vw,6rem); line-height:1.02; letter-spacing:-.065em; }
+.cinematic .hero-title { font-size:clamp(2.6rem,14.1cqw,6rem); line-height:1.02; letter-spacing:-.065em; }
 .cinematic .hero-title .hl-2, .cinematic .hero-title .hl-3 { margin-left:0; }
 .cinematic .hero-title .hl-3 { color:var(--ink-dim); }
 .cinematic .hero-title .serif-accent { color:var(--signal); }
@@ -69,7 +72,7 @@ body.cinematic { --signal:#b24e20; --accent:#285c83; }
 @media (min-width:64rem) { .cinematic .project-card:nth-child(even) { margin-top:4rem; } }
 @media (max-width:64rem) {
   .cinematic .hero-inner { gap:2rem; }
-  .cinematic .hero-title { font-size:clamp(2.4rem,5.7vw,4.4rem); }
+  .cinematic .hero-title { font-size:clamp(2.2rem,14.1cqw,4.4rem); }
   .cinematic .offer-card + .offer-card { border-left:0; }
   .motion-caption { font-size:.75rem; }
 }
