@@ -37,20 +37,20 @@
     })();
 </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nomenclature, BOM, eBOM, mBOM : la colonne vertébrale de vos données produit — et le rôle de PDM, PLM et ERP</title>
-    <meta name="description" content="Comprendre la BOM (Bill of Materials), la différence entre eBOM et mBOM, le rôle du PDM, du PLM et de l'ERP, et comment ces trois systèmes s'articulent pour piloter le cycle de vie produit.">
+    <title>Nomenclature (BOM) : définition, eBOM vs mBOM et lien PDM, PLM, ERP</title>
+    <meta name="description" content="Qu'est-ce qu'une nomenclature (BOM) ? Définition simple, différence eBOM / mBOM / sBOM avec tableau, et qui gère quoi entre PDM, PLM et ERP. Le guide terrain d'un consultant PDM, exemples à l'appui.">
     <meta name="author" content="Mohamed Omar Baouch">
     <link rel="canonical" href="https://www.baouch.fr/blog/nomenclature-bom-pdm-plm-erp/">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Nomenclature, BOM, eBOM, mBOM : la colonne vertébrale de vos données produit">
-    <meta property="og:description" content="Comprendre la BOM, la différence entre eBOM et mBOM, et le rôle de PDM, PLM et ERP pour piloter le cycle de vie produit.">
+    <meta property="og:title" content="Nomenclature (BOM) : définition, eBOM vs mBOM et lien PDM, PLM, ERP">
+    <meta property="og:description" content="Définition de la nomenclature, différence eBOM / mBOM / sBOM, et qui gère quoi entre PDM, PLM et ERP.">
     <meta property="og:url" content="https://www.baouch.fr/blog/nomenclature-bom-pdm-plm-erp/">
     <meta property="og:image" content="https://www.baouch.fr/img/og/bom-erp.jpg">
     <meta property="og:site_name" content="Mohamed Omar Baouch">
     <meta property="article:published_time" content="2026-03-16T00:00:00.000Z">
     <meta property="article:author" content="Mohamed Omar Baouch">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Nomenclature, BOM, eBOM, mBOM : la colonne vertébrale de vos données produit">
+    <meta name="twitter:title" content="Nomenclature (BOM) : définition, eBOM vs mBOM et lien PDM, PLM, ERP">
     <meta name="twitter:description" content="Comprendre la BOM, la différence entre eBOM et mBOM, et le rôle de PDM, PLM et ERP.">
     <meta name="twitter:image" content="https://www.baouch.fr/img/og/bom-erp.jpg">
     
@@ -61,11 +61,11 @@
         "@graph": [
             {
                 "@type": "BlogPosting",
-                "headline": "Nomenclature, BOM, eBOM, mBOM : la colonne vertébrale de vos données produit",
-                "description": "Comprendre la BOM (Bill of Materials), la différence entre eBOM et mBOM, le rôle du PDM, du PLM et de l'ERP, et comment ces trois systèmes s'articulent pour piloter le cycle de vie produit.",
+                "headline": "Nomenclature (BOM) : définition, eBOM vs mBOM et lien PDM, PLM, ERP",
+                "description": "Qu'est-ce qu'une nomenclature (BOM) ? Définition simple, différence eBOM / mBOM / sBOM avec tableau, et qui gère quoi entre PDM, PLM et ERP. Le guide terrain d'un consultant PDM, exemples à l'appui.",
                 "image": "https://www.baouch.fr/img/og/bom-erp.jpg",
                 "datePublished": "2026-03-16",
-                "dateModified": "2026-03-16",
+                "dateModified": "2026-09-25",
                 "inLanguage": "fr-FR",
                 "mainEntityOfPage": {
                     "@type": "WebPage",
@@ -358,6 +358,9 @@
                     <div class="callout callout--soft">
                         <p data-translate-key="blog_bom_s1_callout_soft">Ce sont les deux premières — <strong>eBOM et mBOM</strong> — qui concentrent 80 % des problèmes dans les PME industrielles. La transformation de l'une vers l'autre est souvent le chantier le plus sous-estimé d'un projet PDM/ERP.</p>
                     </div>
+                    <div class="callout callout--soft">
+                        <p data-i18n=""><span data-lang="fr"><strong>Quel outil pour gérer vos nomenclatures ?</strong> Tableur, ERP, PDM, PLM ou outil dédié : les 5 familles de logiciels et comment choisir dans <a href="/blog/logiciel-gestion-nomenclatures/">Quel logiciel de gestion des nomenclatures ?</a></span><span data-lang="en"><strong>Which tool to manage your BOMs?</strong> Spreadsheet, ERP, PDM, PLM or dedicated tool: the 5 software families and how to choose in <a href="/blog/logiciel-gestion-nomenclatures/">Which BOM management software?</a></span></p>
+                    </div>
                 </section>
 
                 <!-- 2. eBOM vs mBOM -->
@@ -487,6 +490,9 @@
                             }
                         </script>
                     </figure>
+                    <div class="callout callout--soft">
+                        <p data-i18n=""><span data-lang="fr"><strong>Pour aller plus loin :</strong> la même vanne décrite côté étude (9 lignes) et côté fabrication (17 lignes), écart par écart, dans <a href="/blog/ebom-vs-mbom/">eBOM vs mBOM : la vraie différence, avec un exemple ligne par ligne</a>.</span><span data-lang="en"><strong>Go further:</strong> the same valve described in engineering (9 lines) and in manufacturing (17 lines), gap by gap, in <a href="/blog/ebom-vs-mbom/">eBOM vs mBOM: the real difference, with a line-by-line example</a>.</span></p>
+                    </div>
                 </section>
 
                 <!-- 3. PDM -->
@@ -613,6 +619,9 @@
 
                     <div class="callout">
                         <p data-translate-key="blog_bom_s5_callout">L'ERP est impitoyable sur la qualité de la mBOM. Une erreur de quantité dans la BOM ERP, c'est un stock erroné, un coût de revient faux, et potentiellement une ligne de production arrêtée. C'est pour ça que la synchronisation PDM → ERP (via un connecteur ou la PDM Gateway) est l'un des projets les plus critiques qu'on me demande de traiter.</p>
+                    </div>
+                    <div class="callout callout--soft">
+                        <p data-i18n=""><span data-lang="fr"><strong>Faire passer la BOM dans l'ERP sans ressaisie :</strong> ressaisie, fichier pivot, connecteur ou transformation gérée — les 4 architectures comparées dans <a href="/blog/integration-bom-erp/">Connecter la nomenclature à l'ERP (intégration BOM ERP)</a>.</span><span data-lang="en"><strong>Getting the BOM into the ERP without re-keying:</strong> re-keying, pivot file, connector or managed transformation — the 4 architectures compared in <a href="/blog/integration-bom-erp/">Connecting the BOM to the ERP (BOM–ERP integration)</a>.</span></p>
                     </div>
                 </section>
 
@@ -826,6 +835,21 @@
                 <section class="blog-section article-related">
                     <h2>À lire aussi</h2>
                     <div class="media-grid">
+                        <a href="/blog/ebom-vs-mbom/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">eBOM vs mBOM : la vraie différence</span><span data-lang="en">eBOM vs mBOM: the real difference</span></h3>
+                            <p data-i18n=""><span data-lang="fr">Une même vanne, 9 lignes côté étude, 17 côté fabrication.</span><span data-lang="en">One valve: 9 lines in engineering, 17 in manufacturing.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                        <a href="/blog/integration-bom-erp/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">Connecter la nomenclature à l'ERP</span><span data-lang="en">Connecting the BOM to the ERP</span></h3>
+                            <p data-i18n=""><span data-lang="fr">Les 4 architectures d'intégration BOM → ERP.</span><span data-lang="en">The 4 BOM → ERP integration architectures.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                        <a href="/blog/logiciel-gestion-nomenclatures/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">Quel logiciel pour gérer vos nomenclatures ?</span><span data-lang="en">Which software to manage your BOMs?</span></h3>
+                            <p data-i18n=""><span data-lang="fr">Les 5 familles d'outils et comment choisir.</span><span data-lang="en">The 5 families of tools and how to choose.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
                         <a href="/blog/configuration-materielle-solidworks/" class="media-card media-card--text related-card">
                             <h3>Configuration matérielle SOLIDWORKS 2025</h3>
                             <p>Plan d'action pour calibrer stations de travail, serveur PDM et réseau — avec indicateurs terrain et repères budgétaires.</p>

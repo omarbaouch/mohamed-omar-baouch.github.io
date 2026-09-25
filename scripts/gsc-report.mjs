@@ -61,11 +61,12 @@ const periode = { startDate: jour(JOURS + 3), endDate: jour(3) };
 const requete = (dimensions, rowLimit = 250) =>
   api(`sites/${encodeURIComponent(site)}/searchAnalytics/query`, { ...periode, dimensions, rowLimit }).then((j) => j.rows ?? []);
 
-const [total, parRequete, parPage, parJour] = await Promise.all([
+const [total, parRequete, parPage, parJour, pageRequete] = await Promise.all([
   requete([]),
   requete(['query'], 1000),
   requete(['page'], 250),
   requete(['date'], 400),
+  requete(['page', 'query'], 2000),
 ]);
 
 const pct = (x) => `${(x * 100).toFixed(1)} %`;
@@ -99,3 +100,17 @@ parPage
   .sort((a, b) => b.impressions - a.impressions)
   .slice(0, 15)
   .forEach((r) => console.log(ligne(r)));
+
+titre('Requêtes qui mènent à chaque page (5 pages les plus affichées)');
+parPage
+  .sort((a, b) => b.impressions - a.impressions)
+  .slice(0, 5)
+  .forEach((p) => {
+    console.log(`### ${p.keys[0]}`);
+    pageRequete
+      .filter((r) => r.keys[0] === p.keys[0])
+      .sort((a, b) => b.impressions - a.impressions)
+      .slice(0, 15)
+      .forEach((r) => console.log(ligne({ ...r, keys: [r.keys[1]] })));
+    console.log('');
+  });

@@ -252,16 +252,16 @@
     "lang": "fr"
   },
   "/blog/nomenclature-bom-pdm-plm-erp/": {
-    "title": "Nomenclature, BOM, eBOM, mBOM : la colonne vertébrale de vos données produit — et le rôle de PDM, PLM et ERP",
-    "description": "Comprendre la BOM (Bill of Materials), la différence entre eBOM et mBOM, le rôle du PDM, du PLM et de l'ERP, et comment ces trois systèmes s'articulent pour piloter le cycle de vie produit.",
+    "title": "Nomenclature (BOM) : définition, eBOM vs mBOM et lien PDM, PLM, ERP",
+    "description": "Qu'est-ce qu'une nomenclature (BOM) ? Définition simple, différence eBOM / mBOM / sBOM avec tableau, et qui gère quoi entre PDM, PLM et ERP. Le guide terrain d'un consultant PDM, exemples à l'appui.",
     "canonical": "https://www.baouch.fr/blog/nomenclature-bom-pdm-plm-erp/",
     "robots": null,
-    "ogTitle": "Nomenclature, BOM, eBOM, mBOM : la colonne vertébrale de vos données produit",
-    "ogDescription": "Comprendre la BOM, la différence entre eBOM et mBOM, et le rôle de PDM, PLM et ERP pour piloter le cycle de vie produit.",
+    "ogTitle": "Nomenclature (BOM) : définition, eBOM vs mBOM et lien PDM, PLM, ERP",
+    "ogDescription": "Définition de la nomenclature, différence eBOM / mBOM / sBOM, et qui gère quoi entre PDM, PLM et ERP.",
     "ogUrl": "https://www.baouch.fr/blog/nomenclature-bom-pdm-plm-erp/",
     "ogImage": "https://www.baouch.fr/img/og/bom-erp.jpg",
     "ogType": "article",
-    "twitterTitle": "Nomenclature, BOM, eBOM, mBOM : la colonne vertébrale de vos données produit",
+    "twitterTitle": "Nomenclature (BOM) : définition, eBOM vs mBOM et lien PDM, PLM, ERP",
     "twitterDescription": "Comprendre la BOM, la différence entre eBOM et mBOM, et le rôle de PDM, PLM et ERP.",
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
