@@ -1,7 +1,7 @@
 /* ---------------------------------------------------------------------------
    Hero « film » : du chaos à la source de vérité, lu au défilement.
    État de base (sans JS, mouvement réduit) : image fixe, textes à plat.
-   .is-live : section haute + scène collante, chapitres pilotés par --u.
+   .is-live : section haute + scène collante, chapitres pilotés par le film.
 --------------------------------------------------------------------------- */
 .cinematic .film-hero { position: relative; padding: 0; background: #080e18; color: #f1f3f5; overflow: visible;
   --ink: #f1f3f5; --ink-dim: #b6c2d0; --ink-faint: #95a5b7; --signal: #efa471; --accent: #9bc6e6; --line: #ffffff20; --line-strong: #ffffff35; }
@@ -13,11 +13,10 @@
   background:
     radial-gradient(ellipse 120% 90% at 60% 50%, transparent 55%, rgb(4 8 14 / .75)),
     linear-gradient(90deg, rgb(8 14 24 / .82) 0%, rgb(8 14 24 / .35) 38%, transparent 60%); }
-/* grain de pellicule : ne pèse rien dans les images du film */
-.fh-veil::after { content: ''; position: absolute; inset: -50%; opacity: .07; mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  animation: fh-grain .9s steps(6) infinite; }
-@keyframes fh-grain { 0% { transform: translate(0, 0); } 33% { transform: translate(-6%, 4%); } 66% { transform: translate(5%, -3%); } 100% { transform: translate(0, 0); } }
+/* grain de pellicule : statique et sans mode de fusion — un calque plein écran
+   fusionné ou animé au-dessus du film forcerait à tout recomposer à chaque image */
+.fh-veil::after { content: ''; position: absolute; inset: 0; opacity: .045; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 
 .cinematic .film-hero .hero-inner { position: relative; z-index: 2; display: flex; align-items: center; min-height: 100vh; min-height: 100svh; padding-block: 7rem 5rem; }
 .cinematic .film-hero .hero-copy { width: min(44rem, 52vw); }
@@ -41,10 +40,11 @@
 .fh-hud { display: none; }
 
 /* ---------- version vivante ---------- */
-.film-hero.is-live { height: 720vh; }
+.film-hero.is-live { height: 520vh; }
 .film-hero.is-live .fh-stage { position: sticky; top: 0; height: 100vh; height: 100svh; }
-.film-hero.is-live .fh-canvas { opacity: 1; }
-.film-hero.is-live .fh-poster { opacity: 0; transition: opacity .6s; }
+/* l'image d'attente reste en place jusqu'à la première image décodée du film */
+.film-hero.is-playing .fh-canvas { opacity: 1; }
+.film-hero.is-playing .fh-poster { opacity: 0; transition: opacity .6s; }
 
 .film-hero.is-live .hero-inner { position: absolute; inset: 0; opacity: calc(1 - var(--intro-out, 0)); transform: translateY(calc(var(--intro-out, 0) * -4rem)); }
 .film-hero.is-live .fh-stage:not([data-phase='intro']) .hero-inner { pointer-events: none; visibility: hidden; }
@@ -86,7 +86,7 @@
 .fh-scroll { opacity: calc(1 - var(--intro-out, 0)); }
 
 @media (max-width: 56rem), (max-aspect-ratio: 1/1) {
-  .film-hero.is-live { height: 560vh; }
+  .film-hero.is-live { height: 440vh; }
   .fh-veil { background: linear-gradient(0deg, rgb(8 14 24 / .9) 0%, rgb(8 14 24 / .4) 45%, transparent 65%), radial-gradient(ellipse 140% 90% at 50% 40%, transparent 55%, rgb(4 8 14 / .7)); }
   .cinematic .film-hero .hero-inner { align-items: flex-end; padding-bottom: 6rem; }
   .cinematic .film-hero .hero-copy { width: 100%; }
@@ -106,4 +106,3 @@
   /* intro mobile allégée : la pièce occupe le haut de l'écran */
   .film-hero.is-live .cinematic-identity, .film-hero.is-live .hero-subtitle, .film-hero.is-live .hero-kicker { display: none; }
 }
-@media (prefers-reduced-motion: reduce) { .fh-veil::after { animation: none; } }

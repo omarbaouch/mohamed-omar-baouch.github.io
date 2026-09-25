@@ -4,19 +4,21 @@
 --------------------------------------------------------------------------- */
 
 /* ---------- cadre de la feuille ---------- */
-.sheet { position: fixed; inset: 0; z-index: 60; pointer-events: none; mix-blend-mode: difference; color: #fff;
-  font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: .58rem; letter-spacing: .12em; }
-.sheet::before { content: ''; position: absolute; inset: 10px; border: 1px solid rgb(255 255 255 / .22); }
+/* gris neutre, lisible sur fond clair comme sombre : pas de mode de fusion,
+   qui obligerait à recomposer tout l'écran à chaque image du film */
+.sheet { position: fixed; inset: 0; z-index: 60; pointer-events: none; color: rgb(128 134 142 / .9);
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: .58rem; letter-spacing: .12em; contain: strict; }
+.sheet::before { content: ''; position: absolute; inset: 10px; border: 1px solid rgb(128 134 142 / .35); }
 .sheet-cols { position: absolute; left: 10px; right: 10px; display: grid; grid-template-columns: repeat(8, 1fr); }
 .sheet-top { top: 0; height: 10px; }
-.sheet-cols span { display: grid; place-items: center; border-left: 1px solid rgb(255 255 255 / .22); opacity: .55; line-height: 1; font-size: .5rem; }
+.sheet-cols span { display: grid; place-items: center; border-left: 1px solid rgb(128 134 142 / .35); opacity: .55; line-height: 1; font-size: .5rem; }
 .sheet-cols span:first-child { border-left: 0; }
 .sheet-rows { position: absolute; top: 10px; bottom: 10px; width: 10px; display: grid; grid-template-rows: repeat(6, 1fr); }
 .sheet-left { left: 0; }
 .sheet-right { right: 0; }
-.sheet-rows span { display: grid; place-items: center; border-top: 1px solid rgb(255 255 255 / .22); opacity: .55; font-size: .5rem; }
+.sheet-rows span { display: grid; place-items: center; border-top: 1px solid rgb(128 134 142 / .35); opacity: .55; font-size: .5rem; }
 .sheet-rows span:first-child { border-top: 0; }
-.sheet-scroll { position: absolute; right: 2px; top: 60px; width: 6px; height: 40px; background: #fff; opacity: .7; }
+.sheet-scroll { position: absolute; right: 2px; top: 60px; width: 6px; height: 40px; background: #efa471; opacity: .85; }
 .sheet-block { position: fixed; right: 84px; bottom: 10px; z-index: 61; pointer-events: none; display: grid; grid-template-columns: 9.5rem 5.5rem 6rem;
   background: #080e18; color: #dfe6ee; border: 1px solid rgb(255 255 255 / .22); border-bottom: 0;
   font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: .58rem; letter-spacing: .12em;
@@ -34,7 +36,10 @@
   html.has-cad-cursor, html.has-cad-cursor * { cursor: none !important; }
   html.has-cad-cursor :is(input:not([type='range']):not([type='checkbox']):not([type='radio']), textarea) { cursor: text !important; }
 }
-.cad-cursor { position: fixed; inset: 0; z-index: 9999; pointer-events: none; mix-blend-mode: difference; color: #fff; --x: -100px; --y: -100px; }
+/* le conteneur n'est pas un calque : chaque petit élément est fixe et fusionné seul */
+.cad-cursor { position: static; --x: -100px; --y: -100px; }
+.cad-cursor > i, .cc-read, .cc-box { position: fixed !important; z-index: 9999; pointer-events: none; }
+.cad-cursor > i, .cc-read { mix-blend-mode: difference; color: #fff; }
 .cad-cursor .cc-h, .cad-cursor .cc-v, .cad-cursor .cc-dot { position: absolute; left: 0; top: 0; background: #fff; transition: opacity .2s, scale .25s cubic-bezier(.22, 1, .36, 1); }
 .cad-cursor .cc-h { width: 34px; height: 1px; transform: translate(calc(var(--x) - 17px), var(--y)); }
 .cad-cursor .cc-v { width: 1px; height: 34px; transform: translate(var(--x), calc(var(--y) - 17px)); }
@@ -47,13 +52,12 @@
 .cc-box > i:nth-child(3) { left: 0; bottom: 0; border-left-width: 1.5px; border-bottom-width: 1.5px; }
 .cc-box > i:nth-child(4) { right: 0; bottom: 0; border-right-width: 1.5px; border-bottom-width: 1.5px; }
 .cc-tag { position: absolute; left: 0; bottom: calc(100% + 6px); font: .58rem/1 ui-monospace, 'SF Mono', Menlo, monospace; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; color: #101722; background: #efa471; padding: .3rem .45rem; }
-.cad-cursor.is-snap { mix-blend-mode: normal; }
 .cad-cursor.is-snap .cc-box { opacity: 1; }
 .cad-cursor.is-snap .cc-h, .cad-cursor.is-snap .cc-v, .cad-cursor.is-snap .cc-read { opacity: 0; }
 .cad-cursor.is-snap .cc-dot { background: #efa471; border-color: #efa471; }
 .cad-cursor.is-down .cc-h, .cad-cursor.is-down .cc-v { scale: .6; }
-.cad-cursor.is-out, .cad-cursor.is-native { opacity: 0; }
-html.reel-open .cad-cursor { z-index: 2147483647; }
+.cad-cursor.is-out > *, .cad-cursor.is-native > * { opacity: 0 !important; }
+html.reel-open .cad-cursor > * { z-index: 2147483647; }
 
 /* ---------- registre des projets ---------- */
 .cinematic .projects-grid { display: block; counter-reset: reg; margin-top: 3rem; border-top: 1px solid var(--line-strong); }
