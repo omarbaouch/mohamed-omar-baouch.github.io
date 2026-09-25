@@ -1,0 +1,119 @@
+/* ---------------------------------------------------------------------------
+   Hero « film » : la séquence du plan à la pièce, lue au défilement.
+   État de base (sans JS, mouvement réduit) : image fixe, textes à plat.
+   .is-live : section haute + scène collante, chapitres pilotés par --u.
+--------------------------------------------------------------------------- */
+.cinematic .film-hero { position: relative; padding: 0; background: #080e18; color: #f1f3f5; overflow: visible;
+  --ink: #f1f3f5; --ink-dim: #b6c2d0; --ink-faint: #95a5b7; --signal: #efa471; --accent: #9bc6e6; --line: #ffffff20; --line-strong: #ffffff35; }
+.fh-stage { position: relative; min-height: 100vh; min-height: 100svh; overflow: hidden; }
+.fh-poster, .fh-poster img, .fh-canvas { position: absolute; left: 0; top: 0; width: 100%; height: 100vh; height: 100svh; display: block; }
+.fh-poster img { object-fit: cover; }
+.fh-canvas { opacity: 0; }
+.fh-veil { position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 120% 90% at 60% 50%, transparent 55%, rgb(4 8 14 / .75)),
+    linear-gradient(90deg, rgb(8 14 24 / .82) 0%, rgb(8 14 24 / .35) 38%, transparent 60%); }
+/* grain de pellicule : ne pèse rien dans les images du film */
+.fh-veil::after { content: ''; position: absolute; inset: -50%; opacity: .07; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: fh-grain .9s steps(6) infinite; }
+@keyframes fh-grain { 0% { transform: translate(0, 0); } 33% { transform: translate(-6%, 4%); } 66% { transform: translate(5%, -3%); } 100% { transform: translate(0, 0); } }
+
+.cinematic .film-hero .hero-inner { position: relative; z-index: 2; display: flex; align-items: center; min-height: 100vh; min-height: 100svh; padding-block: 7rem 5rem; }
+.cinematic .film-hero .hero-copy { width: min(44rem, 52vw); }
+.cinematic .film-hero .hero-title { font-size: clamp(3rem, 7.4vw, 8.4rem); line-height: .95; letter-spacing: -.06em; }
+.cinematic .film-hero .hero-subtitle { max-width: 40ch; }
+
+/* ---------- chapitres (texte à plat par défaut) ---------- */
+.fh-chapter, .fh-steps, .fh-plan { position: relative; z-index: 2; }
+.fh-chapter { padding-top: 4rem; }
+.fh-eyebrow { color: var(--signal); display: flex; align-items: center; gap: .6rem; }
+.fh-dot { width: .5rem; height: .5rem; border-radius: 50%; background: var(--signal); box-shadow: 0 0 0 4px rgb(239 164 113 / .18); }
+.fh-title { font-size: clamp(2.6rem, 6.2vw, 6.6rem); line-height: .96; letter-spacing: -.055em; font-weight: 500; margin-top: 1rem; max-width: 12ch; }
+.fh-title em, .fh-step h3 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: -.02em; color: var(--signal); }
+.fh-steps { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 2rem; padding-block: 3rem; }
+.fh-ref { font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+.fh-step h3 { font-size: clamp(1.8rem, 3vw, 3rem); line-height: 1; letter-spacing: -.045em; font-weight: 500; margin: .9rem 0 1rem; }
+.fh-step p { color: var(--ink-dim); line-height: 1.65; max-width: 34ch; }
+.fh-plan { padding: 2rem var(--gutter) 5rem; }
+.fh-plan-kicker { color: var(--ink-faint); }
+.fh-dimlines { display: none; }
+.cinematic .film-hero .fh-dims { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 1.5rem; margin-top: 2.5rem; border-top: 1px solid var(--line-strong); padding-top: 1.5rem; }
+.fh-hud { display: none; }
+
+/* ---------- version vivante ---------- */
+.film-hero.is-live { height: 720vh; }
+.film-hero.is-live .fh-stage { position: sticky; top: 0; height: 100vh; height: 100svh; }
+.film-hero.is-live .fh-canvas { opacity: 1; }
+.film-hero.is-live .fh-poster { opacity: 0; transition: opacity .6s; }
+/* le voile de lecture s'efface quand l'image passe au centre (mise en plan) */
+.film-hero.is-live .fh-veil { opacity: calc(1 - var(--plan, 0)); }
+.film-hero.is-live .fh-stage[data-phase='plan'] { --plan: 1; }
+
+.film-hero.is-live .hero-inner { position: absolute; inset: 0; opacity: calc(1 - var(--intro-out, 0)); transform: translateY(calc(var(--intro-out, 0) * -4rem)); }
+.film-hero.is-live .fh-stage:not([data-phase='intro']) .hero-inner { pointer-events: none; visibility: hidden; }
+
+.film-hero.is-live .fh-chapter,
+.film-hero.is-live .fh-steps,
+.film-hero.is-live .fh-plan { position: absolute; left: 0; right: 0; padding: 0; }
+.film-hero.is-live .fh-chapter { top: 50%; translate: 0 -50%; opacity: 0; transform: translateY(2.5rem); transition: opacity .6s cubic-bezier(.22, 1, .36, 1), transform .8s cubic-bezier(.22, 1, .36, 1); }
+.film-hero.is-live .fh-stage[data-phase='chapter'] .fh-chapter { opacity: 1; transform: none; }
+.film-hero.is-live .fh-steps { top: 50%; translate: 0 -50%; display: block; }
+.film-hero.is-live .fh-step { position: absolute; top: 0; translate: 0 -50%; max-width: min(30rem, 36vw); opacity: 0; transform: translateY(2.5rem); filter: blur(6px);
+  transition: opacity .55s cubic-bezier(.22, 1, .36, 1), transform .7s cubic-bezier(.22, 1, .36, 1), filter .55s; pointer-events: none; }
+.film-hero.is-live .fh-step.is-active { opacity: 1; transform: none; filter: none; }
+.film-hero.is-live .fh-step h3 { font-size: clamp(2.4rem, 5vw, 5.4rem); }
+.film-hero.is-live .fh-step::before { content: ''; display: block; width: 3rem; height: 2px; background: var(--signal); margin-bottom: 1.4rem; transform-origin: left; transform: scaleX(0); transition: transform .8s .1s cubic-bezier(.22, 1, .36, 1); }
+.film-hero.is-live .fh-step.is-active::before { transform: scaleX(1); }
+
+/* mise en plan : titre + cotes posées sur le dessin */
+.film-hero.is-live .fh-plan { inset: 0; pointer-events: none; }
+.film-hero.is-live .fh-plan-kicker,
+.film-hero.is-live .fh-plan-title { position: absolute; left: var(--gutter); opacity: 0; transition: opacity .7s, transform .9s cubic-bezier(.22, 1, .36, 1); transform: translateY(1.5rem); }
+.film-hero.is-live .fh-plan-kicker { top: 7rem; }
+.film-hero.is-live .fh-plan-title { top: 8.6rem; font-size: clamp(1.8rem, 2.8vw, 3rem); max-width: 11ch; }
+.film-hero.is-live .fh-stage[data-phase='plan'] :is(.fh-plan-kicker, .fh-plan-title) { opacity: 1; transform: none; }
+.film-hero.is-live .fh-dimlines { display: block; position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.fh-dimlines line { stroke: #efa471; stroke-width: 1; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1s cubic-bezier(.65, 0, .35, 1); transition-delay: var(--d, 0s); }
+.fh-dimlines g { --d: 0s; }
+.fh-dimlines g line { transition-delay: var(--d); }
+.fh-dimlines .ext { stroke: rgb(239 164 113 / .45); }
+.fh-dimlines .dim { marker-start: none; }
+.film-hero.is-live .fh-stage[data-phase='plan'] .fh-dimlines line { stroke-dashoffset: 0; }
+.cinematic .film-hero.is-live .fh-dims { display: block; margin: 0; padding: 0; border: 0; }
+.cinematic .film-hero.is-live .hero-stat { position: absolute; left: 0; top: 0; opacity: 0; white-space: nowrap;
+  background: #080e18; padding: .25rem .5rem; border: 1px solid rgb(239 164 113 / .5); }
+.film-hero.is-live .hero-stat[data-side='below'] { transform: translate(-50%, 0); }
+.film-hero.is-live .hero-stat[data-side='left'] { transform: translate(-100%, -50%); }
+.film-hero.is-live .hero-stat[data-side='right'] { transform: translate(0, -50%); }
+.film-hero.is-live .hero-stat[data-side='below-end'] { transform: translate(-100%, 0); }
+.film-hero.is-live .hero-stat[data-side='below-start'] { transform: translate(0, 0); }
+.film-hero.is-live .hero-stat.is-free { display: none; }
+.film-hero.is-live .fh-stage[data-phase='plan'] .hero-stat { opacity: 1; transition: opacity .6s .5s; }
+.cinematic .film-hero.is-live .stat-value { font-size: clamp(1.3rem, 2vw, 2rem); line-height: 1; font-weight: 450; color: #efa471; }
+.cinematic .film-hero.is-live .stat-label { font-size: .6rem; margin-top: .2rem; }
+
+.film-hero.is-live .fh-hud { display: flex; align-items: center; justify-content: space-between; gap: 1rem; position: absolute; left: 0; right: 0; bottom: clamp(1.25rem, 4vh, 2.25rem); z-index: 3;
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); }
+.fh-hud b { font-weight: 400; color: var(--ink); }
+.film-hero.is-loaded .fh-load { opacity: .45; }
+.fh-scroll { opacity: calc(1 - var(--intro-out, 0)); }
+
+@media (max-width: 56rem), (max-aspect-ratio: 1/1) {
+  .film-hero.is-live { height: 560vh; }
+  .fh-veil { background: linear-gradient(0deg, rgb(8 14 24 / .9) 0%, rgb(8 14 24 / .4) 45%, transparent 65%), radial-gradient(ellipse 140% 90% at 50% 40%, transparent 55%, rgb(4 8 14 / .7)); }
+  .cinematic .film-hero .hero-inner { align-items: flex-end; padding-bottom: 6rem; }
+  .cinematic .film-hero .hero-copy { width: 100%; }
+  .cinematic .film-hero .hero-title { font-size: clamp(2.6rem, 12vw, 4.4rem); }
+  .film-hero.is-live .fh-chapter, .film-hero.is-live .fh-steps { top: auto; bottom: 6rem; translate: none; }
+  .film-hero.is-live .fh-step { top: auto; bottom: 0; translate: none; max-width: calc(100vw - 2 * var(--gutter)); }
+  .film-hero.is-live .fh-step h3 { font-size: clamp(2rem, 9vw, 3rem); margin: .6rem 0; }
+  .film-hero.is-live .fh-step p { font-size: .95rem; }
+  .film-hero.is-live .fh-title { font-size: clamp(2.3rem, 10vw, 3.6rem); }
+  .film-hero.is-live .fh-plan-kicker { top: 5.5rem; }
+  .film-hero.is-live .fh-plan-title { top: 7rem; font-size: clamp(1.7rem, 7vw, 2.4rem); }
+  .fh-scroll { display: none; }
+  /* intro mobile allégée : la pièce occupe le haut de l'écran */
+  .film-hero.is-live .cinematic-identity, .film-hero.is-live .hero-subtitle, .film-hero.is-live .hero-kicker { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .fh-veil::after { animation: none; } }

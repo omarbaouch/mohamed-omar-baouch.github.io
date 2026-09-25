@@ -2,7 +2,8 @@
 // Le motion (Lenis/GSAP) et le WebGL arrivent dans des modules dédiés chargés ensuite.
 import '../styles/main.css';
 import '../styles/components/cinematic.css';
-import '../styles/components/assembly.css';
+import '../styles/components/reel.css';
+import '../styles/components/hero-film.css';
 import '../styles/components/signature.css';
 import { initCinematic } from './modules/cinematic.js';
 import { initI18n } from './core/i18n.js';

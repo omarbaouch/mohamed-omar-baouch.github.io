@@ -124,17 +124,7 @@ function initHeroIntro() {
   const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
   tl.from('.hero-kicker', { y: 14, autoAlpha: 0, duration: 0.7 }, 0.15)
     .from('.hero-subtitle', { y: 20, autoAlpha: 0, duration: 0.8 }, 0.5)
-    .from('.hero-cta > *', { y: 18, autoAlpha: 0, duration: 0.7, stagger: 0.08 }, 0.65)
-    .from('.hero-side, .hero-baseline', { autoAlpha: 0, duration: 0.9 }, 0.9)
-    .from('.hero-stat', { y: 24, autoAlpha: 0, duration: 0.8, stagger: 0.07 }, 0.8);
-
-  // au scroll, la composition du hero se comprime et s'estompe doucement
-  gsap.to('.hero-copy', {
-    yPercent: -10,
-    autoAlpha: 0.15,
-    ease: 'none',
-    scrollTrigger: { trigger: '.hero', start: 'top top', end: '75% top', scrub: 0.5 },
-  });
+    .from('.hero-cta > *', { y: 18, autoAlpha: 0, duration: 0.7, stagger: 0.08 }, 0.65);
 }
 
 function initHeadingReveals() {

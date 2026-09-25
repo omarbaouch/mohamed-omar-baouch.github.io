@@ -23,20 +23,11 @@ export function initCinematic() {
   identity.textContent = words.fr.name;
   hero.querySelector('.hero-copy')?.prepend(identity);
 
-  // La pièce 3D du hero et la vue éclatée au défilement : un seul moteur WebGL,
-  // chargé après le premier rendu. En mouvement réduit, économie de données ou
-  // sans WebGL, l'image fixe du hero et la liste de la visite restent en place.
-  const tour=document.getElementById('assemblage');
-  const anchor=hero.querySelector('.hero-model');
-  if(tour && anchor && !reduce.matches && !lowData){
-    // la mise en page collante est posée d'emblée : pas de saut quand la 3D arrive
-    document.body.classList.add('assembly-live');
-    const boot=()=>import('./assembly.js').then(({initAssembly})=>initAssembly({anchor,tour})).then(engine=>{
-      const pause=tour.querySelector('.tour-pause');
-      pause?.setAttribute('aria-pressed','false');
-      pause?.addEventListener('click',()=>pause.setAttribute('aria-pressed',String(engine.togglePause())));
-    }).catch(()=>document.body.classList.remove('assembly-live'));
-    if('requestIdleCallback' in window) requestIdleCallback(boot,{timeout:1200}); else setTimeout(boot,300);
+  // Le film du hero, lu au défilement. En mouvement réduit ou en économie de
+  // données, l'image fixe et les textes à plat suffisent : rien n'est chargé.
+  const filmHero=document.querySelector('.film-hero');
+  if(filmHero && !reduce.matches && !lowData){
+    import('./hero-film.js').then(({initHeroFilm})=>initHeroFilm(filmHero)).catch(()=>filmHero.classList.remove('is-live'));
   }
   const reel=document.getElementById('film');
   if(reel) import('./reel.js').then(({initReel})=>initReel(reel));

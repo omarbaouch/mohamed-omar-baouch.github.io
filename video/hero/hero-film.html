@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Film du hero — rendu</title>
+<!--
+  Film du hero de baouch.fr, rendu image par image (voir render-hero.mjs).
+  window.__frame(u, variant) rend l'état exact de la scène à l'avancement u ∈ [0, 1]
+  et renvoie l'image. Le site affiche ensuite ces images au rythme du défilement.
+
+  Scénario — « du plan à la pièce, et retour au plan » :
+    0.00–0.16  épure filaire ; un anneau orange balaie et révèle la matière
+    0.16–0.34  la caméra tourne, l'assemblage s'éclate
+    0.34–0.78  travelling macro le long de l'axe, arrêt sur chaque composant
+    0.78–0.88  l'assemblage se referme
+    0.88–1.00  travelling compensé jusqu'à la vue orthogonale : la pièce
+               devient une mise en plan (traits cachés supprimés)
+-->
+<style>html,body{margin:0;background:#080e18}canvas{display:block}</style>
+<script type="importmap">
+{ "imports": { "three": "/node_modules/three/build/three.module.js", "three/addons/": "/node_modules/three/examples/jsm/" } }
+</script>
+</head>
+<body>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+import { LineSegments2 } from 'three/addons/lines/LineSegments2.js';
+import { LineSegmentsGeometry } from 'three/addons/lines/LineSegmentsGeometry.js';
+import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
+
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const P = (t, a, b) => clamp((t - a) / (b - a));
+const lerp = (a, b, x) => a + (b - a) * x;
+const eio = (x) => (x < 0.5 ? 4 * x ** 3 : 1 - Math.pow(-2 * x + 2, 3) / 2);
+const smooth = (x) => x * x * (3 - 2 * x);
+const V = (x, y, z) => new THREE.Vector3(x, y, z);
+
+const NIGHT = new THREE.Color('#080e18');
+const EDGE = new THREE.Color('#9bc6e6');
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(1);
+renderer.toneMapping = THREE.AgXToneMapping;
+renderer.toneMappingExposure = 1.15;
+renderer.localClippingEnabled = true;
+document.body.append(renderer.domElement);
+
+const scene = new THREE.Scene();
+// fond : nuit avec un halo très doux derrière la pièce
+{
+  const c = document.createElement('canvas'); c.width = c.height = 512;
+  const g = c.getContext('2d');
+  const r = g.createRadialGradient(256, 240, 10, 256, 256, 360);
+  r.addColorStop(0, '#16233a'); r.addColorStop(0.55, '#0b1320'); r.addColorStop(1, '#080e18');
+  g.fillStyle = r; g.fillRect(0, 0, 512, 512);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace;
+  scene.background = t;
+}
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+scene.environmentIntensity = 1.6;
+const key = new THREE.DirectionalLight(0xd8eaff, 4.2); key.position.set(-3, 6, 5); scene.add(key);
+const rim = new THREE.DirectionalLight(0xffa16a, 3.4); rim.position.set(3, 3, -5); scene.add(rim);
+const camera = new THREE.PerspectiveCamera(30, 16 / 9, 0.05, 2000);
+
+const gltf = await new GLTFLoader().loadAsync('/public/motion/precision.glb');
+const model = gltf.scene;
+model.traverse((o) => { if (/Infinite.studio.floor/.test(o.name)) o.visible = false; });
+scene.add(model);
+const names = ['Rear flange', 'Bearing housing', 'Copper rotor', 'Turbine wheel', 'Front locking collar'];
+const groups = names.map((n) => model.getObjectByName(n.replaceAll(' ', '_')));
+
+// matière rognée d'un côté du plan de balayage, épure de l'autre
+const solidClip = new THREE.Plane(V(-1, 0, 0), 0);
+const edgeClip = new THREE.Plane(V(1, 0, 0), 0);
+const solids = [], edgeMats = [], hullMats = [];
+// toutes les pièces, arbre compris (il n'appartient à aucun sous-ensemble nommé)
+const meshes = [];
+model.traverse((o) => { if (o.isMesh && o.visible && !/floor/i.test(o.name + o.material.name)) meshes.push(o); });
+meshes.forEach((o) => {
+  {
+  const m = o.material.clone();
+  m.transparent = true;
+  m.clippingPlanes = [solidClip];
+  o.material = m;
+  solids.push(m);
+  const geo = new LineSegmentsGeometry().fromEdgesGeometry(new THREE.EdgesGeometry(o.geometry, 26));
+  const lm = new LineMaterial({ color: EDGE, linewidth: 2, transparent: true, opacity: 1, clippingPlanes: [edgeClip], depthWrite: false });
+  const line = new LineSegments2(geo, lm);
+  line.userData.edge = true;
+  o.add(line);
+  edgeMats.push(lm);
+  // silhouette de la mise en plan : coque inversée, légèrement gonflée le long
+  // des normales ; seules ses faces arrière dépassent autour du contour
+  const hm = new THREE.MeshBasicMaterial({ color: EDGE, side: THREE.BackSide, transparent: true, opacity: 0, depthWrite: false });
+  hm.onBeforeCompile = (sh) => {
+    sh.vertexShader = sh.vertexShader.replace('#include <begin_vertex>', 'vec3 transformed = position + normal * 0.0075;');
+  };
+  const hull = new THREE.Mesh(o.geometry, hm);
+  hull.renderOrder = 1;
+  line.renderOrder = 2;
+  hull.userData.edge = true;
+  o.add(hull);
+  hullMats.push(hm);
+  }
+});
+const scan = new THREE.Mesh(new THREE.RingGeometry(1.38, 1.44, 128), new THREE.MeshBasicMaterial({ color: 0xefa471, transparent: true, side: THREE.DoubleSide, depthWrite: false }));
+scan.rotation.y = Math.PI / 2;
+scene.add(scan);
+
+const composer = new EffectComposer(renderer);
+composer.addPass(new RenderPass(scene, camera));
+const bloom = new UnrealBloomPass(new THREE.Vector2(256, 256), 0.14, 0.4, 2.2);
+composer.addPass(bloom);
+composer.addPass(new OutputPass());
+
+// ---------------------------------------------------------------- scénario
+const openAt = (u) => eio(P(u, 0.16, 0.32)) * (1 - eio(P(u, 0.76, 0.86)));
+const partX = (i, open) => (i - 2) * (0.44 + 1.05 * open);
+
+function orbit(az, el, dist, target) {
+  return target.clone().add(V(Math.sin(az) * Math.cos(el) * dist, Math.sin(el) * dist, Math.cos(az) * Math.cos(el) * dist));
+}
+
+// pose de caméra : position, cible, focale, roulis
+function pose(u, portrait) {
+  const zoom = portrait ? 1.75 : 1; // en portrait il faut reculer pour garder la pièce en largeur
+  const O = V(0, 0, 0);
+  // A — révélation, B — éclatement, D — refermeture
+  const A = { pos: orbit(lerp(0.95, 0.62, P(u, 0, 0.16)), lerp(0.34, 0.28, P(u, 0, 0.16)), lerp(8.2, 9.2, P(u, 0, 0.16)) * zoom, O), tgt: O, fov: 30 };
+  const b = eio(P(u, 0.16, 0.34));
+  const B = { pos: orbit(lerp(0.62, 1.2, b), lerp(0.28, 0.2, b), lerp(9.2, 12.5, b) * zoom, O), tgt: O, fov: 30 };
+  // C — macro : arrêt marqué sur chaque pièce, glissement rapide entre elles
+  const s = P(u, 0.36, 0.76) * 4;
+  const k = Math.min(3, Math.floor(s));
+  const f = s - k;
+  const idx = k + smooth(P(f, 0.3, 0.8));
+  const i0 = Math.floor(idx), i1 = Math.min(4, i0 + 1);
+  const tx = lerp(partX(i0, 1), partX(i1, 1), idx - i0);
+  const tgtC = V(tx, 0.15, 0);
+  const C = { pos: orbit(0.5 + 0.08 * Math.sin(u * 20), 0.14, 3.9 * (portrait ? 1.45 : 1), tgtC), tgt: tgtC, fov: 26 };
+  const D = { pos: orbit(0.85, 0.24, 9.5 * zoom, O), tgt: O, fov: 30 };
+  // E — travelling compensé : la focale se ferme en gardant le cadrage → vue orthogonale
+  const e = eio(P(u, 0.88, 0.985));
+  const fovE = lerp(30, 2.2, e);
+  const distE = (lerp(9.5, 7.2, e) * zoom * Math.tan(THREE.MathUtils.degToRad(15))) / Math.tan(THREE.MathUtils.degToRad(fovE / 2));
+  const E = { pos: orbit(lerp(0.85, 0, e), lerp(0.24, 0, e), distE, O), tgt: O, fov: fovE };
+
+  const mix = (p, q, t) => ({ pos: p.pos.clone().lerp(q.pos, t), tgt: p.tgt.clone().lerp(q.tgt, t), fov: lerp(p.fov, q.fov, t) });
+  if (u < 0.16) return A;
+  if (u < 0.34) return B;
+  if (u < 0.4) return mix(B, C, eio(P(u, 0.34, 0.4)));
+  if (u < 0.74) return C;
+  if (u < 0.8) return mix(C, D, eio(P(u, 0.74, 0.8)));
+  if (u < 0.88) return D;
+  return E;
+}
+
+// décalage du sujet dans le cadre (texte à gauche sur desktop, au-dessus en portrait)
+function shift(u, portrait) {
+  const centre = eio(P(u, 0.86, 0.95));
+  return portrait ? { x: 0, y: lerp(0.15, 0.04, centre) } : { x: lerp(0.14, 0, centre), y: 0 };
+}
+
+const out = document.createElement('canvas');
+const ctx = out.getContext('2d');
+
+// rend l'image u pour un format donné et la renvoie en WebP (data URL)
+window.__frame = (u, variant, quality = 0.8) => {
+  const portrait = variant === 'mob';
+  const [W, H] = portrait ? [720, 1280] : [1600, 900];
+  const SS = 1.5; // suréchantillonnage
+  const rw = Math.round(W * SS), rh = Math.round(H * SS);
+  renderer.setSize(rw, rh, false);
+  composer.setSize(rw, rh);
+  edgeMats.forEach((m) => m.resolution.set(rw, rh));
+
+  const open = openAt(u);
+  groups.forEach((g, i) => {
+    g.position.x = partX(i, open);
+    g.rotation.x = i === 3 ? u * 16 : 0.1 * Math.sin(u * 9 + i);
+  });
+
+  const p = pose(u, portrait);
+  camera.fov = p.fov;
+  camera.aspect = W / H;
+  camera.position.copy(p.pos);
+  camera.up.set(0, 1, 0);
+  // en portrait, la mise en plan finale se lit axe vertical
+  if (portrait) camera.up.set(0, 1, 0).applyAxisAngle(V(0, 0, 1), -Math.PI / 2 * eio(P(u, 0.9, 0.98)));
+  camera.lookAt(p.tgt);
+  const sh = shift(u, portrait);
+  camera.setViewOffset(W, H, -sh.x * W, sh.y * H, W, H);
+  camera.updateProjectionMatrix();
+  camera.far = Math.max(2000, p.pos.length() * 2);
+  camera.near = Math.max(0.05, p.pos.distanceTo(p.tgt) - 6);
+  camera.updateProjectionMatrix();
+
+  // balayage d'apparition
+  const sw = eio(P(u, 0.015, 0.14));
+  const sx = lerp(-1.6, 1.6, sw);
+  solidClip.constant = sx;
+  edgeClip.constant = -sx;
+  scan.position.x = sx;
+  scan.material.opacity = sw > 0 && sw < 1 ? 1 : 0;
+
+  // retour au plan : la matière s'efface mais masque toujours les traits cachés
+  const draw = eio(P(u, 0.9, 0.975));
+  const edgeIn = P(u, 0.87, 0.93);
+  solids.forEach((m) => { m.opacity = 1 - draw; m.colorWrite = draw < 0.995; m.depthWrite = true; });
+  hullMats.forEach((m) => { m.opacity = P(u, 0.9, 0.96); m.visible = m.opacity > 0; });
+  edgeMats.forEach((m) => {
+    m.opacity = sw < 1 ? 1 : edgeIn;
+    m.linewidth = lerp(2, 2.6, draw);
+    m.clippingPlanes = sw < 1 ? [edgeClip] : [];
+  });
+
+  bloom.strength = lerp(0.14, 0.05, draw);
+
+  key.position.set(lerp(-3, -5, u), 6, 5);
+  composer.render();
+
+  out.width = W; out.height = H;
+  ctx.imageSmoothingQuality = 'high';
+  ctx.drawImage(renderer.domElement, 0, 0, W, H);
+  return out.toDataURL('image/webp', quality);
+};
+
+// points de cote de la mise en plan finale, en fractions du cadre
+window.__anchors = (variant) => {
+  window.__frame(1, variant, 0.1);
+  const portrait = variant === 'mob';
+  const proj = (x, y, z) => { const v = V(x, y, z).project(camera); return [+((v.x + 1) / 2).toFixed(4), +((1 - v.y) / 2).toFixed(4)]; };
+  return {
+    left: proj(-0.99, 0, 0), right: proj(1.01, 0, 0),
+    top: proj(-0.87, 1.24, 0), bottom: proj(-0.87, -1.24, 0),
+    rotorTop: proj(0, 1.2, 0), housingL: proj(-0.78, -1.09, 0), housingR: proj(-0.1, -1.09, 0),
+    // encombrement total, arbre compris
+    ...(() => { const bb = new THREE.Box3(); meshes.forEach((m) => bb.expandByObject(m)); return { endL: proj(bb.min.x, 0, 0), endR: proj(bb.max.x, 0, 0) }; })(),
+    portrait,
+  };
+};
+window.__ready = true;
+</script>
+</body>
+</html>

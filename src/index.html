@@ -64,41 +64,78 @@
     {{> nav }}
 
     <main id="main">
-        <!-- ============================== HERO ============================== -->
-        <section class="hero" aria-label="Introduction">
-            <span class="hero-side" aria-hidden="true">PORTFOLIO — RÉV.2026</span>
-            <div class="container-site hero-inner">
-                <div class="hero-copy">
-                    <p class="hero-kicker eyebrow">
-                        <span data-translate-key="hero_kicker">Consultant PDM/PLM chez Visiativ — Strasbourg</span>
-                    </p>
-                    <h1 class="display-1 hero-title">
-                        <span class="mask-line hl-1"><span class="mask-inner">Consultant <em class="serif-accent">Expert</em></span></span>
-                        <span class="mask-line hl-2"><span class="mask-inner">SOLIDWORKS</span></span>
-                        <span class="mask-line hl-3"><span class="mask-inner">PDM / PLM</span></span>
-                    </h1>
-                    <div class="hero-under">
-                        <p class="prose-lead hero-subtitle" data-translate-key="hero_subtitle">
-                            Plus de <strong>80 clients industriels</strong> accompagnés — sécurisation, migration et
-                            optimisation de données techniques critiques.
+        <!-- ============================== HERO — le film : du plan à la pièce, et retour au plan ==============================
+             Séquence d'images rendue à l'avance (video/hero/), lue au rythme du défilement.
+             Sans JS ou en mouvement réduit : image fixe, textes à plat. -->
+        <section class="hero film-hero" aria-label="Introduction">
+            <div class="fh-stage">
+                <picture class="fh-poster" aria-hidden="true">
+                    <!-- sans film (mouvement réduit), l'image fixe montre la pièce révélée -->
+                    <source media="(prefers-reduced-motion: reduce) and (max-aspect-ratio: 1/1)" srcset="/film/hero/mob/018.webp">
+                    <source media="(prefers-reduced-motion: reduce)" srcset="/film/hero/desk/036.webp">
+                    <source media="(max-aspect-ratio: 1/1)" srcset="/film/hero/mob/000.webp">
+                    <img src="/film/hero/desk/000.webp" alt="" width="1600" height="900" fetchpriority="high" decoding="async">
+                </picture>
+                <canvas class="fh-canvas" aria-hidden="true"></canvas>
+                <div class="fh-veil" aria-hidden="true"></div>
+                <div class="container-site hero-inner fh-intro">
+                    <div class="hero-copy">
+                        <p class="hero-kicker eyebrow">
+                            <span data-translate-key="hero_kicker">Consultant PDM/PLM chez Visiativ — Strasbourg</span>
                         </p>
-                        <div class="hero-cta">
-                            <a href="#contact" class="btn btn-primary" data-magnetic data-translate-key="hero_cta1">Me contacter</a>
-                            <a href="#experience" class="btn btn-ghost" data-magnetic data-translate-key="hero_cta2">Voir mon parcours</a>
+                        <h1 class="display-1 hero-title">
+                            <span class="mask-line hl-1"><span class="mask-inner">Consultant <em class="serif-accent">Expert</em></span></span>
+                            <span class="mask-line hl-2"><span class="mask-inner">SOLIDWORKS</span></span>
+                            <span class="mask-line hl-3"><span class="mask-inner">PDM / PLM</span></span>
+                        </h1>
+                        <div class="hero-under">
+                            <p class="prose-lead hero-subtitle" data-translate-key="hero_subtitle">
+                                Plus de <strong>80 clients industriels</strong> accompagnés — sécurisation, migration et
+                                optimisation de données techniques critiques.
+                            </p>
+                            <div class="hero-cta">
+                                <a href="#contact" class="btn btn-primary" data-magnetic data-translate-key="hero_cta1">Me contacter</a>
+                                <a href="#experience" class="btn btn-ghost" data-magnetic data-translate-key="hero_cta2">Voir mon parcours</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- emplacement de la pièce 3D : le canvas fixe de la visite s'y cale -->
-                <div class="hero-model" aria-hidden="true">
-                    <img class="hero-model-still" src="/motion/precision.jpg" alt="" width="640" height="480" decoding="async">
-                    <span class="hero-model-ref">MOB — 001 · <span data-translate-key="tour_hero_ref">Défilez pour éclater l'assemblage</span></span>
+                <div class="fh-chapter container-site">
+                    <p class="eyebrow fh-eyebrow"><span class="fh-dot" aria-hidden="true"></span> <span data-translate-key="tour_eyebrow">Vue éclatée — MOB-001 · 5 composants</span></p>
+                    <h2 class="fh-title" data-translate-key="tour_title">De la pièce <em>au système.</em></h2>
                 </div>
-            </div>
-            <div class="container-site hero-baseline" aria-hidden="true">
-                <span class="hero-scrollcue">(SCROLL)</span>
-                <span class="hero-clock">STRASBOURG —— <span class="js-time">00:00</span></span>
-            </div>
-            <div class="container-site hero-stats" role="list">
+                <ol class="fh-steps container-site">
+                    <li class="fh-step">
+                        <span class="fh-ref">PRT-001 · <span data-translate-key="tour_1_part">Bride arrière</span></span>
+                        <h3 data-translate-key="tour_1_title">Les fondations <em>CAO</em></h3>
+                        <p data-translate-key="tour_1_text">Templates, propriétés et codification : la base SOLIDWORKS sur laquelle tout le reste repose.</p>
+                    </li>
+                    <li class="fh-step">
+                        <span class="fh-ref">PRT-002 · <span data-translate-key="tour_2_part">Palier</span></span>
+                        <h3 data-translate-key="tour_2_title">Le coffre <em>PDM</em></h3>
+                        <p data-translate-key="tour_2_text">Architecture SOLIDWORKS PDM, droits, SQL Server, réplication multisites : le carter qui protège la donnée.</p>
+                    </li>
+                    <li class="fh-step">
+                        <span class="fh-ref">PRT-003 · <span data-translate-key="tour_3_part">Rotor cuivre</span></span>
+                        <h3 data-translate-key="tour_3_title">Les <em>workflows</em></h3>
+                        <p data-translate-key="tour_3_text">Transitions, tâches automatiques, notifications : l'énergie qui fait circuler la donnée, tracée à chaque étape.</p>
+                    </li>
+                    <li class="fh-step">
+                        <span class="fh-ref">PRT-004 · <span data-translate-key="tour_4_part">Turbine</span></span>
+                        <h3 data-translate-key="tour_4_title">L'intégration <em>ERP</em></h3>
+                        <p data-translate-key="tour_4_text">eBOM, mBOM et flux vers l'ERP : la continuité numérique du bureau d'études jusqu'à l'atelier.</p>
+                    </li>
+                    <li class="fh-step">
+                        <span class="fh-ref">PRT-005 · <span data-translate-key="tour_5_part">Bague de blocage</span></span>
+                        <h3 data-translate-key="tour_5_title">L'<em>adoption</em></h3>
+                        <p data-translate-key="tour_5_text">Formation, documentation, transfert de compétences : la pièce qui verrouille l'ensemble dans la durée.</p>
+                    </li>
+                </ol>
+                <div class="fh-plan">
+                    <p class="eyebrow fh-plan-kicker" data-translate-key="tour_outro_eyebrow">Assemblage contraint — état : publié</p>
+                    <h2 class="fh-title fh-plan-title" data-translate-key="tour_outro">Un système. <em>Une seule source de vérité.</em></h2>
+                    <svg class="fh-dimlines" aria-hidden="true"></svg>
+    <div class="hero-stats fh-dims" role="list">
                 <div class="hero-stat" role="listitem">
                     <div class="stat-value">80<span class="stat-plus">+</span></div>
                     <div class="stat-label" data-translate-key="stat_clients_label">Clients industriels</div>
@@ -116,55 +153,11 @@
                     <div class="stat-label" data-translate-key="stat_deployments_label">Déploiements complets</div>
                 </div>
             </div>
-        </section>
-
-        <!-- ============================== VISITE — la vue éclatée pilotée au défilement ============================== -->
-        <section class="assembly-tour" id="assemblage" aria-labelledby="tour-title">
-            <div class="tour-stage" data-phase="intro">
-                <div class="tour-intro container-site">
-                    <p class="eyebrow tour-eyebrow"><span class="tour-dot" aria-hidden="true"></span> <span data-translate-key="tour_eyebrow">Vue éclatée — MOB-001 · 5 composants</span></p>
-                    <h2 id="tour-title" class="tour-title" data-translate-key="tour_title">De la pièce <em>au système.</em></h2>
-                    <p class="tour-lead" data-translate-key="tour_lead">Un projet PDM se monte comme un assemblage : chaque composant a sa fonction, et c'est leur ajustement qui fait tenir l'ensemble.</p>
                 </div>
-                <ol class="tour-steps container-site">
-                    <li class="tour-step">
-                        <span class="tour-ref">PRT-001 · <span data-translate-key="tour_1_part">Bride arrière</span></span>
-                        <h3 data-translate-key="tour_1_title">Les fondations <em>CAO</em></h3>
-                        <p data-translate-key="tour_1_text">Templates, propriétés et codification : la base SOLIDWORKS sur laquelle tout le reste repose.</p>
-                    </li>
-                    <li class="tour-step">
-                        <span class="tour-ref">PRT-002 · <span data-translate-key="tour_2_part">Palier</span></span>
-                        <h3 data-translate-key="tour_2_title">Le coffre <em>PDM</em></h3>
-                        <p data-translate-key="tour_2_text">Architecture SOLIDWORKS PDM, droits, SQL Server, réplication multisites : le carter qui protège la donnée.</p>
-                    </li>
-                    <li class="tour-step">
-                        <span class="tour-ref">PRT-003 · <span data-translate-key="tour_3_part">Rotor cuivre</span></span>
-                        <h3 data-translate-key="tour_3_title">Les <em>workflows</em></h3>
-                        <p data-translate-key="tour_3_text">Transitions, tâches automatiques, notifications : l'énergie qui fait circuler la donnée, tracée à chaque étape.</p>
-                    </li>
-                    <li class="tour-step">
-                        <span class="tour-ref">PRT-004 · <span data-translate-key="tour_4_part">Turbine</span></span>
-                        <h3 data-translate-key="tour_4_title">L'intégration <em>ERP</em></h3>
-                        <p data-translate-key="tour_4_text">eBOM, mBOM et flux vers l'ERP : la continuité numérique du bureau d'études jusqu'à l'atelier.</p>
-                    </li>
-                    <li class="tour-step">
-                        <span class="tour-ref">PRT-005 · <span data-translate-key="tour_5_part">Bague de blocage</span></span>
-                        <h3 data-translate-key="tour_5_title">L'<em>adoption</em></h3>
-                        <p data-translate-key="tour_5_text">Formation, documentation, transfert de compétences : la pièce qui verrouille l'ensemble dans la durée.</p>
-                    </li>
-                </ol>
-                <div class="tour-outro container-site">
-                    <p class="eyebrow" data-translate-key="tour_outro_eyebrow">Assemblage contraint — état : publié</p>
-                    <h2 class="tour-title" data-translate-key="tour_outro">Un système. <em>Une seule source de vérité.</em></h2>
-                </div>
-                <svg class="tour-svg" aria-hidden="true"><path class="tour-leaders" d=""/></svg>
-                <div class="tour-tags" aria-hidden="true">
-                    <span class="tour-tag">PRT-001</span><span class="tour-tag">PRT-002</span><span class="tour-tag">PRT-003</span><span class="tour-tag">PRT-004</span><span class="tour-tag">PRT-005</span>
-                </div>
-                <div class="tour-hud container-site" aria-hidden="true">
-                    <span class="tour-count">01 / 05</span>
-                    <span class="tour-track"><i class="tour-rail"></i></span>
-                    <button class="tour-pause" type="button" data-translate-key="tour_pause">Figer la 3D</button>
+                <div class="fh-hud container-site" aria-hidden="true">
+                    <span class="fh-load">MOB-001 · <b class="fh-pct">000</b>%</span>
+                    <span class="fh-scroll">(<span data-translate-key="tour_hero_ref">Défilez pour éclater l'assemblage</span>)</span>
+                    <span class="fh-frame">IMG <b class="fh-idx">000</b></span>
                 </div>
             </div>
         </section>

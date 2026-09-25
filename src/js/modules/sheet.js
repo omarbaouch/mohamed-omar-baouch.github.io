@@ -3,12 +3,12 @@
 // consultée, la feuille et l'état — comme en bas à droite d'une mise en plan.
 // Décoratif (aria-hidden) : la navigation réelle reste celle du site.
 const VIEWS = {
-  fr: { hero: 'Introduction', assemblage: 'Vue éclatée', structure: 'Structure', expertise: 'Expertise', about: 'À propos', experience: 'Expérience', skills: 'Nomenclature', education: 'Formation', film: 'Film', contact: 'Contact' },
-  en: { hero: 'Introduction', assemblage: 'Exploded view', structure: 'Structure', expertise: 'Expertise', about: 'About', experience: 'Experience', skills: 'Bill of skills', education: 'Education', film: 'Film', contact: 'Contact' },
+  fr: { hero: 'Introduction', structure: 'Structure', expertise: 'Expertise', about: 'À propos', experience: 'Expérience', skills: 'Nomenclature', education: 'Formation', film: 'Film', contact: 'Contact' },
+  en: { hero: 'Introduction', structure: 'Structure', expertise: 'Expertise', about: 'About', experience: 'Experience', skills: 'Bill of skills', education: 'Education', film: 'Film', contact: 'Contact' },
 };
 const WORDS = { fr: ['Vue', 'Feuille', 'État', 'Publié'], en: ['View', 'Sheet', 'State', 'Released'] };
 // sections où la scène a déjà son propre habillage : le cartouche s'efface
-const IMMERSIVE = new Set(['hero', 'assemblage', 'film']);
+const IMMERSIVE = new Set(['hero', 'film']);
 
 export function initSheet() {
   const lang = () => (document.documentElement.lang === 'en' ? 'en' : 'fr');
