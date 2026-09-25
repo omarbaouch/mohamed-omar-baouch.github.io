@@ -114,3 +114,26 @@ parPage
       .forEach((r) => console.log(ligne({ ...r, keys: [r.keys[1]] })));
     console.log('');
   });
+
+// État d'indexation de chaque URL du sitemap (API URL Inspection, lecture seule)
+titre("Indexation des pages du sitemap");
+const sitemap = await (await fetch('https://www.baouch.fr/sitemap.xml')).text();
+const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+const etats = [];
+for (let i = 0; i < urls.length; i += 5) {
+  const lot = await Promise.all(
+    urls.slice(i, i + 5).map(async (inspectionUrl) => {
+      const r = await fetch('https://searchconsole.googleapis.com/v1/urlInspection/index:inspect', {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ inspectionUrl, siteUrl: site, languageCode: 'fr' }),
+      }).then((x) => x.json());
+      const s = r.inspectionResult?.indexStatusResult;
+      return { url: inspectionUrl, ok: s?.verdict === 'PASS', etat: s?.coverageState ?? r.error?.message ?? '?', passage: s?.lastCrawlTime?.slice(0, 10) ?? '—' };
+    })
+  );
+  etats.push(...lot);
+}
+const non = etats.filter((e) => !e.ok);
+console.log(`${etats.length - non.length} / ${etats.length} pages indexées.\n`);
+non.forEach((e) => console.log(`NON INDEXÉE  ${e.etat}  (dernier passage : ${e.passage})  ${e.url}`));
