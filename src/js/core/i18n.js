@@ -33,9 +33,12 @@ export function setLanguage(lang) {
 }
 
 export function initI18n() {
+  // Français par défaut, anglais seulement sur choix explicite du visiteur.
+  // Pas de bascule selon la langue du navigateur : Googlebot rend les pages
+  // en en-US et indexait donc des articles en anglais sous des titres et des
+  // URL françaises (pages « explorées, non indexées »).
   const stored = localStorage.getItem('language');
-  const browser = (navigator.language || 'fr').split('-')[0];
-  const lang = SUPPORTED.includes(stored) ? stored : SUPPORTED.includes(browser) ? browser : 'fr';
+  const lang = SUPPORTED.includes(stored) ? stored : 'fr';
   if (lang !== 'fr') setLanguage(lang);
   else setLanguage('fr'); // synchronise l'état des boutons même en FR
   document.getElementById('lang-fr')?.addEventListener('click', () => setLanguage('fr'));
