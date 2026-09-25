@@ -966,6 +966,46 @@
   gap: 1.75rem;
 }
 
+/* index du carnet : chaque page liée depuis tout le site (voir scripts/footer-index.mjs) */
+.footer-index {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.footer-index-head {
+  margin: 0 0 1rem;
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.footer-index ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  columns: 3 16rem;
+  column-gap: 2.5rem;
+}
+
+.footer-index li {
+  break-inside: avoid;
+  padding: 0.3rem 0;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+}
+
+.footer-index a {
+  color: var(--ink-dim);
+  text-decoration: none;
+}
+
+.footer-index a:hover,
+.footer-index a:focus-visible {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 64rem) {
   .hero-inner {
