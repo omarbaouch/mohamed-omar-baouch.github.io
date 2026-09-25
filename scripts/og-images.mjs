@@ -35,6 +35,7 @@ const PAGES = [
   { file: 'src/blog/ebom-vs-mbom/index.html', slug: 'ebom-mbom', ref: 'BOM-01', type: 'ARTICLE', title: 'eBOM vs mBOM : la vraie différence, avec un exemple ligne par ligne' },
   { file: 'src/blog/logiciel-gestion-nomenclatures/index.html', slug: 'logiciel-bom', ref: 'BOM-02', type: 'ARTICLE', title: 'Quel logiciel pour gérer vos nomenclatures ? Les 5 familles d’outils' },
   { file: 'src/blog/integration-bom-erp/index.html', slug: 'bom-erp-integration', ref: 'BOM-03', type: 'ARTICLE', title: 'Connecter la nomenclature à l’ERP : les 4 architectures possibles' },
+  { file: 'src/blog/tableau-filetage-metrique-percage-taraudage/index.html', slug: 'filetage', ref: 'MEM-01', type: 'MÉMO', title: 'Tableau filetage métrique : pas, perçage avant taraudage, trous de passage' },
   { file: 'src/projets/robot-orbita/index.html', slug: 'orbita', ref: 'PRT-ORBITA · RÉV.B', type: 'ÉTUDE DE CAS', title: 'Structurer le PDM d’un robot humanoïde' },
   { file: 'src/projets/migration-pdm-internationale/index.html', slug: 'mig-intl', ref: 'MIG-INTL · RÉV.C', type: 'ÉTUDE DE CAS', title: 'Migration PDM multi-sites pour un géant mondial du câblage' },
 ];

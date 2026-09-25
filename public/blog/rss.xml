@@ -5,8 +5,16 @@
     <link>https://www.baouch.fr/blog/</link>
     <description>Articles de fond et retours d'expérience terrain sur le PDM, le PLM, SOLIDWORKS et la gestion des données produit.</description>
     <language>fr-FR</language>
-    <lastBuildDate>Sun, 20 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 25 Sep 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.baouch.fr/blog/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Tableau filetage métrique : pas, perçage avant taraudage, trous de passage</title>
+      <link>https://www.baouch.fr/blog/tableau-filetage-metrique-percage-taraudage/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/tableau-filetage-metrique-percage-taraudage/</guid>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Le tableau complet du filetage métrique ISO de M1,6 à M36 : pas gros et pas fin, diamètre de perçage avant taraudage, trous de passage ISO 273 (fin, moyen, large), clés de serrage. Recherche instantanée, formule D − P et réglages de l'assistance pour le perçage SOLIDWORKS.</description>
+      <enclosure url="https://www.baouch.fr/img/og/filetage.jpg" type="image/jpeg"/>
+    </item>
     <item>
       <title>eBOM vs mBOM : la différence, avec un exemple chiffré</title>
       <link>https://www.baouch.fr/blog/ebom-vs-mbom/</link>

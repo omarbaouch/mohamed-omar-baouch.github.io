@@ -431,6 +431,24 @@
     "h1": "SOLIDWORKS PDM : comprendre le PDM et choisir entre Standard et ProfessionalSOLIDWORKS PDM: understand PDM and choose between Standard and Professional",
     "lang": "fr"
   },
+  "/blog/tableau-filetage-metrique-percage-taraudage/": {
+    "title": "Tableau filetage métrique ISO : pas, perçage avant taraudage, trous de passage (M1,6 à M36)",
+    "description": "Le tableau complet du filetage métrique ISO de M1,6 à M36 : pas gros et pas fin, diamètre de perçage avant taraudage, trous de passage ISO 273 (fin, moyen, large), clés de serrage. Recherche instantanée, formule D − P et réglages de l'assistance pour le perçage SOLIDWORKS.",
+    "canonical": "https://www.baouch.fr/blog/tableau-filetage-metrique-percage-taraudage/",
+    "robots": null,
+    "ogTitle": "Tableau filetage métrique : pas, perçage avant taraudage, trous de passage",
+    "ogDescription": "M1,6 à M36 : pas gros et fin, foret de taraudage, trous de passage ISO 273 et clés — avec recherche instantanée.",
+    "ogUrl": "https://www.baouch.fr/blog/tableau-filetage-metrique-percage-taraudage/",
+    "ogImage": "https://www.baouch.fr/img/og/filetage.jpg",
+    "ogType": "article",
+    "twitterTitle": "Tableau filetage métrique : pas, perçage avant taraudage, trous de passage",
+    "twitterDescription": "M1,6 à M36 : pas gros et fin, foret de taraudage, trous de passage ISO 273 et clés — avec recherche instantanée.",
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList,FAQPage"
+    ],
+    "h1": "Tableau filetage métrique ISO : pas, perçage avant taraudage et trous de passageISO metric thread chart: pitch, tap drill and clearance holes",
+    "lang": "fr"
+  },
   "/": {
     "title": "Mohamed Omar Baouch | Ingénieur Plasturgie & Consultant PDM/PLM",
     "description": "Portfolio de Mohamed Omar Baouch - Ingénieur Plasturgie et consultant PDM/PLM spécialisé dans l'optimisation des processus de développement produit",
