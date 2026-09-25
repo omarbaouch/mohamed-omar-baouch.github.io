@@ -169,41 +169,6 @@
             </div>
         </section>
 
-        <!-- ============================== FILM — le site en 53 secondes ============================== -->
-        <section class="reel" id="film" aria-labelledby="reel-title">
-            <div class="reel-stage">
-                <div class="reel-frame">
-                    <video class="reel-preview" muted loop playsinline preload="none" poster="/video/presentation-baouch.jpg" aria-hidden="true" tabindex="-1" data-src="/video/presentation-teaser.mp4"></video>
-                    <div class="reel-scrim" aria-hidden="true"></div>
-                    <button class="reel-play" type="button" aria-haspopup="dialog">
-                        <span class="reel-play-ring" aria-hidden="true"></span>
-                        <span class="reel-play-label" data-translate-key="reel_play">Lire le film</span>
-                    </button>
-                </div>
-                <h2 id="reel-title" class="reel-title">
-                    <span class="reel-word reel-word-l" data-translate-key="reel_word_l">Le site</span>
-                    <span class="reel-word reel-word-r"><em data-translate-key="reel_word_r">en 53 s.</em></span>
-                </h2>
-                <p class="reel-meta container-site" aria-hidden="true"><span>REEL — RÉV.2026</span><span data-translate-key="reel_meta">Son conseillé · 9 vues</span></p>
-            </div>
-            <dialog class="reel-dialog" aria-label="Film de présentation">
-                <div class="reel-player">
-                    <video class="reel-video" playsinline preload="none" poster="/video/presentation-baouch.jpg" data-src="/video/presentation-baouch.mp4"></video>
-                    <div class="reel-controls">
-                        <button class="reel-btn reel-toggle" type="button" aria-label="Pause">❚❚</button>
-                        <div class="reel-bar" role="slider" tabindex="0" aria-label="Position dans le film" aria-valuemin="0" aria-valuemax="53" aria-valuenow="0">
-                            <i class="reel-bar-fill"></i>
-                            <span class="reel-chapters"></span>
-                        </div>
-                        <span class="reel-time">00:00</span>
-                        <button class="reel-btn reel-mute" type="button" aria-label="Couper le son">SON</button>
-                        <button class="reel-btn reel-close" type="button" aria-label="Fermer">✕</button>
-                    </div>
-                    <p class="reel-chapter-now" aria-live="polite"></p>
-                </div>
-            </dialog>
-        </section>
-
         <!-- ============================== STRUCTURE — le viewport d'assemblage PDM ============================== -->
         <section class="bom-stage" id="structure" aria-label="Structure du portfolio, présentée comme un arbre d'assemblage PDM interactif">
             <div class="container-site">
@@ -318,7 +283,7 @@
                     <h3 class="display-3" data-translate-key="featured_projects_title">Projets phares</h3>
                     <div class="projects-grid">
                         <article class="card project-card">
-                            <div class="card-media" aria-hidden="true"><img src="/img/blog/photo-1620712943543-bcc4688e7485-800.webp" alt="" loading="lazy" decoding="async"></div>
+                            <div class="card-media" aria-hidden="true"><img src="/img/projets/tram/orbita.webp" width="800" height="560" alt="" loading="lazy" decoding="async"></div>
                             <div class="card-topline">
                                 <p class="offer-kicker" data-translate-key="project_type_robotics">Robotique</p>
                                 <span class="doc-state doc-state--live"><span class="bom-led"></span>PRT-ORBITA · RÉV.B · <span data-translate-key="state_published">PUBLIÉ</span></span>
@@ -329,7 +294,7 @@
                             <a class="link-underline project-case-link" href="/projets/robot-orbita/" data-translate-key="case_study_link">Lire l'étude de cas →</a>
                         </article>
                         <article class="card project-card">
-                            <div class="card-media" aria-hidden="true"><img src="/img/blog/photo-1581091226825-a6a2a5aee158-800.webp" alt="" loading="lazy" decoding="async"></div>
+                            <div class="card-media" aria-hidden="true"><img src="/img/projets/tram/aspiration.webp" width="800" height="560" alt="" loading="lazy" decoding="async"></div>
                             <div class="card-topline">
                                 <p class="offer-kicker" data-translate-key="project_type_deployment">Déploiement</p>
                                 <span class="doc-state"><span class="bom-led"></span>DTE-ASPIR · RÉV.A · <span data-translate-key="state_published">PUBLIÉ</span></span>
@@ -339,7 +304,7 @@
                             <p class="prose-dim" data-translate-key="project_2_desc">DTE détaillé, 6 templates personnalisés (.prtdot, .asmdot, .drwdot), méthodologie de reprise de données Excel</p>
                         </article>
                         <article class="card project-card">
-                            <div class="card-media" aria-hidden="true"><img src="/img/blog/photo-1531482615713-2afd69097998-800.webp" alt="" loading="lazy" decoding="async"></div>
+                            <div class="card-media" aria-hidden="true"><img src="/img/projets/tram/migration.webp" width="800" height="560" alt="" loading="lazy" decoding="async"></div>
                             <div class="card-topline">
                                 <p class="offer-kicker" data-translate-key="project_type_migration">Migration</p>
                                 <span class="doc-state"><span class="bom-led"></span>MIG-MECA · RÉV.C · <span data-translate-key="state_published">PUBLIÉ</span></span>
@@ -349,7 +314,7 @@
                             <p class="prose-dim" data-translate-key="project_3_desc">Migration complète avec upgrade serveur, reconfiguration workflows, formation utilisateurs</p>
                         </article>
                         <article class="card project-card">
-                            <div class="card-media" aria-hidden="true"><img src="/img/blog/photo-1544197150-b99a580bb7a8-800.webp" alt="" loading="lazy" decoding="async"></div>
+                            <div class="card-media" aria-hidden="true"><img src="/img/projets/tram/international.webp" width="800" height="560" alt="" loading="lazy" decoding="async"></div>
                             <div class="card-topline">
                                 <p class="offer-kicker" data-translate-key="project_type_international">International</p>
                                 <span class="doc-state doc-state--live"><span class="bom-led"></span>MIG-INTL · RÉV.C · <span data-translate-key="state_published">PUBLIÉ</span></span>
@@ -360,7 +325,7 @@
                             <a class="link-underline project-case-link" href="/projets/migration-pdm-internationale/" data-translate-key="case_study_link">Lire l'étude de cas →</a>
                         </article>
                         <article class="card project-card">
-                            <div class="card-media" aria-hidden="true"><img src="/img/home/ratp-rail-700.webp" alt="" loading="lazy" decoding="async"></div>
+                            <div class="card-media" aria-hidden="true"><img src="/img/projets/tram/ratp.webp" width="800" height="560" alt="" loading="lazy" decoding="async"></div>
                             <div class="card-topline">
                                 <p class="offer-kicker" data-translate-key="project_type_transport">Transport</p>
                                 <span class="doc-state doc-state--archived"><span class="bom-led"></span>RATP-RETRO · RÉV.A · <span data-translate-key="state_archived">ARCHIVÉ</span></span>
@@ -370,7 +335,7 @@
                             <p class="prose-dim" data-translate-key="project_5_desc">Conception mécanique, revues de design, calculs de structure Creo Simulate, intégration PLM</p>
                         </article>
                         <article class="card project-card">
-                            <div class="card-media" aria-hidden="true"><img src="/img/blog/photo-1451187580459-43490279c0fa-800.webp" alt="" loading="lazy" decoding="async"></div>
+                            <div class="card-media" aria-hidden="true"><img src="/img/projets/tram/radar.webp" width="800" height="560" alt="" loading="lazy" decoding="async"></div>
                             <div class="card-topline">
                                 <p class="offer-kicker" data-translate-key="project_type_defense">Défense</p>
                                 <span class="doc-state doc-state--archived"><span class="bom-led"></span>PRT-RADAR · RÉV.A · <span data-translate-key="state_archived">ARCHIVÉ</span></span>
@@ -664,17 +629,6 @@
             </div>
         </section>
 
-        <!-- ============================== INTERLUDE — SUR LE TERRAIN ============================== -->
-        <figure class="photo-band" role="img" aria-label="Chaîne d'assemblage robotisée en usine">
-            <img src="/img/home/atelier-1200.webp"
-                 srcset="/img/home/atelier-1200.webp 1200w, /img/home/atelier-2000.webp 2000w"
-                 sizes="100vw" alt="" loading="lazy" decoding="async">
-            <figcaption class="photo-band-caption">
-                <span data-translate-key="band_caption">SUR LE TERRAIN — 80+ SITES INDUSTRIELS ÉQUIPÉS</span>
-                <span class="photo-band-ref" aria-hidden="true">FIG.T — ATELIER · RÉV.2026</span>
-            </figcaption>
-        </figure>
-
         <!-- ============================== 05 FORMATION ============================== -->
         <section class="section section-rule" id="education">
             <span class="section-watermark" aria-hidden="true">05</span>
@@ -701,6 +655,41 @@
                     </article>
                 </div>
             </div>
+        </section>
+
+        <!-- ============================== FILM — le site en 53 secondes ============================== -->
+        <section class="reel" id="film" aria-labelledby="reel-title">
+            <div class="reel-stage">
+                <div class="reel-frame">
+                    <video class="reel-preview" muted loop playsinline preload="none" poster="/video/presentation-baouch.jpg" aria-hidden="true" tabindex="-1" data-src="/video/presentation-teaser.mp4"></video>
+                    <div class="reel-scrim" aria-hidden="true"></div>
+                    <button class="reel-play" type="button" aria-haspopup="dialog">
+                        <span class="reel-play-ring" aria-hidden="true"></span>
+                        <span class="reel-play-label" data-translate-key="reel_play">Lire le film</span>
+                    </button>
+                </div>
+                <h2 id="reel-title" class="reel-title">
+                    <span class="reel-word reel-word-l" data-translate-key="reel_word_l">Le site</span>
+                    <span class="reel-word reel-word-r"><em data-translate-key="reel_word_r">en 53 s.</em></span>
+                </h2>
+                <p class="reel-meta container-site" aria-hidden="true"><span>REEL — RÉV.2026</span><span data-translate-key="reel_meta">Son conseillé · 9 vues</span></p>
+            </div>
+            <dialog class="reel-dialog" aria-label="Film de présentation">
+                <div class="reel-player">
+                    <video class="reel-video" playsinline preload="none" poster="/video/presentation-baouch.jpg" data-src="/video/presentation-baouch.mp4"></video>
+                    <div class="reel-controls">
+                        <button class="reel-btn reel-toggle" type="button" aria-label="Pause">❚❚</button>
+                        <div class="reel-bar" role="slider" tabindex="0" aria-label="Position dans le film" aria-valuemin="0" aria-valuemax="53" aria-valuenow="0">
+                            <i class="reel-bar-fill"></i>
+                            <span class="reel-chapters"></span>
+                        </div>
+                        <span class="reel-time">00:00</span>
+                        <button class="reel-btn reel-mute" type="button" aria-label="Couper le son">SON</button>
+                        <button class="reel-btn reel-close" type="button" aria-label="Fermer">✕</button>
+                    </div>
+                    <p class="reel-chapter-now" aria-live="polite"></p>
+                </div>
+            </dialog>
         </section>
 
         <!-- ============================== 06 CONTACT ============================== -->

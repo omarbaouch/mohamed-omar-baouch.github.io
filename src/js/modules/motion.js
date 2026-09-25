@@ -363,38 +363,6 @@ function initVelocityMarquee() {
   });
 }
 
-function initCardTilt() {
-  document.querySelectorAll('.project-card, .offer-card').forEach((card) => {
-    const rx = gsap.quickTo(card, 'rotationX', { duration: 0.5, ease: 'power2.out' });
-    const ry = gsap.quickTo(card, 'rotationY', { duration: 0.5, ease: 'power2.out' });
-    card.addEventListener('mousemove', (e) => {
-      const r = card.getBoundingClientRect();
-      const px = (e.clientX - r.left) / r.width - 0.5;
-      const py = (e.clientY - r.top) / r.height - 0.5;
-      ry(px * 7);
-      rx(-py * 7);
-      gsap.to(card, { transformPerspective: 800, z: 8, duration: 0.4 });
-    });
-    card.addEventListener('mouseleave', () => {
-      rx(0);
-      ry(0);
-      gsap.to(card, { z: 0, duration: 0.6 });
-    });
-  });
-}
-
-function initScrollProgress() {
-  const bar = document.createElement('div');
-  bar.className = 'scroll-progress-bar';
-  bar.setAttribute('aria-hidden', 'true');
-  document.body.appendChild(bar);
-  gsap.to(bar, {
-    scaleX: 1,
-    ease: 'none',
-    scrollTrigger: { trigger: document.body, start: 'top top', end: 'bottom bottom', scrub: 0.3 },
-  });
-}
-
 function initMagnetic() {
   document.querySelectorAll('[data-magnetic]').forEach((el) => {
     const strength = 18;
@@ -545,8 +513,6 @@ export function initMotion() {
   initAssemblyLine();
   initCounters();
   initVelocityMarquee();
-  initCardTilt();
-  initScrollProgress();
   initMagnetic();
   initCursor();
   initPhotoParallax();

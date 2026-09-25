@@ -34,6 +34,7 @@
 @import './components/interactive.css';
 @import './components/layout.css';
 @import './components/chatbot.css';
+@import './components/transitions.css';
 
 /* Expose les tokens au moteur Tailwind (classes bg-paper, text-ink, etc.) */
 @theme inline {

@@ -1,0 +1,10 @@
+/* Transitions entre pages (toutes les pages) : la nouvelle feuille glisse
+   par-dessus l'ancienne, comme on tourne une planche. Navigateurs sans
+   View Transitions : navigation classique. */
+@view-transition { navigation: auto; }
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root) { animation: sheet-out .7s cubic-bezier(.65, 0, .35, 1) both; }
+  ::view-transition-new(root) { animation: sheet-in .7s cubic-bezier(.65, 0, .35, 1) both; }
+}
+@keyframes sheet-out { to { transform: translateX(-12%); filter: brightness(.4); } }
+@keyframes sheet-in { from { clip-path: inset(0 0 0 100%); } to { clip-path: inset(0 0 0 0); } }
