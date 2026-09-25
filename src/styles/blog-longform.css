@@ -66,7 +66,8 @@ html:not([lang='en']) [data-i18n] [data-lang='fr'] { display: revert; }
 .badge-editorial {
   border-color: transparent;
   background: var(--accent);
-  color: #fff;
+  /* fond de page en texte : contraste AA en thème clair (bleu soutenu) comme sombre (bleu pâle) */
+  color: var(--bg-0);
 }
 
 .blog-hero .hero-eyebrow {
@@ -385,6 +386,18 @@ html:not([lang='en']) [data-i18n] [data-lang='fr'] { display: revert; }
   padding: 0.75rem 0.9rem;
   border-bottom: 1px solid var(--line);
   vertical-align: top;
+}
+
+/* filet de sécurité mobile : un tableau non enveloppé dans .table-scroll ne doit
+   jamais élargir la page — il défile dans son propre cadre */
+@media (max-width: 48rem) {
+  .feature-table,
+  .article-section table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+  }
 }
 
 /* ---------- Médias / grilles ---------- */

@@ -48,12 +48,15 @@ const SLOTS = COLS * ROWS; // 296 cases par planche
 const BASE_W = 512, BASE_H = 108; // case de référence (les planches sont réduites selon l'appareil)
 const box = (g, x, y, w, h, r) => { g.beginPath(); g.roundRect(x, y, w, h, r); };
 
-function atlas(draw, R, maxAniso) {
+// rend la main au navigateur entre deux paquets de cases : pas de longue tâche au chargement
+const yieldTask = () => (globalThis.scheduler?.yield ? scheduler.yield() : new Promise((r) => setTimeout(r, 0)));
+async function atlas(draw, R, maxAniso) {
   const cw = Math.round(BASE_W * R), ch = Math.round(BASE_H * R);
   const c = document.createElement('canvas');
   c.width = COLS * cw; c.height = ROWS * ch;
   const g = c.getContext('2d');
   for (let s = 0; s < SLOTS; s++) {
+    if (s && s % 24 === 0) await yieldTask();
     g.setTransform(R, 0, 0, R, (s % COLS) * cw, Math.floor(s / COLS) * ch);
     draw(g, s);
   }
@@ -167,8 +170,8 @@ export async function createHeroScene({ canvas, atlasScale = 0.75, antialias = t
   const N = 440;          // fichiers du chaos
   const KEEP = SLOTS;     // ceux qui survivent ; les autres sont des doublons qui fusionnent
   const CARD_W = 1.1, CARD_H = CARD_W * BASE_H / BASE_W;
-  const chaosTex = atlas(drawChaos, atlasScale, maxAniso);
-  const cleanTex = atlas(drawClean, atlasScale, maxAniso);
+  const chaosTex = await atlas(drawChaos, atlasScale, maxAniso);
+  const cleanTex = await atlas(drawClean, atlasScale, maxAniso);
   const cardGeo = new THREE.PlaneGeometry(1, 1);
   const aChaos = new Float32Array(N), aClean = new Float32Array(N), aMix = new Float32Array(N), aAlpha = new Float32Array(N);
   const attr = (arr) => new THREE.InstancedBufferAttribute(arr, 1).setUsage(THREE.DynamicDrawUsage);

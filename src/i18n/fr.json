@@ -9,9 +9,9 @@
   "nav_contact": "Contact",
   "nav_blog": "Blog",
   "hero_title": "<span class=\"highlight glitch\" data-text=\"Ingénieur Plasturgie\">Ingénieur Plasturgie</span> & <br>Consultant <span class=\"glitch\" data-text=\"PDM/PLM\">PDM/PLM</span>",
-  "hero_subtitle": "Plus de <strong>80 clients industriels</strong> accompagnés — sécurisation, migration et optimisation de données techniques critiques.",
-  "hero_cta1": "Me contacter",
-  "hero_cta2": "Voir mon parcours",
+  "hero_subtitle": "De la conception mécanique aux données produit. Mon parcours de consultant PDM/PLM chez Visiativ, mes réalisations et ce que le terrain m’a appris.",
+  "hero_cta1": "Explorer mon parcours",
+  "hero_cta2": "Ouvrir le carnet technique ↗",
   "bom_hint": "Survolez un composant pour tracer sa chaîne — cliquez pour ouvrir",
   "scroll_text": "Défiler",
   "about_title": "À propos",
@@ -245,9 +245,6 @@
   "tour_5_title": "L'<em>adoption</em>",
   "tour_5_text": "Formation, documentation, transfert de compétences : ce qui fait tenir le système dans la durée.",
   "tour_outro_eyebrow": "Donnée maîtrisée — état : publié",
-  "tour_outro": "Du chaos à <em>une seule source de vérité.</em>",
-  "reel_play": "Lire le film",
-  "reel_word_l": "Le site",
-  "reel_word_r": "en 53 s.",
-  "reel_meta": "Son conseillé · 9 vues"
+  "tour_live": "temps réel",
+  "tour_outro": "Du chaos à <em>une seule source de vérité.</em>"
 }

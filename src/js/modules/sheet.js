@@ -3,12 +3,12 @@
 // consultée, la feuille et l'état — comme en bas à droite d'une mise en plan.
 // Décoratif (aria-hidden) : la navigation réelle reste celle du site.
 const VIEWS = {
-  fr: { hero: 'Introduction', structure: 'Structure', expertise: 'Expertise', about: 'À propos', experience: 'Expérience', skills: 'Nomenclature', education: 'Formation', film: 'Film', contact: 'Contact' },
-  en: { hero: 'Introduction', structure: 'Structure', expertise: 'Expertise', about: 'About', experience: 'Experience', skills: 'Bill of skills', education: 'Education', film: 'Film', contact: 'Contact' },
+  fr: { hero: 'Introduction', structure: 'Structure', expertise: 'Expertise', about: 'À propos', experience: 'Expérience', skills: 'Nomenclature', education: 'Formation', contact: 'Contact' },
+  en: { hero: 'Introduction', structure: 'Structure', expertise: 'Expertise', about: 'About', experience: 'Experience', skills: 'Bill of skills', education: 'Education', contact: 'Contact' },
 };
 const WORDS = { fr: ['Vue', 'Feuille', 'État', 'Publié'], en: ['View', 'Sheet', 'State', 'Released'] };
 // sections où la scène a déjà son propre habillage : le cartouche s'efface
-const IMMERSIVE = new Set(['hero', 'film']);
+const IMMERSIVE = new Set(['hero']);
 
 export function initSheet() {
   const lang = () => (document.documentElement.lang === 'en' ? 'en' : 'fr');
@@ -17,18 +17,18 @@ export function initSheet() {
   const idOf = (s) => s.id || 'hero';
 
   const frame = document.createElement('div');
-  frame.className = 'sheet';
+  frame.className = 'drawing-frame';
   frame.setAttribute('aria-hidden', 'true');
   const cols = Array.from({ length: 8 }, (_, i) => `<span>${i + 1}</span>`).join('');
   const rows = 'ABCDEF'.split('').map((l) => `<span>${l}</span>`).join('');
   frame.innerHTML = `
-    <div class="sheet-cols sheet-top">${cols}</div>
-    <div class="sheet-rows sheet-left">${rows}</div>
-    <div class="sheet-rows sheet-right">${rows}</div>
-    <i class="sheet-scroll"></i>`;
+    <div class="df-cols df-top">${cols}</div>
+    <div class="df-rows df-left">${rows}</div>
+    <div class="df-rows df-right">${rows}</div>
+    <i class="df-scroll"></i>`;
   // le cartouche est opaque (hors du calque en différence) : il ne se mêle pas au texte
   const block = document.createElement('div');
-  block.className = 'sheet-block is-hidden';
+  block.className = 'df-block is-hidden';
   block.setAttribute('aria-hidden', 'true');
   block.innerHTML = `
       <div class="sb-cell sb-wide"><em class="sb-k"></em><b class="sb-view"></b></div>
@@ -42,7 +42,7 @@ export function initSheet() {
   const view = block.querySelector('.sb-view');
   const sheetNo = block.querySelector('.sb-sheet');
   const state = block.querySelector('.sb-state');
-  const bar = frame.querySelector('.sheet-scroll');
+  const bar = frame.querySelector('.df-scroll');
 
   let current = null;
   const render = () => {

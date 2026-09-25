@@ -5,11 +5,11 @@
 // champs de saisie, et le focus clavier garde ses propres contours.
 import { zoneAt } from './sheet.js';
 
-const TARGETS = 'a, button, [role="button"], [role="slider"], summary, label[for], select, .reel-frame';
+const TARGETS = 'a, button, [role="button"], [role="slider"], summary, label[for], select';
 const TEXT = 'input:not([type="range"]):not([type="checkbox"]):not([type="radio"]), textarea, [contenteditable="true"]';
 const LABELS = {
-  fr: { link: 'Ouvrir', out: 'Ouvrir ↗', mail: 'Écrire', button: 'Activer', play: 'Lire le film', cv: 'Télécharger' },
-  en: { link: 'Open', out: 'Open ↗', mail: 'Write', button: 'Activate', play: 'Play film', cv: 'Download' },
+  fr: { link: 'Ouvrir', out: 'Ouvrir ↗', mail: 'Écrire', button: 'Activer', cv: 'Télécharger' },
+  en: { link: 'Open', out: 'Open ↗', mail: 'Write', button: 'Activate', cv: 'Download' },
 };
 
 export function initCursor() {
@@ -37,7 +37,6 @@ export function initCursor() {
 
   const describe = (t) => {
     const L = LABELS[lang()];
-    if (t.matches('.reel-frame, .reel-play')) return L.play;
     if (t.matches('a[href^="mailto:"]')) return L.mail;
     if (t.matches('a[download], a[href$=".pdf"]')) return L.cv;
     if (t.matches('a[target="_blank"], a[href^="http"]:not([href*="baouch.fr"])')) return L.out;

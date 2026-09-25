@@ -6,30 +6,30 @@
 /* ---------- cadre de la feuille ---------- */
 /* gris neutre, lisible sur fond clair comme sombre : pas de mode de fusion,
    qui obligerait à recomposer tout l'écran à chaque image du film */
-.sheet { position: fixed; inset: 0; z-index: 60; pointer-events: none; color: rgb(128 134 142 / .9);
+.drawing-frame { position: fixed; inset: 0; z-index: 60; pointer-events: none; color: rgb(128 134 142 / .9);
   font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: .58rem; letter-spacing: .12em; contain: strict; }
-.sheet::before { content: ''; position: absolute; inset: 10px; border: 1px solid rgb(128 134 142 / .35); }
-.sheet-cols { position: absolute; left: 10px; right: 10px; display: grid; grid-template-columns: repeat(8, 1fr); }
-.sheet-top { top: 0; height: 10px; }
-.sheet-cols span { display: grid; place-items: center; border-left: 1px solid rgb(128 134 142 / .35); opacity: .55; line-height: 1; font-size: .5rem; }
-.sheet-cols span:first-child { border-left: 0; }
-.sheet-rows { position: absolute; top: 10px; bottom: 10px; width: 10px; display: grid; grid-template-rows: repeat(6, 1fr); }
-.sheet-left { left: 0; }
-.sheet-right { right: 0; }
-.sheet-rows span { display: grid; place-items: center; border-top: 1px solid rgb(128 134 142 / .35); opacity: .55; font-size: .5rem; }
-.sheet-rows span:first-child { border-top: 0; }
-.sheet-scroll { position: absolute; right: 2px; top: 60px; width: 6px; height: 40px; background: #efa471; opacity: .85; }
-.sheet-block { position: fixed; right: 84px; bottom: 10px; z-index: 61; pointer-events: none; display: grid; grid-template-columns: 9.5rem 5.5rem 6rem;
+.drawing-frame::before { content: ''; position: absolute; inset: 10px; border: 1px solid rgb(128 134 142 / .35); }
+.df-cols { position: absolute; left: 10px; right: 10px; display: grid; grid-template-columns: repeat(8, 1fr); }
+.df-top { top: 0; height: 10px; }
+.df-cols span { display: grid; place-items: center; border-left: 1px solid rgb(128 134 142 / .35); opacity: .55; line-height: 1; font-size: .5rem; }
+.df-cols span:first-child { border-left: 0; }
+.df-rows { position: absolute; top: 10px; bottom: 10px; width: 10px; display: grid; grid-template-rows: repeat(6, 1fr); }
+.df-left { left: 0; }
+.df-right { right: 0; }
+.df-rows span { display: grid; place-items: center; border-top: 1px solid rgb(128 134 142 / .35); opacity: .55; font-size: .5rem; }
+.df-rows span:first-child { border-top: 0; }
+.df-scroll { position: absolute; right: 2px; top: 60px; width: 6px; height: 40px; background: #efa471; opacity: .85; }
+.df-block { position: fixed; right: 84px; bottom: 10px; z-index: 61; pointer-events: none; display: grid; grid-template-columns: 9.5rem 5.5rem 6rem;
   background: #080e18; color: #dfe6ee; border: 1px solid rgb(255 255 255 / .22); border-bottom: 0;
   font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: .58rem; letter-spacing: .12em;
   transition: opacity .5s, transform .6s cubic-bezier(.22, 1, .36, 1); }
-.sheet-block.is-hidden { opacity: 0; transform: translateY(12px); }
+.df-block.is-hidden { opacity: 0; transform: translateY(12px); }
 .sb-cell { padding: .35rem .55rem .4rem; border-right: 1px solid rgb(255 255 255 / .16); border-bottom: 1px solid rgb(255 255 255 / .16); min-width: 0; }
 .sb-cell:nth-child(3n) { border-right: 0; }
 .sb-cell em { display: block; font-style: normal; opacity: .55; font-size: .5rem; text-transform: uppercase; }
 .sb-cell b { display: block; font-weight: 400; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: .15rem; }
 .sb-state i { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #efa471; margin-right: .4rem; vertical-align: 1px; }
-@media (max-width: 64rem) { .sheet, .sheet-block { display: none; } }
+@media (max-width: 64rem) { .drawing-frame, .df-block { display: none; } }
 
 /* ---------- curseur de CAO ---------- */
 @media (hover: hover) and (pointer: fine) {
@@ -57,7 +57,6 @@
 .cad-cursor.is-snap .cc-dot { background: #efa471; border-color: #efa471; }
 .cad-cursor.is-down .cc-h, .cad-cursor.is-down .cc-v { scale: .6; }
 .cad-cursor.is-out > *, .cad-cursor.is-native > * { opacity: 0 !important; }
-html.reel-open .cad-cursor > * { z-index: 2147483647; }
 
 /* ---------- registre des projets ---------- */
 .cinematic .projects-grid { display: block; counter-reset: reg; margin-top: 3rem; border-top: 1px solid var(--line-strong); }

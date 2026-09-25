@@ -14,7 +14,8 @@ const workers = +arg('--workers', 4);
 const stills = arg('--stills', null);
 const here = new URL('.', import.meta.url).pathname;
 const tmp = arg('--tmp', join(here, '.frames'));
-const out = arg('--out', join(here, '..', 'public', 'video', 'presentation-baouch.mp4'));
+// hors du site : le film n'est plus intégré à la page (à publier ailleurs, réseaux, etc.)
+const out = arg('--out', join(here, 'out', 'presentation-baouch.mp4'));
 const ffmpeg = process.env.FFMPEG ?? 'ffmpeg';
 
 const browser = await chromium.launch({

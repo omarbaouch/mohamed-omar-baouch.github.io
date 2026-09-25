@@ -1,7 +1,7 @@
 # Film de présentation — baouch.fr
 
-Vidéo de 53 s (1920×1080, 30 i/s, son stéréo) : `public/video/presentation-baouch.mp4`,
-affiche `public/video/presentation-baouch.jpg`.
+Vidéo de 53 s (1920×1080, 30 i/s, son stéréo), rendue dans `video/out/presentation-baouch.mp4`
+(non versionnée) : elle n'est plus intégrée au site, elle sert aux réseaux et aux candidatures.
 
 Le film est une page HTML (`film.html`) pilotée image par image : `window.__seek(t)` pose
 l'état exact de chaque élément à l'instant t, puis `render.mjs` capture chaque image avec
@@ -30,7 +30,7 @@ node video/capture.mjs http://localhost:4174                 # → video/shots/ 
 for t in light dark; do ffmpeg -i video/shots/home-$t-full.png -vf scale=1360:-1 video/shots/home-$t-full-1360.png; done
 pip install numpy
 npx http-server -p 8090 -s -c-1 . &                          # le film charge public/ et node_modules/
-node video/render.mjs                                        # → public/video/presentation-baouch.mp4
+node video/render.mjs                                        # → video/out/presentation-baouch.mp4
 ```
 
 Prévisualiser en temps réel : `http://localhost:8090/video/film.html?play`

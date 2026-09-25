@@ -9,9 +9,9 @@
   "nav_contact": "Contact",
   "nav_blog": "Blog",
   "hero_title": "<span class=\"highlight glitch\" data-text=\"Plastics Engineer\">Plastics Engineer</span> & <br>PDM/PLM <span class=\"glitch\" data-text=\"Consultant\">Consultant</span>",
-  "hero_subtitle": "Over <strong>80 industrial clients</strong> supported — securing, migrating and optimizing critical technical data.",
-  "hero_cta1": "Contact Me",
-  "hero_cta2": "View my experience",
+  "hero_subtitle": "From mechanical design to product data. My journey as a PDM/PLM consultant at Visiativ, selected projects and lessons from the field.",
+  "hero_cta1": "Explore my experience",
+  "hero_cta2": "Open the engineering notebook ↗",
   "bom_hint": "Hover a component to trace its where-used chain — click to open",
   "scroll_text": "Scroll",
   "about_title": "About Me",
@@ -245,9 +245,6 @@
   "tour_5_title": "<em>Adoption</em>",
   "tour_5_text": "Training, documentation, knowledge transfer: what keeps the system standing over time.",
   "tour_outro_eyebrow": "Data under control — state: released",
-  "tour_outro": "From chaos to <em>a single source of truth.</em>",
-  "reel_play": "Play the film",
-  "reel_word_l": "The site",
-  "reel_word_r": "in 53 s.",
-  "reel_meta": "Sound on · 9 views"
+  "tour_live": "real time",
+  "tour_outro": "From chaos to <em>a single source of truth.</em>"
 }
