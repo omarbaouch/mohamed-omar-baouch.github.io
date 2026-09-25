@@ -1,3 +1,6 @@
 node_modules/
 .vercel
 dist/
+video/shots/
+video/.frames/
+video/.stills/

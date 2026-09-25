@@ -1,0 +1,881 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Film — ASM-BAOUCH</title>
+<!--
+  Film de présentation de baouch.fr — composition 1920×1080 pilotée image par image.
+  Rien n'est animé par le navigateur : window.__seek(t) pose l'état exact de
+  chaque élément à l'instant t, ce qui rend le rendu déterministe (voir render.mjs).
+  Ouvrir avec ?play pour le prévisualiser en temps réel.
+-->
+<style>
+@font-face { font-family: 'Instrument Sans'; src: url('/public/fonts/instrument-sans-var.woff2') format('woff2'); font-weight: 400 700; }
+@font-face { font-family: 'Instrument Serif'; src: url('/public/fonts/instrument-serif.woff2') format('woff2'); }
+@font-face { font-family: 'Instrument Serif'; font-style: italic; src: url('/public/fonts/instrument-serif-italic.woff2') format('woff2'); }
+
+:root {
+  --paper: #faf9f6; --paper-1: #f1efea; --paper-2: #e9e6df;
+  --night: #0b0d10; --night-1: #14171b; --night-2: #1e2125;
+  --ink: #141517; --ink-dim: #6e6a63;
+  --snow: #f4f3f0; --snow-dim: #9b9891;
+  --accent: #2f6e9b; --accent-l: #6fa8d6;
+  --signal: #c65a1e; --signal-l: #e89457;
+  --steel: #b9c4cf;
+  --mono: 'DejaVu Sans Mono', ui-monospace, monospace;
+  --sans: 'Instrument Sans', system-ui, sans-serif;
+  --serif: 'Instrument Serif', Georgia, serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--night); }
+body { font-family: var(--sans); color: var(--snow); -webkit-font-smoothing: antialiased; }
+#stage { position: absolute; inset: 0; overflow: hidden; }
+.scene { position: absolute; inset: 0; overflow: hidden; visibility: hidden; }
+.dark { background: var(--night); color: var(--snow); }
+.light { background: var(--paper); color: var(--ink); }
+.abs { position: absolute; }
+.mono { font-family: var(--mono); letter-spacing: .14em; text-transform: uppercase; font-size: 15px; }
+.serif { font-family: var(--serif); font-weight: 400; }
+.it { font-style: italic; }
+.mask { overflow: hidden; display: block; padding-bottom: .06em; }
+.mask > span { display: inline-block; will-change: transform; }
+.ch { display: inline-block; white-space: pre; }
+
+/* grille de mise en plan */
+.grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(var(--g2) 1px, transparent 1px), linear-gradient(90deg, var(--g2) 1px, transparent 1px),
+    linear-gradient(var(--g1) 1px, transparent 1px), linear-gradient(90deg, var(--g1) 1px, transparent 1px);
+  background-size: 240px 240px, 240px 240px, 40px 40px, 40px 40px;
+  background-position: -1px -1px;
+}
+.dark .grid { --g1: rgb(255 255 255 / .035); --g2: rgb(255 255 255 / .08); }
+.light .grid { --g1: rgb(20 21 23 / .04); --g2: rgb(20 21 23 / .085); }
+
+/* HUD : filets en différence, lisibles sur fond clair comme sombre */
+#hud { position: absolute; inset: 0; pointer-events: none; mix-blend-mode: difference; color: #fff; z-index: 50; }
+#hud .corner { position: absolute; width: 30px; height: 30px; border-color: rgb(255 255 255 / .7); border-style: solid; border-width: 0; }
+#hud .tl { left: 36px; top: 36px; border-left-width: 1.5px; border-top-width: 1.5px; }
+#hud .tr { right: 36px; top: 36px; border-right-width: 1.5px; border-top-width: 1.5px; }
+#hud .bl { left: 36px; bottom: 36px; border-left-width: 1.5px; border-bottom-width: 1.5px; }
+#hud .br { right: 36px; bottom: 36px; border-right-width: 1.5px; border-bottom-width: 1.5px; }
+#hud .mono { font-size: 13px; opacity: .8; }
+#ruler { position: absolute; left: 90px; right: 90px; bottom: 44px; height: 14px; overflow: hidden;
+  background-image: linear-gradient(90deg, rgb(255 255 255 / .55) 1px, transparent 1px), linear-gradient(90deg, rgb(255 255 255 / .3) 1px, transparent 1px);
+  background-size: 100px 14px, 20px 6px; background-repeat: repeat-x; background-position-y: 0, 8px; opacity: .5; }
+
+/* transitions : le filet orange de sélection CAO */
+.wipe-line { position: absolute; top: 0; bottom: 0; width: 3px; background: var(--signal-l); box-shadow: 0 0 24px 2px rgb(232 148 87 / .6); z-index: 40; visibility: hidden; }
+.wipe-tag { position: absolute; z-index: 41; visibility: hidden; font-family: var(--mono); font-size: 13px; letter-spacing: .14em; color: #111; background: var(--signal-l); padding: 6px 10px; }
+
+/* ---------- 1. démarrage ---------- */
+#boot .xh, #boot .xv { position: absolute; background: var(--accent-l); opacity: .55; }
+#boot .xh { left: 0; right: 0; height: 1px; }
+#boot .xv { top: 0; bottom: 0; width: 1px; }
+#boot .pick { position: absolute; width: 22px; height: 22px; border: 1.5px solid var(--accent-l); transform: translate(-50%,-50%) rotate(45deg); }
+#boot .coord { position: absolute; font-size: 12px; color: var(--accent-l); }
+#boot .panel { position: absolute; left: 560px; top: 610px; width: 800px; }
+#boot .bar { height: 2px; background: rgb(255 255 255 / .12); margin: 18px 0 26px; position: relative; }
+#boot .bar i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--signal-l); }
+#boot .log div { font-family: var(--mono); font-size: 15px; letter-spacing: .08em; color: var(--snow-dim); height: 28px; white-space: pre; }
+#boot .log b { color: var(--signal-l); font-weight: 400; }
+#boot .title { font-family: var(--mono); font-size: 20px; letter-spacing: .16em; display: flex; justify-content: space-between; }
+
+/* ---------- 2. titre ---------- */
+#title .stack { position: absolute; left: 120px; top: 150px; }
+#title .line { font-size: 172px; line-height: .9; letter-spacing: -.045em; font-weight: 500; }
+#title .line.ex { font-family: var(--serif); font-style: italic; color: var(--signal-l); font-size: 184px; letter-spacing: -.01em; font-weight: 400; }
+#title .line.pl { color: var(--steel); }
+#title .name { font-size: 40px; letter-spacing: -.01em; margin-bottom: 26px; }
+#title .kicker { color: var(--snow-dim); margin-bottom: 20px; }
+#title canvas { position: absolute; left: 1000px; top: 120px; width: 920px; height: 860px; }
+#title .uline { position: absolute; height: 4px; background: var(--signal-l); transform-origin: left; }
+#title .tag { position: absolute; color: var(--snow-dim); }
+#title .tag::before { content: ''; position: absolute; right: 100%; top: 50%; width: 120px; height: 1px; background: rgb(255 255 255 / .3); margin-right: 14px; transform-origin: right; transform: scaleX(var(--k, 0)); }
+
+/* ---------- 3. chiffres ---------- */
+#stats .kicker { position: absolute; left: 120px; top: 150px; color: var(--ink-dim); }
+#stats .h { position: absolute; left: 120px; top: 186px; font-size: 76px; letter-spacing: -.03em; font-weight: 500; }
+#stats .h em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--signal); }
+#stats .cols { position: absolute; left: 120px; right: 120px; top: 390px; display: grid; grid-template-columns: repeat(4, 1fr); }
+#stats .col { position: relative; padding: 0 0 0 28px; }
+#stats .col .sep { position: absolute; left: 0; top: 0; width: 1px; height: 330px; background: rgb(20 21 23 / .2); transform-origin: top; }
+#stats .dim { position: relative; height: 22px; margin-bottom: 18px; width: 340px; }
+#stats .dim .l { position: absolute; left: 0; right: 0; top: 10px; height: 1px; background: var(--accent); transform-origin: center; }
+#stats .dim .a, #stats .dim .b { position: absolute; top: 3px; width: 1px; height: 15px; background: var(--accent); }
+#stats .dim .a { left: 0; } #stats .dim .b { right: 0; }
+#stats .dim .v { position: absolute; left: 50%; top: -6px; transform: translateX(-50%); background: var(--paper); padding: 0 10px; font-size: 12px; color: var(--accent); }
+#stats .num { font-size: 168px; line-height: 1; letter-spacing: -.05em; font-weight: 500; font-variant-numeric: tabular-nums; }
+#stats .num em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--signal); font-size: 140px; margin-left: 4px; }
+#stats .lab { margin-top: 18px; color: var(--ink-dim); font-size: 14px; }
+#stats .sect { position: absolute; left: 120px; right: 120px; top: 820px; }
+#stats .sect .bars { display: flex; height: 38px; gap: 3px; }
+#stats .sect .bars i { display: block; height: 100%; transform-origin: left; }
+#stats .sect .legend { display: flex; margin-top: 14px; font-size: 12px; color: var(--ink-dim); }
+#stats .sect .legend span { display: block; white-space: nowrap; overflow: hidden; }
+#stats .sect .cap { margin-bottom: 14px; color: var(--ink-dim); font-size: 13px; }
+
+/* ---------- 4. le site ---------- */
+#site .kicker { position: absolute; left: 120px; top: 110px; color: var(--snow-dim); }
+#site .persp { position: absolute; inset: 0; perspective: 2200px; perspective-origin: 50% 40%; }
+#site .win { position: absolute; left: 280px; top: 170px; width: 1360px; height: 850px; border-radius: 14px; overflow: hidden;
+  background: #1a1d21; box-shadow: 0 60px 120px -30px rgb(0 0 0 / .9), 0 0 0 1px rgb(255 255 255 / .08); transform-origin: 50% 60%; }
+#site .chrome { height: 44px; display: flex; align-items: center; gap: 9px; padding: 0 18px; background: #1f2327; border-bottom: 1px solid rgb(255 255 255 / .06); }
+#site .chrome i { width: 12px; height: 12px; border-radius: 50%; background: #3a3f45; display: block; }
+#site .url { margin-left: 22px; flex: 1; max-width: 520px; height: 26px; border-radius: 7px; background: #2a2f34; font-family: var(--mono); font-size: 13px; color: var(--snow-dim); display: flex; align-items: center; padding: 0 12px; letter-spacing: .04em; }
+#site .url b { color: var(--snow); font-weight: 400; }
+#site .vp { position: absolute; left: 0; right: 0; top: 44px; bottom: 0; overflow: hidden; }
+#site .vp .lay { position: absolute; inset: 0; overflow: hidden; }
+#site .vp img { position: absolute; left: 0; top: 0; width: 1360px; display: block; }
+#site .split { position: absolute; top: 44px; bottom: 0; width: 3px; background: var(--signal-l); box-shadow: 0 0 20px rgb(232 148 87 / .7); }
+#site .chip { position: absolute; font-family: var(--mono); font-size: 13px; letter-spacing: .12em; padding: 10px 14px; border: 1px solid rgb(255 255 255 / .22); background: rgb(11 13 16 / .85); color: var(--snow); white-space: nowrap; }
+#site .chip b { color: var(--signal-l); font-weight: 400; margin-right: 8px; }
+#site .cursor { position: absolute; width: 26px; height: 26px; }
+
+/* ---------- 5. vue éclatée ---------- */
+#explode { background: var(--paper-1); }
+#explode .kicker { position: absolute; left: 120px; top: 110px; color: var(--ink-dim); }
+#explode .h { position: absolute; left: 120px; top: 144px; font-size: 64px; letter-spacing: -.03em; font-weight: 500; line-height: 1; }
+#explode .h em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--signal); }
+#explode .persp { position: absolute; left: 0; top: 0; width: 1150px; height: 1080px; perspective: 3000px; perspective-origin: 50% 30%; }
+#explode .iso { position: absolute; left: 560px; top: 600px; width: 0; height: 0; transform-style: preserve-3d; }
+#explode .layer { position: absolute; left: -380px; top: -264px; width: 760px; height: 528px; transform-style: preserve-3d;
+  background-size: cover; background-position: top center; border: 1px solid rgb(20 21 23 / .25); box-shadow: 0 0 0 1px rgb(255 255 255 / .6) inset; }
+#explode .layer .lbl { position: absolute; left: 100%; top: 0; margin-left: 26px; font-family: var(--mono); font-size: 26px; letter-spacing: .12em; color: var(--ink); white-space: nowrap; }
+#explode .layer .lbl b { color: var(--signal); font-weight: 400; }
+#explode .layer .lead { position: absolute; left: 100%; top: 14px; width: 20px; height: 1px; background: var(--ink); }
+#explode .layer .hl { position: absolute; inset: -6px; border: 3px solid var(--signal); opacity: 0; }
+#explode .axis { position: absolute; left: 0; top: 0; width: 1px; transform-origin: top; }
+#explode .bom { position: absolute; left: 1180px; top: 300px; width: 620px; border: 1px solid rgb(20 21 23 / .2); background: var(--paper); }
+#explode .bom .hd { display: flex; justify-content: space-between; padding: 14px 18px; border-bottom: 1px solid rgb(20 21 23 / .15); font-size: 12px; color: var(--ink-dim); }
+#explode .bom .hd b { color: var(--accent); font-weight: 400; }
+#explode .row { display: grid; grid-template-columns: 90px 1fr 70px 110px; align-items: center; height: 62px; padding: 0 18px; border-bottom: 1px solid rgb(20 21 23 / .1); position: relative; }
+#explode .row .r { font-family: var(--mono); font-size: 13px; color: var(--accent); letter-spacing: .08em; }
+#explode .row .d { font-size: 20px; font-weight: 500; }
+#explode .row .q { font-family: var(--mono); font-size: 13px; color: var(--ink-dim); }
+#explode .row .s { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; justify-self: end; padding: 5px 8px; border: 1px solid currentColor; color: var(--accent); }
+#explode .row .sel { position: absolute; inset: 0; background: rgb(198 90 30 / .1); border-left: 3px solid var(--signal); opacity: 0; }
+#explode .bom .ft { padding: 14px 18px; font-size: 12px; color: var(--ink-dim); display: flex; justify-content: space-between; }
+
+/* ---------- 6. projets ---------- */
+#projects .kicker { position: absolute; left: 120px; top: 110px; color: var(--snow-dim); }
+#projects .photo { position: absolute; left: 900px; top: 170px; width: 900px; height: 740px; overflow: hidden; }
+#projects .photo .p { position: absolute; inset: 0; overflow: hidden; }
+#projects .photo .p img { position: absolute; left: -5%; top: -5%; width: 110%; height: 110%; object-fit: cover; mix-blend-mode: luminosity; filter: contrast(1.15) brightness(1.05); }
+#projects .photo .p.blue { background: #2f6e9b; }
+#projects .photo .p.orange { background: #c65a1e; }
+#projects .photo .p::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgb(11 13 16 / .55)); }
+#projects .info { position: absolute; left: 120px; top: 300px; width: 720px; }
+#projects .flap { font-family: var(--mono); font-size: 64px; letter-spacing: .06em; height: 80px; display: flex; gap: 4px; }
+#projects .flap span { display: inline-block; width: 46px; text-align: center; background: var(--night-2); border-radius: 4px; line-height: 80px; position: relative; }
+#projects .flap span::after { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: rgb(0 0 0 / .6); }
+#projects .rev { margin-top: 26px; color: var(--signal-l); }
+#projects .cat { margin-top: 60px; color: var(--snow-dim); }
+#projects .ttl { margin-top: 14px; font-size: 84px; letter-spacing: -.035em; line-height: .98; font-weight: 500; }
+#projects .ttl em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--signal-l); }
+#projects .desc { margin-top: 26px; font-size: 22px; color: var(--snow-dim); line-height: 1.4; max-width: 640px; }
+#projects .stamp { position: absolute; left: 1430px; top: 760px; font-family: var(--mono); font-size: 34px; letter-spacing: .2em; padding: 14px 24px; border: 4px solid; transform-origin: center; }
+#projects .count { position: absolute; left: 120px; top: 930px; display: flex; gap: 10px; align-items: center; }
+#projects .count i { display: block; width: 60px; height: 3px; background: rgb(255 255 255 / .15); position: relative; overflow: hidden; }
+#projects .count i b { position: absolute; inset: 0; background: var(--signal-l); transform-origin: left; }
+#projects .count span { margin-left: 18px; color: var(--snow-dim); }
+
+/* ---------- 7. blog ---------- */
+#blog .kicker { position: absolute; left: 120px; top: 150px; color: var(--ink-dim); }
+#blog .big { position: absolute; left: 100px; top: 170px; font-family: var(--serif); font-size: 440px; line-height: 1; letter-spacing: -.03em; color: var(--ink); font-variant-numeric: tabular-nums; }
+#blog .sub { position: absolute; left: 124px; top: 660px; font-size: 64px; letter-spacing: -.03em; font-weight: 500; line-height: 1; }
+#blog .sub em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--signal); }
+#blog .note { position: absolute; left: 126px; top: 820px; color: var(--ink-dim); width: 560px; line-height: 1.8; }
+#blog .wall { position: absolute; left: 820px; top: -300px; width: 1300px; height: 1700px; transform: rotate(-9deg); display: flex; gap: 24px; }
+#blog .colw { width: 400px; position: relative; }
+#blog .card { background: var(--paper); border: 1px solid rgb(20 21 23 / .14); padding: 22px 24px 20px; margin-bottom: 24px; box-shadow: 0 20px 40px -26px rgb(20 21 23 / .35); }
+#blog .card .t { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; color: var(--accent); }
+#blog .card h3 { margin-top: 12px; font-size: 24px; line-height: 1.18; letter-spacing: -.015em; font-weight: 500; }
+#blog .card .im { height: 170px; margin: -22px -24px 18px; background-size: cover; background-position: center; filter: grayscale(.2) contrast(1.05); }
+#blog .card .go { margin-top: 16px; font-family: var(--mono); font-size: 11px; letter-spacing: .14em; color: var(--ink-dim); border-top: 1px solid rgb(20 21 23 / .1); padding-top: 12px; }
+#blog .fade { position: absolute; inset: 0; background: linear-gradient(90deg, var(--paper) 36%, rgb(250 249 246 / 0) 48%); }
+
+/* ---------- 8. mobile ---------- */
+#mobile .bgword { position: absolute; top: 330px; left: 0; white-space: nowrap; font-size: 400px; font-weight: 600; letter-spacing: -.05em; color: transparent; -webkit-text-stroke: 1.5px rgb(255 255 255 / .12); line-height: 1; }
+#mobile .persp { position: absolute; inset: 0; perspective: 2000px; }
+#mobile .phone { position: absolute; top: 150px; width: 380px; height: 800px; border-radius: 58px; background: #050607; padding: 14px; box-shadow: 0 0 0 2px #2c3136, 0 60px 100px -30px rgb(0 0 0 / .9); }
+#mobile .phone img { width: 100%; height: 100%; border-radius: 45px; object-fit: cover; object-position: top; display: block; }
+#mobile .phone .isl { position: absolute; left: 50%; top: 26px; width: 110px; height: 30px; margin-left: -55px; background: #000; border-radius: 20px; }
+#mobile .txt { position: absolute; left: 0; right: 0; top: 440px; text-align: center; }
+#mobile .txt .a { font-size: 30px; color: var(--snow-dim); }
+#mobile .feat { position: absolute; left: 0; right: 0; top: 980px; text-align: center; color: var(--snow-dim); }
+#mobile .feat b { color: var(--signal-l); font-weight: 400; }
+
+/* ---------- 9. final ---------- */
+#outro canvas { position: absolute; left: 260px; top: 60px; width: 1400px; height: 560px; }
+#outro .word { position: absolute; left: 0; right: 0; top: 560px; text-align: center; font-size: 230px; letter-spacing: -.055em; font-weight: 500; line-height: 1; }
+#outro .word em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--signal-l); letter-spacing: -.01em; }
+#outro .who { position: absolute; left: 0; right: 0; top: 830px; text-align: center; color: var(--snow-dim); font-size: 16px; }
+#outro .state { position: absolute; left: 50%; top: 110px; transform: translateX(-50%); color: var(--snow-dim); }
+#outro .stamp { position: absolute; left: 1420px; top: 470px; font-family: var(--mono); font-size: 26px; letter-spacing: .2em; padding: 12px 20px; border: 3px solid var(--signal-l); color: var(--signal-l); transform-origin: center; }
+#outro .cart { position: absolute; right: 90px; bottom: 90px; width: 560px; border: 1px solid rgb(255 255 255 / .3); display: grid; grid-template-columns: 1fr 1fr 1fr; font-family: var(--mono); font-size: 11px; letter-spacing: .12em; color: var(--snow-dim); }
+#outro .cart div { padding: 10px 12px; border-right: 1px solid rgb(255 255 255 / .18); border-bottom: 1px solid rgb(255 255 255 / .18); }
+#outro .cart div b { display: block; color: var(--snow); font-weight: 400; margin-top: 4px; font-size: 13px; }
+#outro .cart .w2 { grid-column: span 2; }
+#blackout { position: absolute; inset: 0; background: #000; opacity: 0; z-index: 60; pointer-events: none; }
+</style>
+<script type="importmap">
+{ "imports": { "three": "/node_modules/three/build/three.module.js", "three/addons/": "/node_modules/three/examples/jsm/" } }
+</script>
+</head>
+<body>
+<div id="stage">
+
+  <!-- 1. démarrage -->
+  <section class="scene dark" id="boot">
+    <div class="grid"></div>
+    <div class="xh"></div><div class="xv"></div><div class="pick"></div>
+    <div class="coord mono"></div>
+    <div class="panel">
+      <div class="title"><span class="t1"></span><span class="pct">000%</span></div>
+      <div class="bar"><i></i></div>
+      <div class="log"></div>
+    </div>
+  </section>
+
+  <!-- 2. titre -->
+  <section class="scene dark" id="title">
+    <div class="grid"></div>
+    <canvas width="920" height="860"></canvas>
+    <div class="stack">
+      <div class="kicker mono">Portfolio — Rév.2026 · Consultant PDM/PLM — Strasbourg</div>
+      <div class="name"></div>
+      <div class="line mask"><span>Consultant</span></div>
+      <div class="line ex mask"><span>Expert</span></div>
+      <div class="line mask so"><span>SOLIDWORKS</span></div>
+      <div class="line pl mask"><span>PDM / PLM</span></div>
+    </div>
+    <div class="uline"></div>
+    <div class="tag mono t1" style="left:1560px;top:250px">MOB — 001</div>
+    <div class="tag mono t2" style="left:1560px;top:290px">De la pièce au système</div>
+    <div class="tag mono t3" style="left:1500px;top:880px">◇ 5 composants · rév.2026</div>
+  </section>
+
+  <!-- 3. chiffres -->
+  <section class="scene light" id="stats">
+    <div class="grid"></div>
+    <div class="kicker mono">01 — En chiffres · depuis 2020</div>
+    <div class="h mask"><span>Le terrain, <em>coté</em> et mesuré.</span></div>
+    <div class="cols"></div>
+    <div class="sect">
+      <div class="cap mono">80 clients accompagnés par secteur</div>
+      <div class="bars"></div>
+      <div class="legend"></div>
+    </div>
+  </section>
+
+  <!-- 4. le site -->
+  <section class="scene dark" id="site">
+    <div class="grid"></div>
+    <div class="kicker mono">02 — Le site · baouch.fr</div>
+    <div class="persp">
+      <div class="win">
+        <div class="chrome"><i></i><i></i><i></i><div class="url">https://www.<b>baouch.fr</b>/</div></div>
+        <div class="vp">
+          <div class="lay hero"><img src="shots/home-dark-hero.png" style="width:1360px"></div>
+          <div class="lay lightp"><img class="scroll" src="shots/home-light-full-1360.png"></div>
+          <div class="lay darkp"><img class="scroll" src="shots/home-dark-full-1360.png"></div>
+        </div>
+        <div class="split"></div>
+      </div>
+    </div>
+    <div class="chip c1" style="left:70px;top:330px"><b>01</b>3D temps réel</div>
+    <div class="chip c2" style="left:1660px;top:260px"><b>02</b>FR / EN</div>
+    <div class="chip c3" style="left:1600px;top:560px"><b>03</b>Clair · Sombre</div>
+    <div class="chip c4" style="left:70px;top:760px"><b>04</b>⌘K Recherche</div>
+  </section>
+
+  <!-- 5. vue éclatée -->
+  <section class="scene light" id="explode">
+    <div class="grid"></div>
+    <div class="kicker mono">03 — Vue éclatée · ASM-BAOUCH.SLDASM</div>
+    <div class="h mask"><span>Un site pensé comme <em>une nomenclature.</em></span></div>
+    <div class="persp"><div class="iso"></div></div>
+    <div class="bom">
+      <div class="hd mono"><span>▦ EBOM — Structure produit</span><b>● État — Publié</b></div>
+      <div class="rows"></div>
+      <div class="ft mono"><span>Rév.2026 · 6 sous-ensembles</span><span>11 composants</span></div>
+    </div>
+  </section>
+
+  <!-- 6. projets -->
+  <section class="scene dark" id="projects">
+    <div class="kicker mono">04 — Projets phares · 6 dossiers</div>
+    <div class="photo"></div>
+    <div class="info">
+      <div class="flap"></div>
+      <div class="rev mono"></div>
+      <div class="cat mono"></div>
+      <div class="ttl"></div>
+      <div class="desc"></div>
+    </div>
+    <div class="stamp"></div>
+    <div class="count"></div>
+  </section>
+
+  <!-- 7. blog -->
+  <section class="scene light" id="blog">
+    <div class="wall"></div>
+    <div class="fade"></div>
+    <div class="kicker mono">05 — Le carnet technique</div>
+    <div class="big">00</div>
+    <div class="sub mask"><span>articles <em>de fond</em></span></div>
+    <div class="note mono">PDM · PLM · BOM · ERP · SOLIDWORKS<br>Tirés de 80+ missions terrain — pas de contenu générique.</div>
+  </section>
+
+  <!-- 8. mobile -->
+  <section class="scene dark" id="mobile">
+    <div class="bgword">RESPONSIVE · RESPONSIVE · RESPONSIVE ·</div>
+    <div class="persp">
+      <div class="phone p1"><img src="shots/mobile-light.png"><div class="isl"></div></div>
+      <div class="phone p2"><img src="shots/mobile-dark.png"><div class="isl"></div></div>
+    </div>
+    <div class="feat mono"><b>◇</b> Mobile · Tablette · Desktop <b>◇</b> Lighthouse · Accessibilité · SEO</div>
+  </section>
+
+  <!-- 9. final -->
+  <section class="scene dark" id="outro">
+    <div class="grid"></div>
+    <canvas width="1400" height="560"></canvas>
+    <div class="state mono">Assemblage terminé — 5 / 5 composants</div>
+    <div class="word"></div>
+    <div class="who mono">Mohamed Omar Baouch — Consultant PDM/PLM · Strasbourg</div>
+    <div class="stamp">ÉTAT — PUBLIÉ</div>
+    <div class="cart">
+      <div class="w2">Titre<b>Portfolio — baouch.fr</b></div><div>Rév.<b>2026</b></div>
+      <div>Dessiné par<b>M.O. Baouch</b></div><div>Échelle<b>1:1</b></div><div>Feuille<b>1 / 1</b></div>
+    </div>
+  </section>
+
+  <div class="wipe-line"></div>
+  <div class="wipe-tag"></div>
+
+  <div id="hud">
+    <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+    <div class="mono abs" style="left:84px;top:40px" id="hud-file">◇ ASM-BAOUCH.SLDASM</div>
+    <div class="mono abs" style="right:84px;top:40px" id="hud-tc">00:00:00</div>
+    <div class="mono abs" style="left:84px;bottom:66px" id="hud-view">Vue 01 / 09</div>
+    <div class="mono abs" style="right:84px;bottom:66px">baouch.fr</div>
+    <div id="ruler"></div>
+  </div>
+  <div id="blackout"></div>
+</div>
+
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+// ---------------------------------------------------------------- outils
+const $ = (s, r = document) => r.querySelector(s);
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const P = (t, a, b) => clamp((t - a) / (b - a));
+const lerp = (a, b, x) => a + (b - a) * x;
+const eo = (x) => 1 - Math.pow(1 - x, 4);
+const eo3 = (x) => 1 - Math.pow(1 - x, 3);
+const eio = (x) => (x < 0.5 ? 8 * x ** 4 : 1 - Math.pow(-2 * x + 2, 4) / 2);
+const expo = (x) => (x >= 1 ? 1 : 1 - Math.pow(2, -10 * x));
+const back = (x) => { const c = 1.9; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+const hash = (n) => { const s = Math.sin(n * 127.1) * 43758.5453; return s - Math.floor(s); };
+const css = (el, o) => Object.assign(el.style, o);
+function chars(el, text) {
+  el.innerHTML = '';
+  return [...text].map((c) => { const s = document.createElement('span'); s.className = 'ch'; s.textContent = c; el.append(s); return s; });
+}
+
+// ---------------------------------------------------------------- 3D : le vrai modèle du site
+const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(1);
+renderer.toneMapping = THREE.AgXToneMapping;
+renderer.toneMappingExposure = 1.25;
+const scene3 = new THREE.Scene();
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene3.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+scene3.environmentIntensity = 1.7;
+const key = new THREE.DirectionalLight(0xd8eaff, 4); key.position.set(-3, 6, 5); scene3.add(key);
+const rim = new THREE.DirectionalLight(0xffa16a, 3); rim.position.set(3, 3, -5); scene3.add(rim);
+const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 80);
+const gltf = await new GLTFLoader().loadAsync('/public/motion/precision.glb');
+const model = gltf.scene;
+model.traverse((o) => { if (/Infinite.studio.floor/.test(o.name)) o.visible = false; });
+scene3.add(model);
+const parts = ['Rear flange', 'Bearing housing', 'Copper rotor', 'Turbine wheel', 'Front locking collar']
+  .map((n) => model.getObjectByName(n.replaceAll(' ', '_')) || model.getObjectByName(n));
+
+function draw3d(canvas, { opening, spin, az, el = 0.36, dist = 13.1, look = [0, 0, 0] }) {
+  const w = canvas.width, h = canvas.height;
+  renderer.setSize(w, h, false);
+  camera.aspect = w / h; camera.updateProjectionMatrix();
+  parts.forEach((g, i) => {
+    g.position.x = (i - 2) * (0.44 + 0.84 * opening);
+    g.rotation.x = i === 3 ? spin * 0.7 : 0.12 * Math.sin(spin);
+  });
+  camera.position.set(Math.sin(az) * Math.cos(el) * dist, Math.sin(el) * dist, Math.cos(az) * Math.cos(el) * dist);
+  camera.lookAt(...look);
+  renderer.render(scene3, camera);
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, w, h);
+  ctx.drawImage(renderer.domElement, 0, 0);
+}
+
+// ---------------------------------------------------------------- scènes
+// Tempo de la bande-son : 120 BPM, chaque coupe tombe sur un temps.
+const T = 0.7; // durée d'une transition
+const scenes = [];
+const add = (id, start, end, update, label) => scenes.push({ el: document.getElementById(id), id, start, end, update, label });
+
+// 1 ─ démarrage : la mise en plan s'ouvre
+{
+  const s = $('#boot');
+  const t1 = chars($('.t1', s), 'Ouverture — ASM-BAOUCH.SLDASM');
+  const lines = [
+    ['SE-01', 'Expérience terrain', '3 composants'],
+    ['SE-02', 'Projets phares', '6 dossiers'],
+    ['SE-03', 'Compétences', '12 lignes'],
+    ['SE-04', 'Carnet technique', '23 docs'],
+    ['SE-05', 'Formation', 'INSA · UFR MIM'],
+    ['SE-06', 'Contact', 'Strasbourg'],
+  ];
+  const log = $('.log', s);
+  const rows = lines.map(([r, d, q]) => {
+    const div = document.createElement('div'); log.append(div);
+    return { div, text: `✓ ${r}  ${d.toUpperCase().padEnd(22, '.')} ${q.toUpperCase()}` };
+  });
+  const grid = $('.grid', s), xh = $('.xh', s), xv = $('.xv', s), pick = $('.pick', s), coord = $('.coord', s);
+  const panel = $('.panel', s), pct = $('.pct', s), bar = $('.bar i', s);
+  add('boot', 0, 4.5, (lt) => {
+    const r = eo(P(lt, 0, 2.4)) * 1500;
+    const m = `radial-gradient(circle at 50% 45%, #000 ${r}px, transparent ${r + 240}px)`;
+    css(grid, { maskImage: m, webkitMaskImage: m });
+    // curseur de sélection : balaie la feuille puis vient se poser au centre
+    const p = eio(P(lt, 0.1, 1.9));
+    const x = lerp(1680, 960, p) + Math.sin(p * Math.PI) * -260;
+    const y = lerp(170, 486, p) + Math.sin(p * Math.PI) * 180;
+    const vis = P(lt, 0, 0.3) * (1 - P(lt, 3.7, 4.3));
+    css(xh, { top: y + 'px', opacity: 0.5 * vis });
+    css(xv, { left: x + 'px', opacity: 0.5 * vis });
+    const pk = back(P(lt, 1.8, 2.3));
+    css(pick, { left: x + 'px', top: y + 'px', opacity: vis, transform: `translate(-50%,-50%) rotate(${45 + pk * 90}deg) scale(${0.4 + pk * 0.6})` });
+    css(coord, { left: x + 16 + 'px', top: y + 12 + 'px', opacity: vis });
+    coord.textContent = `X ${x.toFixed(2)}  Y ${(1080 - y).toFixed(2)}  Z 0.00`;
+    const n = Math.floor(P(lt, 0.4, 1.3) * t1.length);
+    t1.forEach((c, i) => (c.style.opacity = i < n ? 1 : 0));
+    const k = eio(P(lt, 0.6, 3.5));
+    bar.style.width = k * 100 + '%';
+    pct.textContent = String(Math.round(k * 100)).padStart(3, '0') + '%';
+    rows.forEach((row, i) => {
+      const q = P(lt, 1.0 + i * 0.38, 1.35 + i * 0.38);
+      row.div.textContent = row.text.slice(0, Math.floor(q * row.text.length));
+      if (q >= 1) row.div.innerHTML = row.text.replace('✓', '<b>✓</b>');
+    });
+    const out = eio(P(lt, 3.7, 4.4));
+    css(panel, { opacity: 1 - out, transform: `translateY(${-out * 40}px)` });
+  }, 'Ouverture');
+}
+
+// 2 ─ titre : le hero, ligne par ligne, avec la pièce 3D qui s'éclate
+{
+  const s = $('#title');
+  const cv = $('canvas', s);
+  const name = chars($('.name', s), 'Mohamed Omar Baouch');
+  const lines = [...s.querySelectorAll('.line > span')];
+  const kicker = $('.kicker', s), ul = $('.uline', s), so = $('.so', s);
+  const tags = [...s.querySelectorAll('.tag')];
+  add('title', 4.5, 11, (lt) => {
+    css(kicker, { opacity: P(lt, 0, 0.5) });
+    name.forEach((c, i) => {
+      const q = eo(P(lt, 0.1 + i * 0.022, 0.6 + i * 0.022));
+      css(c, { opacity: q, transform: `translateY(${(1 - q) * 30}px)` });
+    });
+    lines.forEach((l, i) => {
+      const q = expo(P(lt, 0.55 + i * 0.3, 1.35 + i * 0.3));
+      css(l, { transform: `translateY(${(1 - q) * 110}%) skewY(${(1 - q) * 6}deg)` });
+    });
+    const st = $('.stack', s);
+    css(st, { transform: `scale(${1 + lt * 0.006})`, transformOrigin: '0 50%' });
+    // soulignement orange sous SOLIDWORKS
+    const r = so.getBoundingClientRect();
+    const u = eo(P(lt, 2.2, 2.9));
+    css(ul, { left: r.left + 'px', top: r.bottom - 6 + 'px', width: r.width * 0.97 + 'px', transform: `scaleX(${u})` });
+    tags.forEach((tg, i) => {
+      const q = eo(P(lt, 1.6 + i * 0.25, 2.3 + i * 0.25));
+      css(tg, { opacity: q, '--k': q });
+    });
+    const open = 0.5 - 0.5 * Math.cos(P(lt, 0.3, 6.5) * Math.PI * 1.35);
+    const inn = eo(P(lt, 0, 1.6));
+    cv.style.opacity = inn;
+    cv.style.transform = `translateX(${(1 - inn) * 120}px)`;
+    draw3d(cv, { opening: open, spin: lt * 1.1, az: 0.2 + lt * 0.16, el: 0.4 - lt * 0.02, dist: 14.5 });
+  }, 'Titre');
+}
+
+// 3 ─ chiffres
+{
+  const s = $('#stats');
+  const data = [
+    [80, 'Clients industriels', 'Ø 80'],
+    [100, 'Migrations & mises à jour', 'L 100'],
+    [100, 'Projets livrés depuis 2020', 'L 100'],
+    [20, 'Déploiements complets', 'Ø 20'],
+  ];
+  const cols = $('.cols', s);
+  const items = data.map(([n, l, v]) => {
+    const c = document.createElement('div'); c.className = 'col';
+    c.innerHTML = `<div class="sep"></div><div class="dim"><div class="l"></div><div class="a"></div><div class="b"></div><div class="v mono">${v}</div></div>
+      <div class="num"><span>0</span><em>+</em></div><div class="lab mono">${l}</div>`;
+    cols.append(c);
+    return { c, n, num: $('.num span', c), plus: $('.num em', c), sep: $('.sep', c), dl: $('.dim .l', c), da: $('.dim .a', c), db: $('.dim .b', c), dv: $('.dim .v', c), lab: $('.lab', c) };
+  });
+  const sect = [
+    [27, 'Machines & équipements'], [25, 'BTP, agro & divers'], [10, 'Industrie & énergie'],
+    [8, 'Automatisme & robotique'], [7, 'Métallurgie'], [3, 'International'],
+  ];
+  const colors = ['#c65a1e', '#2f6e9b', '#4d86b0', '#7aa3c2', '#a7c1d4', '#141517'];
+  const bars = $('.bars', s), legend = $('.legend', s);
+  const segs = sect.map(([n, l], i) => {
+    const b = document.createElement('i'); css(b, { flex: `${n} 0 0`, background: colors[i] }); bars.append(b);
+    const g = document.createElement('span'); css(g, { flex: `${n} 0 0` }); g.textContent = `${n} · ${l}`; legend.append(g);
+    return { b, g };
+  });
+  const h = $('.h > span', s), kicker = $('.kicker', s);
+  add('stats', 11, 16, (lt) => {
+    css(kicker, { opacity: P(lt, 0, 0.4) });
+    css(h, { transform: `translateY(${(1 - expo(P(lt, 0.1, 0.9))) * 110}%)` });
+    items.forEach((it, i) => {
+      const d = 0.35 + i * 0.22;
+      const q = eo3(P(lt, d, d + 1.7));
+      it.num.textContent = String(Math.round(q * it.n));
+      css(it.num.parentElement, { opacity: P(lt, d, d + 0.2), transform: `translateY(${(1 - eo(P(lt, d, d + 0.7))) * 40}px)` });
+      it.plus.style.opacity = P(lt, d + 1.5, d + 1.8);
+      it.sep.style.transform = `scaleY(${eo(P(lt, d - 0.2, d + 0.6))})`;
+      const k = eo(P(lt, d + 0.2, d + 0.9));
+      it.dl.style.transform = `scaleX(${k})`;
+      [it.da, it.db].forEach((e) => (e.style.opacity = P(lt, d + 0.7, d + 0.9)));
+      it.dv.style.opacity = P(lt, d + 0.8, d + 1.1);
+      it.lab.style.opacity = P(lt, d + 0.6, d + 1);
+    });
+    let acc = 0;
+    segs.forEach(({ b, g }, i) => {
+      const q = eo(P(lt, 2.2 + i * 0.12, 2.9 + i * 0.12));
+      b.style.transform = `scaleX(${q})`;
+      g.style.opacity = q;
+      acc += q;
+    });
+    $('.cap', s).style.opacity = P(lt, 2.1, 2.5);
+  }, 'En chiffres');
+}
+
+// 4 ─ le site : la fenêtre, puis le défilement clair / sombre en écran partagé
+{
+  const s = $('#site');
+  const win = $('.win', s), hero = $('.hero', s), lightp = $('.lightp', s), darkp = $('.darkp', s), split = $('.split', s);
+  const imgs = [...s.querySelectorAll('img.scroll')];
+  const chips = [...s.querySelectorAll('.chip')];
+  const kicker = $('.kicker', s);
+  add('site', 16, 23.5, (lt) => {
+    css(kicker, { opacity: P(lt, 0.2, 0.6) });
+    const a = expo(P(lt, 0, 1.5));
+    const out = eio(P(lt, 6.2, 7.5));
+    css(win, {
+      transform: `translateY(${(1 - a) * 380 - out * 60}px) rotateX(${(1 - a) * 38 + out * 8}deg) rotateY(${(1 - a) * -16 + out * 22}deg) rotateZ(${(1 - a) * 4}deg) scale(${lerp(0.72, 1, a) - out * 0.12})`,
+    });
+    // le hero cède la place au défilement complet
+    const hv = 1 - P(lt, 1.7, 2.1);
+    hero.style.opacity = hv;
+    const k = eio(P(lt, 1.9, 6.4));
+    const fullH = 1360 * (12811 / 1440);
+    const y = -k * (fullH - 806 - 1900);
+    imgs.forEach((im) => (im.style.transform = `translateY(${y}px)`));
+    // frontière clair / sombre : balaie la fenêtre comme la bascule de thème
+    const sx = 1360 * (0.5 + 0.38 * Math.sin((lt - 1.9) * 1.25)) * P(lt, 1.9, 2.4) + 1360 * (1 - P(lt, 1.9, 2.4));
+    css(darkp, { clipPath: `inset(0 0 0 ${sx}px)` });
+    css(split, { left: sx - 1 + 'px', opacity: P(lt, 2.0, 2.3) });
+    lightp.style.opacity = P(lt, 1.7, 2.0);
+    darkp.style.opacity = P(lt, 1.7, 2.0);
+    chips.forEach((c, i) => {
+      const q = back(P(lt, 1.6 + i * 0.45, 2.1 + i * 0.45));
+      const o = P(lt, 1.6 + i * 0.45, 1.8 + i * 0.45) * (1 - P(lt, 6.0, 6.5));
+      css(c, { opacity: o, transform: `translateY(${Math.sin(lt * 1.5 + i) * 6}px) scale(${0.6 + 0.4 * q})` });
+    });
+  }, 'Le site');
+}
+
+// 5 ─ vue éclatée : chaque section du site devient une pièce de l'assemblage
+{
+  const s = $('#explode');
+  const iso = $('.iso', s);
+  const defs = [
+    ['contact', 'SE-06', 'Contact'],
+    ['education', 'SE-05', 'Formation'],
+    ['skills', 'SE-04', 'Compétences'],
+    ['experience', 'SE-03', 'Expérience'],
+    ['about', 'SE-02', 'À propos'],
+    ['structure', 'SE-01', 'Structure'],
+  ];
+  const layers = defs.map(([id, ref, d]) => {
+    const l = document.createElement('div'); l.className = 'layer';
+    l.style.backgroundImage = `url(shots/sec-light-${id}.png)`;
+    l.innerHTML = `<div class="lead"></div><div class="lbl"><b>${ref}</b> ${d.toUpperCase()}</div><div class="hl"></div>`;
+    iso.append(l);
+    return { l, hl: $('.hl', l), lbl: $('.lbl', l) };
+  });
+  const bomDefs = [
+    ['SE-01', 'Structure EBOM', '1', 'Publié'],
+    ['SE-02', 'À propos', '1', 'Publié'],
+    ['SE-03', 'Expérience', '3', 'Publié'],
+    ['SE-04', 'Compétences', '12', 'Publié'],
+    ['SE-05', 'Formation', '2', 'Publié'],
+    ['SE-06', 'Contact', '1', 'Publié'],
+  ];
+  const rowsEl = $('.rows', s);
+  const rows = bomDefs.map(([r, d, q, st]) => {
+    const e = document.createElement('div'); e.className = 'row';
+    e.innerHTML = `<div class="sel"></div><span class="r">${r}</span><span class="d">${d}</span><span class="q">× ${q}</span><span class="s">${st.toUpperCase()}</span>`;
+    rowsEl.append(e); return { e, sel: $('.sel', e) };
+  });
+  const bom = $('.bom', s), h = $('.h > span', s), kicker = $('.kicker', s);
+  add('explode', 23.5, 31.5, (lt) => {
+    css(kicker, { opacity: P(lt, 0.1, 0.5) });
+    css(h, { transform: `translateY(${(1 - expo(P(lt, 0.2, 1))) * 110}%)` });
+    const ex = eio(P(lt, 1.0, 3.4));
+    const rz = -40 + lt * 2.2;
+    const rx = lerp(62, 56, P(lt, 0, 8));
+    const sc = lerp(0.78, 0.7, ex);
+    iso.style.transform = `translateY(${ex * 110}px) scale(${sc}) rotateX(${rx}deg) rotateZ(${rz}deg)`;
+    const n = layers.length;
+    // l'ordre de sélection suit la nomenclature : SE-01 (haut de pile) d'abord
+    const active = Math.floor(P(lt, 3.6, 7.4) * n * 0.999);
+    const actOn = lt > 3.6 && lt < 7.6;
+    layers.forEach((L, i) => {
+      const ent = eo(P(lt, 0.1 + i * 0.1, 0.8 + i * 0.1));
+      const z = i * lerp(8, 105, ex) + (1 - ent) * 500;
+      const sel = actOn && n - 1 - i === active;
+      const lift = sel ? 26 * eo(P((lt - 3.6) % (4 / n), 0, 0.25)) : 0;
+      L.l.style.transform = `translateZ(${z + lift}px)`;
+      L.l.style.opacity = ent;
+      L.hl.style.opacity = sel ? 1 : 0;
+      L.lbl.style.opacity = P(lt, 1.8 + (n - i) * 0.1, 2.3 + (n - i) * 0.1);
+    });
+    css(bom, { opacity: P(lt, 1.0, 1.5), transform: `translateX(${(1 - eo(P(lt, 1.0, 1.9))) * 80}px)` });
+    rows.forEach((r, i) => {
+      const q = P(lt, 1.4 + i * 0.12, 1.8 + i * 0.12);
+      css(r.e, { opacity: q, transform: `translateX(${(1 - eo(q)) * 30}px)` });
+      r.sel.style.opacity = actOn && i === active ? 1 : 0;
+    });
+  }, 'Vue éclatée');
+}
+
+// 6 ─ projets : volets à palettes, photo bichrome, tampon d'état
+{
+  const s = $('#projects');
+  const P6 = [
+    ['PRT-ORBITA', 'Rév.B · Publié', 'Robotique humanoïde', 'Robot <em>ORBITA</em>', 'Assemblages de 28+ composants SOLIDWORKS, workflow PDM sur mesure, données volumineuses.', 'photo-1620712943543-bcc4688e7485-800.webp', 'blue', 'PUBLIÉ'],
+    ['DTE-ASPIR', 'Rév.A · Publié', 'Systèmes d’aspiration', 'Installation <em>complète</em>', 'DTE détaillé, 6 templates personnalisés, reprise de données Excel.', 'photo-1581091226825-a6a2a5aee158-800.webp', 'orange', 'PUBLIÉ'],
+    ['MIG-MECA', 'Rév.C · Publié', 'Mécanique industrielle', 'Migration <em>&amp; upgrade</em>', 'Upgrade serveur, reconfiguration des workflows, formation utilisateurs.', 'photo-1531482615713-2afd69097998-800.webp', 'blue', 'PUBLIÉ'],
+    ['MIG-INTL', 'Rév.C · Publié', 'Câblage mondial', 'Visiativ <em>Africa</em>', 'Migration PDM multi-sites pour un géant mondial des câbles.', 'photo-1544197150-b99a580bb7a8-800.webp', 'orange', 'PUBLIÉ'],
+    ['RATP-RETRO', 'Rév.A · Archivé', 'Solutions de mobilité', 'Retrofit <em>RATP</em>', 'Conception mécanique, calculs Creo Simulate, intégration PLM.', '../home/ratp-rail-700.webp', 'orange', 'ARCHIVÉ'],
+    ['PRT-RADAR', 'Rév.A · Archivé', 'Sécurité & défense', 'Radars <em>de défense</em>', 'Pièces usinées de précision, architecture de dossier PLM.', 'photo-1451187580459-43490279c0fa-800.webp', 'blue', 'ARCHIVÉ'],
+  ];
+  const photo = $('.photo', s);
+  const pics = P6.map((p) => {
+    const d = document.createElement('div'); d.className = 'p ' + p[6];
+    d.innerHTML = `<img src="/public/img/blog/${p[5]}">`; photo.append(d); return d;
+  });
+  const flap = $('.flap', s);
+  const W = 10;
+  const cells = Array.from({ length: W }, () => { const c = document.createElement('span'); flap.append(c); return c; });
+  const rev = $('.rev', s), cat = $('.cat', s), ttl = $('.ttl', s), desc = $('.desc', s), stamp = $('.stamp', s), kicker = $('.kicker', s);
+  const count = $('.count', s);
+  const ticks = P6.map(() => { const i = document.createElement('i'); i.innerHTML = '<b></b>'; count.append(i); return $('b', i); });
+  const idx = document.createElement('span'); idx.className = 'mono'; count.append(idx);
+  const AZ = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-';
+  const D = 0.95, S0 = 0.2;
+  add('projects', 31.5, 37.5, (lt) => {
+    css(kicker, { opacity: P(lt, 0, 0.4) });
+    const i = clamp(Math.floor((lt - S0) / D), 0, P6.length - 1);
+    const u = lt - S0 - i * D; // temps local du projet
+    const p = P6[i];
+    // palettes : chaque case tourne puis se fige, de gauche à droite
+    const code = p[0].padEnd(W, ' ');
+    cells.forEach((c, k) => {
+      const settle = 0.08 + k * 0.035;
+      if (u < settle) c.textContent = AZ[Math.floor(hash(k * 13 + Math.floor(lt * 30)) * AZ.length)];
+      else c.textContent = code[k] === ' ' ? ' ' : code[k];
+      c.style.opacity = code[k] === ' ' && u >= settle ? 0.25 : 1;
+    });
+    rev.textContent = p[1]; cat.textContent = p[2]; ttl.innerHTML = p[3]; desc.textContent = p[4];
+    const tIn = eo(P(u, 0.05, 0.45));
+    css(ttl, { opacity: tIn, transform: `translateY(${(1 - tIn) * 40}px)` });
+    css(desc, { opacity: eo(P(u, 0.15, 0.5)) });
+    css(cat, { opacity: eo(P(u, 0.0, 0.3)) });
+    css(rev, { opacity: eo(P(u, 0.35, 0.5)) });
+    // photos : la nouvelle s'ouvre par le bas, l'ancienne recule
+    pics.forEach((d, k) => {
+      if (k === i) {
+        const q = expo(P(u, 0, 0.55));
+        css(d, { visibility: 'visible', zIndex: 2, clipPath: `inset(${(1 - q) * 100}% 0 0 0)` });
+        d.firstChild.style.transform = `scale(${1.15 - 0.15 * q}) translateY(${u * -10}px)`;
+      } else if (k === i - 1) {
+        css(d, { visibility: 'visible', zIndex: 1, clipPath: 'none' });
+        d.firstChild.style.transform = `scale(${1 - 0.05 * P(u, 0, 0.5)})`;
+      } else css(d, { visibility: 'hidden' });
+    });
+    css(photo, { opacity: P(lt, 0.2, 0.5) });
+    // tampon
+    const sq = P(u, 0.5, 0.62);
+    stamp.textContent = p[7];
+    const col = p[7] === 'PUBLIÉ' ? '#e89457' : '#9b9891';
+    css(stamp, { color: col, borderColor: col, opacity: sq > 0 ? 1 : 0, transform: `rotate(-11deg) scale(${lerp(2.4, 1, eo(sq))})` });
+    ticks.forEach((b, k) => (b.style.transform = `scaleX(${k < i ? 1 : k === i ? P(u, 0, D) : 0})`));
+    idx.textContent = `${String(i + 1).padStart(2, '0')} / 06`;
+  }, 'Projets');
+}
+
+// 7 ─ blog : le mur d'articles
+{
+  const s = $('#blog');
+  const titles = [
+    ['PDM · Guide', 'SOLIDWORKS PDM : le guide complet', 'photo-1558494949-ef010cbdcc31-800.webp'],
+    ['BOM', 'eBOM vs mBOM : la différence, avec un exemple chiffré'],
+    ['Performance', 'SOLIDWORKS PDM lent : les 7 vraies causes'],
+    ['PLM', 'PDM ou PLM : les 5 signaux qui prouvent que vous avez dépassé votre coffre', 'photo-1454165804606-c3d57bc86b40-800.webp'],
+    ['Migration', 'Migration de données vers SOLIDWORKS PDM sans perdre un fichier'],
+    ['ERP', 'Connecter la BOM à l’ERP : les 4 architectures possibles', 'photo-1551288049-bebda4e38f71-800.webp'],
+    ['IA', 'IA et SOLIDWORKS PDM : ce qui change vraiment en 2026'],
+    ['Cloud', 'Passer votre PDM dans le cloud : ce qu’on ne vous dit pas', 'photo-1518770660439-4636190af475-800.webp'],
+    ['CAO', 'STEP, IGES, Parasolid, JT : quel format d’échange choisir ?'],
+    ['Glossaire', '73 termes de la donnée technique expliqués simplement'],
+    ['Données', 'Codification & propriétés : le petit chantier qui répare la BOM', 'photo-1460925895917-afdab827c52f-800.webp'],
+    ['Coûts', 'Combien coûte vraiment un projet SOLIDWORKS PDM ?'],
+    ['Matériel', 'Configuration matérielle SOLIDWORKS : le guide terrain', 'photo-1587614382346-4ec70e388b28-800.webp'],
+    ['PLM', 'PLM industriel : le guide complet'],
+    ['Méthode', 'ECO / ECR : maîtriser la gestion des modifications'],
+    ['CAO', 'SOLIDWORKS, Inventor, Fusion ou CATIA : lequel choisir ?', 'photo-1517336714731-489689fd1ca8-800.webp'],
+    ['Productivité', 'Raccourcis clavier SOLIDWORKS 2026 : gagner 1 h par jour'],
+    ['Terrain', 'Les 5 problématiques PLM vécues en bureau d’études', 'photo-1552664730-d307ca884978-800.webp'],
+  ];
+  const wall = $('.wall', s);
+  const cols = [0, 1, 2].map(() => { const c = document.createElement('div'); c.className = 'colw'; wall.append(c); return c; });
+  const build = (list, c) => list.forEach(([t, h, im]) => {
+    const d = document.createElement('div'); d.className = 'card';
+    d.innerHTML = (im ? `<div class="im" style="background-image:url(/public/img/blog/${im})"></div>` : '') + `<div class="t">${t.toUpperCase()}</div><h3>${h}</h3><div class="go">LIRE L’ARTICLE →</div>`;
+    c.append(d);
+  });
+  cols.forEach((c, k) => { const part = titles.filter((_, i) => i % 3 === k); build(part, c); build(part, c); });
+  const big = $('.big', s), sub = $('.sub > span', s), note = $('.note', s), kicker = $('.kicker', s);
+  add('blog', 37.5, 42.5, (lt) => {
+    css(kicker, { opacity: P(lt, 0, 0.4) });
+    const q = eo3(P(lt, 0.1, 1.6));
+    big.textContent = String(Math.round(q * 23)).padStart(2, '0');
+    css(big, { opacity: P(lt, 0.05, 0.3) });
+    css(sub, { transform: `translateY(${(1 - expo(P(lt, 0.9, 1.6))) * 110}%)` });
+    css(note, { opacity: P(lt, 1.5, 2) });
+    cols.forEach((c, k) => {
+      const dir = k % 2 ? 1 : -1;
+      const base = k % 2 ? -900 : -80;
+      c.style.transform = `translateY(${base + dir * (lt * 150 + 80 * eo(P(lt, 0, 1.2)))}px)`;
+    });
+  }, 'Carnet technique');
+}
+
+// 8 ─ mobile
+{
+  const s = $('#mobile');
+  const p1 = $('.p1', s), p2 = $('.p2', s), word = $('.bgword', s), feat = $('.feat', s);
+  add('mobile', 42.5, 46, (lt) => {
+    word.style.transform = `translateX(${-200 - lt * 260}px)`;
+    const a = expo(P(lt, 0.05, 1.1)), b = expo(P(lt, 0.25, 1.3));
+    css(p1, { left: '560px', transform: `translateY(${(1 - a) * 900}px) rotateY(${18 - lt * 3}deg) rotateZ(${-6 + (1 - a) * -12}deg)` });
+    css(p2, { left: '980px', transform: `translateY(${(1 - b) * 900 + 40}px) rotateY(${-18 + lt * 3}deg) rotateZ(${6 + (1 - b) * 12}deg)` });
+    css(feat, { opacity: P(lt, 0.9, 1.4) });
+  }, 'Responsive');
+}
+
+// 9 ─ final : l'assemblage se referme, le site est publié
+{
+  const s = $('#outro');
+  const cv = $('canvas', s);
+  const word = $('.word', s);
+  word.innerHTML = '<span class="a"></span><em class="b"></em>';
+  const A = chars($('.a', word), 'baouch'), B = chars($('.b', word), '.fr');
+  const who = $('.who', s), st = $('.state', s), stamp = $('.stamp', s), cart = $('.cart', s);
+  const cells = [...cart.children];
+  add('outro', 46, 53, (lt) => {
+    const close = eio(P(lt, 0.1, 2.0));
+    draw3d(cv, { opening: 1 - close, spin: 2.5 + close * 2.2, az: 1.4 - close * 0.9, el: 0.36, dist: lerp(12.5, 9.6, close) });
+    css(cv, { opacity: P(lt, 0, 0.4) * (1 - 0.15 * P(lt, 2.2, 3)) });
+    css(st, { opacity: P(lt, 1.9, 2.2) });
+    [...A, ...B].forEach((c, i) => {
+      const q = expo(P(lt, 2.0 + i * 0.05, 2.8 + i * 0.05));
+      css(c, { opacity: P(lt, 2.0 + i * 0.05, 2.2 + i * 0.05), transform: `translateY(${(1 - q) * 120}px) rotate(${(1 - q) * 8}deg)` });
+    });
+    css(who, { opacity: P(lt, 2.8, 3.3), letterSpacing: `${lerp(0.4, 0.14, eo(P(lt, 2.8, 3.8)))}em` });
+    const sq = P(lt, 3.5, 3.62);
+    css(stamp, { opacity: sq > 0 ? 1 : 0, transform: `rotate(-9deg) scale(${lerp(2.6, 1, eo(sq))})` });
+    cells.forEach((c, i) => (c.style.opacity = P(lt, 3.9 + i * 0.08, 4.1 + i * 0.08)));
+    css(cart, { borderColor: `rgb(255 255 255 / ${0.3 * P(lt, 3.8, 4.1)})` });
+  }, 'Publication');
+}
+
+const DURATION = 53;
+const hudTc = $('#hud-tc'), hudView = $('#hud-view'), ruler = $('#ruler'), blackout = $('#blackout');
+const wipe = $('.wipe-line'), wtag = $('.wipe-tag');
+
+function seek(t) {
+  let wiping = false;
+  scenes.forEach((sc, i) => {
+    const next = scenes[i + 1];
+    const inT = i === 0 ? -1 : sc.start - T / 2;
+    const outT = next ? next.start + T / 2 : DURATION + 1;
+    const on = t >= inT && t < outT;
+    sc.el.style.visibility = on ? 'visible' : 'hidden';
+    if (!on) return;
+    sc.el.style.zIndex = i;
+    // entrée : volet de droite à gauche derrière le filet orange
+    const w = i === 0 ? 1 : eio(P(t, sc.start - T / 2, sc.start + T / 2));
+    if (w < 1) {
+      sc.el.style.clipPath = `inset(0 0 0 ${(1 - w) * 100}%)`;
+      wiping = true;
+      const x = (1 - w) * 1920;
+      css(wipe, { visibility: 'visible', left: x - 1.5 + 'px' });
+      wtag.textContent = `→ VUE ${String(i + 1).padStart(2, '0')} · ${sc.label.toUpperCase()}`;
+      css(wtag, { visibility: 'visible', left: x + 14 + 'px', top: '500px' });
+    } else sc.el.style.clipPath = 'none';
+    // sortie : légère parallaxe pendant que la suivante recouvre
+    const o = next ? eio(P(t, next.start - T / 2, next.start + T / 2)) : 0;
+    sc.el.style.transform = o > 0 ? `translateX(${-o * 160}px)` : 'none';
+    sc.update(t - sc.start);
+  });
+  if (!wiping) { wipe.style.visibility = 'hidden'; wtag.style.visibility = 'hidden'; }
+  const cur = scenes.reduce((a, sc, i) => (t >= sc.start ? i : a), 0);
+  const f = Math.floor((t % 1) * 30);
+  hudTc.textContent = `T+${String(Math.floor(t / 60)).padStart(2, '0')}:${String(Math.floor(t % 60)).padStart(2, '0')}:${String(f).padStart(2, '0')}`;
+  hudView.textContent = `Vue ${String(cur + 1).padStart(2, '0')} / ${String(scenes.length).padStart(2, '0')} — ${scenes[cur].label}`;
+  ruler.style.backgroundPositionX = `${-t * 120}px, ${-t * 120}px`;
+  $('#hud').style.opacity = 1 - P(t, DURATION - 1.2, DURATION - 0.6);
+  blackout.style.opacity = P(t, DURATION - 0.9, DURATION);
+}
+
+await document.fonts.ready;
+await Promise.all([...document.images].map((im) => im.decode().catch(() => null)));
+const bgs = [...document.querySelectorAll('[style*="background-image"]')].map((e) => e.style.backgroundImage.match(/url\("?(.+?)"?\)/)?.[1]).filter(Boolean);
+await Promise.all(bgs.map((u) => new Promise((r) => { const i = new Image(); i.onload = i.onerror = r; i.src = u; })));
+window.__duration = DURATION;
+window.__seek = (t) => { seek(t); return new Promise((r) => requestAnimationFrame(() => r())); };
+seek(0);
+window.__ready = true;
+if (location.search.includes('play')) {
+  const t0 = performance.now();
+  const loop = () => { seek(((performance.now() - t0) / 1000) % DURATION); requestAnimationFrame(loop); };
+  loop();
+}
+const m = location.search.match(/t=([\d.]+)/); if (m) seek(+m[1]);
+</script>
+</body>
+</html>
