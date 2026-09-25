@@ -89,7 +89,8 @@ body { font-family: var(--sans); color: var(--snow); -webkit-font-smoothing: ant
 #title .line.pl { color: var(--steel); }
 #title .name { font-size: 40px; letter-spacing: -.01em; margin-bottom: 26px; }
 #title .kicker { color: var(--snow-dim); margin-bottom: 20px; }
-#title canvas { position: absolute; left: 1000px; top: 120px; width: 920px; height: 860px; }
+#title canvas { position: absolute; left: 1000px; top: 120px; width: 920px; height: 860px;
+  -webkit-mask-image: radial-gradient(ellipse 72% 68% at 55% 50%, #000 55%, transparent 100%); mask-image: radial-gradient(ellipse 72% 68% at 55% 50%, #000 55%, transparent 100%); }
 #title .uline { position: absolute; height: 4px; background: var(--signal-l); transform-origin: left; }
 #title .tag { position: absolute; color: var(--snow-dim); }
 #title .tag::before { content: ''; position: absolute; right: 100%; top: 50%; width: 120px; height: 1px; background: rgb(255 255 255 / .3); margin-right: 14px; transform-origin: right; transform: scaleX(var(--k, 0)); }
@@ -208,7 +209,8 @@ body { font-family: var(--sans); color: var(--snow); -webkit-font-smoothing: ant
 #mobile .feat b { color: var(--signal-l); font-weight: 400; }
 
 /* ---------- 9. final ---------- */
-#outro canvas { position: absolute; left: 260px; top: 60px; width: 1400px; height: 560px; }
+#outro canvas { position: absolute; left: 260px; top: 60px; width: 1400px; height: 560px;
+  -webkit-mask-image: radial-gradient(ellipse 60% 70% at 50% 50%, #000 50%, transparent 100%); mask-image: radial-gradient(ellipse 60% 70% at 50% 50%, #000 50%, transparent 100%); }
 #outro .word { position: absolute; left: 0; right: 0; top: 560px; text-align: center; font-size: 230px; letter-spacing: -.055em; font-weight: 500; line-height: 1; }
 #outro .word em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--signal-l); letter-spacing: -.01em; }
 #outro .who { position: absolute; left: 0; right: 0; top: 830px; text-align: center; color: var(--snow-dim); font-size: 16px; }
@@ -282,7 +284,7 @@ body { font-family: var(--sans); color: var(--snow); -webkit-font-smoothing: ant
         <div class="split"></div>
       </div>
     </div>
-    <div class="chip c1" style="left:70px;top:330px"><b>01</b>3D temps réel</div>
+    <div class="chip c1" style="left:70px;top:330px"><b>01</b>Film au défilement</div>
     <div class="chip c2" style="left:1660px;top:260px"><b>02</b>FR / EN</div>
     <div class="chip c3" style="left:1600px;top:560px"><b>03</b>Clair · Sombre</div>
     <div class="chip c4" style="left:70px;top:760px"><b>04</b>⌘K Recherche</div>
@@ -569,7 +571,7 @@ const add = (id, start, end, update, label) => scenes.push({ el: document.getEle
     const hv = 1 - P(lt, 1.7, 2.1);
     hero.style.opacity = hv;
     const k = eio(P(lt, 1.9, 6.4));
-    const fullH = 1360 * (12811 / 1440);
+    const fullH = imgs[0].naturalHeight * (1360 / imgs[0].naturalWidth);
     const y = -k * (fullH - 806 - 1900);
     imgs.forEach((im) => (im.style.transform = `translateY(${y}px)`));
     // frontière clair / sombre : balaie la fenêtre comme la bascule de thème
