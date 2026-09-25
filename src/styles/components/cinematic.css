@@ -26,28 +26,7 @@ body.cinematic { --signal:#b24e20; --accent:#285c83; }
 .cinematic .hero-stats { margin-top:2.5rem; border-top:1px solid var(--line-strong); padding-top:1.5rem; }
 .cinematic .stat-value { font-size:clamp(2.1rem,3.8vw,3.4rem); font-weight:450; }
 .cinematic .stat-label { font-size:.75rem; letter-spacing:.075em; }
-.motion-study { position:relative; overflow:hidden; min-width:0; margin:0; color:#ebeff1; background:#0b1019; isolation:isolate; }
-.motion-study--assembly { aspect-ratio:4/3; border-radius:2px; transform:translate3d(0,var(--hero-depth,0px),0); }
-.motion-study--assembly::after { content:''; position:absolute; inset:55% 0 0; background:linear-gradient(transparent,#060d17e8); pointer-events:none; }
-.motion-study--assembly .motion-caption, .motion-study--assembly .motion-toggle { z-index:1; }
-.motion-timeline { position:absolute; bottom:0; inset-inline:1.4rem; height:1px; background:#ffffff25; z-index:1; }
-.motion-timeline::after { content:''; position:absolute; inset:0; background:#efa471; transform-origin:left; transform:scaleX(var(--film-progress,0)); }
-.precision-canvas { position:absolute; inset:0; width:100%; height:100%; display:block; touch-action:pan-y; }
-/* le curseur de manipulation est posé par les contrôles 3D eux-mêmes (style
-   inline), pas ici : une règle CSS serait sans effet */
-.precision-ready video { visibility:hidden; }
-.precision-control { position:absolute; right:1.4rem; bottom:1.25rem; z-index:2; display:grid; gap:.45rem; width:min(43%,calc(100% - 12rem)); font-size:.875rem; color:#f1f3f5; }
-.precision-control[hidden] { display:none; }
-.precision-control input { width:100%; min-height:24px; accent-color:#efa471; cursor:ew-resize; }
-.precision-control input:focus-visible { outline:2px solid #efa471; outline-offset:4px; }
 .cinema-chapter-art { width:100%; height:auto; display:block; }
-.motion-study video { width:100%; height:100%; display:block; object-fit:cover; }
-.motion-study--assembly video { position:absolute; inset:0; }
-.motion-caption { position:absolute; bottom:4.6rem; inset-inline:1.4rem; display:flex; justify-content:space-between; gap:1rem; font-size:.75rem; letter-spacing:.05em; text-transform:uppercase; }
-.motion-toggle { position:absolute; left:1.4rem; bottom:1.25rem; border:1px solid #81909e; border-radius:2rem; background:#101923e8; color:#f6f4f0; padding:.6rem .9rem; font:inherit; font-size:.875rem; min-height:44px; cursor:pointer; }
-.motion-toggle:hover { background:#263749; }
-.motion-toggle:focus-visible { outline:3px solid #eba473; outline-offset:4px; }
-.motion-toggle:disabled { cursor:default; opacity:.8; }
 .cinematic .session-log, .cinematic .asm-line, .cinematic .mate-chip { display:none; }
 .cinematic .section { padding-block:clamp(4rem,8vw,8rem); }
 .cinematic .section-watermark { opacity:.025; }
@@ -66,24 +45,19 @@ body.cinematic { --signal:#b24e20; --accent:#285c83; }
 .cinema-chapter .eyebrow { color:#ca9a78; margin-bottom:2rem; }
 .cinema-chapter h2 { font-family:'Instrument Serif',Georgia,serif; font-size:clamp(2.8rem,5.8vw,6rem); line-height:1.03; font-weight:400; letter-spacing:-.035em; }
 .cinema-detail { color:#b7c1cc; font-size:1rem; line-height:1.7; max-width:42ch; margin-top:2rem; }
-.motion-study--dataflow { aspect-ratio:4/3; }
-.motion-study--dataflow video { position:absolute; inset:0; }
 .cinema-personal-note { max-width:72ch; font-size:.875rem; line-height:1.7; margin-top:2rem; color:var(--ink-dim); }
 @media (min-width:64rem) { .cinematic .project-card:nth-child(even) { margin-top:4rem; } }
 @media (max-width:64rem) {
   .cinematic .hero-inner { gap:2rem; }
   .cinematic .hero-title { font-size:clamp(2.2rem,14.1cqw,4.4rem); }
   .cinematic .offer-card + .offer-card { border-left:0; }
-  .motion-caption { font-size:.75rem; }
 }
 @media (max-width:48rem) {
   .cinematic .hero-inner { grid-template-columns:1fr; }
-  .motion-study--assembly { transform:none; margin-top:1rem; }
   .cinematic .hero-title { font-size:clamp(2.4rem,10.8vw,4.8rem); }
   .cinematic .hero-kicker { font-size:.875rem; }
   .cinematic .hero-subtitle { max-width:100%; }
   .cinematic .hero-cta { align-items:start; flex-direction:column; }
-  .motion-study--assembly { aspect-ratio:4/3; }
   .cinematic .projects-grid { grid-template-columns:1fr; }
   .cinematic .offer-card { padding:1.5rem 0; }
   .cinema-chapter { grid-template-columns:1fr; padding-top:3rem; }
