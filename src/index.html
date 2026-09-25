@@ -75,8 +75,9 @@
                     <!-- sans film (mouvement réduit), l’image fixe montre la nomenclature en rosace -->
                     <source media="(prefers-reduced-motion: reduce) and (max-aspect-ratio: 1/1)" srcset="/film/hero/mob/069.webp">
                     <source media="(prefers-reduced-motion: reduce)" srcset="/film/hero/desk/139.webp">
-                    <source media="(max-aspect-ratio: 1/1)" srcset="/film/hero/mob/000.webp">
-                    <img src="/film/hero/desk/000.webp" alt="" width="1440" height="810" fetchpriority="high" decoding="async">
+                    <!-- 1× et 2× : sur écran haute densité l'image d'attente reste nette, et c'est la première image exacte de la scène -->
+                    <source media="(max-aspect-ratio: 1/1)" srcset="/film/hero/mob/000.webp 720w, /film/hero/mob/000@2x.webp 1440w" sizes="100vw">
+                    <img src="/film/hero/desk/000.webp" srcset="/film/hero/desk/000.webp 1440w, /film/hero/desk/000@2x.webp 2880w" sizes="100vw" alt="" width="1440" height="810" fetchpriority="high" decoding="async">
                 </picture>
                 <canvas class="fh-canvas" aria-hidden="true"></canvas>
                 <div class="fh-veil" aria-hidden="true"></div>

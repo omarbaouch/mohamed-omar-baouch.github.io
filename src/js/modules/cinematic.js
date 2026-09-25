@@ -18,8 +18,23 @@ export function initCinematic() {
   // données (ou sans WebGL 2), l'image fixe et les textes à plat suffisent :
   // rien n'est chargé. Le script en ligne du hero a déjà posé .is-live.
   const filmHero=document.querySelector('.film-hero.is-live');
+  // La scène (Three.js, planches de texte, compilation des shaders) ne démarre
+  // qu'une fois l'entrée du titre jouée : construite pendant l'animation, elle
+  // occupait le processeur et le GPU et faisait saccader le titre. L'image
+  // d'attente est la première image exacte de la scène : la relève est invisible.
+  // Un défilement précoce la lance tout de suite.
   if(filmHero){
-    import('./hero-film.js').then(({initHeroFilm})=>initHeroFilm(filmHero)).catch(()=>filmHero.classList.remove('is-live'));
+    let started=false;
+    const start=()=>{
+      if(started) return; started=true;
+      removeEventListener('scroll',start);
+      import('./hero-film.js').then(({initHeroFilm})=>initHeroFilm(filmHero)).catch(()=>filmHero.classList.remove('is-live'));
+    };
+    const whenIdle=()=>('requestIdleCallback' in window ? requestIdleCallback(start,{timeout:400}) : setTimeout(start,50));
+    const last=filmHero.querySelector('.hero-cta');
+    last?.addEventListener('animationend',whenIdle,{once:true});
+    setTimeout(whenIdle,1600);
+    addEventListener('scroll',start,{passive:true,once:true});
   }
 
   const note=document.createElement('p');

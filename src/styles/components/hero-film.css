@@ -20,7 +20,13 @@
 
 .cinematic .film-hero .hero-inner { position: relative; z-index: 2; display: flex; align-items: center; min-height: 100vh; min-height: 100svh; padding-block: 7rem 5rem; }
 .cinematic .film-hero .hero-copy { width: min(44rem, 52vw); }
-.cinematic .film-hero .hero-title { font-size: clamp(3rem, 7.4vw, 8.4rem); line-height: .95; letter-spacing: -.06em; }
+/* taille bornée par la colonne (cqw) : au-delà d'environ 1700 px la colonne
+   plafonne à 44rem alors que le vw grandit encore, et « SOLIDWORKS » (≈ 6,2 em)
+   débordait de son masque — le « KS » final était coupé */
+.cinematic .film-hero .hero-title { font-size: clamp(3rem, min(7.4vw, 15.6cqw), 8.4rem); line-height: .95; letter-spacing: -.06em; }
+/* le masque de l'entrée ne coupe qu'en hauteur : une police de repli plus large
+   (avant chargement de la webfont) ne rogne plus la fin du mot */
+.film-hero .hero-title .mask-line { overflow-x: visible; overflow-y: clip; }
 .cinematic .film-hero .hero-subtitle { max-width: 40ch; }
 
 /* ---------- chapitres (texte à plat par défaut) ---------- */
@@ -100,7 +106,7 @@
   .fh-veil { background: linear-gradient(0deg, rgb(8 14 24 / .9) 0%, rgb(8 14 24 / .4) 45%, transparent 65%), radial-gradient(ellipse 140% 90% at 50% 40%, transparent 55%, rgb(4 8 14 / .7)); }
   .cinematic .film-hero .hero-inner { align-items: flex-end; padding-bottom: 6rem; }
   .cinematic .film-hero .hero-copy { width: 100%; }
-  .cinematic .film-hero .hero-title { font-size: clamp(2.6rem, 12vw, 4.4rem); }
+  .cinematic .film-hero .hero-title { font-size: clamp(2.6rem, min(12vw, 15.6cqw), 4.4rem); }
   .film-hero.is-live .fh-chapter, .film-hero.is-live .fh-steps { top: auto; bottom: 6rem; translate: none; }
   .film-hero.is-live .fh-step { top: auto; bottom: 0; translate: none; max-width: calc(100vw - 2 * var(--gutter)); }
   .film-hero.is-live .fh-step h3 { font-size: clamp(2rem, 9vw, 3rem); margin: .6rem 0; }
