@@ -12,7 +12,8 @@ const frames = +arg('--frames', variant === 'mob' ? 120 : 240);
 const workers = +arg('--workers', 3);
 const stills = arg('--stills', null);
 const here = new URL('.', import.meta.url).pathname;
-const outDir = arg('--out', join(here, '..', '..', 'public', 'film', 'hero', variant));
+// séquence complète (film de présentation) ; le site n'en garde que quelques affiches
+const outDir = arg('--out', join(here, 'frames', variant));
 
 const browser = await chromium.launch({
   executablePath: process.env.CHROME_PATH ?? '/opt/pw-browsers/chromium',

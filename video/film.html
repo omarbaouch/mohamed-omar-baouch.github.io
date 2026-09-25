@@ -387,12 +387,12 @@ function chars(el, text) {
 
 // ---------------------------------------------------------------- le film du hero, réutilisé
 // Les scènes « Titre » et « Publication » montrent les images du film du hero
-// (public/film/hero/desk) : la tempête de fichiers, puis la source unique.
-const HERO_N = (await fetch('/public/film/hero/desk/meta.json').then((r) => r.json())).frames;
+// (video/hero/frames/desk, rendu par render-hero.mjs) : la tempête, puis la source unique.
+const HERO_N = (await fetch('/video/hero/frames/desk/meta.json').then((r) => r.json())).frames;
 const heroFrames = await Promise.all(Array.from({ length: HERO_N }, (_, i) => new Promise((res) => {
   const im = new Image();
   im.onload = () => res(im); im.onerror = () => res(null);
-  im.src = `/public/film/hero/desk/${String(i).padStart(3, '0')}.webp`;
+  im.src = `/video/hero/frames/desk/${String(i).padStart(3, '0')}.webp`;
 })));
 // dessine l'image u du film dans le canvas, cadrée comme object-fit: cover autour de focusX
 function drawHero(canvas, u, focusX = 0.62) {

@@ -64,9 +64,9 @@
     {{> nav }}
 
     <main id="main">
-        <!-- ============================== HERO — le film : du chaos à la source de vérité ==============================
-             Séquence d'images rendue à l'avance (video/hero/), lue au rythme du défilement.
-             Sans JS ou en mouvement réduit : image fixe, textes à plat. -->
+        <!-- ============================== HERO — du chaos à la source de vérité ==============================
+             Scène calculée en direct (src/js/modules/hero-scene.js), pilotée par le défilement.
+             Sans JS, sans WebGL ou en mouvement réduit : image fixe, textes à plat. -->
         <section class="hero film-hero" aria-label="Introduction">
             <div class="fh-stage">
                 <picture class="fh-poster" aria-hidden="true">
@@ -154,9 +154,9 @@
             </div>
                 </div>
                 <div class="fh-hud container-site" aria-hidden="true">
-                    <span class="fh-load">ASM-BAOUCH · <b class="fh-pct">000</b>%</span>
+                    <span class="fh-load">ASM-BAOUCH · <b>temps réel</b></span>
                     <span class="fh-scroll">(<span data-translate-key="tour_hero_ref">Défilez pour ranger le chaos</span>)</span>
-                    <span class="fh-frame">IMG <b class="fh-idx">000</b></span>
+                    <span class="fh-frame"><b class="fh-idx">000</b> %</span>
                 </div>
             </div>
         </section>

@@ -36,23 +36,26 @@ node video/render.mjs                                        # → public/video/
 Prévisualiser en temps réel : `http://localhost:8090/video/film.html?play`
 (ou `?t=12.5` pour figer un instant ; `node video/render.mjs --stills 5,12.5` pour des images fixes).
 
-## Film du hero (page d'accueil) — « Du chaos à la source de vérité »
+## Hero de la page d'accueil — « Du chaos à la source de vérité »
 
-Le hero est un second film, lu **au défilement** : `video/hero/hero-film.html` compose la scène
-en Three.js et la rend image par image ; `video/hero/render-hero.mjs` écrit la séquence WebP
-dans `public/film/hero/{desk,mob}/` (240 images 1440×810, 120 images 720×1280) avec `meta.json`.
-Côté site : `src/js/modules/hero-film.js` (chargement grossier → fin, intro jouée seule, image
-pilotée par le défilement, étapes du métier en regard) et `src/styles/components/hero-film.css`.
+La scène est calculée **en direct** dans le navigateur : `src/js/modules/hero-scene.js` (Three.js,
+440 fichiers instanciés, planches de texte générées au chargement), pilotée par le défilement
+depuis `src/js/modules/hero-film.js`. Chaque pixel de défilement donne une image nouvelle, à la
+fréquence de l'écran ; la résolution baisse d'elle-même si l'appareil peine ; les shaders sont
+compilés au démarrage (aucune compilation en plein défilement) ; aucune allocation dans la boucle.
 
 Scénario : des centaines de fichiers en tourbillon, aux noms que tout bureau d'études connaît
 (`piece_finale_V3_OK`, `NE_PAS_TOUCHER`, conflits, doublons) → un balayage orange les renomme
 (PRT-0042 · RÉV.B · PUBLIÉ), les doublons fusionnent, tout se range en registre → le registre se
-replie en rosace de nomenclature → la nomenclature se condense en nuage de points, en épure,
-puis en produit. Fin : « Du chaos à une seule source de vérité », et les chiffres clés.
+replie en rosace de nomenclature → tout converge en une seule fiche, la « source unique ».
+
+Le même module sert au rendu hors ligne (`video/hero/hero-film.html` + `render-hero.mjs`) : les
+4 affiches de `public/film/hero/` (image d'attente, version sans animation) et la séquence
+complète `video/hero/frames/` (non versionnée) utilisée par le film de présentation.
 
 ```sh
 npx http-server -p 8090 -s -c-1 . &
-node video/hero/render-hero.mjs --variant desk     # ~15 min en rendu logiciel
+node video/hero/render-hero.mjs --variant desk     # séquence → video/hero/frames/desk
 node video/hero/render-hero.mjs --variant mob
 node video/hero/render-hero.mjs --stills 0,0.5,1   # images de contrôle → video/hero/.stills/
 ```
