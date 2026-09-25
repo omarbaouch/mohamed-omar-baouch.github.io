@@ -1,0 +1,55 @@
+# Rapport Google Search Console quotidien, publié sur la branche « seo-data »
+# (gsc-report.md + historique daté), lu par l'agent SEO planifié.
+# La clé du compte de service (lecture seule) est le secret GSC_SERVICE_ACCOUNT_JSON.
+name: Rapport Search Console
+
+on:
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gsc-report
+  cancel-in-progress: false
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Générer le rapport
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+        run: node scripts/gsc-report.mjs > "$RUNNER_TEMP/gsc-report.md"
+
+      - name: Publier sur la branche seo-data
+        run: |
+          set -e
+          jour=$(date -u +%F)
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin seo-data >/dev/null; then
+            git fetch --depth=1 origin seo-data
+            git switch -C seo-data FETCH_HEAD
+          else
+            git switch --orphan seo-data
+            git rm -rfq . || true
+          fi
+          find . -mindepth 1 -maxdepth 1 ! -name .git ! -name historique ! -name gsc-report.md ! -name vercel.json ! -name README.md -exec rm -rf {} +
+          # pas de déploiement Vercel pour cette branche de données
+          echo '{ "git": { "deploymentEnabled": false } }' > vercel.json
+          printf '# Données SEO\n\nBranche de données : rapport Search Console quotidien (`gsc-report.md`) et historique. Générée par .github/workflows/gsc-report.yml sur main.\n' > README.md
+          mkdir -p historique
+          cp "$RUNNER_TEMP/gsc-report.md" gsc-report.md
+          cp "$RUNNER_TEMP/gsc-report.md" "historique/$jour.md"
+          git add -A
+          git diff --cached --quiet || git commit -qm "Rapport Search Console du $jour"
+          git push origin seo-data
