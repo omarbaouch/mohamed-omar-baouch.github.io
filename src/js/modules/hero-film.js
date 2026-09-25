@@ -45,7 +45,7 @@ export async function initHeroFilm(section) {
   // ---------------------------------------------------------------- pilotage
   let intro = 0; // avancement de la tempête jouée seule (0 → U_INTRO)
   let shown = 0, lastU = -1;
-  let raf = 0, last = performance.now(), phase = '', activeStep = -2, pct = -1;
+  let raf = 0, last = performance.now(), phase = '', activeStep = -2, pct = -1, introOut = '';
   // mesure de charge : moyenne glissante du temps entre deux images dessinées
   let avg = 16.7, slow = 0;
   const t0 = performance.now();
@@ -72,7 +72,9 @@ export async function initHeroFilm(section) {
         if (++slow > 20) { dpr = Math.max(MIN_DPR, dpr - 0.25); slow = 0; avg = 16.7; hero.setSize(W, H, dpr); }
       } else slow = 0;
     }
-    section.style.setProperty('--intro-out', P(u, 0.165, 0.215).toFixed(3));
+    // variable héritée par tout le hero : ne l'écrire que si elle change
+    const io = P(u, 0.165, 0.215).toFixed(3);
+    if (io !== introOut) { introOut = io; section.style.setProperty('--intro-out', io); }
     const pc = Math.round(u * 100);
     if (pc !== pct) { pct = pc; pctEl.textContent = String(pc).padStart(3, '0'); }
     // chapitres : on ne touche au DOM que quand quelque chose change

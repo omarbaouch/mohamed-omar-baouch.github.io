@@ -1,6 +1,7 @@
-// Motion design : smooth scroll Lenis, reveals GSAP typographiques (lettres du
-// hero, mots des titres), marquee pilotée par la vélocité de scroll, tilt 3D
-// des cartes, parallax des filigranes, compteurs, magnétisme, curseur.
+// Motion design : smooth scroll Lenis, reveals GSAP typographiques (mots des
+// titres), marquee pilotée par la vélocité de scroll, parallax des filigranes,
+// compteurs, magnétisme. L'entrée du hero est en CSS (fluide même pendant le
+// chargement).
 // Ce module n'est chargé que si prefers-reduced-motion n'est pas demandé ;
 // sans lui, la page est complète et statique.
 import { gsap } from 'gsap';
@@ -30,45 +31,6 @@ function initSmoothScroll() {
       lenis.scrollTo(target, { offset: -72 });
     });
   });
-}
-
-// découpe un élément en lettres, mot par mot : chaque mot reste insécable
-// (inline-block) pour ne jamais casser en milieu de mot au retour à la ligne
-function splitChars(el) {
-  const wordify = (text) => {
-    const frag = document.createDocumentFragment();
-    text.split(/(\s+)/).forEach((part) => {
-      if (!part) return;
-      if (/^\s+$/.test(part)) {
-        frag.appendChild(document.createTextNode(' '));
-        return;
-      }
-      const word = document.createElement('span');
-      word.style.display = 'inline-block';
-      word.style.whiteSpace = 'nowrap';
-      for (const ch of part) {
-        const s = document.createElement('span');
-        s.className = 'char';
-        s.style.display = 'inline-block';
-        s.style.willChange = 'transform';
-        s.textContent = ch;
-        word.appendChild(s);
-      }
-      frag.appendChild(word);
-    });
-    return frag;
-  };
-  const walk = (node) => {
-    [...node.childNodes].forEach((child) => {
-      if (child.nodeType === Node.TEXT_NODE) {
-        node.replaceChild(wordify(child.textContent), child);
-      } else if (child.nodeType === Node.ELEMENT_NODE) {
-        walk(child);
-      }
-    });
-  };
-  walk(el);
-  return el.querySelectorAll('.char');
 }
 
 // enveloppe chaque mot dans un masque pour un reveal ligne à ligne organique
@@ -106,25 +68,6 @@ function splitWords(el) {
   };
   walk(el);
   return el.querySelectorAll('.word-inner');
-}
-
-function initHeroIntro() {
-  const title = document.querySelector('.hero-title');
-  if (title) {
-    const chars = [];
-    title.querySelectorAll('.mask-inner').forEach((line) => chars.push(...splitChars(line)));
-    gsap.from(chars, {
-      yPercent: 118,
-      rotate: () => gsap.utils.random(-8, 8),
-      duration: 0.9,
-      ease: 'power4.out',
-      stagger: { each: 0.022, from: 'start' },
-    });
-  }
-  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-  tl.from('.hero-kicker', { y: 14, autoAlpha: 0, duration: 0.7 }, 0.15)
-    .from('.hero-subtitle', { y: 20, autoAlpha: 0, duration: 0.8 }, 0.5)
-    .from('.hero-cta > *', { y: 18, autoAlpha: 0, duration: 0.7, stagger: 0.08 }, 0.65);
 }
 
 function initHeadingReveals() {
@@ -343,7 +286,13 @@ function initVelocityMarquee() {
   track.style.animation = 'none'; // la boucle passe sous contrôle GSAP
   let x = 0;
   const setSkew = gsap.quickTo(track, 'skewX', { duration: 0.4, ease: 'power2.out' });
+  // la bande ne tourne que lorsqu'elle est à l'écran
+  let onScreen = false;
+  new IntersectionObserver(([e]) => {
+    onScreen = e.isIntersecting;
+  }).observe(track);
   gsap.ticker.add(() => {
+    if (!onScreen) return;
     const vel = lenis ? lenis.velocity : 0;
     const speed = 0.045 + Math.min(0.4, Math.abs(vel) * 0.012);
     x -= speed;
@@ -356,125 +305,18 @@ function initVelocityMarquee() {
 function initMagnetic() {
   document.querySelectorAll('[data-magnetic]').forEach((el) => {
     const strength = 18;
+    // deux « quickTo » réutilisés : aucune animation créée à chaque mouvement
+    const toX = gsap.quickTo(el, 'x', { duration: 0.35, ease: 'power2.out' });
+    const toY = gsap.quickTo(el, 'y', { duration: 0.35, ease: 'power2.out' });
     el.addEventListener('mousemove', (e) => {
       const r = el.getBoundingClientRect();
-      const x = ((e.clientX - r.left) / r.width - 0.5) * strength;
-      const y = ((e.clientY - r.top) / r.height - 0.5) * strength;
-      gsap.to(el, { x, y, duration: 0.35, ease: 'power2.out' });
+      toX(((e.clientX - r.left) / r.width - 0.5) * strength);
+      toY(((e.clientY - r.top) / r.height - 0.5) * strength);
     });
     el.addEventListener('mouseleave', () => {
       gsap.to(el, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.45)' });
     });
   });
-}
-
-function initCursor() {
-  if (window.matchMedia('(hover: none)').matches) return;
-  const dot = document.createElement('div');
-  dot.className = 'cursor-dot';
-  document.body.appendChild(dot);
-  const setX = gsap.quickTo(dot, 'x', { duration: 0.18, ease: 'power2.out' });
-  const setY = gsap.quickTo(dot, 'y', { duration: 0.18, ease: 'power2.out' });
-  let visible = false;
-  window.addEventListener('mousemove', (e) => {
-    if (!visible) {
-      dot.style.opacity = '1';
-      visible = true;
-    }
-    setX(e.clientX - 4);
-    setY(e.clientY - 4);
-  });
-  const interactive = 'a, button, summary, input, textarea, [data-magnetic]';
-  document.addEventListener('mouseover', (e) => {
-    if (e.target.closest(interactive)) gsap.to(dot, { scale: 2.6, duration: 0.25 });
-  });
-  document.addEventListener('mouseout', (e) => {
-    if (e.target.closest(interactive)) gsap.to(dot, { scale: 1, duration: 0.25 });
-  });
-}
-
-// signature : les lettres du titre héro s'épaississent selon leur distance au
-// curseur (police variable Instrument Sans, axe wght) — effet « aimant de poids »
-function initVariableHeadline() {
-  const chars = document.querySelectorAll('.hero-title .char');
-  if (!chars.length) return;
-  const items = [...chars].map((el) => ({ el, cx: 0, cy: 0 }));
-  const measure = () => {
-    items.forEach((it) => {
-      const r = it.el.getBoundingClientRect();
-      it.cx = r.left + r.width / 2;
-      it.cy = r.top + r.height / 2;
-    });
-  };
-  measure();
-  window.addEventListener('resize', measure);
-  const R = 180;
-  let mx = -9999;
-  let my = -9999;
-  let dirty = false;
-  let settled = true;
-  window.addEventListener('mousemove', (e) => {
-    mx = e.clientX;
-    my = e.clientY;
-    dirty = true;
-  });
-  // ne recalcule que lorsque la souris bouge, plus une frame pour revenir au repos
-  gsap.ticker.add(() => {
-    if (!dirty && settled) return;
-    let near = false;
-    items.forEach((it) => {
-      const d = Math.hypot(mx - it.cx, my - it.cy);
-      const k = Math.max(0, 1 - d / R);
-      if (k > 0) near = true;
-      const wght = 500 + k * 400;
-      it.el.style.fontVariationSettings = `"wght" ${wght.toFixed(0)}`;
-    });
-    settled = !near;
-    dirty = false;
-  });
-}
-
-// signature : au survol d'une ligne secteur, son nombre de clients apparaît en
-// géant et suit le curseur. La visibilité est réévaluée à chaque mousemove
-// (hit-test sous le curseur) plutôt que via mouseenter/mouseleave : avec le
-// smooth scroll, le contenu défile sous un curseur immobile sans déclencher de
-// mouseleave, ce qui laissait le chiffre affiché. Le scroll le masque aussi.
-function initSectorFloat() {
-  const list = document.querySelector('.sectors-list');
-  if (!list) return;
-  const float = document.createElement('div');
-  float.className = 'hover-float';
-  float.setAttribute('aria-hidden', 'true');
-  document.body.appendChild(float);
-  const setX = gsap.quickTo(float, 'x', { duration: 0.5, ease: 'power3.out' });
-  const setY = gsap.quickTo(float, 'y', { duration: 0.5, ease: 'power3.out' });
-  let shown = false;
-  const show = (value) => {
-    float.textContent = value;
-    if (shown) return;
-    shown = true;
-    gsap.to(float, { opacity: 1, scale: 1, duration: 0.4, ease: 'power2.out' });
-  };
-  const hide = () => {
-    if (!shown) return;
-    shown = false;
-    gsap.to(float, { opacity: 0, scale: 0.6, duration: 0.3 });
-  };
-  window.addEventListener('mousemove', (e) => {
-    setX(e.clientX);
-    setY(e.clientY);
-    const row = e.target.closest?.('.sector-row');
-    if (row && list.contains(row)) {
-      show(row.querySelector('.sector-count')?.textContent.trim() || '');
-    } else {
-      hide();
-    }
-  });
-  // le défilement (souvent sans mousemove, surtout en smooth scroll) et la
-  // sortie du curseur hors de la fenêtre doivent masquer le chiffre
-  window.addEventListener('scroll', hide, { passive: true });
-  lenis?.on('scroll', hide);
-  document.addEventListener('mouseleave', hide);
 }
 
 function initPhotoParallax() {
@@ -493,19 +335,26 @@ function initPhotoParallax() {
 }
 
 export function initMotion() {
+  // le défilement doux d'abord ; le reste est installé par petits lots quand
+  // le navigateur est libre, pour ne jamais bloquer une image au chargement
   initSmoothScroll();
-  initHeroIntro();
-  initHeadingReveals();
-  initReveals();
-  initWatermarks();
-  initSkillsSheet();
-  initPhotoBand();
-  initAssemblyLine();
-  initCounters();
-  initVelocityMarquee();
-  initMagnetic();
-  initCursor();
-  initPhotoParallax();
-  initVariableHeadline();
-  initSectorFloat();
+  const tasks = [
+    initHeadingReveals,
+    initReveals,
+    initWatermarks,
+    initSkillsSheet,
+    initPhotoBand,
+    initAssemblyLine,
+    initCounters,
+    initVelocityMarquee,
+    initMagnetic,
+    initPhotoParallax,
+  ];
+  const idle = window.requestIdleCallback || ((cb) => setTimeout(() => cb({ timeRemaining: () => 8 }), 60));
+  const run = (deadline) => {
+    while (tasks.length && deadline.timeRemaining() > 4) tasks.shift()();
+    if (tasks.length) idle(run, { timeout: 400 });
+    else ScrollTrigger.refresh();
+  };
+  idle(run, { timeout: 400 });
 }

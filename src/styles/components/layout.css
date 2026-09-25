@@ -10,8 +10,9 @@
 }
 
 .site-nav.is-scrolled {
-  background: color-mix(in srgb, var(--bg-0) 88%, transparent);
-  backdrop-filter: blur(14px);
+  /* fond quasi opaque plutôt qu'un flou d'arrière-plan : un flou recalculé
+     au-dessus du film à chaque image coûte cher et fait saccader */
+  background: color-mix(in srgb, var(--bg-0) 95%, transparent);
   box-shadow: 0 1px 0 var(--line);
 }
 
@@ -1124,22 +1125,23 @@
   z-index: 1;
 }
 
-/* grain très léger : matière sur les grands aplats */
+/* grain très léger : matière sur les grands aplats. Calque fixe SANS mode de
+   fusion : fusionné, il obligeait à recomposer tout l'écran à chaque image du
+   film du hero (saccades) ; posé à plat, le GPU le compose sans le redessiner. */
 body::after {
   content: '';
   position: fixed;
-  inset: -50%;
+  inset: 0;
   z-index: 80;
   pointer-events: none;
+  contain: strict;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  opacity: 0.028;
-  mix-blend-mode: multiply;
+  opacity: 0.022;
 }
 
 :root[data-theme='dark'] body::after,
 .dark-theme body::after {
-  mix-blend-mode: screen;
-  opacity: 0.045;
+  opacity: 0.03;
 }
 
 /* liseré de progression de lecture (piloté par JS) */
@@ -1265,24 +1267,6 @@ footer.theme-invert {
 .theme-invert .btn-primary:hover {
   background: var(--accent);
   color: #0e0f11;
-}
-
-/* ---------- Chiffre géant qui suit la souris sur les lignes secteurs ---------- */
-.hover-float {
-  position: fixed;
-  z-index: 65;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  font-size: clamp(4rem, 8vw, 7rem);
-  font-weight: 650;
-  letter-spacing: -0.04em;
-  line-height: 1;
-  color: var(--accent);
-  opacity: 0;
-  transform: translate(-50%, -60%);
-  will-change: transform, opacity;
-  font-variant-numeric: tabular-nums;
 }
 
 /* ---------- Palette « recherche PDM » (Ctrl+K) ---------- */
