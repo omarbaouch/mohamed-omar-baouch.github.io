@@ -31,6 +31,7 @@
     "seo:jsonld": "node scripts/jsonld.mjs",
     "seo:og": "node scripts/og-images.mjs",
     "seo:ping": "node scripts/indexnow.mjs",
+    "seo:gsc": "node scripts/gsc-report.mjs",
     "verify:seo": "node scripts/check-seo.mjs compare dist baselines/seo-baseline.json",
     "verify:shots": "node scripts/shots.mjs",
     "verify:lh": "node scripts/lh.mjs"
