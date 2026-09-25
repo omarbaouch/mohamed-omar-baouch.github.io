@@ -163,26 +163,105 @@
             </div>
         </section>
 
-        <!-- ============================== STRUCTURE — le viewport d'assemblage PDM ============================== -->
-        <section class="bom-stage" id="structure" aria-label="Structure du portfolio, présentée comme un arbre d'assemblage PDM interactif">
+        <!-- ============================== STRUCTURE — le portfolio en une nomenclature ==============================
+             Sommaire du site rangé comme un arbre produit : racine, 5 sous-ensembles, 15 composants.
+             Tout est en HTML (liens réels) ; src/js/modules/bom-tree.js ne fait que piloter la chaîne active. -->
+        <section class="section bt" id="structure" aria-labelledby="btTitle">
             <div class="container-site">
-                <div class="bom-frame">
-                    <div class="bom-head" aria-hidden="true">
-                        <span class="bom-file"><span class="bom-glyph">◇</span> ASM-BAOUCH.SLDASM</span>
-                        <span class="bom-state"><span class="bom-led"></span> ÉTAT — PUBLIÉ</span>
-                        <span class="bom-rev">RÉV.2026 · 4 SOUS-ASM · 11 COMPOSANTS</span>
+                <div class="bt-head">
+                    <p class="eyebrow"><span class="eyebrow-num">00</span> <span data-translate-key="bt_eyebrow">Structure produit</span></p>
+                    <p class="bt-file" aria-hidden="true"><span>ASM-BAOUCH.SLDASM</span><span>RÉV.2026</span><span class="bt-state"><i></i><span data-translate-key="bt_state">Publié</span></span></p>
+                </div>
+                <div class="bt-intro">
+                    <h2 class="display-2 bt-title" id="btTitle" data-translate-key="bt_title">Tout le portfolio, <em class="serif-accent">en une nomenclature.</em></h2>
+                    <p class="prose-lead prose-dim bt-lead" data-translate-key="bt_lead">Cinq sous-ensembles, quinze composants. Chaque ligne remonte sa chaîne jusqu’à la racine et déplie ses pièces.</p>
+                </div>
+                <div class="bt-tree">
+                    <div class="bt-root" aria-hidden="true">
+                        <span class="bt-node"></span>
+                        <b>ASM-BAOUCH</b>
+                        <span data-translate-key="bt_root">Assemblage de tête · qté 1</span>
                     </div>
-                    <div class="bom-viewport">
-                        <canvas id="bomCanvas" aria-hidden="true"></canvas>
-                        <span class="bom-tick tick-tl" aria-hidden="true"></span>
-                        <span class="bom-tick tick-tr" aria-hidden="true"></span>
-                        <span class="bom-tick tick-bl" aria-hidden="true"></span>
-                        <span class="bom-tick tick-br" aria-hidden="true"></span>
-                    </div>
-                    <div class="bom-foot" aria-hidden="true">
-                        <span data-translate-key="bom_hint">Survolez un composant pour tracer sa chaîne — cliquez pour ouvrir</span>
-                        <span class="bom-foot-right">EBOM — STRUCTURE PRODUIT</span>
-                    </div>
+                    <span class="bt-trunk" aria-hidden="true"></span>
+                    <span class="bt-chain" aria-hidden="true"></span>
+                    <span class="bt-leader" aria-hidden="true"></span>
+                    <ol class="bt-list">
+                    <li class="bt-row is-active" style="--i:0">
+                        <a class="bt-link" href="#experience">
+                            <span class="bt-idx" aria-hidden="true">01</span>
+                            <span class="bt-name"><span data-translate-key="bt_1">Parcours</span></span>
+                            <span class="bt-meta" aria-hidden="true"><b>ASM-01</b><span data-translate-key="bt_1_meta">2020 → aujourd’hui</span></span>
+                        </a>
+                        <div class="bt-kids">
+                            <p class="bt-kids-head" aria-hidden="true"><span>ASM-01</span><span>× 3</span></p>
+                            <ul>
+                            <li style="--j:0"><a href="#experience"><span class="bt-kref" aria-hidden="true">PRT-01.1</span><span class="bt-kname">Visiativ</span><span class="bt-ksub" data-translate-key="bt_1_1">Consultant PDM/PLM · 2023 —</span></a></li>
+                            <li style="--j:1"><a href="#experience"><span class="bt-kref" aria-hidden="true">PRT-01.2</span><span class="bt-kname">ABMI Group</span><span class="bt-ksub" data-translate-key="bt_1_2">Ingénieur concepteur · 2021 — 23</span></a></li>
+                            <li style="--j:2"><a href="#experience"><span class="bt-kref" aria-hidden="true">PRT-01.3</span><span class="bt-kname">Evolum</span><span class="bt-ksub" data-translate-key="bt_1_3">Conception & chiffrage · 2020</span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bt-row" style="--i:1">
+                        <a class="bt-link" href="#expertise">
+                            <span class="bt-idx" aria-hidden="true">02</span>
+                            <span class="bt-name"><span data-translate-key="bt_2">Projets</span></span>
+                            <span class="bt-meta" aria-hidden="true"><b>ASM-02</b><span data-translate-key="bt_2_meta">Études de cas</span></span>
+                        </a>
+                        <div class="bt-kids">
+                            <p class="bt-kids-head" aria-hidden="true"><span>ASM-02</span><span>× 3</span></p>
+                            <ul>
+                            <li style="--j:0"><a href="/projets/robot-orbita/"><span class="bt-kref" aria-hidden="true">PRT-02.1</span><span class="bt-kname">Robot ORBITA</span><span class="bt-ksub" data-translate-key="bt_2_1">Robotique humanoïde · étude de cas</span></a></li>
+                            <li style="--j:1"><a href="/projets/migration-pdm-internationale/"><span class="bt-kref" aria-hidden="true">PRT-02.2</span><span class="bt-kname">Migration PDM internationale</span><span class="bt-ksub" data-translate-key="bt_2_2">Câblage mondial · étude de cas</span></a></li>
+                            <li style="--j:2"><a href="#expertise"><span class="bt-kref" aria-hidden="true">PRT-02.3</span><span class="bt-kname">Mécanique industrielle</span><span class="bt-ksub" data-translate-key="bt_2_3">Migration & mise à niveau</span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bt-row" style="--i:2">
+                        <a class="bt-link" href="#skills">
+                            <span class="bt-idx" aria-hidden="true">03</span>
+                            <span class="bt-name"><span data-translate-key="bt_3">Compétences</span></span>
+                            <span class="bt-meta" aria-hidden="true"><b>ASM-03</b><span data-translate-key="bt_3_meta">12 lignes cotées</span></span>
+                        </a>
+                        <div class="bt-kids">
+                            <p class="bt-kids-head" aria-hidden="true"><span>ASM-03</span><span>× 3</span></p>
+                            <ul>
+                            <li style="--j:0"><a href="#skills"><span class="bt-kref" aria-hidden="true">PRT-03.1</span><span class="bt-kname" data-translate-key="bt_3_1">Infrastructure PDM</span></a></li>
+                            <li style="--j:1"><a href="#skills"><span class="bt-kref" aria-hidden="true">PRT-03.2</span><span class="bt-kname" data-translate-key="bt_3_2">Migrations & données</span></a></li>
+                            <li style="--j:2"><a href="#skills"><span class="bt-kref" aria-hidden="true">PRT-03.3</span><span class="bt-kname" data-translate-key="bt_3_3">Formation & accompagnement</span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bt-row" style="--i:3">
+                        <a class="bt-link" href="#education">
+                            <span class="bt-idx" aria-hidden="true">04</span>
+                            <span class="bt-name"><span data-translate-key="bt_4">Formation</span></span>
+                            <span class="bt-meta" aria-hidden="true"><b>ASM-04</b><span data-translate-key="bt_4_meta">Génie mécanique</span></span>
+                        </a>
+                        <div class="bt-kids">
+                            <p class="bt-kids-head" aria-hidden="true"><span>ASM-04</span><span>× 3</span></p>
+                            <ul>
+                            <li style="--j:0"><a href="#education"><span class="bt-kref" aria-hidden="true">PRT-04.1</span><span class="bt-kname" data-translate-key="bt_4_1">Master génie mécanique</span></a></li>
+                            <li style="--j:1"><a href="#education"><span class="bt-kref" aria-hidden="true">PRT-04.2</span><span class="bt-kname" data-translate-key="bt_4_2">Bachelor plasturgie</span></a></li>
+                            <li style="--j:2"><a href="#education"><span class="bt-kref" aria-hidden="true">PRT-04.3</span><span class="bt-kname" data-translate-key="bt_4_3">Classes préparatoires</span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bt-row" style="--i:4">
+                        <a class="bt-link" href="/blog/">
+                            <span class="bt-idx" aria-hidden="true">05</span>
+                            <span class="bt-name"><span data-translate-key="bt_5">Carnet technique</span></span>
+                            <span class="bt-meta" aria-hidden="true"><b>ASM-05</b><span data-translate-key="bt_5_meta">23 documents</span></span>
+                        </a>
+                        <div class="bt-kids">
+                            <p class="bt-kids-head" aria-hidden="true"><span>ASM-05</span><span>× 3</span></p>
+                            <ul>
+                            <li style="--j:0"><a href="/blog/plm-guide-complet/"><span class="bt-kref" aria-hidden="true">PRT-05.1</span><span class="bt-kname" data-translate-key="bt_5_1">Le PLM, guide complet</span></a></li>
+                            <li style="--j:1"><a href="/blog/nomenclature-bom-pdm-plm-erp/"><span class="bt-kref" aria-hidden="true">PRT-05.2</span><span class="bt-kname" data-translate-key="bt_5_2">Nomenclature : du PDM à l’ERP</span></a></li>
+                            <li style="--j:2"><a href="/blog/solidworks-pdm-guide-complet/"><span class="bt-kref" aria-hidden="true">PRT-05.3</span><span class="bt-kname" data-translate-key="bt_5_3">SOLIDWORKS PDM, le guide</span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    </ol>
                 </div>
             </div>
         </section>

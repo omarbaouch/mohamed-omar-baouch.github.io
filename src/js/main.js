@@ -4,6 +4,7 @@ import '../styles/main.css';
 import '../styles/components/cinematic.css';
 import '../styles/components/hero-film.css';
 import '../styles/components/signature.css';
+import '../styles/components/bom-tree.css';
 import { initCinematic } from './modules/cinematic.js';
 import { initI18n } from './core/i18n.js';
 import { initTheme } from './core/theme.js';
@@ -53,8 +54,8 @@ setInterval(tickClock, 30000);
 import('./modules/chatbot.js').then(({ initChatbot }) => initChatbot());
 import('./modules/contact-form.js').then(({ initContactForm }) => initContactForm());
 
-// signature du hero : l'arbre d'assemblage PDM vivant — chargé après le
-// premier idle (il gère lui-même le rendu statique en reduced-motion)
+// structure du portfolio en nomenclature : le contenu est dans le HTML, le
+// module (chargé après le premier idle) ne pilote que la chaîne active
 const loadTree = () => import('./modules/bom-tree.js').then(({ initBomTree }) => initBomTree());
 if ('requestIdleCallback' in window) {
   requestIdleCallback(loadTree, { timeout: 2500 });
