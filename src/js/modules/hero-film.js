@@ -162,16 +162,19 @@ export async function initHeroFilm(section) {
   // ---------------------------------------------------------------- pilotage
   let intro = 0; // avancement de l'intro jouée seule (0 → U_INTRO)
   let shown = 0; // image affichée (lissée)
-  let raf = 0;
+  let raf = 0, last = performance.now();
   const progress = () => {
     const r = section.getBoundingClientRect();
     return P(-r.top, 0, r.height - innerHeight);
   };
-  const loop = () => {
+  const loop = (now = performance.now()) => {
+    const dt = Math.min(0.1, (now - last) / 1000);
+    last = now;
     const p = progress();
     const u = p > 0 ? Math.max(intro, U_INTRO + p * (1 - U_INTRO)) : intro;
     const target = u * (N - 1);
-    shown += (target - shown) * 0.22;
+    // lissage indépendant de la fréquence d'affichage (même rendu à 60 ou 120 Hz)
+    shown += (target - shown) * (1 - Math.exp(-dt * 14));
     if (Math.abs(target - shown) < 0.05) shown = target;
     draw(shown);
     const uu = shown / (N - 1);
@@ -203,7 +206,7 @@ export async function initHeroFilm(section) {
 
   // ne tourne que lorsque le hero est à l'écran
   new IntersectionObserver(([e]) => {
-    if (e.isIntersecting && !raf) raf = requestAnimationFrame(loop);
+    if (e.isIntersecting && !raf) { last = performance.now(); raf = requestAnimationFrame(loop); }
     if (!e.isIntersecting && raf) { cancelAnimationFrame(raf); raf = 0; }
   }).observe(section);
 }
