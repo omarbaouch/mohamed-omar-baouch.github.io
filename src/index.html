@@ -64,17 +64,17 @@
     {{> nav }}
 
     <main id="main">
-        <!-- ============================== HERO — le film : du plan à la pièce, et retour au plan ==============================
+        <!-- ============================== HERO — le film : du chaos à la source de vérité ==============================
              Séquence d'images rendue à l'avance (video/hero/), lue au rythme du défilement.
              Sans JS ou en mouvement réduit : image fixe, textes à plat. -->
         <section class="hero film-hero" aria-label="Introduction">
             <div class="fh-stage">
                 <picture class="fh-poster" aria-hidden="true">
-                    <!-- sans film (mouvement réduit), l'image fixe montre la pièce révélée -->
-                    <source media="(prefers-reduced-motion: reduce) and (max-aspect-ratio: 1/1)" srcset="/film/hero/mob/018.webp">
-                    <source media="(prefers-reduced-motion: reduce)" srcset="/film/hero/desk/036.webp">
+                    <!-- sans film (mouvement réduit), l’image fixe montre la nomenclature en rosace -->
+                    <source media="(prefers-reduced-motion: reduce) and (max-aspect-ratio: 1/1)" srcset="/film/hero/mob/069.webp">
+                    <source media="(prefers-reduced-motion: reduce)" srcset="/film/hero/desk/139.webp">
                     <source media="(max-aspect-ratio: 1/1)" srcset="/film/hero/mob/000.webp">
-                    <img src="/film/hero/desk/000.webp" alt="" width="1600" height="900" fetchpriority="high" decoding="async">
+                    <img src="/film/hero/desk/000.webp" alt="" width="1440" height="810" fetchpriority="high" decoding="async">
                 </picture>
                 <canvas class="fh-canvas" aria-hidden="true"></canvas>
                 <div class="fh-veil" aria-hidden="true"></div>
@@ -101,41 +101,40 @@
                     </div>
                 </div>
                 <div class="fh-chapter container-site">
-                    <p class="eyebrow fh-eyebrow"><span class="fh-dot" aria-hidden="true"></span> <span data-translate-key="tour_eyebrow">Vue éclatée — MOB-001 · 5 composants</span></p>
-                    <h2 class="fh-title" data-translate-key="tour_title">De la pièce <em>au système.</em></h2>
+                    <p class="eyebrow fh-eyebrow"><span class="fh-dot" aria-hidden="true"></span> <span data-translate-key="tour_eyebrow">Le problème — un bureau d'études sans PDM</span></p>
+                    <h2 class="fh-title" data-translate-key="tour_title">Des milliers de fichiers. <em>Trois versions de la vérité.</em></h2>
                 </div>
                 <ol class="fh-steps container-site">
                     <li class="fh-step">
-                        <span class="fh-ref">PRT-001 · <span data-translate-key="tour_1_part">Bride arrière</span></span>
+                        <span class="fh-ref">Étape 01 · <span data-translate-key="tour_1_part">Codification</span></span>
                         <h3 data-translate-key="tour_1_title">Les fondations <em>CAO</em></h3>
                         <p data-translate-key="tour_1_text">Templates, propriétés et codification : la base SOLIDWORKS sur laquelle tout le reste repose.</p>
                     </li>
                     <li class="fh-step">
-                        <span class="fh-ref">PRT-002 · <span data-translate-key="tour_2_part">Palier</span></span>
+                        <span class="fh-ref">Étape 02 · <span data-translate-key="tour_2_part">Coffre-fort</span></span>
                         <h3 data-translate-key="tour_2_title">Le coffre <em>PDM</em></h3>
                         <p data-translate-key="tour_2_text">Architecture SOLIDWORKS PDM, droits, SQL Server, réplication multisites : le carter qui protège la donnée.</p>
                     </li>
                     <li class="fh-step">
-                        <span class="fh-ref">PRT-003 · <span data-translate-key="tour_3_part">Rotor cuivre</span></span>
+                        <span class="fh-ref">Étape 03 · <span data-translate-key="tour_3_part">Cycle de vie</span></span>
                         <h3 data-translate-key="tour_3_title">Les <em>workflows</em></h3>
                         <p data-translate-key="tour_3_text">Transitions, tâches automatiques, notifications : l'énergie qui fait circuler la donnée, tracée à chaque étape.</p>
                     </li>
                     <li class="fh-step">
-                        <span class="fh-ref">PRT-004 · <span data-translate-key="tour_4_part">Turbine</span></span>
+                        <span class="fh-ref">Étape 04 · <span data-translate-key="tour_4_part">Nomenclature</span></span>
                         <h3 data-translate-key="tour_4_title">L'intégration <em>ERP</em></h3>
                         <p data-translate-key="tour_4_text">eBOM, mBOM et flux vers l'ERP : la continuité numérique du bureau d'études jusqu'à l'atelier.</p>
                     </li>
                     <li class="fh-step">
-                        <span class="fh-ref">PRT-005 · <span data-translate-key="tour_5_part">Bague de blocage</span></span>
+                        <span class="fh-ref">Étape 05 · <span data-translate-key="tour_5_part">Transmission</span></span>
                         <h3 data-translate-key="tour_5_title">L'<em>adoption</em></h3>
                         <p data-translate-key="tour_5_text">Formation, documentation, transfert de compétences : la pièce qui verrouille l'ensemble dans la durée.</p>
                     </li>
                 </ol>
                 <div class="fh-plan">
-                    <p class="eyebrow fh-plan-kicker" data-translate-key="tour_outro_eyebrow">Assemblage contraint — état : publié</p>
-                    <h2 class="fh-title fh-plan-title" data-translate-key="tour_outro">Un système. <em>Une seule source de vérité.</em></h2>
-                    <svg class="fh-dimlines" aria-hidden="true"></svg>
-    <div class="hero-stats fh-dims" role="list">
+                    <p class="eyebrow fh-plan-kicker" data-translate-key="tour_outro_eyebrow">Donnée maîtrisée — état : publié</p>
+                    <h2 class="fh-title fh-plan-title" data-translate-key="tour_outro">Du chaos à <em>une seule source de vérité.</em></h2>
+    <div class="hero-stats fh-stats" role="list">
                 <div class="hero-stat" role="listitem">
                     <div class="stat-value">80<span class="stat-plus">+</span></div>
                     <div class="stat-label" data-translate-key="stat_clients_label">Clients industriels</div>
@@ -155,8 +154,8 @@
             </div>
                 </div>
                 <div class="fh-hud container-site" aria-hidden="true">
-                    <span class="fh-load">MOB-001 · <b class="fh-pct">000</b>%</span>
-                    <span class="fh-scroll">(<span data-translate-key="tour_hero_ref">Défilez pour éclater l'assemblage</span>)</span>
+                    <span class="fh-load">ASM-BAOUCH · <b class="fh-pct">000</b>%</span>
+                    <span class="fh-scroll">(<span data-translate-key="tour_hero_ref">Défilez pour ranger le chaos</span>)</span>
                     <span class="fh-frame">IMG <b class="fh-idx">000</b></span>
                 </div>
             </div>

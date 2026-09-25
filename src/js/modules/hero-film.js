@@ -1,17 +1,20 @@
-// Le film du hero : une séquence d'images rendue à l'avance (video/hero/) et lue
-// au rythme du défilement, comme une vidéo qu'on « scrube » au doigt.
+// Le film du hero — « Du chaos à la source de vérité » : une séquence d'images
+// rendue à l'avance (video/hero/) et lue au rythme du défilement, comme une
+// vidéo qu'on « scrube ».
 //
-//  · à l'arrivée, l'intro se joue seule : l'épure filaire est balayée par
-//    l'anneau orange et la pièce prend matière ;
-//  · ensuite chaque pixel de défilement avance le film : éclatement, travelling
-//    macro sur les 5 composants (les étapes du métier s'affichent en regard),
-//    refermeture, puis retour à la mise en plan où les chiffres clés se posent
-//    comme des cotes.
+//  · à l'arrivée, le chaos tourbillonne : des centaines de fichiers aux noms
+//    que tout bureau d'études connaît (piece_finale_V3_OK, NE_PAS_TOUCHER…) ;
+//  · au défilement, un balayage orange les renomme et les range en registre,
+//    le registre se replie en nomenclature, la nomenclature se condense en
+//    produit — les 5 étapes du métier s'affichent en regard.
 //
 // Les images arrivent du plus grossier au plus fin (1 sur 8, puis 1 sur 4…) :
 // le film est « scrubable » presque tout de suite, puis s'affine.
 const U_INTRO = 0.15; // fin de la révélation jouée automatiquement
 const INTRO_MS = 2600;
+// étapes du métier en regard des phases : renommage, registre, cycle de vie,
+// nomenclature, produit
+const STEPS = [[0.265, 0.345], [0.345, 0.44], [0.44, 0.53], [0.53, 0.64], [0.64, 0.81]];
 
 const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
 const P = (t, a, b) => clamp((t - a) / (b - a));
@@ -24,8 +27,6 @@ export async function initHeroFilm(section) {
   const steps = [...section.querySelectorAll('.fh-step')];
   const pct = section.querySelector('.fh-pct');
   const idxEl = section.querySelector('.fh-idx');
-  const svg = section.querySelector('.fh-dimlines');
-  const stats = [...section.querySelectorAll('.hero-stat')];
 
   const variant = matchMedia('(max-aspect-ratio: 1/1)').matches ? 'mob' : 'desk';
   const base = `/film/hero/${variant}/`;
@@ -39,10 +40,11 @@ export async function initHeroFilm(section) {
   const order = [];
   const seen = new Set();
   const push = (i) => { if (i < N && !seen.has(i)) { seen.add(i); order.push(i); } };
+  // l'intro démarre dès qu'une image sur deux est là ; les autres complètent en route
   const introEnd = Math.ceil(U_INTRO * (N - 1));
-  for (let i = 0; i <= introEnd; i++) push(i);
+  for (let i = 0; i <= introEnd; i += 2) push(i);
+  const introFrames = order.slice();
   for (const step of [8, 4, 2, 1]) for (let i = 0; i < N; i += step) push(i);
-  const introFrames = order.slice(0, introEnd + 1);
 
   let introReady = null;
   const introDone = new Promise((r) => (introReady = r));
@@ -52,7 +54,7 @@ export async function initHeroFilm(section) {
     im.decoding = 'async';
     im.onload = () => {
       imgs[i] = im; ready[i] = 1; loaded++;
-      if (i <= introEnd && ++introCount === introFrames.length) introReady();
+      if (i <= introEnd && i % 2 === 0 && ++introCount === introFrames.length) introReady();
       pct.textContent = String(Math.round((loaded / N) * 100)).padStart(3, '0');
       if (loaded === N) section.classList.add('is-loaded');
       want = -1; // force un redessin
@@ -75,16 +77,12 @@ export async function initHeroFilm(section) {
     W = stage.clientWidth; H = stage.clientHeight;
     canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
     want = -1;
-    layoutDims();
   };
-  // couverture du cadre (comme object-fit: cover) : sert au dessin et aux cotes
-  // en portrait, le dessin final descend un peu pour laisser la place au titre
-  let planDrop = 0;
-  const cover = (drop = planDrop) => {
-    const fw = variant === 'mob' ? 720 : 1600, fh = variant === 'mob' ? 1280 : 900;
+  // couverture du cadre, comme object-fit: cover
+  const cover = () => {
+    const fw = variant === 'mob' ? 720 : 1440, fh = variant === 'mob' ? 1280 : 810;
     const s = Math.max(W / fw, H / fh);
-    const dy = variant === 'mob' ? H * 0.07 * drop : 0;
-    return { s, w: fw * s, h: fh * s, x: (W - fw * s) / 2, y: (H - fh * s) / 2 + dy };
+    return { w: fw * s, h: fh * s, x: (W - fw * s) / 2, y: (H - fh * s) / 2 };
   };
   const nearest = (i) => {
     if (ready[i]) return i;
@@ -94,70 +92,17 @@ export async function initHeroFilm(section) {
     }
     return -1;
   };
-  let want = -1, drawnDrop = -1;
+  let want = -1;
   const draw = (f) => {
     const i = nearest(Math.round(f));
-    if (i < 0 || (i === want && drawnDrop === planDrop)) return;
-    want = i; drawnDrop = planDrop;
+    if (i < 0 || i === want) return;
+    want = i;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     const c = cover();
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.drawImage(imgs[i], c.x, c.y, c.w, c.h);
     idxEl.textContent = String(i).padStart(3, '0');
   };
-
-  // ---------------------------------------------------------------- cotes de la mise en plan
-  // Les chiffres clés deviennent les cotes du dessin final (points exportés au rendu).
-  const A = meta.anchors;
-  const NS = 'http://www.w3.org/2000/svg';
-  function layoutDims() {
-    if (!A || !W) return;
-    const c = cover(1);
-    const pt = ([x, y]) => [c.x + x * c.w, c.y + y * c.h];
-    const R = pt(A.right), T = pt(A.top), B = pt(A.bottom), RT = pt(A.rotorTop), HL = pt(A.housingL), HR = pt(A.housingR);
-    const EL = pt(A.endL ?? A.left), ER = pt(A.endR ?? A.right);
-    const portrait = A.portrait;
-    const off = Math.min(W, H) * 0.09;
-    // cote = ligne de cote + lignes d'attache + position de l'étiquette
-    const specs = portrait
-      ? [
-          // l'axe est vertical en portrait : peu de place sur les côtés, les étiquettes vont sous le dessin
-          { p: [[B[0] + 12, ER[1]], [B[0] + 12, EL[1]]], lab: [B[0] + 12, EL[1] + 34], ext: [[ER, [B[0] + 18, ER[1]]], [EL, [B[0] + 18, EL[1]]]] },
-          { p: [[T[0], EL[1] + 16], [B[0], EL[1] + 16]], lab: [T[0], EL[1] + 34], ext: [[T, [T[0], EL[1] + 22]], [B, [B[0], EL[1] + 22]]] },
-        ]
-      : [
-          // encombrement total, sous le dessin
-          { p: [[EL[0], B[1] + off], [ER[0], B[1] + off]], lab: [(EL[0] + ER[0]) / 2, B[1] + off + 12], ext: [[[EL[0], EL[1] + 14], [EL[0], B[1] + off + 6]], [[ER[0], ER[1] + 14], [ER[0], B[1] + off + 6]]] },
-          // diamètre de bride, à droite
-          { p: [[ER[0] + off * 0.7, T[1]], [ER[0] + off * 0.7, B[1]]], lab: [ER[0] + off * 0.7 + 14, (T[1] + B[1]) / 2], ext: [[[R[0], T[1]], [ER[0] + off * 0.7 + 6, T[1]]], [[R[0], B[1]], [ER[0] + off * 0.7 + 6, B[1]]]] },
-          // repère du rotor
-          { p: [RT, [RT[0] + off * 1.6, T[1] - off * 0.35]], lab: [RT[0] + off * 1.6 + 10, T[1] - off * 0.35], ext: [], leader: true },
-          // largeur du palier
-          { p: [[HL[0], HL[1] + off * 0.6], [HR[0], HR[1] + off * 0.6]], lab: [(HL[0] + HR[0]) / 2, HL[1] + off * 0.6 + 12], ext: [[HL, [HL[0], HL[1] + off * 0.6 + 6]], [HR, [HR[0], HR[1] + off * 0.6 + 6]]] },
-        ];
-    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
-    svg.innerHTML = '';
-    stats.forEach((st, i) => {
-      const sp = specs[i];
-      if (!sp) { st.classList.add('is-free'); return; }
-      st.classList.remove('is-free');
-      const g = document.createElementNS(NS, 'g');
-      const line = (a, b, cls) => {
-        const l = document.createElementNS(NS, 'line');
-        l.setAttribute('x1', a[0]); l.setAttribute('y1', a[1]); l.setAttribute('x2', b[0]); l.setAttribute('y2', b[1]);
-        l.setAttribute('class', cls);
-        l.setAttribute('pathLength', '1');
-        g.append(l);
-      };
-      sp.ext.forEach(([a, b]) => line(a, b, 'ext'));
-      line(sp.p[0], sp.p[1], sp.leader ? 'lead' : 'dim');
-      g.style.setProperty('--d', i * 0.12 + 's');
-      svg.append(g);
-      st.style.left = `${sp.lab[0]}px`;
-      st.style.top = `${sp.lab[1]}px`;
-      st.dataset.side = portrait ? (i === 0 ? 'below-end' : 'below-start') : ['below', 'right', 'right', 'below'][i];
-    });
-  }
 
   // ---------------------------------------------------------------- pilotage
   let intro = 0; // avancement de l'intro jouée seule (0 → U_INTRO)
@@ -179,14 +124,11 @@ export async function initHeroFilm(section) {
     draw(shown);
     const uu = shown / (N - 1);
     section.style.setProperty('--u', uu.toFixed(4));
-    planDrop = eio(P(uu, 0.9, 1));
-    // chapitres
-    const intoCopy = P(uu, 0.17, 0.24);
-    section.style.setProperty('--intro-out', intoCopy.toFixed(3));
-    stage.dataset.phase = uu < 0.24 ? 'intro' : uu < 0.345 ? 'chapter' : uu < 0.78 ? 'steps' : uu < 0.94 ? 'close' : 'plan';
-    // l'étape active suit l'arrêt de la caméra sur chaque pièce (même courbe qu'au rendu)
-    const s = P(uu, 0.36, 0.76) * 4;
-    const active = uu >= 0.35 && uu < 0.78 ? Math.max(0, Math.min(4, Math.round(s - 0.1))) : -1;
+    section.style.setProperty('--intro-out', P(uu, 0.165, 0.215).toFixed(3));
+    // chapitres, calés sur les phases du film
+    stage.dataset.phase = uu < 0.2 ? 'intro' : uu < 0.265 ? 'chapter' : uu < 0.81 ? 'steps' : uu < 0.86 ? 'close' : 'plan';
+    let active = -1;
+    STEPS.forEach(([a, b], i) => { if (uu >= a && uu < b) active = i; });
     steps.forEach((el, i) => el.classList.toggle('is-active', i === active));
     raf = requestAnimationFrame(loop);
   };

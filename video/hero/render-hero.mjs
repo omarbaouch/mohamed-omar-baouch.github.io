@@ -1,4 +1,4 @@
-// Rend le film du hero en séquence d'images WebP (desktop 16:9 et mobile 9:16).
+// Rend le film du hero en séquence d'images WebP (desktop 1440×810 et mobile 720×1280).
 // Usage : node video/hero/render-hero.mjs [--variant desk|mob] [--frames 240] [--stills 0,0.5,1] [--workers 3]
 // Le dépôt doit être servi à la racine : npx http-server -p 8090 -s -c-1 .
 import { chromium } from 'playwright';
@@ -58,7 +58,7 @@ await Promise.all(Array.from({ length: workers }, async (_, w) => {
   const page = await open();
   for (let f = w; f < frames; f += workers) {
     const u = f / (frames - 1);
-    save(join(outDir, `${String(f).padStart(3, '0')}.webp`), await page.evaluate(([u, v]) => window.__frame(u, v, 0.78), [u, variant]));
+    save(join(outDir, `${String(f).padStart(3, '0')}.webp`), await page.evaluate(([u, v]) => window.__frame(u, v, 0.72), [u, variant]));
     if (++done % 20 === 0) console.log(`${variant} ${done}/${frames}`);
   }
   await page.close();

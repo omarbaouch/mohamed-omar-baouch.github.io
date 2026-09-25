@@ -1,5 +1,5 @@
 /* ---------------------------------------------------------------------------
-   Hero « film » : la séquence du plan à la pièce, lue au défilement.
+   Hero « film » : du chaos à la source de vérité, lu au défilement.
    État de base (sans JS, mouvement réduit) : image fixe, textes à plat.
    .is-live : section haute + scène collante, chapitres pilotés par --u.
 --------------------------------------------------------------------------- */
@@ -37,8 +37,7 @@
 .fh-step p { color: var(--ink-dim); line-height: 1.65; max-width: 34ch; }
 .fh-plan { padding: 2rem var(--gutter) 5rem; }
 .fh-plan-kicker { color: var(--ink-faint); }
-.fh-dimlines { display: none; }
-.cinematic .film-hero .fh-dims { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 1.5rem; margin-top: 2.5rem; border-top: 1px solid var(--line-strong); padding-top: 1.5rem; }
+.cinematic .film-hero .fh-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 1.5rem; margin-top: 2.5rem; border-top: 1px solid var(--line-strong); padding-top: 1.5rem; }
 .fh-hud { display: none; }
 
 /* ---------- version vivante ---------- */
@@ -46,16 +45,13 @@
 .film-hero.is-live .fh-stage { position: sticky; top: 0; height: 100vh; height: 100svh; }
 .film-hero.is-live .fh-canvas { opacity: 1; }
 .film-hero.is-live .fh-poster { opacity: 0; transition: opacity .6s; }
-/* le voile de lecture s'efface quand l'image passe au centre (mise en plan) */
-.film-hero.is-live .fh-veil { opacity: calc(1 - var(--plan, 0)); }
-.film-hero.is-live .fh-stage[data-phase='plan'] { --plan: 1; }
 
 .film-hero.is-live .hero-inner { position: absolute; inset: 0; opacity: calc(1 - var(--intro-out, 0)); transform: translateY(calc(var(--intro-out, 0) * -4rem)); }
 .film-hero.is-live .fh-stage:not([data-phase='intro']) .hero-inner { pointer-events: none; visibility: hidden; }
 
 .film-hero.is-live .fh-chapter,
 .film-hero.is-live .fh-steps,
-.film-hero.is-live .fh-plan { position: absolute; left: 0; right: 0; padding: 0; }
+.film-hero.is-live .fh-plan { position: absolute; left: 0; right: 0; padding-block: 0; }
 .film-hero.is-live .fh-chapter { top: 50%; translate: 0 -50%; opacity: 0; transform: translateY(2.5rem); transition: opacity .6s cubic-bezier(.22, 1, .36, 1), transform .8s cubic-bezier(.22, 1, .36, 1); }
 .film-hero.is-live .fh-stage[data-phase='chapter'] .fh-chapter { opacity: 1; transform: none; }
 .film-hero.is-live .fh-steps { top: 50%; translate: 0 -50%; display: block; }
@@ -66,32 +62,22 @@
 .film-hero.is-live .fh-step::before { content: ''; display: block; width: 3rem; height: 2px; background: var(--signal); margin-bottom: 1.4rem; transform-origin: left; transform: scaleX(0); transition: transform .8s .1s cubic-bezier(.22, 1, .36, 1); }
 .film-hero.is-live .fh-step.is-active::before { transform: scaleX(1); }
 
-/* mise en plan : titre + cotes posées sur le dessin */
+/* fin du film : le titre, et les chiffres clés en registre sous le produit */
 .film-hero.is-live .fh-plan { inset: 0; pointer-events: none; }
 .film-hero.is-live .fh-plan-kicker,
 .film-hero.is-live .fh-plan-title { position: absolute; left: var(--gutter); opacity: 0; transition: opacity .7s, transform .9s cubic-bezier(.22, 1, .36, 1); transform: translateY(1.5rem); }
-.film-hero.is-live .fh-plan-kicker { top: 7rem; }
-.film-hero.is-live .fh-plan-title { top: 8.6rem; font-size: clamp(1.8rem, 2.8vw, 3rem); max-width: 11ch; }
+.film-hero.is-live .fh-plan-kicker { top: 30%; }
+.film-hero.is-live .fh-plan-title { top: calc(30% + 1.8rem); font-size: clamp(2.2rem, 4.6vw, 5rem); max-width: 11ch; }
 .film-hero.is-live .fh-stage[data-phase='plan'] :is(.fh-plan-kicker, .fh-plan-title) { opacity: 1; transform: none; }
-.film-hero.is-live .fh-dimlines { display: block; position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-.fh-dimlines line { stroke: #efa471; stroke-width: 1; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1s cubic-bezier(.65, 0, .35, 1); transition-delay: var(--d, 0s); }
-.fh-dimlines g { --d: 0s; }
-.fh-dimlines g line { transition-delay: var(--d); }
-.fh-dimlines .ext { stroke: rgb(239 164 113 / .45); }
-.fh-dimlines .dim { marker-start: none; }
-.film-hero.is-live .fh-stage[data-phase='plan'] .fh-dimlines line { stroke-dashoffset: 0; }
-.cinematic .film-hero.is-live .fh-dims { display: block; margin: 0; padding: 0; border: 0; }
-.cinematic .film-hero.is-live .hero-stat { position: absolute; left: 0; top: 0; opacity: 0; white-space: nowrap;
-  background: #080e18; padding: .25rem .5rem; border: 1px solid rgb(239 164 113 / .5); }
-.film-hero.is-live .hero-stat[data-side='below'] { transform: translate(-50%, 0); }
-.film-hero.is-live .hero-stat[data-side='left'] { transform: translate(-100%, -50%); }
-.film-hero.is-live .hero-stat[data-side='right'] { transform: translate(0, -50%); }
-.film-hero.is-live .hero-stat[data-side='below-end'] { transform: translate(-100%, 0); }
-.film-hero.is-live .hero-stat[data-side='below-start'] { transform: translate(0, 0); }
-.film-hero.is-live .hero-stat.is-free { display: none; }
-.film-hero.is-live .fh-stage[data-phase='plan'] .hero-stat { opacity: 1; transition: opacity .6s .5s; }
-.cinematic .film-hero.is-live .stat-value { font-size: clamp(1.3rem, 2vw, 2rem); line-height: 1; font-weight: 450; color: #efa471; }
-.cinematic .film-hero.is-live .stat-label { font-size: .6rem; margin-top: .2rem; }
+.cinematic .film-hero.is-live .fh-stats { position: absolute; left: var(--gutter); right: var(--gutter); bottom: clamp(4.5rem, 10vh, 6.5rem); margin: 0; padding: 1.2rem 0 0; border-top: 1px solid var(--line-strong);
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; max-width: 46rem; }
+.cinematic .film-hero.is-live .hero-stat { opacity: 0; transform: translateY(1rem); transition: opacity .5s, transform .7s cubic-bezier(.22, 1, .36, 1); }
+.film-hero.is-live .fh-stage[data-phase='plan'] .hero-stat { opacity: 1; transform: none; }
+.film-hero.is-live .fh-stage[data-phase='plan'] .hero-stat:nth-child(2) { transition-delay: .08s; }
+.film-hero.is-live .fh-stage[data-phase='plan'] .hero-stat:nth-child(3) { transition-delay: .16s; }
+.film-hero.is-live .fh-stage[data-phase='plan'] .hero-stat:nth-child(4) { transition-delay: .24s; }
+.cinematic .film-hero.is-live .stat-value { font-size: clamp(1.8rem, 3vw, 3rem); line-height: 1; font-weight: 450; }
+.cinematic .film-hero.is-live .stat-plus { color: var(--signal); }
 
 .film-hero.is-live .fh-hud { display: flex; align-items: center; justify-content: space-between; gap: 1rem; position: absolute; left: 0; right: 0; bottom: clamp(1.25rem, 4vh, 2.25rem); z-index: 3;
   font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); }
@@ -110,8 +96,12 @@
   .film-hero.is-live .fh-step h3 { font-size: clamp(2rem, 9vw, 3rem); margin: .6rem 0; }
   .film-hero.is-live .fh-step p { font-size: .95rem; }
   .film-hero.is-live .fh-title { font-size: clamp(2.3rem, 10vw, 3.6rem); }
-  .film-hero.is-live .fh-plan-kicker { top: 5.5rem; }
-  .film-hero.is-live .fh-plan-title { top: 7rem; font-size: clamp(1.7rem, 7vw, 2.4rem); }
+  .film-hero.is-live .fh-plan-kicker { top: auto; bottom: 13rem; }
+  .film-hero.is-live .fh-plan-title { top: auto; bottom: 9rem; font-size: clamp(1.9rem, 8vw, 2.6rem); }
+  .cinematic .film-hero.is-live .fh-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .5rem; bottom: 3.6rem; }
+  .cinematic .film-hero.is-live .hero-stat { padding: 0; border: 0; }
+  .cinematic .film-hero.is-live .stat-value { font-size: 1.35rem; }
+  .cinematic .film-hero.is-live .stat-label { font-size: .52rem; letter-spacing: .04em; }
   .fh-scroll { display: none; }
   /* intro mobile allégée : la pièce occupe le haut de l'écran */
   .film-hero.is-live .cinematic-identity, .film-hero.is-live .hero-subtitle, .film-hero.is-live .hero-kicker { display: none; }

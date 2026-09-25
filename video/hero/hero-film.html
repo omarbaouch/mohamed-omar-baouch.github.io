@@ -4,19 +4,22 @@
 <meta charset="utf-8">
 <title>Film du hero — rendu</title>
 <!--
-  Film du hero de baouch.fr, rendu image par image (voir render-hero.mjs).
-  window.__frame(u, variant) rend l'état exact de la scène à l'avancement u ∈ [0, 1]
-  et renvoie l'image. Le site affiche ensuite ces images au rythme du défilement.
+  Film du hero de baouch.fr — « Du chaos à la source de vérité ».
+  Rendu image par image (voir render-hero.mjs) : window.__frame(u, variant) pose
+  l'état exact de la scène à l'avancement u ∈ [0, 1] et renvoie l'image WebP.
 
-  Scénario — « du plan à la pièce, et retour au plan » :
-    0.00–0.16  épure filaire ; un anneau orange balaie et révèle la matière
-    0.16–0.34  la caméra tourne, l'assemblage s'éclate
-    0.34–0.78  travelling macro le long de l'axe, arrêt sur chaque composant
-    0.78–0.88  l'assemblage se referme
-    0.88–1.00  travelling compensé jusqu'à la vue orthogonale : la pièce
-               devient une mise en plan (traits cachés supprimés)
+    0.00–0.17  le chaos : des centaines de fichiers en tourbillon, aux noms que tout
+               bureau d'études connaît (piece_finale_V3_OK, NE_PAS_TOUCHER…)
+    0.17–0.40  un balayage orange les renomme un à un (PRT-0042 · RÉV.B · PUBLIÉ),
+               les doublons fusionnent, tout se range en registre
+    0.42–0.62  le registre se replie en rosace : l'arbre de la nomenclature
+    0.64–0.84  l'arbre se condense en nuage de points, puis en épure, puis en pièce
+    0.84–1.00  le produit, issu de la donnée maîtrisée
 -->
-<style>html,body{margin:0;background:#080e18}canvas{display:block}</style>
+<style>
+@font-face { font-family: 'Instrument Sans'; src: url('/public/fonts/instrument-sans-var.woff2') format('woff2'); font-weight: 400 700; }
+html,body{margin:0;background:#080e18}canvas{display:block}
+</style>
 <script type="importmap">
 { "imports": { "three": "/node_modules/three/build/three.module.js", "three/addons/": "/node_modules/three/examples/jsm/" } }
 </script>
@@ -30,34 +33,116 @@ import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+import { MeshSurfaceSampler } from 'three/addons/math/MeshSurfaceSampler.js';
 import { LineSegments2 } from 'three/addons/lines/LineSegments2.js';
 import { LineSegmentsGeometry } from 'three/addons/lines/LineSegmentsGeometry.js';
 import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
 
+// ---------------------------------------------------------------- outils
 const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
 const P = (t, a, b) => clamp((t - a) / (b - a));
 const lerp = (a, b, x) => a + (b - a) * x;
 const eio = (x) => (x < 0.5 ? 4 * x ** 3 : 1 - Math.pow(-2 * x + 2, 3) / 2);
-const smooth = (x) => x * x * (3 - 2 * x);
+const hash = (i, k = 0) => { const s = Math.sin(i * 127.1 + k * 311.7) * 43758.5453; return s - Math.floor(s); };
 const V = (x, y, z) => new THREE.Vector3(x, y, z);
 
-const NIGHT = new THREE.Color('#080e18');
-const EDGE = new THREE.Color('#9bc6e6');
+await document.fonts.load('500 40px "Instrument Sans"').catch(() => {});
 
+// ---------------------------------------------------------------- les fichiers
+const CHAOS_BASE = [
+  'piece_finale', 'piece_finale_V2', 'piece_finale_V2_OK', 'piece_finale_V3_def', 'NE_PAS_TOUCHER',
+  'Copie de support', 'support (2)', 'support_modif_jean', 'plan_client_VRAI', 'ASSEMBLAGE_GENERAL_old',
+  'bride_v7_final_final', 'test', 'test2', 'Nouveau document', 'carter_ok_marc', 'arbre_moteur_BON',
+  'a_valider_URGENT', 'capot_v4 (conflit)', 'rev_C_ou_D', 'piece_sans_nom_12', 'Copie de Copie de platine',
+  'ancien_NE_PLUS_UTILISER', 'moteur_v2_bis', 'chassis_def_OK2', 'support_final_v9', 'tole_pliee_v3',
+  'ASM_client_modif', 'plan_A3_imprime', 'axe_BON_celui_la', 'embase (copie)', 'couvercle_vieux',
+  'SAV_2019_reprise', 'bati_version_marc', 'flasque_ok_ok', 'vis_speciale_v5', 'ressort_test_final',
+];
+const EXT = ['.SLDPRT', '.SLDASM', '.SLDDRW', '.SLDPRT', '.SLDPRT', '.xlsx', '.pdf', '.STEP'];
+const DESIGNATIONS = [
+  'Bride arrière', 'Palier', 'Rotor cuivre', 'Turbine', 'Bague de blocage', 'Arbre moteur', 'Carter', 'Support moteur',
+  'Platine', 'Capot', 'Châssis', 'Embase', 'Flasque', 'Couvercle', 'Axe', 'Tôle pliée', 'Entretoise', 'Joint',
+  'Roulement', 'Équerre', 'Glissière', 'Vérin', 'Pignon', 'Moyeu', 'Clavette', 'Goupille', 'Rondelle', 'Écrou frein',
+];
+const SUBS = ['Fondations CAO', 'Coffre PDM', 'Workflows', 'Intégration ERP', 'Adoption'];
+const COLS = 8, ROWS = 37, CW = 512, CH = 108;
+const SLOTS = COLS * ROWS; // 296 cases par planche
+
+function atlas(draw) {
+  const c = document.createElement('canvas');
+  c.width = COLS * CW; c.height = ROWS * CH;
+  const g = c.getContext('2d');
+  for (let s = 0; s < SLOTS; s++) {
+    g.save();
+    g.translate((s % COLS) * CW, Math.floor(s / COLS) * CH);
+    draw(g, s);
+    g.restore();
+  }
+  const t = new THREE.CanvasTexture(c);
+  t.colorSpace = THREE.SRGBColorSpace;
+  t.anisotropy = 8;
+  return t;
+}
+const box = (g, x, y, w, h, r) => { g.beginPath(); g.roundRect(x, y, w, h, r); };
+
+// planche 1 : le chaos
+const chaosTex = atlas((g, s) => {
+  const suffix = s >= CHAOS_BASE.length ? ['', '_v' + (2 + (s % 7)), ' (' + (1 + (s % 4)) + ')', '_OK', '_def'][s % 5] : '';
+  const name = CHAOS_BASE[s % CHAOS_BASE.length] + suffix + EXT[s % EXT.length];
+  const hot = hash(s, 3) < 0.14; // conflit, doublon, verrou perdu
+  box(g, 6, 6, CW - 12, CH - 12, 10);
+  g.fillStyle = hot ? '#2a1710' : '#121b28'; g.fill();
+  g.lineWidth = 2; g.strokeStyle = hot ? '#c65a1e' : '#2c3a4d'; g.stroke();
+  g.fillStyle = hot ? '#efa471' : '#6d7f95';
+  g.fillRect(26, 30, 30, 40);
+  g.fillStyle = hot ? '#2a1710' : '#121b28'; g.fillRect(44, 30, 12, 12);
+  g.font = '500 28px "DejaVu Sans Mono", monospace';
+  g.fillStyle = hot ? '#ffd8bd' : '#c9d4e0';
+  g.fillText(name.length > 27 ? name.slice(0, 26) + '…' : name, 76, 60);
+  g.font = '18px "DejaVu Sans Mono", monospace';
+  g.fillStyle = hot ? '#efa471' : '#6d7f95';
+  g.fillText(hot ? ['⚠ CONFLIT DE VERSION', '⚠ DOUBLON', '⚠ VERROUILLÉ PAR ?', '⚠ RÉFÉRENCE INTROUVABLE'][s % 4]
+    : `modifié le ${1 + (s % 28)}/0${1 + (s % 9)} · ${['?', 'jean', 'marc', 'stagiaire', 'inconnu'][s % 5]}`, 76, 88);
+});
+
+// planche 2 : la donnée maîtrisée
+const cleanName = (s) => {
+  if (s === 0) return { code: 'ASM-BAOUCH', des: 'Produit · source unique', rev: '2026' };
+  if (s <= 5) return { code: `ASM-0${s}`, des: SUBS[s - 1], rev: 'C' };
+  const kind = s % 9 === 0 ? 'DRW' : s % 5 === 0 ? 'ASM' : 'PRT';
+  return { code: `${kind}-${String(1000 + ((s * 37) % 8999)).padStart(4, '0')}`, des: DESIGNATIONS[s % DESIGNATIONS.length], rev: 'ABCDE'[s % 5] };
+};
+const cleanTex = atlas((g, s) => {
+  const n = cleanName(s);
+  const top = s <= 5;
+  box(g, 6, 6, CW - 12, CH - 12, 10);
+  g.fillStyle = top ? '#152a41' : '#0e1b2b'; g.fill();
+  g.lineWidth = 2; g.strokeStyle = top ? '#efa471' : '#3f6d93'; g.stroke();
+  g.fillStyle = top ? '#efa471' : '#9bc6e6'; g.fillRect(6, 16, 7, CH - 32);
+  g.font = '600 31px "DejaVu Sans Mono", monospace';
+  g.fillStyle = '#f1f3f5'; g.fillText(n.code, 34, 50);
+  g.font = '500 25px "Instrument Sans", sans-serif';
+  g.fillStyle = '#b6c2d0'; g.fillText(n.des, 34, 84);
+  g.font = '17px "DejaVu Sans Mono", monospace';
+  const chip = `RÉV.${n.rev} · PUBLIÉ`;
+  const w = g.measureText(chip).width + 22;
+  box(g, CW - w - 20, 22, w, 32, 16);
+  g.fillStyle = top ? 'rgba(239,164,113,.18)' : 'rgba(155,198,230,.15)'; g.fill();
+  g.fillStyle = top ? '#efa471' : '#9bc6e6'; g.fillText(chip, CW - w - 9, 44);
+});
+
+// ---------------------------------------------------------------- scène
 const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
 renderer.setPixelRatio(1);
 renderer.toneMapping = THREE.AgXToneMapping;
 renderer.toneMappingExposure = 1.15;
-renderer.localClippingEnabled = true;
 document.body.append(renderer.domElement);
-
 const scene = new THREE.Scene();
-// fond : nuit avec un halo très doux derrière la pièce
 {
   const c = document.createElement('canvas'); c.width = c.height = 512;
   const g = c.getContext('2d');
-  const r = g.createRadialGradient(256, 240, 10, 256, 256, 360);
-  r.addColorStop(0, '#16233a'); r.addColorStop(0.55, '#0b1320'); r.addColorStop(1, '#080e18');
+  const r = g.createRadialGradient(256, 240, 10, 256, 256, 380);
+  r.addColorStop(0, '#15233a'); r.addColorStop(0.55, '#0b1320'); r.addColorStop(1, '#080e18');
   g.fillStyle = r; g.fillRect(0, 0, 512, 512);
   const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace;
   scene.background = t;
@@ -67,185 +152,295 @@ scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
 scene.environmentIntensity = 1.6;
 const key = new THREE.DirectionalLight(0xd8eaff, 4.2); key.position.set(-3, 6, 5); scene.add(key);
 const rim = new THREE.DirectionalLight(0xffa16a, 3.4); rim.position.set(3, 3, -5); scene.add(rim);
-const camera = new THREE.PerspectiveCamera(30, 16 / 9, 0.05, 2000);
+const camera = new THREE.PerspectiveCamera(35, 16 / 9, 0.05, 500);
 
+// ---------------------------------------------------------------- les cartes (instanciées)
+const N = 440;          // fichiers du chaos
+const KEEP = SLOTS;     // ceux qui survivent ; les autres sont des doublons qui fusionnent
+const CARD_W = 1.1, CARD_H = CARD_W * CH / CW;
+const cardGeo = new THREE.PlaneGeometry(1, 1);
+const aChaos = new Float32Array(N), aClean = new Float32Array(N), aMix = new Float32Array(N), aAlpha = new Float32Array(N);
+cardGeo.setAttribute('aChaos', new THREE.InstancedBufferAttribute(aChaos, 1));
+cardGeo.setAttribute('aClean', new THREE.InstancedBufferAttribute(aClean, 1));
+cardGeo.setAttribute('aMix', new THREE.InstancedBufferAttribute(aMix, 1));
+cardGeo.setAttribute('aAlpha', new THREE.InstancedBufferAttribute(aAlpha, 1));
+const cardMat = new THREE.ShaderMaterial({
+  transparent: true, depthWrite: false, side: THREE.DoubleSide,
+  uniforms: { tChaos: { value: chaosTex }, tClean: { value: cleanTex } },
+  vertexShader: `
+    attribute float aChaos; attribute float aClean; attribute float aMix; attribute float aAlpha;
+    varying vec2 vA; varying vec2 vB; varying float vMix; varying float vAlpha;
+    vec2 slot(float s, vec2 p) {
+      float c = mod(s, ${COLS}.0), r = floor(s / ${COLS}.0);
+      return vec2((c + p.x) / ${COLS}.0, 1.0 - (r + 1.0 - p.y) / ${ROWS}.0);
+    }
+    void main() {
+      vA = slot(aChaos, uv); vB = slot(aClean, uv); vMix = aMix; vAlpha = aAlpha;
+      gl_Position = projectionMatrix * modelViewMatrix * instanceMatrix * vec4(position, 1.0);
+    }`,
+  fragmentShader: `
+    uniform sampler2D tChaos; uniform sampler2D tClean;
+    varying vec2 vA; varying vec2 vB; varying float vMix; varying float vAlpha;
+    void main() {
+      vec4 c = vMix < 0.5 ? texture2D(tChaos, vA) : texture2D(tClean, vB);
+      gl_FragColor = vec4(c.rgb, c.a * vAlpha);
+      #include <colorspace_fragment>
+    }`,
+});
+const cards = new THREE.InstancedMesh(cardGeo, cardMat, N);
+cards.frustumCulled = false;
+scene.add(cards);
+
+// chaque fichier : où il tourbillonne, dans quelle case il se range, qui il rejoint
+const F = Array.from({ length: N }, (_, i) => ({
+  i,
+  cleanSlot: i < KEEP ? i : Math.floor(hash(i, 9) * KEEP),
+  chaosSlot: i % SLOTS,
+  r: 1.6 + 8 * Math.pow(hash(i, 1), 0.9), th: hash(i, 2) * Math.PI * 2, y: (hash(i, 3) - 0.5) * 7.5, z0: (hash(i, 4) - 0.5) * 2,
+  spin: 0.25 + 0.9 / (1 + hash(i, 1) * 4),
+  tumble: [hash(i, 5) * 6, hash(i, 6) * 6, hash(i, 7) * 6], tsp: 0.5 + hash(i, 8) * 2,
+}));
+const chaosPos = (f, u) => {
+  const w = f.th + u * 9 * f.spin;
+  return V(Math.cos(w) * f.r * 0.95, f.y + Math.sin(u * 6 + f.i) * 0.25, Math.sin(w) * f.r * 0.9 + f.z0);
+};
+// registre : 16 colonnes face caméra
+const WALL_C = 16, WALL_R = Math.ceil(KEEP / WALL_C);
+const wallPos = (slot) => V(((slot % WALL_C) - (WALL_C - 1) / 2) * (CARD_W + 0.08), ((WALL_R - 1) / 2 - Math.floor(slot / WALL_C)) * (CARD_H + 0.07), 0);
+
+// rosace de la nomenclature : racine, 5 sous-ensembles, 55 feuilles
+const LEAVES = 55;
+const tree = [{ pos: V(0, 0, 0), ang: 0 }];
+for (let k = 0; k < 5; k++) {
+  const a = -Math.PI / 2 + (k + 0.5) * (Math.PI * 2 / 5);
+  tree.push({ pos: V(Math.cos(a) * 2.4, Math.sin(a) * 2.4, 0), ang: a, parent: 0 });
+}
+for (let j = 0; j < LEAVES; j++) {
+  const k = Math.floor(j / 11), m = j % 11;
+  const a = -Math.PI / 2 + k * (Math.PI * 2 / 5) + (m + 0.5) * (Math.PI * 2 / 5 / 11);
+  tree.push({ pos: V(Math.cos(a) * 5.1, Math.sin(a) * 5.1, 0), ang: a, parent: 1 + k });
+}
+const isNode = (slot) => slot < tree.length;
+const nodeOf = (slot) => (isNode(slot) ? slot : 6 + (slot % LEAVES));
+
+const treeLineMat = new LineMaterial({ color: 0x9bc6e6, linewidth: 2.2, transparent: true, opacity: 0, depthWrite: false });
+const treeLineGeo = new LineSegmentsGeometry();
+const treeLines = new LineSegments2(treeLineGeo, treeLineMat);
+treeLines.frustumCulled = false;
+treeLines.renderOrder = -1;
+scene.add(treeLines);
+
+// ---------------------------------------------------------------- le produit
 const gltf = await new GLTFLoader().loadAsync('/public/motion/precision.glb');
 const model = gltf.scene;
 model.traverse((o) => { if (/Infinite.studio.floor/.test(o.name)) o.visible = false; });
+model.scale.setScalar(1.7);
 scene.add(model);
-const names = ['Rear flange', 'Bearing housing', 'Copper rotor', 'Turbine wheel', 'Front locking collar'];
-const groups = names.map((n) => model.getObjectByName(n.replaceAll(' ', '_')));
-
-// matière rognée d'un côté du plan de balayage, épure de l'autre
-const solidClip = new THREE.Plane(V(-1, 0, 0), 0);
-const edgeClip = new THREE.Plane(V(1, 0, 0), 0);
-const solids = [], edgeMats = [], hullMats = [];
-// toutes les pièces, arbre compris (il n'appartient à aucun sous-ensemble nommé)
-const meshes = [];
-model.traverse((o) => { if (o.isMesh && o.visible && !/floor/i.test(o.name + o.material.name)) meshes.push(o); });
-meshes.forEach((o) => {
-  {
-  const m = o.material.clone();
-  m.transparent = true;
-  m.clippingPlanes = [solidClip];
-  o.material = m;
-  solids.push(m);
-  const geo = new LineSegmentsGeometry().fromEdgesGeometry(new THREE.EdgesGeometry(o.geometry, 26));
-  const lm = new LineMaterial({ color: EDGE, linewidth: 2, transparent: true, opacity: 1, clippingPlanes: [edgeClip], depthWrite: false });
-  const line = new LineSegments2(geo, lm);
-  line.userData.edge = true;
-  o.add(line);
-  edgeMats.push(lm);
-  // silhouette de la mise en plan : coque inversée, légèrement gonflée le long
-  // des normales ; seules ses faces arrière dépassent autour du contour
-  const hm = new THREE.MeshBasicMaterial({ color: EDGE, side: THREE.BackSide, transparent: true, opacity: 0, depthWrite: false });
-  hm.onBeforeCompile = (sh) => {
-    sh.vertexShader = sh.vertexShader.replace('#include <begin_vertex>', 'vec3 transformed = position + normal * 0.0075;');
-  };
-  const hull = new THREE.Mesh(o.geometry, hm);
-  hull.renderOrder = 1;
-  line.renderOrder = 2;
-  hull.userData.edge = true;
-  o.add(hull);
-  hullMats.push(hm);
-  }
+model.updateMatrixWorld(true);
+const solids = [], edgeMats = [], worldGeos = [];
+// on liste les pièces d'abord : les contours ajoutés sont eux-mêmes des « Mesh »
+const parts = [];
+model.traverse((o) => { if (o.isMesh && o.visible && !/floor/i.test(o.name + o.material.name)) parts.push(o); });
+parts.forEach((o) => {
+  const m = o.material.clone(); m.transparent = true; o.material = m; solids.push(m);
+  const lm = new LineMaterial({ color: 0x9bc6e6, linewidth: 2, transparent: true, opacity: 0, depthWrite: false });
+  const line = new LineSegments2(new LineSegmentsGeometry().fromEdgesGeometry(new THREE.EdgesGeometry(o.geometry, 26)), lm);
+  line.renderOrder = 2; o.add(line); edgeMats.push(lm);
+  const g = o.geometry.clone(); g.applyMatrix4(o.matrixWorld); worldGeos.push(g);
 });
-const scan = new THREE.Mesh(new THREE.RingGeometry(1.38, 1.44, 128), new THREE.MeshBasicMaterial({ color: 0xefa471, transparent: true, side: THREE.DoubleSide, depthWrite: false }));
-scan.rotation.y = Math.PI / 2;
+// nuage de points de surface : là où la donnée devient matière
+const PTS = 24000;
+const ptsPos = new Float32Array(PTS * 3);
+{
+  const area = (g) => {
+    const p = g.attributes.position, idx = g.index, tri = new THREE.Triangle();
+    const n = idx ? idx.count / 3 : p.count / 3;
+    let a = 0;
+    const at = (k) => V(p.getX(k), p.getY(k), p.getZ(k));
+    for (let t = 0; t < n; t++) tri.set(at(idx ? idx.getX(3 * t) : 3 * t), at(idx ? idx.getX(3 * t + 1) : 3 * t + 1), at(idx ? idx.getX(3 * t + 2) : 3 * t + 2)), (a += tri.getArea());
+    return a;
+  };
+  const areas = worldGeos.map(area);
+  const total = areas.reduce((a, b) => a + b, 0);
+  let k = 0, seed = 1234;
+  const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  worldGeos.forEach((g, gi) => {
+    const s = new MeshSurfaceSampler(new THREE.Mesh(g)).setRandomGenerator(rnd).build();
+    const n = gi === worldGeos.length - 1 ? PTS - k : Math.round(PTS * areas[gi] / total);
+    const tmp = V(0, 0, 0);
+    for (let j = 0; j < n && k < PTS; j++, k++) { s.sample(tmp); ptsPos.set([tmp.x, tmp.y, tmp.z], k * 3); }
+  });
+}
+const ptsGeo = new THREE.BufferGeometry();
+ptsGeo.setAttribute('position', new THREE.BufferAttribute(ptsPos, 3));
+const ptsMat = new THREE.PointsMaterial({ color: 0x9bc6e6, size: 0.024, sizeAttenuation: true, transparent: true, opacity: 0, depthWrite: false, blending: THREE.AdditiveBlending });
+const cloud = new THREE.Points(ptsGeo, ptsMat);
+scene.add(cloud);
+const landing = (i) => { const k = ((i * 37) % PTS) * 3; return V(ptsPos[k], ptsPos[k + 1], ptsPos[k + 2]); };
+
+// filet de balayage (renommage)
+const scanMat = new THREE.MeshBasicMaterial({ color: 0xffb07a, transparent: true, opacity: 0, side: THREE.DoubleSide, depthWrite: false, blending: THREE.AdditiveBlending });
+const scan = new THREE.Mesh(new THREE.PlaneGeometry(0.04, 26), scanMat);
 scene.add(scan);
 
+// ---------------------------------------------------------------- post-traitement
 const composer = new EffectComposer(renderer);
 composer.addPass(new RenderPass(scene, camera));
-const bloom = new UnrealBloomPass(new THREE.Vector2(256, 256), 0.14, 0.4, 2.2);
+const bloom = new UnrealBloomPass(new THREE.Vector2(256, 256), 0.3, 0.35, 0.8);
 composer.addPass(bloom);
 composer.addPass(new OutputPass());
 
 // ---------------------------------------------------------------- scénario
-const openAt = (u) => eio(P(u, 0.16, 0.32)) * (1 - eio(P(u, 0.76, 0.86)));
-const partX = (i, open) => (i - 2) * (0.44 + 1.05 * open);
+const T0 = 0.17, T1 = 0.36;
+const sweepX = (u) => lerp(-11.5, 11.5, eio(P(u, T0, T1)));
+// la carte se renomme quand le filet passe sur elle
+F.forEach((f) => { f.flip = lerp(T0, T1, 0.03 + 0.9 * P(chaosPos(f, T0).x, -11, 11)); });
 
-function orbit(az, el, dist, target) {
-  return target.clone().add(V(Math.sin(az) * Math.cos(el) * dist, Math.sin(el) * dist, Math.cos(az) * Math.cos(el) * dist));
+const IDENT = new THREE.Quaternion();
+function cardState(f, u) {
+  const chaos = chaosPos(f, Math.min(u, f.flip));
+  // rotation contenue : les noms restent lisibles, le désordre se voit quand même
+  const tumble = new THREE.Quaternion().setFromEuler(new THREE.Euler(0.55 * Math.sin(f.tumble[0] + u * f.tsp * 3), 0.75 * Math.sin(f.tumble[1] + u * f.tsp * 2), 0.45 * Math.sin(f.tumble[2] + u * f.tsp)));
+  const flipK = P(u, f.flip - 0.006, f.flip + 0.006);
+  const go = eio(P(u, f.flip + 0.004, f.flip + 0.075));
+  let pos = chaos.clone().lerp(wallPos(f.cleanSlot), go);
+  let rot = tumble.slerp(IDENT, go).multiply(new THREE.Quaternion().setFromAxisAngle(V(1, 0, 0), Math.PI * 2 * flipK));
+  let alpha = 1, scale = 1;
+  if (f.i >= KEEP) {
+    // doublon : il rejoint son original et s'y fond
+    alpha = 1 - P(go, 0.65, 1);
+    scale = lerp(1, 0.7, go);
+  }
+  // registre → rosace
+  if (u > 0.42 && f.i < KEEP) {
+    const k = eio(P(u, 0.42 + 0.06 * hash(f.i, 11), 0.53 + 0.06 * hash(f.i, 11)));
+    const n = nodeOf(f.cleanSlot), node = tree[n];
+    const onTree = isNode(f.cleanSlot);
+    const radial = V(Math.cos(node.ang), Math.sin(node.ang), 0);
+    const dest = n > 5 && onTree ? node.pos.clone().add(radial.multiplyScalar(CARD_W / 2)) : node.pos.clone();
+    const upright = Math.cos(node.ang) < -0.01 ? Math.PI : 0; // texte jamais à l'envers
+    const rz = n === 0 || n <= 5 ? IDENT : new THREE.Quaternion().setFromAxisAngle(V(0, 0, 1), node.ang + upright);
+    pos = pos.lerp(dest, k);
+    rot = rot.slerp(rz, k);
+    if (!onTree) { alpha = 1 - P(k, 0.55, 1); scale = lerp(1, 0.4, k); }
+    else scale = lerp(1, n === 0 ? 1.6 : n <= 5 ? 1.35 : 1.15, k);
+  }
+  // rosace → produit
+  if (u > 0.63 && f.i < KEEP && isNode(f.cleanSlot)) {
+    const k = eio(P(u, 0.63 + 0.05 * hash(f.i, 12), 0.71 + 0.05 * hash(f.i, 12)));
+    pos = pos.lerp(landing(f.i), k);
+    scale = lerp(scale, 0.04, k);
+    alpha *= 1 - P(k, 0.7, 1);
+  }
+  return { pos, rot, scale, alpha, mix: flipK };
 }
 
-// pose de caméra : position, cible, focale, roulis
 function pose(u, portrait) {
-  const zoom = portrait ? 1.75 : 1; // en portrait il faut reculer pour garder la pièce en largeur
-  const O = V(0, 0, 0);
-  // A — révélation, B — éclatement, D — refermeture
-  const A = { pos: orbit(lerp(0.95, 0.62, P(u, 0, 0.16)), lerp(0.34, 0.28, P(u, 0, 0.16)), lerp(8.2, 9.2, P(u, 0, 0.16)) * zoom, O), tgt: O, fov: 30 };
-  const b = eio(P(u, 0.16, 0.34));
-  const B = { pos: orbit(lerp(0.62, 1.2, b), lerp(0.28, 0.2, b), lerp(9.2, 12.5, b) * zoom, O), tgt: O, fov: 30 };
-  // C — macro : arrêt marqué sur chaque pièce, glissement rapide entre elles
-  const s = P(u, 0.36, 0.76) * 4;
-  const k = Math.min(3, Math.floor(s));
-  const f = s - k;
-  const idx = k + smooth(P(f, 0.3, 0.8));
-  const i0 = Math.floor(idx), i1 = Math.min(4, i0 + 1);
-  const tx = lerp(partX(i0, 1), partX(i1, 1), idx - i0);
-  const tgtC = V(tx, 0.15, 0);
-  const C = { pos: orbit(0.5 + 0.08 * Math.sin(u * 20), 0.14, 3.9 * (portrait ? 1.45 : 1), tgtC), tgt: tgtC, fov: 26 };
-  const D = { pos: orbit(0.85, 0.24, 9.5 * zoom, O), tgt: O, fov: 30 };
-  // E — travelling compensé : la focale se ferme en gardant le cadrage → vue orthogonale
-  const e = eio(P(u, 0.88, 0.985));
-  const fovE = lerp(30, 2.2, e);
-  const distE = (lerp(9.5, 7.2, e) * zoom * Math.tan(THREE.MathUtils.degToRad(15))) / Math.tan(THREE.MathUtils.degToRad(fovE / 2));
-  const E = { pos: orbit(lerp(0.85, 0, e), lerp(0.24, 0, e), distE, O), tgt: O, fov: fovE };
-
-  const mix = (p, q, t) => ({ pos: p.pos.clone().lerp(q.pos, t), tgt: p.tgt.clone().lerp(q.tgt, t), fov: lerp(p.fov, q.fov, t) });
-  if (u < 0.16) return A;
-  if (u < 0.34) return B;
-  if (u < 0.4) return mix(B, C, eio(P(u, 0.34, 0.4)));
-  if (u < 0.74) return C;
-  if (u < 0.8) return mix(C, D, eio(P(u, 0.74, 0.8)));
-  if (u < 0.88) return D;
-  return E;
+  const back = portrait ? 1.75 : 1;
+  const A = { pos: V(0.4, 0.3, 10.5 * back - u * 8), tgt: V(0, 0, -1), fov: 40 };
+  const B = { pos: V(-5.5, 1.6, 15.5 * back), tgt: V(0.6, 0, 0), fov: 40 };
+  const C = { pos: V(0, -1.3, 13.2 * (portrait ? 2.35 : 1)), tgt: V(0, 0.1, 0), fov: 40 }; // en portrait, la rosace doit tenir en largeur
+  const d = P(u, 0.7, 1);
+  const az = lerp(0.95, 0.5, d);
+  const D = { pos: V(Math.sin(az) * 16 * back, lerp(4.4, 3, d) * back, Math.cos(az) * 16 * back), tgt: V(0, 0, 0), fov: 30 };
+  const mix = (p, r, t) => ({ pos: p.pos.clone().lerp(r.pos, t), tgt: p.tgt.clone().lerp(r.tgt, t), fov: lerp(p.fov, r.fov, t) });
+  if (u < 0.17) return A;
+  if (u < 0.3) return mix(A, B, eio(P(u, 0.17, 0.3)));
+  if (u < 0.42) return B;
+  if (u < 0.52) return mix(B, C, eio(P(u, 0.42, 0.52)));
+  if (u < 0.63) return C;
+  if (u < 0.76) return mix(C, D, eio(P(u, 0.63, 0.76)));
+  return D;
 }
-
-// décalage du sujet dans le cadre (texte à gauche sur desktop, au-dessus en portrait)
+// place du sujet dans le cadre : texte à gauche (desktop) ou dessous (portrait)
 function shift(u, portrait) {
-  const centre = eio(P(u, 0.86, 0.95));
-  return portrait ? { x: 0, y: lerp(0.15, 0.04, centre) } : { x: lerp(0.14, 0, centre), y: 0 };
+  const wall = P(u, 0.24, 0.3) * (1 - P(u, 0.4, 0.46));
+  return portrait ? { x: 0, y: lerp(0.13, 0.02, wall) } : { x: lerp(0.13, 0, wall), y: 0 };
 }
 
 const out = document.createElement('canvas');
 const ctx = out.getContext('2d');
+const m4 = new THREE.Matrix4(), sc = V(1, 1, 1);
 
-// rend l'image u pour un format donné et la renvoie en WebP (data URL)
 window.__frame = (u, variant, quality = 0.8) => {
   const portrait = variant === 'mob';
-  const [W, H] = portrait ? [720, 1280] : [1600, 900];
-  const SS = 1.5; // suréchantillonnage
+  const [W, H] = portrait ? [720, 1280] : [1440, 810];
+  const SS = 1.5;
   const rw = Math.round(W * SS), rh = Math.round(H * SS);
   renderer.setSize(rw, rh, false);
   composer.setSize(rw, rh);
-  edgeMats.forEach((m) => m.resolution.set(rw, rh));
+  [treeLineMat, ...edgeMats].forEach((m) => m.resolution.set(rw, rh));
 
-  const open = openAt(u);
-  groups.forEach((g, i) => {
-    g.position.x = partX(i, open);
-    g.rotation.x = i === 3 ? u * 16 : 0.1 * Math.sin(u * 9 + i);
-  });
+  const camPos = pose(u, portrait).pos;
+  for (const f of F) {
+    const s = cardState(f, u);
+    sc.set(CARD_W * s.scale, CARD_H * s.scale, 1);
+    m4.compose(s.pos, s.rot, sc);
+    cards.setMatrixAt(f.i, m4);
+    aChaos[f.i] = f.chaosSlot; aClean[f.i] = f.cleanSlot; aMix[f.i] = s.mix;
+    // brume de profondeur : les fichiers lointains s'effacent (image plus lisible, et plus légère)
+    const fog = u < 0.34 ? lerp(clamp(1.4 - s.pos.distanceTo(camPos) * 0.085), 1, P(u, 0.26, 0.34)) : 1;
+    aAlpha[f.i] = s.alpha * fog;
+  }
+  cards.instanceMatrix.needsUpdate = true;
+  for (const k of ['aMix', 'aAlpha', 'aChaos', 'aClean']) cardGeo.attributes[k].needsUpdate = true;
+
+  scan.position.set(sweepX(u), 0, 0.4);
+  scanMat.opacity = u > T0 + 0.004 && u < T1 - 0.004 ? 1 : 0;
+
+  // liens de la nomenclature : tracés depuis la racine, puis condensés avec elle
+  const grow = P(u, 0.5, 0.6), shrink = P(u, 0.62, 0.69);
+  const segs = [];
+  if (grow > 0 && shrink < 1) {
+    for (let n = 1; n < tree.length; n++) {
+      const a = tree[tree[n].parent].pos, b = tree[n].pos;
+      const local = P(grow, n <= 5 ? 0 : 0.35, n <= 5 ? 0.5 : 1);
+      if (local <= 0) continue;
+      const ctrl = n <= 5 ? null : V(Math.cos(tree[n].ang), Math.sin(tree[n].ang), 0).multiplyScalar(3.7);
+      let prev = a.clone().multiplyScalar(1 - shrink);
+      for (let k = 1; k <= 10; k++) {
+        const t = (k / 10) * local;
+        const p = ctrl
+          ? a.clone().multiplyScalar((1 - t) ** 2).add(ctrl.clone().multiplyScalar(2 * (1 - t) * t)).add(b.clone().multiplyScalar(t * t))
+          : a.clone().lerp(b, t);
+        p.multiplyScalar(1 - shrink);
+        segs.push(prev.x, prev.y, prev.z - 0.05, p.x, p.y, p.z - 0.05);
+        prev = p;
+      }
+    }
+  }
+  treeLines.visible = segs.length > 0;
+  if (segs.length) treeLineGeo.setPositions(segs);
+  treeLineMat.opacity = 0.5 * (1 - shrink);
+
+  // produit : points → épure → matière
+  ptsMat.opacity = 0.9 * P(u, 0.65, 0.73) * (1 - P(u, 0.82, 0.9));
+  const edgeK = P(u, 0.72, 0.78) * (1 - 0.85 * P(u, 0.84, 0.92));
+  edgeMats.forEach((m) => (m.opacity = edgeK));
+  const solidK = eio(P(u, 0.78, 0.88));
+  solids.forEach((m) => { m.opacity = solidK; m.depthWrite = solidK > 0.5; });
+  model.visible = edgeK > 0 || solidK > 0;
+  model.rotation.y = -0.2 + (u - 0.64) * 0.9;
+  cloud.rotation.y = model.rotation.y;
 
   const p = pose(u, portrait);
   camera.fov = p.fov;
   camera.aspect = W / H;
   camera.position.copy(p.pos);
-  camera.up.set(0, 1, 0);
-  // en portrait, la mise en plan finale se lit axe vertical
-  if (portrait) camera.up.set(0, 1, 0).applyAxisAngle(V(0, 0, 1), -Math.PI / 2 * eio(P(u, 0.9, 0.98)));
   camera.lookAt(p.tgt);
   const sh = shift(u, portrait);
   camera.setViewOffset(W, H, -sh.x * W, sh.y * H, W, H);
   camera.updateProjectionMatrix();
-  camera.far = Math.max(2000, p.pos.length() * 2);
-  camera.near = Math.max(0.05, p.pos.distanceTo(p.tgt) - 6);
-  camera.updateProjectionMatrix();
+  bloom.strength = u < 0.64 ? 0.35 : lerp(0.35, 0.12, P(u, 0.8, 0.9));
+  renderer.toneMappingExposure = lerp(1.15, 0.95, P(u, 0.8, 0.9));
 
-  // balayage d'apparition
-  const sw = eio(P(u, 0.015, 0.14));
-  const sx = lerp(-1.6, 1.6, sw);
-  solidClip.constant = sx;
-  edgeClip.constant = -sx;
-  scan.position.x = sx;
-  scan.material.opacity = sw > 0 && sw < 1 ? 1 : 0;
-
-  // retour au plan : la matière s'efface mais masque toujours les traits cachés
-  const draw = eio(P(u, 0.9, 0.975));
-  const edgeIn = P(u, 0.87, 0.93);
-  solids.forEach((m) => { m.opacity = 1 - draw; m.colorWrite = draw < 0.995; m.depthWrite = true; });
-  hullMats.forEach((m) => { m.opacity = P(u, 0.9, 0.96); m.visible = m.opacity > 0; });
-  edgeMats.forEach((m) => {
-    m.opacity = sw < 1 ? 1 : edgeIn;
-    m.linewidth = lerp(2, 2.6, draw);
-    m.clippingPlanes = sw < 1 ? [edgeClip] : [];
-  });
-
-  bloom.strength = lerp(0.14, 0.05, draw);
-
-  key.position.set(lerp(-3, -5, u), 6, 5);
   composer.render();
-
   out.width = W; out.height = H;
   ctx.imageSmoothingQuality = 'high';
   ctx.drawImage(renderer.domElement, 0, 0, W, H);
   return out.toDataURL('image/webp', quality);
 };
-
-// points de cote de la mise en plan finale, en fractions du cadre
-window.__anchors = (variant) => {
-  window.__frame(1, variant, 0.1);
-  const portrait = variant === 'mob';
-  const proj = (x, y, z) => { const v = V(x, y, z).project(camera); return [+((v.x + 1) / 2).toFixed(4), +((1 - v.y) / 2).toFixed(4)]; };
-  return {
-    left: proj(-0.99, 0, 0), right: proj(1.01, 0, 0),
-    top: proj(-0.87, 1.24, 0), bottom: proj(-0.87, -1.24, 0),
-    rotorTop: proj(0, 1.2, 0), housingL: proj(-0.78, -1.09, 0), housingR: proj(-0.1, -1.09, 0),
-    // encombrement total, arbre compris
-    ...(() => { const bb = new THREE.Box3(); meshes.forEach((m) => bb.expandByObject(m)); return { endL: proj(bb.min.x, 0, 0), endR: proj(bb.max.x, 0, 0) }; })(),
-    portrait,
-  };
-};
+window.__anchors = () => ({});
 window.__ready = true;
 </script>
 </body>

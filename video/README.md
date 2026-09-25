@@ -36,22 +36,23 @@ node video/render.mjs                                        # → public/video/
 Prévisualiser en temps réel : `http://localhost:8090/video/film.html?play`
 (ou `?t=12.5` pour figer un instant ; `node video/render.mjs --stills 5,12.5` pour des images fixes).
 
-## Film du hero (page d'accueil)
+## Film du hero (page d'accueil) — « Du chaos à la source de vérité »
 
-Le hero est un second film, lu **au défilement** : `video/hero/hero-film.html` rend le vrai
-modèle (`public/motion/precision.glb`) image par image, `video/hero/render-hero.mjs` écrit la
-séquence WebP dans `public/film/hero/{desk,mob}/` (240 images 1600×900, 120 images 720×1280)
-avec `meta.json` (nombre d'images + points de cote de la mise en plan finale).
-Côté site : `src/js/modules/hero-film.js` (chargement grossier → fin, intro jouée seule,
-image pilotée par le défilement) et `src/styles/components/hero-film.css`.
+Le hero est un second film, lu **au défilement** : `video/hero/hero-film.html` compose la scène
+en Three.js et la rend image par image ; `video/hero/render-hero.mjs` écrit la séquence WebP
+dans `public/film/hero/{desk,mob}/` (240 images 1440×810, 120 images 720×1280) avec `meta.json`.
+Côté site : `src/js/modules/hero-film.js` (chargement grossier → fin, intro jouée seule, image
+pilotée par le défilement, étapes du métier en regard) et `src/styles/components/hero-film.css`.
 
-Scénario : épure filaire → balayage orange qui révèle la matière → éclatement → travelling
-macro sur les 5 composants → refermeture → travelling compensé jusqu'à la vue orthogonale :
-la pièce redevient une mise en plan, et les chiffres clés s'y posent en cotes.
+Scénario : des centaines de fichiers en tourbillon, aux noms que tout bureau d'études connaît
+(`piece_finale_V3_OK`, `NE_PAS_TOUCHER`, conflits, doublons) → un balayage orange les renomme
+(PRT-0042 · RÉV.B · PUBLIÉ), les doublons fusionnent, tout se range en registre → le registre se
+replie en rosace de nomenclature → la nomenclature se condense en nuage de points, en épure,
+puis en produit. Fin : « Du chaos à une seule source de vérité », et les chiffres clés.
 
 ```sh
 npx http-server -p 8090 -s -c-1 . &
-node video/hero/render-hero.mjs --variant desk     # ~10 min en rendu logiciel
+node video/hero/render-hero.mjs --variant desk     # ~15 min en rendu logiciel
 node video/hero/render-hero.mjs --variant mob
 node video/hero/render-hero.mjs --stills 0,0.5,1   # images de contrôle → video/hero/.stills/
 ```
