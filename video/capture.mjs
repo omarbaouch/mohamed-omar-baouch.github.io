@@ -14,7 +14,8 @@ const browser = await chromium.launch({
 });
 
 async function open(theme, path, vp = { width: 1440, height: 900 }) {
-  const ctx = await browser.newContext({ viewport: vp, deviceScaleFactor: 1.5, locale: 'fr-FR', ignoreHTTPSErrors: true });
+  // mouvement réduit : le hero-film s'affiche à plat (image fixe + textes), lisible en pleine page
+  const ctx = await browser.newContext({ viewport: vp, deviceScaleFactor: 1.5, locale: 'fr-FR', ignoreHTTPSErrors: true, reducedMotion: 'reduce' });
   await ctx.addInitScript((t) => localStorage.setItem('theme', t), theme);
   const page = await ctx.newPage();
   await page.goto(base + path, { waitUntil: 'load', timeout: 45000 }).catch(() => null);

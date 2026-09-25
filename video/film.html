@@ -220,9 +220,6 @@ body { font-family: var(--sans); color: var(--snow); -webkit-font-smoothing: ant
 #outro .cart .w2 { grid-column: span 2; }
 #blackout { position: absolute; inset: 0; background: #000; opacity: 0; z-index: 60; pointer-events: none; }
 </style>
-<script type="importmap">
-{ "imports": { "three": "/node_modules/three/build/three.module.js", "three/addons/": "/node_modules/three/examples/jsm/" } }
-</script>
 </head>
 <body>
 <div id="stage">
@@ -252,9 +249,9 @@ body { font-family: var(--sans); color: var(--snow); -webkit-font-smoothing: ant
       <div class="line pl mask"><span>PDM / PLM</span></div>
     </div>
     <div class="uline"></div>
-    <div class="tag mono t1" style="left:1560px;top:250px">MOB — 001</div>
-    <div class="tag mono t2" style="left:1560px;top:290px">De la pièce au système</div>
-    <div class="tag mono t3" style="left:1500px;top:880px">◇ 5 composants · rév.2026</div>
+    <div class="tag mono t1" style="left:1560px;top:250px">440 fichiers</div>
+    <div class="tag mono t2" style="left:1560px;top:290px">3 versions de la vérité</div>
+    <div class="tag mono t3" style="left:1500px;top:880px">◇ Du chaos à la source unique</div>
   </section>
 
   <!-- 3. chiffres -->
@@ -343,7 +340,7 @@ body { font-family: var(--sans); color: var(--snow); -webkit-font-smoothing: ant
   <section class="scene dark" id="outro">
     <div class="grid"></div>
     <canvas width="1400" height="560"></canvas>
-    <div class="state mono">Assemblage terminé — 5 / 5 composants</div>
+    <div class="state mono">Source unique — 296 références · 0 conflit</div>
     <div class="word"></div>
     <div class="who mono">Mohamed Omar Baouch — Consultant PDM/PLM · Strasbourg</div>
     <div class="stamp">ÉTAT — PUBLIÉ</div>
@@ -368,9 +365,6 @@ body { font-family: var(--sans); color: var(--snow); -webkit-font-smoothing: ant
 </div>
 
 <script type="module">
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 
 // ---------------------------------------------------------------- outils
 const $ = (s, r = document) => r.querySelector(s);
@@ -389,39 +383,25 @@ function chars(el, text) {
   return [...text].map((c) => { const s = document.createElement('span'); s.className = 'ch'; s.textContent = c; el.append(s); return s; });
 }
 
-// ---------------------------------------------------------------- 3D : le vrai modèle du site
-const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, preserveDrawingBuffer: true });
-renderer.setPixelRatio(1);
-renderer.toneMapping = THREE.AgXToneMapping;
-renderer.toneMappingExposure = 1.25;
-const scene3 = new THREE.Scene();
-const pmrem = new THREE.PMREMGenerator(renderer);
-scene3.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
-scene3.environmentIntensity = 1.7;
-const key = new THREE.DirectionalLight(0xd8eaff, 4); key.position.set(-3, 6, 5); scene3.add(key);
-const rim = new THREE.DirectionalLight(0xffa16a, 3); rim.position.set(3, 3, -5); scene3.add(rim);
-const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 80);
-const gltf = await new GLTFLoader().loadAsync('/public/motion/precision.glb');
-const model = gltf.scene;
-model.traverse((o) => { if (/Infinite.studio.floor/.test(o.name)) o.visible = false; });
-scene3.add(model);
-const parts = ['Rear flange', 'Bearing housing', 'Copper rotor', 'Turbine wheel', 'Front locking collar']
-  .map((n) => model.getObjectByName(n.replaceAll(' ', '_')) || model.getObjectByName(n));
-
-function draw3d(canvas, { opening, spin, az, el = 0.36, dist = 13.1, look = [0, 0, 0] }) {
+// ---------------------------------------------------------------- le film du hero, réutilisé
+// Les scènes « Titre » et « Publication » montrent les images du film du hero
+// (public/film/hero/desk) : la tempête de fichiers, puis la source unique.
+const HERO_N = (await fetch('/public/film/hero/desk/meta.json').then((r) => r.json())).frames;
+const heroFrames = await Promise.all(Array.from({ length: HERO_N }, (_, i) => new Promise((res) => {
+  const im = new Image();
+  im.onload = () => res(im); im.onerror = () => res(null);
+  im.src = `/public/film/hero/desk/${String(i).padStart(3, '0')}.webp`;
+})));
+// dessine l'image u du film dans le canvas, cadrée comme object-fit: cover autour de focusX
+function drawHero(canvas, u, focusX = 0.62) {
+  const im = heroFrames[Math.round(clamp(u) * (HERO_N - 1))];
+  if (!im) return;
   const w = canvas.width, h = canvas.height;
-  renderer.setSize(w, h, false);
-  camera.aspect = w / h; camera.updateProjectionMatrix();
-  parts.forEach((g, i) => {
-    g.position.x = (i - 2) * (0.44 + 0.84 * opening);
-    g.rotation.x = i === 3 ? spin * 0.7 : 0.12 * Math.sin(spin);
-  });
-  camera.position.set(Math.sin(az) * Math.cos(el) * dist, Math.sin(el) * dist, Math.cos(az) * Math.cos(el) * dist);
-  camera.lookAt(...look);
-  renderer.render(scene3, camera);
+  const k = Math.max(w / im.width, h / im.height);
+  const dw = im.width * k, dh = im.height * k;
+  const x = clamp(w / 2 - focusX * dw, w - dw, 0);
   const ctx = canvas.getContext('2d');
-  ctx.clearRect(0, 0, w, h);
-  ctx.drawImage(renderer.domElement, 0, 0);
+  ctx.drawImage(im, x, (h - dh) / 2, dw, dh);
 }
 
 // ---------------------------------------------------------------- scènes
@@ -507,11 +487,11 @@ const add = (id, start, end, update, label) => scenes.push({ el: document.getEle
       const q = eo(P(lt, 1.6 + i * 0.25, 2.3 + i * 0.25));
       css(tg, { opacity: q, '--k': q });
     });
-    const open = 0.5 - 0.5 * Math.cos(P(lt, 0.3, 6.5) * Math.PI * 1.35);
     const inn = eo(P(lt, 0, 1.6));
     cv.style.opacity = inn;
     cv.style.transform = `translateX(${(1 - inn) * 120}px)`;
-    draw3d(cv, { opening: open, spin: lt * 1.1, az: 0.2 + lt * 0.16, el: 0.4 - lt * 0.02, dist: 14.5 });
+    // la tempête de fichiers, puis le filet orange qui commence à les renommer
+    drawHero(cv, lerp(0.03, 0.3, P(lt, 0, 6.5)));
   }, 'Titre');
 }
 
@@ -797,7 +777,7 @@ const add = (id, start, end, update, label) => scenes.push({ el: document.getEle
   }, 'Responsive');
 }
 
-// 9 ─ final : l'assemblage se referme, le site est publié
+// 9 ─ final : tout converge vers la source unique, le site est publié
 {
   const s = $('#outro');
   const cv = $('canvas', s);
@@ -807,8 +787,8 @@ const add = (id, start, end, update, label) => scenes.push({ el: document.getEle
   const who = $('.who', s), st = $('.state', s), stamp = $('.stamp', s), cart = $('.cart', s);
   const cells = [...cart.children];
   add('outro', 46, 53, (lt) => {
-    const close = eio(P(lt, 0.1, 2.0));
-    draw3d(cv, { opening: 1 - close, spin: 2.5 + close * 2.2, az: 1.4 - close * 0.9, el: 0.36, dist: lerp(12.5, 9.6, close) });
+    // la nomenclature converge en une seule fiche : la source unique
+    drawHero(cv, lerp(0.6, 1, eio(P(lt, 0, 2.6))));
     css(cv, { opacity: P(lt, 0, 0.4) * (1 - 0.15 * P(lt, 2.2, 3)) });
     css(st, { opacity: P(lt, 1.9, 2.2) });
     [...A, ...B].forEach((c, i) => {
