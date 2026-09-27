@@ -50,7 +50,7 @@
                 "description": "Copilotes de conception, recherche sémantique, classification automatique, chatbots documentaires : ce que l'IA change concrètement dans SOLIDWORKS et le PDM en 2026 — et pourquoi la qualité de vos données décidera de tout. Analyse terrain sans hype.",
                 "image": "https://www.baouch.fr/img/og/ia-pdm.jpg",
                 "datePublished": "2026-07-10",
-                "dateModified": "2026-07-10",
+                "dateModified": "2026-09-27",
                 "inLanguage": "fr-FR",
                 "mainEntityOfPage": {
                     "@type": "WebPage",
@@ -134,6 +134,22 @@
                             "@type": "Answer",
                             "text": "Question à poser explicitement avant toute signature, et à faire écrire au contrat : où les données sont traitées, si elles servent à l'entraînement, et ce qu'il advient en fin de contrat. Pour des plans sous accord de confidentialité client, ce point n'est pas négociable."
                         }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Quelles fonctions d'IA sont déjà intégrées à SOLIDWORKS ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Sur le poste, des assistances qui fonctionnent en local : Command Predictor (proposition de la commande suivante), accélérateurs de sélection, réparation des relations d'esquisse, reconnaissance des fixations, réparation des références de contraintes. Sur la plateforme 3DEXPERIENCE, le compagnon virtuel AURA répond aux questions sur le logiciel en citant ses sources ; il demande les services cloud, une licence éligible et consomme des jetons."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Comment savoir si mes données PDM sont prêtes pour l'IA ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Faites cinq contrôles dans le coffre : descriptions vides ou recopiées du nom de fichier, champs de carte non reliés aux propriétés, noms de fichiers en double dans plusieurs dossiers, procédures en plusieurs versions, plans validés dont le 3D a changé. Si l'un de ces signaux ressort largement, commencez par corriger la donnée."
+                        }
                     }
                 ]
             }
@@ -176,7 +192,7 @@
                         </div>
                         <span class="hero-eyebrow" data-i18n=""><span data-lang="fr">Le sujet dont tout le monde parle — vu du terrain</span><span data-lang="en">The topic everyone talks about — seen from the field</span></span>
                         <h1 class="hero-title" data-i18n=""><span data-lang="fr">IA et SOLIDWORKS PDM : ce qui change vraiment pour les bureaux d'études en 2026</span><span data-lang="en">AI and SOLIDWORKS PDM: what actually changes for engineering teams in 2026</span></h1>
-                        <p class="hero-subtitle" data-i18n=""><span data-lang="fr">Publié le 10 juillet 2026 — copilotes de conception, recherche sémantique, classification automatique, assistants documentaires : le tri entre ce qui marche déjà, ce qui arrive, et ce qui restera du marketing. Avec la seule vérité qui compte : sans données propres, pas d'IA utile.</span><span data-lang="en">Published July 10, 2026 — design copilots, semantic search, auto-classification, documentation assistants: sorting what already works, what's coming, and what will remain marketing. With the only truth that matters: no clean data, no useful AI.</span></p>
+                        <p class="hero-subtitle" data-i18n=""><span data-lang="fr">Publié le 10 juillet 2026, mis à jour le 27 septembre 2026 — copilotes de conception, recherche sémantique, classification automatique, assistants documentaires : le tri entre ce qui marche déjà, ce qui arrive, et ce qui restera du marketing. Avec la seule vérité qui compte : sans données propres, pas d'IA utile.</span><span data-lang="en">Published July 10, 2026, updated September 27, 2026 — design copilots, semantic search, auto-classification, documentation assistants: sorting what already works, what's coming, and what will remain marketing. With the only truth that matters: no clean data, no useful AI.</span></p>
                         <div class="hero-actions">
                             <a class="hero-btn" href="#sommaire" data-i18n=""><span data-lang="fr">Consulter le sommaire</span><span data-lang="en">Jump to contents</span></a>
                             <a class="hero-btn hero-btn--ghost" href="/#contact" data-i18n=""><span data-lang="fr">Me contacter</span><span data-lang="en">Get in touch</span></a>
@@ -227,6 +243,38 @@
                     <h2 data-i18n=""><span data-lang="fr">1. 2026 : où en est réellement l'IA dans l'écosystème SOLIDWORKS</span><span data-lang="en">1. 2026: where AI really stands in the SOLIDWORKS ecosystem</span></h2>
                     <p data-i18n=""><span data-lang="fr">Dassault Systèmes pousse ses assistants IA sur la plateforme <strong>3DEXPERIENCE</strong> (compagnons génératifs, aide à la modélisation, automatisation de tâches répétitives), et chaque version de SOLIDWORKS embarque davantage d'assistances : sélections intelligentes, réparation d'esquisses, suggestions de fonctions. En parallèle, tout un écosystème d'outils tiers s'est construit autour des données : recherche par similarité géométrique, extraction de propriétés, agents documentaires.</span><span data-lang="en">Dassault Systèmes is pushing its AI assistants on the <strong>3DEXPERIENCE</strong> platform (generative companions, modeling aid, automation of repetitive tasks), and each SOLIDWORKS release ships more assistance: smart selections, sketch repair, feature suggestions. In parallel, a whole ecosystem of third-party tools has been built around data: geometric similarity search, property extraction, documentation agents.</span></p>
                     <p data-i18n=""><span data-lang="fr">Mais il faut être honnête sur la géographie de cette innovation : <strong>le gros des nouveautés IA « spectaculaires » vit sur le cloud 3DEXPERIENCE</strong>, pas dans SOLIDWORKS desktop + PDM on-premise, qui reste la configuration majoritaire des PME industrielles françaises. Pour ces équipes, la vraie question n'est pas « quand aurai-je un copilote de conception ? » mais « qu'est-ce que je peux brancher <em>aujourd'hui</em> sur mon coffre PDM ? ». Et là, il y a déjà beaucoup à faire.</span><span data-lang="en">But let's be honest about the geography of this innovation: <strong>most of the "spectacular" AI features live on the 3DEXPERIENCE cloud</strong>, not in SOLIDWORKS desktop + on-premise PDM, which remains the majority setup of industrial SMEs. For these teams, the real question isn't "when will I get a design copilot?" but "what can I plug into my PDM vault <em>today</em>?". And there, there's already plenty to do.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Où se trouve l'IA aujourd'hui, et ce qu'elle demande</span><span data-lang="en">Where AI lives today, and what it requires</span></h3>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr>
+                                        <th data-i18n=""><span data-lang="fr">Environnement</span><span data-lang="en">Environment</span></th>
+                                        <th data-i18n=""><span data-lang="fr">Ce qui existe</span><span data-lang="en">What exists</span></th>
+                                        <th data-i18n=""><span data-lang="fr">Prérequis</span><span data-lang="en">Prerequisite</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">Poste SOLIDWORKS (bureau)</span><span data-lang="en">SOLIDWORKS desktop</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Assistances intégrées : <em>Command Predictor</em> (propose la commande suivante), accélérateurs de sélection, réparation des relations d'esquisse, reconnaissance des fixations, réparation des références de contraintes manquantes.</span><span data-lang="en">Built-in assistance: <em>Command Predictor</em> (suggests the next command), selection accelerators, sketch relation repair, fastener recognition, missing mate reference repair.</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Aucune : fonctionne en local.</span><span data-lang="en">None: runs locally.</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">Plateforme 3DEXPERIENCE (cloud)</span><span data-lang="en">3DEXPERIENCE platform (cloud)</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Compagnons virtuels, dont <strong>AURA</strong> : répond aux questions sur SOLIDWORKS à partir de l'aide, de la formation et de la documentation, en citant ses sources.</span><span data-lang="en">Virtual companions, including <strong>AURA</strong>: answers SOLIDWORKS questions from help, training and documentation, citing its sources.</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Services cloud activés, accès à la plateforme de l'entreprise, licence nominative éligible ; consomme des jetons.</span><span data-lang="en">Cloud services enabled, access to the company platform, eligible named-user licence; consumes tokens.</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">Coffre SOLIDWORKS PDM (sur site)</span><span data-lang="en">SOLIDWORKS PDM vault (on-premise)</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Les cas d'usage de cet article (recherche sémantique, propriétés, doublons, assistant, contrôle qualité) passent par des outils tiers ou des développements branchés sur le coffre.</span><span data-lang="en">The use cases in this article (semantic search, properties, duplicates, assistant, QC) rely on third-party tools or custom developments connected to the vault.</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Des cartes de données renseignées et fiables : c'est l'objet de la section 5.</span><span data-lang="en">Populated, reliable data cards: see section 5.</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p class="article-note" data-i18n=""><span data-lang="fr">Fonctions SOLIDWORKS et conditions d'accès à AURA : d'après le <a href="https://www.goengineer.com/blog/ai-in-solidworks" rel="noopener" target="_blank">récapitulatif du revendeur GoEngineer</a> ; vérifiez la disponibilité exacte selon votre version et votre contrat.</span><span data-lang="en">SOLIDWORKS features and AURA access conditions: per the <a href="https://www.goengineer.com/blog/ai-in-solidworks" rel="noopener" target="_blank">GoEngineer reseller overview</a>; check exact availability for your version and contract.</span></p>
                 </section>
 
                 <section class="blog-section article-section" id="recherche">
@@ -281,6 +329,54 @@
                             </ul>
                         </div>
                     </div>
+                    <h3 data-i18n=""><span data-lang="fr">Grille d'auto-diagnostic : ce que chaque cas d'usage lit dans votre coffre</span><span data-lang="en">Self-assessment grid: what each use case reads in your vault</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Avant de comparer des offres d'IA, faites ces cinq contrôles dans votre coffre. Chacun se fait avec la recherche du PDM ou une requête sur sa base ; s'il révèle le signal d'alerte, le chantier prioritaire est la donnée, pas l'outil. La méthode pour corriger les propriétés est détaillée dans <a href="/blog/codification-proprietes-solidworks/">codification et propriétés SOLIDWORKS</a>, et celle pour reprendre un stock de fichiers dans <a href="/blog/migration-donnees-solidworks-pdm/">migration de données vers SOLIDWORKS PDM</a>.</span><span data-lang="en">Before comparing AI offers, run these five checks in your vault. Each one uses PDM search or a query on its database; if it reveals the warning sign, the priority is the data, not the tool. How to fix properties is covered in <a href="/blog/codification-proprietes-solidworks/">SOLIDWORKS numbering and properties</a>, and how to take over a legacy file stock in <a href="/blog/migration-donnees-solidworks-pdm/">migrating data to SOLIDWORKS PDM</a>.</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr>
+                                        <th data-i18n=""><span data-lang="fr">Cas d'usage</span><span data-lang="en">Use case</span></th>
+                                        <th data-i18n=""><span data-lang="fr">Ce que l'IA lit</span><span data-lang="en">What the AI reads</span></th>
+                                        <th data-i18n=""><span data-lang="fr">Contrôle à faire</span><span data-lang="en">Check to run</span></th>
+                                        <th data-i18n=""><span data-lang="fr">Signal d'alerte</span><span data-lang="en">Warning sign</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">Recherche sémantique</span><span data-lang="en">Semantic search</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Description, projet, matière de la carte de données ; géométrie pour la similarité</span><span data-lang="en">Description, project, material from the data card; geometry for similarity</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Rechercher les fichiers dont la variable Description est vide ou identique au nom du fichier</span><span data-lang="en">Search for files whose Description variable is empty or equal to the filename</span></td>
+                                        <td data-i18n=""><span data-lang="fr">La désignation n'existe que dans le nom du fichier</span><span data-lang="en">The description only exists in the filename</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">Propriétés auto-remplies</span><span data-lang="en">Auto-filled properties</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Propriétés personnalisées existantes, liste des matières, géométrie</span><span data-lang="en">Existing custom properties, material list, geometry</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Vérifier que chaque champ de la carte est relié à une propriété du fichier (mappage des attributs), sans doublon</span><span data-lang="en">Check that every card field maps to a file property (attribute mapping), with no duplicates</span></td>
+                                        <td data-i18n=""><span data-lang="fr">La même information saisie à deux endroits qui divergent</span><span data-lang="en">The same information typed in two places that disagree</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">Déduplication</span><span data-lang="en">Deduplication</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Géométrie et codification</span><span data-lang="en">Geometry and part numbering</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Compter les noms de fichiers présents dans plusieurs dossiers du coffre</span><span data-lang="en">Count filenames that appear in several vault folders</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Des copies « _v2 », « _copie », « _OK » d'une même pièce</span><span data-lang="en">"_v2", "_copy", "_OK" copies of the same part</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">Assistant documentaire (RAG)</span><span data-lang="en">Documentation assistant (RAG)</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Procédures, normes internes, notices (PDF, Word)</span><span data-lang="en">Procedures, internal standards, manuals (PDF, Word)</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Les documents de référence sont-ils dans le coffre, à l'état « Validé », avec un seul indice en vigueur ?</span><span data-lang="en">Are reference documents in the vault, in "Approved" state, with a single current revision?</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Plusieurs versions d'une même procédure en circulation</span><span data-lang="en">Several versions of the same procedure in circulation</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">Contrôle qualité continu</span><span data-lang="en">Continuous QC</span></td>
+                                        <td data-i18n=""><span data-lang="fr">États de workflow, révisions, références entre fichiers</span><span data-lang="en">Workflow states, revisions, file references</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Lister les plans validés dont le modèle 3D a changé depuis</span><span data-lang="en">List approved drawings whose 3D model has changed since</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Des révisions incrémentées à la main, hors workflow</span><span data-lang="en">Revisions bumped by hand, outside the workflow</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                     <div class="callout callout--soft">
                         <p data-i18n=""><span data-lang="fr"><strong>La bonne nouvelle :</strong> le chemin vers « prêt pour l'IA » est exactement le même que le chemin vers un PDM bien déployé. Rien n'est perdu : chaque euro investi dans la structuration des données rapporte deux fois — aujourd'hui en productivité, demain en capacités IA.</span><span data-lang="en"><strong>The good news:</strong> the path to "AI-ready" is exactly the same as the path to a well-deployed PDM. Nothing is wasted: every euro invested in structuring data pays twice — today in productivity, tomorrow in AI capabilities.</span></p>
                     </div>
@@ -333,6 +429,10 @@
                     <p data-i18n=""><span data-lang="fr">C'est l'usage le plus mûr et le plus rentable aujourd'hui : retrouver une pièce équivalente déjà conçue évite de la recréer, avec tout ce que cela entraîne en références, stocks et achats. Encore faut-il que les métadonnées existent.</span><span data-lang="en">It's the most mature and cost-effective use today: finding an equivalent part already designed avoids recreating it, with everything that entails in references, stock and purchasing. Provided the metadata exists.</span></p>
                     <h3 data-i18n=""><span data-lang="fr">Mes données partent-elles chez l'éditeur ?</span><span data-lang="en">Does my data leave for the vendor?</span></h3>
                     <p data-i18n=""><span data-lang="fr">Question à poser explicitement avant toute signature, et à faire écrire au contrat : où les données sont traitées, si elles servent à l'entraînement, et ce qu'il advient en fin de contrat. Pour des plans sous accord de confidentialité client, ce point n'est pas négociable.</span><span data-lang="en">A question to ask explicitly before signing, and to have written into the contract: where data is processed, whether it feeds training, and what happens at contract end. For drawings under customer NDA, this point is not negotiable.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Quelles fonctions d'IA sont déjà intégrées à SOLIDWORKS ?</span><span data-lang="en">Which AI features are already built into SOLIDWORKS?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Sur le poste, des assistances qui fonctionnent en local : Command Predictor (proposition de la commande suivante), accélérateurs de sélection, réparation des relations d'esquisse, reconnaissance des fixations, réparation des références de contraintes. Sur la plateforme 3DEXPERIENCE, le compagnon virtuel AURA répond aux questions sur le logiciel en citant ses sources ; il demande les services cloud, une licence éligible et consomme des jetons.</span><span data-lang="en">On the desktop, assistance that runs locally: Command Predictor (next command suggestion), selection accelerators, sketch relation repair, fastener recognition, mate reference repair. On the 3DEXPERIENCE platform, the AURA virtual companion answers software questions citing its sources; it requires cloud services, an eligible licence and consumes tokens.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Comment savoir si mes données PDM sont prêtes pour l'IA ?</span><span data-lang="en">How do I know if my PDM data is ready for AI?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Faites cinq contrôles dans le coffre : descriptions vides ou recopiées du nom de fichier, champs de carte non reliés aux propriétés, noms de fichiers en double dans plusieurs dossiers, procédures en plusieurs versions, plans validés dont le 3D a changé. Si l'un de ces signaux ressort largement, commencez par corriger la donnée.</span><span data-lang="en">Run five checks in the vault: empty descriptions or copies of the filename, card fields not mapped to properties, duplicate filenames across folders, procedures in several versions, approved drawings whose 3D has changed. If any of these signals shows up widely, fix the data first.</span></p>
                 </section>
 
                 <section class="blog-section article-related">
