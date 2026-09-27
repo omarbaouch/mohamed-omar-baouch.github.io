@@ -24,6 +24,7 @@ html:not([lang='en']) .ah-pic--en { display: none; }
 .ah-media {
   position: relative;
   aspect-ratio: 1672 / 941;
+  overflow: hidden;
 }
 
 .ah-pic,
@@ -39,10 +40,69 @@ html:not([lang='en']) .ah-pic--en { display: none; }
   object-fit: cover;
 }
 
+/* vue plan : loupe dessinée au-dessus de la photo, sous le voile et le texte */
+.ah-lens {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ah-media { cursor: crosshair; }
+
+/* parallaxe légère pilotée par le pointeur (variables posées par le script) */
+.ah-pic,
+.ah-lens {
+  transform: translate3d(var(--ah-px, 0), var(--ah-py, 0), 0) scale(1.03);
+  transition: transform .9s cubic-bezier(.22, 1, .36, 1);
+}
+
+/* invitation à interagir */
+.ah-hint {
+  position: absolute;
+  right: 56px;
+  bottom: 22px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid rgb(155 198 230 / .35);
+  border-radius: 999px;
+  background: rgb(8 11 18 / .55);
+  backdrop-filter: blur(6px);
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #dbe5ee;
+  pointer-events: none;
+  transition: opacity .5s ease;
+}
+
+.ah-hint-dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  border: 1px solid #efa471;
+}
+
+.ah-hint-touch { display: none; }
+@media (hover: none) {
+  .ah-hint-mouse { display: none; }
+  .ah-hint-touch { display: inline; }
+}
+
+.about-hero:hover .ah-hint { opacity: 0; }
+
 /* la zone gauche s'assombrit juste assez pour lire le texte */
 .ah-shade {
   position: absolute;
   inset: 0;
+  z-index: 2;
   pointer-events: none;
   background:
     linear-gradient(90deg, rgb(8 11 18 / .92) 0%, rgb(8 11 18 / .78) 26%, rgb(8 11 18 / .35) 44%, transparent 58%),
@@ -53,6 +113,7 @@ html:not([lang='en']) .ah-pic--en { display: none; }
 .ah-glow {
   position: absolute;
   inset: 0;
+  z-index: 2;
   pointer-events: none;
   background: radial-gradient(38% 55% at 78% 42%, rgb(239 122 60 / .16), transparent 70%);
   mix-blend-mode: screen;
@@ -73,6 +134,7 @@ html:not([lang='en']) .ah-pic--en { display: none; }
 .ah-content {
   position: absolute;
   inset: 0;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -343,7 +405,7 @@ html:not([lang='en']) .ah-pic--en { display: none; }
   .ah-head {
     grid-area: 1 / 1;
     align-self: end;
-    z-index: 2;
+    z-index: 4;
     max-width: 36rem;
     padding-bottom: clamp(1.4rem, 4vw, 2.4rem);
   }
@@ -370,4 +432,5 @@ html:not([lang='en']) .ah-pic--en { display: none; }
   .ah-stat { padding: 0 0.7rem; }
   .ah-label { font-size: 0.56rem; letter-spacing: 0.08em; }
   .ah-corner--br { bottom: auto; top: 18px; right: 18px; border-bottom-width: 0; border-top-width: 1px; }
+  .ah-hint { bottom: auto; top: 22px; right: auto; left: 50%; transform: translateX(-50%); white-space: nowrap; }
 }

@@ -275,6 +275,8 @@
   "ah_kicker": "PDM · PLM · CAD — Strasbourg",
   "ah_stat_years": "Years of experience",
   "ah_cote": "workstation",
+  "ah_hint_mouse": "Hover the photo — plan view",
+  "ah_hint_touch": "Tap the photo — plan view",
   "footer_index_head": "Engineering notebook — index",
   "bt_5_meta": "23 documents",
   "bt_5_1": "PLM, the complete guide",
