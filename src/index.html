@@ -21,7 +21,7 @@
         "name": "Mohamed Omar Baouch",
         "alternateName": "Baouch",
         "url": "https://www.baouch.fr",
-        "image": "https://www.baouch.fr/baouch.jpeg",
+        "image": "https://www.baouch.fr/img/home/about-scene-mobile.webp",
         "jobTitle": "Ingénieur & Consultant PDM/PLM",
         "worksFor": {
             "@type": "Organization",
@@ -428,14 +428,50 @@
             <span class="section-watermark" aria-hidden="true">02</span>
             <div class="container-site">
                 <p class="eyebrow"><span class="eyebrow-num">02</span> <span data-translate-key="about_title">À propos</span></p>
-                <div class="about-grid">
-                    <div class="about-media">
-                        <div class="media-reveal about-photo">
-                            <img src="/baouch.jpeg" alt="Portrait de Mohamed Omar Baouch" width="640" height="800" loading="lazy">
-                        </div>
-                    </div>
+            </div>
+
+            <!-- poste de travail : image pleine largeur, titre sur la zone sombre,
+                 repères de plan qui se tracent à l'arrivée (js/modules/about-scene.js) -->
+            <figure class="about-scene" data-about-scene>
+                <picture>
+                    <source media="(max-width: 48rem)" srcset="/img/home/about-scene-mobile.webp" width="657" height="821">
+                    <img src="/img/home/about-scene-1916.webp" srcset="/img/home/about-scene-1200.webp 1200w, /img/home/about-scene-1916.webp 1916w" sizes="100vw" width="1916" height="821" loading="lazy" decoding="async" alt="Mohamed Omar Baouch à son poste dans un bureau d'études, devant un assemblage 3D en cours de conception">
+                </picture>
+                <div class="scene-shade" aria-hidden="true"></div>
+                <svg class="scene-marks" viewBox="0 0 1916 821" aria-hidden="true">
+                    <g class="mark" style="--d:0s">
+                        <circle cx="1165" cy="300" r="7"></circle>
+                        <polyline points="1165,300 1080,196 740,196"></polyline>
+                        <text x="740" y="184">PRT-05 · <tspan data-translate-key="scene_mark_part">pièce en conception</tspan></text>
+                    </g>
+                    <g class="mark" style="--d:.25s">
+                        <circle cx="880" cy="665" r="7"></circle>
+                        <polyline points="880,665 835,640 500,640"></polyline>
+                        <text x="500" y="628">PRT-02 · <tspan data-translate-key="scene_mark_machined">pièce usinée</tspan></text>
+                    </g>
+                    <g class="mark" style="--d:.5s">
+                        <circle cx="1260" cy="735" r="7"></circle>
+                        <polyline points="1260,735 1200,790 980,790"></polyline>
+                        <text x="980" y="778">DWG-01 · <tspan data-translate-key="scene_mark_drawing">plan de définition</tspan></text>
+                    </g>
+                    <g class="cote" style="--d:.75s">
+                        <line x1="120" y1="742" x2="560" y2="742"></line>
+                        <line class="tick" x1="120" y1="728" x2="120" y2="756"></line>
+                        <line class="tick" x1="560" y1="728" x2="560" y2="756"></line>
+                        <text x="340" y="728" text-anchor="middle">100+ <tspan data-translate-key="scene_cote">projets PDM / PLM</tspan></text>
+                    </g>
+                </svg>
+                <div class="container-site scene-overlay">
+                    <p class="scene-kicker" aria-hidden="true">ASM-00 · <span data-translate-key="scene_kicker">poste de travail — Strasbourg</span></p>
+                    <h2 class="display-2 scene-title" data-translate-key="about_heading_new">Ingénieur de formation, <em class="serif-accent">architecte</em> de vos données techniques</h2>
+                </div>
+                <span class="scene-corner scene-corner--tl" aria-hidden="true"></span>
+                <span class="scene-corner scene-corner--br" aria-hidden="true"></span>
+            </figure>
+
+            <div class="container-site">
+                <div class="about-body">
                     <div class="about-copy">
-                        <h2 class="display-2" data-translate-key="about_heading_new">Ingénieur de formation, <em class="serif-accent">architecte</em> de vos données techniques</h2>
                         <p class="prose-lead" data-translate-key="about_p1">
                             <strong>Ingénieur Plasturgie INSA</strong> de formation, j'ai évolué de la conception mécanique
                             pure vers l'architecture des systèmes d'information techniques. Mon approche est pragmatique :
@@ -446,6 +482,8 @@
                             multi-sites, audits de performance), j'apporte une méthodologie éprouvée pour résoudre vos défis
                             de gestion de données techniques, du bureau d'études jusqu'à l'atelier.
                         </p>
+                    </div>
+                    <div class="about-side">
                         <ul class="about-facts">
                             <li><span class="fact-label" data-translate-key="fact_location_label">Localisation</span><span>Strasbourg, France</span></li>
                             <li><span class="fact-label" data-translate-key="contact_phone">Téléphone</span><span>+33 6 95 91 92 18</span></li>

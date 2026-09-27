@@ -5,6 +5,7 @@ import '../styles/components/cinematic.css';
 import '../styles/components/hero-film.css';
 import '../styles/components/signature.css';
 import '../styles/components/bom-tree.css';
+import '../styles/components/about-scene.css';
 import { initCinematic } from './modules/cinematic.js';
 import { initI18n } from './core/i18n.js';
 import { initTheme } from './core/theme.js';
@@ -15,6 +16,7 @@ import { runLoader } from './core/loader.js';
 import { initSheet } from './modules/sheet.js';
 import { initCursor } from './modules/cursor.js';
 import { initProjectRegister } from './modules/projects.js';
+import { initAboutScene } from './modules/about-scene.js';
 
 // le rideau est armé le plus tôt possible pour éviter tout flash de contenu
 if (
@@ -34,6 +36,7 @@ initCinematic();
 runLoader();
 initSheet();
 initCursor();
+initAboutScene();
 const register = document.querySelector('.projects-grid');
 if (register) initProjectRegister(register);
 
