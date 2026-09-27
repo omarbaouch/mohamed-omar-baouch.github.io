@@ -275,8 +275,10 @@ function initBlueprintLens(scene) {
       const b = media.getBoundingClientRect();
       const vh = innerHeight;
       if (b.bottom < 0 || b.top > vh) return;
-      const progress = (vh - b.top) / (vh * 0.95);
-      const ex = 1 - smooth(0.12, 0.9, progress);
+      // éclatée quand la photo entre par le bas de l'écran, remontée (coude posé
+      // sur la table) dès que son bord haut atteint le milieu de l'écran
+      const progress = (vh - b.top) / vh;
+      const ex = 1 - smooth(0.04, 0.5, progress);
       if (Math.abs(ex - explode) < 0.002) return;
       explode = ex;
       scene.style.setProperty('--ah-ex', ex.toFixed(3));

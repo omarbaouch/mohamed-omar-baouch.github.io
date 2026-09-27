@@ -65,7 +65,7 @@
 
 .ah-layer--fg {
   transform:
-    translate3d(calc(var(--ex) * 5% + var(--mx) * 14px), calc(var(--ex) * 9% + var(--my) * 9px), 0)
+    translate3d(calc(var(--ex) * 5% + var(--mx) * 9px), calc(var(--ex) * 9% + var(--my) * 6px), 0)
     scale(calc(1.02 + var(--ex) * .1));
 }
 
