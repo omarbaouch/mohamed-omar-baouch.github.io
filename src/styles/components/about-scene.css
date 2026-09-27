@@ -41,6 +41,61 @@
   object-fit: cover;
 }
 
+.ah-fill { position: absolute; inset: 0; }
+
+/* ---------- tasse déplaçable : position en pixels posée par le script ;
+   sans script, repli en % (valable quand le cadre a le ratio de l'image) ---------- */
+.ah-layer .ah-mug {
+  position: absolute;
+  left: 36.124%;
+  top: 75.983%;
+  width: 13.218%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: grab;
+  touch-action: none;
+  z-index: 1;
+  transform-origin: 50% 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ah-layer .ah-mug picture,
+.ah-layer .ah-mug img {
+  position: relative;
+  inset: auto;
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+
+.ah-layer .ah-mug.is-lifted { cursor: grabbing; }
+
+.ah-layer .ah-mug:focus-visible { outline: 1px dashed #efa471; outline-offset: 6px; }
+
+/* ombre de contact, qui s'étale quand la tasse est soulevée */
+.ah-mug-shadow {
+  position: absolute;
+  left: 8%;
+  right: 4%;
+  bottom: -3%;
+  height: 12%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgb(0 0 0 / .55), transparent);
+  transform: scale(var(--lift-shadow, 1));
+  opacity: var(--lift-shadow-o, 1);
+  pointer-events: none;
+}
+
+/* la tasse passe au-dessus de tout le reste pendant qu'on la tient */
+.about-hero.is-dragging .ah-layer--fg { z-index: 4; }
+.about-hero.is-dragging { cursor: grabbing; }
+
 .ah-layer {
   --ex: var(--ah-ex, 0);
   --mx: var(--ah-mx, 0);
@@ -520,6 +575,7 @@
 @media (min-width: 48.01rem) and (max-width: 64rem) {
   .ah-media { aspect-ratio: 3 / 2; }
   .ah-layer img { object-position: 100% 50%; }
+  .ah-layer .ah-mug img { object-position: 50% 50%; }
   .ah-tag--person { left: 36%; }
   .ah-tag--fg { left: 38%; }
   .ah-content > * { max-width: 50%; }
@@ -566,6 +622,8 @@
 /* ---------- mobile : version verticale ---------- */
 @media (max-width: 48rem) {
   .ah-media { aspect-ratio: 941 / 1672; }
+  /* téléphone : la table est sous le titre, la tasse reste simplement posée */
+  .ah-layer .ah-mug { left: 0; top: 71.471%; width: 28.693%; pointer-events: none; }
   .ah-title { font-size: clamp(2rem, 9vw, 2.6rem); }
   .ah-shade {
     background: linear-gradient(0deg, #0b0f16 0%, rgb(11 15 22 / .9) 20%, rgb(11 15 22 / .45) 36%, transparent 50%);

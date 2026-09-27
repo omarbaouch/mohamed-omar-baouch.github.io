@@ -104,7 +104,7 @@ function initBlueprintLens(scene) {
   let radius = 0, radiusTarget = 0;
   let raf = 0, auto = null;
 
-  const layerImgs = () => [...scene.querySelectorAll('.ah-layer img')];
+  const layerImgs = () => [...scene.querySelectorAll('.ah-layer > img, .ah-layer > picture img, .ah-fill img')];
   const ensurePlan = () => {
     const imgs = layerImgs();
     if (!imgs.length || !imgs.every((i) => i.complete && i.naturalWidth)) return null;
@@ -219,7 +219,16 @@ function initBlueprintLens(scene) {
     radiusTarget = lensSize();
     kick();
   });
+  // la loupe s'efface pendant qu'on tient la tasse
+  let holding = false;
+  scene.addEventListener('mug:grab', () => { holding = true; radiusTarget = 0; kick(); });
+  window.addEventListener('pointerup', () => {
+    if (!holding) return;
+    holding = false;
+    if (scene.matches(':hover')) { radiusTarget = lensSize(); kick(); }
+  });
   scene.addEventListener('pointermove', (e) => {
+    if (holding) return;
     if (e.pointerType !== 'mouse' && radiusTarget === 0) return;
     place(e);
     kick();

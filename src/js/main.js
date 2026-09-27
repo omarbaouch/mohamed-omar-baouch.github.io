@@ -17,6 +17,7 @@ import { initSheet } from './modules/sheet.js';
 import { initCursor } from './modules/cursor.js';
 import { initProjectRegister } from './modules/projects.js';
 import { initAboutScene } from './modules/about-scene.js';
+import { initAboutMug } from './modules/about-mug.js';
 
 // le rideau est armé le plus tôt possible pour éviter tout flash de contenu
 if (
@@ -37,6 +38,7 @@ runLoader();
 initSheet();
 initCursor();
 initAboutScene();
+initAboutMug();
 const register = document.querySelector('.projects-grid');
 if (register) initProjectRegister(register);
 

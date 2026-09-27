@@ -41,6 +41,7 @@ export function initCursor() {
     if (t.matches('a[download], a[href$=".pdf"]')) return L.cv;
     if (t.matches('a[target="_blank"], a[href^="http"]:not([href*="baouch.fr"])')) return L.out;
     if (t.matches('a')) return L.link;
+    if (t.dataset.cursor) return t.dataset.cursor;
     return (t.getAttribute('aria-label') || L.button).slice(0, 24);
   };
 

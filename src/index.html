@@ -446,10 +446,20 @@
                             <source media="(max-width: 48rem)" srcset="/img/home/about-layer-person-m.webp" width="941" height="1672">
                             <img src="/img/home/about-layer-person-d.webp" width="1672" height="941" loading="lazy" decoding="async" alt="Mohamed Omar Baouch souriant à son bureau, la main sous le menton">
                         </picture>
-                        <picture class="ah-layer ah-layer--fg">
-                            <source media="(max-width: 48rem)" srcset="/img/home/about-layer-fg-m.webp" width="941" height="1672">
-                            <img src="/img/home/about-layer-fg-d.webp" width="1672" height="941" loading="lazy" decoding="async" alt="">
-                        </picture>
+                        <div class="ah-layer ah-layer--fg">
+                            <picture class="ah-fill">
+                                <source media="(max-width: 48rem)" srcset="/img/home/about-layer-fg-m.webp" width="941" height="1672">
+                                <img src="/img/home/about-layer-fg-d.webp" width="1672" height="941" loading="lazy" decoding="async" alt="">
+                            </picture>
+                            <!-- la tasse se déplace sur la table (js/modules/about-mug.js) -->
+                            <button type="button" class="ah-mug" data-mug aria-label="Tasse : la déplacer sur la table (flèches du clavier)">
+                                <span class="ah-mug-shadow" aria-hidden="true"></span>
+                                <picture>
+                                    <source media="(max-width: 48rem)" srcset="/img/home/about-layer-mug-m.webp" width="270" height="247">
+                                    <img src="/img/home/about-layer-mug-d.webp" width="221" height="196" loading="lazy" decoding="async" alt="" draggable="false">
+                                </picture>
+                            </button>
+                        </div>
                     </div>
                     <div class="ah-note" aria-hidden="true">
                         <p class="ah-note-quote" data-translate-key="ah_note_quote">Technique<br>au service<br>du réel</p>
