@@ -312,16 +312,49 @@ html:not([lang='en']) .ah-pic--en { display: none; }
 /* l'adresse mail ne doit jamais déborder de sa colonne sur mobile */
 .about-facts li > span:last-child { overflow-wrap: anywhere; }
 
-/* ---------- tablette : l'image garde sa place, le contenu passe dessous ---------- */
-@media (max-width: 64rem) {
-  .ah-content {
-    position: relative;
-    inset: auto;
-    padding-block: 2.2rem 2.6rem;
+/* ---------- tablette et « version ordinateur » sur téléphone (768–1024 px) :
+   tout le contenu reste sur la photo ; le cadre passe en 3:2 et ne rogne
+   que la bande de plantes à gauche, pour laisser la hauteur au texte ---------- */
+@media (min-width: 48.01rem) and (max-width: 64rem) {
+  .ah-media { aspect-ratio: 3 / 2; }
+  .ah-pic img { object-position: 100% 50%; }
+  .ah-content > * { max-width: 50%; }
+  .ah-stats { max-width: 50%; }
+  .ah-title { font-size: clamp(1.9rem, 4.2vw, 2.6rem); }
+  .ah-lead { font-size: 0.95rem; }
+  .ah-stat { padding: 0 0.8rem; }
+  .ah-label { font-size: 0.58rem; letter-spacing: 0.08em; }
+  .ah-shade {
+    background:
+      linear-gradient(90deg, rgb(8 11 18 / .94) 0%, rgb(8 11 18 / .82) 34%, rgb(8 11 18 / .4) 52%, transparent 66%),
+      linear-gradient(0deg, rgb(8 11 18 / .6) 0%, transparent 24%);
   }
-  .ah-content > * { max-width: 40rem; }
-  .ah-stats { max-width: 40rem; }
-  .ah-shade { background: linear-gradient(0deg, #0b0f16 0%, rgb(11 15 22 / .3) 18%, transparent 35%); }
+  .ah-cote { display: none; }
+  .about-body { grid-template-columns: 1fr; }
+}
+
+/* ---------- téléphone : le titre reste posé sur la photo (bas de l'image,
+   sur un dégradé), le texte, les boutons et les chiffres suivent ---------- */
+@media (max-width: 48rem) {
+  .about-hero { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .ah-media { grid-area: 1 / 1; }
+  .ah-content { display: contents; }
+  .ah-content > * { max-width: 40rem; padding-inline: var(--gutter, 1.25rem); }
+  .ah-head {
+    grid-area: 1 / 1;
+    align-self: end;
+    z-index: 2;
+    max-width: 36rem;
+    padding-bottom: clamp(1.4rem, 4vw, 2.4rem);
+  }
+  .ah-kicker { margin-bottom: 0.8rem; }
+  .ah-lead { margin-top: 1.4rem; }
+  .ah-stats { max-width: 40rem; margin-bottom: 2.6rem; }
+  .ah-shade {
+    background:
+      linear-gradient(0deg, #0b0f16 0%, rgb(11 15 22 / .88) 22%, rgb(11 15 22 / .35) 45%, transparent 62%),
+      linear-gradient(90deg, rgb(11 15 22 / .55) 0%, transparent 55%);
+  }
   .ah-cote { display: none; }
   .about-body { grid-template-columns: 1fr; }
 }
@@ -329,7 +362,10 @@ html:not([lang='en']) .ah-pic--en { display: none; }
 /* ---------- mobile : version verticale ---------- */
 @media (max-width: 48rem) {
   .ah-media { aspect-ratio: 941 / 1672; }
-  .ah-title { font-size: clamp(1.9rem, 8.4vw, 2.5rem); }
+  .ah-title { font-size: clamp(2rem, 9vw, 2.6rem); }
+  .ah-shade {
+    background: linear-gradient(0deg, #0b0f16 0%, rgb(11 15 22 / .9) 20%, rgb(11 15 22 / .45) 36%, transparent 50%);
+  }
   .ah-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .ah-stat { padding: 0 0.7rem; }
   .ah-label { font-size: 0.56rem; letter-spacing: 0.08em; }
