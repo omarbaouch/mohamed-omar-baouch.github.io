@@ -18,26 +18,155 @@
   --ah-dim: #c3ccd6;
 }
 
-html[lang='en'] .ah-pic--fr,
-html:not([lang='en']) .ah-pic--en { display: none; }
-
 .ah-media {
   position: relative;
   aspect-ratio: 1672 / 941;
   overflow: hidden;
 }
 
-.ah-pic,
-.ah-pic img {
+/* ---------- vue éclatée : trois couches superposées au pixel près ----------
+   --ex (0 → 1) : écartement, piloté au défilement par le script.
+   --mx / --my (−1 → 1) : position du pointeur, pour le relief. */
+.ah-layers,
+.ah-layer,
+.ah-layer img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
 }
 
-.ah-pic img {
+.ah-layer img {
   display: block;
   object-fit: cover;
+}
+
+.ah-layer {
+  --ex: var(--ah-ex, 0);
+  --mx: var(--ah-mx, 0);
+  --my: var(--ah-my, 0);
+  transition: transform .5s cubic-bezier(.22, 1, .36, 1);
+  will-change: transform;
+}
+
+/* chaque pièce s'écarte le long de l'axe d'éclatement, avec son propre relief */
+.ah-layer--bg {
+  transform:
+    translate3d(calc(var(--ex) * -4.5% + var(--mx) * -4px), calc(var(--ex) * -6% + var(--my) * -3px), 0)
+    scale(calc(1.02 - var(--ex) * .1));
+}
+
+.ah-layer--person {
+  transform:
+    translate3d(calc(var(--mx) * 7px), calc(var(--ex) * -1% + var(--my) * 5px), 0)
+    scale(calc(1.02 + var(--ex) * .01));
+  filter: drop-shadow(0 calc(var(--ex) * 30px) calc(var(--ex) * 40px) rgb(0 0 0 / .55));
+}
+
+.ah-layer--fg {
+  transform:
+    translate3d(calc(var(--ex) * 5% + var(--mx) * 14px), calc(var(--ex) * 9% + var(--my) * 9px), 0)
+    scale(calc(1.02 + var(--ex) * .1));
+}
+
+/* contour de pièce, visible seulement quand l'assemblage est éclaté */
+.ah-layer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgb(155 198 230 / calc(var(--ex) * .55));
+  pointer-events: none;
+}
+
+.ah-layer--person::after { display: none; }
+
+/* repères de nomenclature des couches */
+.ah-tags {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: calc((var(--ah-ex, 0) - .15) * 1.6);
+}
+
+.ah-tag {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid rgb(155 198 230 / .5);
+  background: rgb(8 11 18 / .72);
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #dbe5ee;
+  white-space: nowrap;
+}
+
+.ah-tag b { color: var(--ah-signal-soft); font-weight: 500; }
+.ah-tag::before {
+  content: '';
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  border: 1px solid var(--ah-signal-soft);
+}
+
+.ah-tag--bg { left: 64%; top: 16%; }
+.ah-tag--person { left: 50%; top: 38%; }
+.ah-tag--fg { left: 52%; top: 90%; }
+
+/* la phrase et les verbes (vrai texte, traduit) */
+.ah-note {
+  position: absolute;
+  right: 3%;
+  top: 8%;
+  z-index: 3;
+  width: min(15rem, 20%);
+  pointer-events: none;
+  color: #f4ece4;
+}
+
+.ah-note-quote {
+  margin: 0;
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.4rem, 2.5vw, 2.6rem);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  transform: rotate(-7deg);
+  transform-origin: left bottom;
+  text-shadow: 0 2px 18px rgb(4 6 10 / .6);
+}
+
+.ah-note-line {
+  display: block;
+  width: 88%;
+  height: 0.9rem;
+  margin: 0.3rem 0 1.4rem 8%;
+  overflow: visible;
+}
+
+.ah-note-line path {
+  fill: none;
+  stroke: var(--ah-signal);
+  stroke-width: 3;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.ah-verbs {
+  margin: 0 0 0 18%;
+  padding: 0.2rem 0 0.2rem 1.1rem;
+  list-style: none;
+  border-left: 1px solid rgb(244 236 228 / .45);
+  font-size: clamp(0.62rem, 0.95vw, 0.9rem);
+  letter-spacing: 0.14em;
+  line-height: 1.9;
+  text-transform: uppercase;
+  color: #e6ddd4;
 }
 
 /* vue plan : loupe dessinée au-dessus de la photo, sous le voile et le texte */
@@ -53,10 +182,9 @@ html:not([lang='en']) .ah-pic--en { display: none; }
 .ah-media { cursor: crosshair; }
 
 /* parallaxe légère pilotée par le pointeur (variables posées par le script) */
-.ah-pic,
 .ah-lens {
-  transform: translate3d(var(--ah-px, 0), var(--ah-py, 0), 0) scale(1.03);
-  transition: transform .9s cubic-bezier(.22, 1, .36, 1);
+  transform: translate3d(calc(var(--ah-mx, 0) * 7px), calc(var(--ah-my, 0) * 5px), 0) scale(1.02);
+  transition: transform .5s cubic-bezier(.22, 1, .36, 1);
 }
 
 /* invitation à interagir */
@@ -320,10 +448,23 @@ html:not([lang='en']) .ah-pic--en { display: none; }
 
 /* ---------- entrée animée (sans JS ou mouvement réduit : tout est visible) ---------- */
 @media (prefers-reduced-motion: no-preference) {
-  .about-hero.is-armed .ah-pic img {
-    transform: scale(1.06);
-    transition: transform 2.6s cubic-bezier(.22, 1, .36, 1);
+  .about-hero.is-armed .ah-note-line path {
+    stroke-dasharray: 260;
+    stroke-dashoffset: 260;
+    transition: stroke-dashoffset 1.1s cubic-bezier(.65, 0, .35, 1) 1s;
   }
+  .about-hero.is-armed .ah-note-quote,
+  .about-hero.is-armed .ah-verbs li {
+    opacity: 0;
+    transition: opacity .8s ease .6s;
+  }
+  .about-hero.is-armed .ah-verbs li:nth-child(2) { transition-delay: 1.3s; }
+  .about-hero.is-armed .ah-verbs li:nth-child(3) { transition-delay: 1.45s; }
+  .about-hero.is-armed .ah-verbs li:nth-child(4) { transition-delay: 1.6s; }
+  .about-hero.is-armed .ah-verbs li:nth-child(1) { transition-delay: 1.15s; }
+  .about-hero.is-in .ah-note-line path { stroke-dashoffset: 0; }
+  .about-hero.is-in .ah-note-quote,
+  .about-hero.is-in .ah-verbs li { opacity: 1; }
   .about-hero.is-armed .ah-content > *,
   .about-hero.is-armed .ah-stat {
     opacity: 0;
@@ -340,7 +481,6 @@ html:not([lang='en']) .ah-pic--en { display: none; }
   .about-hero.is-armed .ah-cote > span { opacity: 0; transition: opacity .8s ease .9s; }
   .about-hero.is-armed .ah-cote::before { transform: scaleX(0); transition: transform 1.2s cubic-bezier(.65, 0, .35, 1) .7s; }
 
-  .about-hero.is-in .ah-pic img { transform: none; }
   .about-hero.is-in .ah-content > *,
   .about-hero.is-in .ah-stat { opacity: 1; transform: none; }
   .about-hero.is-in .ah-corner,
@@ -379,7 +519,9 @@ html:not([lang='en']) .ah-pic--en { display: none; }
    que la bande de plantes à gauche, pour laisser la hauteur au texte ---------- */
 @media (min-width: 48.01rem) and (max-width: 64rem) {
   .ah-media { aspect-ratio: 3 / 2; }
-  .ah-pic img { object-position: 100% 50%; }
+  .ah-layer img { object-position: 100% 50%; }
+  .ah-tag--person { left: 36%; }
+  .ah-tag--fg { left: 38%; }
   .ah-content > * { max-width: 50%; }
   .ah-stats { max-width: 50%; }
   .ah-title { font-size: clamp(1.9rem, 4.2vw, 2.6rem); }
@@ -432,5 +574,13 @@ html:not([lang='en']) .ah-pic--en { display: none; }
   .ah-stat { padding: 0 0.7rem; }
   .ah-label { font-size: 0.56rem; letter-spacing: 0.08em; }
   .ah-corner--br { bottom: auto; top: 18px; right: 18px; border-bottom-width: 0; border-top-width: 1px; }
-  .ah-hint { bottom: auto; top: 22px; right: auto; left: 50%; transform: translateX(-50%); white-space: nowrap; }
+  .ah-hint { bottom: auto; top: 44%; right: auto; left: 18px; white-space: nowrap; }
+  .ah-note { right: 4%; top: 4%; width: 38%; }
+  .ah-note-quote { font-size: clamp(1.35rem, 6.2vw, 1.8rem); }
+  .ah-note-line { margin-bottom: 0.9rem; }
+  .ah-verbs { font-size: 0.6rem; margin-left: 34%; padding-left: 0.8rem; line-height: 1.75; }
+  .ah-tag { font-size: 0.56rem; padding: 0.3rem 0.5rem; }
+  .ah-tag--bg { left: 5%; top: 12%; }
+  .ah-tag--person { left: 56%; top: 38%; }
+  .ah-tag--fg { left: 30%; top: 62%; }
 }

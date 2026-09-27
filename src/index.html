@@ -21,7 +21,7 @@
         "name": "Mohamed Omar Baouch",
         "alternateName": "Baouch",
         "url": "https://www.baouch.fr",
-        "image": "https://www.baouch.fr/img/home/about-fr-m.webp",
+        "image": "https://www.baouch.fr/img/home/about-layer-person-m.webp",
         "jobTitle": "Ingénieur & Consultant PDM/PLM",
         "worksFor": {
             "@type": "Organization",
@@ -430,21 +430,45 @@
                 <p class="eyebrow"><span class="eyebrow-num">02</span> <span data-translate-key="about_title">À propos</span></p>
             </div>
 
-            <!-- portrait en situation, pleine largeur : l'image change avec la langue
-                 (texte intégré à l'image), le contenu se pose sur la zone sombre de gauche.
+            <!-- portrait en situation, pleine largeur, en trois couches (vue éclatée) :
+                 le contenu se pose sur la zone sombre de gauche.
                  Sur mobile : version verticale, contenu dessous. Animations : js/modules/about-scene.js -->
             <figure class="about-hero" data-about-scene>
                 <div class="ah-media">
-                    <picture class="ah-pic ah-pic--fr">
-                        <source media="(max-width: 48rem)" srcset="/img/home/about-fr-m.webp" width="941" height="1672">
-                        <img src="/img/home/about-fr.webp" srcset="/img/home/about-fr-1200.webp 1200w, /img/home/about-fr.webp 1672w" sizes="100vw" width="1672" height="941" loading="lazy" decoding="async" alt="Mohamed Omar Baouch souriant à son bureau, ordinateur portable ouvert — « Technique au service du réel : concevoir, migrer, optimiser, simplifier »">
-                    </picture>
-                    <picture class="ah-pic ah-pic--en">
-                        <source media="(max-width: 48rem)" srcset="/img/home/about-en-m.webp" width="941" height="1672">
-                        <img src="/img/home/about-en.webp" srcset="/img/home/about-en-1200.webp 1200w, /img/home/about-en.webp 1672w" sizes="100vw" width="1672" height="941" loading="lazy" decoding="async" alt="Mohamed Omar Baouch smiling at his desk, laptop open — “Technology in service of what's real: design, migrate, optimize, simplify”">
-                    </picture>
+                    <!-- vue éclatée : trois couches (fond, portrait, poste de travail) qui
+                         s'écartent à l'arrivée puis se remontent ; relief à la souris -->
+                    <div class="ah-layers">
+                        <picture class="ah-layer ah-layer--bg">
+                            <source media="(max-width: 48rem)" srcset="/img/home/about-layer-bg-m.webp" width="941" height="1672">
+                            <img src="/img/home/about-layer-bg-d.webp" width="1672" height="941" loading="lazy" decoding="async" alt="">
+                        </picture>
+                        <picture class="ah-layer ah-layer--person">
+                            <source media="(max-width: 48rem)" srcset="/img/home/about-layer-person-m.webp" width="941" height="1672">
+                            <img src="/img/home/about-layer-person-d.webp" width="1672" height="941" loading="lazy" decoding="async" alt="Mohamed Omar Baouch souriant à son bureau, la main sous le menton">
+                        </picture>
+                        <picture class="ah-layer ah-layer--fg">
+                            <source media="(max-width: 48rem)" srcset="/img/home/about-layer-fg-m.webp" width="941" height="1672">
+                            <img src="/img/home/about-layer-fg-d.webp" width="1672" height="941" loading="lazy" decoding="async" alt="">
+                        </picture>
+                    </div>
+                    <div class="ah-note" aria-hidden="true">
+                        <p class="ah-note-quote" data-translate-key="ah_note_quote">Technique<br>au service<br>du réel</p>
+                        <svg class="ah-note-line" viewBox="0 0 200 20" preserveAspectRatio="none"><path d="M4 15 C 60 8, 130 4, 196 3"/></svg>
+                        <ul class="ah-verbs">
+                            <li data-translate-key="ah_verb_1">Concevoir</li>
+                            <li data-translate-key="ah_verb_2">Migrer</li>
+                            <li data-translate-key="ah_verb_3">Optimiser</li>
+                            <li data-translate-key="ah_verb_4">Simplifier</li>
+                        </ul>
+                    </div>
+                    <div class="ah-tags" aria-hidden="true">
+                        <span class="ah-tag ah-tag--bg"><b>PRT-01</b> · <span data-translate-key="ah_tag_bg">Environnement</span></span>
+                        <span class="ah-tag ah-tag--person"><b>PRT-02</b> · <span data-translate-key="ah_tag_person">Ingénieur</span></span>
+                        <span class="ah-tag ah-tag--fg"><b>PRT-03</b> · <span data-translate-key="ah_tag_fg">Poste de travail</span></span>
+                    </div>
                     <div class="ah-shade" aria-hidden="true"></div>
                     <div class="ah-glow" aria-hidden="true"></div>
+                    <p class="ah-hint" aria-hidden="true"><span class="ah-hint-dot"></span><span class="ah-hint-mouse" data-translate-key="ah_hint_mouse">Survolez la photo — vue plan</span><span class="ah-hint-touch" data-translate-key="ah_hint_touch">Touchez la photo — vue plan</span></p>
                     <span class="ah-corner ah-corner--tl" aria-hidden="true"></span>
                     <span class="ah-corner ah-corner--br" aria-hidden="true"></span>
                 </div>
@@ -480,7 +504,6 @@
                             </li>
                     </ul>
                 </div>
-                <p class="ah-hint" aria-hidden="true"><span class="ah-hint-dot"></span><span class="ah-hint-mouse" data-translate-key="ah_hint_mouse">Survolez la photo — vue plan</span><span class="ah-hint-touch" data-translate-key="ah_hint_touch">Touchez la photo — vue plan</span></p>
                 <div class="ah-cote" aria-hidden="true"><span>ASM-00 · <span data-translate-key="ah_cote">poste de travail</span></span></div>
             </figure>
 

@@ -3,6 +3,9 @@
 // valeur. Sans JS ou en mouvement réduit, tout est affiché d'emblée : la
 // classe .is-armed (qui cache avant l'entrée) n'est posée que si on anime.
 //
+// Vue éclatée : les trois couches (fond, portrait, poste de travail) arrivent
+// écartées et se remontent au défilement ; relief par couche sous le pointeur.
+//
 // « Vue plan » : une loupe suit le pointeur et révèle la photo convertie en
 // dessin technique (contours calculés en direct par un filtre de Sobel, trame
 // de plan, réticule et coordonnées). Rien à télécharger en plus ; le calcul
@@ -23,14 +26,16 @@ function countUp(el) {
 
 // ------------------------------------------------------------- dessin technique
 const INK = [155, 198, 230]; // bleu acier du site
-function blueprintOf(img) {
+function blueprintOf(imgs) {
+  const img = imgs[0];
   const W = 900;
   const H = Math.round((W * img.naturalHeight) / img.naturalWidth);
   const src = document.createElement('canvas');
   src.width = W;
   src.height = H;
   const g = src.getContext('2d', { willReadFrequently: true });
-  g.drawImage(img, 0, 0, W, H);
+  // l'image complète, recomposée à partir des trois couches
+  imgs.forEach((i) => g.drawImage(i, 0, 0, W, H));
   const px = g.getImageData(0, 0, W, H).data;
   const raw = new Float32Array(W * H);
   for (let i = 0; i < W * H; i++) raw[i] = px[i * 4] * 0.299 + px[i * 4 + 1] * 0.587 + px[i * 4 + 2] * 0.114;
@@ -99,13 +104,13 @@ function initBlueprintLens(scene) {
   let radius = 0, radiusTarget = 0;
   let raf = 0, auto = null;
 
-  const visibleImg = () => [...scene.querySelectorAll('.ah-pic img')].find((i) => i.offsetParent !== null && i.complete && i.naturalWidth);
+  const layerImgs = () => [...scene.querySelectorAll('.ah-layer img')];
   const ensurePlan = () => {
-    const img = visibleImg();
-    if (!img) return null;
-    const key = img.currentSrc;
-    if (planFor !== key) { plan = blueprintOf(img); planFor = key; }
-    return img;
+    const imgs = layerImgs();
+    if (!imgs.length || !imgs.every((i) => i.complete && i.naturalWidth)) return null;
+    const key = imgs[0].currentSrc;
+    if (planFor !== key) { plan = blueprintOf(imgs); planFor = key; }
+    return imgs[0];
   };
   const resize = () => {
     dpr = Math.min(devicePixelRatio || 1, 2);
@@ -119,7 +124,7 @@ function initBlueprintLens(scene) {
   function draw() {
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, W, H);
-    if (radius < 1) return;
+    if (radius < 1 || explode > 0.04) return;
     const img = ensurePlan();
     if (!img || !plan) return;
     const r = coverRect(img, W, H);
@@ -158,11 +163,16 @@ function initBlueprintLens(scene) {
     const v = Math.min(1, Math.max(0, (y - r.y) / r.h));
     ctx.font = '500 10px ui-monospace, "SF Mono", Menlo, monospace';
     ctx.fillStyle = 'rgba(241,243,245,.92)';
-    const tx = x + radius * 0.72 + 12;
-    const ty = y + radius * 0.72 + 14;
+    const coords = `X ${u.toFixed(3)}  Y ${v.toFixed(3)}`;
+    const tw = Math.max(ctx.measureText(label()).width, ctx.measureText(coords).width);
+    // l'étiquette se place du côté où elle a la place
+    const right = x + radius * 0.72 + 12 + tw < W - 8;
+    const below = y + radius * 0.72 + 32 < H - 8;
+    const tx = right ? x + radius * 0.72 + 12 : x - radius * 0.72 - 12 - tw;
+    const ty = below ? y + radius * 0.72 + 14 : y - radius * 0.72 - 20;
     ctx.fillText(label(), tx, ty);
     ctx.fillStyle = 'rgba(155,198,230,.9)';
-    ctx.fillText(`X ${u.toFixed(3)}  Y ${v.toFixed(3)}`, tx, ty + 14);
+    ctx.fillText(coords, tx, ty + 14);
   }
 
   const loop = () => {
@@ -179,14 +189,16 @@ function initBlueprintLens(scene) {
   const kick = () => { if (!raf) raf = requestAnimationFrame(loop); };
   const lensSize = () => Math.max(70, Math.min(150, W * 0.11));
 
-  // parallaxe légère : la photo et la loupe reçoivent la même transformation
-  // (voir .ah-pic, .ah-lens), le dessin reste donc calé sur le visage
-  const SCALE = 1.03;
+  // relief : chaque couche suit le pointeur à sa propre vitesse (voir
+  // .ah-layer--*) ; la loupe suit la couche du portrait, le dessin reste calé
+  const SCALE = 1.02;
   let shift = { x: 0, y: 0 };
   const tilt = (nx, ny) => {
-    shift = { x: -nx * 10, y: -ny * 6 };
-    scene.style.setProperty('--ah-px', `${shift.x.toFixed(2)}px`);
-    scene.style.setProperty('--ah-py', `${shift.y.toFixed(2)}px`);
+    const mx = Math.max(-1, Math.min(1, nx * 2));
+    const my = Math.max(-1, Math.min(1, ny * 2));
+    shift = { x: mx * 7, y: my * 5 };
+    scene.style.setProperty('--ah-mx', mx.toFixed(3));
+    scene.style.setProperty('--ah-my', my.toFixed(3));
   };
 
   const place = (e) => {
@@ -234,6 +246,7 @@ function initBlueprintLens(scene) {
   const demo = () => {
     const img = ensurePlan();
     if (!img) return;
+    if (explode > 0.04) { setTimeout(demo, 400); return; }
     const r = coverRect(img, W, H);
     const from = { x: r.x + r.w * 0.5, y: r.y + r.h * 0.62 };
     const to = { x: r.x + r.w * 0.66, y: r.y + r.h * 0.3 };
@@ -251,6 +264,28 @@ function initBlueprintLens(scene) {
     auto = requestAnimationFrame(step);
   };
 
+  // vue éclatée : écartée à l'arrivée de la section, remontée quand elle est en place
+  let explode = 0;
+  const smooth = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
+  let scrollRaf = 0;
+  const onScroll = () => {
+    if (scrollRaf) return;
+    scrollRaf = requestAnimationFrame(() => {
+      scrollRaf = 0;
+      const b = media.getBoundingClientRect();
+      const vh = innerHeight;
+      if (b.bottom < 0 || b.top > vh) return;
+      const progress = (vh - b.top) / (vh * 0.95);
+      const ex = 1 - smooth(0.12, 0.9, progress);
+      if (Math.abs(ex - explode) < 0.002) return;
+      explode = ex;
+      scene.style.setProperty('--ah-ex', ex.toFixed(3));
+      if (ex > 0.04 && radius > 0) draw();
+    });
+  };
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
   new ResizeObserver(resize).observe(media);
   window.addEventListener('langchange', () => { planFor = null; draw(); });
   resize();
@@ -262,6 +297,11 @@ export function initAboutScene() {
   if (!scene || !('IntersectionObserver' in window)) return;
   if (!matchMedia('(prefers-reduced-motion: no-preference)').matches) return;
   scene.classList.add('is-armed');
+  // les couches doivent être prêtes avant d'arriver à l'écran (l'éclatement se
+  // joue pendant l'entrée) : préchargement dès que la page est au repos
+  const preload = () => scene.querySelectorAll('.ah-layer img').forEach((i) => { i.loading = 'eager'; });
+  if ('requestIdleCallback' in window) requestIdleCallback(preload, { timeout: 3000 });
+  else setTimeout(preload, 1500);
   const lens = initBlueprintLens(scene);
   const io = new IntersectionObserver(
     ([entry]) => {
@@ -269,10 +309,9 @@ export function initAboutScene() {
       scene.classList.add('is-in');
       setTimeout(() => scene.querySelectorAll('[data-count]').forEach(countUp), 500);
       // l'image doit être chargée avant la démonstration
-      const img = [...scene.querySelectorAll('.ah-pic img')].find((i) => i.offsetParent !== null);
-      const go = () => setTimeout(() => lens?.demo(), 1300);
-      if (img && !img.complete) img.addEventListener('load', go, { once: true });
-      else go();
+      const imgs = [...scene.querySelectorAll('.ah-layer img')];
+      Promise.all(imgs.map((i) => (i.complete ? null : new Promise((r) => i.addEventListener('load', r, { once: true })))))
+        .then(() => setTimeout(() => lens?.demo(), 1300));
       io.disconnect();
     },
     { threshold: 0.3 }
