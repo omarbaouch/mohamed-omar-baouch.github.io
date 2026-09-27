@@ -1,10 +1,11 @@
 // Génère public/sitemap.xml à partir des pages sources : plus aucune URL à
 // tenir à la main, une page publiée est une page listée. La date de dernière
 // modification vient du dateModified du JSON-LD, sinon de article:published_time,
-// sinon de la date du fichier (utile pour l'accueil et les pages projet).
+// sinon du dernier commit de la page (accueil, pages projet), sinon du fichier.
 // Lancé automatiquement avant chaque build — voir le script "prebuild".
 // Usage : node scripts/sitemap.mjs
 import { readFileSync, writeFileSync, statSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import fg from 'fast-glob';
 import * as cheerio from 'cheerio';
@@ -37,7 +38,16 @@ const urls = pages.map((file) => {
     if (m && (!modifie || m[1] > modifie)) modifie = m[1];
   });
   const publie = $('meta[property="article:published_time"]').attr('content');
-  const lastmod = modifie || (publie ? publie.slice(0, 10) : statSync(abs).mtime.toISOString().slice(0, 10));
+  // sinon la date du dernier commit qui a touché la page : stable d'un clone à
+  // l'autre, contrairement à la date du fichier sur le disque
+  let commit = '';
+  try {
+    commit = execFileSync('git', ['log', '-1', '--format=%cs', '--', abs], { cwd: ROOT, encoding: 'utf8' }).trim();
+  } catch {
+    // pas de dépôt git : on retombe sur la date du fichier
+  }
+  const lastmod =
+    modifie || (publie ? publie.slice(0, 10) : commit || statSync(abs).mtime.toISOString().slice(0, 10));
 
   return { loc, lastmod };
 });
