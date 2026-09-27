@@ -21,7 +21,7 @@
         "name": "Mohamed Omar Baouch",
         "alternateName": "Baouch",
         "url": "https://www.baouch.fr",
-        "image": "https://www.baouch.fr/img/home/about-scene-mobile.webp",
+        "image": "https://www.baouch.fr/img/home/about-fr-m.webp",
         "jobTitle": "Ingénieur & Consultant PDM/PLM",
         "worksFor": {
             "@type": "Organization",
@@ -430,53 +430,60 @@
                 <p class="eyebrow"><span class="eyebrow-num">02</span> <span data-translate-key="about_title">À propos</span></p>
             </div>
 
-            <!-- poste de travail : image pleine largeur, titre sur la zone sombre,
-                 repères de plan qui se tracent à l'arrivée (js/modules/about-scene.js) -->
-            <figure class="about-scene" data-about-scene>
-                <picture>
-                    <source media="(max-width: 48rem)" srcset="/img/home/about-scene-mobile.webp" width="657" height="821">
-                    <img src="/img/home/about-scene-1916.webp" srcset="/img/home/about-scene-1200.webp 1200w, /img/home/about-scene-1916.webp 1916w" sizes="100vw" width="1916" height="821" loading="lazy" decoding="async" alt="Mohamed Omar Baouch à son poste dans un bureau d'études, devant un assemblage 3D en cours de conception">
-                </picture>
-                <div class="scene-shade" aria-hidden="true"></div>
-                <svg class="scene-marks" viewBox="0 0 1916 821" aria-hidden="true">
-                    <g class="mark" style="--d:0s">
-                        <circle cx="1165" cy="300" r="7"></circle>
-                        <polyline points="1165,300 1080,196 740,196"></polyline>
-                        <text x="740" y="184">PRT-05 · <tspan data-translate-key="scene_mark_part">pièce en conception</tspan></text>
-                    </g>
-                    <g class="mark" style="--d:.25s">
-                        <circle cx="880" cy="665" r="7"></circle>
-                        <polyline points="880,665 835,640 500,640"></polyline>
-                        <text x="500" y="628">PRT-02 · <tspan data-translate-key="scene_mark_machined">pièce usinée</tspan></text>
-                    </g>
-                    <g class="mark" style="--d:.5s">
-                        <circle cx="1260" cy="735" r="7"></circle>
-                        <polyline points="1260,735 1200,790 980,790"></polyline>
-                        <text x="980" y="778">DWG-01 · <tspan data-translate-key="scene_mark_drawing">plan de définition</tspan></text>
-                    </g>
-                    <g class="cote" style="--d:.75s">
-                        <line x1="120" y1="742" x2="560" y2="742"></line>
-                        <line class="tick" x1="120" y1="728" x2="120" y2="756"></line>
-                        <line class="tick" x1="560" y1="728" x2="560" y2="756"></line>
-                        <text x="340" y="728" text-anchor="middle">100+ <tspan data-translate-key="scene_cote">projets PDM / PLM</tspan></text>
-                    </g>
-                </svg>
-                <div class="container-site scene-overlay">
-                    <p class="scene-kicker" aria-hidden="true">ASM-00 · <span data-translate-key="scene_kicker">poste de travail — Strasbourg</span></p>
-                    <h2 class="display-2 scene-title" data-translate-key="about_heading_new">Ingénieur de formation, <em class="serif-accent">architecte</em> de vos données techniques</h2>
+            <!-- portrait en situation, pleine largeur : l'image change avec la langue
+                 (texte intégré à l'image), le contenu se pose sur la zone sombre de gauche.
+                 Sur mobile : version verticale, contenu dessous. Animations : js/modules/about-scene.js -->
+            <figure class="about-hero" data-about-scene>
+                <div class="ah-media">
+                    <picture class="ah-pic ah-pic--fr">
+                        <source media="(max-width: 48rem)" srcset="/img/home/about-fr-m.webp" width="941" height="1672">
+                        <img src="/img/home/about-fr.webp" srcset="/img/home/about-fr-1200.webp 1200w, /img/home/about-fr.webp 1672w" sizes="100vw" width="1672" height="941" loading="lazy" decoding="async" alt="Mohamed Omar Baouch souriant à son bureau, ordinateur portable ouvert — « Technique au service du réel : concevoir, migrer, optimiser, simplifier »">
+                    </picture>
+                    <picture class="ah-pic ah-pic--en">
+                        <source media="(max-width: 48rem)" srcset="/img/home/about-en-m.webp" width="941" height="1672">
+                        <img src="/img/home/about-en.webp" srcset="/img/home/about-en-1200.webp 1200w, /img/home/about-en.webp 1672w" sizes="100vw" width="1672" height="941" loading="lazy" decoding="async" alt="Mohamed Omar Baouch smiling at his desk, laptop open — “Technology in service of what's real: design, migrate, optimize, simplify”">
+                    </picture>
+                    <div class="ah-shade" aria-hidden="true"></div>
+                    <div class="ah-glow" aria-hidden="true"></div>
+                    <span class="ah-corner ah-corner--tl" aria-hidden="true"></span>
+                    <span class="ah-corner ah-corner--br" aria-hidden="true"></span>
                 </div>
-                <span class="scene-corner scene-corner--tl" aria-hidden="true"></span>
-                <span class="scene-corner scene-corner--br" aria-hidden="true"></span>
+                <div class="container-site ah-content">
+                    <p class="ah-kicker"><span class="ah-dot" aria-hidden="true"></span><span data-translate-key="ah_kicker">PDM · PLM · CAO — Strasbourg</span></p>
+                    <h2 class="ah-title" data-translate-key="about_heading_new">Ingénieur de formation, <em class="serif-accent">architecte</em> de vos données techniques</h2>
+                    <p class="ah-lead" data-translate-key="about_p1">
+                            <strong>Ingénieur Plasturgie INSA</strong> de formation, j'ai évolué de la conception mécanique
+                            pure vers l'architecture des systèmes d'information techniques. Mon approche est pragmatique :
+                            la technique doit servir le métier, et non le contraindre.
+                        </p>
+                    <div class="ah-cta">
+                        <a href="/BAOUCH_CV_FR.pdf" class="ah-btn" data-cv-link data-magnetic><span data-translate-key="download_cv">Télécharger mon CV</span> <span aria-hidden="true">→</span></a>
+                        <a href="https://www.linkedin.com/in/mohamed-omar-baouch-9b4473180/" target="_blank" rel="noopener" class="ah-link">LinkedIn ↗</a>
+                    </div>
+                    <ul class="ah-stats">
+                            <li class="ah-stat">
+                                <span class="ah-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+                                <span class="ah-num" data-count="5">5<span class="ah-plus">+</span></span>
+                                <span class="ah-label" data-translate-key="ah_stat_years">Ans d'expérience</span>
+                            </li>
+                            <li class="ah-stat">
+                                <span class="ah-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21V10l6 3V10l6 3V6h6v15z"/><path d="M7 17h2M12 17h2M17 17h2"/></svg></span>
+                                <span class="ah-num" data-count="80">80<span class="ah-plus">+</span></span>
+                                <span class="ah-label" data-translate-key="stat_clients_label">Clients industriels</span>
+                            </li>
+                            <li class="ah-stat">
+                                <span class="ah-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg></span>
+                                <span class="ah-num" data-count="100">100<span class="ah-plus">+</span></span>
+                                <span class="ah-label" data-translate-key="stat_projects_label">Projets livrés depuis 2020</span>
+                            </li>
+                    </ul>
+                </div>
+                <div class="ah-cote" aria-hidden="true"><span>ASM-00 · <span data-translate-key="ah_cote">poste de travail</span></span></div>
             </figure>
 
             <div class="container-site">
                 <div class="about-body">
                     <div class="about-copy">
-                        <p class="prose-lead" data-translate-key="about_p1">
-                            <strong>Ingénieur Plasturgie INSA</strong> de formation, j'ai évolué de la conception mécanique
-                            pure vers l'architecture des systèmes d'information techniques. Mon approche est pragmatique :
-                            la technique doit servir le métier, et non le contraindre.
-                        </p>
                         <p class="prose-dim" data-translate-key="about_p2">
                             Avec plus de <strong>100 projets réussis</strong> (migrations complexes, déploiements
                             multi-sites, audits de performance), j'apporte une méthodologie éprouvée pour résoudre vos défis
@@ -491,12 +498,6 @@
                             <li><span class="fact-label" data-translate-key="fact_mobility_label">Mobilité</span><span data-translate-key="driving_license">Permis B, Véhiculé</span></li>
                             <li><span class="fact-label" data-translate-key="contact_languages">Langues</span><span data-translate-key="contact_languages_list">Arabe (Natale), Français (Bilingue), Anglais (Courant), Allemand (Débutant)</span></li>
                         </ul>
-                        <div class="about-cta">
-                            <a href="/BAOUCH_CV_FR.pdf" class="btn btn-primary" data-cv-link data-magnetic>
-                                <span data-translate-key="download_cv">Télécharger mon CV</span>
-                            </a>
-                            <a href="https://www.linkedin.com/in/mohamed-omar-baouch-9b4473180/" target="_blank" rel="noopener" class="btn btn-ghost" data-magnetic>LinkedIn</a>
-                        </div>
                     </div>
                 </div>
             </div>
