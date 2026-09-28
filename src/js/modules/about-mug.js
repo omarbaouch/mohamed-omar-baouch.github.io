@@ -4,6 +4,10 @@
 // avec une perspective simple : plus la tasse avance vers soi, plus elle
 // grossit. À la pose : léger rebond et « tac » de céramique sur le marbre,
 // synthétisé par le navigateur (aucun fichier son).
+//
+// Invitation : lumière chaude, vapeur et mot manuscrit (.ah-mug-fx, au-dessus
+// du voile de lecture) suivent la tasse ; tant qu'on ne l'a pas prise, elle
+// frémit de temps en temps. Tout s'efface dès la première prise en main.
 
 // géométrie mesurée sur les images (fractions de l'image)
 const GEOM = {
@@ -160,6 +164,7 @@ export function initAboutMug() {
     drag = { du: cur.u - p.u, dv: cur.v - p.v, lastV: 0, lastT: performance.now(), lastY: e.clientY };
     mug.classList.add('is-lifted');
     scene?.classList.add('is-dragging');
+    known();
     scene?.dispatchEvent(new CustomEvent('mug:grab'));
     animateLift(0.14);
   });
@@ -219,6 +224,7 @@ export function initAboutMug() {
     const step = { ArrowLeft: [-0.02, 0], ArrowRight: [0.02, 0], ArrowUp: [0, -0.012], ArrowDown: [0, 0.012] }[e.key];
     if (!step) return;
     e.preventDefault();
+    known();
     const cur = pos();
     state[key()] = clamp(cur.u + step[0], cur.v + step[1]);
     render();
@@ -244,6 +250,58 @@ export function initAboutMug() {
   };
   window.addEventListener('langchange', relabel);
   relabel();
+
+  // ------------------------------------------------------------ invitation
+  const fx = scene?.querySelector('.ah-mug-fx');
+  const media = scene?.querySelector('.ah-media');
+  let nudgeT = 0;
+  function known() {
+    if (scene?.classList.contains('is-mug-known')) return;
+    scene?.classList.add('is-mug-known');
+    clearTimeout(nudgeT);
+    try { sessionStorage.setItem('mugKnown', '1'); } catch { /* stockage indisponible */ }
+  }
+  try { if (sessionStorage.getItem('mugKnown')) scene?.classList.add('is-mug-known'); } catch { /* idem */ }
+
+  // le calque d'effets épouse la tasse, quelles que soient les transformations
+  // des couches (vue éclatée, relief) : recalé à chaque image tant que la
+  // scène est à l'écran
+  let visible = false;
+  let fxRaf = 0;
+  const follow = () => {
+    fxRaf = 0;
+    if (!fx || !media) return;
+    const m = media.getBoundingClientRect();
+    const b = mug.getBoundingClientRect();
+    fx.style.left = `${(b.left - m.left).toFixed(1)}px`;
+    fx.style.top = `${(b.top - m.top).toFixed(1)}px`;
+    fx.style.width = `${b.width.toFixed(1)}px`;
+    fx.style.height = `${b.height.toFixed(1)}px`;
+    if (visible) fxRaf = requestAnimationFrame(follow);
+  };
+
+  // frémissement : une fois à l'arrivée, puis toutes les 7 s, 4 fois au plus
+  let nudges = 0;
+  const nudge = () => {
+    if (reduced || scene?.classList.contains('is-mug-known') || nudges >= 4) return;
+    if (visible && !mobileMq.matches) {
+      nudges++;
+      mug.classList.remove('is-nudging');
+      void mug.offsetWidth; // relance l'animation
+      mug.classList.add('is-nudging');
+    }
+    nudgeT = setTimeout(nudge, 7000);
+  };
+  mug.addEventListener('animationend', () => mug.classList.remove('is-nudging'));
+
+  if (fx && 'IntersectionObserver' in window) {
+    let started = false;
+    new IntersectionObserver(([e]) => {
+      visible = e.isIntersecting;
+      if (visible && !fxRaf) fxRaf = requestAnimationFrame(follow);
+      if (visible && !started) { started = true; nudgeT = setTimeout(nudge, 3200); }
+    }).observe(scene);
+  }
 
   new ResizeObserver(render).observe(layer);
   mobileMq.addEventListener('change', render);
