@@ -32,7 +32,16 @@
       "Bash(curl -sS https://www.baouch.fr:*)",
       "Bash(curl -s --retry 3 https://www.baouch.fr:*)",
       "WebSearch",
-      "WebFetch"
+      "WebFetch",
+      "Bash(git reset --hard origin/main)",
+      "Bash(git checkout main && git reset --hard origin/main)",
+      "Bash(git fetch origin && git checkout main && git reset --hard origin/main && npm ci)",
+      "Bash(git fetch origin seo-data && git show origin/seo-data:gsc-report.md)",
+      "Bash(git pull --rebase origin main)",
+      "Bash(npx vite preview:*)",
+      "Bash(node_modules/.bin/vite preview:*)",
+      "Bash(rm _:*)",
+      "Bash(rm -f _:*)"
     ]
   }
 }
