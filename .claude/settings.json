@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(git ls-tree:*)",
+      "Bash(git ls-remote:*)",
+      "Bash(git fetch:*)",
+      "Bash(git pull:*)",
+      "Bash(git checkout main)",
+      "Bash(git switch main)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git rebase origin/main)",
+      "Bash(git push origin main)",
+      "Bash(git push origin HEAD:main)",
+      "Bash(git push -u origin main)",
+      "Bash(npm ci)",
+      "Bash(npm ci:*)",
+      "Bash(npm run build)",
+      "Bash(npm run build:*)",
+      "Bash(npm run verify:seo)",
+      "Bash(npm run seo:ping)",
+      "Bash(npm run seo:ping:*)",
+      "Bash(npm run seo:gsc)",
+      "Bash(npm run seo:og)",
+      "Bash(node scripts/:*)",
+      "Bash(node _:*)",
+      "Bash(curl -s https://www.baouch.fr:*)",
+      "Bash(curl -sS https://www.baouch.fr:*)",
+      "Bash(curl -s --retry 3 https://www.baouch.fr:*)",
+      "WebSearch",
+      "WebFetch"
+    ]
+  }
+}
