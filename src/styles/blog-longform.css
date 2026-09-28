@@ -218,6 +218,16 @@ html:not([lang='en']) [data-i18n] [data-lang='fr'] { display: revert; }
   text-decoration-color: var(--accent);
 }
 
+/* boutons dans le corps d'article (téléchargements) : pas le style des liens */
+.article-section a.hero-btn {
+  color: var(--bg-0);
+  text-decoration: none;
+}
+
+.article-section a.hero-btn--ghost {
+  color: var(--ink);
+}
+
 .article-section ul,
 .article-section ol {
   margin: 0 0 1.2rem 1.1rem;

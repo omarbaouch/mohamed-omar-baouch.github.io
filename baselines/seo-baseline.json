@@ -305,6 +305,24 @@
     "h1": "Migration de donnees vers SOLIDWORKS PDM : le guide terrain pour reussir sans perdre un fichier",
     "lang": "fr"
   },
+  "/blog/modele-nomenclature-excel-gratuit/": {
+    "title": "Modèle de nomenclature Excel gratuit (BOM multiniveau) à télécharger",
+    "description": "Téléchargez gratuitement un modèle de nomenclature Excel (BOM) multiniveau : listes déroulantes, doublons signalés, masses calculées, exemple rempli. Sans macro, compatible LibreOffice et Google Sheets. Avec les règles d'une nomenclature propre et l'export depuis SOLIDWORKS.",
+    "canonical": "https://www.baouch.fr/blog/modele-nomenclature-excel-gratuit/",
+    "robots": null,
+    "ogTitle": "Modèle de nomenclature Excel gratuit : BOM multiniveau à télécharger",
+    "ogDescription": "Un modèle de BOM Excel multiniveau prêt à remplir, sans macro ni inscription — et les règles pour une nomenclature propre.",
+    "ogUrl": "https://www.baouch.fr/blog/modele-nomenclature-excel-gratuit/",
+    "ogImage": "https://www.baouch.fr/img/og/modele-bom.jpg",
+    "ogType": "article",
+    "twitterTitle": "Modèle de nomenclature Excel gratuit : BOM multiniveau à télécharger",
+    "twitterDescription": "Un modèle de BOM Excel multiniveau prêt à remplir, sans macro ni inscription — et les règles pour une nomenclature propre.",
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList,FAQPage"
+    ],
+    "h1": "Modèle de nomenclature Excel gratuit : BOM multiniveau à téléchargerFree Excel BOM template: multi-level bill of materials to download",
+    "lang": "fr"
+  },
   "/blog/nomenclature-bom-pdm-plm-erp/": {
     "title": "Nomenclature (BOM) : définition, eBOM vs mBOM et lien PDM, PLM, ERP",
     "description": "Qu'est-ce qu'une nomenclature (BOM) ? Définition simple, différence eBOM / mBOM / sBOM avec tableau, et qui gère quoi entre PDM, PLM et ERP. Le guide terrain d'un consultant PDM, exemples à l'appui.",
