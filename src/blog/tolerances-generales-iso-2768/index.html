@@ -1,0 +1,445 @@
+<!DOCTYPE html><html lang="fr"><head>
+    <meta charset="UTF-8">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PBLRK58T');</script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-33TQ27QY4M"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-33TQ27QY4M');</script>
+<!-- Microsoft Clarity -->
+    <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","vy4yvht8gz");</script>
+    <!-- LinkedIn Insight Tag -->
+    <script type="text/javascript">_linkedin_partner_id="525900907";window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];window._linkedin_data_partner_ids.push(_linkedin_partner_id);(function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";s.parentNode.insertBefore(b,s)})(window.lintrk);</script>
+    <script>
+    // Anti-flash de thème : clair par défaut, sombre si stocké.
+    (function () {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    })();
+</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tolérances générales ISO 2768 : tableaux f, m, c, v et H, K, L + calculateur</title>
+    <meta name="description" content="Les tableaux complets de l&#x27;ISO 2768 : tolérances linéaires f, m, c, v, rayons, chanfreins, angles et tolérances géométriques H, K, L. Calculateur de cote mini/maxi, sens de « ISO 2768-mK » dans le cartouche et statut de la norme (ISO 22081).">
+    <meta name="author" content="Mohamed Omar Baouch">
+    <link rel="canonical" href="https://www.baouch.fr/blog/tolerances-generales-iso-2768/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Tolérances générales ISO 2768 : tableaux f, m, c, v et H, K, L">
+    <meta property="og:description" content="Tolérances linéaires f/m/c/v, angles, H/K/L, et un calculateur de cote mini/maxi. Ce que garantit vraiment « ISO 2768-mK ».">
+    <meta property="og:url" content="https://www.baouch.fr/blog/tolerances-generales-iso-2768/">
+    <meta property="og:image" content="https://www.baouch.fr/img/og/iso-2768.jpg">
+    <meta property="og:site_name" content="Mohamed Omar Baouch">
+    <meta property="article:published_time" content="2026-09-28T00:00:00.000Z">
+    <meta property="article:author" content="Mohamed Omar Baouch">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tolérances générales ISO 2768 : tableaux f, m, c, v et H, K, L">
+    <meta name="twitter:description" content="Tolérances linéaires f/m/c/v, angles, H/K/L, et un calculateur de cote mini/maxi. Ce que garantit vraiment « ISO 2768-mK ».">
+    <meta name="twitter:image" content="https://www.baouch.fr/img/og/iso-2768.jpg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "headline": "Tolérances générales ISO 2768 : tableaux f, m, c, v et H, K, L",
+                "description": "Les tableaux complets de l'ISO 2768 : tolérances linéaires f, m, c, v, rayons, chanfreins, angles et tolérances géométriques H, K, L. Calculateur de cote mini/maxi, sens de « ISO 2768-mK » dans le cartouche et statut de la norme (ISO 22081).",
+                "image": "https://www.baouch.fr/img/og/iso-2768.jpg",
+                "datePublished": "2026-09-28",
+                "dateModified": "2026-09-28",
+                "inLanguage": "fr-FR",
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://www.baouch.fr/blog/tolerances-generales-iso-2768/"
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://www.baouch.fr",
+                    "jobTitle": "Ingénieur & Consultant PDM/PLM"
+                },
+                "publisher": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://www.baouch.fr"
+                },
+                "keywords": [
+                    "ISO 2768",
+                    "ISO 2768-mK",
+                    "Tolérances générales",
+                    "Tolérance linéaire",
+                    "ISO 22081",
+                    "Cartouche",
+                    "Mise en plan"
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Accueil",
+                        "item": "https://www.baouch.fr/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Blog",
+                        "item": "https://www.baouch.fr/blog/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Tolérances générales ISO 2768 : tableaux f, m, c, v et H, K, L",
+                        "item": "https://www.baouch.fr/blog/tolerances-generales-iso-2768/"
+                    }
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Que signifie ISO 2768-mK sur un plan ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Que toutes les cotes sans tolérance indiquée suivent la classe m (moyenne) de l'ISO 2768-1, et toutes les tolérances de forme et d'orientation non indiquées la classe K de l'ISO 2768-2. Par exemple, une longueur de 50 mm est alors à ± 0,3 mm."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Quelle est la tolérance ISO 2768-m pour 100 mm ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "± 0,3 mm. 100 mm est dans la tranche au-dessus de 30 jusqu'à 120 mm. En classe f ce serait ± 0,15 mm, en classe c ± 0,8 mm."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "L'ISO 2768 est-elle toujours valable ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "L'ISO 2768-1 (cotes linéaires et angulaires) est toujours en vigueur. L'ISO 2768-2 (tolérances géométriques) a été remplacée par l'ISO 22081:2021, qui ne fixe plus de valeurs. La mention ISO 2768-mK reste très utilisée dans l'industrie."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Quelle classe choisir entre f, m, c et v ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "m pour l'usinage courant, f pour l'usinage de précision, c pour la chaudronnerie et la mécano-soudure, v pour les pièces brutes ou de grandes dimensions. Choisir plus fin que nécessaire augmente le coût de fabrication et de contrôle sans bénéfice."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "La tolérance générale s'applique-t-elle aux diamètres d'ajustement ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Non. Une cote fonctionnelle, comme un diamètre d'ajustement, doit porter sa propre tolérance (par exemple Ø 20 H7 selon l'ISO 286). La tolérance générale ne couvre que les cotes non fonctionnelles."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+    <link rel="alternate" type="application/rss+xml" title="Blog — Mohamed Omar Baouch" href="https://www.baouch.fr/blog/rss.xml">
+    {{> head-lang }}{{> head-fonts }}<script type="module" src="../../js/blog.js"></script>
+</head>
+<body class="blog-page" data-blog-post="tolerances-generales-iso-2768">
+{{> nav }}
+
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBLRK58T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <main id="main" class="container blog-container show">
+        <div class="blog-shell" id="blogShell" data-shell="">
+            <article class="blog-article" data-article-root="">
+                <nav class="article-breadcrumbs" aria-label="Navigation secondaire">
+                    <a class="back-link" href="/blog/" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                    <a class="back-link back-link--ghost" href="/" data-translate-key="blog_back_to_portfolio">Retour au portfolio</a>
+                </nav>
+
+                <header class="blog-hero post-hero" data-component="hero">
+                    <div class="hero-intro">
+                        <div class="hero-badges">
+                            <span class="badge badge-editorial" data-i18n=""><span data-lang="fr">Mémo & calculateur</span><span data-lang="en">Reference & calculator</span></span>
+                            <span class="badge" data-i18n=""><span data-lang="fr">Conception</span><span data-lang="en">Design</span></span>
+                            <span class="badge badge-reading-time" data-i18n=""><span data-lang="fr">~7 min de lecture</span><span data-lang="en">~7 min read</span></span>
+                        </div>
+                        <span class="hero-eyebrow" data-i18n=""><span data-lang="fr">Ce que dit vraiment votre cartouche</span><span data-lang="en">What your title block really says</span></span>
+                        <h1 class="hero-title" data-i18n=""><span data-lang="fr">Tolérances générales ISO 2768 : tableaux f, m, c, v et H, K, L</span><span data-lang="en">ISO 2768 general tolerances: f, m, c, v and H, K, L tables</span></h1>
+                        <p class="hero-subtitle" data-i18n=""><span data-lang="fr">Publié le 28 septembre 2026 — les écarts admissibles pour les longueurs, rayons, chanfreins et angles, les tolérances géométriques générales, un calculateur de cote mini/maxi, et la bonne façon d'écrire « ISO 2768-mK » sur vos plans.</span><span data-lang="en">Published September 28, 2026 — permissible deviations for lengths, radii, chamfers and angles, general geometrical tolerances, a min/max size calculator, and the right way to write “ISO 2768-mK” on your drawings.</span></p>
+                        <div class="hero-actions">
+                            <a class="hero-btn" href="#calculateur" data-i18n=""><span data-lang="fr">Calculer une tolérance</span><span data-lang="en">Calculate a tolerance</span></a>
+                            <a class="hero-btn hero-btn--ghost" href="#sommaire" data-i18n=""><span data-lang="fr">Consulter le sommaire</span><span data-lang="en">Jump to contents</span></a>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">mK</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">La mention la plus courante</span><span data-lang="en">The most common note</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">4</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Classes linéaires f, m, c, v</span><span data-lang="en">Linear classes f, m, c, v</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">± 0,3</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">mm pour 50 mm en classe m</span><span data-lang="en">mm for 50 mm in class m</span></span>
+                        </div>
+                    </div>
+                </header>
+
+                <section class="blog-section article-section" id="calculateur">
+                    <h2 data-i18n=""><span data-lang="fr">Calculateur de tolérance générale ISO 2768</span><span data-lang="en">ISO 2768 general tolerance calculator</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Saisissez une cote et la classe de votre cartouche : vous obtenez l'écart admissible ISO 2768-1 et les cotes mini/maxi. Pour un angle, saisissez la longueur du <strong>plus petit côté</strong> de l'angle.</span><span data-lang="en">Enter a dimension and the class from your title block: you get the ISO 2768-1 permissible deviation and the min/max sizes. For an angle, enter the length of the <strong>shorter side</strong> of the angle.</span></p>
+                    <form class="calc" id="gtCalc" onsubmit="return false">
+                        <div class="calc__fields">
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">Cote nominale (mm)</span><span data-lang="en">Nominal size (mm)</span></span><input id="gtD" type="number" inputmode="decimal" min="0" step="any" value="85"></label>
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">Classe</span><span data-lang="en">Class</span></span><select id="gtC"><option value="f">f</option><option value="m" selected>m</option><option value="c">c</option><option value="v">v</option></select></label>
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">Type de cote</span><span data-lang="en">Dimension type</span></span><select id="gtT"><option value="l" data-fr="Longueur" data-en="Length">Longueur</option><option value="r" data-fr="Rayon ou chanfrein" data-en="Radius or chamfer">Rayon ou chanfrein</option><option value="a" data-fr="Angle (plus petit côté)" data-en="Angle (shorter side)">Angle (plus petit côté)</option></select></label>
+                        </div>
+                        <dl class="calc__out" aria-live="polite">
+                            <div><dt><span data-i18n=""><span data-lang="fr">Écart admissible</span><span data-lang="en">Permissible deviation</span></span></dt><dd id="gtTol">—</dd></div>
+                            <div><dt><span data-i18n=""><span data-lang="fr">Cote mini</span><span data-lang="en">Min size</span></span></dt><dd id="gtMin">—</dd></div>
+                            <div><dt><span data-i18n=""><span data-lang="fr">Cote maxi</span><span data-lang="en">Max size</span></span></dt><dd id="gtMax">—</dd></div>
+                        </dl>
+                        <p class="calc__verdict" id="gtV"></p>
+                    </form>
+                    <div class="callout callout--soft">
+                        <p data-i18n=""><span data-lang="fr"><strong>Exemple :</strong> une longueur de 85 mm en classe <strong>m</strong> est à ± 0,3 mm (tranche 30 à 120) : entre 84,7 et 85,3 mm. En classe <strong>f</strong>, ± 0,15 mm.</span><span data-lang="en"><strong>Example:</strong> an 85 mm length in class <strong>m</strong> is ± 0.3 mm (30 to 120 range): between 84.7 and 85.3 mm. In class <strong>f</strong>, ± 0.15 mm.</span></p>
+                    </div>
+                </section>
+
+                <nav class="blog-section article-summary" id="sommaire" aria-label="Sommaire de l'article">
+                    <h2 class="summary-title" data-i18n=""><span data-lang="fr">Sommaire</span><span data-lang="en">Contents</span></h2>
+                    <ol class="summary-list">
+                        <li><a href="#lineaires"><span class="summary-index">01</span><span class="summary-label" data-i18n=""><span data-lang="fr">Dimensions linéaires : f, m, c, v</span><span data-lang="en">Linear dimensions: f, m, c, v</span></span></a></li>
+                        <li><a href="#rayons-angles"><span class="summary-index">02</span><span class="summary-label" data-i18n=""><span data-lang="fr">Rayons, chanfreins et angles</span><span data-lang="en">Radii, chamfers and angles</span></span></a></li>
+                        <li><a href="#geometriques"><span class="summary-index">03</span><span class="summary-label" data-i18n=""><span data-lang="fr">Tolérances géométriques H, K, L</span><span data-lang="en">Geometrical tolerances H, K, L</span></span></a></li>
+                        <li><a href="#cartouche"><span class="summary-index">04</span><span class="summary-label" data-i18n=""><span data-lang="fr">Dans le cartouche et dans SOLIDWORKS</span><span data-lang="en">In the title block and in SOLIDWORKS</span></span></a></li>
+                        <li><a href="#faq"><span class="summary-index">05</span><span class="summary-label">FAQ</span></a></li>
+                    </ol>
+                </nav>
+
+                <section class="blog-section article-section" id="lineaires">
+                    <h2 data-i18n=""><span data-lang="fr">1. Dimensions linéaires (ISO 2768-1)</span><span data-lang="en">1. Linear dimensions (ISO 2768-1)</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Écarts admissibles en millimètres, par tranche de cote nominale (au-dessus de … jusqu'à … inclus). Un tiret signifie que la norme ne donne pas de valeur : la cote doit être tolérancée individuellement.</span><span data-lang="en">Permissible deviations in millimetres, by nominal size range (over … up to and including …). A dash means the standard gives no value: the dimension must carry its own tolerance.</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Classe</span><span data-lang="en">Class</span></th><th>0,5 – 3</th><th>3 – 6</th><th>6 – 30</th><th>30 – 120</th><th>120 – 400</th><th>400 – 1000</th><th>1000 – 2000</th><th>2000 – 4000</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>f</strong> (fin)</span><span data-lang="en"><strong>f</strong> (fine)</span></td><td>± 0,05</td><td>± 0,05</td><td>± 0,1</td><td>± 0,15</td><td>± 0,2</td><td>± 0,3</td><td>± 0,5</td><td>—</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>m</strong> (moyen)</span><span data-lang="en"><strong>m</strong> (medium)</span></td><td>± 0,1</td><td>± 0,1</td><td>± 0,2</td><td>± 0,3</td><td>± 0,5</td><td>± 0,8</td><td>± 1,2</td><td>± 2</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>c</strong> (grossier)</span><span data-lang="en"><strong>c</strong> (coarse)</span></td><td>± 0,2</td><td>± 0,3</td><td>± 0,5</td><td>± 0,8</td><td>± 1,2</td><td>± 2</td><td>± 3</td><td>± 4</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>v</strong> (très grossier)</span><span data-lang="en"><strong>v</strong> (very coarse)</span></td><td>—</td><td>± 0,5</td><td>± 1</td><td>± 1,5</td><td>± 2,5</td><td>± 4</td><td>± 6</td><td>± 8</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr">En dessous de 0,5 mm, la norme ne s'applique pas : ces cotes doivent toujours porter leur tolérance.</span><span data-lang="en">Below 0.5 mm, the standard doesn't apply: such dimensions must always carry their own tolerance.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="rayons-angles">
+                    <h2 data-i18n=""><span data-lang="fr">2. Rayons, chanfreins et angles</span><span data-lang="en">2. Radii, chamfers and angles</span></h2>
+                    <p data-i18n=""><span data-lang="fr"><strong>Rayons extérieurs et hauteurs de chanfrein</strong> (± mm) :</span><span data-lang="en"><strong>External radii and chamfer heights</strong> (± mm):</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Classe</span><span data-lang="en">Class</span></th><th>0,5 – 3</th><th>3 – 6</th><th>> 6</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>f</strong> (fin)</span><span data-lang="en"><strong>f</strong> (fine)</span></td><td>± 0,2</td><td>± 0,5</td><td>± 1</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>m</strong> (moyen)</span><span data-lang="en"><strong>m</strong> (medium)</span></td><td>± 0,2</td><td>± 0,5</td><td>± 1</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>c</strong> (grossier)</span><span data-lang="en"><strong>c</strong> (coarse)</span></td><td>± 0,4</td><td>± 1</td><td>± 2</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>v</strong> (très grossier)</span><span data-lang="en"><strong>v</strong> (very coarse)</span></td><td>± 0,4</td><td>± 1</td><td>± 2</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr"><strong>Angles</strong>, selon la longueur du plus petit côté de l'angle (mm) :</span><span data-lang="en"><strong>Angles</strong>, by length of the shorter side of the angle (mm):</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Classe</span><span data-lang="en">Class</span></th><th>≤ 10</th><th>10 – 50</th><th>50 – 120</th><th>120 – 400</th><th>> 400</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>f</strong> (fin)</span><span data-lang="en"><strong>f</strong> (fine)</span></td><td>±1°</td><td>±0°30′</td><td>±0°20′</td><td>±0°10′</td><td>±0°5′</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>m</strong> (moyen)</span><span data-lang="en"><strong>m</strong> (medium)</span></td><td>±1°</td><td>±0°30′</td><td>±0°20′</td><td>±0°10′</td><td>±0°5′</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>c</strong> (grossier)</span><span data-lang="en"><strong>c</strong> (coarse)</span></td><td>±1°30′</td><td>±1°</td><td>±0°30′</td><td>±0°15′</td><td>±0°10′</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>v</strong> (très grossier)</span><span data-lang="en"><strong>v</strong> (very coarse)</span></td><td>±3°</td><td>±2°</td><td>±1°</td><td>±0°30′</td><td>±0°20′</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="blog-section article-section" id="geometriques">
+                    <h2 data-i18n=""><span data-lang="fr">3. Tolérances géométriques générales H, K, L (ISO 2768-2)</span><span data-lang="en">3. General geometrical tolerances H, K, L (ISO 2768-2)</span></h2>
+                    <p data-i18n=""><span data-lang="fr">La deuxième lettre du cartouche (le « K » de « mK ») fixe les tolérances de forme et d'orientation non indiquées. Valeurs en millimètres.</span><span data-lang="en">The second letter in the title block (the “K” in “mK”) sets unstated form and orientation tolerances. Values in millimetres.</span></p>
+                    <p data-i18n=""><span data-lang="fr"><strong>Rectitude et planéité</strong>, selon la longueur nominale :</span><span data-lang="en"><strong>Straightness and flatness</strong>, by nominal length:</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Classe</span><span data-lang="en">Class</span></th><th>≤ 10</th><th>10 – 30</th><th>30 – 100</th><th>100 – 300</th><th>300 – 1000</th><th>1000 – 3000</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>H</strong></td><td>0,02</td><td>0,05</td><td>0,1</td><td>0,2</td><td>0,3</td><td>0,4</td></tr>
+                                    <tr><td><strong>K</strong></td><td>0,05</td><td>0,1</td><td>0,2</td><td>0,4</td><td>0,6</td><td>0,8</td></tr>
+                                    <tr><td><strong>L</strong></td><td>0,1</td><td>0,2</td><td>0,4</td><td>0,8</td><td>1,2</td><td>1,6</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr"><strong>Perpendicularité</strong>, selon la longueur du plus petit côté :</span><span data-lang="en"><strong>Perpendicularity</strong>, by length of the shorter side:</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Classe</span><span data-lang="en">Class</span></th><th>≤ 100</th><th>100 – 300</th><th>300 – 1000</th><th>1000 – 3000</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>H</strong></td><td>0,2</td><td>0,3</td><td>0,4</td><td>0,5</td></tr>
+                                    <tr><td><strong>K</strong></td><td>0,4</td><td>0,6</td><td>0,8</td><td>1</td></tr>
+                                    <tr><td><strong>L</strong></td><td>0,6</td><td>1</td><td>1,5</td><td>2</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr"><strong>Symétrie</strong>, selon la longueur :</span><span data-lang="en"><strong>Symmetry</strong>, by length:</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Classe</span><span data-lang="en">Class</span></th><th>≤ 100</th><th>100 – 300</th><th>300 – 1000</th><th>1000 – 3000</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>H</strong></td><td>0,5</td><td>0,5</td><td>0,5</td><td>0,5</td></tr>
+                                    <tr><td><strong>K</strong></td><td>0,6</td><td>0,6</td><td>0,8</td><td>1</td></tr>
+                                    <tr><td><strong>L</strong></td><td>0,6</td><td>1</td><td>1,5</td><td>2</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr"><strong>Battement circulaire</strong> (radial, axial) : 0,1 mm en H, 0,2 mm en K, 0,5 mm en L.</span><span data-lang="en"><strong>Circular run-out</strong> (radial, axial): 0.1 mm in H, 0.2 mm in K, 0.5 mm in L.</span></p>
+                    <div class="callout callout--soft">
+                        <p data-i18n=""><span data-lang="fr"><strong>Statut des normes :</strong> l'ISO 2768-2 a été annulée et remplacée par l'<strong>ISO 22081:2021</strong>, qui fixe les règles d'emploi des tolérances générales dans le système GPS mais ne donne plus de valeurs. L'ISO 2768-1 reste en vigueur. Dans la pratique, « ISO 2768-mK » reste très présent sur les plans : si vous l'écrivez sur un nouveau plan, assurez-vous que vos fournisseurs et votre contrôle l'interprètent de la même façon.</span><span data-lang="en"><strong>Standards status:</strong> ISO 2768-2 was withdrawn and replaced by <strong>ISO 22081:2021</strong>, which sets rules for using general tolerances within the GPS system but no longer gives values. ISO 2768-1 remains in force. In practice, “ISO 2768-mK” is still very common on drawings: if you put it on a new drawing, make sure your suppliers and inspection read it the same way.</span></p>
+                    </div>
+                </section>
+
+                <section class="blog-section article-section" id="cartouche">
+                    <h2 data-i18n=""><span data-lang="fr">4. Dans le cartouche, et dans SOLIDWORKS</span><span data-lang="en">4. In the title block, and in SOLIDWORKS</span></h2>
+                    <p data-i18n=""><span data-lang="fr">La mention s'écrit dans le cartouche ou près de lui : <strong>« Tolérances générales ISO 2768-mK »</strong>. La première lettre (f, m, c, v) vaut pour les cotes, la seconde (H, K, L) pour la géométrie. <strong>m</strong> correspond à un usinage courant ; <strong>f</strong> à un usinage soigné ; <strong>c</strong> et <strong>v</strong> à la chaudronnerie, la mécano-soudure ou les pièces brutes.</span><span data-lang="en">The note goes in or near the title block: <strong>“General tolerances ISO 2768-mK”</strong>. The first letter (f, m, c, v) applies to dimensions, the second (H, K, L) to geometry. <strong>m</strong> matches ordinary machining; <strong>f</strong> careful machining; <strong>c</strong> and <strong>v</strong> sheet metal, weldments or rough parts.</span></p>
+                    <ul>
+                        <li data-i18n=""><span data-lang="fr"><strong>Mettez la mention dans le fond de plan</strong>, pas à la main sur chaque plan : dans SOLIDWORKS, une propriété personnalisée (par exemple « TolGen ») liée à une note du fond de plan permet de la changer par pièce sans toucher au modèle de cartouche.</span><span data-lang="en"><strong>Put the note in the sheet format</strong>, not by hand on each drawing: in SOLIDWORKS, a custom property (for example “TolGen”) linked to a note in the sheet format lets you change it per part without touching the title-block template.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Ne tolérancez individuellement que les cotes fonctionnelles</strong>. Tout le reste est couvert par la tolérance générale : un plan lisible est un plan qui montre où est la précision.</span><span data-lang="en"><strong>Only put individual tolerances on functional dimensions</strong>. Everything else is covered by the general tolerance: a readable drawing is one that shows where the precision is.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Les ajustements ne relèvent pas de l'ISO 2768</strong> : un Ø 20 H7 se tolérance avec l'ISO 286, voir le <a href='/blog/ajustements-iso-286-tableau-h7-g6/'>calculateur d'ajustements H7/g6</a>.</span><span data-lang="en"><strong>Fits are not covered by ISO 2768</strong>: a Ø 20 H7 is toleranced with ISO 286, see the <a href='/blog/ajustements-iso-286-tableau-h7-g6/'>H7/g6 fit calculator</a>.</span></li>
+                    </ul>
+                    <p data-i18n=""><span data-lang="fr">Harmoniser cette mention sur toute une base de plans est typiquement un chantier de <a href='/blog/codification-proprietes-solidworks/'>codification et propriétés SOLIDWORKS</a> : une propriété, une règle, un fond de plan.</span><span data-lang="en">Standardising this note across a whole drawing base is typically a <a href='/blog/codification-proprietes-solidworks/'>SOLIDWORKS codification and properties</a> job: one property, one rule, one sheet format.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="faq">
+                    <h2>5. FAQ</h2>
+                    <h3 data-i18n=""><span data-lang="fr">Que signifie ISO 2768-mK sur un plan ?</span><span data-lang="en">What does ISO 2768-mK mean on a drawing?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Que toutes les cotes sans tolérance indiquée suivent la classe m (moyenne) de l'ISO 2768-1, et toutes les tolérances de forme et d'orientation non indiquées la classe K de l'ISO 2768-2. Par exemple, une longueur de 50 mm est alors à ± 0,3 mm.</span><span data-lang="en">That every dimension without a stated tolerance follows class m (medium) of ISO 2768-1, and every unstated form and orientation tolerance follows class K of ISO 2768-2. For example, a 50 mm length is then ± 0.3 mm.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Quelle est la tolérance ISO 2768-m pour 100 mm ?</span><span data-lang="en">What is the ISO 2768-m tolerance for 100 mm?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">± 0,3 mm. 100 mm est dans la tranche au-dessus de 30 jusqu'à 120 mm. En classe f ce serait ± 0,15 mm, en classe c ± 0,8 mm.</span><span data-lang="en">± 0.3 mm. 100 mm falls in the over 30 up to 120 mm range. In class f it would be ± 0.15 mm, in class c ± 0.8 mm.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">L'ISO 2768 est-elle toujours valable ?</span><span data-lang="en">Is ISO 2768 still valid?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">L'ISO 2768-1 (cotes linéaires et angulaires) est toujours en vigueur. L'ISO 2768-2 (tolérances géométriques) a été remplacée par l'ISO 22081:2021, qui ne fixe plus de valeurs. La mention ISO 2768-mK reste très utilisée dans l'industrie.</span><span data-lang="en">ISO 2768-1 (linear and angular dimensions) is still in force. ISO 2768-2 (geometrical tolerances) was replaced by ISO 22081:2021, which no longer sets values. The ISO 2768-mK note remains widely used in industry.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Quelle classe choisir entre f, m, c et v ?</span><span data-lang="en">Which class should I choose between f, m, c and v?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">m pour l'usinage courant, f pour l'usinage de précision, c pour la chaudronnerie et la mécano-soudure, v pour les pièces brutes ou de grandes dimensions. Choisir plus fin que nécessaire augmente le coût de fabrication et de contrôle sans bénéfice.</span><span data-lang="en">m for ordinary machining, f for precision machining, c for sheet metal and weldments, v for rough or very large parts. Choosing finer than needed raises manufacturing and inspection cost for no benefit.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">La tolérance générale s'applique-t-elle aux diamètres d'ajustement ?</span><span data-lang="en">Does the general tolerance apply to fit diameters?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Non. Une cote fonctionnelle, comme un diamètre d'ajustement, doit porter sa propre tolérance (par exemple Ø 20 H7 selon l'ISO 286). La tolérance générale ne couvre que les cotes non fonctionnelles.</span><span data-lang="en">No. A functional dimension, such as a fit diameter, must carry its own tolerance (for example Ø 20 H7 per ISO 286). The general tolerance only covers non-functional dimensions.</span></p>
+                </section>
+
+                <section class="blog-section article-related">
+                    <h2 data-i18n=""><span data-lang="fr">À lire aussi</span><span data-lang="en">Read next</span></h2>
+                    <div class="media-grid">
+                        <a href="/blog/ajustements-iso-286-tableau-h7-g6/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">Ajustements ISO 286 : H7/g6, H7/p6… et calculateur</span><span data-lang="en">ISO 286 fits: H7/g6, H7/p6… and calculator</span></h3>
+                            <p data-i18n=""><span data-lang="fr">Écarts, jeux et serrages calculés pour votre diamètre.</span><span data-lang="en">Deviations, clearances and interferences for your diameter.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                        <a href="/blog/tableau-filetage-metrique-percage-taraudage/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">Tableau filetage métrique : pas, perçage, passages</span><span data-lang="en">Metric thread chart: pitch, tap drill, clearance</span></h3>
+                            <p data-i18n=""><span data-lang="fr">M1,6 à M36 : foret de taraudage, trous de passage ISO 273, clés.</span><span data-lang="en">M1.6 to M36: tap drill, ISO 273 clearance holes, wrench sizes.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                    </div>
+                </section>
+
+                <footer class="article-footer">
+                    <div class="article-tags">
+                        <span class="article-tag">ISO 2768</span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Tolérances</span><span data-lang="en">Tolerances</span></span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Mise en plan</span><span data-lang="en">Drawings</span></span>
+                        <span class="article-tag">SOLIDWORKS</span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Bureau d’études</span><span data-lang="en">Design office</span></span>
+                    </div>
+                    <div class="article-nav">
+                        <a href="/blog/" class="back-link" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                        <a href="/#contact" class="hero-btn" data-i18n=""><span data-lang="fr">Parler d'un projet</span><span data-lang="en">Discuss a project</span></a>
+                    </div>
+                </footer>
+
+            </article>
+        </div>
+    </main>
+
+    <script>
+// Calculateur ISO 2768-1 : tranches « au-dessus de / jusqu'à inclus », écarts en ± mm.
+    (function () {
+        var D = {"B":[0.5,3,6,30,120,400,1000,2000,4000],"L":{"f":[0.05,0.05,0.1,0.15,0.2,0.3,0.5,null],"m":[0.1,0.1,0.2,0.3,0.5,0.8,1.2,2],"c":[0.2,0.3,0.5,0.8,1.2,2,3,4],"v":[null,0.5,1,1.5,2.5,4,6,8]},"RB":[0.5,3,6],"R":{"f":[0.2,0.5,1],"m":[0.2,0.5,1],"c":[0.4,1,2],"v":[0.4,1,2]},"A":{"f":["±1°","±0°30′","±0°20′","±0°10′","±0°5′"],"m":["±1°","±0°30′","±0°20′","±0°10′","±0°5′"],"c":["±1°30′","±1°","±0°30′","±0°15′","±0°10′"],"v":["±3°","±2°","±1°","±0°30′","±0°20′"]}};
+        var $ = function (id) { return document.getElementById(id); };
+        var dIn = $('gtD'), cIn = $('gtC'), tIn = $('gtT');
+        if (!dIn) return;
+        function en() { return document.documentElement.lang === 'en'; }
+        function num(x) { var s = String(Math.round(x * 1000) / 1000); return en() ? s : s.replace('.', ','); }
+        function slot(b, x) { if (x < b[0]) return -1; for (var i = 1; i < b.length; i++) if (x <= b[i]) return i - 1; return -1; }
+        function run() {
+            Array.prototype.forEach.call(tIn.options, function (o) { o.textContent = en() ? o.dataset.en : o.dataset.fr; });
+            var d = parseFloat(String(dIn.value).replace(',', '.')), c = cIn.value, t = tIn.value, v = null, msg = '';
+            $('gtMin').textContent = $('gtMax').textContent = '—';
+            if (!(d >= 0)) { $('gtTol').textContent = '—'; $('gtV').textContent = ''; return; }
+            if (t === 'a') {
+                var i = d <= 10 ? 0 : d <= 50 ? 1 : d <= 120 ? 2 : d <= 400 ? 3 : 4;
+                $('gtTol').textContent = D.A[c][i];
+                $('gtV').textContent = en() ? 'Angular deviation, by shorter side of the angle.' : 'Écart angulaire, selon le plus petit côté de l’angle.';
+                return;
+            }
+            if (t === 'r') {
+                var j = d < 0.5 ? -1 : d <= 3 ? 0 : d <= 6 ? 1 : 2;
+                v = j < 0 ? null : D.R[c][j];
+            } else {
+                var k = slot(D.B, d);
+                v = k < 0 ? null : D.L[c][k];
+            }
+            if (v === null) {
+                $('gtTol').textContent = '—';
+                $('gtV').textContent = en() ? 'No general tolerance here: this dimension must carry its own tolerance.' : 'Pas de tolérance générale ici : la cote doit porter sa propre tolérance.';
+                return;
+            }
+            $('gtTol').textContent = '± ' + num(v) + ' mm';
+            $('gtMin').textContent = num(d - v) + ' mm';
+            $('gtMax').textContent = num(d + v) + ' mm';
+            $('gtV').textContent = 'ISO 2768-' + c;
+        }
+        [dIn, cIn, tIn].forEach(function (el) { el.addEventListener('input', run); });
+        window.addEventListener('langchange', run);
+        run();
+    })();
+    </script>
+    <script src="/assets/js/loader.js"></script>
+    <script src="/assets/js/visitor-intelligence.js"></script>
+
+{{> footer }}
+{{> chatbot }}
+</body></html>

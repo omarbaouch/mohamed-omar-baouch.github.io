@@ -1,4 +1,22 @@
 {
+  "/blog/ajustements-iso-286-tableau-h7-g6/": {
+    "title": "Ajustements ISO 286 : tableau H7, g6, h6, k6, p6 et calculateur de jeu",
+    "description": "Calculateur d'ajustement ISO 286 (H7/g6, H7/h6, H7/k6, H7/p6…) : écarts en µm, cotes mini/maxi, jeu ou serrage pour votre diamètre. Tableau des écarts H7, f7, g6, h6, k6, n6, p6 jusqu'à 500 mm et usages de chaque ajustement.",
+    "canonical": "https://www.baouch.fr/blog/ajustements-iso-286-tableau-h7-g6/",
+    "robots": null,
+    "ogTitle": "Ajustements ISO 286 : tableau H7/g6, H7/h6, H7/p6 et calculateur de jeu",
+    "ogDescription": "Écarts ISO 286, jeu et serrage calculés pour votre diamètre, tableau H7/g6/h6/k6/p6 jusqu'à 500 mm et usages des 8 ajustements courants.",
+    "ogUrl": "https://www.baouch.fr/blog/ajustements-iso-286-tableau-h7-g6/",
+    "ogImage": "https://www.baouch.fr/img/og/ajustements.jpg",
+    "ogType": "article",
+    "twitterTitle": "Ajustements ISO 286 : tableau H7/g6, H7/h6, H7/p6 et calculateur de jeu",
+    "twitterDescription": "Écarts ISO 286, jeu et serrage calculés pour votre diamètre, tableau H7/g6/h6/k6/p6 jusqu'à 500 mm et usages des 8 ajustements courants.",
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList,FAQPage"
+    ],
+    "h1": "Ajustements ISO 286 : tableau H7/g6, H7/h6, H7/p6 et calculateur de jeuISO 286 fits: H7/g6, H7/h6, H7/p6 chart and clearance calculator",
+    "lang": "fr"
+  },
   "/blog/choisir-logiciel-cao-solidworks-inventor-fusion-catia/": {
     "title": "SOLIDWORKS, Inventor, Fusion 360 ou CATIA : quel logiciel de CAO choisir en 2026 ?",
     "description": "Comparatif honnête des logiciels de CAO 3D pour la mécanique : SOLIDWORKS, Autodesk Inventor, Fusion 360, CATIA, Creo, NX, Onshape. Pour quel profil, avec quelles limites réelles, et les 5 critères qui décident vraiment — dont celui que tout le monde oublie : le coût total sur cinq ans.",
@@ -51,6 +69,24 @@
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
     "h1": "Configuration matérielle SOLIDWORKS 2025 : le guide terrain pour un bureau d'études réactif",
+    "lang": "fr"
+  },
+  "/blog/couple-serrage-vis-tableau/": {
+    "title": "Couple de serrage des vis : tableau 8.8, 10.9, 12.9 de M3 à M36 + calculateur",
+    "description": "Tableau des couples de serrage des vis métriques de M3 à M36 en classes 8.8, 10.9 et 12.9, avec les précontraintes. Calculateur selon la méthode VDI 2230 et le coefficient de frottement, et les erreurs de serrage à éviter.",
+    "canonical": "https://www.baouch.fr/blog/couple-serrage-vis-tableau/",
+    "robots": null,
+    "ogTitle": "Couple de serrage des vis : tableau 8.8, 10.9, 12.9 et calculateur",
+    "ogDescription": "Couples et précontraintes de M3 à M36 en 8.8, 10.9, 12.9, calculateur VDI 2230 selon le frottement, et les pièges du serrage.",
+    "ogUrl": "https://www.baouch.fr/blog/couple-serrage-vis-tableau/",
+    "ogImage": "https://www.baouch.fr/img/og/couple-serrage.jpg",
+    "ogType": "article",
+    "twitterTitle": "Couple de serrage des vis : tableau 8.8, 10.9, 12.9 et calculateur",
+    "twitterDescription": "Couples et précontraintes de M3 à M36 en 8.8, 10.9, 12.9, calculateur VDI 2230 selon le frottement, et les pièges du serrage.",
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList,FAQPage"
+    ],
+    "h1": "Couple de serrage des vis : tableau 8.8, 10.9, 12.9 et calculateurBolt tightening torque: 8.8, 10.9, 12.9 chart and calculator",
     "lang": "fr"
   },
   "/blog/ebom-vs-mbom/": {
@@ -215,6 +251,24 @@
     "h1": "Quel logiciel pour gérer vos nomenclatures ? Les 5 familles d'outils, et celle qui vous correspondWhich software should manage your BOMs? The 5 families of tools, and the one that fits you",
     "lang": "fr"
   },
+  "/blog/masse-volumique-materiaux-calcul-masse/": {
+    "title": "Masse volumique des matériaux (acier, alu, inox, plastiques) + calcul de masse",
+    "description": "Tableau des masses volumiques des matériaux de mécanique : acier 7850 kg/m³, inox, aluminium 2700, laiton, cuivre, titane, plastiques (PA6, POM, ABS, PEEK…). Calculateur de masse pour plaque, rond, tube et hexagone, et les pièges de la masse SOLIDWORKS.",
+    "canonical": "https://www.baouch.fr/blog/masse-volumique-materiaux-calcul-masse/",
+    "robots": null,
+    "ogTitle": "Masse volumique des matériaux et calcul de la masse d’une pièce",
+    "ogDescription": "Acier, inox, alu, laiton, titane, plastiques : masses volumiques et calculateur de masse d'une plaque, d'un rond ou d'un tube.",
+    "ogUrl": "https://www.baouch.fr/blog/masse-volumique-materiaux-calcul-masse/",
+    "ogImage": "https://www.baouch.fr/img/og/masse-volumique.jpg",
+    "ogType": "article",
+    "twitterTitle": "Masse volumique des matériaux et calcul de la masse d’une pièce",
+    "twitterDescription": "Acier, inox, alu, laiton, titane, plastiques : masses volumiques et calculateur de masse d'une plaque, d'un rond ou d'un tube.",
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList,FAQPage"
+    ],
+    "h1": "Masse volumique des matériaux et calcul de la masse d’une pièceMaterial densities and part mass calculator",
+    "lang": "fr"
+  },
   "/blog/migration-cloud-pdm-3dexperience/": {
     "title": "Passer votre PDM dans le cloud : ce que les commerciaux ne vous diront jamais avant de signer",
     "description": "Cloud PDM, 3DEXPERIENCE, SaaS : la promesse est séduisante. Voici les 5 angles morts que les démonstrations passent sous silence, et les 7 questions à poser avant de signer.",
@@ -359,6 +413,24 @@
     "h1": "Au-delà de la théorie : résoudre les 5 problématiques PLM que j'ai vécues en tant qu'Ingénieur Mécanique",
     "lang": "fr"
   },
+  "/blog/rugosite-ra-tableau-classes-procedes/": {
+    "title": "Rugosité Ra : tableau des classes N, procédés d’usinage et convertisseur µm / µin",
+    "description": "Tableau de rugosité Ra : classes N1 à N12, conversion µm / µin, Ra obtenu par procédé (tournage, fraisage, rectification, rodage…) et Ra à demander selon la fonction de la surface. Différence Ra / Rz et indication sur le plan.",
+    "canonical": "https://www.baouch.fr/blog/rugosite-ra-tableau-classes-procedes/",
+    "robots": null,
+    "ogTitle": "Rugosité Ra : tableau des classes N, procédés et valeurs à demander",
+    "ogDescription": "Classes N1 à N12, convertisseur µm/µin, Ra par procédé d'usinage et par fonction, Ra vs Rz : le mémo rugosité du bureau d'études.",
+    "ogUrl": "https://www.baouch.fr/blog/rugosite-ra-tableau-classes-procedes/",
+    "ogImage": "https://www.baouch.fr/img/og/rugosite.jpg",
+    "ogType": "article",
+    "twitterTitle": "Rugosité Ra : tableau des classes N, procédés et valeurs à demander",
+    "twitterDescription": "Classes N1 à N12, convertisseur µm/µin, Ra par procédé d'usinage et par fonction, Ra vs Rz : le mémo rugosité du bureau d'études.",
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList,FAQPage"
+    ],
+    "h1": "Rugosité Ra : tableau des classes N, procédés et valeurs à demanderSurface roughness Ra: N grades, processes and values to specify",
+    "lang": "fr"
+  },
   "/blog/solidworks-gratuit-prix-guide/": {
     "title": "SOLIDWORKS gratuit en 2026 : les 7 solutions légales (étudiant, maker, startup) et le vrai prix des licences",
     "description": "SOLIDWORKS gratuit, ça existe ? Oui — dans 7 cas précis : étudiants, enseignants, makers, startups, essai en ligne 30 jours, visionneuses. Le guide honnête avec les limitations de chaque option, la réponse pour Mac, le vrai prix des licences 2026 et pourquoi éviter les versions crackées.",
@@ -447,6 +519,24 @@
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
     "h1": "Tableau filetage métrique ISO : pas, perçage avant taraudage et trous de passageISO metric thread chart: pitch, tap drill and clearance holes",
+    "lang": "fr"
+  },
+  "/blog/tolerances-generales-iso-2768/": {
+    "title": "Tolérances générales ISO 2768 : tableaux f, m, c, v et H, K, L + calculateur",
+    "description": "Les tableaux complets de l'ISO 2768 : tolérances linéaires f, m, c, v, rayons, chanfreins, angles et tolérances géométriques H, K, L. Calculateur de cote mini/maxi, sens de « ISO 2768-mK » dans le cartouche et statut de la norme (ISO 22081).",
+    "canonical": "https://www.baouch.fr/blog/tolerances-generales-iso-2768/",
+    "robots": null,
+    "ogTitle": "Tolérances générales ISO 2768 : tableaux f, m, c, v et H, K, L",
+    "ogDescription": "Tolérances linéaires f/m/c/v, angles, H/K/L, et un calculateur de cote mini/maxi. Ce que garantit vraiment « ISO 2768-mK ».",
+    "ogUrl": "https://www.baouch.fr/blog/tolerances-generales-iso-2768/",
+    "ogImage": "https://www.baouch.fr/img/og/iso-2768.jpg",
+    "ogType": "article",
+    "twitterTitle": "Tolérances générales ISO 2768 : tableaux f, m, c, v et H, K, L",
+    "twitterDescription": "Tolérances linéaires f/m/c/v, angles, H/K/L, et un calculateur de cote mini/maxi. Ce que garantit vraiment « ISO 2768-mK ».",
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList,FAQPage"
+    ],
+    "h1": "Tolérances générales ISO 2768 : tableaux f, m, c, v et H, K, LISO 2768 general tolerances: f, m, c, v and H, K, L tables",
     "lang": "fr"
   },
   "/": {

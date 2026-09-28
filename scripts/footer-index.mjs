@@ -26,8 +26,9 @@ const GROUPES = [
   { id: 'plm', fr: 'PDM · PLM', en: 'PDM · PLM' },
   { id: 'data', fr: 'Nomenclatures & données', en: 'BOMs & data' },
   { id: 'cao', fr: 'CAO & SOLIDWORKS', en: 'CAD & SOLIDWORKS' },
+  { id: 'memo', fr: 'Mémos & outils', en: 'References & tools' },
 ];
-const CAT_VERS_GROUPE = { plm: 'plm', data: 'data', cao: 'cao', perf: 'perf', migration: 'perf' };
+const CAT_VERS_GROUPE = { plm: 'plm', data: 'data', cao: 'cao', memo: 'memo', perf: 'perf', migration: 'perf' };
 // articles absents de la grille du blog (article vedette, anciens formats)
 const SECOURS = {
   '/blog/ia-solidworks-pdm-bureau-etudes/': 'plm',

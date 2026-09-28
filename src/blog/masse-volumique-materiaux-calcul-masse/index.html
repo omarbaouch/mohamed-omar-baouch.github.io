@@ -1,0 +1,425 @@
+<!DOCTYPE html><html lang="fr"><head>
+    <meta charset="UTF-8">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PBLRK58T');</script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-33TQ27QY4M"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-33TQ27QY4M');</script>
+<!-- Microsoft Clarity -->
+    <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","vy4yvht8gz");</script>
+    <!-- LinkedIn Insight Tag -->
+    <script type="text/javascript">_linkedin_partner_id="525900907";window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];window._linkedin_data_partner_ids.push(_linkedin_partner_id);(function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";s.parentNode.insertBefore(b,s)})(window.lintrk);</script>
+    <script>
+    // Anti-flash de thème : clair par défaut, sombre si stocké.
+    (function () {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    })();
+</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masse volumique des matériaux (acier, alu, inox, plastiques) + calcul de masse</title>
+    <meta name="description" content="Tableau des masses volumiques des matériaux de mécanique : acier 7850 kg/m³, inox, aluminium 2700, laiton, cuivre, titane, plastiques (PA6, POM, ABS, PEEK…). Calculateur de masse pour plaque, rond, tube et hexagone, et les pièges de la masse SOLIDWORKS.">
+    <meta name="author" content="Mohamed Omar Baouch">
+    <link rel="canonical" href="https://www.baouch.fr/blog/masse-volumique-materiaux-calcul-masse/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Masse volumique des matériaux et calcul de la masse d’une pièce">
+    <meta property="og:description" content="Acier, inox, alu, laiton, titane, plastiques : masses volumiques et calculateur de masse d&#x27;une plaque, d&#x27;un rond ou d&#x27;un tube.">
+    <meta property="og:url" content="https://www.baouch.fr/blog/masse-volumique-materiaux-calcul-masse/">
+    <meta property="og:image" content="https://www.baouch.fr/img/og/masse-volumique.jpg">
+    <meta property="og:site_name" content="Mohamed Omar Baouch">
+    <meta property="article:published_time" content="2026-09-28T00:00:00.000Z">
+    <meta property="article:author" content="Mohamed Omar Baouch">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Masse volumique des matériaux et calcul de la masse d’une pièce">
+    <meta name="twitter:description" content="Acier, inox, alu, laiton, titane, plastiques : masses volumiques et calculateur de masse d&#x27;une plaque, d&#x27;un rond ou d&#x27;un tube.">
+    <meta name="twitter:image" content="https://www.baouch.fr/img/og/masse-volumique.jpg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "headline": "Masse volumique des matériaux et calcul de la masse d’une pièce",
+                "description": "Tableau des masses volumiques des matériaux de mécanique : acier 7850 kg/m³, inox, aluminium 2700, laiton, cuivre, titane, plastiques (PA6, POM, ABS, PEEK…). Calculateur de masse pour plaque, rond, tube et hexagone, et les pièges de la masse SOLIDWORKS.",
+                "image": "https://www.baouch.fr/img/og/masse-volumique.jpg",
+                "datePublished": "2026-09-28",
+                "dateModified": "2026-09-28",
+                "inLanguage": "fr-FR",
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://www.baouch.fr/blog/masse-volumique-materiaux-calcul-masse/"
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://www.baouch.fr",
+                    "jobTitle": "Ingénieur & Consultant PDM/PLM"
+                },
+                "publisher": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://www.baouch.fr"
+                },
+                "keywords": [
+                    "Masse volumique",
+                    "Densité acier",
+                    "Masse volumique aluminium",
+                    "Calcul de masse",
+                    "Poids tube acier",
+                    "SOLIDWORKS",
+                    "Matériaux"
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Accueil",
+                        "item": "https://www.baouch.fr/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Blog",
+                        "item": "https://www.baouch.fr/blog/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Masse volumique des matériaux et calcul de la masse d’une pièce",
+                        "item": "https://www.baouch.fr/blog/masse-volumique-materiaux-calcul-masse/"
+                    }
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Quelle est la masse volumique de l'acier ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "7 850 kg/m³ (7,85 g/cm³) pour les aciers non alliés et faiblement alliés. Les inox austénitiques sont un peu plus lourds : environ 7 900 kg/m³ pour le 304 et 8 000 kg/m³ pour le 316L."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Quelle est la masse volumique de l'aluminium ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "2 700 kg/m³ (2,7 g/cm³) pour l'aluminium et les alliages courants 6060, 6061 et 6082. Les alliages au cuivre ou au zinc sont un peu plus denses : environ 2 790 kg/m³ pour le 2017A et 2 810 kg/m³ pour le 7075."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Combien pèse une tôle d'acier de 1 mm ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "7,85 kg par mètre carré. La règle se généralise : une tôle d'acier pèse 7,85 kg/m² par millimètre d'épaisseur, soit 23,55 kg/m² en 3 mm."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Comment calculer la masse d'un rond en acier ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Masse (kg/m) = π × D² / 4 × 7 850 × 10⁻⁶, avec D en mm. Formule rapide : D² × 0,00617 kg par mètre. Un Ø 50 pèse donc environ 15,4 kg/m."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Pourquoi la masse SOLIDWORKS est-elle fausse ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Le plus souvent parce qu'aucun matériau n'est appliqué à certaines pièces : SOLIDWORKS utilise alors la masse volumique par défaut de 1 000 kg/m³. Vérifiez le matériau de chaque pièce et que la propriété Masse est liée à la valeur calculée."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+    <link rel="alternate" type="application/rss+xml" title="Blog — Mohamed Omar Baouch" href="https://www.baouch.fr/blog/rss.xml">
+    {{> head-lang }}{{> head-fonts }}<script type="module" src="../../js/blog.js"></script>
+</head>
+<body class="blog-page" data-blog-post="masse-volumique-materiaux-calcul-masse">
+{{> nav }}
+
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBLRK58T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <main id="main" class="container blog-container show">
+        <div class="blog-shell" id="blogShell" data-shell="">
+            <article class="blog-article" data-article-root="">
+                <nav class="article-breadcrumbs" aria-label="Navigation secondaire">
+                    <a class="back-link" href="/blog/" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                    <a class="back-link back-link--ghost" href="/" data-translate-key="blog_back_to_portfolio">Retour au portfolio</a>
+                </nav>
+
+                <header class="blog-hero post-hero" data-component="hero">
+                    <div class="hero-intro">
+                        <div class="hero-badges">
+                            <span class="badge badge-editorial" data-i18n=""><span data-lang="fr">Mémo & calculateur</span><span data-lang="en">Reference & calculator</span></span>
+                            <span class="badge" data-i18n=""><span data-lang="fr">Conception</span><span data-lang="en">Design</span></span>
+                            <span class="badge badge-reading-time" data-i18n=""><span data-lang="fr">~6 min de lecture</span><span data-lang="en">~6 min read</span></span>
+                        </div>
+                        <span class="hero-eyebrow" data-i18n=""><span data-lang="fr">Le poids d’une pièce en dix secondes</span><span data-lang="en">A part’s weight in ten seconds</span></span>
+                        <h1 class="hero-title" data-i18n=""><span data-lang="fr">Masse volumique des matériaux et calcul de la masse d’une pièce</span><span data-lang="en">Material densities and part mass calculator</span></h1>
+                        <p class="hero-subtitle" data-i18n=""><span data-lang="fr">Publié le 28 septembre 2026 — les masses volumiques des aciers, alliages d'aluminium, cuivreux, titane et plastiques techniques, un calculateur de masse pour plaques, ronds, tubes et hexagones, et les réglages SOLIDWORKS qui garantissent une masse juste dans la nomenclature.</span><span data-lang="en">Published September 28, 2026 — densities of steels, aluminium alloys, copper alloys, titanium and engineering plastics, a mass calculator for plates, bars, tubes and hex stock, and the SOLIDWORKS settings that keep BOM mass correct.</span></p>
+                        <div class="hero-actions">
+                            <a class="hero-btn" href="#calculateur" data-i18n=""><span data-lang="fr">Calculer une masse</span><span data-lang="en">Calculate a mass</span></a>
+                            <a class="hero-btn hero-btn--ghost" href="#sommaire" data-i18n=""><span data-lang="fr">Consulter le sommaire</span><span data-lang="en">Jump to contents</span></a>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">7 850</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">kg/m³ : l’acier</span><span data-lang="en">kg/m³: steel</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">2 700</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">kg/m³ : l’aluminium</span><span data-lang="en">kg/m³: aluminium</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">33</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Matériaux dans le tableau</span><span data-lang="en">Materials in the chart</span></span>
+                        </div>
+                    </div>
+                </header>
+
+                <section class="blog-section article-section" id="calculateur">
+                    <h2 data-i18n=""><span data-lang="fr">Calculateur de masse d’une pièce</span><span data-lang="en">Part mass calculator</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Choisissez le matériau et la forme, saisissez les dimensions en millimètres : vous obtenez le volume et la masse. Pratique pour un devis, une nomenclature ou pour vérifier la masse calculée par la CAO.</span><span data-lang="en">Pick the material and shape, enter the dimensions in millimetres: you get the volume and mass. Handy for a quote, a BOM, or to check the mass computed by CAD.</span></p>
+                    <form class="calc" id="mCalc" onsubmit="return false">
+                        <div class="calc__fields">
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">Matériau</span><span data-lang="en">Material</span></span><select id="mMat"></select></label>
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">Forme</span><span data-lang="en">Shape</span></span><select id="mShape"><option value="plate" data-fr="Plaque / barre plate" data-en="Plate / flat bar">Plaque / barre plate</option><option value="rod" data-fr="Rond plein" data-en="Round bar">Rond plein</option><option value="tube" data-fr="Tube rond" data-en="Round tube">Tube rond</option><option value="hex" data-fr="Hexagone plein" data-en="Hex bar">Hexagone plein</option></select></label>
+                            <label class="calc__field" data-dim="a"><span class="calc__lbl"></span><input id="mA" type="number" inputmode="decimal" min="0" step="any" value="200"></label>
+                            <label class="calc__field" data-dim="b"><span class="calc__lbl"></span><input id="mB" type="number" inputmode="decimal" min="0" step="any" value="100"></label>
+                            <label class="calc__field" data-dim="c"><span class="calc__lbl"></span><input id="mC" type="number" inputmode="decimal" min="0" step="any" value="10"></label>
+                        </div>
+                        <dl class="calc__out" aria-live="polite">
+                            <div><dt><span data-i18n=""><span data-lang="fr">Volume</span><span data-lang="en">Volume</span></span></dt><dd id="mV">—</dd></div>
+                            <div><dt><span data-i18n=""><span data-lang="fr">Masse</span><span data-lang="en">Mass</span></span></dt><dd id="mM">—</dd></div>
+                            <div><dt><span data-i18n=""><span data-lang="fr">Masse volumique</span><span data-lang="en">Density</span></span></dt><dd id="mR">—</dd></div>
+                        </dl>
+                    </form>
+                    <div class="callout callout--soft">
+                        <p data-i18n=""><span data-lang="fr"><strong>Ordre de grandeur à retenir :</strong> une plaque d'acier de 1 m × 1 m × 1 mm pèse 7,85 kg. En aluminium, 2,7 kg — presque trois fois moins, à volume égal.</span><span data-lang="en"><strong>Rule of thumb:</strong> a 1 m × 1 m × 1 mm steel plate weighs 7.85 kg. In aluminium, 2.7 kg — almost three times less, for the same volume.</span></p>
+                    </div>
+                </section>
+
+                <nav class="blog-section article-summary" id="sommaire" aria-label="Sommaire de l'article">
+                    <h2 class="summary-title" data-i18n=""><span data-lang="fr">Sommaire</span><span data-lang="en">Contents</span></h2>
+                    <ol class="summary-list">
+                        <li><a href="#metaux"><span class="summary-index">01</span><span class="summary-label" data-i18n=""><span data-lang="fr">Masses volumiques des métaux</span><span data-lang="en">Densities of metals</span></span></a></li>
+                        <li><a href="#plastiques"><span class="summary-index">02</span><span class="summary-label" data-i18n=""><span data-lang="fr">Masses volumiques des plastiques</span><span data-lang="en">Densities of plastics</span></span></a></li>
+                        <li><a href="#formules"><span class="summary-index">03</span><span class="summary-label" data-i18n=""><span data-lang="fr">Les formules de volume</span><span data-lang="en">Volume formulas</span></span></a></li>
+                        <li><a href="#solidworks"><span class="summary-index">04</span><span class="summary-label" data-i18n=""><span data-lang="fr">Dans SOLIDWORKS : une masse juste jusqu’à l’ERP</span><span data-lang="en">In SOLIDWORKS: a correct mass all the way to the ERP</span></span></a></li>
+                        <li><a href="#faq"><span class="summary-index">05</span><span class="summary-label">FAQ</span></a></li>
+                    </ol>
+                </nav>
+
+                <section class="blog-section article-section" id="metaux">
+                    <h2 data-i18n=""><span data-lang="fr">1. Masses volumiques des métaux</span><span data-lang="en">1. Densities of metals</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Valeurs usuelles à 20 °C. Pour un alliage donné, la fiche matière du fournisseur ou la norme de la nuance fait foi ; les écarts entre nuances d'une même famille restent de l'ordre de 1 à 3 %.</span><span data-lang="en">Usual values at 20 °C. For a given alloy, the supplier's material data sheet or the grade standard prevails; differences between grades in the same family are typically 1 to 3%.</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Matériau</span><span data-lang="en">Material</span></th><th data-i18n=""><span data-lang="fr">kg/m³</span><span data-lang="en">kg/m³</span></th><th data-i18n=""><span data-lang="fr">g/cm³</span><span data-lang="en">g/cm³</span></th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Acier non allié et faiblement allié (S235, C45, 42CrMo4)</strong></span><span data-lang="en"><strong>Carbon and low-alloy steel (S235, C45, 42CrMo4)</strong></span></td><td><strong>7 850</strong></td><td>7,85</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Acier inoxydable 304 / 304L (1.4301)</strong></span><span data-lang="en"><strong>Stainless steel 304 / 304L (1.4301)</strong></span></td><td><strong>7 900</strong></td><td>7,9</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Acier inoxydable 316L (1.4404)</strong></span><span data-lang="en"><strong>Stainless steel 316L (1.4404)</strong></span></td><td><strong>8 000</strong></td><td>8,0</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Fonte grise (EN-GJL)</strong></span><span data-lang="en"><strong>Grey cast iron (EN-GJL)</strong></span></td><td><strong>7 100 – 7 300</strong></td><td>7,2</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Fonte à graphite sphéroïdal (EN-GJS)</strong></span><span data-lang="en"><strong>Ductile iron (EN-GJS)</strong></span></td><td><strong>7 100</strong></td><td>7,1</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Aluminium et alliages 6060, 6061, 6082</strong></span><span data-lang="en"><strong>Aluminium and 6060, 6061, 6082 alloys</strong></span></td><td><strong>2 700</strong></td><td>2,7</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Alliage d’aluminium 5083</strong></span><span data-lang="en"><strong>Aluminium alloy 5083</strong></span></td><td><strong>2 660</strong></td><td>2,66</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Alliage d’aluminium 2017A</strong></span><span data-lang="en"><strong>Aluminium alloy 2017A</strong></span></td><td><strong>2 790</strong></td><td>2,79</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Alliage d’aluminium 7075</strong></span><span data-lang="en"><strong>Aluminium alloy 7075</strong></span></td><td><strong>2 810</strong></td><td>2,81</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Cuivre</strong></span><span data-lang="en"><strong>Copper</strong></span></td><td><strong>8 900 – 8 960</strong></td><td>8,94</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Laiton de décolletage CuZn39Pb3</strong></span><span data-lang="en"><strong>Free-cutting brass CuZn39Pb3</strong></span></td><td><strong>8 470</strong></td><td>8,47</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Bronze à l’étain CuSn8</strong></span><span data-lang="en"><strong>Tin bronze CuSn8</strong></span></td><td><strong>8 800</strong></td><td>8,8</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Titane Ti-6Al-4V (grade 5)</strong></span><span data-lang="en"><strong>Titanium Ti-6Al-4V (grade 5)</strong></span></td><td><strong>4 430</strong></td><td>4,43</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Titane pur (grade 2)</strong></span><span data-lang="en"><strong>Commercially pure titanium (grade 2)</strong></span></td><td><strong>4 510</strong></td><td>4,51</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Zinc</strong></span><span data-lang="en"><strong>Zinc</strong></span></td><td><strong>7 140</strong></td><td>7,14</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Magnésium</strong></span><span data-lang="en"><strong>Magnesium</strong></span></td><td><strong>1 740</strong></td><td>1,74</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Nickel</strong></span><span data-lang="en"><strong>Nickel</strong></span></td><td><strong>8 900</strong></td><td>8,9</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Plomb</strong></span><span data-lang="en"><strong>Lead</strong></span></td><td><strong>11 340</strong></td><td>11,34</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="blog-section article-section" id="plastiques">
+                    <h2 data-i18n=""><span data-lang="fr">2. Masses volumiques des plastiques</span><span data-lang="en">2. Densities of plastics</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Les plastiques varient davantage : charge (fibre de verre, minérale), taux de cristallinité et additifs déplacent la valeur. Un PA6 chargé à 30 % de fibre de verre dépasse nettement la valeur du PA6 non chargé : prenez la fiche technique du grade exact.</span><span data-lang="en">Plastics vary more: fillers (glass fibre, mineral), crystallinity and additives shift the value. A 30% glass-filled PA6 is clearly heavier than unfilled PA6: use the data sheet of the exact grade.</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Matériau</span><span data-lang="en">Material</span></th><th data-i18n=""><span data-lang="fr">kg/m³</span><span data-lang="en">kg/m³</span></th><th data-i18n=""><span data-lang="fr">g/cm³</span><span data-lang="en">g/cm³</span></th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>ABS</strong></span><span data-lang="en"><strong>ABS</strong></span></td><td><strong>1 030 – 1 070</strong></td><td>1,05</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Polyamide PA6</strong></span><span data-lang="en"><strong>Polyamide PA6</strong></span></td><td><strong>1 130 – 1 150</strong></td><td>1,14</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Polyamide PA66</strong></span><span data-lang="en"><strong>Polyamide PA66</strong></span></td><td><strong>1 130 – 1 150</strong></td><td>1,14</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>POM (polyacétal, Delrin)</strong></span><span data-lang="en"><strong>POM (acetal, Delrin)</strong></span></td><td><strong>1 390 – 1 420</strong></td><td>1,41</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Polyéthylène PE-HD</strong></span><span data-lang="en"><strong>Polyethylene HDPE</strong></span></td><td><strong>940 – 970</strong></td><td>0,95</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Polypropylène PP</strong></span><span data-lang="en"><strong>Polypropylene PP</strong></span></td><td><strong>900 – 910</strong></td><td>0,91</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>PVC rigide</strong></span><span data-lang="en"><strong>Rigid PVC</strong></span></td><td><strong>1 350 – 1 450</strong></td><td>1,4</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>PMMA (Plexiglas)</strong></span><span data-lang="en"><strong>PMMA (acrylic)</strong></span></td><td><strong>1 190</strong></td><td>1,19</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Polycarbonate PC</strong></span><span data-lang="en"><strong>Polycarbonate PC</strong></span></td><td><strong>1 200</strong></td><td>1,2</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>PET</strong></span><span data-lang="en"><strong>PET</strong></span></td><td><strong>1 330 – 1 400</strong></td><td>1,38</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>PEEK</strong></span><span data-lang="en"><strong>PEEK</strong></span></td><td><strong>1 300 – 1 320</strong></td><td>1,3</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>PTFE (Téflon)</strong></span><span data-lang="en"><strong>PTFE (Teflon)</strong></span></td><td><strong>2 150 – 2 200</strong></td><td>2,2</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr"><strong>Autres matériaux</strong> :</span><span data-lang="en"><strong>Other materials</strong>:</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Matériau</span><span data-lang="en">Material</span></th><th data-i18n=""><span data-lang="fr">kg/m³</span><span data-lang="en">kg/m³</span></th><th data-i18n=""><span data-lang="fr">g/cm³</span><span data-lang="en">g/cm³</span></th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Verre sodocalcique</strong></span><span data-lang="en"><strong>Soda-lime glass</strong></span></td><td><strong>2 500</strong></td><td>2,5</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Béton</strong></span><span data-lang="en"><strong>Concrete</strong></span></td><td><strong>2 300 – 2 500</strong></td><td>2,4</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Chêne (sec)</strong></span><span data-lang="en"><strong>Oak (dry)</strong></span></td><td><strong>600 – 900</strong></td><td>0,7</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="blog-section article-section" id="formules">
+                    <h2 data-i18n=""><span data-lang="fr">3. Les formules utilisées</span><span data-lang="en">3. The formulas used</span></h2>
+                    <ul>
+                        <li data-i18n=""><span data-lang="fr"><strong>Masse</strong> = masse volumique × volume. Avec des cotes en mm : m (kg) = ρ (kg/m³) × V (mm³) × 10<sup>−9</sup>.</span><span data-lang="en"><strong>Mass</strong> = density × volume. With dimensions in mm: m (kg) = ρ (kg/m³) × V (mm³) × 10<sup>−9</sup>.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Plaque</strong> : V = L × l × e.</span><span data-lang="en"><strong>Plate</strong>: V = L × w × t.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Rond plein</strong> : V = π × D² / 4 × L.</span><span data-lang="en"><strong>Round bar</strong>: V = π × D² / 4 × L.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Tube</strong> : V = π × (D² − d²) / 4 × L, avec d = D − 2 × épaisseur.</span><span data-lang="en"><strong>Tube</strong>: V = π × (D² − d²) / 4 × L, with d = D − 2 × wall.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Hexagone</strong> (cote sur plats s) : V = (√3 / 2) × s² × L.</span><span data-lang="en"><strong>Hex bar</strong> (across flats s): V = (√3 / 2) × s² × L.</span></li>
+                    </ul>
+                    <p data-i18n=""><span data-lang="fr">Exemple : un rond Ø 50 en acier de 1 m pèse π × 50² / 4 × 1 000 × 7 850 × 10<sup>−9</sup> ≈ 15,4 kg.</span><span data-lang="en">Example: a 1 m long Ø 50 steel bar weighs π × 50² / 4 × 1,000 × 7,850 × 10<sup>−9</sup> ≈ 15.4 kg.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="solidworks">
+                    <h2 data-i18n=""><span data-lang="fr">4. Dans SOLIDWORKS : une masse juste jusqu’à la nomenclature</span><span data-lang="en">4. In SOLIDWORKS: a correct mass all the way to the BOM</span></h2>
+                    <p data-i18n=""><span data-lang="fr">SOLIDWORKS calcule la masse à partir du matériau appliqué à la pièce (clic droit sur <em>Matériau</em> → <em>Editer le matériau</em>) et l'affiche dans <em>Outils → Evaluer → Propriétés de masse</em>. Trois points font la différence entre une masse fiable et une masse fausse :</span><span data-lang="en">SOLIDWORKS computes mass from the material applied to the part (right-click <em>Material</em> → <em>Edit Material</em>) and shows it in <em>Tools → Evaluate → Mass Properties</em>. Three things make the difference between a reliable and a wrong mass:</span></p>
+                    <ul>
+                        <li data-i18n=""><span data-lang="fr"><strong>Pas de matériau, pas de masse</strong> : une pièce sans matériau prend la masse volumique par défaut (1 000 kg/m³, celle de l'eau). Une nomenclature pleine de pièces « à 1 000 » donne des masses d'ensemble fausses d'un facteur 8 sur l'acier.</span><span data-lang="en"><strong>No material, no mass</strong>: a part without material takes the default density (1,000 kg/m³, that of water). A BOM full of “1,000” parts gives assembly masses off by a factor of 8 for steel.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>La masse en propriété liée</strong> : la propriété personnalisée <em>Masse</em> doit être liée à la valeur calculée (<code>"SW-Mass@…"</code>), jamais saisie à la main, sinon elle ne suit plus les modifications.</span><span data-lang="en"><strong>Mass as a linked property</strong>: the <em>Mass</em> custom property must be linked to the computed value (<code>"SW-Mass@…"</code>), never typed by hand, or it stops following changes.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Les pièces du commerce</strong> téléchargées ont souvent un matériau vide ou faux : un contrôle à l'enregistrement dans le PDM évite qu'elles polluent la nomenclature.</span><span data-lang="en"><strong>Downloaded purchased parts</strong> often have an empty or wrong material: a check at check-in to PDM keeps them from polluting the BOM.</span></li>
+                    </ul>
+                    <p data-i18n=""><span data-lang="fr">Ce sont typiquement les règles d'une bonne <a href='/blog/codification-proprietes-solidworks/'>codification des propriétés SOLIDWORKS</a>, pour que la masse arrive juste dans la <a href='/blog/nomenclature-bom-pdm-plm-erp/'>nomenclature et l'ERP</a>.</span><span data-lang="en">These are typically the rules of good <a href='/blog/codification-proprietes-solidworks/'>SOLIDWORKS property codification</a>, so that mass arrives correct in the <a href='/blog/nomenclature-bom-pdm-plm-erp/'>BOM and the ERP</a>.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="faq">
+                    <h2>5. FAQ</h2>
+                    <h3 data-i18n=""><span data-lang="fr">Quelle est la masse volumique de l'acier ?</span><span data-lang="en">What is the density of steel?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">7 850 kg/m³ (7,85 g/cm³) pour les aciers non alliés et faiblement alliés. Les inox austénitiques sont un peu plus lourds : environ 7 900 kg/m³ pour le 304 et 8 000 kg/m³ pour le 316L.</span><span data-lang="en">7,850 kg/m³ (7.85 g/cm³) for carbon and low-alloy steels. Austenitic stainless steels are slightly heavier: about 7,900 kg/m³ for 304 and 8,000 kg/m³ for 316L.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Quelle est la masse volumique de l'aluminium ?</span><span data-lang="en">What is the density of aluminium?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">2 700 kg/m³ (2,7 g/cm³) pour l'aluminium et les alliages courants 6060, 6061 et 6082. Les alliages au cuivre ou au zinc sont un peu plus denses : environ 2 790 kg/m³ pour le 2017A et 2 810 kg/m³ pour le 7075.</span><span data-lang="en">2,700 kg/m³ (2.7 g/cm³) for aluminium and the common 6060, 6061 and 6082 alloys. Copper or zinc alloys are slightly denser: about 2,790 kg/m³ for 2017A and 2,810 kg/m³ for 7075.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Combien pèse une tôle d'acier de 1 mm ?</span><span data-lang="en">How much does a 1 mm steel sheet weigh?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">7,85 kg par mètre carré. La règle se généralise : une tôle d'acier pèse 7,85 kg/m² par millimètre d'épaisseur, soit 23,55 kg/m² en 3 mm.</span><span data-lang="en">7.85 kg per square metre. The rule generalises: a steel sheet weighs 7.85 kg/m² per millimetre of thickness, i.e. 23.55 kg/m² at 3 mm.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Comment calculer la masse d'un rond en acier ?</span><span data-lang="en">How do I calculate the mass of a steel round bar?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Masse (kg/m) = π × D² / 4 × 7 850 × 10⁻⁶, avec D en mm. Formule rapide : D² × 0,00617 kg par mètre. Un Ø 50 pèse donc environ 15,4 kg/m.</span><span data-lang="en">Mass (kg/m) = π × D² / 4 × 7,850 × 10⁻⁶, with D in mm. Quick formula: D² × 0.00617 kg per metre. A Ø 50 therefore weighs about 15.4 kg/m.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Pourquoi la masse SOLIDWORKS est-elle fausse ?</span><span data-lang="en">Why is the SOLIDWORKS mass wrong?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Le plus souvent parce qu'aucun matériau n'est appliqué à certaines pièces : SOLIDWORKS utilise alors la masse volumique par défaut de 1 000 kg/m³. Vérifiez le matériau de chaque pièce et que la propriété Masse est liée à la valeur calculée.</span><span data-lang="en">Most often because some parts have no material applied: SOLIDWORKS then uses the default density of 1,000 kg/m³. Check each part's material and that the Mass property is linked to the computed value.</span></p>
+                </section>
+
+                <section class="blog-section article-related">
+                    <h2 data-i18n=""><span data-lang="fr">À lire aussi</span><span data-lang="en">Read next</span></h2>
+                    <div class="media-grid">
+                        <a href="/blog/couple-serrage-vis-tableau/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">Couple de serrage des vis : tableau 8.8, 10.9, 12.9</span><span data-lang="en">Bolt tightening torque: 8.8, 10.9, 12.9 chart</span></h3>
+                            <p data-i18n=""><span data-lang="fr">Couples et précontraintes de M3 à M36, avec calculateur.</span><span data-lang="en">Torques and preloads from M3 to M36, with calculator.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                        <a href="/blog/rugosite-ra-tableau-classes-procedes/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">Rugosité Ra : tableau des classes N et des procédés</span><span data-lang="en">Surface roughness Ra: N grades and processes</span></h3>
+                            <p data-i18n=""><span data-lang="fr">Quel Ra demander, et quel procédé sait le tenir.</span><span data-lang="en">Which Ra to specify, and which process can hold it.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                    </div>
+                </section>
+
+                <footer class="article-footer">
+                    <div class="article-tags">
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Matériaux</span><span data-lang="en">Materials</span></span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Masse volumique</span><span data-lang="en">Density</span></span>
+                        <span class="article-tag">SOLIDWORKS</span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Nomenclature</span><span data-lang="en">BOM</span></span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Bureau d’études</span><span data-lang="en">Design office</span></span>
+                    </div>
+                    <div class="article-nav">
+                        <a href="/blog/" class="back-link" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                        <a href="/#contact" class="hero-btn" data-i18n=""><span data-lang="fr">Parler d'un projet</span><span data-lang="en">Discuss a project</span></a>
+                    </div>
+                </footer>
+
+            </article>
+        </div>
+    </main>
+
+    <script>
+// Calcul de masse : m (kg) = ρ (kg/m³) × V (mm³) × 1e-9.
+    (function () {
+        var M = [["Acier non allié et faiblement allié (S235, C45, 42CrMo4)","Carbon and low-alloy steel (S235, C45, 42CrMo4)",7850],["Acier inoxydable 304 / 304L (1.4301)","Stainless steel 304 / 304L (1.4301)",7900],["Acier inoxydable 316L (1.4404)","Stainless steel 316L (1.4404)",8000],["Fonte grise (EN-GJL)","Grey cast iron (EN-GJL)",7200],["Fonte à graphite sphéroïdal (EN-GJS)","Ductile iron (EN-GJS)",7100],["Aluminium et alliages 6060, 6061, 6082","Aluminium and 6060, 6061, 6082 alloys",2700],["Alliage d’aluminium 5083","Aluminium alloy 5083",2660],["Alliage d’aluminium 2017A","Aluminium alloy 2017A",2790],["Alliage d’aluminium 7075","Aluminium alloy 7075",2810],["Cuivre","Copper",8940],["Laiton de décolletage CuZn39Pb3","Free-cutting brass CuZn39Pb3",8470],["Bronze à l’étain CuSn8","Tin bronze CuSn8",8800],["Titane Ti-6Al-4V (grade 5)","Titanium Ti-6Al-4V (grade 5)",4430],["Titane pur (grade 2)","Commercially pure titanium (grade 2)",4510],["Zinc","Zinc",7140],["Magnésium","Magnesium",1740],["Nickel","Nickel",8900],["Plomb","Lead",11340],["ABS","ABS",1050],["Polyamide PA6","Polyamide PA6",1140],["Polyamide PA66","Polyamide PA66",1140],["POM (polyacétal, Delrin)","POM (acetal, Delrin)",1410],["Polyéthylène PE-HD","Polyethylene HDPE",950],["Polypropylène PP","Polypropylene PP",905],["PVC rigide","Rigid PVC",1400],["PMMA (Plexiglas)","PMMA (acrylic)",1190],["Polycarbonate PC","Polycarbonate PC",1200],["PET","PET",1380],["PEEK","PEEK",1300],["PTFE (Téflon)","PTFE (Teflon)",2200],["Verre sodocalcique","Soda-lime glass",2500],["Béton","Concrete",2400],["Chêne (sec)","Oak (dry)",700]];
+        var $ = function (id) { return document.getElementById(id); };
+        var mat = $('mMat'), shape = $('mShape');
+        if (!mat) return;
+        var ins = [$('mA'), $('mB'), $('mC')];
+        var LBL = {
+            plate: [['Longueur (mm)', 'Length (mm)'], ['Largeur (mm)', 'Width (mm)'], ['Épaisseur (mm)', 'Thickness (mm)']],
+            rod: [['Longueur (mm)', 'Length (mm)'], ['Diamètre (mm)', 'Diameter (mm)'], null],
+            tube: [['Longueur (mm)', 'Length (mm)'], ['Diamètre ext. (mm)', 'Outer Ø (mm)'], ['Épaisseur (mm)', 'Wall (mm)']],
+            hex: [['Longueur (mm)', 'Length (mm)'], ['Sur plats (mm)', 'Across flats (mm)'], null]
+        };
+        function en() { return document.documentElement.lang === 'en'; }
+        function num(x, d) { return x.toLocaleString(en() ? 'en-GB' : 'fr-FR', { maximumFractionDigits: d }); }
+        M.forEach(function (m, i) { var o = document.createElement('option'); o.value = i; mat.appendChild(o); });
+        function v(el) { return parseFloat(String(el.value).replace(',', '.')) || 0; }
+        function run() {
+            var e = en();
+            Array.prototype.forEach.call(mat.options, function (o, i) { o.textContent = M[i][e ? 1 : 0]; });
+            Array.prototype.forEach.call(shape.options, function (o) { o.textContent = e ? o.dataset.en : o.dataset.fr; });
+            var s = shape.value;
+            LBL[s].forEach(function (l, i) {
+                var f = ins[i].parentNode;
+                f.hidden = !l;
+                if (l) f.querySelector('.calc__lbl').textContent = l[e ? 1 : 0];
+            });
+            var a = v(ins[0]), b = v(ins[1]), c = v(ins[2]), V = 0;
+            if (s === 'plate') V = a * b * c;
+            else if (s === 'rod') V = Math.PI * b * b / 4 * a;
+            else if (s === 'tube') { var di = Math.max(0, b - 2 * c); V = Math.PI * (b * b - di * di) / 4 * a; }
+            else V = Math.sqrt(3) / 2 * b * b * a;
+            var rho = M[+mat.value][2];
+            var kg = rho * V * 1e-9;
+            $('mV').textContent = num(V / 1000, 1) + ' cm³';
+            $('mM').textContent = kg < 1 ? num(kg * 1000, 1) + ' g' : num(kg, 2) + ' kg';
+            $('mR').textContent = num(rho, 0) + ' kg/m³';
+        }
+        [mat, shape].concat(ins).forEach(function (el) { el.addEventListener('input', run); });
+        window.addEventListener('langchange', run);
+        run();
+    })();
+    </script>
+    <script src="/assets/js/loader.js"></script>
+    <script src="/assets/js/visitor-intelligence.js"></script>
+
+{{> footer }}
+{{> chatbot }}
+</body></html>

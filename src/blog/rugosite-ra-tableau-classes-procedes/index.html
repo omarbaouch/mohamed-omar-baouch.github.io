@@ -1,0 +1,394 @@
+<!DOCTYPE html><html lang="fr"><head>
+    <meta charset="UTF-8">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PBLRK58T');</script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-33TQ27QY4M"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-33TQ27QY4M');</script>
+<!-- Microsoft Clarity -->
+    <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","vy4yvht8gz");</script>
+    <!-- LinkedIn Insight Tag -->
+    <script type="text/javascript">_linkedin_partner_id="525900907";window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];window._linkedin_data_partner_ids.push(_linkedin_partner_id);(function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";s.parentNode.insertBefore(b,s)})(window.lintrk);</script>
+    <script>
+    // Anti-flash de thème : clair par défaut, sombre si stocké.
+    (function () {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    })();
+</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rugosité Ra : tableau des classes N, procédés d’usinage et convertisseur µm / µin</title>
+    <meta name="description" content="Tableau de rugosité Ra : classes N1 à N12, conversion µm / µin, Ra obtenu par procédé (tournage, fraisage, rectification, rodage…) et Ra à demander selon la fonction de la surface. Différence Ra / Rz et indication sur le plan.">
+    <meta name="author" content="Mohamed Omar Baouch">
+    <link rel="canonical" href="https://www.baouch.fr/blog/rugosite-ra-tableau-classes-procedes/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Rugosité Ra : tableau des classes N, procédés et valeurs à demander">
+    <meta property="og:description" content="Classes N1 à N12, convertisseur µm/µin, Ra par procédé d&#x27;usinage et par fonction, Ra vs Rz : le mémo rugosité du bureau d&#x27;études.">
+    <meta property="og:url" content="https://www.baouch.fr/blog/rugosite-ra-tableau-classes-procedes/">
+    <meta property="og:image" content="https://www.baouch.fr/img/og/rugosite.jpg">
+    <meta property="og:site_name" content="Mohamed Omar Baouch">
+    <meta property="article:published_time" content="2026-09-28T00:00:00.000Z">
+    <meta property="article:author" content="Mohamed Omar Baouch">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Rugosité Ra : tableau des classes N, procédés et valeurs à demander">
+    <meta name="twitter:description" content="Classes N1 à N12, convertisseur µm/µin, Ra par procédé d&#x27;usinage et par fonction, Ra vs Rz : le mémo rugosité du bureau d&#x27;études.">
+    <meta name="twitter:image" content="https://www.baouch.fr/img/og/rugosite.jpg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "headline": "Rugosité Ra : tableau des classes N, procédés et valeurs à demander",
+                "description": "Tableau de rugosité Ra : classes N1 à N12, conversion µm / µin, Ra obtenu par procédé (tournage, fraisage, rectification, rodage…) et Ra à demander selon la fonction de la surface. Différence Ra / Rz et indication sur le plan.",
+                "image": "https://www.baouch.fr/img/og/rugosite.jpg",
+                "datePublished": "2026-09-28",
+                "dateModified": "2026-09-28",
+                "inLanguage": "fr-FR",
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://www.baouch.fr/blog/rugosite-ra-tableau-classes-procedes/"
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://www.baouch.fr",
+                    "jobTitle": "Ingénieur & Consultant PDM/PLM"
+                },
+                "publisher": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://www.baouch.fr"
+                },
+                "keywords": [
+                    "Rugosité",
+                    "Ra",
+                    "Classes de rugosité N",
+                    "État de surface",
+                    "Rz",
+                    "ISO 21920",
+                    "Usinage"
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Accueil",
+                        "item": "https://www.baouch.fr/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Blog",
+                        "item": "https://www.baouch.fr/blog/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Rugosité Ra : tableau des classes N, procédés et valeurs à demander",
+                        "item": "https://www.baouch.fr/blog/rugosite-ra-tableau-classes-procedes/"
+                    }
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Que signifie Ra 3,2 ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Que l'écart moyen arithmétique du profil de la surface par rapport à sa ligne moyenne vaut au plus 3,2 µm. C'est la classe N8, typique d'une surface tournée ou fraisée propre, sans fonction de glissement."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "À quoi correspond la classe N7 ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "À Ra 1,6 µm (environ 63 µin). C'est la valeur courante des ajustements avec jeu et des surfaces usinées soignées."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Comment convertir Ra en Rz ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Il n'existe pas de conversion exacte : le rapport dépend du procédé et du profil. En usinage, Rz vaut souvent 4 à 7 fois Ra, mais cette approximation ne doit pas servir à valider une pièce : on mesure le paramètre demandé sur le plan."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Quel Ra obtient-on en tournage ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Couramment 0,8 à 6,3 µm selon l'avance, le rayon de bec de l'outil et la matière. En finition soignée, 0,8 à 1,6 µm ; en dessous, on passe à la rectification."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Comment convertir des µm en µin ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Multipliez par 39,37 : Ra 0,8 µm ≈ 32 µin, Ra 1,6 µm ≈ 63 µin, Ra 3,2 µm ≈ 126 µin."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+    <link rel="alternate" type="application/rss+xml" title="Blog — Mohamed Omar Baouch" href="https://www.baouch.fr/blog/rss.xml">
+    {{> head-lang }}{{> head-fonts }}<script type="module" src="../../js/blog.js"></script>
+</head>
+<body class="blog-page" data-blog-post="rugosite-ra-tableau-classes-procedes">
+{{> nav }}
+
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBLRK58T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <main id="main" class="container blog-container show">
+        <div class="blog-shell" id="blogShell" data-shell="">
+            <article class="blog-article" data-article-root="">
+                <nav class="article-breadcrumbs" aria-label="Navigation secondaire">
+                    <a class="back-link" href="/blog/" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                    <a class="back-link back-link--ghost" href="/" data-translate-key="blog_back_to_portfolio">Retour au portfolio</a>
+                </nav>
+
+                <header class="blog-hero post-hero" data-component="hero">
+                    <div class="hero-intro">
+                        <div class="hero-badges">
+                            <span class="badge badge-editorial" data-i18n=""><span data-lang="fr">Mémo & calculateur</span><span data-lang="en">Reference & calculator</span></span>
+                            <span class="badge" data-i18n=""><span data-lang="fr">Conception</span><span data-lang="en">Design</span></span>
+                            <span class="badge badge-reading-time" data-i18n=""><span data-lang="fr">~7 min de lecture</span><span data-lang="en">~7 min read</span></span>
+                        </div>
+                        <span class="hero-eyebrow" data-i18n=""><span data-lang="fr">L’état de surface sans approximation</span><span data-lang="en">Surface finish without guesswork</span></span>
+                        <h1 class="hero-title" data-i18n=""><span data-lang="fr">Rugosité Ra : tableau des classes N, procédés et valeurs à demander</span><span data-lang="en">Surface roughness Ra: N grades, processes and values to specify</span></h1>
+                        <p class="hero-subtitle" data-i18n=""><span data-lang="fr">Publié le 28 septembre 2026 — les classes N1 à N12 avec un convertisseur µm / µin, ce que chaque procédé sait tenir, le Ra à demander selon la fonction, et pourquoi Ra et Rz ne se convertissent pas.</span><span data-lang="en">Published September 28, 2026 — N1 to N12 grades with a µm / µin converter, what each process can hold, the Ra to specify for each function, and why Ra and Rz can't be converted.</span></p>
+                        <div class="hero-actions">
+                            <a class="hero-btn" href="#convertisseur" data-i18n=""><span data-lang="fr">Convertir une rugosité</span><span data-lang="en">Convert a roughness</span></a>
+                            <a class="hero-btn hero-btn--ghost" href="#sommaire" data-i18n=""><span data-lang="fr">Consulter le sommaire</span><span data-lang="en">Jump to contents</span></a>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">3,2</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">µm : la surface usinée « propre »</span><span data-lang="en">µm: the “clean” machined surface</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">N1–N12</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">De 0,025 à 50 µm</span><span data-lang="en">From 0.025 to 50 µm</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">39,37</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">µin dans un µm</span><span data-lang="en">µin in one µm</span></span>
+                        </div>
+                    </div>
+                </header>
+
+                <section class="blog-section article-section" id="convertisseur">
+                    <h2 data-i18n=""><span data-lang="fr">Convertisseur Ra : µm, µin et classes N</span><span data-lang="en">Ra converter: µm, µin and N grades</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Saisissez une valeur dans n'importe quelle unité : le convertisseur donne l'équivalent en micromètres, en micro-pouces (µin, plans américains) et la classe de rugosité N la plus proche.</span><span data-lang="en">Enter a value in any unit: the converter gives the equivalent in micrometres, in micro-inches (µin, US drawings) and the nearest N roughness grade.</span></p>
+                    <form class="calc" id="raCalc" onsubmit="return false">
+                        <div class="calc__fields">
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">Ra (µm)</span><span data-lang="en">Ra (µm)</span></span><input id="raUm" type="number" inputmode="decimal" min="0" step="any" value="1.6"></label>
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">Ra (µin)</span><span data-lang="en">Ra (µin)</span></span><input id="raUin" type="number" inputmode="decimal" min="0" step="any"></label>
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">Classe N</span><span data-lang="en">N grade</span></span><select id="raN"><option value="0.025">N1</option><option value="0.05">N2</option><option value="0.1">N3</option><option value="0.2">N4</option><option value="0.4">N5</option><option value="0.8">N6</option><option value="1.6">N7</option><option value="3.2">N8</option><option value="6.3">N9</option><option value="12.5">N10</option><option value="25">N11</option><option value="50">N12</option></select></label>
+                        </div>
+                        <p class="calc__verdict" id="raV" aria-live="polite"></p>
+                    </form>
+                    <p data-i18n=""><span data-lang="fr">Les 12 classes N et leurs valeurs de Ra :</span><span data-lang="en">The 12 N grades and their Ra values:</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table" data-ra-table="">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Classe</span><span data-lang="en">Grade</span></th><th>Ra (µm)</th><th>Ra (µin)</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-thread="n1"><td><strong>N1</strong></td><td><strong>0,025</strong></td><td>1</td></tr>
+                                    <tr data-thread="n2"><td><strong>N2</strong></td><td><strong>0,05</strong></td><td>2</td></tr>
+                                    <tr data-thread="n3"><td><strong>N3</strong></td><td><strong>0,1</strong></td><td>4</td></tr>
+                                    <tr data-thread="n4"><td><strong>N4</strong></td><td><strong>0,2</strong></td><td>8</td></tr>
+                                    <tr data-thread="n5"><td><strong>N5</strong></td><td><strong>0,4</strong></td><td>16</td></tr>
+                                    <tr data-thread="n6"><td><strong>N6</strong></td><td><strong>0,8</strong></td><td>31</td></tr>
+                                    <tr data-thread="n7"><td><strong>N7</strong></td><td><strong>1,6</strong></td><td>63</td></tr>
+                                    <tr data-thread="n8"><td><strong>N8</strong></td><td><strong>3,2</strong></td><td>126</td></tr>
+                                    <tr data-thread="n9"><td><strong>N9</strong></td><td><strong>6,3</strong></td><td>248</td></tr>
+                                    <tr data-thread="n10"><td><strong>N10</strong></td><td><strong>12,5</strong></td><td>492</td></tr>
+                                    <tr data-thread="n11"><td><strong>N11</strong></td><td><strong>25</strong></td><td>984</td></tr>
+                                    <tr data-thread="n12"><td><strong>N12</strong></td><td><strong>50</strong></td><td>1968</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="callout callout--soft">
+                        <p data-i18n=""><span data-lang="fr"><strong>Les valeurs à retenir :</strong> 3,2 pour une surface usinée « propre », 1,6 pour un ajustement, 0,8 pour une portée de précision. Chaque pas de la série divise Ra par deux… et multiplie grossièrement le temps de finition.</span><span data-lang="en"><strong>Values to remember:</strong> 3.2 for a “clean” machined surface, 1.6 for a fit, 0.8 for a precision seat. Each step in the series halves Ra… and roughly multiplies finishing time.</span></p>
+                    </div>
+                </section>
+
+                <nav class="blog-section article-summary" id="sommaire" aria-label="Sommaire de l'article">
+                    <h2 class="summary-title" data-i18n=""><span data-lang="fr">Sommaire</span><span data-lang="en">Contents</span></h2>
+                    <ol class="summary-list">
+                        <li><a href="#procedes"><span class="summary-index">01</span><span class="summary-label" data-i18n=""><span data-lang="fr">Quel Ra pour quel procédé</span><span data-lang="en">Which Ra for which process</span></span></a></li>
+                        <li><a href="#fonction"><span class="summary-index">02</span><span class="summary-label" data-i18n=""><span data-lang="fr">Quel Ra demander selon la fonction</span><span data-lang="en">Which Ra to specify for each function</span></span></a></li>
+                        <li><a href="#ra-rz"><span class="summary-index">03</span><span class="summary-label" data-i18n=""><span data-lang="fr">Ra, Rz : quelle différence</span><span data-lang="en">Ra, Rz: what’s the difference</span></span></a></li>
+                        <li><a href="#plan"><span class="summary-index">04</span><span class="summary-label" data-i18n=""><span data-lang="fr">Sur le plan : une rugosité générale</span><span data-lang="en">On the drawing: a general roughness</span></span></a></li>
+                        <li><a href="#faq"><span class="summary-index">05</span><span class="summary-label">FAQ</span></a></li>
+                    </ol>
+                </nav>
+
+                <section class="blog-section article-section" id="procedes">
+                    <h2 data-i18n=""><span data-lang="fr">1. Quel Ra chaque procédé sait tenir</span><span data-lang="en">1. Which Ra each process can hold</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Plages courantes de Ra (µm) en production. Ce sont des ordres de grandeur : outil, matière, vitesses et machine déplacent facilement ces limites. La colonne de droite, c'est ce qu'un atelier obtient sans effort particulier.</span><span data-lang="en">Common Ra ranges (µm) in production. These are ballpark figures: tool, material, speeds and machine easily shift them. It's what a shop achieves without special effort.</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Procédé</span><span data-lang="en">Process</span></th><th>Ra (µm)</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Oxycoupage, sciage</strong></span><span data-lang="en"><strong>Flame cutting, sawing</strong></span></td><td>12,5 – 50</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Moulage au sable</strong></span><span data-lang="en"><strong>Sand casting</strong></span></td><td>12,5 – 25</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Perçage</strong></span><span data-lang="en"><strong>Drilling</strong></span></td><td>1,6 – 6,3</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Tournage, fraisage</strong></span><span data-lang="en"><strong>Turning, milling</strong></span></td><td>0,8 – 6,3</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Électroérosion (fil ou enfonçage)</strong></span><span data-lang="en"><strong>EDM (wire or sinker)</strong></span></td><td>0,8 – 6,3</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Alésage à l'alésoir</strong></span><span data-lang="en"><strong>Reaming</strong></span></td><td>0,8 – 3,2</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Rectification</strong></span><span data-lang="en"><strong>Grinding</strong></span></td><td>0,1 – 1,6</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Rodage</strong></span><span data-lang="en"><strong>Honing</strong></span></td><td>0,1 – 0,8</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Polissage, superfinition</strong></span><span data-lang="en"><strong>Polishing, superfinishing</strong></span></td><td>0,025 – 0,4</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr">Demander 0,4 sur une pièce fraisée, c'est imposer une opération de plus (rectification ou polissage). Si ce n'est pas voulu, c'est une surqualité qui se paie à chaque pièce.</span><span data-lang="en">Asking for 0.4 on a milled part means adding an operation (grinding or polishing). If that's not intended, it's over-specification you pay for on every part.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="fonction">
+                    <h2 data-i18n=""><span data-lang="fr">2. Quel Ra demander selon la fonction</span><span data-lang="en">2. Which Ra to specify for each function</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Ordres de grandeur couramment utilisés en mécanique générale. Pour les roulements et les joints, la documentation du fabricant fixe la valeur exacte : elle prime.</span><span data-lang="en">Ballpark values commonly used in general engineering. For bearings and seals, the manufacturer's documentation sets the exact value: it takes precedence.</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Fonction de la surface</span><span data-lang="en">Surface function</span></th><th>Ra (µm)</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Surfaces non fonctionnelles, brutes d'usinage</strong></span><span data-lang="en"><strong>Non-functional surfaces, as-machined</strong></span></td><td>6,3 – 12,5</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Surfaces d'appui, faces de contact fixes</strong></span><span data-lang="en"><strong>Seating faces, fixed contact faces</strong></span></td><td>3,2</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Ajustements avec jeu courants (H7/g6, H8/f7)</strong></span><span data-lang="en"><strong>Common clearance fits (H7/g6, H8/f7)</strong></span></td><td>0,8 – 1,6</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Portées de roulements, ajustements serrés</strong></span><span data-lang="en"><strong>Bearing seats, interference fits</strong></span></td><td>0,4 – 1,6</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Portées de joints à lèvre (dynamiques)</strong></span><span data-lang="en"><strong>Dynamic lip-seal counterfaces</strong></span></td><td>0,2 – 0,8</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr"><strong>Surfaces de glissement précises, tiges de vérin</strong></span><span data-lang="en"><strong>Precision sliding surfaces, cylinder rods</strong></span></td><td>0,1 – 0,4</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr">La rugosité doit rester cohérente avec la tolérance : une cote tolérancée à quelques micromètres sur une surface à Ra 6,3 n'est ni fabricable ni mesurable. Le <a href='/blog/ajustements-iso-286-tableau-h7-g6/'>calculateur d'ajustements ISO 286</a> donne l'ordre de grandeur des tolérances en jeu.</span><span data-lang="en">Roughness must stay consistent with the tolerance: a dimension toleranced to a few micrometres on an Ra 6.3 surface can be neither made nor measured. The <a href='/blog/ajustements-iso-286-tableau-h7-g6/'>ISO 286 fit calculator</a> shows the tolerances at stake.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="ra-rz">
+                    <h2 data-i18n=""><span data-lang="fr">3. Ra, Rz : quelle différence, et pourquoi on ne convertit pas</span><span data-lang="en">3. Ra, Rz: the difference, and why you can’t convert</span></h2>
+                    <ul>
+                        <li data-i18n=""><span data-lang="fr"><strong>Ra</strong> est l'écart moyen arithmétique du profil par rapport à sa ligne moyenne. C'est une moyenne : elle lisse les défauts isolés.</span><span data-lang="en"><strong>Ra</strong> is the arithmetic mean deviation of the profile from its mean line. It's an average: it smooths out isolated defects.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Rz</strong> est la hauteur maximale du profil (pic le plus haut + creux le plus profond), moyennée sur les longueurs de base. Elle voit une rayure qu'Ra ignore presque.</span><span data-lang="en"><strong>Rz</strong> is the maximum height of the profile (highest peak + deepest valley), averaged over the sampling lengths. It sees a scratch that Ra almost ignores.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Il n'existe pas de conversion exacte</strong> : le rapport Rz/Ra dépend du procédé. On lit souvent « Rz ≈ 4 à 7 × Ra » pour de l'usinage, mais ce n'est qu'un ordre de grandeur. Si le plan d'un client est en Rz, mesurez en Rz.</span><span data-lang="en"><strong>There is no exact conversion</strong>: the Rz/Ra ratio depends on the process. You often read “Rz ≈ 4 to 7 × Ra” for machining, but it's only a rough guide. If a customer's drawing is in Rz, measure in Rz.</span></li>
+                    </ul>
+                    <p data-i18n=""><span data-lang="fr">Côté normes, la spécification des états de surface a été refondue : l'<strong>ISO 21920</strong> (2021) remplace l'ISO 1302 pour l'indication sur les plans et l'ISO 4287 pour les paramètres de profil. Les symboles restent proches, mais certains détails d'écriture changent : vérifiez que votre fond de plan et vos habillages SOLIDWORKS suivent la version retenue par votre entreprise.</span><span data-lang="en">On the standards side, surface texture specification has been overhauled: <strong>ISO 21920</strong> (2021) replaces ISO 1302 for drawing indication and ISO 4287 for profile parameters. The symbols stay close, but some notation details change: check that your sheet format and SOLIDWORKS annotations follow the version your company has adopted.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="plan">
+                    <h2 data-i18n=""><span data-lang="fr">4. Sur le plan : une rugosité générale, puis les exceptions</span><span data-lang="en">4. On the drawing: one general roughness, then exceptions</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Comme pour les <a href='/blog/tolerances-generales-iso-2768/'>tolérances générales ISO 2768</a>, la bonne pratique est d'indiquer une <strong>rugosité générale</strong> près du cartouche (par exemple Ra 3,2), suivie entre parenthèses des valeurs particulières, puis de ne coter en rugosité que les surfaces qui s'en écartent. Le plan montre alors en un coup d'œil où se trouvent les surfaces fonctionnelles.</span><span data-lang="en">As with <a href='/blog/tolerances-generales-iso-2768/'>ISO 2768 general tolerances</a>, good practice is to state a <strong>general roughness</strong> near the title block (for example Ra 3.2), followed in brackets by the special values, then only mark the surfaces that differ. The drawing then shows at a glance where the functional surfaces are.</span></p>
+                    <p data-i18n=""><span data-lang="fr">Dans SOLIDWORKS, les symboles d'état de surface peuvent être placés dans le modèle (annotations 3D) et importés dans la mise en plan : ils suivent la face et restent justes si la géométrie évolue.</span><span data-lang="en">In SOLIDWORKS, surface finish symbols can be placed in the model (3D annotations) and imported into the drawing: they follow the face and stay correct as the geometry changes.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="faq">
+                    <h2>5. FAQ</h2>
+                    <h3 data-i18n=""><span data-lang="fr">Que signifie Ra 3,2 ?</span><span data-lang="en">What does Ra 3.2 mean?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Que l'écart moyen arithmétique du profil de la surface par rapport à sa ligne moyenne vaut au plus 3,2 µm. C'est la classe N8, typique d'une surface tournée ou fraisée propre, sans fonction de glissement.</span><span data-lang="en">That the arithmetic mean deviation of the surface profile from its mean line is at most 3.2 µm. It's grade N8, typical of a clean turned or milled surface with no sliding function.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">À quoi correspond la classe N7 ?</span><span data-lang="en">What does grade N7 correspond to?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">À Ra 1,6 µm (environ 63 µin). C'est la valeur courante des ajustements avec jeu et des surfaces usinées soignées.</span><span data-lang="en">Ra 1.6 µm (about 63 µin). It's the usual value for clearance fits and carefully machined surfaces.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Comment convertir Ra en Rz ?</span><span data-lang="en">How do I convert Ra to Rz?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Il n'existe pas de conversion exacte : le rapport dépend du procédé et du profil. En usinage, Rz vaut souvent 4 à 7 fois Ra, mais cette approximation ne doit pas servir à valider une pièce : on mesure le paramètre demandé sur le plan.</span><span data-lang="en">There is no exact conversion: the ratio depends on the process and the profile. In machining, Rz is often 4 to 7 times Ra, but this approximation must not be used to accept a part: measure the parameter required on the drawing.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Quel Ra obtient-on en tournage ?</span><span data-lang="en">What Ra does turning achieve?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Couramment 0,8 à 6,3 µm selon l'avance, le rayon de bec de l'outil et la matière. En finition soignée, 0,8 à 1,6 µm ; en dessous, on passe à la rectification.</span><span data-lang="en">Commonly 0.8 to 6.3 µm depending on feed, tool nose radius and material. With careful finishing, 0.8 to 1.6 µm; below that, you move to grinding.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Comment convertir des µm en µin ?</span><span data-lang="en">How do I convert µm to µin?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Multipliez par 39,37 : Ra 0,8 µm ≈ 32 µin, Ra 1,6 µm ≈ 63 µin, Ra 3,2 µm ≈ 126 µin.</span><span data-lang="en">Multiply by 39.37: Ra 0.8 µm ≈ 32 µin, Ra 1.6 µm ≈ 63 µin, Ra 3.2 µm ≈ 126 µin.</span></p>
+                </section>
+
+                <section class="blog-section article-related">
+                    <h2 data-i18n=""><span data-lang="fr">À lire aussi</span><span data-lang="en">Read next</span></h2>
+                    <div class="media-grid">
+                        <a href="/blog/ajustements-iso-286-tableau-h7-g6/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">Ajustements ISO 286 : H7/g6, H7/p6… et calculateur</span><span data-lang="en">ISO 286 fits: H7/g6, H7/p6… and calculator</span></h3>
+                            <p data-i18n=""><span data-lang="fr">Écarts, jeux et serrages calculés pour votre diamètre.</span><span data-lang="en">Deviations, clearances and interferences for your diameter.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                        <a href="/blog/tolerances-generales-iso-2768/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">Tolérances générales ISO 2768 : tableaux f, m, c, v</span><span data-lang="en">ISO 2768 general tolerances: f, m, c, v tables</span></h3>
+                            <p data-i18n=""><span data-lang="fr">Ce que garantit vraiment « ISO 2768-mK » dans le cartouche.</span><span data-lang="en">What “ISO 2768-mK” in the title block really guarantees.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                    </div>
+                </section>
+
+                <footer class="article-footer">
+                    <div class="article-tags">
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Rugosité</span><span data-lang="en">Roughness</span></span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">État de surface</span><span data-lang="en">Surface finish</span></span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Usinage</span><span data-lang="en">Machining</span></span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Mise en plan</span><span data-lang="en">Drawings</span></span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Bureau d’études</span><span data-lang="en">Design office</span></span>
+                    </div>
+                    <div class="article-nav">
+                        <a href="/blog/" class="back-link" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                        <a href="/#contact" class="hero-btn" data-i18n=""><span data-lang="fr">Parler d'un projet</span><span data-lang="en">Discuss a project</span></a>
+                    </div>
+                </footer>
+
+            </article>
+        </div>
+    </main>
+
+    <script>
+// Convertisseur Ra : µm ↔ µin (1 µm = 39,37 µin) et classe N la plus proche (échelle logarithmique).
+    (function () {
+        var $ = function (id) { return document.getElementById(id); };
+        var um = $('raUm'), uin = $('raUin'), nSel = $('raN');
+        if (!um) return;
+        var rows = document.querySelectorAll('[data-ra-table] tbody tr');
+        function en() { return document.documentElement.lang === 'en'; }
+        function fmt(x, d) { var s = String(Math.round(x * Math.pow(10, d)) / Math.pow(10, d)); return en() ? s : s.replace('.', ','); }
+        function show(v, from) {
+            if (!(v > 0)) { $('raV').textContent = ''; return; }
+            if (from !== 'um') um.value = Math.round(v * 1000) / 1000;
+            if (from !== 'uin') uin.value = Math.round(v * 39.37 * 10) / 10;
+            var best = 0, gap = Infinity;
+            Array.prototype.forEach.call(nSel.options, function (o, i) {
+                var g = Math.abs(Math.log(v / +o.value));
+                if (g < gap) { gap = g; best = i; }
+            });
+            if (from !== 'n') nSel.selectedIndex = best;
+            rows.forEach(function (tr, i) { tr.style.background = i === best ? 'color-mix(in srgb, var(--accent) 14%, transparent)' : ''; });
+            var n = nSel.options[best].textContent;
+            $('raV').textContent = 'Ra ' + fmt(v, 3) + ' µm = ' + fmt(v * 39.37, 1) + ' µin — ' + (en() ? 'nearest grade ' : 'classe la plus proche ') + n;
+        }
+        um.addEventListener('input', function () { show(parseFloat(String(um.value).replace(',', '.')), 'um'); });
+        uin.addEventListener('input', function () { show(parseFloat(String(uin.value).replace(',', '.')) / 39.37, 'uin'); });
+        nSel.addEventListener('input', function () { show(+nSel.value, 'n'); });
+        window.addEventListener('langchange', function () { show(parseFloat(String(um.value).replace(',', '.')), 'um'); });
+        show(1.6, 'um');
+    })();
+    </script>
+    <script src="/assets/js/loader.js"></script>
+    <script src="/assets/js/visitor-intelligence.js"></script>
+
+{{> footer }}
+{{> chatbot }}
+</body></html>

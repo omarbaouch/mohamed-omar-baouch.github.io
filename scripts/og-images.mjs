@@ -36,6 +36,11 @@ const PAGES = [
   { file: 'src/blog/logiciel-gestion-nomenclatures/index.html', slug: 'logiciel-bom', ref: 'BOM-02', type: 'ARTICLE', title: 'Quel logiciel pour gérer vos nomenclatures ? Les 5 familles d’outils' },
   { file: 'src/blog/integration-bom-erp/index.html', slug: 'bom-erp-integration', ref: 'BOM-03', type: 'ARTICLE', title: 'Connecter la nomenclature à l’ERP : les 4 architectures possibles' },
   { file: 'src/blog/tableau-filetage-metrique-percage-taraudage/index.html', slug: 'filetage', ref: 'MEM-01', type: 'MÉMO', title: 'Tableau filetage métrique : pas, perçage avant taraudage, trous de passage' },
+  { file: 'src/blog/ajustements-iso-286-tableau-h7-g6/index.html', slug: 'ajustements', ref: 'MEM-02', type: 'MÉMO', title: 'Ajustements ISO 286 : tableau H7/g6, H7/p6 et calculateur de jeu' },
+  { file: 'src/blog/tolerances-generales-iso-2768/index.html', slug: 'iso-2768', ref: 'MEM-03', type: 'MÉMO', title: 'Tolérances générales ISO 2768 : tableaux f, m, c, v et H, K, L' },
+  { file: 'src/blog/couple-serrage-vis-tableau/index.html', slug: 'couple-serrage', ref: 'MEM-04', type: 'MÉMO', title: 'Couple de serrage des vis : tableau 8.8, 10.9, 12.9 et calculateur' },
+  { file: 'src/blog/rugosite-ra-tableau-classes-procedes/index.html', slug: 'rugosite', ref: 'MEM-05', type: 'MÉMO', title: 'Rugosité Ra : classes N, procédés et valeurs à demander' },
+  { file: 'src/blog/masse-volumique-materiaux-calcul-masse/index.html', slug: 'masse-volumique', ref: 'MEM-06', type: 'MÉMO', title: 'Masse volumique des matériaux et calcul de masse' },
   { file: 'src/projets/robot-orbita/index.html', slug: 'orbita', ref: 'PRT-ORBITA · RÉV.B', type: 'ÉTUDE DE CAS', title: 'Structurer le PDM d’un robot humanoïde' },
   { file: 'src/projets/migration-pdm-internationale/index.html', slug: 'mig-intl', ref: 'MIG-INTL · RÉV.C', type: 'ÉTUDE DE CAS', title: 'Migration PDM multi-sites pour un géant mondial du câblage' },
 ];

@@ -1011,3 +1011,87 @@ body[data-blog-post] .article-section + .article-section {
   background: color-mix(in srgb, var(--signal) 10%, var(--bg-0));
   border-color: color-mix(in srgb, var(--signal) 30%, transparent);
 }
+
+/* ---------- Calculateurs des mémos techniques ---------- */
+.calc {
+  margin-block: 1.75rem;
+  padding: 1.4rem 1.6rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 0.9rem;
+  background: var(--bg-1);
+}
+
+.calc__fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+  gap: 0.9rem 1.1rem;
+  margin-bottom: 1.1rem;
+}
+
+.calc__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+  font-size: 0.85rem;
+  font-weight: 550;
+  color: var(--ink-dim);
+}
+
+.calc__field input,
+.calc__field select {
+  width: 100%;
+  min-width: 0;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 0.5rem;
+  background: var(--bg-0);
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.calc__field input:focus-visible,
+.calc__field select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.calc__out {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.calc__out div {
+  padding: 0.75rem 0.9rem;
+  border-radius: 0.6rem;
+  background: var(--bg-0);
+  border: 1px solid var(--line);
+}
+
+.calc__out dt {
+  font-size: 0.8rem;
+  color: var(--ink-dim);
+}
+
+.calc__out dd {
+  margin: 0.2rem 0 0;
+  font-size: 1.15rem;
+  font-weight: 650;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.calc__verdict {
+  margin: 1rem 0 0;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.calc__verdict:empty {
+  display: none;
+}
