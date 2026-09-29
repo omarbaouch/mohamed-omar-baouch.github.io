@@ -21,6 +21,20 @@ Liens entrants : filetage (paragraphe + 2 cartes), codification-proprietes-solid
 
 **Prochains passages** : (1) continuer l'indexation (eco-ecr, pages projets) ; (2) quand plus rien à indexer, suivre les requêtes des mémos dans le rapport et renforcer celles en positions 5–20 ; (3) mémos suivants possibles : cotation GPS / symboles de tolérances géométriques, conversions d'unités (pouces, psi, N·m ↔ lbf·ft), soudure (symboles ISO 2553), roulements (désignations), clavettes (ISO 773 / DIN 6885), goupilles, circlips, dureté (HRC/HB/HV), aciers (équivalences de nuances EN / AISI).
 
+## 2026-09-29 — indexation : page ECR / ECO
+
+**Chiffres** : rapport du 28/09 (pas encore de rapport du 29, moins de 3 jours d'écart) — 28/08 → 25/09 : 0,4 clic/jour, 927 impressions, position moyenne 16,2 ; 22 / 28 pages indexées. Le sitemap compte désormais 34 URL (6 pages outils et modèles ajoutées le 28/09 par un autre passage) : le rapport ne les couvre pas encore.
+
+**Action** : `/blog/eco-ecr-gestion-modifications/`, dernière page « explorée, non indexée » pas encore retravaillée (dernier passage Google 07/08). Technique OK (rendu en-US en français, canonical, pas de noindex, 200, sitemap, pied de page). L'article était déjà solide ; il lui manquait une définition directe et un élément de décision qu'aucune autre page du site ne couvre :
+- encadré « en bref » en tête : ECR / ECO / ECN en une phrase chacun ;
+- sous-section « Nouvel indice ou nouvelle référence ? » : la règle d'interchangeabilité (form, fit, function) et un tableau de 5 cas, dont le cas du joint de l'article ; renvoi vers codification pour la numérotation elle-même ;
+- 1 question ajoutée à la FAQ (HTML + JSON-LD) ; dateModified 2026-09-29, mention « mis à jour » visible ;
+- liens vers l'ancre #indice-ou-reference depuis codification-proprietes-solidworks et solidworks-pdm-standard-vs-professional (indexées).
+
+**Bilan** : les 4 pages « explorées, non indexées » ont toutes été retravaillées (ia 27/09, cloud et problématiques PLM 28/09, ECR/ECO 29/09).
+
+**Prochain passage** : pages projets (détectées, jamais explorées) : ajouter des liens depuis des articles du blog ; puis surveiller l'indexation des 6 nouvelles pages outils.
+
 ## 2026-09-28 (2) — indexation : page « 5 problématiques PLM »
 
 **Chiffres** : rapport inchangé depuis le passage de ce matin (28/08 → 25/09 : 0,4 clic/jour, 927 impressions, position moyenne 16,2 ; 22 / 28 pages indexées).

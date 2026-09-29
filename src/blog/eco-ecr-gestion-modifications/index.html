@@ -50,7 +50,7 @@
                 "description": "Une modification produit mal gérée, c'est un stock obsolète, un rappel client ou une ligne arrêtée. Comment structurer vos ECR/ECO — de la demande à la clôture — pour que plus aucune révision ne parte en production sans contrôle.",
                 "image": "https://www.baouch.fr/img/og/eco-ecr.jpg",
                 "datePublished": "2026-06-25",
-                "dateModified": "2026-06-25",
+                "dateModified": "2026-09-29",
                 "inLanguage": "fr-FR",
                 "mainEntityOfPage": {
                     "@type": "WebPage",
@@ -134,6 +134,14 @@
                             "@type": "Answer",
                             "text": "Dès que le document approuvé qui est parti en production change, quelle que soit l'ampleur de la modification. Les retouches avant approbation restent des versions de travail. La règle doit être écrite et unique pour toute l'entreprise, sinon chacun applique la sienne."
                         }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Faut-il changer d'indice ou de référence après une modification ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "D'indice si la nouvelle pièce reste interchangeable avec l'ancienne dans toutes ses utilisations (même forme d'interface, même montage, même fonction) ; de référence dans le cas contraire, pour que stock, fabrication et SAV ne puissent pas mélanger deux pièces incompatibles."
+                        }
                     }
                 ]
             }
@@ -176,7 +184,7 @@
                         </div>
                         <span class="hero-eyebrow" data-i18n=""><span data-lang="fr">Gestion des modifications &amp; configuration</span><span data-lang="en">Change &amp; configuration management</span></span>
                         <h1 class="hero-title" data-i18n=""><span data-lang="fr">La révision fantôme à 40 000 € : maîtriser les ECO/ECR avant qu'elles ne vous coûtent cher</span><span data-lang="en">The €40,000 phantom revision: master ECO/ECR before they cost you dearly</span></h1>
-                        <p class="hero-subtitle" data-i18n=""><span data-lang="fr">Publié le 25 juin 2026 — l'histoire d'une modification qui n'aurait jamais dû partir en production, et de la méthode en 6 étapes qui aurait suffi à l'arrêter.</span><span data-lang="en">Published June 25, 2026 — the story of a change that should never have reached production, and the 6-step method that would have stopped it.</span></p>
+                        <p class="hero-subtitle" data-i18n=""><span data-lang="fr">Publié le 25 juin 2026, mis à jour le 29 septembre 2026 — l'histoire d'une modification qui n'aurait jamais dû partir en production, et de la méthode en 6 étapes qui aurait suffi à l'arrêter.</span><span data-lang="en">Published June 25, 2026, updated September 29, 2026 — the story of a change that should never have reached production, and the 6-step method that would have stopped it.</span></p>
                         <div class="hero-actions">
                             <a class="hero-btn" href="#sommaire" data-i18n=""><span data-lang="fr">Consulter le sommaire</span><span data-lang="en">Jump to contents</span></a>
                             <a class="hero-btn hero-btn--ghost" href="/#contact" data-i18n=""><span data-lang="fr">Me contacter</span><span data-lang="en">Get in touch</span></a>
@@ -207,6 +215,9 @@
                     <p data-i18n=""><span data-lang="fr">Un lundi matin, un chef de projet m'appelle, la voix blanche. Leur dernière machine livrée revient en SAV : un joint ne tient pas. En remontant le fil, on découvre qu'un ingénieur avait modifié la gorge du joint <em>trois mois plus tôt</em>, « pour améliorer le montage ». Bonne idée, mauvais joint commandé derrière. Personne n'avait prévenu les achats. L'ancienne référence dormait encore en stock — 40 000 € de composants devenus inutilisables, plus le déplacement SAV, plus le client qui doute.</span><span data-lang="en">One Monday morning, a project manager calls me, pale-voiced. Their latest delivered machine is back for service: a seal won't hold. Tracing it back, we find that an engineer had modified the seal groove <em>three months earlier</em>, "to improve assembly." Good idea, wrong seal ordered afterwards. Nobody told purchasing. The old part was still sitting in stock — €40,000 of components now unusable, plus the service trip, plus a customer starting to doubt.</span></p>
                     <p data-i18n=""><span data-lang="fr">Le pire ? <strong>Techniquement, la modification était bonne.</strong> Ce n'est pas l'ingénieur qui a fauté. C'est l'absence de processus. La pièce est passée du dessin à la production sans qu'aucune revue ne pose la seule question qui compte : « <em>qui est impacté par ce changement, et que fait-on des pièces déjà en circulation ?</em> »</span><span data-lang="en">The worst part? <strong>Technically, the change was good.</strong> It wasn't the engineer who failed. It was the absence of a process. The part went from drawing to production without any review asking the one question that matters: "<em>who is affected by this change, and what do we do with the parts already in circulation?</em>"</span></p>
                     <p data-i18n=""><span data-lang="fr">C'est exactement le rôle d'un processus <strong>ECR/ECO</strong>. Rien d'exotique, rien de lourd. Juste une manière de s'assurer qu'une modification ne parte jamais seule dans la nature. Suivez-moi jusqu'au bout : je vais vous montrer les 6 étapes, la différence — cruciale — entre ECR et ECO, et le piège de la révision « fantôme » qui a coûté ces 40 000 €.</span><span data-lang="en">That's exactly what an <strong>ECR/ECO</strong> process is for. Nothing exotic, nothing heavy. Just a way to make sure a change never wanders off on its own. Stay with me to the end: I'll show you the 6 steps, the crucial difference between ECR and ECO, and the "phantom" revision trap that cost those €40,000.</span></p>
+                    <div class="callout">
+                        <p data-i18n=""><span data-lang="fr"><strong>En bref :</strong> l'<strong>ECR</strong> (<em>Engineering Change Request</em>) est la demande de modification, l'<strong>ECO</strong> (<em>Engineering Change Order</em>) est l'ordre qui l'applique après analyse d'impact et décision, et l'<strong>ECN</strong> (<em>Engineering Change Notice</em>) est l'avis qui prévient ceux qui doivent l'appliquer. Une modification bien gérée a toujours une date d'effet, et elle se traduit soit par un <a href="#indice-ou-reference">nouvel indice, soit par une nouvelle référence</a>, selon que la pièce reste interchangeable ou non.</span><span data-lang="en"><strong>In short:</strong> the <strong>ECR</strong> (Engineering Change Request) is the change request, the <strong>ECO</strong> (Engineering Change Order) is the order that applies it after impact analysis and decision, and the <strong>ECN</strong> (Engineering Change Notice) informs those who must apply it. A well-managed change always has an effective date, and results either in a <a href="#indice-ou-reference">new revision or a new part number</a>, depending on whether the part stays interchangeable.</span></p>
+                    </div>
                     <div class="callout callout--soft">
                         <p data-i18n=""><span data-lang="fr"><strong>Une seule question à garder en tête en lisant :</strong> dans votre entreprise, aujourd'hui, comment une modification de pièce est-elle décidée ? Si la réponse est « l'ingénieur change le plan et enregistre », vous avez le même risque que ce client.</span><span data-lang="en"><strong>One question to keep in mind as you read:</strong> in your company, today, how is a part change decided? If the answer is "the engineer changes the drawing and saves," you carry the same risk as that client.</span></p>
                     </div>
@@ -316,6 +327,49 @@
                         <figcaption data-i18n=""><span data-lang="fr">La règle du facteur 10 : une modification qui coûte 1 en conception coûte 100 quand elle explose chez le client.</span><span data-lang="en">The rule of ten: a change that costs 1 in design costs 100 when it blows up at the customer's site.</span></figcaption>
                     </figure>
                     <p data-i18n=""><span data-lang="fr">Cette courbe résume l'enjeu mieux que n'importe quel discours : le processus ECO n'est pas de la paperasse — c'est ce qui vous fait rester à gauche de la courbe.</span><span data-lang="en">This curve sums up the stakes better than any speech: the ECO process isn't paperwork — it's what keeps you on the left side of the curve.</span></p>
+                    <h3 id="indice-ou-reference" data-i18n=""><span data-lang="fr">Nouvel indice ou nouvelle référence ? La règle d'interchangeabilité</span><span data-lang="en">New revision or new part number? The interchangeability rule</span></h3>
+                    <p data-i18n=""><span data-lang="fr">La révision fantôme devient dangereuse quand deux pièces non interchangeables portent la même référence. La règle la plus répandue, souvent appelée <em>form, fit, function</em> : si la nouvelle pièce peut remplacer l'ancienne partout (même forme d'interface, même montage, même fonction), on garde la référence et on passe à l'indice suivant ; sinon, on crée une nouvelle référence, pour que le stock, les ordres de fabrication et le SAV ne puissent plus confondre les deux.</span><span data-lang="en">The phantom revision becomes dangerous when two non-interchangeable parts share the same part number. The most widespread rule, often called <em>form, fit, function</em>: if the new part can replace the old one everywhere (same interface form, same fit, same function), keep the part number and move to the next revision; otherwise create a new part number, so stock, work orders and service can no longer confuse the two.</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr>
+                                        <th data-i18n=""><span data-lang="fr">Modification</span><span data-lang="en">Change</span></th>
+                                        <th data-i18n=""><span data-lang="fr">Décision</span><span data-lang="en">Decision</span></th>
+                                        <th data-i18n=""><span data-lang="fr">Pourquoi</span><span data-lang="en">Why</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">Erreur de dessin corrigée, la pièce fabriquée ne change pas</span><span data-lang="en">Drawing error fixed, the manufactured part doesn't change</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Nouvel indice du plan</span><span data-lang="en">New drawing revision</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Les pièces déjà faites sont conformes au nouveau plan</span><span data-lang="en">Parts already made comply with the new drawing</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">Tolérance élargie, toutes les pièces existantes restent bonnes</span><span data-lang="en">Tolerance widened, all existing parts remain good</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Nouvel indice</span><span data-lang="en">New revision</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Ancienne et nouvelle pièce se montent indifféremment</span><span data-lang="en">Old and new parts fit interchangeably</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">Gorge de joint modifiée, qui impose un autre joint (le cas des 40 000 €)</span><span data-lang="en">Seal groove changed, requiring a different seal (the €40,000 case)</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Nouvelle référence pour la pièce et pour le joint</span><span data-lang="en">New part number for the part and the seal</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Une ancienne pièce avec le nouveau joint (ou l'inverse) ne tient pas : les stocks ne doivent pas se mélanger</span><span data-lang="en">An old part with the new seal (or vice versa) fails: stocks must not mix</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">Matière changée, avec une tenue mécanique différente</span><span data-lang="en">Material changed, with different mechanical strength</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Nouvelle référence</span><span data-lang="en">New part number</span></td>
+                                        <td data-i18n=""><span data-lang="fr">La fonction n'est plus garantie identique dans toutes les utilisations</span><span data-lang="en">Function is no longer guaranteed identical in every use</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">Perçage déplacé, les pièces qui s'y fixent doivent suivre</span><span data-lang="en">Hole moved, mating parts must follow</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Nouvelle référence</span><span data-lang="en">New part number</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Le montage avec les pièces voisines déjà en stock ou chez le client n'est plus possible</span><span data-lang="en">Assembly with neighbouring parts in stock or at the customer is no longer possible</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr">Chaque entreprise doit écrire sa propre règle et la tenir, mais le critère reste le même : <strong>peut-on mélanger l'ancienne et la nouvelle pièce sans risque ?</strong> Si la réponse est non, un simple changement d'indice laisse la porte ouverte à la révision fantôme. La numérotation elle-même (séquentielle ou parlante) est traitée dans <a href="/blog/codification-proprietes-solidworks/">codification et propriétés SOLIDWORKS</a>.</span><span data-lang="en">Each company must write and keep its own rule, but the criterion stays the same: <strong>can the old and new part be mixed safely?</strong> If not, a mere revision change leaves the door open to the phantom revision. Numbering itself (sequential or meaningful) is covered in <a href="/blog/codification-proprietes-solidworks/">SOLIDWORKS numbering and properties</a>.</span></p>
                 </section>
 
                 <section class="blog-section article-section" id="outils">
@@ -374,6 +428,8 @@
                     <p data-i18n=""><span data-lang="fr">Un processus proportionné, oui. Cela ne veut pas dire un comité et cinq signatures : une demande tracée, une analyse d'impact, une approbation et une diffusion suffisent. Ce qui coûte cher n'est pas la lourdeur du processus, c'est son absence.</span><span data-lang="en">A proportionate process, yes. That doesn't mean a committee and five signatures: a traced request, an impact analysis, an approval and a release are enough. What costs money isn't a heavy process, it's having none.</span></p>
                     <h3 data-i18n=""><span data-lang="fr">Quand faut-il changer d'indice de révision ?</span><span data-lang="en">When should the revision level change?</span></h3>
                     <p data-i18n=""><span data-lang="fr">Dès que le document approuvé qui est parti en production change, quelle que soit l'ampleur de la modification. Les retouches avant approbation restent des versions de travail. La règle doit être écrite et unique pour toute l'entreprise, sinon chacun applique la sienne.</span><span data-lang="en">As soon as the approved document that went to production changes, whatever the size of the modification. Tweaks before approval stay working versions. The rule must be written and uniform across the company, otherwise everyone applies their own.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Faut-il changer d'indice ou de référence après une modification ?</span><span data-lang="en">Should a change get a new revision or a new part number?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">D'indice si la nouvelle pièce reste interchangeable avec l'ancienne dans toutes ses utilisations (même forme d'interface, même montage, même fonction) ; de référence dans le cas contraire, pour que stock, fabrication et SAV ne puissent pas mélanger deux pièces incompatibles.</span><span data-lang="en">A new revision if the new part stays interchangeable with the old one in every use (same interface form, fit and function); a new part number otherwise, so that stock, production and service cannot mix two incompatible parts.</span></p>
                 </section>
 
                 <section class="blog-section article-related">
