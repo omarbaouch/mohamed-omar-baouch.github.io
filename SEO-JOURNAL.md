@@ -21,6 +21,19 @@ Liens entrants : filetage (paragraphe + 2 cartes), codification-proprietes-solid
 
 **Prochains passages** : (1) continuer l'indexation (eco-ecr, pages projets) ; (2) quand plus rien à indexer, suivre les requêtes des mémos dans le rapport et renforcer celles en positions 5–20 ; (3) mémos suivants possibles : cotation GPS / symboles de tolérances géométriques, conversions d'unités (pouces, psi, N·m ↔ lbf·ft), soudure (symboles ISO 2553), roulements (désignations), clavettes (ISO 773 / DIN 6885), goupilles, circlips, dureté (HRC/HB/HV), aciers (équivalences de nuances EN / AISI).
 
+## 2026-09-30 — indexation : étude de cas migration PDM internationale
+
+**Chiffres (29/08 → 26/09)** : 10 clics (0,4/jour), 971 impressions, CTR 1,0 %, position moyenne 15,7 (16,2 au passage précédent). **Indexation : 26 / 34** — eco-ecr, ia-solidworks-pdm, migration-cloud et projets/robot-orbita sont passées indexées depuis leur reprise (27–29/09).
+
+**Encore non indexées** : les 6 pages outils / modèles créées le 28/09 (URL encore inconnues de Google, normal à 2 jours), resolutions-problematiques-plm (enrichie le 28/09, pas encore revue), projets/migration-pdm-internationale (détectée, jamais explorée).
+
+**Action** : `/projets/migration-pdm-internationale/`. Technique OK (rendu en-US en français, canonical, pas de noindex, 200, sitemap, pied de page) mais page mince, sans données structurées ni carte Twitter, liée seulement depuis l'accueil, robot-orbita et le guide PLM :
+- section « Contrôles avant de rouvrir un site » : grille de 5 contrôles (références et métadonnées, droits par site, réplication, historique, retour arrière) avec la méthode et le critère bloquant ; renvoi vers le guide de migration de données pour l'audit (pas de doublon) et vers Standard vs Professional (la réplication demande Professional) ;
+- JSON-LD Article + BreadcrumbList (datePublished = date d'ajout du fichier, dateModified 2026-09-30), twitter:card / title / description ;
+- liens contextuels depuis solidworks-pdm-guide-complet (paragraphe multi-sites) et prix-cout-projet-solidworks-pdm (serveur d'archives répliqué).
+
+**Prochain passage** : suivre l'arrivée des 6 pages outils dans le rapport ; si elles restent inconnues, les relier depuis des articles indexés proches (filetage, codification…). Sinon, action (a)/(b) sur les requêtes « ebom », « bom erp ».
+
 ## 2026-09-29 — indexation : page ECR / ECO
 
 **Chiffres** : rapport du 28/09 (pas encore de rapport du 29, moins de 3 jours d'écart) — 28/08 → 25/09 : 0,4 clic/jour, 927 impressions, position moyenne 16,2 ; 22 / 28 pages indexées. Le sitemap compte désormais 34 URL (6 pages outils et modèles ajoutées le 28/09 par un autre passage) : le rapport ne les couvre pas encore.

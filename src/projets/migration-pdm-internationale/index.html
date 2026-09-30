@@ -13,6 +13,57 @@
     <meta property="og:title" content="Étude de cas — Migration PDM multi-sites à l'international">
     <meta property="og:description" content="Coordonner une migration PDM sur plusieurs sites pour un géant mondial du câblage.">
     <meta property="og:url" content="https://www.baouch.fr/projets/migration-pdm-internationale/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Étude de cas — Migration PDM multi-sites à l'international">
+    <meta name="twitter:description" content="Coordonner une migration PDM sur plusieurs sites pour un géant mondial du câblage, et les contrôles avant de rouvrir chaque site.">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Article",
+                "headline": "Migrer un PDM multi-sites sans arrêter les études",
+                "description": "Migration SOLIDWORKS PDM coordonnée sur plusieurs sites pour un leader mondial du câblage : préparation, reprise de données, coordination internationale, contrôles avant réouverture de chaque site.",
+                "image": "https://www.baouch.fr/img/og/mig-intl.jpg",
+                "datePublished": "2026-07-17",
+                "dateModified": "2026-09-30",
+                "inLanguage": "fr-FR",
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://www.baouch.fr/projets/migration-pdm-internationale/"
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://www.baouch.fr",
+                    "jobTitle": "Ingénieur & Consultant PDM/PLM"
+                },
+                "publisher": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://www.baouch.fr"
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Accueil",
+                        "item": "https://www.baouch.fr/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Migration PDM multi-sites à l'international",
+                        "item": "https://www.baouch.fr/projets/migration-pdm-internationale/"
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
     {{> head-theme }}
     {{> head-lang }}{{> head-fonts }}<script type="module" src="../../js/blog.js"></script>
 </head>
@@ -188,6 +239,52 @@
                     <div class="callout callout--soft">
                         <p><strong>Le principe directeur :</strong> sur une migration internationale, chaque heure d'indisponibilité se paie multipliée par le nombre de sites. La répétition en amont n'est pas du confort — c'est l'assurance-vie du projet.</p>
                     </div>
+                </section>
+
+                <section class="blog-section article-section" id="controles">
+                    <h2>Contrôles avant de rouvrir un site</h2>
+                    <p>Sur une migration par vagues, chaque site n'est rendu aux utilisateurs qu'après une série de contrôles courts, faits sur place avec le référent local. La grille ci-dessous en donne la forme type ; ce qui la distingue d'une migration sur un seul site, ce sont les lignes droits, réplication et retour arrière, qui dépendent du site et de son fuseau horaire. Le détail de l'audit et du nettoyage des données avant bascule est dans le <a href="/blog/migration-donnees-solidworks-pdm/">guide de migration de données vers SOLIDWORKS PDM</a>.</p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr>
+                                        <th>Contrôle</th>
+                                        <th>Comment le vérifier</th>
+                                        <th>Bloquant si</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Références et métadonnées</td>
+                                        <td>Ouvrir un échantillon d'assemblages et de mises en plan du site ; comparer quelques cartes de données avant / après (désignation, indice, état)</td>
+                                        <td>Un assemblage qui ne s'ouvre pas en entier, une valeur perdue ou décalée</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Droits par site</td>
+                                        <td>Se connecter avec un compte type de chaque profil (concepteur, valideur, lecture seule) depuis le site lui-même</td>
+                                        <td>Un utilisateur qui voit ou modifie ce qu'il ne devrait pas, ou l'inverse</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Réplication</td>
+                                        <td>Archiver un fichier témoin sur un site et l'ouvrir depuis un autre</td>
+                                        <td>Fichier absent ou délai incompatible avec le travail quotidien</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Historique</td>
+                                        <td>Consulter les versions et révisions d'une pièce témoin migrée</td>
+                                        <td>Historique tronqué ou révisions renumérotées</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Retour arrière</td>
+                                        <td>Relire la procédure et confirmer la personne qui décide, avec l'heure limite pour décider</td>
+                                        <td>Procédure non répétée ou décideur non joignable dans le fuseau du site</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p>Un point de configuration à vérifier avant même de planifier : la réplication d'archives entre sites fait partie des fonctions de SOLIDWORKS PDM Professional, pas de Standard (voir <a href="/blog/solidworks-pdm-standard-vs-professional/">Standard ou Professional</a>).</p>
                 </section>
 
                 <section class="blog-section article-section">
