@@ -21,6 +21,18 @@ Liens entrants : filetage (paragraphe + 2 cartes), codification-proprietes-solid
 
 **Prochains passages** : (1) continuer l'indexation (eco-ecr, pages projets) ; (2) quand plus rien à indexer, suivre les requêtes des mémos dans le rapport et renforcer celles en positions 5–20 ; (3) mémos suivants possibles : cotation GPS / symboles de tolérances géométriques, conversions d'unités (pouces, psi, N·m ↔ lbf·ft), soudure (symboles ISO 2553), roulements (désignations), clavettes (ISO 773 / DIN 6885), goupilles, circlips, dureté (HRC/HB/HV), aciers (équivalences de nuances EN / AISI).
 
+## 2026-10-01 — indexation : mémo rugosité Ra
+
+**Chiffres (30/08 → 27/09)** : 11 clics (0,4/jour), 1 025 impressions (premier passage au-dessus de 1 000), CTR 1,1 %, position moyenne 15,4 (15,7 au passage précédent). **Indexation : 30 / 34** (26 il y a deux jours) : 5 des 6 pages outils du 28/09 sont déjà indexées, ainsi que projets/robot-orbita.
+
+**Encore non indexées** : rugosite-ra-tableau-classes-procedes (URL inconnue de Google), modele-nomenclature-excel-gratuit (détectée), resolutions-problematiques-plm (explorée le 09/07, enrichie le 28/09), projets/migration-pdm-internationale (détectée, enrichie le 30/09).
+
+**Action** : `/blog/rugosite-ra-tableau-classes-procedes/`, seule page outil encore inconnue de Google. Technique OK (rendu en-US en français, canonical, pas de noindex, 200, sitemap, pied de page). Le contenu est complet ; deux problèmes :
+- découverte : seules deux pages outils récentes et le pied de page la liaient ; lien contextuel ajouté depuis tolerances-generales-iso-2768 (indexée), à l'endroit où l'article explique la logique « valeur générale près du cartouche, puis exceptions », que la page rugosité applique à l'état de surface ;
+- exactitude : la FAQ donnait 0,8 µm ≈ 32 µin alors que le tableau donne 31 (0,8 × 39,37 = 31,5) ; corrigé en 31,5 en français, en anglais et dans le JSON-LD. dateModified laissé au 28/09 (correction mineure).
+
+**Prochain passage** : modele-nomenclature-excel-gratuit (détectée) : lien depuis ebom-vs-mbom, la page la plus vue après la nomenclature. Ensuite, action (b) sur « ebom » (pos. 11,3) et « bom erp » (8,3).
+
 ## 2026-09-30 — indexation : étude de cas migration PDM internationale
 
 **Chiffres (29/08 → 26/09)** : 10 clics (0,4/jour), 971 impressions, CTR 1,0 %, position moyenne 15,7 (16,2 au passage précédent). **Indexation : 26 / 34** — eco-ecr, ia-solidworks-pdm, migration-cloud et projets/robot-orbita sont passées indexées depuis leur reprise (27–29/09).
