@@ -324,17 +324,17 @@
     "lang": "fr"
   },
   "/blog/nomenclature-bom-pdm-plm-erp/": {
-    "title": "Nomenclature (BOM) : définition, eBOM vs mBOM et lien PDM, PLM, ERP",
-    "description": "Qu'est-ce qu'une nomenclature (BOM) ? Définition simple, différence eBOM / mBOM / sBOM avec tableau, et qui gère quoi entre PDM, PLM et ERP. Le guide terrain d'un consultant PDM, exemples à l'appui.",
+    "title": "Nomenclature BOM : définition, exemple et modèle Excel",
+    "description": "Définition de la BOM, tableau eBOM/mBOM et rôles du PDM, PLM et ERP. Un exemple concret et un modèle Excel gratuit pour structurer votre nomenclature.",
     "canonical": "https://www.baouch.fr/blog/nomenclature-bom-pdm-plm-erp/",
     "robots": null,
-    "ogTitle": "Nomenclature (BOM) : définition, eBOM vs mBOM et lien PDM, PLM, ERP",
-    "ogDescription": "Définition de la nomenclature, différence eBOM / mBOM / sBOM, et qui gère quoi entre PDM, PLM et ERP.",
+    "ogTitle": "Nomenclature BOM : définition, exemple et modèle Excel",
+    "ogDescription": "Définition de la BOM, tableau eBOM/mBOM et rôles du PDM, PLM et ERP. Un exemple concret et un modèle Excel gratuit pour structurer votre nomenclature.",
     "ogUrl": "https://www.baouch.fr/blog/nomenclature-bom-pdm-plm-erp/",
     "ogImage": "https://www.baouch.fr/img/og/bom-erp.jpg",
     "ogType": "article",
-    "twitterTitle": "Nomenclature (BOM) : définition, eBOM vs mBOM et lien PDM, PLM, ERP",
-    "twitterDescription": "Comprendre la BOM, la différence entre eBOM et mBOM, et le rôle de PDM, PLM et ERP.",
+    "twitterTitle": "Nomenclature BOM : définition, exemple et modèle Excel",
+    "twitterDescription": "Définition de la BOM, tableau eBOM/mBOM et rôles du PDM, PLM et ERP. Un exemple concret et un modèle Excel gratuit pour structurer votre nomenclature.",
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
