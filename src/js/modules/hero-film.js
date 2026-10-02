@@ -21,7 +21,7 @@ const STEPS = [[0.265, 0.345], [0.345, 0.44], [0.44, 0.53], [0.53, 0.64], [0.64,
 
 const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
 const P = (t, a, b) => clamp((t - a) / (b - a));
-const eio = (x) => (x < 0.5 ? 4 * x ** 3 : 1 - Math.pow(-2 * x + 2, 3) / 2);
+const eout = (x) => 1 - (1 - x) ** 3;
 
 export async function initHeroFilm(section) {
   const stage = section.querySelector('.fh-stage');
@@ -99,7 +99,8 @@ export async function initHeroFilm(section) {
 
   const start = performance.now();
   const tick = (now) => {
-    intro = U_INTRO * eio(P(now - start, 0, INTRO_MS));
+    // départ à pleine vitesse : le mouvement se voit dès la première image
+    intro = U_INTRO * eout(P(now - start, 0, INTRO_MS));
     if (intro < U_INTRO) requestAnimationFrame(tick);
     else section.classList.add('is-intro-done');
   };

@@ -153,8 +153,6 @@ function glowTexture() {
 // programmes, textures) se prépare pendant l'intro et `ready` se résout quand
 // tout avancement peut être affiché sans attente. Sinon, tout est prêt au retour.
 export async function createHeroScene({ canvas, atlasScale = 0.75, antialias = true, progressive = false } = {}) {
-  if (document.fonts?.load) await Promise.race([document.fonts.load(`500 40px ${SANS}`), new Promise((r) => setTimeout(r, 800))]).catch(() => {});
-
   const renderer = new THREE.WebGLRenderer({ canvas, antialias, alpha: false, powerPreference: 'high-performance', preserveDrawingBuffer: false });
   renderer.setPixelRatio(1);
   const maxAniso = Math.min(8, renderer.capabilities.getMaxAnisotropy());
@@ -174,6 +172,7 @@ export async function createHeroScene({ canvas, atlasScale = 0.75, antialias = t
   const N = 440;          // fichiers du chaos
   const KEEP = SLOTS;     // ceux qui survivent ; les autres sont des doublons qui fusionnent
   const CARD_W = 1.1, CARD_H = CARD_W * BASE_H / BASE_W;
+  // la planche du chaos n'emploie que la police système : elle n'attend pas la webfont
   const chaosTex = await atlas(drawChaos, atlasScale, maxAniso);
   // la planche rangée ne sert qu'à partir du renommage (u ≥ 0.17) : en attendant,
   // le programme lit la planche du chaos à sa place (aucune recompilation)
@@ -275,7 +274,8 @@ export async function createHeroScene({ canvas, atlasScale = 0.75, antialias = t
 
   // ---- la source unique, son onde, ses orbites
   const glow = glowTexture();
-  const heroCard = new THREE.Mesh(new THREE.PlaneGeometry(4.2, 4.2 * 560 / 2048), new THREE.MeshBasicMaterial({ map: heroCardTexture(Math.min(1, atlasScale * 1.35), maxAniso), transparent: true, opacity: 0, depthWrite: false }));
+  // sa texture (en Instrument Sans) est dessinée avec la planche rangée, une fois la webfont là
+  const heroCard = new THREE.Mesh(new THREE.PlaneGeometry(4.2, 4.2 * 560 / 2048), new THREE.MeshBasicMaterial({ transparent: true, opacity: 0, depthWrite: false }));
   heroCard.renderOrder = 3;
   const cardHalo = new THREE.Mesh(new THREE.PlaneGeometry(9, 5), new THREE.MeshBasicMaterial({ map: glow, color: 0x6fa8d6, transparent: true, opacity: 0, depthWrite: false, blending: THREE.AdditiveBlending }));
   cardHalo.position.z = -0.05;
@@ -514,7 +514,10 @@ export async function createHeroScene({ canvas, atlasScale = 0.75, antialias = t
     others.forEach((o) => { o.visible = true; });
   }
   const finish = async () => {
+    if (document.fonts?.load) await Promise.race([document.fonts.load(`500 40px ${SANS}`), new Promise((r) => setTimeout(r, 800))]).catch(() => {});
     cleanTex = await atlas(drawClean, atlasScale, maxAniso);
+    heroCard.material.map = heroCardTexture(Math.min(1, atlasScale * 1.35), maxAniso);
+    heroCard.material.needsUpdate = true;
     // téléversées avant d'être utiles : aucune saccade à leur première apparition
     [cleanTex, glow, heroCard.material.map].forEach((t) => renderer.initTexture(t));
     cardMat.uniforms.tClean.value = cleanTex;

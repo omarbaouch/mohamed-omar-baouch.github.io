@@ -135,6 +135,11 @@
   .film-hero .hero-kicker { animation-delay: .1s; }
   .film-hero .hero-subtitle { animation-delay: .4s; }
   .film-hero .hero-cta { animation-delay: .5s; }
+  /* la caméra recule dans la tempête dès le premier affichage : l'image d'attente
+     bouge avant que la scène soit prête, et la scène, qui reçoit exactement le même
+     mouvement au même instant, prend la relève sans raccord visible */
+  .film-hero.is-live :is(.fh-poster, .fh-canvas) { animation: fh-settle 2.8s cubic-bezier(.22, 1, .36, 1) both; }
 }
+@keyframes fh-settle { from { transform: scale(1.07); } }
 @keyframes fh-rise { from { transform: translateY(108%); } }
 @keyframes fh-fade { from { opacity: 0; transform: translateY(1rem); } }

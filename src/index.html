@@ -67,9 +67,10 @@
         <!-- ============================== HERO — du chaos à la source de vérité ==============================
              Scène calculée en direct (src/js/modules/hero-scene.js), pilotée par le défilement.
              Sans JS, sans WebGL ou en mouvement réduit : image fixe, textes à plat. -->
-        <section class="hero film-hero" aria-label="Introduction">
-            <!-- la scène prend sa hauteur définitive avant le premier affichage : aucun saut de mise en page -->
-            <script>(function(s){try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&!(navigator.connection&&navigator.connection.saveData)&&document.createElement('canvas').getContext('webgl2'))s.classList.add('is-live')}catch(e){}})(document.currentScript.parentNode)</script>
+        <section class="hero film-hero" aria-label="Introduction" data-preload="__HERO_FILM_PRELOAD__">
+            <!-- la scène prend sa hauteur définitive avant le premier affichage : aucun saut de mise en page ;
+                 le module 3D est préchargé tout de suite, seulement si le film sera joué -->
+            <script>(function(s){try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&!(navigator.connection&&navigator.connection.saveData)&&document.createElement('canvas').getContext('webgl2')){s.classList.add('is-live');var p=s.getAttribute('data-preload');if(p&&p.charAt(0)=='/')p.split(' ').forEach(function(u){var l=document.createElement('link');l.rel='modulepreload';l.href=u;l.crossOrigin='';document.head.appendChild(l)})}}catch(e){}})(document.currentScript.parentNode)</script>
             <div class="fh-stage" data-phase="intro">
                 <picture class="fh-poster" aria-hidden="true">
                     <!-- sans film (mouvement réduit), l’image fixe montre la nomenclature en rosace -->
