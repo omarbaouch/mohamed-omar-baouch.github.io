@@ -48,7 +48,7 @@
                 "description": "eBOM et mBOM ne décrivent pas le même produit : l'une dit comment il est conçu, l'autre comment il est assemblé. Un exemple complet ligne par ligne, les 6 écarts systématiques entre les deux, qui possède quoi, et la méthode pour passer de l'une à l'autre sans ressaisie ni divergence.",
                 "image": "https://www.baouch.fr/img/og/ebom-mbom.jpg",
                 "datePublished": "2026-09-20",
-                "dateModified": "2026-09-20",
+                "dateModified": "2026-10-02",
                 "inLanguage": "fr-FR",
                 "mainEntityOfPage": {
                     "@type": "WebPage",
@@ -148,6 +148,22 @@
                             "@type": "Answer",
                             "text": "Pas nécessairement au démarrage : un PDM bien paramétré et des propriétés propres couvrent déjà l'eBOM. Le PLM devient utile quand les deux structures doivent être liées, tracées et modifiées ensemble par plusieurs services — c'est l'un des signaux de bascule."
                         }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Que veut dire eBOM ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Engineering Bill of Materials : la nomenclature d'étude, c'est-à-dire la liste structurée des composants du produit tel qu'il est conçu, généralement issue de l'assemblage CAO et gérée dans le PDM ou le PLM."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Qu'est-ce qu'une pBOM ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Une process BOM (ou production BOM). Le terme varie selon les éditeurs : tantôt synonyme de mBOM, tantôt étape intermédiaire où les méthodes restructurent l'eBOM par poste de montage avant de la lier aux gammes. Il faut toujours préciser laquelle on entend."
+                        }
                     }
                 ]
             }
@@ -178,7 +194,7 @@
                         </div>
                         <span class="hero-eyebrow" data-i18n=""><span data-lang="fr">Deux listes, un seul produit, et beaucoup de malentendus</span><span data-lang="en">Two lists, one product, and a great deal of misunderstanding</span></span>
                         <h1 class="hero-title" data-i18n=""><span data-lang="fr">eBOM vs mBOM : la vraie différence, avec un exemple ligne par ligne</span><span data-lang="en">eBOM vs mBOM: the real difference, with a line-by-line example</span></h1>
-                        <p class="hero-subtitle" data-i18n=""><span data-lang="fr">Publié le 20 septembre 2026 — la nomenclature d'étude dit comment le produit est <em>conçu</em>, celle de fabrication comment il est <em>assemblé</em>. Ce ne sont pas deux présentations d'une même liste : ce sont deux listes différentes, et croire le contraire est la première cause d'écarts entre le bureau d'études et l'atelier. Exemple complet, six écarts systématiques, et la méthode de passage.</span><span data-lang="en">Published 20 September 2026 — the engineering BOM says how the product is <em>designed</em>, the manufacturing one how it is <em>assembled</em>. These aren't two views of one list: they are two different lists, and believing otherwise is the leading cause of gaps between engineering and the shop floor. Full example, six systematic differences, and the method for moving between them.</span></p>
+                        <p class="hero-subtitle" data-i18n=""><span data-lang="fr">Publié le 20 septembre 2026, mis à jour le 2 octobre 2026 — la nomenclature d'étude dit comment le produit est <em>conçu</em>, celle de fabrication comment il est <em>assemblé</em>. Ce ne sont pas deux présentations d'une même liste : ce sont deux listes différentes, et croire le contraire est la première cause d'écarts entre le bureau d'études et l'atelier. Exemple complet, six écarts systématiques, et la méthode de passage.</span><span data-lang="en">Published 20 September 2026, updated 2 October 2026 — the engineering BOM says how the product is <em>designed</em>, the manufacturing one how it is <em>assembled</em>. These aren't two views of one list: they are two different lists, and believing otherwise is the leading cause of gaps between engineering and the shop floor. Full example, six systematic differences, and the method for moving between them.</span></p>
                         <div class="hero-actions">
                             <a class="hero-btn" href="#exemple" data-i18n=""><span data-lang="fr">Voir l'exemple chiffré</span><span data-lang="en">See the worked example</span></a>
                             <a class="hero-btn hero-btn--ghost" href="#sommaire" data-i18n=""><span data-lang="fr">Consulter le sommaire</span><span data-lang="en">Jump to contents</span></a>
@@ -202,6 +218,7 @@
 
                 <section class="blog-section article-section" id="resume">
                     <h2 data-i18n=""><span data-lang="fr">La réponse en trois lignes</span><span data-lang="en">The answer in three lines</span></h2>
+                    <p data-i18n=""><span data-lang="fr"><strong>eBOM</strong> signifie <em>Engineering Bill of Materials</em>, la nomenclature d'étude ; <strong>mBOM</strong>, <em>Manufacturing Bill of Materials</em>, la nomenclature de fabrication. Le « e » et le « m » disent qui la construit et à quoi elle sert : l'une décrit le produit conçu, l'autre le produit tel qu'on le fabrique.</span><span data-lang="en"><strong>eBOM</strong> stands for <em>Engineering Bill of Materials</em>; <strong>mBOM</strong> for <em>Manufacturing Bill of Materials</em>. The "e" and the "m" say who builds it and what it's for: one describes the product as designed, the other the product as it is made.</span></p>
                     <div class="table-scroll">
                         <div class="table-scroll__viewport">
                             <table class="feature-table">
@@ -355,6 +372,53 @@
                         <li data-i18n=""><span data-lang="fr"><strong>La nomenclature telle que construite (as-built)</strong> : ce qui est réellement sorti d'atelier, numéro de série par numéro de série, avec les substitutions acceptées ce jour-là. Indispensable dès qu'il y a rappel produit ou garantie contractuelle.</span><span data-lang="en"><strong>The as-built BOM</strong>: what actually left the shop, serial number by serial number, with the substitutions accepted that day. Essential as soon as recalls or contractual warranties are involved.</span></li>
                         <li data-i18n=""><span data-lang="fr"><strong>La nomenclature de configuration</strong> : la liste des options possibles plutôt que d'un exemplaire précis, pour les produits catalogués à variantes. Elle demande un outil qui sait gérer les règles de compatibilité entre options.</span><span data-lang="en"><strong>The configuration BOM</strong>: the list of possible options rather than one specific unit, for catalogued products with variants. It needs a tool that can manage compatibility rules between options.</span></li>
                     </ul>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr>
+                                        <th data-i18n=""><span data-lang="fr">Sigle</span><span data-lang="en">Acronym</span></th>
+                                        <th data-i18n=""><span data-lang="fr">En anglais</span><span data-lang="en">In English</span></th>
+                                        <th data-i18n=""><span data-lang="fr">Question à laquelle elle répond</span><span data-lang="en">Question it answers</span></th>
+                                        <th data-i18n=""><span data-lang="fr">Qui la tient</span><span data-lang="en">Who owns it</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>eBOM</td>
+                                        <td>Engineering BOM</td>
+                                        <td data-i18n=""><span data-lang="fr">De quoi le produit est-il composé ?</span><span data-lang="en">What is the product made of?</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Bureau d'études</span><span data-lang="en">Engineering</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>pBOM</td>
+                                        <td>Process / production BOM</td>
+                                        <td data-i18n=""><span data-lang="fr">Selon l'éditeur : la mBOM elle-même, ou une étape où l'eBOM est restructurée par poste avant d'être liée aux gammes</span><span data-lang="en">Depending on the vendor: the mBOM itself, or a step where the eBOM is restructured by workstation before being linked to routings</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Méthodes</span><span data-lang="en">Manufacturing engineering</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>mBOM</td>
+                                        <td>Manufacturing BOM</td>
+                                        <td data-i18n=""><span data-lang="fr">Comment le fabrique-t-on, avec quoi on l'approvisionne ?</span><span data-lang="en">How is it made, what is purchased for it?</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Méthodes / industrialisation</span><span data-lang="en">Manufacturing engineering</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>sBOM</td>
+                                        <td>Service BOM</td>
+                                        <td data-i18n=""><span data-lang="fr">Que peut-on remplacer sur le terrain ?</span><span data-lang="en">What can be replaced in the field?</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Service après-vente</span><span data-lang="en">After-sales service</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>As-built</td>
+                                        <td>As-built BOM</td>
+                                        <td data-i18n=""><span data-lang="fr">Qu'est-ce qui est réellement sorti d'atelier, par numéro de série ?</span><span data-lang="en">What actually left the shop, per serial number?</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Production / qualité</span><span data-lang="en">Production / quality</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr">Le sigle <strong>pBOM</strong> est le plus ambigu des cinq : certains éditeurs l'emploient comme synonyme de mBOM, d'autres pour l'étape intermédiaire entre conception et gammes. Quand un fournisseur ou un client parle de pBOM, demandez-lui laquelle des deux il entend avant de comparer des offres.</span><span data-lang="en">The acronym <strong>pBOM</strong> is the most ambiguous of the five: some vendors use it as a synonym for mBOM, others for the intermediate step between design and routings. When a vendor or customer mentions a pBOM, ask which one they mean before comparing offers.</span></p>
                     <p data-i18n=""><span data-lang="fr">Inutile de toutes les mettre en place d'emblée. Mais savoir qu'elles existent évite de faire porter à la mBOM des besoins qui relèvent du service après-vente — une confusion fréquente, et coûteuse à démêler.</span><span data-lang="en">No need to set them all up at once. But knowing they exist prevents loading the mBOM with needs that belong to after-sales — a frequent confusion, and costly to untangle.</span></p>
                 </section>
 
@@ -378,6 +442,10 @@
                             <cite>Mohamed Omar Baouch</cite>
                         </div>
                     </div>
+                    <h3 data-i18n=""><span data-lang="fr">Que veut dire eBOM ?</span><span data-lang="en">What does eBOM mean?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Engineering Bill of Materials : la nomenclature d'étude, c'est-à-dire la liste structurée des composants du produit tel qu'il est conçu, généralement issue de l'assemblage CAO et gérée dans le PDM ou le PLM.</span><span data-lang="en">Engineering Bill of Materials: the structured list of the product's components as designed, usually derived from the CAD assembly and managed in the PDM or PLM.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Qu'est-ce qu'une pBOM ?</span><span data-lang="en">What is a pBOM?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Une process BOM (ou production BOM). Le terme varie selon les éditeurs : tantôt synonyme de mBOM, tantôt étape intermédiaire où les méthodes restructurent l'eBOM par poste de montage avant de la lier aux gammes. Il faut toujours préciser laquelle on entend.</span><span data-lang="en">A process (or production) BOM. The term varies by vendor: sometimes a synonym for mBOM, sometimes an intermediate step where manufacturing engineers restructure the eBOM by workstation before linking it to routings. Always clarify which one is meant.</span></p>
                 </section>
 
                 <section class="blog-section article-related">

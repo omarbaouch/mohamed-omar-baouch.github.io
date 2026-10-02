@@ -2,6 +2,20 @@
 
 Une entrée par passage, la plus récente en haut. Données : branche `seo-data` (gsc-report.md).
 
+## 2026-10-02 — requête « ebom » : page eBOM vs mBOM renforcée
+
+**Chiffres (31/08 → 28/09)** : 12 clics (0,4/jour), 1 147 impressions, CTR 1,0 %, position moyenne 14,5 (15,4 au passage précédent). **Indexation : 33 / 34** : rugosité, modèle de nomenclature et l'étude de cas migration internationale sont indexées.
+
+**Seule page non indexée** : resolutions-problematiques-plm (explorée le 09/07, retravaillée le 28/09). Rien de technique ne la bloque ; elle attend un nouveau passage de Google (soumission manuelle recommandée).
+
+**Action (b)** : « ebom » (48 impressions, position 11,3), « ebom mbom pbom », « ebom mbom sbom », « ebom definition » → `/blog/ebom-vs-mbom/`. Le titre de la page nomenclature est en test depuis le 01/10 (passage du propriétaire) : non touché.
+- définition des sigles en tête : eBOM = Engineering Bill of Materials, mBOM = Manufacturing Bill of Materials ;
+- tableau des sigles BOM (eBOM, pBOM, mBOM, sBOM, as-built) : question à laquelle chacune répond, qui la tient ; paragraphe sur l'ambiguïté du terme pBOM (synonyme de mBOM ou étape intermédiaire selon les éditeurs) ;
+- 2 questions ajoutées à la FAQ (HTML + JSON-LD) : « Que veut dire eBOM ? », « Qu'est-ce qu'une pBOM ? » ; dateModified 2026-10-02, mention « mis à jour » visible ;
+- lien depuis la définition eBOM du glossaire (indexé, qui ne pointait pas vers cette page).
+
+**Prochain passage** : relire positions et CTR de « ebom » / « ebom mbom » d'ici 7 à 14 jours, sans retoucher le titre de la page nomenclature pendant le test. Si toutes les pages sont indexées : « bom erp » (pos. 8,2) → integration-bom-erp.
+
 ## 2026-10-01 (soir) — test CTR sur la page BOM
 
 **Publié dans ce lot** : uniquement title, meta description, OG/Twitter et headline/description JSON-LD de `/blog/nomenclature-bom-pdm-plm-erp/`. Aucun changement de H1, CSS, JS ou mise en page. Ancien titre : « Nomenclature (BOM) : définition, eBOM vs mBOM et lien PDM, PLM, ERP ». Nouveau : « Nomenclature BOM : définition, exemple et modèle Excel ». Description : « Définition de la BOM, tableau eBOM/mBOM et rôles du PDM, PLM et ERP. Un exemple concret et un modèle Excel gratuit pour structurer votre nomenclature. » Le modèle est déjà accessible depuis le contenu. Hypothèse : une réponse concrète et un livrable explicite donnent davantage envie de cliquer ; aucun gain encore mesuré.
