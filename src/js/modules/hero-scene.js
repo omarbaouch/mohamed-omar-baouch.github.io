@@ -148,7 +148,11 @@ function glowTexture() {
 }
 
 // ---------------------------------------------------------------- la scène
-export async function createHeroScene({ canvas, atlasScale = 0.75, antialias = true } = {}) {
+// progressive : la scène est rendue dès que la tempête d'entrée peut tourner (planche
+// du chaos dessinée, son programme compilé) ; la suite (planche rangée, autres
+// programmes, textures) se prépare pendant l'intro et `ready` se résout quand
+// tout avancement peut être affiché sans attente. Sinon, tout est prêt au retour.
+export async function createHeroScene({ canvas, atlasScale = 0.75, antialias = true, progressive = false } = {}) {
   if (document.fonts?.load) await Promise.race([document.fonts.load(`500 40px ${SANS}`), new Promise((r) => setTimeout(r, 800))]).catch(() => {});
 
   const renderer = new THREE.WebGLRenderer({ canvas, antialias, alpha: false, powerPreference: 'high-performance', preserveDrawingBuffer: false });
@@ -171,7 +175,9 @@ export async function createHeroScene({ canvas, atlasScale = 0.75, antialias = t
   const KEEP = SLOTS;     // ceux qui survivent ; les autres sont des doublons qui fusionnent
   const CARD_W = 1.1, CARD_H = CARD_W * BASE_H / BASE_W;
   const chaosTex = await atlas(drawChaos, atlasScale, maxAniso);
-  const cleanTex = await atlas(drawClean, atlasScale, maxAniso);
+  // la planche rangée ne sert qu'à partir du renommage (u ≥ 0.17) : en attendant,
+  // le programme lit la planche du chaos à sa place (aucune recompilation)
+  let cleanTex = null;
   const cardGeo = new THREE.PlaneGeometry(1, 1);
   const aChaos = new Float32Array(N), aClean = new Float32Array(N), aMix = new Float32Array(N), aAlpha = new Float32Array(N);
   const attr = (arr) => new THREE.InstancedBufferAttribute(arr, 1).setUsage(THREE.DynamicDrawUsage);
@@ -181,7 +187,7 @@ export async function createHeroScene({ canvas, atlasScale = 0.75, antialias = t
   cardGeo.setAttribute('aAlpha', attr(aAlpha));
   const cardMat = new THREE.ShaderMaterial({
     transparent: true, depthWrite: false, side: THREE.DoubleSide,
-    uniforms: { tChaos: { value: chaosTex }, tClean: { value: cleanTex } },
+    uniforms: { tChaos: { value: chaosTex }, tClean: { value: chaosTex } },
     vertexShader: `
       attribute float aChaos; attribute float aClean; attribute float aMix; attribute float aAlpha;
       varying vec2 vA; varying vec2 vB; varying float vMix; varying float vAlpha;
@@ -397,6 +403,8 @@ export async function createHeroScene({ canvas, atlasScale = 0.75, antialias = t
     // filet de renommage
     const on = u > T0 + 0.004 && u < T1 - 0.004;
     scan.position.set(lerp(-11.5, 11.5, eio(P(u, T0, T1))), 0, 0.4);
+    // hors balayage, le filet n'est pas dessiné du tout (et n'est pas compilé avant d'être utile)
+    scan.visible = on;
     scanMat.opacity = on ? 1 : 0;
     scanGlowMat.opacity = on ? 0.5 : 0;
 
@@ -480,19 +488,42 @@ export async function createHeroScene({ canvas, atlasScale = 0.75, antialias = t
   // Tous les programmes graphiques sont compilés d'emblée, objets rendus visibles :
   // sinon, la première apparition des traits, des orbites ou de la fiche finale
   // déclencherait une compilation en plein défilement — une saccade garantie.
-  {
+  // Les cartes d'abord (seules visibles pendant l'intro), le reste ensuite, avec
+  // une caméra propre à la préparation : celle du film n'est jamais dérangée.
+  const prep = new THREE.PerspectiveCamera(35, 16 / 9, 0.05, 500);
+  prep.position.set(0, 0, 14); prep.lookAt(0, 0, 0); prep.updateMatrixWorld();
+  const compileAll = () => {
     const hidden = [];
     scene.traverse((o) => { if (!o.visible) { hidden.push(o); o.visible = true; } });
     treeLineGeo.instanceCount = 1;
-    camera.aspect = 16 / 9; camera.position.set(0, 0, 14); camera.lookAt(0, 0, 0); camera.updateProjectionMatrix();
-    if (renderer.compileAsync) await renderer.compileAsync(scene, camera);
-    else renderer.compile(scene, camera);
+    // la compilation est lancée de façon synchrone : la visibilité est rétablie
+    // avant toute image, seule l'attente de fin de compilation est différée
+    const done = renderer.compileAsync ? renderer.compileAsync(scene, prep) : renderer.compile(scene, prep);
     hidden.forEach((o) => { o.visible = false; });
-    // un premier rendu hors écran téléverse aussi les textures vers la carte graphique
-    renderer.setSize(8, 8, false);
-    renderer.render(scene, camera);
     treeLineGeo.instanceCount = 0;
+    return done;
+  };
+  {
+    const others = scene.children.filter((o) => o !== cards && o.visible);
+    others.forEach((o) => { o.visible = false; });
+    if (renderer.compileAsync) await renderer.compileAsync(scene, prep);
+    else renderer.compile(scene, prep);
+    // un premier rendu hors écran téléverse aussi la planche (et compile le fond)
+    renderer.setSize(8, 8, false);
+    renderer.render(scene, prep);
+    others.forEach((o) => { o.visible = true; });
   }
+  const finish = async () => {
+    cleanTex = await atlas(drawClean, atlasScale, maxAniso);
+    // téléversées avant d'être utiles : aucune saccade à leur première apparition
+    [cleanTex, glow, heroCard.material.map].forEach((t) => renderer.initTexture(t));
+    cardMat.uniforms.tClean.value = cleanTex;
+    await compileAll();
+  };
+  // en progressif, la suite ne commence qu'après la première image affichée :
+  // dessinée plus tôt, elle occuperait la carte graphique et retarderait cette image
+  const ready = progressive ? new Promise((r) => requestAnimationFrame(() => setTimeout(r, 0))).then(finish) : finish();
+  if (!progressive) await ready;
 
   // la scène vit-elle au repos à cet avancement ? (sinon, inutile de redessiner)
   const idle = (u) => u < 0.17 || u > 0.77;
@@ -502,5 +533,5 @@ export async function createHeroScene({ canvas, atlasScale = 0.75, antialias = t
     [chaosTex, cleanTex, glow, heroCard.material.map, scene.background].forEach((t) => t?.dispose());
   }
 
-  return { renderer, scene, camera, setSize, render, idle, dispose };
+  return { renderer, scene, camera, setSize, render, idle, dispose, ready };
 }

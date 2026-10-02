@@ -14,6 +14,7 @@ import { createHeroScene } from './hero-scene.js';
 
 const U_INTRO = 0.15; // fin de la tempête jouée automatiquement
 const INTRO_MS = 2600;
+const U_SAFE = 0.165; // au-delà, la scène a besoin de sa planche rangée et de tous ses programmes
 // étapes du métier en regard des phases : renommage, registre, cycle de vie,
 // nomenclature, source unique
 const STEPS = [[0.265, 0.345], [0.345, 0.44], [0.44, 0.53], [0.53, 0.64], [0.64, 0.81]];
@@ -31,7 +32,11 @@ export async function initHeroFilm(section) {
 
   // qualité de départ selon l'appareil ; ajustée ensuite à la mesure
   const big = innerWidth * (devicePixelRatio || 1) > 2200;
-  const hero = await createHeroScene({ canvas, atlasScale: coarse ? 0.5 : big ? 1 : 0.75 });
+  // rendue dès que la tempête d'entrée peut tourner ; la suite se prépare pendant l'intro
+  const hero = await createHeroScene({ canvas, atlasScale: coarse ? 0.5 : big ? 1 : 0.75, progressive: true });
+  // tant qu'elle n'est pas prête, le film s'arrête au seuil du renommage (u < 0.17)
+  let cap = U_SAFE;
+  hero.ready.then(() => { cap = 1; }, () => {});
   let dpr = Math.min(devicePixelRatio || 1, coarse ? 1.5 : 1.75);
   const MIN_DPR = coarse ? 0.75 : 1;
 
@@ -58,7 +63,7 @@ export async function initHeroFilm(section) {
     const dt = Math.min(0.1, (now - last) / 1000);
     last = now;
     const p = progress();
-    const target = p > 0 ? Math.max(intro, U_INTRO + p * (1 - U_INTRO)) : intro;
+    const target = Math.min(cap, p > 0 ? Math.max(intro, U_INTRO + p * (1 - U_INTRO)) : intro);
     // lissage court : le défilement du site est déjà adouci
     shown += (target - shown) * (1 - Math.exp(-dt * 24));
     if (Math.abs(target - shown) < 1e-4) shown = target;
