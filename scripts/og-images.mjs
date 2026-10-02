@@ -41,6 +41,7 @@ const PAGES = [
   { file: 'src/blog/couple-serrage-vis-tableau/index.html', slug: 'couple-serrage', ref: 'MEM-04', type: 'MÉMO', title: 'Couple de serrage des vis : tableau 8.8, 10.9, 12.9 et calculateur' },
   { file: 'src/blog/rugosite-ra-tableau-classes-procedes/index.html', slug: 'rugosite', ref: 'MEM-05', type: 'MÉMO', title: 'Rugosité Ra : classes N, procédés et valeurs à demander' },
   { file: 'src/blog/masse-volumique-materiaux-calcul-masse/index.html', slug: 'masse-volumique', ref: 'MEM-06', type: 'MÉMO', title: 'Masse volumique des matériaux et calcul de masse' },
+  { file: 'src/blog/tolerances-geometriques-symboles-iso-1101/index.html', slug: 'tol-geo', ref: 'MEM-07', type: 'MÉMO', title: 'Tolérances géométriques : les 14 symboles ISO 1101' },
   { file: 'src/blog/modele-nomenclature-excel-gratuit/index.html', slug: 'modele-bom', ref: 'TPL-01', type: 'MODÈLE GRATUIT', title: 'Modèle de nomenclature Excel gratuit : BOM multiniveau' },
   { file: 'src/projets/robot-orbita/index.html', slug: 'orbita', ref: 'PRT-ORBITA · RÉV.B', type: 'ÉTUDE DE CAS', title: 'Structurer le PDM d’un robot humanoïde' },
   { file: 'src/projets/migration-pdm-internationale/index.html', slug: 'mig-intl', ref: 'MIG-INTL · RÉV.C', type: 'ÉTUDE DE CAS', title: 'Migration PDM multi-sites pour un géant mondial du câblage' },

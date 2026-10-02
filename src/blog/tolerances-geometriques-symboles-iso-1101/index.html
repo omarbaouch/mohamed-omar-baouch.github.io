@@ -1,0 +1,374 @@
+<!DOCTYPE html><html lang="fr"><head>
+    <meta charset="UTF-8">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PBLRK58T');</script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-33TQ27QY4M"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-33TQ27QY4M');</script>
+<!-- Microsoft Clarity -->
+    <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","vy4yvht8gz");</script>
+    <!-- LinkedIn Insight Tag -->
+    <script type="text/javascript">_linkedin_partner_id="525900907";window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];window._linkedin_data_partner_ids.push(_linkedin_partner_id);(function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";s.parentNode.insertBefore(b,s)})(window.lintrk);</script>
+    <script>
+    // Anti-flash de thème : clair par défaut, sombre si stocké.
+    (function () {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    })();
+</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tolérances géométriques : tableau des 14 symboles ISO 1101 + convertisseur</title>
+    <meta name="description" content="Les 14 symboles de tolérancement géométrique ISO 1101 (planéité, perpendicularité, localisation, coaxialité, battement…) : zone de tolérance, référence nécessaire ou non, lecture du cadre, modificateurs Ⓜ Ⓔ Ⓟ et convertisseur ± vers tolérance de position.">
+    <meta name="author" content="Mohamed Omar Baouch">
+    <link rel="canonical" href="https://www.baouch.fr/blog/tolerances-geometriques-symboles-iso-1101/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Tolérances géométriques : les 14 symboles ISO 1101 et leur lecture">
+    <meta property="og:description" content="Planéité, perpendicularité, localisation, battement : les 14 symboles, leur zone de tolérance et un convertisseur ± vers Ø de position.">
+    <meta property="og:url" content="https://www.baouch.fr/blog/tolerances-geometriques-symboles-iso-1101/">
+    <meta property="og:image" content="https://www.baouch.fr/img/og/tol-geo.jpg">
+    <meta property="og:site_name" content="Mohamed Omar Baouch">
+    <meta property="article:published_time" content="2026-10-02T00:00:00.000Z">
+    <meta property="article:author" content="Mohamed Omar Baouch">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tolérances géométriques : les 14 symboles ISO 1101 et leur lecture">
+    <meta name="twitter:description" content="Planéité, perpendicularité, localisation, battement : les 14 symboles, leur zone de tolérance et un convertisseur ± vers Ø de position.">
+    <meta name="twitter:image" content="https://www.baouch.fr/img/og/tol-geo.jpg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "headline": "Tolérances géométriques : les 14 symboles ISO 1101 et leur lecture",
+                "description": "Les 14 symboles de tolérancement géométrique ISO 1101 (planéité, perpendicularité, localisation, coaxialité, battement…) : zone de tolérance, référence nécessaire ou non, lecture du cadre, modificateurs Ⓜ Ⓔ Ⓟ et convertisseur ± vers tolérance de position.",
+                "image": "https://www.baouch.fr/img/og/tol-geo.jpg",
+                "datePublished": "2026-10-02",
+                "dateModified": "2026-10-02",
+                "inLanguage": "fr-FR",
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://www.baouch.fr/blog/tolerances-geometriques-symboles-iso-1101/"
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://www.baouch.fr",
+                    "jobTitle": "Ingénieur & Consultant PDM/PLM"
+                },
+                "publisher": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://www.baouch.fr"
+                },
+                "keywords": [
+                    "Tolérances géométriques",
+                    "ISO 1101",
+                    "GPS",
+                    "Cotation",
+                    "Mise en plan",
+                    "SOLIDWORKS"
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Accueil",
+                        "item": "https://www.baouch.fr/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Blog",
+                        "item": "https://www.baouch.fr/blog/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Tolérances géométriques : les 14 symboles ISO 1101 et leur lecture",
+                        "item": "https://www.baouch.fr/blog/tolerances-geometriques-symboles-iso-1101/"
+                    }
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Quelle est la différence entre planéité et parallélisme ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "La planéité est une tolérance de forme : elle ne fait référence à rien d'autre que la surface elle-même. Le parallélisme est une tolérance d'orientation par rapport à une référence ; il limite aussi, au passage, la planéité de la surface tolérancée."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Quelle est la différence entre coaxialité et concentricité ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Elles partagent le symbole ◎ dans l'ISO 1101. La concentricité s'applique à un point (le centre d'un cercle dans une section), la coaxialité à un axe. La zone est un cercle ou un cylindre de diamètre t centré sur la référence."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Comment convertir une tolérance ± en tolérance de position ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Une zone carrée de ± x en X et en Y a pour demi-diagonale x√2 : la tolérance de position équivalente qui la contient est Ø 2√2·x, soit Ø 0,28 pour ± 0,1. Inversement, une tolérance Ø t contient une zone carrée de ± t / (2√2), soit ± 0,035 pour Ø 0,1."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Que signifie le Ⓜ dans un cadre de tolérance ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "L'exigence du maximum de matière (ISO 2692) : la tolérance indiquée vaut quand l'élément est à son maximum de matière, et elle augmente de l'écart à cet état. Un trou Ø 10 +0,2/0 avec une localisation Ø 0,1 Ⓜ accepte Ø 0,3 s'il mesure Ø 10,2."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Les symboles ISO et ASME sont-ils les mêmes ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Pour l'essentiel, oui. Mais l'ASME Y14.5-2018 a supprimé la concentricité et la symétrie, que l'ISO 1101 conserve, et les règles de lecture diffèrent : l'ISO applique par défaut le principe d'indépendance (ISO 8015), l'ASME la règle de l'enveloppe (Rule #1). Un plan doit dire quelle norme s'applique."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+    <link rel="alternate" type="application/rss+xml" title="Blog — Mohamed Omar Baouch" href="https://www.baouch.fr/blog/rss.xml">
+    {{> head-lang }}{{> head-fonts }}<script type="module" src="../../js/blog.js"></script>
+</head>
+<body class="blog-page" data-blog-post="tolerances-geometriques-symboles-iso-1101">
+{{> nav }}
+
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBLRK58T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <main id="main" class="container blog-container show">
+        <div class="blog-shell" id="blogShell" data-shell="">
+            <article class="blog-article" data-article-root="">
+                <nav class="article-breadcrumbs" aria-label="Navigation secondaire">
+                    <a class="back-link" href="/blog/" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                    <a class="back-link back-link--ghost" href="/" data-translate-key="blog_back_to_portfolio">Retour au portfolio</a>
+                </nav>
+
+                <header class="blog-hero post-hero" data-component="hero">
+                    <div class="hero-intro">
+                        <div class="hero-badges">
+                            <span class="badge badge-editorial" data-i18n=""><span data-lang="fr">Mémo & calculateur</span><span data-lang="en">Reference & calculator</span></span>
+                            <span class="badge" data-i18n=""><span data-lang="fr">Conception</span><span data-lang="en">Design</span></span>
+                            <span class="badge badge-reading-time" data-i18n=""><span data-lang="fr">~8 min de lecture</span><span data-lang="en">~8 min read</span></span>
+                        </div>
+                        <span class="hero-eyebrow" data-i18n=""><span data-lang="fr">Lire un cadre de tolérance sans hésiter</span><span data-lang="en">Read a feature control frame without hesitation</span></span>
+                        <h1 class="hero-title" data-i18n=""><span data-lang="fr">Tolérances géométriques : les 14 symboles ISO 1101 et leur lecture</span><span data-lang="en">Geometrical tolerances: the 14 ISO 1101 symbols and how to read them</span></h1>
+                        <p class="hero-subtitle" data-i18n=""><span data-lang="fr">Publié le 2 octobre 2026 — chaque symbole avec sa zone de tolérance et le besoin ou non d'une référence, la lecture du cadre, les modificateurs Ⓜ, Ⓔ, Ⓟ, et un convertisseur entre tolérances ± et tolérance de position.</span><span data-lang="en">Published October 2, 2026 — each symbol with its tolerance zone and whether it needs a datum, how to read the frame, the Ⓜ, Ⓔ, Ⓟ modifiers, and a converter between ± tolerances and position tolerance.</span></p>
+                        <div class="hero-actions">
+                            <a class="hero-btn" href="#symboles" data-i18n=""><span data-lang="fr">Voir les 14 symboles</span><span data-lang="en">See the 14 symbols</span></a>
+                            <a class="hero-btn hero-btn--ghost" href="#convertisseur" data-i18n=""><span data-lang="fr">Convertir ± en position</span><span data-lang="en">Convert ± to position</span></a>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">14</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Caractéristiques géométriques ISO 1101</span><span data-lang="en">ISO 1101 geometrical characteristics</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">4</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Familles : forme, orientation, position, battement</span><span data-lang="en">Families: form, orientation, location, run-out</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">Ø 0,28</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">La position qui contient ± 0,1 en X et Y</span><span data-lang="en">The position that contains ± 0.1 in X and Y</span></span>
+                        </div>
+                    </div>
+                </header>
+
+                <section class="blog-section article-section">
+                    <div class="callout">
+                        <p data-i18n=""><span data-lang="fr"><strong>En bref :</strong> l'ISO 1101 définit 14 caractéristiques géométriques, réparties en quatre familles. Les tolérances de <strong>forme</strong> (rectitude, planéité, circularité, cylindricité) ne demandent aucune référence. Celles d'<strong>orientation</strong> (parallélisme, perpendicularité, inclinaison), de <strong>position</strong> (localisation, coaxialité, symétrie) et de <strong>battement</strong> se mesurent toujours par rapport à une référence (A, B, C). Les deux profils (ligne et surface quelconques) peuvent jouer l'un ou l'autre rôle.</span><span data-lang="en"><strong>In short:</strong> ISO 1101 defines 14 geometrical characteristics in four families. <strong>Form</strong> tolerances (straightness, flatness, roundness, cylindricity) need no datum. <strong>Orientation</strong> (parallelism, perpendicularity, angularity), <strong>location</strong> (position, coaxiality, symmetry) and <strong>run-out</strong> tolerances are always measured from a datum (A, B, C). The two profiles (line and surface) can play either role.</span></p>
+                    </div>
+                </section>
+
+                <nav class="blog-section article-summary" id="sommaire" aria-label="Sommaire de l'article">
+                    <h2 class="summary-title" data-i18n=""><span data-lang="fr">Sommaire</span><span data-lang="en">Contents</span></h2>
+                    <ol class="summary-list">
+                        <li><a href="#symboles"><span class="summary-index">01</span><span class="summary-label" data-i18n=""><span data-lang="fr">Les 14 symboles et leur zone de tolérance</span><span data-lang="en">The 14 symbols and their tolerance zone</span></span></a></li>
+                        <li><a href="#cadre"><span class="summary-index">02</span><span class="summary-label" data-i18n=""><span data-lang="fr">Lire un cadre de tolérance</span><span data-lang="en">Reading a feature control frame</span></span></a></li>
+                        <li><a href="#modificateurs"><span class="summary-index">03</span><span class="summary-label" data-i18n=""><span data-lang="fr">Les modificateurs Ⓜ, Ⓛ, Ⓔ, Ⓟ, Ⓕ, CZ</span><span data-lang="en">Modifiers Ⓜ, Ⓛ, Ⓔ, Ⓟ, Ⓕ, CZ</span></span></a></li>
+                        <li><a href="#convertisseur"><span class="summary-index">04</span><span class="summary-label" data-i18n=""><span data-lang="fr">Convertisseur ± ↔ tolérance de position</span><span data-lang="en">± ↔ position tolerance converter</span></span></a></li>
+                        <li><a href="#faq"><span class="summary-index">05</span><span class="summary-label">FAQ</span></a></li>
+                    </ol>
+                </nav>
+
+                <section class="blog-section article-section" id="symboles">
+                    <h2 data-i18n=""><span data-lang="fr">1. Les 14 symboles ISO 1101 et leur zone de tolérance</span><span data-lang="en">1. The 14 ISO 1101 symbols and their tolerance zone</span></h2>
+                    <p data-i18n=""><span data-lang="fr">La zone de tolérance est l'espace dans lequel l'élément réel doit se trouver ; t est la valeur inscrite dans le cadre, en millimètres. Quand la valeur est précédée de Ø, la zone est cylindrique (ou circulaire).</span><span data-lang="en">The tolerance zone is the space in which the actual feature must lie; t is the value written in the frame, in millimetres. When the value is preceded by Ø, the zone is cylindrical (or circular).</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Symbole</span><span data-lang="en">Symbol</span></th><th data-i18n=""><span data-lang="fr">Caractéristique</span><span data-lang="en">Characteristic</span></th><th data-i18n=""><span data-lang="fr">Famille</span><span data-lang="en">Family</span></th><th data-i18n=""><span data-lang="fr">Référence</span><span data-lang="en">Datum</span></th><th data-i18n=""><span data-lang="fr">Zone de tolérance</span><span data-lang="en">Tolerance zone</span></th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><span class="gdt-sym" style="font-family:'Segoe UI Symbol','Cambria Math','STIX Two Math','Noto Sans Symbols 2','DejaVu Sans',sans-serif;font-size:1.35em;line-height:1" aria-hidden="true">⏤</span></td><td data-i18n=""><strong><span data-lang="fr">Rectitude</span><span data-lang="en">Straightness</span></strong></td><td data-i18n=""><span data-lang="fr">Forme</span><span data-lang="en">Form</span></td><td data-i18n=""><span data-lang="fr">Non</span><span data-lang="en">No</span></td><td data-i18n=""><span data-lang="fr">Deux droites parallèles distantes de t ; un cylindre de diamètre t si la tolérance (précédée de Ø) porte sur un axe</span><span data-lang="en">Two parallel lines t apart; a cylinder of diameter t when the tolerance (preceded by Ø) applies to an axis</span></td></tr>
+                                    <tr><td><span class="gdt-sym" style="font-family:'Segoe UI Symbol','Cambria Math','STIX Two Math','Noto Sans Symbols 2','DejaVu Sans',sans-serif;font-size:1.35em;line-height:1" aria-hidden="true">⏥</span></td><td data-i18n=""><strong><span data-lang="fr">Planéité</span><span data-lang="en">Flatness</span></strong></td><td data-i18n=""><span data-lang="fr">Forme</span><span data-lang="en">Form</span></td><td data-i18n=""><span data-lang="fr">Non</span><span data-lang="en">No</span></td><td data-i18n=""><span data-lang="fr">Deux plans parallèles distants de t</span><span data-lang="en">Two parallel planes t apart</span></td></tr>
+                                    <tr><td><span class="gdt-sym" style="font-family:'Segoe UI Symbol','Cambria Math','STIX Two Math','Noto Sans Symbols 2','DejaVu Sans',sans-serif;font-size:1.35em;line-height:1" aria-hidden="true">○</span></td><td data-i18n=""><strong><span data-lang="fr">Circularité</span><span data-lang="en">Roundness</span></strong></td><td data-i18n=""><span data-lang="fr">Forme</span><span data-lang="en">Form</span></td><td data-i18n=""><span data-lang="fr">Non</span><span data-lang="en">No</span></td><td data-i18n=""><span data-lang="fr">Dans chaque section droite, deux cercles concentriques dont les rayons diffèrent de t</span><span data-lang="en">In each cross-section, two concentric circles whose radii differ by t</span></td></tr>
+                                    <tr><td><span class="gdt-sym" style="font-family:'Segoe UI Symbol','Cambria Math','STIX Two Math','Noto Sans Symbols 2','DejaVu Sans',sans-serif;font-size:1.35em;line-height:1" aria-hidden="true">⌭</span></td><td data-i18n=""><strong><span data-lang="fr">Cylindricité</span><span data-lang="en">Cylindricity</span></strong></td><td data-i18n=""><span data-lang="fr">Forme</span><span data-lang="en">Form</span></td><td data-i18n=""><span data-lang="fr">Non</span><span data-lang="en">No</span></td><td data-i18n=""><span data-lang="fr">Deux cylindres coaxiaux dont les rayons diffèrent de t</span><span data-lang="en">Two coaxial cylinders whose radii differ by t</span></td></tr>
+                                    <tr><td><span class="gdt-sym" style="font-family:'Segoe UI Symbol','Cambria Math','STIX Two Math','Noto Sans Symbols 2','DejaVu Sans',sans-serif;font-size:1.35em;line-height:1" aria-hidden="true">⌒</span></td><td data-i18n=""><strong><span data-lang="fr">Forme d'une ligne quelconque</span><span data-lang="en">Line profile</span></strong></td><td data-i18n=""><span data-lang="fr">Forme, orientation ou position</span><span data-lang="en">Form, orientation or location</span></td><td data-i18n=""><span data-lang="fr">Facultative</span><span data-lang="en">Optional</span></td><td data-i18n=""><span data-lang="fr">Deux lignes enveloppes de cercles de diamètre t centrés sur le profil théoriquement exact</span><span data-lang="en">Two lines enveloping circles of diameter t centred on the theoretically exact profile</span></td></tr>
+                                    <tr><td><span class="gdt-sym" style="font-family:'Segoe UI Symbol','Cambria Math','STIX Two Math','Noto Sans Symbols 2','DejaVu Sans',sans-serif;font-size:1.35em;line-height:1" aria-hidden="true">⌓</span></td><td data-i18n=""><strong><span data-lang="fr">Forme d'une surface quelconque</span><span data-lang="en">Surface profile</span></strong></td><td data-i18n=""><span data-lang="fr">Forme, orientation ou position</span><span data-lang="en">Form, orientation or location</span></td><td data-i18n=""><span data-lang="fr">Facultative</span><span data-lang="en">Optional</span></td><td data-i18n=""><span data-lang="fr">Deux surfaces enveloppes de sphères de diamètre t centrées sur la surface théoriquement exacte</span><span data-lang="en">Two surfaces enveloping spheres of diameter t centred on the theoretically exact surface</span></td></tr>
+                                    <tr><td><span class="gdt-sym" style="font-family:'Segoe UI Symbol','Cambria Math','STIX Two Math','Noto Sans Symbols 2','DejaVu Sans',sans-serif;font-size:1.35em;line-height:1" aria-hidden="true">∥</span></td><td data-i18n=""><strong><span data-lang="fr">Parallélisme</span><span data-lang="en">Parallelism</span></strong></td><td data-i18n=""><span data-lang="fr">Orientation</span><span data-lang="en">Orientation</span></td><td data-i18n=""><span data-lang="fr">Oui</span><span data-lang="en">Yes</span></td><td data-i18n=""><span data-lang="fr">Deux plans parallèles à la référence, distants de t ; un cylindre Ø t parallèle à la référence pour un axe</span><span data-lang="en">Two planes parallel to the datum, t apart; a cylinder Ø t parallel to the datum for an axis</span></td></tr>
+                                    <tr><td><span class="gdt-sym" style="font-family:'Segoe UI Symbol','Cambria Math','STIX Two Math','Noto Sans Symbols 2','DejaVu Sans',sans-serif;font-size:1.35em;line-height:1" aria-hidden="true">⟂</span></td><td data-i18n=""><strong><span data-lang="fr">Perpendicularité</span><span data-lang="en">Perpendicularity</span></strong></td><td data-i18n=""><span data-lang="fr">Orientation</span><span data-lang="en">Orientation</span></td><td data-i18n=""><span data-lang="fr">Oui</span><span data-lang="en">Yes</span></td><td data-i18n=""><span data-lang="fr">Deux plans perpendiculaires à la référence, distants de t ; un cylindre Ø t perpendiculaire pour un axe</span><span data-lang="en">Two planes perpendicular to the datum, t apart; a cylinder Ø t perpendicular to it for an axis</span></td></tr>
+                                    <tr><td><span class="gdt-sym" style="font-family:'Segoe UI Symbol','Cambria Math','STIX Two Math','Noto Sans Symbols 2','DejaVu Sans',sans-serif;font-size:1.35em;line-height:1" aria-hidden="true">∠</span></td><td data-i18n=""><strong><span data-lang="fr">Inclinaison</span><span data-lang="en">Angularity</span></strong></td><td data-i18n=""><span data-lang="fr">Orientation</span><span data-lang="en">Orientation</span></td><td data-i18n=""><span data-lang="fr">Oui</span><span data-lang="en">Yes</span></td><td data-i18n=""><span data-lang="fr">Deux plans distants de t, inclinés de l'angle théoriquement exact par rapport à la référence</span><span data-lang="en">Two planes t apart, inclined at the theoretically exact angle to the datum</span></td></tr>
+                                    <tr><td><span class="gdt-sym" style="font-family:'Segoe UI Symbol','Cambria Math','STIX Two Math','Noto Sans Symbols 2','DejaVu Sans',sans-serif;font-size:1.35em;line-height:1" aria-hidden="true">⌖</span></td><td data-i18n=""><strong><span data-lang="fr">Localisation (position)</span><span data-lang="en">Position</span></strong></td><td data-i18n=""><span data-lang="fr">Position</span><span data-lang="en">Location</span></td><td data-i18n=""><span data-lang="fr">Oui, en général</span><span data-lang="en">Yes, usually</span></td><td data-i18n=""><span data-lang="fr">Zone centrée sur la position théoriquement exacte : cylindre Ø t pour un axe, deux plans distants de t pour un plan médian</span><span data-lang="en">Zone centred on the theoretically exact position: cylinder Ø t for an axis, two planes t apart for a median plane</span></td></tr>
+                                    <tr><td><span class="gdt-sym" style="font-family:'Segoe UI Symbol','Cambria Math','STIX Two Math','Noto Sans Symbols 2','DejaVu Sans',sans-serif;font-size:1.35em;line-height:1" aria-hidden="true">◎</span></td><td data-i18n=""><strong><span data-lang="fr">Concentricité / coaxialité</span><span data-lang="en">Concentricity / coaxiality</span></strong></td><td data-i18n=""><span data-lang="fr">Position</span><span data-lang="en">Location</span></td><td data-i18n=""><span data-lang="fr">Oui</span><span data-lang="en">Yes</span></td><td data-i18n=""><span data-lang="fr">Cercle Ø t (concentricité d'un point) ou cylindre Ø t (coaxialité d'un axe) centré sur la référence</span><span data-lang="en">Circle Ø t (concentricity of a point) or cylinder Ø t (coaxiality of an axis) centred on the datum</span></td></tr>
+                                    <tr><td><span class="gdt-sym" style="font-family:'Segoe UI Symbol','Cambria Math','STIX Two Math','Noto Sans Symbols 2','DejaVu Sans',sans-serif;font-size:1.35em;line-height:1" aria-hidden="true">⌯</span></td><td data-i18n=""><strong><span data-lang="fr">Symétrie</span><span data-lang="en">Symmetry</span></strong></td><td data-i18n=""><span data-lang="fr">Position</span><span data-lang="en">Location</span></td><td data-i18n=""><span data-lang="fr">Oui</span><span data-lang="en">Yes</span></td><td data-i18n=""><span data-lang="fr">Deux plans distants de t, symétriques par rapport au plan médian de référence</span><span data-lang="en">Two planes t apart, symmetrical about the datum median plane</span></td></tr>
+                                    <tr><td><span class="gdt-sym" style="font-family:'Segoe UI Symbol','Cambria Math','STIX Two Math','Noto Sans Symbols 2','DejaVu Sans',sans-serif;font-size:1.35em;line-height:1" aria-hidden="true">↗</span></td><td data-i18n=""><strong><span data-lang="fr">Battement circulaire</span><span data-lang="en">Circular run-out</span></strong></td><td data-i18n=""><span data-lang="fr">Battement</span><span data-lang="en">Run-out</span></td><td data-i18n=""><span data-lang="fr">Oui (axe)</span><span data-lang="en">Yes (axis)</span></td><td data-i18n=""><span data-lang="fr">Dans chaque section, deux cercles concentriques à l'axe de référence, distants de t (radial) ; deux cercles sur un cylindre de mesure (axial)</span><span data-lang="en">In each section, two circles concentric to the datum axis, t apart (radial); two circles on a measuring cylinder (axial)</span></td></tr>
+                                    <tr><td><span class="gdt-sym" style="font-family:'Segoe UI Symbol','Cambria Math','STIX Two Math','Noto Sans Symbols 2','DejaVu Sans',sans-serif;font-size:1.35em;line-height:1" aria-hidden="true">⌰</span></td><td data-i18n=""><strong><span data-lang="fr">Battement total</span><span data-lang="en">Total run-out</span></strong></td><td data-i18n=""><span data-lang="fr">Battement</span><span data-lang="en">Run-out</span></td><td data-i18n=""><span data-lang="fr">Oui (axe)</span><span data-lang="en">Yes (axis)</span></td><td data-i18n=""><span data-lang="fr">Deux cylindres coaxiaux à l'axe de référence, distants de t (radial) ; deux plans perpendiculaires à l'axe (axial)</span><span data-lang="en">Two cylinders coaxial with the datum axis, t apart (radial); two planes perpendicular to the axis (axial)</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr">Ces tolérances sont indépendantes des tolérances de dimension (principe d'indépendance de l'ISO 8015) : une cote Ø 20 ± 0,1 ne limite ni la circularité ni la rectitude de l'axe, sauf exigence de l'enveloppe Ⓔ. Les tolérances de forme et d'orientation non indiquées relèvent de la tolérance générale du cartouche : voir les classes H, K, L dans <a href="/blog/tolerances-generales-iso-2768/#geometriques">tolérances générales ISO 2768</a>.</span><span data-lang="en">These tolerances are independent of size tolerances (ISO 8015 independency principle): a Ø 20 ± 0.1 dimension limits neither roundness nor axis straightness, unless the envelope requirement Ⓔ applies. Unstated form and orientation tolerances fall under the title-block general tolerance: see classes H, K, L in <a href="/blog/tolerances-generales-iso-2768/#geometriques">ISO 2768 general tolerances</a>.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="cadre">
+                    <h2 data-i18n=""><span data-lang="fr">2. Lire un cadre de tolérance</span><span data-lang="en">2. Reading a feature control frame</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Le cadre se lit de gauche à droite : le symbole, la valeur de tolérance (avec Ø si la zone est cylindrique et les éventuels modificateurs), puis les références dans leur ordre de priorité.</span><span data-lang="en">The frame reads left to right: the symbol, the tolerance value (with Ø if the zone is cylindrical and any modifiers), then the datums in order of precedence.</span></p>
+                    <p><div style="display:inline-flex;border:1.5px solid currentColor;font-variant-numeric:tabular-nums;margin:.5rem 0 1rem"><span style="padding:.35rem .7rem;"><span class="gdt-sym" style="font-family:'Segoe UI Symbol','Cambria Math','STIX Two Math','Noto Sans Symbols 2','DejaVu Sans',sans-serif;font-size:1.35em;line-height:1" aria-hidden="true">⌖</span></span><span style="padding:.35rem .7rem;border-left:1.5px solid currentColor;">Ø 0,1 <span class="gdt-sym" style="font-family:'Segoe UI Symbol','Cambria Math','STIX Two Math','Noto Sans Symbols 2','DejaVu Sans',sans-serif;font-size:1.35em;line-height:1" aria-hidden="true">Ⓜ</span></span><span style="padding:.35rem .7rem;border-left:1.5px solid currentColor;">A</span><span style="padding:.35rem .7rem;border-left:1.5px solid currentColor;">B</span><span style="padding:.35rem .7rem;border-left:1.5px solid currentColor;">C</span></div></p>
+                    <ul>
+                        <li data-i18n=""><span data-lang="fr"><strong>⌖ Ø 0,1</strong> : l'axe du trou doit se trouver dans un cylindre de diamètre 0,1 mm centré sur sa position théoriquement exacte.</span><span data-lang="en"><strong>⌖ Ø 0.1</strong>: the hole axis must lie within a 0.1 mm diameter cylinder centred on its theoretically exact position.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Ⓜ</strong> : la valeur vaut au maximum de matière ; elle augmente quand le trou est plus grand (voir plus bas).</span><span data-lang="en"><strong>Ⓜ</strong>: the value applies at maximum material; it grows as the hole gets larger (see below).</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>A, B, C</strong> : référence primaire (la pièce s'y appuie sur trois points), secondaire (deux points), tertiaire (un point). L'ordre change le résultat : ce n'est pas une liste, c'est une séquence de mise en position.</span><span data-lang="en"><strong>A, B, C</strong>: primary datum (the part rests on three points), secondary (two points), tertiary (one point). The order changes the result: it is not a list, it is a fixturing sequence.</span></li>
+                        <li data-i18n=""><span data-lang="fr">La position théorique est donnée par des <strong>cotes encadrées</strong> (théoriquement exactes), sans tolérance : c'est le cadre qui porte toute la tolérance.</span><span data-lang="en">The theoretical position is given by <strong>boxed dimensions</strong> (theoretically exact), without tolerance: the frame carries the whole tolerance.</span></li>
+                    </ul>
+                </section>
+
+                <section class="blog-section article-section" id="modificateurs">
+                    <h2 data-i18n=""><span data-lang="fr">3. Les modificateurs</span><span data-lang="en">3. Modifiers</span></h2>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Symbole</span><span data-lang="en">Symbol</span></th><th data-i18n=""><span data-lang="fr">Nom</span><span data-lang="en">Name</span></th><th data-i18n=""><span data-lang="fr">Effet</span><span data-lang="en">Effect</span></th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><span class="gdt-sym" style="font-family:'Segoe UI Symbol','Cambria Math','STIX Two Math','Noto Sans Symbols 2','DejaVu Sans',sans-serif;font-size:1.35em;line-height:1" aria-hidden="true">Ⓜ</span></td><td data-i18n=""><strong><span data-lang="fr">Exigence du maximum de matière</span><span data-lang="en">Maximum material requirement</span></strong></td><td data-i18n=""><span data-lang="fr">La tolérance augmente quand l'élément s'éloigne de son état au maximum de matière (trou plus grand, arbre plus petit) : c'est le « bonus » qui garantit l'assemblage au moindre coût.</span><span data-lang="en">The tolerance grows as the feature departs from its maximum material condition (larger hole, smaller shaft): the "bonus" that guarantees assembly at the lowest cost.</span></td></tr>
+                                    <tr><td><span class="gdt-sym" style="font-family:'Segoe UI Symbol','Cambria Math','STIX Two Math','Noto Sans Symbols 2','DejaVu Sans',sans-serif;font-size:1.35em;line-height:1" aria-hidden="true">Ⓛ</span></td><td data-i18n=""><strong><span data-lang="fr">Exigence du minimum de matière</span><span data-lang="en">Least material requirement</span></strong></td><td data-i18n=""><span data-lang="fr">Symétrique de Ⓜ : sert à garantir une épaisseur de paroi minimale.</span><span data-lang="en">The mirror of Ⓜ: used to guarantee a minimum wall thickness.</span></td></tr>
+                                    <tr><td><span class="gdt-sym" style="font-family:'Segoe UI Symbol','Cambria Math','STIX Two Math','Noto Sans Symbols 2','DejaVu Sans',sans-serif;font-size:1.35em;line-height:1" aria-hidden="true">Ⓔ</span></td><td data-i18n=""><strong><span data-lang="fr">Exigence de l'enveloppe</span><span data-lang="en">Envelope requirement</span></strong></td><td data-i18n=""><span data-lang="fr">S'écrit après une tolérance dimensionnelle (Ø 20 H7 Ⓔ), pas dans le cadre : la pièce ne doit pas dépasser l'enveloppe de forme parfaite au maximum de matière. Indispensable sur les ajustements.</span><span data-lang="en">Written after a size tolerance (Ø 20 H7 Ⓔ), not in the frame: the part must not violate the perfect-form envelope at maximum material. Essential on fits.</span></td></tr>
+                                    <tr><td><span class="gdt-sym" style="font-family:'Segoe UI Symbol','Cambria Math','STIX Two Math','Noto Sans Symbols 2','DejaVu Sans',sans-serif;font-size:1.35em;line-height:1" aria-hidden="true">Ⓟ</span></td><td data-i18n=""><strong><span data-lang="fr">Zone de tolérance projetée</span><span data-lang="en">Projected tolerance zone</span></strong></td><td data-i18n=""><span data-lang="fr">La zone est reportée hors de la pièce, sur la hauteur indiquée : typique d'un taraudage qui reçoit un goujon ou une vis traversant une autre pièce.</span><span data-lang="en">The zone is moved outside the part, over the stated height: typical for a tapped hole receiving a stud or a bolt passing through another part.</span></td></tr>
+                                    <tr><td><span class="gdt-sym" style="font-family:'Segoe UI Symbol','Cambria Math','STIX Two Math','Noto Sans Symbols 2','DejaVu Sans',sans-serif;font-size:1.35em;line-height:1" aria-hidden="true">Ⓕ</span></td><td data-i18n=""><strong><span data-lang="fr">État libre</span><span data-lang="en">Free state</span></strong></td><td data-i18n=""><span data-lang="fr">La tolérance s'applique à la pièce non contrainte (pièces souples, joints, tôles minces).</span><span data-lang="en">The tolerance applies to the unrestrained part (flexible parts, seals, thin sheet).</span></td></tr>
+                                    <tr><td><strong>CZ</strong></td><td data-i18n=""><strong><span data-lang="fr">Zone commune</span><span data-lang="en">Common zone</span></strong></td><td data-i18n=""><span data-lang="fr">Une seule zone pour plusieurs éléments séparés, par exemple deux faces qui doivent être coplanaires.</span><span data-lang="en">One zone for several separate features, for example two faces that must be coplanar.</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="callout callout--soft">
+                        <p data-i18n=""><span data-lang="fr"><strong>Exemple de bonus Ⓜ :</strong> un trou Ø 10 +0,2/0 porte une localisation Ø 0,1 Ⓜ. Au maximum de matière (trou à Ø 10,0), la tolérance de position vaut Ø 0,1. Si le trou mesure Ø 10,2, elle passe à Ø 0,1 + 0,2 = Ø 0,3 : la vis passe toujours, et l'atelier rebute moins de pièces bonnes.</span><span data-lang="en"><strong>Ⓜ bonus example:</strong> a Ø 10 +0.2/0 hole carries a Ø 0.1 Ⓜ position. At maximum material (hole at Ø 10.0), the position tolerance is Ø 0.1. If the hole measures Ø 10.2, it becomes Ø 0.1 + 0.2 = Ø 0.3: the bolt still fits, and the shop scraps fewer good parts.</span></p>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr">L'exigence de l'enveloppe Ⓔ est la compagne naturelle des ajustements : un Ø 20 H7 Ⓔ garantit que l'arbre correspondant entrera, même si l'alésage est légèrement ovalisé. Le choix de l'ajustement lui-même est détaillé dans le <a href="/blog/ajustements-iso-286-tableau-h7-g6/">calculateur d'ajustements ISO 286</a>.</span><span data-lang="en">The envelope requirement Ⓔ is the natural companion of fits: Ø 20 H7 Ⓔ guarantees the mating shaft will enter, even if the bore is slightly oval. Choosing the fit itself is covered in the <a href="/blog/ajustements-iso-286-tableau-h7-g6/">ISO 286 fit calculator</a>.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="convertisseur">
+                    <h2 data-i18n=""><span data-lang="fr">4. Convertisseur : tolérance ± et tolérance de position</span><span data-lang="en">4. Converter: ± tolerance and position tolerance</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Saisissez l'écart en X et en Y (une tolérance ± ou un écart mesuré par rapport à la position théorique) : le calcul donne le diamètre de position correspondant, 2·√(X² + Y²). Ajoutez la tolérance de position du plan pour savoir si la pièce est conforme.</span><span data-lang="en">Enter the deviation in X and Y (a ± tolerance or a measured deviation from the theoretical position): the calculation gives the matching position diameter, 2·√(X² + Y²). Add the drawing's position tolerance to check conformity.</span></p>
+                    <form class="calc" id="tpCalc" onsubmit="return false">
+                        <div class="calc__fields">
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">Écart en X (mm)</span><span data-lang="en">Deviation in X (mm)</span></span><input id="tpX" type="number" inputmode="decimal" step="any" value="0.1"></label>
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">Écart en Y (mm)</span><span data-lang="en">Deviation in Y (mm)</span></span><input id="tpY" type="number" inputmode="decimal" step="any" value="0.1"></label>
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">Tolérance de position Ø (mm)</span><span data-lang="en">Position tolerance Ø (mm)</span></span><input id="tpT" type="number" inputmode="decimal" min="0" step="any" value="0.25"></label>
+                        </div>
+                        <dl class="calc__out" aria-live="polite">
+                            <div><dt><span data-i18n=""><span data-lang="fr">Position équivalente</span><span data-lang="en">Equivalent position</span></span></dt><dd id="tpD">—</dd></div>
+                            <div><dt><span data-i18n=""><span data-lang="fr">± équivalent dans Ø t</span><span data-lang="en">± equivalent within Ø t</span></span></dt><dd id="tpS">—</dd></div>
+                        </dl>
+                        <p class="calc__verdict" id="tpV"></p>
+                    </form>
+                    <p data-i18n=""><span data-lang="fr">La deuxième ligne donne l'inverse : la zone carrée ± t / (2√2) qui tient dans la tolérance Ø t. C'est le piège classique quand on remplace des cotes ± par une localisation : à valeur égale, la zone cylindrique est 57 % plus grande en surface que le carré qu'elle contient, mais elle ne couvre pas les coins du carré ± t/2.</span><span data-lang="en">The second line gives the reverse: the square zone ± t / (2√2) that fits within Ø t. That is the classic trap when replacing ± dimensions with a position tolerance: for the same value, the cylindrical zone is 57 % larger in area than the square it contains, but it does not cover the corners of the ± t/2 square.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="faq">
+                    <h2 data-i18n=""><span data-lang="fr">5. FAQ</span><span data-lang="en">5. FAQ</span></h2>
+                    <h3 data-i18n=""><span data-lang="fr">Quelle est la différence entre planéité et parallélisme ?</span><span data-lang="en">What is the difference between flatness and parallelism?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">La planéité est une tolérance de forme : elle ne fait référence à rien d'autre que la surface elle-même. Le parallélisme est une tolérance d'orientation par rapport à une référence ; il limite aussi, au passage, la planéité de la surface tolérancée.</span><span data-lang="en">Flatness is a form tolerance: it refers to nothing but the surface itself. Parallelism is an orientation tolerance relative to a datum; it also limits, as a side effect, the flatness of the toleranced surface.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Quelle est la différence entre coaxialité et concentricité ?</span><span data-lang="en">What is the difference between coaxiality and concentricity?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Elles partagent le symbole ◎ dans l'ISO 1101. La concentricité s'applique à un point (le centre d'un cercle dans une section), la coaxialité à un axe. La zone est un cercle ou un cylindre de diamètre t centré sur la référence.</span><span data-lang="en">They share the ◎ symbol in ISO 1101. Concentricity applies to a point (the centre of a circle in one section), coaxiality to an axis. The zone is a circle or a cylinder of diameter t centred on the datum.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Comment convertir une tolérance ± en tolérance de position ?</span><span data-lang="en">How do you convert a ± tolerance into a position tolerance?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Une zone carrée de ± x en X et en Y a pour demi-diagonale x√2 : la tolérance de position équivalente qui la contient est Ø 2√2·x, soit Ø 0,28 pour ± 0,1. Inversement, une tolérance Ø t contient une zone carrée de ± t / (2√2), soit ± 0,035 pour Ø 0,1.</span><span data-lang="en">A square zone of ± x in X and Y has a half-diagonal of x√2: the equivalent position tolerance containing it is Ø 2√2·x, i.e. Ø 0.28 for ± 0.1. Conversely, a Ø t tolerance contains a square zone of ± t / (2√2), i.e. ± 0.035 for Ø 0.1.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Que signifie le Ⓜ dans un cadre de tolérance ?</span><span data-lang="en">What does Ⓜ mean in a feature control frame?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">L'exigence du maximum de matière (ISO 2692) : la tolérance indiquée vaut quand l'élément est à son maximum de matière, et elle augmente de l'écart à cet état. Un trou Ø 10 +0,2/0 avec une localisation Ø 0,1 Ⓜ accepte Ø 0,3 s'il mesure Ø 10,2.</span><span data-lang="en">The maximum material requirement (ISO 2692): the stated tolerance applies at maximum material condition and grows by the departure from it. A Ø 10 +0.2/0 hole with a Ø 0.1 Ⓜ position accepts Ø 0.3 if it measures Ø 10.2.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Les symboles ISO et ASME sont-ils les mêmes ?</span><span data-lang="en">Are ISO and ASME symbols the same?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Pour l'essentiel, oui. Mais l'ASME Y14.5-2018 a supprimé la concentricité et la symétrie, que l'ISO 1101 conserve, et les règles de lecture diffèrent : l'ISO applique par défaut le principe d'indépendance (ISO 8015), l'ASME la règle de l'enveloppe (Rule #1). Un plan doit dire quelle norme s'applique.</span><span data-lang="en">Mostly, yes. But ASME Y14.5-2018 removed concentricity and symmetry, which ISO 1101 keeps, and the reading rules differ: ISO applies the independency principle by default (ISO 8015), ASME the envelope rule (Rule #1). A drawing must state which standard applies.</span></p>
+                </section>
+
+                <section class="blog-section article-related">
+                    <h2 data-i18n=""><span data-lang="fr">À lire aussi</span><span data-lang="en">Read next</span></h2>
+                    <div class="media-grid">
+                        <a href="/blog/tolerances-generales-iso-2768/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">Tolérances générales ISO 2768 : f, m, c, v et H, K, L</span><span data-lang="en">ISO 2768 general tolerances: f, m, c, v and H, K, L</span></h3>
+                            <p data-i18n=""><span data-lang="fr">Ce que couvre la mention du cartouche quand aucun symbole n'est indiqué.</span><span data-lang="en">What the title-block note covers when no symbol is shown.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                        <a href="/blog/ajustements-iso-286-tableau-h7-g6/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">Ajustements ISO 286 : H7/g6, H7/p6… et calculateur</span><span data-lang="en">ISO 286 fits: H7/g6, H7/p6… and calculator</span></h3>
+                            <p data-i18n=""><span data-lang="fr">Jeux et serrages calculés pour votre diamètre.</span><span data-lang="en">Clearances and interferences for your diameter.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                    </div>
+                </section>
+
+                <footer class="article-footer">
+                    <div class="article-tags">
+                        <span class="article-tag">ISO 1101</span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Tolérances géométriques</span><span data-lang="en">Geometrical tolerances</span></span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Mise en plan</span><span data-lang="en">Drawings</span></span>
+                        <span class="article-tag">SOLIDWORKS</span>
+                    </div>
+                    <div class="article-nav">
+                        <a href="/blog/" class="back-link" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                        <a href="/#contact" class="hero-btn" data-i18n=""><span data-lang="fr">Parler d'un projet</span><span data-lang="en">Discuss a project</span></a>
+                    </div>
+                </footer>
+
+            </article>
+        </div>
+    </main>
+
+    <script>
+// Convertisseur ± ↔ tolérance de position : Ø = 2·√(x² + y²) ; zone carrée inscrite ± t/(2√2).
+    (function () {
+        var $ = function (id) { return document.getElementById(id); };
+        var xIn = $('tpX'), yIn = $('tpY'), tIn = $('tpT');
+        if (!xIn) return;
+        function en() { return document.documentElement.lang === 'en'; }
+        function num(v) { var s = String(Math.round(v * 1000) / 1000); return en() ? s : s.replace('.', ','); }
+        function val(el) { return parseFloat(String(el.value).replace(',', '.')); }
+        function run() {
+            var x = Math.abs(val(xIn)), y = Math.abs(val(yIn)), t = val(tIn);
+            if (!(x >= 0) || !(y >= 0)) { $('tpD').textContent = '—'; }
+            else { $('tpD').textContent = 'Ø ' + num(2 * Math.sqrt(x * x + y * y)) + ' mm'; }
+            if (t > 0) { $('tpS').textContent = '± ' + num(t / (2 * Math.SQRT2)) + ' mm'; } else { $('tpS').textContent = '—'; }
+            if (x >= 0 && y >= 0 && t > 0) {
+                var ok = 2 * Math.sqrt(x * x + y * y) <= t + 1e-9;
+                $('tpV').textContent = ok ? (en() ? 'Within the position tolerance.' : 'Dans la tolérance de position.')
+                                          : (en() ? 'Outside the position tolerance.' : 'Hors tolérance de position.');
+            } else { $('tpV').textContent = ''; }
+        }
+        [xIn, yIn, tIn].forEach(function (el) { el.addEventListener('input', run); });
+        window.addEventListener('langchange', run);
+        run();
+    })();
+    </script>
+    <script src="/assets/js/loader.js"></script>
+    <script src="/assets/js/visitor-intelligence.js"></script>
+
+{{> footer }}
+{{> chatbot }}
+</body></html>

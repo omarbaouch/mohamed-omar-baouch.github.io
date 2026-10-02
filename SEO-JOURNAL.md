@@ -2,6 +2,31 @@
 
 Une entrée par passage, la plus récente en haut. Données : branche `seo-data` (gsc-report.md).
 
+## CONSIGNE DU PROPRIÉTAIRE (02/10/2026) — priorité : 1 000 clics Google par jour
+
+L'indexation est quasi terminée (33 / 34). **La priorité de chaque passage devient la croissance des clics** ; l'indexation reste un contrôle (toute page nouvelle doit être indexée), plus l'objectif principal.
+
+**Ordre de grandeur** : 0,4 clic/jour aujourd'hui pour ~40 impressions/jour. 1 000 clics/jour en positions 1–3 (CTR 3 à 5 %) demandent ~25 000 à 30 000 impressions/jour : la niche PDM/PLM n'y suffira pas. Leviers, par ordre d'effet attendu :
+1. **Mémos / outils à fort volume** pour bureaux d'études, étudiants et techniciens (indexés en 2–3 jours, cf. 28/09 → 01/10) : un par passage, bilingue, avec calculateur quand c'est utile, valeurs normalisées vérifiées. Pistes : symboles de soudure (ISO 2553), conversions pouce/mm et unités, aciers (S235, S355, 42CrMo4 : caractéristiques), dureté (HRC/HB/HV), clavettes (DIN 6885), circlips, roulements (désignations), engrenages (module), ressorts, filetages gaz G/BSP et NPT, cotation fonctionnelle, SOLIDWORKS étudiant / raccourcis / erreurs, coefficient de dilatation, frottement.
+2. **Requêtes déjà en positions 5–20** (rapport GSC) : renforcer la page qui les porte.
+3. **Taux de clic** des pages déjà vues (titres, descriptions) — sans retoucher une page en test.
+4. **Maillage** : chaque nouveau mémo relié depuis 2 mémos voisins et l'index du blog.
+5. Piste structurelle à proposer au propriétaire avant d'engager : des URL anglaises distinctes (/en/…) pour viser le marché anglophone, beaucoup plus large (aujourd'hui le contenu anglais est dans les pages françaises et n'est pas indexé).
+
+## 2026-10-02 (2) — nouveau mémo : tolérances géométriques ISO 1101
+
+**Action** : `/blog/tolerances-geometriques-symboles-iso-1101/` (requêtes visées : « tolérance géométrique », « symbole planéité / perpendicularité / tolérance de position », « cadre de tolérance », « coaxialité concentricité »). Aucun recoupement : la page ISO 2768 ne traite que les tolérances générales H, K, L.
+- tableau des 14 caractéristiques ISO 1101 : symbole, famille, référence nécessaire ou non, zone de tolérance ;
+- lecture du cadre (exemple ⌖ Ø 0,1 Ⓜ | A | B | C), références primaire / secondaire / tertiaire, cotes encadrées ;
+- modificateurs Ⓜ Ⓛ Ⓔ Ⓟ Ⓕ CZ, exemple chiffré du bonus Ⓜ ;
+- convertisseur ± ↔ tolérance de position (Ø = 2√(x² + y²), carré inscrit ± t/(2√2)) avec verdict de conformité ;
+- FAQ (5 questions, JSON-LD) : planéité vs parallélisme, coaxialité vs concentricité, conversion ±, Ⓜ, ISO vs ASME (ASME Y14.5-2018 sans concentricité ni symétrie ; ISO 8015 indépendance vs Rule #1).
+- carte en tête de /blog/, image OG `tol-geo`, liens depuis tolerances-generales-iso-2768 (section H, K, L) et ajustements-iso-286 (exigence de l'enveloppe Ⓔ) ; baseline SEO régénérée (page nouvelle).
+
+Vérifié : build, verify:seo, Chromium en-US 1280/390 (français affiché, 14 symboles rendus, pas d'erreur JS, pas de défilement horizontal, convertisseur : ± 0,1 / ± 0,1 → Ø 0,283).
+
+**Prochain passage** : un nouveau mémo à fort volume (symboles de soudure ISO 2553 ou conversion de dureté HRC/HB/HV), puis vérifier l'indexation de celui-ci.
+
 ## 2026-10-02 — requête « ebom » : page eBOM vs mBOM renforcée
 
 **Chiffres (31/08 → 28/09)** : 12 clics (0,4/jour), 1 147 impressions, CTR 1,0 %, position moyenne 14,5 (15,4 au passage précédent). **Indexation : 33 / 34** : rugosité, modèle de nomenclature et l'étude de cas migration internationale sont indexées.

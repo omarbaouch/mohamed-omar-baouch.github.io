@@ -557,6 +557,24 @@
     "h1": "Tolérances générales ISO 2768 : tableaux f, m, c, v et H, K, LISO 2768 general tolerances: f, m, c, v and H, K, L tables",
     "lang": "fr"
   },
+  "/blog/tolerances-geometriques-symboles-iso-1101/": {
+    "title": "Tolérances géométriques : tableau des 14 symboles ISO 1101 + convertisseur",
+    "description": "Les 14 symboles de tolérancement géométrique ISO 1101 (planéité, perpendicularité, localisation, coaxialité, battement…) : zone de tolérance, référence nécessaire ou non, lecture du cadre, modificateurs Ⓜ Ⓔ Ⓟ et convertisseur ± vers tolérance de position.",
+    "canonical": "https://www.baouch.fr/blog/tolerances-geometriques-symboles-iso-1101/",
+    "robots": null,
+    "ogTitle": "Tolérances géométriques : les 14 symboles ISO 1101 et leur lecture",
+    "ogDescription": "Planéité, perpendicularité, localisation, battement : les 14 symboles, leur zone de tolérance et un convertisseur ± vers Ø de position.",
+    "ogUrl": "https://www.baouch.fr/blog/tolerances-geometriques-symboles-iso-1101/",
+    "ogImage": "https://www.baouch.fr/img/og/tol-geo.jpg",
+    "ogType": "article",
+    "twitterTitle": "Tolérances géométriques : les 14 symboles ISO 1101 et leur lecture",
+    "twitterDescription": "Planéité, perpendicularité, localisation, battement : les 14 symboles, leur zone de tolérance et un convertisseur ± vers Ø de position.",
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList,FAQPage"
+    ],
+    "h1": "Tolérances géométriques : les 14 symboles ISO 1101 et leur lectureGeometrical tolerances: the 14 ISO 1101 symbols and how to read them",
+    "lang": "fr"
+  },
   "/": {
     "title": "Mohamed Omar Baouch | Ingénieur Plasturgie & Consultant PDM/PLM",
     "description": "Portfolio de Mohamed Omar Baouch - Ingénieur Plasturgie et consultant PDM/PLM spécialisé dans l'optimisation des processus de développement produit",

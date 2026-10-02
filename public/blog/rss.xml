@@ -5,8 +5,16 @@
     <link>https://www.baouch.fr/blog/</link>
     <description>Articles de fond et retours d'expérience terrain sur le PDM, le PLM, SOLIDWORKS et la gestion des données produit.</description>
     <language>fr-FR</language>
-    <lastBuildDate>Mon, 28 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 02 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.baouch.fr/blog/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Tolérances géométriques : les 14 symboles ISO 1101 et leur lecture</title>
+      <link>https://www.baouch.fr/blog/tolerances-geometriques-symboles-iso-1101/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/tolerances-geometriques-symboles-iso-1101/</guid>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Les 14 symboles de tolérancement géométrique ISO 1101 (planéité, perpendicularité, localisation, coaxialité, battement…) : zone de tolérance, référence nécessaire ou non, lecture du cadre, modificateurs Ⓜ Ⓔ Ⓟ et convertisseur ± vers tolérance de position.</description>
+      <enclosure url="https://www.baouch.fr/img/og/tol-geo.jpg" type="image/jpeg"/>
+    </item>
     <item>
       <title>Ajustements ISO 286 : tableau H7/g6, H7/h6, H7/p6 et calculateur de jeu</title>
       <link>https://www.baouch.fr/blog/ajustements-iso-286-tableau-h7-g6/</link>
