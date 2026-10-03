@@ -80,6 +80,8 @@
                     <source media="(max-aspect-ratio: 1/1)" srcset="/film/hero/mob/000.webp 720w, /film/hero/mob/000@2x.webp 1440w" sizes="100vw">
                     <img src="/film/hero/desk/000.webp" srcset="/film/hero/desk/000.webp 1440w, /film/hero/desk/000@2x.webp 2880w" sizes="100vw" alt="" width="1440" height="810" fetchpriority="high" decoding="async">
                 </picture>
+                <!-- en anglais, les affiches anglaises (/film/hero/en/…) : la langue est déjà posée sur <html> par head-lang -->
+                <script>(function(p){var f=function(l){var en=l==='en';p.querySelectorAll('source,img').forEach(function(e){['srcset','src'].forEach(function(a){var v=e.getAttribute(a);if(v)e.setAttribute(a,en?v.replace(/\/film\/hero\/(?!en\/)/g,'/film/hero/en/'):v.replace(/\/film\/hero\/en\//g,'/film/hero/'))})})};if(document.documentElement.lang==='en')f('en');addEventListener('langchange',function(e){f(e.detail.lang)})})(document.currentScript.previousElementSibling)</script>
                 <canvas class="fh-canvas" aria-hidden="true"></canvas>
                 <div class="fh-veil" aria-hidden="true"></div>
                 <div class="container-site hero-inner fh-intro">

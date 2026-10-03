@@ -6,7 +6,8 @@
 <!--
   Rendu hors ligne de la scène du hero (affiches du site, images du film de présentation).
   La scène elle-même est celle du site : src/js/modules/hero-scene.js.
-  window.__frame(u, variant) rend l'avancement u ∈ [0, 1] et renvoie l'image WebP.
+  window.__frame(u, variant, quality, scale) rend l'avancement u ∈ [0, 1] et renvoie l'image WebP
+  (scale 2 : version haute densité des affiches). ?lang=en : textes de la scène en anglais.
 -->
 <style>
 @font-face { font-family: 'Instrument Sans'; src: url('/public/fonts/instrument-sans-var.woff2') format('woff2'); font-weight: 400 700; }
@@ -22,13 +23,14 @@ import { createHeroScene } from '/src/js/modules/hero-scene.js';
 
 const canvas = document.createElement('canvas');
 document.body.append(canvas);
-const hero = await createHeroScene({ canvas, atlasScale: 1 });
+const lang = new URLSearchParams(location.search).get('lang') || 'fr';
+const hero = await createHeroScene({ canvas, atlasScale: 1, lang });
 const out = document.createElement('canvas');
 const ctx = out.getContext('2d');
 
-window.__frame = (u, variant, quality = 0.8) => {
+window.__frame = (u, variant, quality = 0.8, scale = 1) => {
   const portrait = variant === 'mob';
-  const [W, H] = portrait ? [720, 1280] : [1440, 810];
+  const [W, H] = (portrait ? [720, 1280] : [1440, 810]).map((v) => v * scale);
   hero.setSize(W, H, 1.5); // suréchantillonnage
   hero.render(u, 0, portrait);
   out.width = W; out.height = H;

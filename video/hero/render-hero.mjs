@@ -1,5 +1,6 @@
 // Rend le film du hero en séquence d'images WebP (desktop 1440×810 et mobile 720×1280).
-// Usage : node video/hero/render-hero.mjs [--variant desk|mob] [--frames 240] [--stills 0,0.5,1] [--workers 3]
+// Usage : node video/hero/render-hero.mjs [--variant desk|mob] [--frames 240] [--stills 0,0.5,1] [--workers 3] [--lang fr|en]
+//         node video/hero/render-hero.mjs --posters --lang en   # affiches du site → public/film/hero/en/
 // Le dépôt doit être servi à la racine : npx http-server -p 8090 -s -c-1 .
 import { chromium } from 'playwright';
 import { mkdirSync, writeFileSync, rmSync } from 'node:fs';
@@ -11,6 +12,7 @@ const variant = arg('--variant', 'desk');
 const frames = +arg('--frames', variant === 'mob' ? 120 : 240);
 const workers = +arg('--workers', 3);
 const stills = arg('--stills', null);
+const lang = arg('--lang', 'fr');
 const here = new URL('.', import.meta.url).pathname;
 // séquence complète (film de présentation) ; le site n'en garde que quelques affiches
 const outDir = arg('--out', join(here, 'frames', variant));
@@ -22,7 +24,7 @@ const browser = await chromium.launch({
 async function open() {
   const page = await browser.newPage({ viewport: { width: 800, height: 600 } });
   page.on('pageerror', (e) => console.error('pageerror', e.message));
-  await page.goto(base + '/video/hero/hero-film.html');
+  await page.goto(base + '/video/hero/hero-film.html?lang=' + lang);
   await page.waitForFunction(() => window.__ready === true, null, { timeout: 120000 });
   return page;
 }
@@ -40,12 +42,28 @@ if (process.argv.includes('--anchors-only')) {
   process.exit(0);
 }
 
+if (process.argv.includes('--posters')) {
+  // les affiches du site : première image (1× et 2×) et rosace pour le mouvement réduit
+  const root = join(here, '../../public/film/hero', lang === 'fr' ? '' : lang);
+  const page = await open();
+  for (const [v, rosace] of [['desk', 139 / 239], ['mob', 69 / 119]]) {
+    const dir = join(root, v); mkdirSync(dir, { recursive: true });
+    const name = String(Math.round(rosace * (v === 'mob' ? 119 : 239))).padStart(3, '0');
+    save(join(dir, '000.webp'), await page.evaluate(([v]) => window.__frame(0, v), [v]));
+    save(join(dir, '000@2x.webp'), await page.evaluate(([v]) => window.__frame(0, v, 0.8, 2), [v]));
+    save(join(dir, `${name}.webp`), await page.evaluate(([u, v]) => window.__frame(u, v), [rosace, v]));
+    console.log('affiches', v, '→', dir);
+  }
+  await browser.close();
+  process.exit(0);
+}
+
 if (stills) {
   const dir = join(here, '.stills'); mkdirSync(dir, { recursive: true });
   const page = await open();
   for (const u of stills.split(',').map(Number)) {
     const t = Date.now();
-    save(join(dir, `${variant}-${u.toFixed(3)}.webp`), await page.evaluate(([u, v]) => window.__frame(u, v), [u, variant]));
+    save(join(dir, `${variant}-${lang}-${u.toFixed(3)}.webp`), await page.evaluate(([u, v]) => window.__frame(u, v), [u, variant]));
     console.log(u, `${Date.now() - t} ms`);
   }
   await browser.close();

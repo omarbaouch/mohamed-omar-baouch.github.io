@@ -50,7 +50,8 @@ Scénario : des centaines de fichiers en tourbillon, aux noms que tout bureau d'
 replie en rosace de nomenclature → tout converge en une seule fiche, la « source unique ».
 
 Le même module sert au rendu hors ligne (`video/hero/hero-film.html` + `render-hero.mjs`) : les
-4 affiches de `public/film/hero/` (image d'attente, version sans animation) et la séquence
+affiches de `public/film/hero/` (image d'attente, version sans animation ; `en/` pour le site en
+anglais : les textes peints dans la scène suivent la langue choisie) et la séquence
 complète `video/hero/frames/` (non versionnée) utilisée par le film de présentation.
 
 ```sh
@@ -58,4 +59,6 @@ npx http-server -p 8090 -s -c-1 . &
 node video/hero/render-hero.mjs --variant desk     # séquence → video/hero/frames/desk
 node video/hero/render-hero.mjs --variant mob
 node video/hero/render-hero.mjs --stills 0,0.5,1   # images de contrôle → video/hero/.stills/
+node video/hero/render-hero.mjs --posters --lang fr # affiches du site → public/film/hero/
+node video/hero/render-hero.mjs --posters --lang en # affiches anglaises → public/film/hero/en/
 ```

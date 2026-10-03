@@ -27,22 +27,60 @@ const MONO = 'ui-monospace, "SF Mono", Menlo, Consolas, "DejaVu Sans Mono", mono
 const SANS = '"Instrument Sans Variable", "Instrument Sans", system-ui, sans-serif';
 
 // ---------------------------------------------------------------- les fichiers
-const CHAOS_BASE = [
-  'piece_finale', 'piece_finale_V2', 'piece_finale_V2_OK', 'piece_finale_V3_def', 'NE_PAS_TOUCHER',
-  'Copie de support', 'support (2)', 'support_modif_jean', 'plan_client_VRAI', 'ASSEMBLAGE_GENERAL_old',
-  'bride_v7_final_final', 'test', 'test2', 'Nouveau document', 'carter_ok_marc', 'arbre_moteur_BON',
-  'a_valider_URGENT', 'capot_v4 (conflit)', 'rev_C_ou_D', 'piece_sans_nom_12', 'Copie de Copie de platine',
-  'ancien_NE_PLUS_UTILISER', 'moteur_v2_bis', 'chassis_def_OK2', 'support_final_v9', 'tole_pliee_v3',
-  'ASM_client_modif', 'plan_A3_imprime', 'axe_BON_celui_la', 'embase (copie)', 'couvercle_vieux',
-  'SAV_2019_reprise', 'bati_version_marc', 'flasque_ok_ok', 'vis_speciale_v5', 'ressort_test_final',
-];
+// tous les textes peints dans la scène, dans les deux langues du site
+const TEXT = {
+  fr: {
+    chaos: [
+      'piece_finale', 'piece_finale_V2', 'piece_finale_V2_OK', 'piece_finale_V3_def', 'NE_PAS_TOUCHER',
+      'Copie de support', 'support (2)', 'support_modif_jean', 'plan_client_VRAI', 'ASSEMBLAGE_GENERAL_old',
+      'bride_v7_final_final', 'test', 'test2', 'Nouveau document', 'carter_ok_marc', 'arbre_moteur_BON',
+      'a_valider_URGENT', 'capot_v4 (conflit)', 'rev_C_ou_D', 'piece_sans_nom_12', 'Copie de Copie de platine',
+      'ancien_NE_PLUS_UTILISER', 'moteur_v2_bis', 'chassis_def_OK2', 'support_final_v9', 'tole_pliee_v3',
+      'ASM_client_modif', 'plan_A3_imprime', 'axe_BON_celui_la', 'embase (copie)', 'couvercle_vieux',
+      'SAV_2019_reprise', 'bati_version_marc', 'flasque_ok_ok', 'vis_speciale_v5', 'ressort_test_final',
+    ],
+    def: '_def',
+    hot: ['⚠ CONFLIT DE VERSION', '⚠ DOUBLON', '⚠ VERROUILLÉ PAR ?', '⚠ RÉFÉRENCE INTROUVABLE'],
+    who: ['?', 'jean', 'marc', 'stagiaire', 'inconnu'],
+    modified: (d, m) => `modifié le ${d}/0${m}`,
+    designations: [
+      'Bride arrière', 'Palier', 'Rotor cuivre', 'Turbine', 'Bague de blocage', 'Arbre moteur', 'Carter', 'Support moteur',
+      'Platine', 'Capot', 'Châssis', 'Embase', 'Flasque', 'Couvercle', 'Axe', 'Tôle pliée', 'Entretoise', 'Joint',
+      'Roulement', 'Équerre', 'Glissière', 'Vérin', 'Pignon', 'Moyeu', 'Clavette', 'Goupille', 'Rondelle', 'Écrou frein',
+    ],
+    subs: ['Fondations CAO', 'Coffre PDM', 'Workflows', 'Intégration ERP', 'Adoption'],
+    product: 'Produit · source unique',
+    rev: 'RÉV.', released: 'PUBLIÉ',
+    single: 'Source unique',
+    tally: '440 fichiers → 296 références · 144 doublons fusionnés · 0 conflit',
+  },
+  en: {
+    chaos: [
+      'final_part', 'final_part_V2', 'final_part_V2_OK', 'final_part_V3_final', 'DO_NOT_TOUCH',
+      'Copy of bracket', 'bracket (2)', 'bracket_edit_john', 'client_drawing_REAL', 'MAIN_ASSEMBLY_old',
+      'flange_v7_final_final', 'test', 'test2', 'New document', 'housing_ok_mark', 'motor_shaft_GOOD',
+      'to_approve_URGENT', 'cover_v4 (conflict)', 'rev_C_or_D', 'unnamed_part_12', 'Copy of Copy of plate',
+      'old_DO_NOT_USE', 'motor_v2_alt', 'frame_final_OK2', 'bracket_final_v9', 'bent_sheet_v3',
+      'ASM_client_edit', 'A3_drawing_printed', 'shaft_GOOD_this_one', 'base (copy)', 'lid_old',
+      'service_2019_rework', 'frame_mark_version', 'end_plate_ok_ok', 'custom_screw_v5', 'spring_test_final',
+    ],
+    def: '_final',
+    hot: ['⚠ VERSION CONFLICT', '⚠ DUPLICATE', '⚠ LOCKED BY ?', '⚠ REFERENCE NOT FOUND'],
+    who: ['?', 'john', 'mark', 'intern', 'unknown'],
+    modified: (d, m) => `modified 0${m}/${d}`,
+    designations: [
+      'Rear flange', 'Bearing block', 'Copper rotor', 'Turbine', 'Locking ring', 'Motor shaft', 'Housing', 'Motor bracket',
+      'Plate', 'Cover', 'Frame', 'Base', 'End plate', 'Lid', 'Shaft', 'Bent sheet', 'Spacer', 'Seal',
+      'Bearing', 'Angle bracket', 'Slide rail', 'Cylinder', 'Gear', 'Hub', 'Key', 'Pin', 'Washer', 'Lock nut',
+    ],
+    subs: ['CAD foundations', 'PDM vault', 'Workflows', 'ERP integration', 'Adoption'],
+    product: 'Product · single source',
+    rev: 'REV.', released: 'RELEASED',
+    single: 'Single source',
+    tally: '440 files → 296 references · 144 duplicates merged · 0 conflicts',
+  },
+};
 const EXT = ['.SLDPRT', '.SLDASM', '.SLDDRW', '.SLDPRT', '.SLDPRT', '.xlsx', '.pdf', '.STEP'];
-const DESIGNATIONS = [
-  'Bride arrière', 'Palier', 'Rotor cuivre', 'Turbine', 'Bague de blocage', 'Arbre moteur', 'Carter', 'Support moteur',
-  'Platine', 'Capot', 'Châssis', 'Embase', 'Flasque', 'Couvercle', 'Axe', 'Tôle pliée', 'Entretoise', 'Joint',
-  'Roulement', 'Équerre', 'Glissière', 'Vérin', 'Pignon', 'Moyeu', 'Clavette', 'Goupille', 'Rondelle', 'Écrou frein',
-];
-const SUBS = ['Fondations CAO', 'Coffre PDM', 'Workflows', 'Intégration ERP', 'Adoption'];
 const COLS = 8, ROWS = 37;
 const SLOTS = COLS * ROWS; // 296 cases par planche
 const BASE_W = 512, BASE_H = 108; // case de référence (les planches sont réduites selon l'appareil)
@@ -65,9 +103,9 @@ async function atlas(draw, R, maxAniso) {
   t.anisotropy = maxAniso;
   return t;
 }
-function drawChaos(g, s) {
-  const suffix = s >= CHAOS_BASE.length ? ['', '_v' + (2 + (s % 7)), ' (' + (1 + (s % 4)) + ')', '_OK', '_def'][s % 5] : '';
-  const name = CHAOS_BASE[s % CHAOS_BASE.length] + suffix + EXT[s % EXT.length];
+function drawChaos(g, s, L) {
+  const suffix = s >= L.chaos.length ? ['', '_v' + (2 + (s % 7)), ' (' + (1 + (s % 4)) + ')', '_OK', L.def][s % 5] : '';
+  const name = L.chaos[s % L.chaos.length] + suffix + EXT[s % EXT.length];
   const hot = hash(s, 3) < 0.14; // conflit, doublon, verrou perdu
   box(g, 6, 6, BASE_W - 12, BASE_H - 12, 10);
   g.fillStyle = hot ? '#2a1710' : '#121b28'; g.fill();
@@ -80,17 +118,16 @@ function drawChaos(g, s) {
   g.fillText(name.length > 27 ? name.slice(0, 26) + '…' : name, 76, 60);
   g.font = `18px ${MONO}`;
   g.fillStyle = hot ? '#efa471' : '#6d7f95';
-  g.fillText(hot ? ['⚠ CONFLIT DE VERSION', '⚠ DOUBLON', '⚠ VERROUILLÉ PAR ?', '⚠ RÉFÉRENCE INTROUVABLE'][s % 4]
-    : `modifié le ${1 + (s % 28)}/0${1 + (s % 9)} · ${['?', 'jean', 'marc', 'stagiaire', 'inconnu'][s % 5]}`, 76, 88);
+  g.fillText(hot ? L.hot[s % 4] : `${L.modified(1 + (s % 28), 1 + (s % 9))} · ${L.who[s % 5]}`, 76, 88);
 }
-const cleanName = (s) => {
-  if (s === 0) return { code: 'ASM-BAOUCH', des: 'Produit · source unique', rev: '2026' };
-  if (s <= 5) return { code: `ASM-0${s}`, des: SUBS[s - 1], rev: 'C' };
+const cleanName = (s, L) => {
+  if (s === 0) return { code: 'ASM-BAOUCH', des: L.product, rev: '2026' };
+  if (s <= 5) return { code: `ASM-0${s}`, des: L.subs[s - 1], rev: 'C' };
   const kind = s % 9 === 0 ? 'DRW' : s % 5 === 0 ? 'ASM' : 'PRT';
-  return { code: `${kind}-${String(1000 + ((s * 37) % 8999)).padStart(4, '0')}`, des: DESIGNATIONS[s % DESIGNATIONS.length], rev: 'ABCDE'[s % 5] };
+  return { code: `${kind}-${String(1000 + ((s * 37) % 8999)).padStart(4, '0')}`, des: L.designations[s % L.designations.length], rev: 'ABCDE'[s % 5] };
 };
-function drawClean(g, s) {
-  const n = cleanName(s);
+function drawClean(g, s, L) {
+  const n = cleanName(s, L);
   const top = s <= 5;
   box(g, 6, 6, BASE_W - 12, BASE_H - 12, 10);
   g.fillStyle = top ? '#152a41' : '#0e1b2b'; g.fill();
@@ -101,13 +138,13 @@ function drawClean(g, s) {
   g.font = `500 25px ${SANS}`;
   g.fillStyle = '#b6c2d0'; g.fillText(n.des, 34, 84);
   g.font = `17px ${MONO}`;
-  const chip = `RÉV.${n.rev} · PUBLIÉ`;
+  const chip = `${L.rev}${n.rev} · ${L.released}`;
   const w = g.measureText(chip).width + 22;
   box(g, BASE_W - w - 20, 22, w, 32, 16);
   g.fillStyle = top ? 'rgba(239,164,113,.18)' : 'rgba(155,198,230,.15)'; g.fill();
   g.fillStyle = top ? '#efa471' : '#9bc6e6'; g.fillText(chip, BASE_W - w - 9, 44);
 }
-function heroCardTexture(R, maxAniso) {
+function heroCardTexture(R, maxAniso, L) {
   const W = 2048, H = 560;
   const c = document.createElement('canvas');
   c.width = Math.round(W * R); c.height = Math.round(H * R);
@@ -120,13 +157,13 @@ function heroCardTexture(R, maxAniso) {
   g.lineWidth = 5; g.strokeStyle = '#efa471'; g.stroke();
   g.fillStyle = '#efa471'; g.fillRect(8, 60, 22, H - 120);
   g.font = `600 64px ${MONO}`;
-  g.fillStyle = '#9bc6e6'; g.fillText('ASM-BAOUCH · RÉV.2026', 96, 128);
+  g.fillStyle = '#9bc6e6'; g.fillText(`ASM-BAOUCH · ${L.rev}2026`, 96, 128);
   g.font = `500 150px ${SANS}`;
-  g.fillStyle = '#f4f3f0'; g.fillText('Source unique', 90, 292);
+  g.fillStyle = '#f4f3f0'; g.fillText(L.single, 90, 292);
   g.font = `44px ${MONO}`;
   g.fillStyle = '#b6c2d0';
-  g.fillText('440 fichiers → 296 références · 144 doublons fusionnés · 0 conflit', 96, 420);
-  const chip = '● PUBLIÉ';
+  g.fillText(L.tally, 96, 420);
+  const chip = `● ${L.released}`;
   g.font = `600 52px ${MONO}`;
   const w = g.measureText(chip).width + 70;
   box(g, W - w - 70, 70, w, 92, 46);
@@ -152,7 +189,8 @@ function glowTexture() {
 // du chaos dessinée, son programme compilé) ; la suite (planche rangée, autres
 // programmes, textures) se prépare pendant l'intro et `ready` se résout quand
 // tout avancement peut être affiché sans attente. Sinon, tout est prêt au retour.
-export async function createHeroScene({ canvas, atlasScale = 0.75, antialias = true, progressive = false } = {}) {
+export async function createHeroScene({ canvas, atlasScale = 0.75, antialias = true, progressive = false, lang = 'fr' } = {}) {
+  let L = TEXT[lang] || TEXT.fr;
   const renderer = new THREE.WebGLRenderer({ canvas, antialias, alpha: false, powerPreference: 'high-performance', preserveDrawingBuffer: false });
   renderer.setPixelRatio(1);
   const maxAniso = Math.min(8, renderer.capabilities.getMaxAnisotropy());
@@ -173,7 +211,7 @@ export async function createHeroScene({ canvas, atlasScale = 0.75, antialias = t
   const KEEP = SLOTS;     // ceux qui survivent ; les autres sont des doublons qui fusionnent
   const CARD_W = 1.1, CARD_H = CARD_W * BASE_H / BASE_W;
   // la planche du chaos n'emploie que la police système : elle n'attend pas la webfont
-  const chaosTex = await atlas(drawChaos, atlasScale, maxAniso);
+  let chaosTex = await atlas((g, s) => drawChaos(g, s, L), atlasScale, maxAniso);
   // la planche rangée ne sert qu'à partir du renommage (u ≥ 0.17) : en attendant,
   // le programme lit la planche du chaos à sa place (aucune recompilation)
   let cleanTex = null;
@@ -515,8 +553,8 @@ export async function createHeroScene({ canvas, atlasScale = 0.75, antialias = t
   }
   const finish = async () => {
     if (document.fonts?.load) await Promise.race([document.fonts.load(`500 40px ${SANS}`), new Promise((r) => setTimeout(r, 800))]).catch(() => {});
-    cleanTex = await atlas(drawClean, atlasScale, maxAniso);
-    heroCard.material.map = heroCardTexture(Math.min(1, atlasScale * 1.35), maxAniso);
+    cleanTex = await atlas((g, s) => drawClean(g, s, L), atlasScale, maxAniso);
+    heroCard.material.map = heroCardTexture(Math.min(1, atlasScale * 1.35), maxAniso, L);
     heroCard.material.needsUpdate = true;
     // téléversées avant d'être utiles : aucune saccade à leur première apparition
     [cleanTex, glow, heroCard.material.map].forEach((t) => renderer.initTexture(t));
@@ -531,10 +569,34 @@ export async function createHeroScene({ canvas, atlasScale = 0.75, antialias = t
   // la scène vit-elle au repos à cet avancement ? (sinon, inutile de redessiner)
   const idle = (u) => u < 0.17 || u > 0.77;
 
+  // changement de langue du site : les planches sont redessinées à part, puis
+  // échangées d'un coup (l'ancienne image reste affichée pendant le dessin)
+  let langToken = 0;
+  async function setLang(next) {
+    const nextL = TEXT[next] || TEXT.fr;
+    if (nextL === L) return false;
+    L = nextL;
+    const token = ++langToken;
+    const chaos = await atlas((g, s) => drawChaos(g, s, nextL), atlasScale, maxAniso);
+    // la planche rangée et la fiche ne sont dessinées qu'une fois la scène prête
+    await ready.catch(() => {});
+    if (token !== langToken) { chaos.dispose(); return false; }
+    const clean = await atlas((g, s) => drawClean(g, s, nextL), atlasScale, maxAniso);
+    if (token !== langToken) { chaos.dispose(); clean.dispose(); return false; }
+    const card = heroCardTexture(Math.min(1, atlasScale * 1.35), maxAniso, nextL);
+    [chaos, clean, card].forEach((t) => renderer.initTexture(t));
+    [chaosTex, cleanTex, heroCard.material.map].forEach((t) => t?.dispose());
+    chaosTex = chaos; cleanTex = clean;
+    cardMat.uniforms.tChaos.value = chaos;
+    cardMat.uniforms.tClean.value = clean;
+    heroCard.material.map = card;
+    return true;
+  }
+
   function dispose() {
     renderer.dispose();
     [chaosTex, cleanTex, glow, heroCard.material.map, scene.background].forEach((t) => t?.dispose());
   }
 
-  return { renderer, scene, camera, setSize, render, idle, dispose, ready };
+  return { renderer, scene, camera, setSize, render, idle, dispose, ready, setLang };
 }

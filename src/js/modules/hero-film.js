@@ -33,7 +33,7 @@ export async function initHeroFilm(section) {
   // qualité de départ selon l'appareil ; ajustée ensuite à la mesure
   const big = innerWidth * (devicePixelRatio || 1) > 2200;
   // rendue dès que la tempête d'entrée peut tourner ; la suite se prépare pendant l'intro
-  const hero = await createHeroScene({ canvas, atlasScale: coarse ? 0.5 : big ? 1 : 0.75, progressive: true });
+  const hero = await createHeroScene({ canvas, atlasScale: coarse ? 0.5 : big ? 1 : 0.75, progressive: true, lang: document.documentElement.lang });
   // tant qu'elle n'est pas prête, le film s'arrête au seuil du renommage (u < 0.17)
   let cap = U_SAFE;
   hero.ready.then(() => { cap = 1; }, () => {});
@@ -89,6 +89,11 @@ export async function initHeroFilm(section) {
     STEPS.forEach(([a, b], i) => { if (u >= a && u < b) active = i; });
     if (active !== activeStep) { activeStep = active; steps.forEach((el, i) => el.classList.toggle('is-active', i === active)); }
   };
+
+  // les textes peints dans la scène suivent la langue du site
+  addEventListener('langchange', (e) => {
+    hero.setLang(e.detail.lang).then((changed) => { if (changed) dirty = true; }, () => {});
+  });
 
   // la scène prend sa taille définitive (plein écran collant) avec .is-live
   section.classList.add('is-live');
