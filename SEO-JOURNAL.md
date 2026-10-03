@@ -13,6 +13,26 @@ L'indexation est quasi terminée (33 / 34). **La priorité de chaque passage dev
 4. **Maillage** : chaque nouveau mémo relié depuis 2 mémos voisins et l'index du blog.
 5. Piste structurelle à proposer au propriétaire avant d'engager : des URL anglaises distinctes (/en/…) pour viser le marché anglophone, beaucoup plus large (aujourd'hui le contenu anglais est dans les pages françaises et n'est pas indexé).
 
+## CONSIGNES TECHNIQUES DU PROPRIÉTAIRE (03/10/2026) — s'appliquent à chaque passage, en complément des instructions de la tâche
+
+Le site est désormais bilingue et indexable en anglais, et chaque article a une couverture dessinée. Le marché anglophone est le principal levier de volume : vise aussi les requêtes anglaises (« bolt torque chart », « tap drill chart », « hardness conversion chart »…).
+
+**Toute nouvelle page (action a)** doit, en plus du modèle habituel :
+1. être **entièrement bilingue** (spans `data-lang="fr"` / `data-lang="en"` sur tout le texte, anglais complet et naturel) — modèle : `src/blog/symboles-soudure-iso-2553/index.html` ;
+2. avoir son entrée dans **`src/i18n/pages-en.json`** (title ≤ 65 caractères, description ≤ 160, écrits pour la requête anglaise visée) : c'est ce qui crée sa version `/en/…` au build ;
+3. avoir sa **planche de couverture** dans `scripts/covers/plates.mjs` (même système que les autres : cadre, cartouche, cote clé, valeurs exactes reprises de l'article, libellés via `t(fr, en)` et `num()`) et ses deux textes alternatifs dans `src/i18n/covers.json`, puis `node scripts/covers/render.mjs <slug>` et `node scripts/covers/apply.mjs` ; regarder le rendu WebP 800 px avant de le garder. Plus de photos de banque d'images ;
+4. mettre dans `src/i18n/strings-en.json` la traduction des libellés sans span bilingue (étiquettes, options de calculateur, `alt`/`aria-label`, textes de schémas SVG).
+
+La carte se pose simplement dans la grille de `src/blog/index.html` (entre `grille:debut` et `grille:fin`) : compteur, tri et « À la une » sont calculés au build (`scripts/blog-hub.mjs`). Commiter ce que le prebuild régénère : `git status` doit être propre après `npm run build`.
+
+**Nouvelle action (e), à intercaler après les actions a à d** : compléter l'anglais d'un article sans version `/en/` — dans l'ordre : `nomenclature-bom-pdm-plm-erp` (la page qui fait le plus d'impressions), puis `configuration-materielle-solidworks`, `migration-donnees-solidworks-pdm`, `resolutions-problematiques-plm`. Ajouter les spans anglais manquants sur tout le texte, puis l'entrée `pages-en.json`. Une page n'entre dans `pages-en.json` que si son anglais est complet.
+
+**Pour une URL `/en/` peu cliquée (action c)**, réécrire son entrée dans `pages-en.json`, pas la page française.
+
+**Vérification** : en plus de `npm run build` et `npm run verify:seo`, **`npm run verify:en`** doit afficher 0 erreur et 0 texte à vérifier. Contrôler aussi la version `/en/` de la page dans Chromium (1280 px et 390 px : pas d'erreur JS, pas de défilement horizontal, aucun texte français visible).
+
+**Suivi** : compter à part les URL `/en/` (indexation, impressions, requêtes anglaises). Dans le résumé, donner les URL à soumettre en version française ET anglaise. Si Search Console répond « Petit problème… Une erreur s'est produite » à une demande d'indexation, c'est une limite passagère de Google : réessayer plus tard ; le sitemap suffit à la découverte.
+
 ## 2026-10-03 (3) — couvertures d'articles : une planche technique par article
 
 Les 32 articles avaient des photos de banque d'images, souvent réutilisées (une même photo sur 11 articles) : rien d'unique pour Google Images ni pour le jury d'un concours de design. Chaque article a désormais sa planche de dessin technique dans la palette du hero (symbole de soudure a5, profil de filetage M10, cadre de tolérance ⌖ Ø0,1, zones H7/g6…), en français et en anglais (`scripts/covers/`, rendu par `node scripts/covers/render.mjs`, posé par `node scripts/covers/apply.mjs`).
