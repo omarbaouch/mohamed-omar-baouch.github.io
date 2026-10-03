@@ -431,7 +431,8 @@
                 <p class="eyebrow"><span class="eyebrow-num">02</span> <span data-translate-key="about_title">À propos</span></p>
             </div>
 
-            <!-- portrait en situation, pleine largeur, en trois couches (vue éclatée) :
+            <!-- portrait en situation, pleine largeur, en trois couches (vue éclatée) ;
+                 jusqu'à 3840 px de large (écrans 4K et haute densité), chaque écran prend la taille utile :
                  le contenu se pose sur la zone sombre de gauche.
                  Sur mobile : version verticale, contenu dessous. Animations : js/modules/about-scene.js -->
             <figure class="about-hero" data-about-scene>
@@ -440,24 +441,24 @@
                          s'écartent à l'arrivée puis se remontent ; relief à la souris -->
                     <div class="ah-layers">
                         <picture class="ah-layer ah-layer--bg">
-                            <source media="(max-width: 48rem)" srcset="/img/home/about-layer-bg-m.webp" width="941" height="1672">
-                            <img src="/img/home/about-layer-bg-d.webp" width="1672" height="941" loading="lazy" decoding="async" alt="">
+                            <source media="(max-width: 48rem)" srcset="/img/home/about-layer-bg-m-1080.webp 1080w, /img/home/about-layer-bg-m-2160.webp 2160w" sizes="100vw" width="941" height="1672">
+                            <img src="/img/home/about-layer-bg-d-1920.webp" srcset="/img/home/about-layer-bg-d-1920.webp 1920w, /img/home/about-layer-bg-d-2880.webp 2880w, /img/home/about-layer-bg-d-3840.webp 3840w" sizes="100vw" width="1672" height="941" loading="lazy" decoding="async" alt="">
                         </picture>
                         <picture class="ah-layer ah-layer--person">
-                            <source media="(max-width: 48rem)" srcset="/img/home/about-layer-person-m.webp" width="941" height="1672">
-                            <img src="/img/home/about-layer-person-d.webp" width="1672" height="941" loading="lazy" decoding="async" alt="Mohamed Omar Baouch souriant à son bureau, la main sous le menton">
+                            <source media="(max-width: 48rem)" srcset="/img/home/about-layer-person-m-1080.webp 1080w, /img/home/about-layer-person-m-2160.webp 2160w" sizes="100vw" width="941" height="1672">
+                            <img src="/img/home/about-layer-person-d-1920.webp" srcset="/img/home/about-layer-person-d-1920.webp 1920w, /img/home/about-layer-person-d-2880.webp 2880w, /img/home/about-layer-person-d-3840.webp 3840w" sizes="100vw" width="1672" height="941" loading="lazy" decoding="async" alt="Mohamed Omar Baouch souriant à son bureau, la main sous le menton">
                         </picture>
                         <div class="ah-layer ah-layer--fg">
                             <picture class="ah-fill">
-                                <source media="(max-width: 48rem)" srcset="/img/home/about-layer-fg-m.webp" width="941" height="1672">
-                                <img src="/img/home/about-layer-fg-d.webp" width="1672" height="941" loading="lazy" decoding="async" alt="">
+                                <source media="(max-width: 48rem)" srcset="/img/home/about-layer-fg-m-1080.webp 1080w, /img/home/about-layer-fg-m-2160.webp 2160w" sizes="100vw" width="941" height="1672">
+                                <img src="/img/home/about-layer-fg-d-1920.webp" srcset="/img/home/about-layer-fg-d-1920.webp 1920w, /img/home/about-layer-fg-d-2880.webp 2880w, /img/home/about-layer-fg-d-3840.webp 3840w" sizes="100vw" width="1672" height="941" loading="lazy" decoding="async" alt="">
                             </picture>
                             <!-- la tasse se déplace sur la table (js/modules/about-mug.js) -->
                             <button type="button" class="ah-mug" data-mug aria-label="Tasse : la déplacer sur la table (flèches du clavier)">
                                 <span class="ah-mug-shadow" aria-hidden="true"></span>
                                 <picture>
-                                    <source media="(max-width: 48rem)" srcset="/img/home/about-layer-mug-m.webp" width="270" height="247">
-                                    <img src="/img/home/about-layer-mug-d.webp" width="221" height="196" loading="lazy" decoding="async" alt="" draggable="false">
+                                    <source media="(max-width: 48rem)" srcset="/img/home/about-layer-mug-m-310.webp 310w, /img/home/about-layer-mug-m-620.webp 620w" sizes="29vw" width="270" height="247">
+                                    <img src="/img/home/about-layer-mug-d-254.webp" srcset="/img/home/about-layer-mug-d-254.webp 254w, /img/home/about-layer-mug-d-381.webp 381w, /img/home/about-layer-mug-d-508.webp 508w" sizes="14vw" width="221" height="196" loading="lazy" decoding="async" alt="" draggable="false">
                                 </picture>
                             </button>
                         </div>
