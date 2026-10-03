@@ -521,6 +521,24 @@
     "h1": "SOLIDWORKS PDM : comprendre le PDM et choisir entre Standard et ProfessionalSOLIDWORKS PDM: understand PDM and choose between Standard and Professional",
     "lang": "fr"
   },
+  "/blog/symboles-soudure-iso-2553/": {
+    "title": "Symboles de soudure ISO 2553 : tableau + calcul gorge a / côté z",
+    "description": "Les symboles de soudure ISO 2553 en un tableau : soudure d'angle, en V, en demi-V, en Y, en U, par points… Lecture de la ligne de référence (côté flèche, côté opposé), symboles complémentaires, numéros de procédé ISO 4063 (111, 135, 141) et convertisseur gorge a ↔ côté z.",
+    "canonical": "https://www.baouch.fr/blog/symboles-soudure-iso-2553/",
+    "robots": null,
+    "ogTitle": "Symboles de soudure ISO 2553 : tableau, lecture et cordon d'angle a / z",
+    "ogDescription": "Tous les symboles de soudure ISO 2553, la lecture côté flèche / côté opposé, les procédés 111, 135, 141 et un calcul a ↔ z.",
+    "ogUrl": "https://www.baouch.fr/blog/symboles-soudure-iso-2553/",
+    "ogImage": "https://www.baouch.fr/img/og/soudure.jpg",
+    "ogType": "article",
+    "twitterTitle": "Symboles de soudure ISO 2553 : tableau, lecture et cordon d'angle a / z",
+    "twitterDescription": "Tous les symboles de soudure ISO 2553, la lecture côté flèche / côté opposé, les procédés 111, 135, 141 et un calcul a ↔ z.",
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList,FAQPage"
+    ],
+    "h1": "Symboles de soudure ISO 2553 : tableau, lecture et cordon d'angle a / zISO 2553 welding symbols: chart, how to read them, and fillet weld a / z",
+    "lang": "fr"
+  },
   "/blog/tableau-filetage-metrique-percage-taraudage/": {
     "title": "Tableau filetage métrique ISO : pas, perçage avant taraudage, trous de passage (M1,6 à M36)",
     "description": "Le tableau complet du filetage métrique ISO de M1,6 à M36 : pas gros et pas fin, diamètre de perçage avant taraudage, trous de passage ISO 273 (fin, moyen, large), clés de serrage. Recherche instantanée, formule D − P et réglages de l'assistance pour le perçage SOLIDWORKS.",

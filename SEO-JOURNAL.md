@@ -13,6 +13,22 @@ L'indexation est quasi terminée (33 / 34). **La priorité de chaque passage dev
 4. **Maillage** : chaque nouveau mémo relié depuis 2 mémos voisins et l'index du blog.
 5. Piste structurelle à proposer au propriétaire avant d'engager : des URL anglaises distinctes (/en/…) pour viser le marché anglophone, beaucoup plus large (aujourd'hui le contenu anglais est dans les pages françaises et n'est pas indexé).
 
+## 2026-10-03 — nouveau mémo : symboles de soudure ISO 2553
+
+**Chiffres (01/09 → 29/09)** : 14 clics (0,5/jour, contre 0,4), 1 270 impressions (1 147 au passage du 02/10), CTR 1,1 %, position moyenne 14,1 (14,5). **Indexation : 33 / 34** dans le rapport (la page ISO 1101 du 02/10 n'y figure pas encore). Seule non indexée : resolutions-problematiques-plm.
+
+**Action (a)** : `/blog/symboles-soudure-iso-2553/` (requêtes visées : « symbole soudure », « symboles de soudure », « soudure a5 », « cordon d'angle a z », « côté flèche soudure », « 135 soudure »). Aucun recoupement sur le site.
+- encadré de lecture + schéma (flèche, trait continu, trait interrompu, a5, longueur, queue 135) ;
+- tableau des 11 symboles élémentaires (I, V, demi-V, Y, U, J, angle, reprise à l'envers, bouchon, points, molette) en SVG, et 5 symboles complémentaires (plat, convexe, concave, périphérique, chantier) ;
+- cotes à gauche / à droite, cordon discontinu n × l (e), queue ; procédés ISO 4063 111, 121, 131, 135, 136, 141 (vérifiés) ;
+- convertisseur gorge a ↔ côté z (z = a√2) et mise en garde a / z sans lettre ;
+- FAQ (5, JSON-LD) dont système A vs AWS / système B.
+- carte en tête du blog, image OG `soudure`, liens depuis tolerances-generales-iso-2768 (paragraphe chaudronnerie / mécano-soudure), cartes « À lire aussi » de masse-volumique et tolerances-geometriques ; baseline régénérée (page nouvelle).
+
+Vérifié : build, verify:seo, Chromium en-US 1280/390 (français, symboles complets, pas d'erreur JS, pas de défilement horizontal, z7 → a4,95).
+
+**Prochain passage** : mémo dureté (HRC / HB / HV) ou désignation des aciers (S235, S355, C45, 42CrMo4) ; vérifier l'indexation des pages ISO 1101 et soudure.
+
 ## 2026-10-02 (2) — nouveau mémo : tolérances géométriques ISO 1101
 
 **Action** : `/blog/tolerances-geometriques-symboles-iso-1101/` (requêtes visées : « tolérance géométrique », « symbole planéité / perpendicularité / tolérance de position », « cadre de tolérance », « coaxialité concentricité »). Aucun recoupement : la page ISO 2768 ne traite que les tolérances générales H, K, L.

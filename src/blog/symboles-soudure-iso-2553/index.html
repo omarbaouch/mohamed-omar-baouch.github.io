@@ -1,0 +1,403 @@
+<!DOCTYPE html><html lang="fr"><head>
+    <meta charset="UTF-8">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PBLRK58T');</script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-33TQ27QY4M"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-33TQ27QY4M');</script>
+<!-- Microsoft Clarity -->
+    <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","vy4yvht8gz");</script>
+    <!-- LinkedIn Insight Tag -->
+    <script type="text/javascript">_linkedin_partner_id="525900907";window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];window._linkedin_data_partner_ids.push(_linkedin_partner_id);(function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";s.parentNode.insertBefore(b,s)})(window.lintrk);</script>
+    <script>
+    // Anti-flash de thème : clair par défaut, sombre si stocké.
+    (function () {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    })();
+</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symboles de soudure ISO 2553 : tableau + calcul gorge a / côté z</title>
+    <meta name="description" content="Les symboles de soudure ISO 2553 en un tableau : soudure d&#x27;angle, en V, en demi-V, en Y, en U, par points… Lecture de la ligne de référence (côté flèche, côté opposé), symboles complémentaires, numéros de procédé ISO 4063 (111, 135, 141) et convertisseur gorge a ↔ côté z.">
+    <meta name="author" content="Mohamed Omar Baouch">
+    <link rel="canonical" href="https://www.baouch.fr/blog/symboles-soudure-iso-2553/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Symboles de soudure ISO 2553 : tableau, lecture et cordon d&#x27;angle a / z">
+    <meta property="og:description" content="Tous les symboles de soudure ISO 2553, la lecture côté flèche / côté opposé, les procédés 111, 135, 141 et un calcul a ↔ z.">
+    <meta property="og:url" content="https://www.baouch.fr/blog/symboles-soudure-iso-2553/">
+    <meta property="og:image" content="https://www.baouch.fr/img/og/soudure.jpg">
+    <meta property="og:site_name" content="Mohamed Omar Baouch">
+    <meta property="article:published_time" content="2026-10-03T00:00:00.000Z">
+    <meta property="article:author" content="Mohamed Omar Baouch">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Symboles de soudure ISO 2553 : tableau, lecture et cordon d&#x27;angle a / z">
+    <meta name="twitter:description" content="Tous les symboles de soudure ISO 2553, la lecture côté flèche / côté opposé, les procédés 111, 135, 141 et un calcul a ↔ z.">
+    <meta name="twitter:image" content="https://www.baouch.fr/img/og/soudure.jpg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "headline": "Symboles de soudure ISO 2553 : tableau, lecture et cordon d'angle a / z",
+                "description": "Les symboles de soudure ISO 2553 en un tableau : soudure d'angle, en V, en demi-V, en Y, en U, par points… Lecture de la ligne de référence (côté flèche, côté opposé), symboles complémentaires, numéros de procédé ISO 4063 (111, 135, 141) et convertisseur gorge a ↔ côté z.",
+                "image": "https://www.baouch.fr/img/og/soudure.jpg",
+                "datePublished": "2026-10-03",
+                "dateModified": "2026-10-03",
+                "inLanguage": "fr-FR",
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://www.baouch.fr/blog/symboles-soudure-iso-2553/"
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://www.baouch.fr",
+                    "jobTitle": "Ingénieur & Consultant PDM/PLM"
+                },
+                "publisher": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://www.baouch.fr"
+                },
+                "keywords": [
+                    "Symboles de soudure",
+                    "ISO 2553",
+                    "ISO 4063",
+                    "Cordon d'angle",
+                    "Mise en plan",
+                    "Mécano-soudure"
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Accueil",
+                        "item": "https://www.baouch.fr/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Blog",
+                        "item": "https://www.baouch.fr/blog/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Symboles de soudure ISO 2553 : tableau, lecture et cordon d'angle a / z",
+                        "item": "https://www.baouch.fr/blog/symboles-soudure-iso-2553/"
+                    }
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Que signifie a5 sur un plan de soudure ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Un cordon d'angle dont l'épaisseur de gorge a vaut 5 mm : c'est la hauteur du plus grand triangle isocèle inscrit dans la section du cordon. Pour un cordon à 45°, le côté correspondant vaut z = a × √2 ≈ 7,1 mm."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Quelle différence entre a et z pour un cordon d'angle ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "a est l'épaisseur de gorge (la dimension qui sert au calcul de résistance), z la longueur du côté (ce que le soudeur mesure au gabarit). Pour un cordon à côtés égaux, z = a × √2 et a = z / √2 ≈ 0,707 × z. La lettre placée devant la cote sur le plan dit laquelle est demandée."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Comment savoir de quel côté souder ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Dans le système A de l'ISO 2553, la ligne de référence est doublée d'une ligne en traits interrompus. Symbole sur le trait continu : soudure côté flèche. Symbole sur le trait interrompu : soudure côté opposé. Symboles des deux côtés sans trait interrompu : soudure symétrique des deux côtés."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Que veut dire 135 dans la queue du symbole ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Le numéro de procédé selon l'ISO 4063 : 135 est le soudage MAG avec fil plein. Les plus courants : 111 (électrode enrobée), 131 (MIG), 135 (MAG), 136 (fil fourré), 141 (TIG)."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Les symboles ISO et AWS sont-ils les mêmes ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Les symboles élémentaires sont très proches, mais la lecture des côtés diffère : l'AWS A2.4 et le système B de l'ISO 2553 placent le côté flèche sous la ligne de référence, sans ligne en traits interrompus. Sur un plan venant d'un autre pays, vérifiez d'abord la norme citée."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+    <link rel="alternate" type="application/rss+xml" title="Blog — Mohamed Omar Baouch" href="https://www.baouch.fr/blog/rss.xml">
+    {{> head-lang }}{{> head-fonts }}<script type="module" src="../../js/blog.js"></script>
+</head>
+<body class="blog-page" data-blog-post="symboles-soudure-iso-2553">
+{{> nav }}
+
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBLRK58T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <main id="main" class="container blog-container show">
+        <div class="blog-shell" id="blogShell" data-shell="">
+            <article class="blog-article" data-article-root="">
+                <nav class="article-breadcrumbs" aria-label="Navigation secondaire">
+                    <a class="back-link" href="/blog/" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                    <a class="back-link back-link--ghost" href="/" data-translate-key="blog_back_to_portfolio">Retour au portfolio</a>
+                </nav>
+
+                <header class="blog-hero post-hero" data-component="hero">
+                    <div class="hero-intro">
+                        <div class="hero-badges">
+                            <span class="badge badge-editorial" data-i18n=""><span data-lang="fr">Mémo & calculateur</span><span data-lang="en">Reference & calculator</span></span>
+                            <span class="badge" data-i18n=""><span data-lang="fr">Mécano-soudure</span><span data-lang="en">Welded structures</span></span>
+                            <span class="badge badge-reading-time" data-i18n=""><span data-lang="fr">~7 min de lecture</span><span data-lang="en">~7 min read</span></span>
+                        </div>
+                        <span class="hero-eyebrow" data-i18n=""><span data-lang="fr">Lire un plan de soudure sans se tromper de côté</span><span data-lang="en">Read a welding drawing without picking the wrong side</span></span>
+                        <h1 class="hero-title" data-i18n=""><span data-lang="fr">Symboles de soudure ISO 2553 : tableau, lecture et cordon d'angle a / z</span><span data-lang="en">ISO 2553 welding symbols: chart, how to read them, and fillet weld a / z</span></h1>
+                        <p class="hero-subtitle" data-i18n=""><span data-lang="fr">Publié le 3 octobre 2026 — les symboles élémentaires et complémentaires, la lecture de la ligne de référence, les numéros de procédé ISO 4063 et un convertisseur entre gorge a et côté z.</span><span data-lang="en">Published October 3, 2026 — elementary and supplementary symbols, how to read the reference line, ISO 4063 process numbers and a converter between throat a and leg z.</span></p>
+                        <div class="hero-actions">
+                            <a class="hero-btn" href="#symboles" data-i18n=""><span data-lang="fr">Voir les symboles</span><span data-lang="en">See the symbols</span></a>
+                            <a class="hero-btn hero-btn--ghost" href="#calcul" data-i18n=""><span data-lang="fr">Convertir a ↔ z</span><span data-lang="en">Convert a ↔ z</span></a>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">a5</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Gorge de 5 mm, soit un côté de 7,1 mm</span><span data-lang="en">5 mm throat, i.e. a 7.1 mm leg</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">√2</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Le rapport entre côté z et gorge a</span><span data-lang="en">The ratio between leg z and throat a</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">135</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Le procédé MAG dans la queue du symbole</span><span data-lang="en">MAG process in the symbol tail</span></span>
+                        </div>
+                    </div>
+                </header>
+
+                <section class="blog-section article-section">
+                    <div class="callout">
+                        <p data-i18n=""><span data-lang="fr"><strong>En bref :</strong> un symbole de soudure ISO 2553 se compose d'une flèche qui désigne le joint, d'une ligne de référence et, dans le système A utilisé en Europe, d'une ligne en traits interrompus. Le symbole élémentaire (triangle pour un cordon d'angle, V pour un chanfrein…) placé <strong>sur le trait continu</strong> désigne une soudure <strong>côté flèche</strong> ; <strong>sur le trait interrompu</strong>, une soudure <strong>côté opposé</strong>. Les cotes se lisent à gauche (épaisseur, par exemple a5) et à droite (longueur) du symbole ; la queue porte le procédé.</span><span data-lang="en"><strong>In short:</strong> an ISO 2553 welding symbol consists of an arrow pointing at the joint, a reference line and, in system A used in Europe, a dashed line. The elementary symbol (triangle for a fillet, V for a bevel…) placed <strong>on the continuous line</strong> means a weld <strong>on the arrow side</strong>; <strong>on the dashed line</strong>, a weld <strong>on the other side</strong>. Dimensions read to the left (thickness, e.g. a5) and to the right (length) of the symbol; the tail carries the process.</span></p>
+                    </div>
+                    <figure class="article-figure" style="margin:1rem 0">
+                        <svg viewBox="0 0 520 170" role="img" aria-label="Symbole de soudure : flèche, ligne de référence continue, ligne d'identification en traits interrompus, cordon d'angle a5 côté flèche, longueur 200, queue avec le procédé 135" style="width:100%;max-width:560px;height:auto;color:inherit" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M40 150 L120 80"/>
+                            <path d="M40 150 l4 -14 M40 150 l14 -4"/>
+                            <path d="M120 80 H440"/>
+                            <path d="M120 96 H420" stroke-dasharray="8 6" stroke-width="1.6"/>
+                            <path d="M440 80 l26 -22 M440 80 l26 22"/>
+                            <path d="M230 80 V52 L258 80 Z"/>
+                            <g fill="currentColor" stroke="none" font-family="inherit" font-size="18">
+                                <text x="196" y="74">a5</text>
+                                <text x="270" y="74">200</text>
+                                <text x="474" y="86">135</text>
+                            </g>
+                            <g fill="currentColor" stroke="none" font-family="inherit" font-size="12" opacity=".75">
+                                <text x="58" y="122">flèche</text>
+                                <text x="300" y="116">ligne d'identification (traits interrompus)</text>
+                                <text x="300" y="44">ligne de référence (trait continu)</text>
+                            </g>
+                        </svg>
+                        <figcaption data-i18n=""><span data-lang="fr">Lecture : cordon d'angle côté flèche (symbole sur le trait continu), gorge a = 5 mm, longueur 200 mm, procédé 135 (MAG).</span><span data-lang="en">Reading: fillet weld on the arrow side (symbol on the continuous line), throat a = 5 mm, length 200 mm, process 135 (MAG).</span></figcaption>
+                    </figure>
+                </section>
+
+                <nav class="blog-section article-summary" id="sommaire" aria-label="Sommaire de l'article">
+                    <h2 class="summary-title" data-i18n=""><span data-lang="fr">Sommaire</span><span data-lang="en">Contents</span></h2>
+                    <ol class="summary-list">
+                        <li><a href="#symboles"><span class="summary-index">01</span><span class="summary-label" data-i18n=""><span data-lang="fr">Les symboles élémentaires</span><span data-lang="en">Elementary symbols</span></span></a></li>
+                        <li><a href="#complementaires"><span class="summary-index">02</span><span class="summary-label" data-i18n=""><span data-lang="fr">Symboles complémentaires</span><span data-lang="en">Supplementary symbols</span></span></a></li>
+                        <li><a href="#cotes"><span class="summary-index">03</span><span class="summary-label" data-i18n=""><span data-lang="fr">Cotes et procédés ISO 4063</span><span data-lang="en">Dimensions and ISO 4063 processes</span></span></a></li>
+                        <li><a href="#calcul"><span class="summary-index">04</span><span class="summary-label" data-i18n=""><span data-lang="fr">Convertisseur gorge a ↔ côté z</span><span data-lang="en">Throat a ↔ leg z converter</span></span></a></li>
+                        <li><a href="#faq"><span class="summary-index">05</span><span class="summary-label">FAQ</span></a></li>
+                    </ol>
+                </nav>
+
+                <section class="blog-section article-section" id="symboles">
+                    <h2 data-i18n=""><span data-lang="fr">1. Les symboles élémentaires</span><span data-lang="en">1. Elementary symbols</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Le symbole élémentaire décrit la forme du joint à préparer et du cordon. Il se dessine sur la ligne de référence (le trait gris dans le tableau).</span><span data-lang="en">The elementary symbol describes the joint preparation and weld shape. It is drawn on the reference line (the grey line in the table).</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Symbole</span><span data-lang="en">Symbol</span></th><th data-i18n=""><span data-lang="fr">Soudure</span><span data-lang="en">Weld</span></th><th data-i18n=""><span data-lang="fr">Usage</span><span data-lang="en">Use</span></th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><svg viewBox="0 0 40 30" width="52" height="39" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22 H37" stroke-width="1.2" opacity=".55"/><path d="M16 6 V22 M24 6 V22"/></svg></td><td data-i18n=""><strong><span data-lang="fr">Bords droits (soudure en I)</span><span data-lang="en">Square butt (I)</span></strong></td><td data-i18n=""><span data-lang="fr">Tôles minces bord à bord, sans chanfrein</span><span data-lang="en">Thin plates butted, no bevel</span></td></tr>
+                                    <tr><td><svg viewBox="0 0 40 30" width="52" height="39" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22 H37" stroke-width="1.2" opacity=".55"/><path d="M11 6 L20 22 L29 6"/></svg></td><td data-i18n=""><strong><span data-lang="fr">En V</span><span data-lang="en">Single-V butt</span></strong></td><td data-i18n=""><span data-lang="fr">Les deux bords chanfreinés : soudure bout à bout de tôles épaisses</span><span data-lang="en">Both edges bevelled: butt weld on thicker plates</span></td></tr>
+                                    <tr><td><svg viewBox="0 0 40 30" width="52" height="39" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22 H37" stroke-width="1.2" opacity=".55"/><path d="M17 6 V22 M28 6 L17 22"/></svg></td><td data-i18n=""><strong><span data-lang="fr">En demi-V</span><span data-lang="en">Single-bevel butt</span></strong></td><td data-i18n=""><span data-lang="fr">Un seul bord chanfreiné : assemblage en T ou en angle avec pénétration</span><span data-lang="en">Only one edge bevelled: tee or corner joint with penetration</span></td></tr>
+                                    <tr><td><svg viewBox="0 0 40 30" width="52" height="39" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22 H37" stroke-width="1.2" opacity=".55"/><path d="M12 6 L20 15 L28 6 M20 15 V22"/></svg></td><td data-i18n=""><strong><span data-lang="fr">En Y (V à talon)</span><span data-lang="en">Single-V with broad root face (Y)</span></strong></td><td data-i18n=""><span data-lang="fr">V avec un méplat à la racine</span><span data-lang="en">V with a flat root face</span></td></tr>
+                                    <tr><td><svg viewBox="0 0 40 30" width="52" height="39" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22 H37" stroke-width="1.2" opacity=".55"/><path d="M14 4 V10 A6 6 0 0 0 26 10 V4 M20 16 V22"/></svg></td><td data-i18n=""><strong><span data-lang="fr">En U</span><span data-lang="en">Single-U butt</span></strong></td><td data-i18n=""><span data-lang="fr">Chanfrein à fond arrondi, pour fortes épaisseurs</span><span data-lang="en">Rounded-bottom groove, for heavy sections</span></td></tr>
+                                    <tr><td><svg viewBox="0 0 40 30" width="52" height="39" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22 H37" stroke-width="1.2" opacity=".55"/><path d="M16 4 V22 M27 4 V9 A7 7 0 0 1 20 16 H16"/></svg></td><td data-i18n=""><strong><span data-lang="fr">En J</span><span data-lang="en">Single-J butt</span></strong></td><td data-i18n=""><span data-lang="fr">Demi-U : un seul bord usiné en arrondi</span><span data-lang="en">Half-U: only one edge machined with a radius</span></td></tr>
+                                    <tr><td><svg viewBox="0 0 40 30" width="52" height="39" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22 H37" stroke-width="1.2" opacity=".55"/><path d="M14 22 V8 L27 22 Z"/></svg></td><td data-i18n=""><strong><span data-lang="fr">D'angle</span><span data-lang="en">Fillet</span></strong></td><td data-i18n=""><span data-lang="fr">Le plus courant : assemblage en T, en angle ou à recouvrement</span><span data-lang="en">The most common: tee, corner or lap joint</span></td></tr>
+                                    <tr><td><svg viewBox="0 0 40 30" width="52" height="39" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22 H37" stroke-width="1.2" opacity=".55"/><path d="M13 22 A7 7 0 0 1 27 22"/></svg></td><td data-i18n=""><strong><span data-lang="fr">Reprise à l'envers</span><span data-lang="en">Backing run</span></strong></td><td data-i18n=""><span data-lang="fr">Passe exécutée au dos d'une soudure bout à bout, après la soudure principale</span><span data-lang="en">Run made on the back of a butt weld, after the main weld</span></td></tr>
+                                    <tr><td><svg viewBox="0 0 40 30" width="52" height="39" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22 H37" stroke-width="1.2" opacity=".55"/><rect x="13" y="11" width="14" height="11"/></svg></td><td data-i18n=""><strong><span data-lang="fr">En bouchon / en entaille</span><span data-lang="en">Plug / slot</span></strong></td><td data-i18n=""><span data-lang="fr">Soudure dans un trou ou une lumière de la pièce supérieure</span><span data-lang="en">Weld in a hole or slot in the upper part</span></td></tr>
+                                    <tr><td><svg viewBox="0 0 40 30" width="52" height="39" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22 H37" stroke-width="1.2" opacity=".55"/><circle cx="20" cy="22" r="6"/></svg></td><td data-i18n=""><strong><span data-lang="fr">Par points</span><span data-lang="en">Spot</span></strong></td><td data-i18n=""><span data-lang="fr">Points de soudure par résistance ou par fusion</span><span data-lang="en">Resistance or fusion spot welds</span></td></tr>
+                                    <tr><td><svg viewBox="0 0 40 30" width="52" height="39" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22 H37" stroke-width="1.2" opacity=".55"/><circle cx="20" cy="22" r="6"/><path d="M11 19.5 H29 M11 24.5 H29"/></svg></td><td data-i18n=""><strong><span data-lang="fr">En ligne continue (à la molette)</span><span data-lang="en">Seam</span></strong></td><td data-i18n=""><span data-lang="fr">Suite de points qui se recouvrent, pour une soudure étanche</span><span data-lang="en">Overlapping spots forming a tight seam</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr">Pour une soudure des deux côtés, on dessine le symbole de part et d'autre de la ligne de référence, sans ligne en traits interrompus : deux V forment un X, deux triangles un cordon d'angle double.</span><span data-lang="en">For a weld on both sides, the symbol is drawn on each side of the reference line, without the dashed line: two Vs make an X, two triangles a double fillet.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="complementaires">
+                    <h2 data-i18n=""><span data-lang="fr">2. Symboles complémentaires</span><span data-lang="en">2. Supplementary symbols</span></h2>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Symbole</span><span data-lang="en">Symbol</span></th><th data-i18n=""><span data-lang="fr">Signification</span><span data-lang="en">Meaning</span></th><th data-i18n=""><span data-lang="fr">Effet</span><span data-lang="en">Effect</span></th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><svg viewBox="0 0 40 30" width="52" height="39" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22 H37" stroke-width="1.2" opacity=".55"/><path d="M14 22 V10 L26 22 Z"/><path d="M12 6 H28"/></svg></td><td data-i18n=""><strong><span data-lang="fr">Plat (affleurant)</span><span data-lang="en">Flat (flush)</span></strong></td><td data-i18n=""><span data-lang="fr">La surface du cordon doit être plane, souvent après meulage</span><span data-lang="en">Weld face must be flat, often after grinding</span></td></tr>
+                                    <tr><td><svg viewBox="0 0 40 30" width="52" height="39" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22 H37" stroke-width="1.2" opacity=".55"/><path d="M14 22 V10 L26 22 Z"/><path d="M12 7 Q20 1 28 7"/></svg></td><td data-i18n=""><strong><span data-lang="fr">Convexe</span><span data-lang="en">Convex</span></strong></td><td data-i18n=""><span data-lang="fr">Cordon bombé</span><span data-lang="en">Domed weld face</span></td></tr>
+                                    <tr><td><svg viewBox="0 0 40 30" width="52" height="39" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22 H37" stroke-width="1.2" opacity=".55"/><path d="M14 22 V10 L26 22 Z"/><path d="M12 3 Q20 9 28 3"/></svg></td><td data-i18n=""><strong><span data-lang="fr">Concave</span><span data-lang="en">Concave</span></strong></td><td data-i18n=""><span data-lang="fr">Cordon creux, qui raccorde progressivement les pièces</span><span data-lang="en">Hollow face blending into the parts</span></td></tr>
+                                    <tr><td><svg viewBox="0 0 40 30" width="52" height="39" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22 H37" stroke-width="1.2" opacity=".55"/><path d="M3 22 H37" /><circle cx="8" cy="22" r="4"/></svg></td><td data-i18n=""><strong><span data-lang="fr">Soudure périphérique</span><span data-lang="en">Weld all around</span></strong></td><td data-i18n=""><span data-lang="fr">Cercle au coude de la flèche : le cordon fait le tour de la pièce</span><span data-lang="en">Circle at the arrow bend: the weld goes all around the part</span></td></tr>
+                                    <tr><td><svg viewBox="0 0 40 30" width="52" height="39" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22 H37" stroke-width="1.2" opacity=".55"/><path d="M8 22 V5 L18 8.5 L8 12"/></svg></td><td data-i18n=""><strong><span data-lang="fr">Soudure sur chantier</span><span data-lang="en">Field weld</span></strong></td><td data-i18n=""><span data-lang="fr">Drapeau au coude de la flèche : soudure faite au montage, pas en atelier</span><span data-lang="en">Flag at the arrow bend: weld made on site, not in the shop</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr">Une latte support s'indique par M dans un rectangle (permanente) ou MR (amovible), sous le symbole du joint.</span><span data-lang="en">A backing strip is shown by M in a rectangle (permanent) or MR (removable), under the joint symbol.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="cotes">
+                    <h2 data-i18n=""><span data-lang="fr">3. Les cotes et le procédé</span><span data-lang="en">3. Dimensions and process</span></h2>
+                    <ul>
+                        <li data-i18n=""><span data-lang="fr"><strong>À gauche du symbole</strong> : la dimension de la section. Pour un cordon d'angle, <strong>a</strong> (épaisseur de gorge) ou <strong>z</strong> (côté), suivie de la valeur en mm : a5, z7. Pour un bout à bout, l'épaisseur pénétrée s.</span><span data-lang="en"><strong>Left of the symbol</strong>: the section dimension. For a fillet, <strong>a</strong> (throat) or <strong>z</strong> (leg), followed by the value in mm: a5, z7. For a butt weld, the penetration depth s.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>À droite du symbole</strong> : la longueur. Sans longueur, le cordon est continu sur tout le joint. Un cordon discontinu s'écrit n × l (e) : n segments de longueur l, espacés de e.</span><span data-lang="en"><strong>Right of the symbol</strong>: the length. Without a length, the weld runs the whole joint. An intermittent weld is written n × l (e): n segments of length l, spaced e.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Dans la queue</strong> (la fourche au bout de la ligne) : le numéro de procédé ISO 4063, et éventuellement le niveau de qualité ou la référence d'un descriptif de mode opératoire (DMOS).</span><span data-lang="en"><strong>In the tail</strong> (the fork at the end of the line): the ISO 4063 process number, and possibly the quality level or the welding procedure specification (WPS) reference.</span></li>
+                    </ul>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">N°</span><span data-lang="en">No.</span></th><th data-i18n=""><span data-lang="fr">Procédé (ISO 4063)</span><span data-lang="en">Process (ISO 4063)</span></th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>111</strong></td><td data-i18n=""><span data-lang="fr">Soudage manuel à l'arc avec électrode enrobée</span><span data-lang="en">Manual metal arc welding (stick)</span></td></tr>
+                                    <tr><td><strong>121</strong></td><td data-i18n=""><span data-lang="fr">Soudage à l'arc sous flux avec un fil-électrode</span><span data-lang="en">Submerged arc welding with one wire electrode</span></td></tr>
+                                    <tr><td><strong>131</strong></td><td data-i18n=""><span data-lang="fr">Soudage MIG (fil plein, gaz inerte)</span><span data-lang="en">MIG welding (solid wire, inert gas)</span></td></tr>
+                                    <tr><td><strong>135</strong></td><td data-i18n=""><span data-lang="fr">Soudage MAG (fil plein, gaz actif)</span><span data-lang="en">MAG welding (solid wire, active gas)</span></td></tr>
+                                    <tr><td><strong>136</strong></td><td data-i18n=""><span data-lang="fr">Soudage MAG avec fil fourré de flux</span><span data-lang="en">MAG welding with flux-cored wire</span></td></tr>
+                                    <tr><td><strong>141</strong></td><td data-i18n=""><span data-lang="fr">Soudage TIG (électrode de tungstène, gaz inerte)</span><span data-lang="en">TIG welding (tungsten electrode, inert gas)</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr">Dans SOLIDWORKS, les symboles de soudure se posent en mise en plan (Annotations → Symbole de soudure) et la boîte de dialogue reprend cette structure : côté flèche, autre côté, périphérique, chantier, queue. Vérifiez que la norme d'habillage du document est bien ISO (Options du document → Habillage) pour obtenir la lecture décrite ici. Le dimensionnement des perçages et filetages des pièces voisines est dans le <a href="/blog/tableau-filetage-metrique-percage-taraudage/">tableau filetage métrique</a>.</span><span data-lang="en">In SOLIDWORKS, welding symbols are placed on drawings (Annotations → Weld Symbol) and the dialog follows this structure: arrow side, other side, all around, field, tail. Check that the document's drafting standard is ISO (Document Properties → Drafting Standard) to get the reading described here. Hole and thread sizing for neighbouring parts is in the <a href="/blog/tableau-filetage-metrique-percage-taraudage/">metric thread chart</a>.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="calcul">
+                    <h2 data-i18n=""><span data-lang="fr">4. Convertisseur gorge a ↔ côté z</span><span data-lang="en">4. Throat a ↔ leg z converter</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Pour un cordon d'angle à côtés égaux entre deux faces à 90°, z = a × √2. Saisissez l'une des deux valeurs : l'autre se calcule.</span><span data-lang="en">For an equal-leg fillet weld between two faces at 90°, z = a × √2. Enter either value: the other is calculated.</span></p>
+                    <form class="calc" id="azCalc" onsubmit="return false">
+                        <div class="calc__fields">
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">Gorge a (mm)</span><span data-lang="en">Throat a (mm)</span></span><input id="azA" type="number" inputmode="decimal" min="0" step="any" value="5"></label>
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">Côté z (mm)</span><span data-lang="en">Leg z (mm)</span></span><input id="azZ" type="number" inputmode="decimal" min="0" step="any" value=""></label>
+                        </div>
+                        <dl class="calc__out" aria-live="polite">
+                            <div><dt><span data-i18n=""><span data-lang="fr">Gorge a</span><span data-lang="en">Throat a</span></span></dt><dd id="azOA">—</dd></div>
+                            <div><dt><span data-i18n=""><span data-lang="fr">Côté z</span><span data-lang="en">Leg z</span></span></dt><dd id="azOZ">—</dd></div>
+                        </dl>
+                        <p class="calc__verdict" id="azV"></p>
+                    </form>
+                    <div class="callout callout--soft">
+                        <p data-i18n=""><span data-lang="fr"><strong>Le piège :</strong> un plan qui demande « 5 » sans lettre est ambigu. Un cordon fait à z5 au lieu de a5 n'a qu'une gorge de 3,5 mm, soit 30 % de section résistante en moins. Écrivez toujours la lettre.</span><span data-lang="en"><strong>The trap:</strong> a drawing asking for "5" without a letter is ambiguous. A weld made at z5 instead of a5 only has a 3.5 mm throat, i.e. 30 % less load-bearing section. Always write the letter.</span></p>
+                    </div>
+                </section>
+
+                <section class="blog-section article-section" id="faq">
+                    <h2 data-i18n=""><span data-lang="fr">5. FAQ</span><span data-lang="en">5. FAQ</span></h2>
+                    <h3 data-i18n=""><span data-lang="fr">Que signifie a5 sur un plan de soudure ?</span><span data-lang="en">What does a5 mean on a welding drawing?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Un cordon d'angle dont l'épaisseur de gorge a vaut 5 mm : c'est la hauteur du plus grand triangle isocèle inscrit dans la section du cordon. Pour un cordon à 45°, le côté correspondant vaut z = a × √2 ≈ 7,1 mm.</span><span data-lang="en">A fillet weld with a 5 mm throat thickness a: the height of the largest isosceles triangle inscribed in the weld section. For a 45° weld, the matching leg length is z = a × √2 ≈ 7.1 mm.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Quelle différence entre a et z pour un cordon d'angle ?</span><span data-lang="en">What is the difference between a and z for a fillet weld?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">a est l'épaisseur de gorge (la dimension qui sert au calcul de résistance), z la longueur du côté (ce que le soudeur mesure au gabarit). Pour un cordon à côtés égaux, z = a × √2 et a = z / √2 ≈ 0,707 × z. La lettre placée devant la cote sur le plan dit laquelle est demandée.</span><span data-lang="en">a is the throat thickness (the dimension used for strength), z the leg length (what the welder checks with a gauge). For an equal-leg weld, z = a × √2 and a = z / √2 ≈ 0.707 × z. The letter in front of the value on the drawing says which one is required.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Comment savoir de quel côté souder ?</span><span data-lang="en">How do you know which side to weld?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Dans le système A de l'ISO 2553, la ligne de référence est doublée d'une ligne en traits interrompus. Symbole sur le trait continu : soudure côté flèche. Symbole sur le trait interrompu : soudure côté opposé. Symboles des deux côtés sans trait interrompu : soudure symétrique des deux côtés.</span><span data-lang="en">In ISO 2553 system A, the reference line is paired with a dashed line. Symbol on the continuous line: arrow side. Symbol on the dashed line: other side. Symbols on both sides with no dashed line: symmetrical weld on both sides.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Que veut dire 135 dans la queue du symbole ?</span><span data-lang="en">What does 135 in the tail of the symbol mean?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Le numéro de procédé selon l'ISO 4063 : 135 est le soudage MAG avec fil plein. Les plus courants : 111 (électrode enrobée), 131 (MIG), 135 (MAG), 136 (fil fourré), 141 (TIG).</span><span data-lang="en">The process number from ISO 4063: 135 is MAG welding with solid wire. The most common: 111 (stick), 131 (MIG), 135 (MAG), 136 (flux-cored), 141 (TIG).</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Les symboles ISO et AWS sont-ils les mêmes ?</span><span data-lang="en">Are ISO and AWS symbols the same?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Les symboles élémentaires sont très proches, mais la lecture des côtés diffère : l'AWS A2.4 et le système B de l'ISO 2553 placent le côté flèche sous la ligne de référence, sans ligne en traits interrompus. Sur un plan venant d'un autre pays, vérifiez d'abord la norme citée.</span><span data-lang="en">Basic symbols are very close, but side reading differs: AWS A2.4 and ISO 2553 system B put the arrow side below the reference line, with no dashed line. On a drawing from another country, check the cited standard first.</span></p>
+                </section>
+
+                <section class="blog-section article-related">
+                    <h2 data-i18n=""><span data-lang="fr">À lire aussi</span><span data-lang="en">Read next</span></h2>
+                    <div class="media-grid">
+                        <a href="/blog/tolerances-geometriques-symboles-iso-1101/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">Tolérances géométriques : les 14 symboles ISO 1101</span><span data-lang="en">Geometrical tolerances: the 14 ISO 1101 symbols</span></h3>
+                            <p data-i18n=""><span data-lang="fr">L'autre jeu de symboles à savoir lire sur un plan.</span><span data-lang="en">The other set of symbols to read on a drawing.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                        <a href="/blog/masse-volumique-materiaux-calcul-masse/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">Masse volumique des matériaux et calcul de masse</span><span data-lang="en">Material densities and mass calculation</span></h3>
+                            <p data-i18n=""><span data-lang="fr">Pour peser une structure mécano-soudée avant de la fabriquer.</span><span data-lang="en">To weigh a welded structure before building it.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                    </div>
+                </section>
+
+                <footer class="article-footer">
+                    <div class="article-tags">
+                        <span class="article-tag">ISO 2553</span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Soudure</span><span data-lang="en">Welding</span></span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Mise en plan</span><span data-lang="en">Drawings</span></span>
+                        <span class="article-tag">SOLIDWORKS</span>
+                    </div>
+                    <div class="article-nav">
+                        <a href="/blog/" class="back-link" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                        <a href="/#contact" class="hero-btn" data-i18n=""><span data-lang="fr">Parler d'un projet</span><span data-lang="en">Discuss a project</span></a>
+                    </div>
+                </footer>
+
+            </article>
+        </div>
+    </main>
+
+    <script>
+// Cordon d'angle à côtés égaux : z = a·√2, a = z/√2. Le dernier champ saisi pilote le calcul.
+    (function () {
+        var $ = function (id) { return document.getElementById(id); };
+        var aIn = $('azA'), zIn = $('azZ');
+        if (!aIn) return;
+        var last = 'a';
+        function en() { return document.documentElement.lang === 'en'; }
+        function num(v) { var s = String(Math.round(v * 100) / 100); return en() ? s : s.replace('.', ','); }
+        function val(el) { return parseFloat(String(el.value).replace(',', '.')); }
+        function run() {
+            var a = last === 'a' ? val(aIn) : val(zIn) / Math.SQRT2;
+            if (!(a > 0)) { $('azOA').textContent = $('azOZ').textContent = '—'; $('azV').textContent = ''; return; }
+            var z = a * Math.SQRT2;
+            $('azOA').textContent = 'a' + num(a) + ' mm';
+            $('azOZ').textContent = 'z' + num(z) + ' mm';
+            $('azV').textContent = en() ? 'Equal-leg fillet weld, faces at 90°.' : 'Cordon d’angle à côtés égaux, faces à 90°.';
+        }
+        aIn.addEventListener('input', function () { last = 'a'; zIn.value = ''; run(); });
+        zIn.addEventListener('input', function () { last = 'z'; aIn.value = ''; run(); });
+        window.addEventListener('langchange', run);
+        run();
+    })();
+    </script>
+    <script src="/assets/js/loader.js"></script>
+    <script src="/assets/js/visitor-intelligence.js"></script>
+
+{{> footer }}
+{{> chatbot }}
+</body></html>

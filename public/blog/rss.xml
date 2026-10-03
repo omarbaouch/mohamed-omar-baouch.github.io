@@ -5,8 +5,16 @@
     <link>https://www.baouch.fr/blog/</link>
     <description>Articles de fond et retours d'expérience terrain sur le PDM, le PLM, SOLIDWORKS et la gestion des données produit.</description>
     <language>fr-FR</language>
-    <lastBuildDate>Fri, 02 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 03 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.baouch.fr/blog/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Symboles de soudure ISO 2553 : tableau, lecture et cordon d'angle a / z</title>
+      <link>https://www.baouch.fr/blog/symboles-soudure-iso-2553/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/symboles-soudure-iso-2553/</guid>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Les symboles de soudure ISO 2553 en un tableau : soudure d'angle, en V, en demi-V, en Y, en U, par points… Lecture de la ligne de référence (côté flèche, côté opposé), symboles complémentaires, numéros de procédé ISO 4063 (111, 135, 141) et convertisseur gorge a ↔ côté z.</description>
+      <enclosure url="https://www.baouch.fr/img/og/soudure.jpg" type="image/jpeg"/>
+    </item>
     <item>
       <title>Tolérances géométriques : les 14 symboles ISO 1101 et leur lecture</title>
       <link>https://www.baouch.fr/blog/tolerances-geometriques-symboles-iso-1101/</link>
