@@ -29,9 +29,8 @@ const GROUPES = [
   { id: 'memo', fr: 'Mémos & outils', en: 'References & tools' },
 ];
 const CAT_VERS_GROUPE = { plm: 'plm', data: 'data', cao: 'cao', memo: 'memo', perf: 'perf', migration: 'perf' };
-// articles absents de la grille du blog (article vedette, anciens formats)
+// articles sans thème de carte (anciens formats)
 const SECOURS = {
-  '/blog/ia-solidworks-pdm-bureau-etudes/': 'plm',
   '/blog/configuration-materielle-solidworks/': 'perf',
   '/blog/migration-cloud-pdm-3dexperience/': 'perf',
 };
@@ -49,12 +48,7 @@ $blog('.article-card').each((_, el) => {
     cat: $blog(el).attr('data-cat'),
   });
 });
-$blog('.article-featured__title a').each((_, a) => {
-  cartes.set($blog(a).attr('href'), {
-    fr: $blog(a).find('[data-lang="fr"]').first().text().trim(),
-    en: $blog(a).find('[data-lang="en"]').first().text().trim(),
-  });
-});
+// (l'article à la une a aussi sa carte dans la grille : voir scripts/blog-hub.mjs)
 
 const pages = fg
   .sync(['blog/*/index.html', 'projets/*/index.html'], { cwd: resolve(ROOT, 'src') })
