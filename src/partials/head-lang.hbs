@@ -17,12 +17,17 @@
             if (page) {
                 var choice = localStorage.getItem('language-choice') || (stored === 'en' ? 'en' : null);
                 var alt = choice && choice !== page && document.querySelector('link[rel="alternate"][hreflang="' + choice + '"]');
-                if (alt) location.replace(new URL(alt.href).pathname + location.hash);
+                // la requête (utm_*, gclid) suit : l'attribution des campagnes n'est pas perdue
+                if (alt) location.replace(new URL(alt.href).pathname + location.search + location.hash);
                 return;
             }
             // français sauf choix explicite : jamais d'après la langue du
-            // navigateur, sinon Googlebot (en-US) indexe la version anglaise
-            var lang = stored === 'en' ? 'en' : 'fr';
+            // navigateur, sinon Googlebot (en-US) indexe la version anglaise.
+            // Sans choix enregistré, la langue des pages /en/ lues dans cette
+            // session (même règle que js/core/i18n.js).
+            var session = null;
+            try { session = sessionStorage.getItem('language-session'); } catch (e) {}
+            var lang = stored === 'en' || (!stored && session === 'en') ? 'en' : 'fr';
             if (lang === 'en') document.documentElement.lang = 'en';
         } catch (e) {
             // stockage indisponible : la page reste dans sa langue d'origine

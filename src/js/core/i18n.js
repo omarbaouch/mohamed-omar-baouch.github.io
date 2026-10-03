@@ -52,7 +52,7 @@ function choose(lang) {
   } catch { /* stockage indisponible */ }
   const page = pageLang();
   const href = page && lang !== page ? alternate(lang) : null;
-  if (href) location.href = href + location.hash;
+  if (href) location.href = href + location.search + location.hash;
   else setLanguage(lang);
 }
 
@@ -60,6 +60,9 @@ export function initI18n() {
   const page = pageLang();
   if (page) {
     setLanguage(page, { persist: false });
+    // langue lue dans cette session : les pages sans version anglaise (études de
+    // cas…) s'affichent dans la même langue, sans en faire un choix durable
+    try { sessionStorage.setItem('language-session', page); } catch { /* stockage indisponible */ }
     document.getElementById('lang-fr')?.addEventListener('click', () => choose('fr'));
     document.getElementById('lang-en')?.addEventListener('click', () => choose('en'));
     return;
@@ -68,11 +71,12 @@ export function initI18n() {
   // Pas de bascule selon la langue du navigateur : Googlebot rend les pages
   // en en-US et indexait donc des articles en anglais sous des titres et des
   // URL françaises (pages « explorées, non indexées »).
-  let stored = null;
-  try { stored = localStorage.getItem('language'); } catch { /* stockage indisponible */ }
-  const lang = SUPPORTED.includes(stored) ? stored : 'fr';
-  if (lang !== 'fr') setLanguage(lang);
-  else setLanguage('fr'); // synchronise l'état des boutons même en FR
+  let stored = null, session = null;
+  try { stored = localStorage.getItem('language'); session = sessionStorage.getItem('language-session'); } catch { /* stockage indisponible */ }
+  const fromSession = !SUPPORTED.includes(stored) && SUPPORTED.includes(session);
+  const lang = SUPPORTED.includes(stored) ? stored : fromSession ? session : 'fr';
+  // synchronise aussi l'état des boutons en FR ; la langue de session n'est pas enregistrée
+  setLanguage(lang, { persist: !fromSession });
   document.getElementById('lang-fr')?.addEventListener('click', () => choose('fr'));
   document.getElementById('lang-en')?.addEventListener('click', () => choose('en'));
 }

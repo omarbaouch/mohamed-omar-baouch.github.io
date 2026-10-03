@@ -40,14 +40,16 @@ function heroFilmPreload() {
   };
 }
 
-// Version anglaise indexable (/en/…), écrite une fois dist/ complet : voir scripts/build-en.mjs
+// Version anglaise indexable (/en/…), écrite une fois dist/ complet : voir scripts/build-en.mjs.
+// writeBundle et non closeBundle : closeBundle tourne aussi après un build en échec, et
+// l'erreur de build-en masquerait alors la vraie cause.
 function englishPages() {
   let outDir;
   return {
     name: 'english-pages',
     apply: 'build',
     configResolved(config) { outDir = config.build.outDir; },
-    closeBundle() {
+    writeBundle() {
       const { pages, warnings } = buildEnglishPages(outDir);
       warnings.forEach((w) => this.warn(w));
       console.log(`Pages anglaises : ${pages.length} → dist/en/`);

@@ -65,7 +65,7 @@ export function initSheet() {
       current = e.target;
       render();
       // la nav garde la trace des vues consultées (LED sur le lien)
-      if (current.id) document.querySelector(`.nav-link[href="/#${current.id}"]`)?.classList.add('is-seen');
+      if (current.id) document.querySelector(`.nav-link[href$="#${current.id}"]`)?.classList.add('is-seen');
     }
   }, { rootMargin: '-50% 0px -50% 0px' });
   sections.forEach((s) => io.observe(s));

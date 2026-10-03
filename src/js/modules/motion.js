@@ -21,8 +21,11 @@ function initSmoothScroll() {
   gsap.ticker.add((time) => lenis.raf(time * 1000));
   gsap.ticker.lagSmoothing(0);
 
-  document.querySelectorAll('a[href^="#"], a[href^="/#"]').forEach((a) => {
-    const hash = a.getAttribute('href').replace('/', '');
+  // ancres de la page courante, quelle que soit leur forme (#id, /#id, /en/#id)
+  document.querySelectorAll('a[href*="#"]').forEach((a) => {
+    const url = new URL(a.href, location.href);
+    if (url.pathname !== location.pathname || url.origin !== location.origin) return;
+    const hash = url.hash;
     if (hash.length < 2) return;
     a.addEventListener('click', (e) => {
       const target = document.querySelector(hash);

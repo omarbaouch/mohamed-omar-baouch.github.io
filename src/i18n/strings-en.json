@@ -22,7 +22,10 @@
     "Angle (plus petit côté)": "Angle (shorter side)",
     "73 termes": "73 terms",
     "PDM · PLM · CAO": "PDM · PLM · CAD",
-    "IA · SOLIDWORKS · PDM": "AI · SOLIDWORKS · PDM"
+    "IA · SOLIDWORKS · PDM": "AI · SOLIDWORKS · PDM",
+    "flèche": "arrow",
+    "ligne d'identification (traits interrompus)": "identification line (dashed)",
+    "ligne de référence (trait continu)": "reference line (continuous)"
   },
   "attr": {
     "Baies de serveurs": "Server racks",

@@ -52,6 +52,11 @@ for (const [path, meta] of Object.entries(PAGES_EN)) {
       if (v && /[éèêàùç]/i.test(v)) note(p, `${a} français ? « ${v.slice(0, 80)} »`);
     }
   });
+  // libellés des schémas SVG : courts, donc repérés à l'accent plutôt qu'aux mots outils
+  en('svg text, svg tspan').each((_, el) => {
+    const t = en(el).text().trim();
+    if (/[éèêàùç]/i.test(t) && !/RÉV\./.test(t)) note(p, `libellé SVG français ? « ${t.slice(0, 80)} »`);
+  });
   // texte visible : signale les blocs qui ressemblent à du français
   en('script,style,svg,noscript,template').remove();
   const blocks = new Set();

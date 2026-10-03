@@ -148,7 +148,7 @@ export function buildEnglishPages(dist) {
       if (typeof v === 'string') $(el).html(v);
     });
     $('[data-cv-link]').attr('href', DICT_EN.cv_file || '/BAOUCH_CV_EN.pdf');
-    $('body *').not('script,style,svg *').contents().each((_, n) => {
+    $('body *').not('script,style').contents().each((_, n) => {
       if (n.type !== 'text') return;
       const t = n.data.trim();
       if (Object.hasOwn(STRINGS_EN.text, t)) n.data = n.data.replace(t, STRINGS_EN.text[t]);

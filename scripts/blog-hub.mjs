@@ -55,8 +55,11 @@ const pick = (re) => {
   if (!m) throw new Error(`blog-hub : carte ${une.href} incomplète (${re})`);
   return m[1];
 };
-const cat = pick(/article-card__cat">([^<]*)</);
-const time = pick(/article-card__time">([^<]*)</).replace(/\s*min$/, '');
+// étiquette simple (« MÉMO ») ou bilingue (<span data-lang="fr">…</span><span data-lang="en">…</span>)
+const [, catI18n = '', cat] = une.text.match(/article-card__cat"( data-i18n="")?>((?:<span data-lang="[a-z]+">[^<]*<\/span>)+|[^<]*)<\/span>/) || [];
+if (cat == null) throw new Error(`blog-hub : carte ${une.href} sans catégorie lisible`);
+// durée de lecture seulement si la vignette l'indique en minutes (« 73 termes » sur le glossaire)
+const time = une.text.match(/article-card__time">(\d+) min</)?.[1];
 const img = pick(/(<img [^>]*>)/)
   .replace(/src="([^"]*)-800\.webp"/, 'src="$1-1600.webp"')
   .replace(/sizes="[^"]*"/, 'sizes="(min-width: 64rem) 1216px, 100vw"');
@@ -70,13 +73,13 @@ ${I}        <span class="article-featured__flag" data-i18n=""><span data-lang="f
 ${I}        ${img}
 ${I}    </div>
 ${I}    <div class="article-featured__body">
-${I}        <span class="article-featured__eyebrow">${cat}</span>
+${I}        <span class="article-featured__eyebrow"${catI18n}>${cat}</span>
 ${I}        <h2 class="article-featured__title"><a href="${une.href}" data-i18n="">${title}</a></h2>
 ${I}        <p class="article-featured__excerpt" data-i18n="">${excerpt}</p>
 ${I}        <div class="article-featured__meta">
-${I}            <span data-i18n="">${date}</span>
+${I}            <span data-i18n="">${date}</span>${time ? `
 ${I}            <span class="dot"></span>
-${I}            <span data-i18n=""><span data-lang="fr">${time} min de lecture</span><span data-lang="en">${time} min read</span></span>
+${I}            <span data-i18n=""><span data-lang="fr">${time} min de lecture</span><span data-lang="en">${time} min read</span></span>` : ''}
 ${I}        </div>
 ${I}        <a class="article-featured__cta" href="${une.href}" data-i18n=""><span data-lang="fr">Lire l'article</span><span data-lang="en">Read the article</span> <span class="arrow" aria-hidden="true">→</span></a>
 ${I}    </div>

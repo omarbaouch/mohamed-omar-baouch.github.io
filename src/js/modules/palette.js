@@ -3,6 +3,11 @@
 // accessible : dialog modal, flèches/entrée, aria-activedescendant, focus
 // restitué à la fermeture.
 
+import PAGES_EN from '../../i18n/pages-en.json';
+
+// pages publiées aussi en anglais (/en/…) : la palette y mène depuis une page anglaise
+const EN_PAGES = new Set(Object.keys(PAGES_EN));
+
 const INDEX = [
   { ref: 'OUTIL-01', fr: 'Mode mesure — coter la page (M)', en: 'Measure mode — dimension the page (M)', type: 'TOOL', action: 'measure' },
   { ref: 'ASM-BAOUCH', fr: 'Structure du portfolio', en: 'Portfolio structure', type: 'ASM', href: '/#structure' },
@@ -160,15 +165,17 @@ function go(item) {
     import('../core/tools.js').then((m) => m.openMeasure());
     return;
   }
-  if (item.href.startsWith('/#') && location.pathname === '/') {
-    const target = document.querySelector(item.href.slice(1));
+  const url = new URL(item.href, location.origin);
+  if (document.documentElement.dataset.pageLang === 'en' && EN_PAGES.has(url.pathname)) url.pathname = '/en' + url.pathname;
+  if (url.hash && url.pathname === location.pathname) {
+    const target = document.querySelector(url.hash);
     if (target) {
       const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
       return;
     }
   }
-  window.location.href = item.href;
+  window.location.href = url.pathname + url.hash;
 }
 
 function close() {
