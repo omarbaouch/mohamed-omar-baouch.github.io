@@ -1,0 +1,122 @@
+{
+  "/": {
+    "title": "Mohamed Omar Baouch | SOLIDWORKS PDM/PLM Consultant",
+    "description": "SOLIDWORKS PDM/PLM consultant at Visiativ (Strasbourg, France): PDM architecture, workflows, data migration and BOM–ERP integration for 80+ manufacturers."
+  },
+  "/blog/": {
+    "title": "Engineering Notebook: PDM/PLM, SOLIDWORKS & Design Charts",
+    "description": "In-depth PDM/PLM and SOLIDWORKS guides from 80+ industrial missions, plus free mechanical design charts and calculators: threads, torque, fits, tolerances, welding."
+  },
+  "/blog/ajustements-iso-286-tableau-h7-g6/": {
+    "title": "ISO 286 Fits Chart: H7/g6, H7/h6, H7/p6 + Clearance Calculator",
+    "description": "ISO 286 hole and shaft fits: deviation chart for H7, g6, h6, k6, p6, min/max sizes, clearance or interference for any diameter up to 500 mm, and how to choose a fit."
+  },
+  "/blog/choisir-logiciel-cao-solidworks-inventor-fusion-catia/": {
+    "title": "SOLIDWORKS vs Inventor vs Fusion 360 vs CATIA: Which CAD in 2026?",
+    "description": "An honest CAD software comparison: the profile each tool really fits, its real limits, prices, and the five criteria that decide — written by a data migration consultant."
+  },
+  "/blog/codification-proprietes-solidworks/": {
+    "title": "SOLIDWORKS Part Numbering & Custom Properties: Best Practices",
+    "description": "Part numbering schemes, custom properties and templates in SOLIDWORKS: the small project that fixes BOM errors all the way to the ERP, with field-tested rules."
+  },
+  "/blog/couple-serrage-vis-tableau/": {
+    "title": "Bolt Torque Chart: Grade 8.8, 10.9, 12.9 (M3–M36) + Calculator",
+    "description": "Metric bolt tightening torque and preload chart for property classes 8.8, 10.9 and 12.9 from M3 to M36, a torque calculator with friction, and the mistakes to avoid."
+  },
+  "/blog/ebom-vs-mbom/": {
+    "title": "eBOM vs mBOM: Differences Explained with a Real Example",
+    "description": "Engineering BOM vs manufacturing BOM: definitions, a line-by-line example, eBOM, pBOM, mBOM and sBOM acronyms, and the method to turn one into the other."
+  },
+  "/blog/eco-ecr-gestion-modifications/": {
+    "title": "ECR vs ECO: Engineering Change Management in 6 Steps",
+    "description": "The €40,000 phantom revision: how a change reached production, and the 6-step ECR/ECO process that would have stopped it. ECR vs ECO vs ECN, revision or new part number."
+  },
+  "/blog/erreurs-solidworks-frequentes/": {
+    "title": "10 Common SOLIDWORKS Errors and How to Fix Them for Good",
+    "description": "Missing references, read-only files, rebuild errors, Toolbox, crashes: for each SOLIDWORKS error, the quick fix and the root cause that brings it back."
+  },
+  "/blog/formats-echange-cao-step-iges-parasolid/": {
+    "title": "STEP vs IGES vs Parasolid vs JT vs STL: Which CAD Format?",
+    "description": "What each CAD exchange format really carries and loses, the six traps behind unusable files, and a five-point check to run before sending a model to a supplier."
+  },
+  "/blog/glossaire-pdm-plm/": {
+    "title": "PDM, PLM & CAD Glossary: 73 Technical Data Terms Explained",
+    "description": "73 PDM, PLM and CAD terms in plain language — vault, revision vs version, eBOM, ECO, check-in, lifecycle — with the usage trap and a link to go further."
+  },
+  "/blog/ia-solidworks-pdm-bureau-etudes/": {
+    "title": "AI and SOLIDWORKS PDM: What Really Changes for Engineering Teams",
+    "description": "Design copilots, semantic search, auto-classification, documentation assistants: what already works in 2026, what is coming, what stays marketing — and the prerequisite."
+  },
+  "/blog/integration-bom-erp/": {
+    "title": "BOM to ERP Integration: 4 Architectures and the One That Lasts",
+    "description": "Re-keying, file exchange, one-way connector or managed eBOM→mBOM transformation: the four ways to connect the BOM to the ERP, what each really costs, and the one that holds."
+  },
+  "/blog/logiciel-gestion-nomenclatures/": {
+    "title": "BOM Management Software: 5 Types of Tools and How to Choose",
+    "description": "Spreadsheet, ERP, PDM, PLM or dedicated BOM software: what each family manages, where it stalls, six signs Excel is no longer enough, and how to choose."
+  },
+  "/blog/masse-volumique-materiaux-calcul-masse/": {
+    "title": "Material Density Chart (Steel, Aluminium, Plastics) + Calculator",
+    "description": "Densities of steels, stainless, aluminium and copper alloys, titanium and engineering plastics in kg/m³ and g/cm³, plus a mass calculator for plates, bars and tubes."
+  },
+  "/blog/migration-cloud-pdm-3dexperience/": {
+    "title": "Cloud PDM & 3DEXPERIENCE: 5 Blind Spots Before You Migrate",
+    "description": "Moving your PDM to the cloud: what sales reps won't tell you before you sign — five blind spots and seven questions to ask about data, performance and costs."
+  },
+  "/blog/modele-nomenclature-excel-gratuit/": {
+    "title": "Free Excel BOM Template: Multi-Level Bill of Materials",
+    "description": "Download a free multi-level bill of materials template for Excel: drop-down lists, duplicate flags, calculated masses, clean BOM rules, and how to fill it from SOLIDWORKS."
+  },
+  "/blog/pdm-ou-plm-quand-basculer/": {
+    "title": "PDM vs PLM: 5 Signs You Have Outgrown Your Vault",
+    "description": "PDM or PLM? Most SMEs call their PDM a PLM. The five concrete signals that show your vault is no longer enough — and what moving to PLM really involves."
+  },
+  "/blog/plm-guide-complet/": {
+    "title": "What Is PLM? The Complete Guide for Manufacturers (2026)",
+    "description": "Product lifecycle management explained by a consultant who deploys it: definition, scope, PDM vs PLM vs ERP, building blocks, platforms, costs and where to start."
+  },
+  "/blog/prix-cout-projet-solidworks-pdm/": {
+    "title": "SOLIDWORKS PDM Cost: Licenses, Infrastructure & Services Budget",
+    "description": "The full cost of a SOLIDWORKS PDM project: licenses, SQL Server, servers, services, data migration and hidden costs, with field orders of magnitude and five budget traps."
+  },
+  "/blog/raccourcis-clavier-solidworks/": {
+    "title": "SOLIDWORKS Keyboard Shortcuts: Complete List (2026) + Custom Setup",
+    "description": "Every default SOLIDWORKS shortcut by family — views, sketch, assembly, drawing — mouse gestures, the S key, and how to build your own shortcuts to save an hour a day."
+  },
+  "/blog/rugosite-ra-tableau-classes-procedes/": {
+    "title": "Surface Roughness Chart: Ra Values, N Grades & Machining Processes",
+    "description": "Surface roughness Ra chart from N1 to N12 with a µm / µin converter, the Ra each machining process can hold, the value to specify per function, and Ra vs Rz."
+  },
+  "/blog/solidworks-gratuit-prix-guide/": {
+    "title": "Free SOLIDWORKS in 2026: 7 Legal Options + Real License Prices",
+    "description": "Student, maker, startup or SME: the seven legal ways to get SOLIDWORKS free or nearly free, their real limits, the truth about Mac, and what commercial licenses cost."
+  },
+  "/blog/solidworks-pdm-guide-complet/": {
+    "title": "SOLIDWORKS PDM: The Complete Guide (Architecture to Daily Use)",
+    "description": "How SOLIDWORKS PDM works: the vault principle, its six functions, server architecture, a seven-step deployment, daily operation and the mistakes that ruin projects."
+  },
+  "/blog/solidworks-pdm-lent-7-causes/": {
+    "title": "Slow SOLIDWORKS PDM? The 7 Real Causes and How to Fix Them",
+    "description": "Why your SOLIDWORKS PDM vault is slow — network, SQL Server, archive server, cache, antivirus, references — and how to win back 15 minutes a day per workstation."
+  },
+  "/blog/solidworks-pdm-standard-vs-professional/": {
+    "title": "SOLIDWORKS PDM Standard vs Professional: Which Edition?",
+    "description": "What SOLIDWORKS PDM really does and how to choose between Standard and Professional: what each edition does well, its limits, a side-by-side comparison and 5 questions."
+  },
+  "/blog/symboles-soudure-iso-2553/": {
+    "title": "Welding Symbols Chart (ISO 2553): How to Read + a/z Calculator",
+    "description": "All ISO 2553 welding symbols in one chart — fillet, V, bevel, U, spot — arrow side vs other side, ISO 4063 process numbers (111, 135, 141) and a throat a ↔ leg z converter."
+  },
+  "/blog/tableau-filetage-metrique-percage-taraudage/": {
+    "title": "Metric Thread Chart: Pitch, Tap Drill & Clearance Holes (M1.6–M36)",
+    "description": "ISO metric thread chart from M1.6 to M36: coarse and fine pitch, tap drill sizes, ISO 273 clearance holes and wrench sizes in one filterable table, with the formula."
+  },
+  "/blog/tolerances-generales-iso-2768/": {
+    "title": "ISO 2768 General Tolerances Chart: f, m, c, v and H, K, L",
+    "description": "ISO 2768-1 and 2768-2 tables: deviations for lengths, radii, chamfers and angles, general geometrical tolerances, a min/max calculator and how to write ISO 2768-mK."
+  },
+  "/blog/tolerances-geometriques-symboles-iso-1101/": {
+    "title": "GD&T Symbols Chart: the 14 Geometric Tolerances (ISO 1101)",
+    "description": "The 14 geometric tolerance symbols (flatness, perpendicularity, position, runout…): tolerance zones, datums, the feature control frame, modifiers and a ± to position converter."
+  }
+}

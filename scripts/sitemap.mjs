@@ -9,6 +9,7 @@ import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import fg from 'fast-glob';
 import * as cheerio from 'cheerio';
+import { PAGES_EN, enPath } from './build-en.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SITE = 'https://www.baouch.fr';
@@ -49,8 +50,17 @@ const urls = pages.map((file) => {
   const lastmod =
     modifie || (publie ? publie.slice(0, 10) : commit || statSync(abs).mtime.toISOString().slice(0, 10));
 
-  return { loc, lastmod };
+  return { loc, lastmod, chemin };
 });
+
+// version anglaise (/en/…, générée au build) : même date que la page française ;
+// chaque version déclare l'autre (hreflang), comme dans les pages elles-mêmes
+for (const u of [...urls]) {
+  if (!Object.hasOwn(PAGES_EN, u.chemin)) continue;
+  const fr = SITE + u.chemin, en = SITE + enPath(u.chemin);
+  u.alternates = { fr, en, 'x-default': fr };
+  urls.push({ loc: en, lastmod: u.lastmod, chemin: enPath(u.chemin), alternates: u.alternates });
+}
 
 // Racine d'abord, puis ordre alphabétique : un fichier lisible et stable d'un
 // build à l'autre, donc un diff qui ne bouge que sur un vrai changement.
@@ -61,8 +71,15 @@ urls.sort((a, b) => {
 });
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map((u) => `  <url><loc>${u.loc}</loc><lastmod>${u.lastmod}</lastmod></url>`).join('\n')}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${urls
+  .map((u) => {
+    const alt = Object.entries(u.alternates || {})
+      .map(([l, href]) => `<xhtml:link rel="alternate" hreflang="${l}" href="${href}"/>`)
+      .join('');
+    return `  <url><loc>${u.loc}</loc><lastmod>${u.lastmod}</lastmod>${alt}</url>`;
+  })
+  .join('\n')}
 </urlset>
 `;
 

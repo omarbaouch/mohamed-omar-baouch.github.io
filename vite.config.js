@@ -4,6 +4,7 @@ import { defineConfig } from 'vite';
 import tailwindcss from '@tailwindcss/vite';
 import handlebars from 'vite-plugin-handlebars';
 import fg from 'fast-glob';
+import { buildEnglishPages } from './scripts/build-en.mjs';
 
 const root = dirname(fileURLToPath(import.meta.url));
 const srcDir = resolve(root, 'src');
@@ -39,6 +40,21 @@ function heroFilmPreload() {
   };
 }
 
+// Version anglaise indexable (/en/…), écrite une fois dist/ complet : voir scripts/build-en.mjs
+function englishPages() {
+  let outDir;
+  return {
+    name: 'english-pages',
+    apply: 'build',
+    configResolved(config) { outDir = config.build.outDir; },
+    closeBundle() {
+      const { pages, warnings } = buildEnglishPages(outDir);
+      warnings.forEach((w) => this.warn(w));
+      console.log(`Pages anglaises : ${pages.length} → dist/en/`);
+    },
+  };
+}
+
 export default defineConfig({
   root: srcDir,
   publicDir: resolve(root, 'public'),
@@ -48,6 +64,7 @@ export default defineConfig({
       partialDirectory: resolve(srcDir, 'partials'),
     }),
     heroFilmPreload(),
+    englishPages(),
   ],
   build: {
     outDir: resolve(root, 'dist'),

@@ -8,6 +8,18 @@
     (function () {
         try {
             var stored = localStorage.getItem('language');
+            // page publiée dans les deux langues (/… et /en/…) : la langue est
+            // celle de l'URL ; seul un choix explicite du visiteur (clic sur FR /
+            // EN, ou l'anglais choisi avant l'existence de /en/) mène à l'autre
+            // version. Jamais d'après la langue du navigateur : les robots
+            // n'ont pas de stockage et voient chaque URL telle quelle.
+            var page = document.documentElement.getAttribute('data-page-lang');
+            if (page) {
+                var choice = localStorage.getItem('language-choice') || (stored === 'en' ? 'en' : null);
+                var alt = choice && choice !== page && document.querySelector('link[rel="alternate"][hreflang="' + choice + '"]');
+                if (alt) location.replace(new URL(alt.href).pathname + location.hash);
+                return;
+            }
             // français sauf choix explicite : jamais d'après la langue du
             // navigateur, sinon Googlebot (en-US) indexe la version anglaise
             var lang = stored === 'en' ? 'en' : 'fr';

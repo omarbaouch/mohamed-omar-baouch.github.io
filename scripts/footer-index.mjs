@@ -29,6 +29,11 @@ const GROUPES = [
   { id: 'memo', fr: 'Mémos & outils', en: 'References & tools' },
 ];
 const CAT_VERS_GROUPE = { plm: 'plm', data: 'data', cao: 'cao', memo: 'memo', perf: 'perf', migration: 'perf' };
+// titres anglais des études de cas (elles n'ont pas de carte bilingue)
+const EN_PROJETS = {
+  '/projets/migration-pdm-internationale/': 'International multi-site PDM migration',
+  '/projets/robot-orbita/': 'PDM workflow for humanoid robotics',
+};
 // articles sans thème de carte (anciens formats)
 const SECOURS = {
   '/blog/configuration-materielle-solidworks/': 'perf',
@@ -60,7 +65,7 @@ const pages = fg
     const fr = (carte.fr || og).replace(/^Étude de cas — /, '').trim();
     const groupe = file.startsWith('projets/') ? 'cas' : CAT_VERS_GROUPE[carte.cat] || SECOURS[href] || 'plm';
     const date = $('meta[property="article:published_time"]').attr('content') || '';
-    return { href, fr, en: carte.en || '', groupe, date };
+    return { href, fr, en: carte.en || EN_PROJETS[href] || '', groupe, date };
   });
 
 let total = 0;

@@ -13,6 +13,21 @@ L'indexation est quasi terminée (33 / 34). **La priorité de chaque passage dev
 4. **Maillage** : chaque nouveau mémo relié depuis 2 mémos voisins et l'index du blog.
 5. Piste structurelle à proposer au propriétaire avant d'engager : des URL anglaises distinctes (/en/…) pour viser le marché anglophone, beaucoup plus large (aujourd'hui le contenu anglais est dans les pages françaises et n'est pas indexé).
 
+## 2026-10-03 (2) — version anglaise indexable : /en/ (levier 5 de la consigne, engagé à la demande du propriétaire)
+
+**Pourquoi** : 1 000 clics/jour demandent ~25 000 impressions/jour ; la niche PDM/PLM francophone n'y suffira pas. Le contenu anglais existait déjà (28 articles sur 32 bilingues à 85–91 %) mais seulement par bascule côté client sur les URL françaises : invisible pour Google. Les requêtes anglaises des mémos (« bolt torque chart », « tap drill chart », « welding symbols chart », « gd&t symbols », « iso 2768 », « surface roughness chart », « material density chart ») pèsent beaucoup plus que leurs équivalents français.
+
+**Action** :
+- `scripts/build-en.mjs` (plugin Vite, fin de build) : 30 pages anglaises statiques — accueil, index du blog, 28 articles — sous `/en/…` : `<html lang="en">`, textes français retirés, titres et descriptions rédigés pour les requêtes anglaises (`src/i18n/pages-en.json`), JSON-LD traduit (BlogPosting, fil d'Ariane, FAQ et glossaire reconstruits depuis le texte anglais de la page), canonical propre, liens internes vers `/en/`, textes alternatifs et étiquettes traduits (`src/i18n/strings-en.json`).
+- hreflang fr / en / x-default (= français) sur les deux versions et dans le sitemap (66 URL, dont 30 anglaises ; IndexNow les lit dans le sitemap).
+- Bouton FR / EN : sur une page bilingue, il mène à l'autre URL (ancre conservée). Redirection seulement sur choix explicite mémorisé du visiteur, jamais d'après la langue du navigateur : les robots voient chaque URL telle quelle.
+- Accueil : canonical ajouté (il n'en avait pas) ; baseline SEO régénérée pour cette seule différence.
+- Non traduites (restent françaises, sans /en/) : configuration-materielle-solidworks, migration-donnees-solidworks-pdm, nomenclature-bom-pdm-plm-erp, resolutions-problematiques-plm (anglais partiel), et les deux études de cas.
+
+**Contrôle** : `node scripts/check-en.mjs` (0 erreur : lang, canonical, hreflang croisés, aucun texte ni JSON-LD français, aucun lien vers la version française), verify:seo, axe-core 0 violation FR et EN, Chromium : arrivée sur /en/ sans stockage, bascules FR ↔ EN, ancien choix EN, mobile 390 px sans défilement horizontal.
+
+**Prochain passage** : soumettre le sitemap dans Search Console, vérifier l'indexation des URL /en/ (rapport GSC : filtrer `/en/`) ; tout nouvel article bilingue reçoit son entrée dans `src/i18n/pages-en.json` pour avoir sa version anglaise. Puis traduire les 4 articles partiels (nomenclature-bom-pdm-plm-erp en premier : c'est la page qui fait le plus d'impressions en français).
+
 ## 2026-10-03 — nouveau mémo : symboles de soudure ISO 2553
 
 **Chiffres (01/09 → 29/09)** : 14 clics (0,5/jour, contre 0,4), 1 270 impressions (1 147 au passage du 02/10), CTR 1,1 %, position moyenne 14,1 (14,5). **Indexation : 33 / 34** dans le rapport (la page ISO 1101 du 02/10 n'y figure pas encore). Seule non indexée : resolutions-problematiques-plm.

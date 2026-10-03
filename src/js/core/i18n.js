@@ -10,7 +10,16 @@ export function currentLang() {
   return document.documentElement.lang === 'en' ? 'en' : 'fr';
 }
 
-export function setLanguage(lang) {
+// Pages qui existent dans les deux langues (data-page-lang, hreflang) : la langue
+// est celle de l'URL, et changer de langue, c'est aller à l'autre URL.
+const pageLang = () => document.documentElement.dataset.pageLang || null;
+// chemin seul : on reste sur le domaine courant (prévisualisations comprises)
+const alternate = (lang) => {
+  const href = document.querySelector(`link[rel="alternate"][hreflang="${lang}"]`)?.href;
+  return href ? new URL(href).pathname : null;
+};
+
+export function setLanguage(lang, { persist = true } = {}) {
   if (!SUPPORTED.includes(lang)) return;
   const dict = DICTS[lang];
   document.querySelectorAll('[data-translate-key]').forEach((el) => {
@@ -21,7 +30,9 @@ export function setLanguage(lang) {
     el.innerHTML = value;
   });
   document.documentElement.lang = lang;
-  localStorage.setItem('language', lang);
+  if (persist) {
+    try { localStorage.setItem('language', lang); } catch { /* stockage indisponible */ }
+  }
   document.querySelectorAll('[data-cv-link]').forEach((a) => {
     a.setAttribute('href', dict.cv_file || '/BAOUCH_CV_FR.pdf');
   });
@@ -32,15 +43,36 @@ export function setLanguage(lang) {
   window.dispatchEvent(new CustomEvent('langchange', { detail: { lang } }));
 }
 
+// choix explicite du visiteur (clic sur FR / EN) : seul ce choix redirige vers
+// l'autre version d'une page (voir partials/head-lang.hbs)
+function choose(lang) {
+  try {
+    localStorage.setItem('language', lang);
+    localStorage.setItem('language-choice', lang);
+  } catch { /* stockage indisponible */ }
+  const page = pageLang();
+  const href = page && lang !== page ? alternate(lang) : null;
+  if (href) location.href = href + location.hash;
+  else setLanguage(lang);
+}
+
 export function initI18n() {
+  const page = pageLang();
+  if (page) {
+    setLanguage(page, { persist: false });
+    document.getElementById('lang-fr')?.addEventListener('click', () => choose('fr'));
+    document.getElementById('lang-en')?.addEventListener('click', () => choose('en'));
+    return;
+  }
   // Français par défaut, anglais seulement sur choix explicite du visiteur.
   // Pas de bascule selon la langue du navigateur : Googlebot rend les pages
   // en en-US et indexait donc des articles en anglais sous des titres et des
   // URL françaises (pages « explorées, non indexées »).
-  const stored = localStorage.getItem('language');
+  let stored = null;
+  try { stored = localStorage.getItem('language'); } catch { /* stockage indisponible */ }
   const lang = SUPPORTED.includes(stored) ? stored : 'fr';
   if (lang !== 'fr') setLanguage(lang);
   else setLanguage('fr'); // synchronise l'état des boutons même en FR
-  document.getElementById('lang-fr')?.addEventListener('click', () => setLanguage('fr'));
-  document.getElementById('lang-en')?.addEventListener('click', () => setLanguage('en'));
+  document.getElementById('lang-fr')?.addEventListener('click', () => choose('fr'));
+  document.getElementById('lang-en')?.addEventListener('click', () => choose('en'));
 }
