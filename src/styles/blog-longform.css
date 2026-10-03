@@ -957,6 +957,25 @@ body[data-blog-post] .article-section + .article-section {
   }
 }
 
+/* ---------- Couvertures : planches de dessin technique ----------
+   Composées en 16:9 (cote clé en bas à gauche, cartouche en bas à droite) :
+   jamais recadrées, et sans désaturation — l'orange y désigne la réponse. */
+.article-figure img[src*='/img/blog/covers/'],
+.article-card__media img[src*='/img/blog/covers/'],
+.article-featured__media img[src*='/img/blog/covers/'] {
+  filter: none;
+}
+
+body[data-blog-post] .blog-article > .article-figure img[src*='/img/blog/covers/'] {
+  aspect-ratio: 16 / 9;
+}
+
+.article-featured__media:has(img[src*='/img/blog/covers/']) {
+  aspect-ratio: 16 / 9;
+  min-height: 0;
+  align-self: center;
+}
+
 /* badge documentaire des études de cas (cartouche PDM) */
 .badge-doc {
   display: inline-flex;

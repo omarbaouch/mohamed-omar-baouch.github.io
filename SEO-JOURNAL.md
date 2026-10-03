@@ -13,6 +13,16 @@ L'indexation est quasi terminée (33 / 34). **La priorité de chaque passage dev
 4. **Maillage** : chaque nouveau mémo relié depuis 2 mémos voisins et l'index du blog.
 5. Piste structurelle à proposer au propriétaire avant d'engager : des URL anglaises distinctes (/en/…) pour viser le marché anglophone, beaucoup plus large (aujourd'hui le contenu anglais est dans les pages françaises et n'est pas indexé).
 
+## 2026-10-03 (3) — couvertures d'articles : une planche technique par article
+
+Les 32 articles avaient des photos de banque d'images, souvent réutilisées (une même photo sur 11 articles) : rien d'unique pour Google Images ni pour le jury d'un concours de design. Chaque article a désormais sa planche de dessin technique dans la palette du hero (symbole de soudure a5, profil de filetage M10, cadre de tolérance ⌖ Ø0,1, zones H7/g6…), en français et en anglais (`scripts/covers/`, rendu par `node scripts/covers/render.mjs`, posé par `node scripts/covers/apply.mjs`).
+- texte alternatif descriptif dans les deux langues (`src/i18n/covers.json`) : images uniques et décrites, éligibles à Google Images ;
+- cartes du blog, « À la une » et figure d'ouverture de 19 articles ; jamais recadrées (16:9), sans désaturation ;
+- pages anglaises : image de partage (og:image, JSON-LD) = planche anglaise en JPEG 1200 × 675 ; pages françaises : images OG inchangées ;
+- poids : 12 Ko en moyenne en 800 px (84 Ko pour les photos), 32 Ko en 1600 px (276 Ko).
+
+**Pour un nouvel article** : ajouter sa planche dans `scripts/covers/plates.mjs` et ses textes alternatifs dans `src/i18n/covers.json`, puis lancer render.mjs et apply.mjs.
+
 ## 2026-10-03 (2) — version anglaise indexable : /en/ (levier 5 de la consigne, engagé à la demande du propriétaire)
 
 **Pourquoi** : 1 000 clics/jour demandent ~25 000 impressions/jour ; la niche PDM/PLM francophone n'y suffira pas. Le contenu anglais existait déjà (28 articles sur 32 bilingues à 85–91 %) mais seulement par bascule côté client sur les URL françaises : invisible pour Google. Les requêtes anglaises des mémos (« bolt torque chart », « tap drill chart », « welding symbols chart », « gd&t symbols », « iso 2768 », « surface roughness chart », « material density chart ») pèsent beaucoup plus que leurs équivalents français.

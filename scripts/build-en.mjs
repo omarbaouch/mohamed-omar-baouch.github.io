@@ -23,6 +23,9 @@ export const PAGES_EN = JSON.parse(readFileSync(resolve(ROOT, 'src/i18n/pages-en
 const DICT_EN = JSON.parse(readFileSync(resolve(ROOT, 'src/i18n/en.json'), 'utf8'));
 // étiquettes, options de calculateur, textes alternatifs : sans span bilingue dans les pages
 const STRINGS_EN = JSON.parse(readFileSync(resolve(ROOT, 'src/i18n/strings-en.json'), 'utf8'));
+// couvertures des articles : version anglaise de chaque planche (texte alternatif compris)
+const COVERS = JSON.parse(readFileSync(resolve(ROOT, 'src/i18n/covers.json'), 'utf8'));
+const COVER = /\/img\/blog\/covers\/(?!en\/)([a-z0-9-]+)-(\d+)\.webp/g;
 
 export const enPath = (path) => '/en' + path;
 const hasEn = (path) => Object.hasOwn(PAGES_EN, path);
@@ -85,6 +88,7 @@ function translateJsonLd(data, ctx) {
       for (const [k, val] of Object.entries(v)) o[k] = walk(val);
       if (o.inLanguage) o.inLanguage = 'en-US';
       if (t === 'BlogPosting') {
+        if (ctx.ogImage) o.image = ctx.ogImage;
         o.headline = h1 || meta.title;
         o.description = meta.description;
         delete o.keywords;
@@ -150,6 +154,11 @@ export function buildEnglishPages(dist) {
       if (Object.hasOwn(STRINGS_EN.text, t)) n.data = n.data.replace(t, STRINGS_EN.text[t]);
       else if (t.includes('RÉV.')) n.data = n.data.replace(/RÉV\./g, 'REV.');
     });
+    $('img[src*="/img/blog/covers/"]').each((_, el) => {
+      const slug = el.attribs.src.match(/covers\/(?:en\/)?([a-z0-9-]+)-\d+\.webp/)?.[1];
+      for (const a of ['src', 'srcset']) if (el.attribs[a]) el.attribs[a] = el.attribs[a].replace(COVER, '/img/blog/covers/en/$1-$2.webp');
+      if (slug && COVERS[slug]) el.attribs.alt = COVERS[slug][1];
+    });
     $('[alt], [aria-label], [title], [placeholder]').each((_, el) => {
       for (const a of ['alt', 'aria-label', 'title', 'placeholder']) {
         const v = el.attribs[a];
@@ -182,10 +191,17 @@ export function buildEnglishPages(dist) {
     if ($('link[rel="canonical"]').length) $('link[rel="canonical"]').attr('href', url);
     else $('title').after($('<link>').attr('rel', 'canonical').attr('href', url));
 
+    const slug = path.match(/^\/blog\/([^/]+)\/$/)?.[1];
+    const ogImage = slug && COVERS[slug] ? `${SITE}/img/blog/covers/en/${slug}-og.jpg` : null;
+    if (ogImage) {
+      $('meta[property="og:image"], meta[name="twitter:image"]').attr('content', ogImage);
+      $('meta[property="og:image:width"]').attr('content', '1200');
+      $('meta[property="og:image:height"]').attr('content', '675');
+    }
     const h1 = norm($('h1').first().text());
     $('script[type="application/ld+json"]').each((_, el) => {
       const data = JSON.parse($(el).text());
-      $(el).text(`\n    ${JSON.stringify(translateJsonLd(data, { path, meta, h1, headings, warn }), null, 4).replace(/\n/g, '\n    ')}\n    `);
+      $(el).text(`\n    ${JSON.stringify(translateJsonLd(data, { path, meta, h1, headings, warn, ogImage }), null, 4).replace(/\n/g, '\n    ')}\n    `);
     });
 
     const out = file(dist, enPath(path));
