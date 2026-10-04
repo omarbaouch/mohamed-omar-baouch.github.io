@@ -5,8 +5,16 @@
     <link>https://www.baouch.fr/blog/</link>
     <description>Articles de fond et retours d'expérience terrain sur le PDM, le PLM, SOLIDWORKS et la gestion des données produit.</description>
     <language>fr-FR</language>
-    <lastBuildDate>Sat, 03 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 04 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.baouch.fr/blog/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Acier S235, S275, S355 : limite élastique, résistance et désignation</title>
+      <link>https://www.baouch.fr/blog/aciers-s235-s275-s355-caracteristiques/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/aciers-s235-s275-s355-caracteristiques/</guid>
+      <pubDate>Sun, 04 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Les aciers de construction S235, S275 et S355 selon l'EN 10025-2 : limite élastique minimale selon l'épaisseur, résistance à la traction, qualités JR, J0, J2, K2, lecture d'une désignation (S355J2+N), équivalences E24 / E36 / A36 et calculateur.</description>
+      <enclosure url="https://www.baouch.fr/img/og/aciers.jpg" type="image/jpeg"/>
+    </item>
     <item>
       <title>Symboles de soudure ISO 2553 : tableau, lecture et cordon d'angle a / z</title>
       <link>https://www.baouch.fr/blog/symboles-soudure-iso-2553/</link>

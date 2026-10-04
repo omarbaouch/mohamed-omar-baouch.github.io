@@ -33,6 +33,19 @@ La carte se pose simplement dans la grille de `src/blog/index.html` (entre `gril
 
 **Suivi** : compter à part les URL `/en/` (indexation, impressions, requêtes anglaises). Dans le résumé, donner les URL à soumettre en version française ET anglaise. Si Search Console répond « Petit problème… Une erreur s'est produite » à une demande d'indexation, c'est une limite passagère de Google : réessayer plus tard ; le sitemap suffit à la découverte.
 
+## 2026-10-04 — nouveau mémo bilingue : aciers S235, S275, S355 (EN 10025-2)
+
+**Chiffres (02/09 → 30/09)** : 14 clics (0,5/jour), 1 234 impressions (1 270 au passage précédent, fenêtre glissante), CTR 1,1 %, position moyenne 13,9 (14,1). **Indexation : 34 / 36** (la page ISO 1101 du 02/10 est indexée ; soudure, publiée hier, pas encore connue ; resolutions-problematiques-plm toujours explorée non indexée). Les URL /en/ (publiées le 03/10) n'apparaissent pas encore dans le rapport. À noter : solidworks-gratuit-prix-guide monte à 211 impressions (pos. 16,2) — candidate à l'action b.
+
+**Action (a)** : `/blog/aciers-s235-s275-s355-caracteristiques/` et `/en/blog/aciers-s235-s275-s355-caracteristiques/` (requêtes : « acier S235 / S355 caractéristiques », « limite élastique S355 », « S355J2 », « E24 équivalent » ; en anglais « S355 yield strength », « S235 vs S355 »). Aucun recoupement (masse-volumique ne donne que la densité).
+- ReH mini par épaisseur (≤ 16 / 40 / 63 / 80 mm), Rm (< 3 mm et 3–100 mm), qualités JR / J0 / J2 / K2, décodage de S355J2C+N, équivalences E24 / E28 / E36 et A36 / A572 gr. 50 (présentées comme proches, pas équivalentes), calculateur (Re, Rm, effort à Re pour une section) ; FAQ 5 (JSON-LD). Valeurs croisées sur plusieurs sources (modulusmetal, steelcalculator, fiches EN 10025-2) ; au-delà de 80 mm seules les valeurs S355 recoupées (315 / 295 MPa) sont citées.
+- entièrement bilingue ; entrée pages-en.json (title 61 car., description 157) ; planche de couverture MEM-09 (poutrelle en I + courbe σ-ε, Re 355 repéré) dans plates.mjs, textes alternatifs dans covers.json ; carte dans la grille du blog ; liens depuis masse-volumique (paragraphe ordre de grandeur) et soudure (« À lire aussi ») ; image OG `aciers` ; baseline régénérée (page nouvelle).
+- Outil : ffmpeg absent du conteneur ; render.mjs lancé avec un substitut ffmpeg local (Pillow, mêmes tailles et qualités WebP/JPEG), script du dépôt inchangé.
+
+Vérifié : build, verify:seo, verify:en (31 pages anglaises, 0 erreur, 0 texte à vérifier), Chromium en-US FR et /en/ à 1280/390 (pas d'erreur JS, pas de défilement horizontal ; S355 20 mm → Re 345, Rm 470–630, 200 mm² → 69 kN), git status propre après commit.
+
+**Prochain passage** : action b sur solidworks-gratuit-prix-guide (211 impressions, pos. 16) ou nouveau mémo dureté HRC / HB / HV ; suivre l'apparition des URL /en/ dans le rapport.
+
 ## 2026-10-03 (3) — couvertures d'articles : une planche technique par article
 
 Les 32 articles avaient des photos de banque d'images, souvent réutilisées (une même photo sur 11 articles) : rien d'unique pour Google Images ni pour le jury d'un concours de design. Chaque article a désormais sa planche de dessin technique dans la palette du hero (symbole de soudure a5, profil de filetage M10, cadre de tolérance ⌖ Ø0,1, zones H7/g6…), en français et en anglais (`scripts/covers/`, rendu par `node scripts/covers/render.mjs`, posé par `node scripts/covers/apply.mjs`).

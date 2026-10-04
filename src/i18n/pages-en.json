@@ -118,5 +118,9 @@
   "/blog/tolerances-geometriques-symboles-iso-1101/": {
     "title": "GD&T Symbols Chart: the 14 Geometric Tolerances (ISO 1101)",
     "description": "The 14 geometric tolerance symbols (flatness, perpendicularity, position, runout…): tolerance zones, datums, the feature control frame, modifiers and a ± to position converter."
+  },
+  "/blog/aciers-s235-s275-s355-caracteristiques/": {
+    "title": "S235 vs S275 vs S355 Steel: Yield Strength Chart (EN 10025-2)",
+    "description": "S235, S275 and S355 structural steel per EN 10025-2: yield strength by thickness, tensile strength, JR/J0/J2/K2, S355J2+N decoded, A36/A572 equivalents."
   }
 }

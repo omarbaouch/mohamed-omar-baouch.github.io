@@ -60,6 +60,33 @@ function soudure(l) {
   return sheet({ ref: 'MEM-08', std: 'ISO 2553 · ISO 4063', rev: 'A', scale: '2:1', key: 'a5', keySub: `z ${num('7.1')}`, body: b, keyY: 700, keySize: 210 });
 }
 
+function aciers(l) {
+  const { t, num } = lang(l);
+  let b = '';
+  // section de poutrelle en I (semelles, âme, congés simplifiés)
+  const x0 = 660, y0 = 210, w = 300, h = 400, tf = 34, tw = 22;
+  const d = `M${x0} ${y0} H${x0 + w} V${y0 + tf} H${x0 + w / 2 + tw / 2 + 18} Q${x0 + w / 2 + tw / 2} ${y0 + tf} ${x0 + w / 2 + tw / 2} ${y0 + tf + 18} V${y0 + h - tf - 18} Q${x0 + w / 2 + tw / 2} ${y0 + h - tf} ${x0 + w / 2 + tw / 2 + 18} ${y0 + h - tf} H${x0 + w} V${y0 + h} H${x0} V${y0 + h - tf} H${x0 + w / 2 - tw / 2 - 18} Q${x0 + w / 2 - tw / 2} ${y0 + h - tf} ${x0 + w / 2 - tw / 2} ${y0 + h - tf - 18} V${y0 + tf + 18} Q${x0 + w / 2 - tw / 2} ${y0 + tf} ${x0 + w / 2 - tw / 2 - 18} ${y0 + tf} H${x0} Z`;
+  b += path(d, { w: 2.4, fill: 'url(#hatch)' });
+  b += axis(x0 + w / 2, y0 - 40, x0 + w / 2, y0 + h + 40);
+  b += axis(x0 - 40, y0 + h / 2, x0 + w + 40, y0 + h / 2);
+  b += dim(x0 + w, y0, x0 + w, y0 + tf, '', { off: -46, size: 22, c: C.accent, tc: C.accent });
+  b += text(x0 + w + 72, y0 + 25, 't ≤ 16 mm', { size: 20, c: C.accent, weight: 700 });
+  // courbe contrainte-déformation
+  const gx = 1080, gy = 600, gw = 400, gh = 330;
+  b += arrow(gx, gy, gx + gw, gy, { c: C.mid, w: 1.6 });
+  b += arrow(gx, gy, gx, gy - gh, { c: C.mid, w: 1.6 });
+  b += text(gx + gw - 6, gy + 32, 'ε', { size: 24, c: C.mid, anchor: 'end', font: SANS });
+  b += text(gx - 14, gy - gh + 8, 'σ', { size: 24, c: C.mid, anchor: 'end', font: SANS });
+  const yRe = gy - 190, yRm = gy - 260;
+  b += path(`M${gx} ${gy} L${gx + 40} ${yRe} L${gx + 92} ${yRe} Q${gx + 220} ${yRm - 14} ${gx + 300} ${yRm} Q${gx + 340} ${yRm + 6} ${gx + 362} ${yRm + 40}`, { c: C.accent, w: 3 });
+  b += line(gx, yRe, gx + 92, yRe, { c: C.accent, w: 1.2, dash: '6 6', op: 0.8 });
+  b += text(gx + 104, yRe + 30, `Re ${num('355')} MPa`, { size: 20, c: C.accent, weight: 700 });
+  b += line(gx, yRm, gx + 300, yRm, { c: C.mid, w: 1.2, dash: '6 6', op: 0.6 });
+  b += text(gx + 12, yRm - 12, t('Rm 470 – 630', 'Rm 470 – 630'), { size: 18, c: C.mid });
+  b += text(gx, gy + 70, t('E ≈ 210 000 MPa', 'E ≈ 210,000 MPa'), { size: 18, c: C.mid, ls: 1 });
+  return sheet({ ref: 'MEM-09', std: 'EN 10025-2', rev: 'A', scale: '1:2', key: 'S355', keySub: 'J2 · −20 °C · 27 J', body: b, keyY: 760, keySize: 170 });
+}
+
 function filetage(l) {
   const { t, num } = lang(l);
   const P = 130, depth = 0.6134 * P, crest = P / 8, root = P / 4, run = (P - crest - root) / 2;
@@ -701,6 +728,7 @@ function resolutions() {
 }
 
 export const PLATES = {
+  'aciers-s235-s275-s355-caracteristiques': aciers,
   'symboles-soudure-iso-2553': soudure,
   'tableau-filetage-metrique-percage-taraudage': filetage,
   'tolerances-geometriques-symboles-iso-1101': tolGeo,

@@ -1,0 +1,412 @@
+<!DOCTYPE html><html lang="fr"><head>
+    <meta charset="UTF-8">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PBLRK58T');</script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-33TQ27QY4M"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-33TQ27QY4M');</script>
+<!-- Microsoft Clarity -->
+    <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","vy4yvht8gz");</script>
+    <!-- LinkedIn Insight Tag -->
+    <script type="text/javascript">_linkedin_partner_id="525900907";window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];window._linkedin_data_partner_ids.push(_linkedin_partner_id);(function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";s.parentNode.insertBefore(b,s)})(window.lintrk);</script>
+    <script>
+    // Anti-flash de thème : clair par défaut, sombre si stocké.
+    (function () {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    })();
+</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acier S235, S275, S355 : tableau Re, Rm et désignation (EN 10025-2)</title>
+    <meta name="description" content="Les aciers de construction S235, S275 et S355 selon l&#x27;EN 10025-2 : limite élastique minimale selon l&#x27;épaisseur, résistance à la traction, qualités JR, J0, J2, K2, lecture d&#x27;une désignation (S355J2+N), équivalences E24 / E36 / A36 et calculateur.">
+    <meta name="author" content="Mohamed Omar Baouch">
+    <link rel="canonical" href="https://www.baouch.fr/blog/aciers-s235-s275-s355-caracteristiques/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Acier S235, S275, S355 : limite élastique, résistance et désignation">
+    <meta property="og:description" content="Re selon l&#x27;épaisseur, Rm, qualités JR / J0 / J2 / K2, décodage de S355J2+N et équivalences E24, E36, A36.">
+    <meta property="og:url" content="https://www.baouch.fr/blog/aciers-s235-s275-s355-caracteristiques/">
+    <meta property="og:image" content="https://www.baouch.fr/img/og/aciers.jpg">
+    <meta property="og:site_name" content="Mohamed Omar Baouch">
+    <meta property="article:published_time" content="2026-10-04T00:00:00.000Z">
+    <meta property="article:author" content="Mohamed Omar Baouch">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Acier S235, S275, S355 : limite élastique, résistance et désignation">
+    <meta name="twitter:description" content="Re selon l&#x27;épaisseur, Rm, qualités JR / J0 / J2 / K2, décodage de S355J2+N et équivalences E24, E36, A36.">
+    <meta name="twitter:image" content="https://www.baouch.fr/img/og/aciers.jpg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "headline": "Acier S235, S275, S355 : limite élastique, résistance et désignation",
+                "description": "Les aciers de construction S235, S275 et S355 selon l'EN 10025-2 : limite élastique minimale selon l'épaisseur, résistance à la traction, qualités JR, J0, J2, K2, lecture d'une désignation (S355J2+N), équivalences E24 / E36 / A36 et calculateur.",
+                "image": "https://www.baouch.fr/img/og/aciers.jpg",
+                "datePublished": "2026-10-04",
+                "dateModified": "2026-10-04",
+                "inLanguage": "fr-FR",
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://www.baouch.fr/blog/aciers-s235-s275-s355-caracteristiques/"
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://www.baouch.fr",
+                    "jobTitle": "Ingénieur & Consultant PDM/PLM"
+                },
+                "publisher": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://www.baouch.fr"
+                },
+                "keywords": [
+                    "S235",
+                    "S275",
+                    "S355",
+                    "EN 10025-2",
+                    "Acier de construction",
+                    "Limite élastique"
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Accueil",
+                        "item": "https://www.baouch.fr/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Blog",
+                        "item": "https://www.baouch.fr/blog/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Acier S235, S275, S355 : limite élastique, résistance et désignation",
+                        "item": "https://www.baouch.fr/blog/aciers-s235-s275-s355-caracteristiques/"
+                    }
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Que signifie S355J2 ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "S : acier de construction ; 355 : limite élastique minimale de 355 MPa pour une épaisseur jusqu'à 16 mm ; J2 : énergie de rupture d'au moins 27 J à −20 °C à l'essai de flexion par choc (Charpy). Un suffixe +N indique une livraison à l'état normalisé, +AR brut de laminage."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Quelle est la différence entre S235 et S355 ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "La limite élastique : 235 contre 355 MPa jusqu'à 16 mm d'épaisseur, soit environ 50 % de plus pour le S355. La résistance à la traction passe de 360–510 à 470–630 MPa (épaisseurs de 3 à 100 mm). Le module d'élasticité, lui, est le même : environ 210 000 MPa."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Un S355 est-il plus rigide qu'un S235 ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Non. Les deux ont le même module d'élasticité (environ 210 000 MPa) : à section égale, ils fléchissent autant sous la même charge. Le S355 supporte une contrainte plus élevée avant de se déformer de façon permanente, mais il ne réduit pas une flèche."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Quel est l'équivalent de l'acier E24 ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "L'ancienne désignation française E24 correspond au S235 de l'EN 10025-2, E28 au S275 et E36 au S355. Ce sont les noms encore utilisés sur beaucoup de plans anciens."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Pourquoi la limite élastique baisse-t-elle avec l'épaisseur ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Une tôle épaisse est moins corroyée au laminage et refroidit plus lentement : sa structure est plus grossière. La norme en tient compte en donnant des valeurs minimales par tranche d'épaisseur : un S355 de 50 mm ne garantit que 335 MPa."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+    <link rel="alternate" type="application/rss+xml" title="Blog — Mohamed Omar Baouch" href="https://www.baouch.fr/blog/rss.xml">
+    {{> head-lang }}{{> head-fonts }}<script type="module" src="../../js/blog.js"></script>
+</head>
+<body class="blog-page" data-blog-post="aciers-s235-s275-s355-caracteristiques">
+{{> nav }}
+
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBLRK58T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <main id="main" class="container blog-container show">
+        <div class="blog-shell" id="blogShell" data-shell="">
+            <article class="blog-article" data-article-root="">
+                <nav class="article-breadcrumbs" aria-label="Navigation secondaire">
+                    <a class="back-link" href="/blog/" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                    <a class="back-link back-link--ghost" href="/" data-translate-key="blog_back_to_portfolio">Retour au portfolio</a>
+                </nav>
+
+                <header class="blog-hero post-hero" data-component="hero">
+                    <div class="hero-intro">
+                        <div class="hero-badges">
+                            <span class="badge badge-editorial" data-i18n=""><span data-lang="fr">Mémo & calculateur</span><span data-lang="en">Reference & calculator</span></span>
+                            <span class="badge" data-i18n=""><span data-lang="fr">Matériaux</span><span data-lang="en">Materials</span></span>
+                            <span class="badge badge-reading-time" data-i18n=""><span data-lang="fr">~7 min de lecture</span><span data-lang="en">~7 min read</span></span>
+                        </div>
+                        <span class="hero-eyebrow" data-i18n=""><span data-lang="fr">Ce que garantit vraiment la nuance d'acier du plan</span><span data-lang="en">What the steel grade on the drawing really guarantees</span></span>
+                        <h1 class="hero-title" data-i18n=""><span data-lang="fr">Acier S235, S275, S355 : limite élastique, résistance et désignation</span><span data-lang="en">S235, S275, S355 steel: yield strength, tensile strength and designation</span></h1>
+                        <p class="hero-subtitle" data-i18n=""><span data-lang="fr">Publié le 4 octobre 2026 — les valeurs de l'EN 10025-2 par tranche d'épaisseur, les qualités JR, J0, J2 et K2, la lecture d'une désignation complète et les équivalences avec les anciennes nuances françaises et américaines.</span><span data-lang="en">Published October 4, 2026 — EN 10025-2 values by thickness range, the JR, J0, J2 and K2 qualities, how to read a full designation, and equivalences with old French and American grades.</span></p>
+                        <div class="hero-actions">
+                            <a class="hero-btn" href="#calculateur" data-i18n=""><span data-lang="fr">Trouver une valeur</span><span data-lang="en">Look up a value</span></a>
+                            <a class="hero-btn hero-btn--ghost" href="#sommaire" data-i18n=""><span data-lang="fr">Consulter le sommaire</span><span data-lang="en">Jump to contents</span></a>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">355</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">MPa : Re mini du S355 jusqu'à 16 mm</span><span data-lang="en">MPa: S355 minimum yield up to 16 mm</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">+51 %</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">de limite élastique du S235 au S355</span><span data-lang="en">more yield strength from S235 to S355</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">0 %</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">de rigidité en plus : même module E</span><span data-lang="en">extra stiffness: same modulus E</span></span>
+                        </div>
+                    </div>
+                </header>
+
+                <section class="blog-section article-section">
+                    <div class="callout">
+                        <p data-i18n=""><span data-lang="fr"><strong>En bref :</strong> dans une désignation comme <strong>S355J2</strong>, le S indique un acier de construction, le nombre la <strong>limite élastique minimale en MPa</strong> pour une épaisseur jusqu'à 16 mm, et les lettres suivantes la <strong>résilience garantie</strong> (J2 : 27 J à −20 °C). Plus la tôle est épaisse, plus la limite élastique garantie baisse : un S355 de 50 mm n'assure que 335 MPa. Les trois nuances ont le même module d'élasticité : passer au S355 augmente la résistance, pas la rigidité.</span><span data-lang="en"><strong>In short:</strong> in a designation such as <strong>S355J2</strong>, S means structural steel, the number is the <strong>minimum yield strength in MPa</strong> for thicknesses up to 16 mm, and the following letters give the <strong>guaranteed impact toughness</strong> (J2: 27 J at −20 °C). The thicker the plate, the lower the guaranteed yield: a 50 mm S355 plate only ensures 335 MPa. All three grades share the same elastic modulus: moving to S355 adds strength, not stiffness.</span></p>
+                    </div>
+                </section>
+
+                <nav class="blog-section article-summary" id="sommaire" aria-label="Sommaire de l'article">
+                    <h2 class="summary-title" data-i18n=""><span data-lang="fr">Sommaire</span><span data-lang="en">Contents</span></h2>
+                    <ol class="summary-list">
+                        <li><a href="#limite-elastique"><span class="summary-index">01</span><span class="summary-label" data-i18n=""><span data-lang="fr">Limite élastique selon l'épaisseur</span><span data-lang="en">Yield strength by thickness</span></span></a></li>
+                        <li><a href="#traction"><span class="summary-index">02</span><span class="summary-label" data-i18n=""><span data-lang="fr">Résistance à la traction</span><span data-lang="en">Tensile strength</span></span></a></li>
+                        <li><a href="#qualites"><span class="summary-index">03</span><span class="summary-label" data-i18n=""><span data-lang="fr">Qualités JR, J0, J2, K2</span><span data-lang="en">JR, J0, J2, K2 qualities</span></span></a></li>
+                        <li><a href="#designation"><span class="summary-index">04</span><span class="summary-label" data-i18n=""><span data-lang="fr">Lire une désignation et équivalences</span><span data-lang="en">Reading a designation and equivalents</span></span></a></li>
+                        <li><a href="#calculateur"><span class="summary-index">05</span><span class="summary-label" data-i18n=""><span data-lang="fr">Calculateur</span><span data-lang="en">Calculator</span></span></a></li>
+                        <li><a href="#faq"><span class="summary-index">06</span><span class="summary-label">FAQ</span></a></li>
+                    </ol>
+                </nav>
+
+                <section class="blog-section article-section" id="limite-elastique">
+                    <h2 data-i18n=""><span data-lang="fr">1. Limite élastique minimale ReH selon l'épaisseur</span><span data-lang="en">1. Minimum yield strength ReH by thickness</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Valeurs minimales en MPa (N/mm²) selon l'EN 10025-2, par tranche d'épaisseur nominale : jusqu'à 16 mm inclus, puis au-dessus de … jusqu'à … inclus.</span><span data-lang="en">Minimum values in MPa (N/mm²) per EN 10025-2, by nominal thickness range: up to and including 16 mm, then over … up to and including ….</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Nuance</span><span data-lang="en">Grade</span></th><th>≤ 16 mm</th><th>16 – 40 mm</th><th>40 – 63 mm</th><th>63 – 80 mm</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>S235</strong></td><td>235</td><td>225</td><td>215</td><td>215</td></tr>
+                                    <tr><td><strong>S275</strong></td><td>275</td><td>265</td><td>255</td><td>245</td></tr>
+                                    <tr><td><strong>S355</strong></td><td>355</td><td>345</td><td>335</td><td>325</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr">Au-delà de 80 mm, les valeurs continuent de baisser (pour le S355 : 315 MPa jusqu'à 100 mm, 295 MPa jusqu'à 150 mm) : reportez-vous à la norme ou au certificat matière.</span><span data-lang="en">Above 80 mm, values keep decreasing (for S355: 315 MPa up to 100 mm, 295 MPa up to 150 mm): refer to the standard or the material certificate.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="traction">
+                    <h2 data-i18n=""><span data-lang="fr">2. Résistance à la traction Rm</span><span data-lang="en">2. Tensile strength Rm</span></h2>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Nuance</span><span data-lang="en">Grade</span></th><th data-i18n=""><span data-lang="fr">Épaisseur &lt; 3 mm</span><span data-lang="en">Thickness &lt; 3 mm</span></th><th data-i18n=""><span data-lang="fr">Épaisseur 3 à 100 mm</span><span data-lang="en">Thickness 3 to 100 mm</span></th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>S235</strong></td><td>360 – 510</td><td>360 – 510</td></tr>
+                                    <tr><td><strong>S275</strong></td><td>430 – 580</td><td>410 – 560</td></tr>
+                                    <tr><td><strong>S355</strong></td><td>510 – 680</td><td>470 – 630</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr">Rm est donnée en fourchette (mini – maxi) en MPa. Pour peser les pièces, la masse volumique de ces aciers est d'environ 7 850 kg/m³ : voir le <a href="/blog/masse-volumique-materiaux-calcul-masse/">calculateur de masse</a>.</span><span data-lang="en">Rm is given as a range (min – max) in MPa. To weigh parts, the density of these steels is about 7,850 kg/m³: see the <a href="/blog/masse-volumique-materiaux-calcul-masse/">mass calculator</a>.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="qualites">
+                    <h2 data-i18n=""><span data-lang="fr">3. Qualités JR, J0, J2, K2 : la résilience</span><span data-lang="en">3. JR, J0, J2, K2 qualities: impact toughness</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Les lettres après le nombre garantissent une énergie minimale à l'essai de flexion par choc (Charpy) à une température donnée. Plus la température d'essai est basse, mieux l'acier résiste à la rupture fragile : c'est le critère pour une structure extérieure, soudée épaisse ou soumise aux chocs.</span><span data-lang="en">The letters after the number guarantee a minimum energy in the Charpy impact test at a given temperature. The lower the test temperature, the better the steel resists brittle fracture: the criterion for outdoor structures, thick welded parts or impact loads.</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Qualité</span><span data-lang="en">Quality</span></th><th data-i18n=""><span data-lang="fr">Température d'essai</span><span data-lang="en">Test temperature</span></th><th data-i18n=""><span data-lang="fr">Énergie mini</span><span data-lang="en">Min. energy</span></th><th data-i18n=""><span data-lang="fr">Nuances</span><span data-lang="en">Grades</span></th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>JR</strong></td><td>+20 °C</td><td>27 J</td><td>S235, S275, S355</td></tr>
+                                    <tr><td><strong>J0</strong></td><td>0 °C</td><td>27 J</td><td>S235, S275, S355</td></tr>
+                                    <tr><td><strong>J2</strong></td><td>−20 °C</td><td>27 J</td><td>S235, S275, S355</td></tr>
+                                    <tr><td><strong>K2</strong></td><td>−20 °C</td><td>40 J</td><td>S355</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr">Pour une structure mécano-soudée, la qualité se choisit avec l'épaisseur et la température de service ; les symboles de cordons se lisent avec le <a href="/blog/symboles-soudure-iso-2553/">mémo des symboles de soudure ISO 2553</a>.</span><span data-lang="en">For a welded structure, the quality is chosen with thickness and service temperature; weld symbols are read with the <a href="/blog/symboles-soudure-iso-2553/">ISO 2553 welding symbols memo</a>.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="designation">
+                    <h2 data-i18n=""><span data-lang="fr">4. Lire une désignation complète, et les équivalences</span><span data-lang="en">4. Reading a full designation, and equivalents</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Exemple : <strong>S355J2C+N</strong>, élément par élément.</span><span data-lang="en">Example: <strong>S355J2C+N</strong>, part by part.</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Élément</span><span data-lang="en">Part</span></th><th data-i18n=""><span data-lang="fr">Signification</span><span data-lang="en">Meaning</span></th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>S</strong></td><td data-i18n=""><span data-lang="fr">Acier de construction (<em>structural</em>)</span><span data-lang="en">Structural steel</span></td></tr>
+                                    <tr><td><strong>355</strong></td><td data-i18n=""><span data-lang="fr">Limite élastique minimale en MPa, pour une épaisseur jusqu'à 16 mm</span><span data-lang="en">Minimum yield strength in MPa, for thicknesses up to 16 mm</span></td></tr>
+                                    <tr><td><strong>J2</strong></td><td data-i18n=""><span data-lang="fr">Qualité : énergie de flexion par choc garantie (ici 27 J à −20 °C)</span><span data-lang="en">Quality: guaranteed impact energy (here 27 J at −20 °C)</span></td></tr>
+                                    <tr><td><strong>C</strong></td><td data-i18n=""><span data-lang="fr">Aptitude au formage à froid (pliage, profilage)</span><span data-lang="en">Suitable for cold forming (bending, roll forming)</span></td></tr>
+                                    <tr><td><strong>+N</strong></td><td data-i18n=""><span data-lang="fr">État de livraison : normalisé ou laminage normalisant</span><span data-lang="en">Delivery condition: normalized or normalized rolled</span></td></tr>
+                                    <tr><td><strong>+AR</strong></td><td data-i18n=""><span data-lang="fr">État de livraison : brut de laminage</span><span data-lang="en">Delivery condition: as rolled</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr">Les anciennes désignations françaises (NF A 35-501) sont encore sur beaucoup de plans. Les nuances américaines sont proches, sans être équivalentes : vérifiez les valeurs garanties avant toute substitution.</span><span data-lang="en">Old French designations (NF A 35-501) still appear on many drawings. American grades are close but not equivalent: check the guaranteed values before any substitution.</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">EN 10025-2</span><span data-lang="en">EN 10025-2</span></th><th data-i18n=""><span data-lang="fr">Ancienne désignation française</span><span data-lang="en">Old French designation</span></th><th data-i18n=""><span data-lang="fr">Nuance américaine proche</span><span data-lang="en">Close American grade</span></th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>S235</strong></td><td>E24</td><td data-i18n=""><span data-lang="fr">ASTM A36 (Re 250 MPa)</span><span data-lang="en">ASTM A36 (yield 250 MPa)</span></td></tr>
+                                    <tr><td><strong>S275</strong></td><td>E28</td><td data-i18n=""><span data-lang="fr">—</span><span data-lang="en">—</span></td></tr>
+                                    <tr><td><strong>S355</strong></td><td>E36</td><td data-i18n=""><span data-lang="fr">ASTM A572 grade 50 (Re 345 MPa)</span><span data-lang="en">ASTM A572 grade 50 (yield 345 MPa)</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="blog-section article-section" id="calculateur">
+                    <h2 data-i18n=""><span data-lang="fr">5. Calculateur : Re et Rm garantis pour votre tôle</span><span data-lang="en">5. Calculator: guaranteed Re and Rm for your plate</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Choisissez la nuance et l'épaisseur : le calcul donne la limite élastique minimale et la résistance à la traction de l'EN 10025-2, et la charge que supporte une barre de section donnée avant de plastifier.</span><span data-lang="en">Choose the grade and thickness: you get the EN 10025-2 minimum yield strength and tensile strength, and the load a bar of given section carries before yielding.</span></p>
+                    <form class="calc" id="stCalc" onsubmit="return false">
+                        <div class="calc__fields">
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">Nuance</span><span data-lang="en">Grade</span></span><select id="stG"><option value="S235">S235</option><option value="S275">S275</option><option value="S355" selected>S355</option></select></label>
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">Épaisseur (mm)</span><span data-lang="en">Thickness (mm)</span></span><input id="stT" type="number" inputmode="decimal" min="0" step="any" value="20"></label>
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">Section de la barre (mm²)</span><span data-lang="en">Bar cross-section (mm²)</span></span><input id="stA" type="number" inputmode="decimal" min="0" step="any" value="200"></label>
+                        </div>
+                        <dl class="calc__out" aria-live="polite">
+                            <div><dt><span data-i18n=""><span data-lang="fr">Re mini</span><span data-lang="en">Min. yield Re</span></span></dt><dd id="stRe">—</dd></div>
+                            <div><dt><span data-i18n=""><span data-lang="fr">Rm</span><span data-lang="en">Rm</span></span></dt><dd id="stRm">—</dd></div>
+                            <div><dt><span data-i18n=""><span data-lang="fr">Effort à Re</span><span data-lang="en">Force at Re</span></span></dt><dd id="stF">—</dd></div>
+                        </dl>
+                        <p class="calc__verdict" id="stV"></p>
+                    </form>
+                    <div class="callout callout--soft">
+                        <p data-i18n=""><span data-lang="fr"><strong>Ordre de grandeur, pas dimensionnement :</strong> l'effort à Re est la traction qui amène la section à sa limite élastique, sans coefficient de sécurité. Un calcul de structure applique les coefficients partiels de l'Eurocode 3 et vérifie aussi le flambement, la flèche et les assemblages.</span><span data-lang="en"><strong>Order of magnitude, not design:</strong> the force at Re is the tension that brings the section to its yield strength, without any safety factor. A structural calculation applies the Eurocode 3 partial factors and also checks buckling, deflection and connections.</span></p>
+                    </div>
+                </section>
+
+                <section class="blog-section article-section" id="faq">
+                    <h2 data-i18n=""><span data-lang="fr">6. FAQ</span><span data-lang="en">6. FAQ</span></h2>
+                    <h3 data-i18n=""><span data-lang="fr">Que signifie S355J2 ?</span><span data-lang="en">What does S355J2 mean?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">S : acier de construction ; 355 : limite élastique minimale de 355 MPa pour une épaisseur jusqu'à 16 mm ; J2 : énergie de rupture d'au moins 27 J à −20 °C à l'essai de flexion par choc (Charpy). Un suffixe +N indique une livraison à l'état normalisé, +AR brut de laminage.</span><span data-lang="en">S: structural steel; 355: minimum yield strength of 355 MPa for thicknesses up to 16 mm; J2: at least 27 J impact energy at −20 °C in the Charpy test. A +N suffix means delivered normalized, +AR as rolled.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Quelle est la différence entre S235 et S355 ?</span><span data-lang="en">What is the difference between S235 and S355?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">La limite élastique : 235 contre 355 MPa jusqu'à 16 mm d'épaisseur, soit environ 50 % de plus pour le S355. La résistance à la traction passe de 360–510 à 470–630 MPa (épaisseurs de 3 à 100 mm). Le module d'élasticité, lui, est le même : environ 210 000 MPa.</span><span data-lang="en">Yield strength: 235 versus 355 MPa up to 16 mm thick, about 50 % more for S355. Tensile strength goes from 360–510 to 470–630 MPa (3 to 100 mm thick). The elastic modulus is the same: about 210,000 MPa.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Un S355 est-il plus rigide qu'un S235 ?</span><span data-lang="en">Is S355 stiffer than S235?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Non. Les deux ont le même module d'élasticité (environ 210 000 MPa) : à section égale, ils fléchissent autant sous la même charge. Le S355 supporte une contrainte plus élevée avant de se déformer de façon permanente, mais il ne réduit pas une flèche.</span><span data-lang="en">No. Both have the same elastic modulus (about 210,000 MPa): with the same section they deflect the same under the same load. S355 takes a higher stress before permanent deformation, but it does not reduce deflection.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Quel est l'équivalent de l'acier E24 ?</span><span data-lang="en">What is the equivalent of E24 steel?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">L'ancienne désignation française E24 correspond au S235 de l'EN 10025-2, E28 au S275 et E36 au S355. Ce sont les noms encore utilisés sur beaucoup de plans anciens.</span><span data-lang="en">The old French designation E24 corresponds to S235 in EN 10025-2, E28 to S275 and E36 to S355. These names still appear on many older drawings.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Pourquoi la limite élastique baisse-t-elle avec l'épaisseur ?</span><span data-lang="en">Why does yield strength decrease with thickness?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Une tôle épaisse est moins corroyée au laminage et refroidit plus lentement : sa structure est plus grossière. La norme en tient compte en donnant des valeurs minimales par tranche d'épaisseur : un S355 de 50 mm ne garantit que 335 MPa.</span><span data-lang="en">A thick plate gets less rolling reduction and cools more slowly, giving a coarser structure. The standard accounts for this with minimum values per thickness range: a 50 mm S355 plate only guarantees 335 MPa.</span></p>
+                </section>
+
+                <section class="blog-section article-related">
+                    <h2 data-i18n=""><span data-lang="fr">À lire aussi</span><span data-lang="en">Read next</span></h2>
+                    <div class="media-grid">
+                        <a href="/blog/masse-volumique-materiaux-calcul-masse/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">Masse volumique des matériaux et calcul de masse</span><span data-lang="en">Material densities and mass calculation</span></h3>
+                            <p data-i18n=""><span data-lang="fr">Aciers, aluminiums, plastiques : la masse d'une pièce en un calcul.</span><span data-lang="en">Steels, aluminium, plastics: a part's mass in one calculation.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                        <a href="/blog/symboles-soudure-iso-2553/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">Symboles de soudure ISO 2553 et cordon d'angle a / z</span><span data-lang="en">ISO 2553 welding symbols and fillet weld a / z</span></h3>
+                            <p data-i18n=""><span data-lang="fr">Lire un plan de mécano-soudure sans se tromper de côté.</span><span data-lang="en">Read a welded-structure drawing without picking the wrong side.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                    </div>
+                </section>
+
+                <footer class="article-footer">
+                    <div class="article-tags">
+                        <span class="article-tag">EN 10025-2</span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Acier</span><span data-lang="en">Steel</span></span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Matériaux</span><span data-lang="en">Materials</span></span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Mécano-soudure</span><span data-lang="en">Welded structures</span></span>
+                    </div>
+                    <div class="article-nav">
+                        <a href="/blog/" class="back-link" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                        <a href="/#contact" class="hero-btn" data-i18n=""><span data-lang="fr">Parler d'un projet</span><span data-lang="en">Discuss a project</span></a>
+                    </div>
+                </footer>
+
+            </article>
+        </div>
+    </main>
+
+    <script>
+// Aciers EN 10025-2 : ReH mini par tranche d'épaisseur (≤16, 16–40, 40–63, 63–80 mm), Rm (< 3 mm ; 3–100 mm).
+    (function () {
+        var RE = { S235: [235, 225, 215, 215], S275: [275, 265, 255, 245], S355: [355, 345, 335, 325] };
+        var RM = { S235: ['360 – 510', '360 – 510'], S275: ['430 – 580', '410 – 560'], S355: ['510 – 680', '470 – 630'] };
+        var $ = function (id) { return document.getElementById(id); };
+        var gIn = $('stG'), tIn = $('stT'), aIn = $('stA');
+        if (!gIn) return;
+        function en() { return document.documentElement.lang === 'en'; }
+        function val(el) { return parseFloat(String(el.value).replace(',', '.')); }
+        function fmt(n) { var s = String(Math.round(n * 10) / 10); return en() ? s.replace(/\B(?=(\d{3})+(?!\d))/g, ',') : s.replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, ' '); }
+        function run() {
+            var g = gIn.value, t = val(tIn), a = val(aIn);
+            $('stRe').textContent = $('stRm').textContent = $('stF').textContent = '—';
+            if (!(t > 0)) { $('stV').textContent = ''; return; }
+            if (t > 80) {
+                $('stV').textContent = en() ? 'Over 80 mm: refer to EN 10025-2 or the material certificate.' : 'Au-delà de 80 mm : reportez-vous à l’EN 10025-2 ou au certificat matière.';
+                return;
+            }
+            var re = RE[g][t <= 16 ? 0 : t <= 40 ? 1 : t <= 63 ? 2 : 3];
+            $('stRe').textContent = re + ' MPa';
+            $('stRm').textContent = RM[g][t < 3 ? 0 : 1] + ' MPa';
+            if (a > 0) $('stF').textContent = fmt(re * a / 1000) + ' kN';
+            $('stV').textContent = (en() ? 'EN 10025-2, ' : 'EN 10025-2, ') + g + (en() ? ', thickness ' : ', épaisseur ') + String(t).replace('.', en() ? '.' : ',') + ' mm';
+        }
+        [gIn, tIn, aIn].forEach(function (el) { el.addEventListener('input', run); });
+        window.addEventListener('langchange', run);
+        run();
+    })();
+    </script>
+    <script src="/assets/js/loader.js"></script>
+    <script src="/assets/js/visitor-intelligence.js"></script>
+
+{{> footer }}
+{{> chatbot }}
+</body></html>

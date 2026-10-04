@@ -1,4 +1,22 @@
 {
+  "/blog/aciers-s235-s275-s355-caracteristiques/": {
+    "title": "Acier S235, S275, S355 : tableau Re, Rm et désignation (EN 10025-2)",
+    "description": "Les aciers de construction S235, S275 et S355 selon l'EN 10025-2 : limite élastique minimale selon l'épaisseur, résistance à la traction, qualités JR, J0, J2, K2, lecture d'une désignation (S355J2+N), équivalences E24 / E36 / A36 et calculateur.",
+    "canonical": "https://www.baouch.fr/blog/aciers-s235-s275-s355-caracteristiques/",
+    "robots": null,
+    "ogTitle": "Acier S235, S275, S355 : limite élastique, résistance et désignation",
+    "ogDescription": "Re selon l'épaisseur, Rm, qualités JR / J0 / J2 / K2, décodage de S355J2+N et équivalences E24, E36, A36.",
+    "ogUrl": "https://www.baouch.fr/blog/aciers-s235-s275-s355-caracteristiques/",
+    "ogImage": "https://www.baouch.fr/img/og/aciers.jpg",
+    "ogType": "article",
+    "twitterTitle": "Acier S235, S275, S355 : limite élastique, résistance et désignation",
+    "twitterDescription": "Re selon l'épaisseur, Rm, qualités JR / J0 / J2 / K2, décodage de S355J2+N et équivalences E24, E36, A36.",
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList,FAQPage"
+    ],
+    "h1": "Acier S235, S275, S355 : limite élastique, résistance et désignationS235, S275, S355 steel: yield strength, tensile strength and designation",
+    "lang": "fr"
+  },
   "/blog/ajustements-iso-286-tableau-h7-g6/": {
     "title": "Ajustements ISO 286 : tableau H7, g6, h6, k6, p6 et calculateur de jeu",
     "description": "Calculateur d'ajustement ISO 286 (H7/g6, H7/h6, H7/k6, H7/p6…) : écarts en µm, cotes mini/maxi, jeu ou serrage pour votre diamètre. Tableau des écarts H7, f7, g6, h6, k6, n6, p6 jusqu'à 500 mm et usages de chaque ajustement.",

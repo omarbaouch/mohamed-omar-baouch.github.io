@@ -1,35 +1,135 @@
 {
   "_comment": "Couvertures des articles (planches de dessin technique, scripts/covers/) : texte alternatif français et anglais. Appliquées par scripts/covers/apply.mjs (pages françaises) et scripts/build-en.mjs (pages anglaises).",
-  "symboles-soudure-iso-2553": ["Planche technique : assemblage en T avec cordon d'angle a5 et symbole de soudure ISO 2553 (ligne de référence, côté flèche, procédé 135)", "Technical drawing: T-joint with an a5 fillet weld and its ISO 2553 welding symbol (reference line, arrow side, process 135)"],
-  "tableau-filetage-metrique-percage-taraudage": ["Planche technique : profil de filetage métrique ISO à 60° d'une vis M10 × 1,5, pas et foret de taraudage Ø8,5", "Technical drawing: 60° ISO metric thread profile of an M10 × 1.5 screw, pitch and Ø8.5 tap drill"],
-  "tolerances-geometriques-symboles-iso-1101": ["Planche technique : cadre de tolérance de position Ø0,1 Ⓜ par rapport aux références A, B, C sur une platine percée", "Technical drawing: Ø0.1 Ⓜ position tolerance frame relative to datums A, B, C on a drilled plate"],
-  "couple-serrage-vis-tableau": ["Planche technique : assemblage boulonné M10 classe 8.8 en coupe, couple de serrage 48 N·m et précharge 30 kN", "Technical drawing: M10 grade 8.8 bolted joint in section, 48 N·m tightening torque and 30 kN preload"],
-  "ajustements-iso-286-tableau-h7-g6": ["Planche technique : zones de tolérance de l'ajustement H7/g6 au diamètre 25, jeu de 7 à 41 µm", "Technical drawing: tolerance zones of the H7/g6 fit at 25 mm diameter, 7 to 41 µm clearance"],
-  "tolerances-generales-iso-2768": ["Planche technique : pièce cotée sans tolérances individuelles, mention ISO 2768-mK et écarts ±0,2 / ±0,3 / ±0,5", "Technical drawing: part dimensioned without individual tolerances, ISO 2768-mK note and ±0.2 / ±0.3 / ±0.5 deviations"],
-  "rugosite-ra-tableau-classes-procedes": ["Planche technique : profil de rugosité, ligne moyenne et symbole d'état de surface Ra 1,6", "Technical drawing: roughness profile, mean line and Ra 1.6 surface texture symbol"],
-  "masse-volumique-materiaux-calcul-masse": ["Planche technique : trois barres de même volume en acier S235, aluminium 6061 et polyamide PA66 avec leur masse volumique", "Technical drawing: three bars of equal volume in S235 steel, 6061 aluminium and PA66 polyamide with their densities"],
-  "modele-nomenclature-excel-gratuit": ["Planche technique : nomenclature multiniveau dans une feuille Excel, avec un doublon signalé", "Technical drawing: multi-level bill of materials in an Excel sheet, with a flagged duplicate"],
-  "glossaire-pdm-plm": ["Planche technique : tableau des sigles de la donnée technique (PDM, PLM, ERP, BOM, ECO, STEP…)", "Technical drawing: table of technical data acronyms (PDM, PLM, ERP, BOM, ECO, STEP…)"],
-  "ebom-vs-mbom": ["Planche technique : la même pièce dans une eBOM fonctionnelle et dans une mBOM organisée par opérations", "Technical drawing: the same parts in a functional eBOM and in an mBOM organised by operations"],
-  "nomenclature-bom-pdm-plm-erp": ["Planche technique : nomenclature arborescente sur quatre niveaux, de l'assemblage aux pièces", "Technical drawing: four-level bill of materials tree, from top assembly to parts"],
-  "integration-bom-erp": ["Planche technique : les quatre architectures de liaison entre la nomenclature et l'ERP", "Technical drawing: the four integration architectures between the BOM and the ERP"],
-  "logiciel-gestion-nomenclatures": ["Planche technique : périmètre comparé des cinq familles de logiciels de nomenclature", "Technical drawing: compared scope of the five families of BOM software"],
-  "codification-proprietes-solidworks": ["Planche technique : anatomie de la référence PRT-0042-B et propriétés SOLIDWORKS associées", "Technical drawing: anatomy of part number PRT-0042-B and its SOLIDWORKS custom properties"],
-  "eco-ecr-gestion-modifications": ["Planche technique : cote modifiée sous nuage de révision, indice B et tableau des révisions", "Technical drawing: changed dimension under a revision cloud, revision B and revision table"],
-  "pdm-ou-plm-quand-basculer": ["Planche technique : le coffre PDM au centre de l'anneau du cycle de vie PLM", "Technical drawing: the PDM vault at the centre of the PLM lifecycle ring"],
-  "plm-guide-complet": ["Planche technique : boucle du cycle de vie produit en six étapes autour du PLM", "Technical drawing: six-stage product lifecycle loop around PLM"],
-  "solidworks-pdm-guide-complet": ["Planche technique : porte de coffre-fort symbolisant le coffre SOLIDWORKS PDM, archivage et extraction", "Technical drawing: safe door symbolising the SOLIDWORKS PDM vault, check-in and check-out"],
-  "solidworks-pdm-standard-vs-professional": ["Planche technique : couverture fonctionnelle de SOLIDWORKS PDM Standard et Professional", "Technical drawing: functional coverage of SOLIDWORKS PDM Standard and Professional"],
-  "solidworks-pdm-lent-7-causes": ["Planche technique : jauge à sept secteurs, la sixième cause de lenteur PDM en évidence", "Technical drawing: seven-sector gauge highlighting the sixth cause of PDM slowness"],
-  "prix-cout-projet-solidworks-pdm": ["Planche technique : répartition du budget d'un projet PDM, licences 35 %, infrastructure 10 %, services 30 %, reprise 25 %", "Technical drawing: PDM project budget split, licenses 35%, infrastructure 10%, services 30%, data migration 25%"],
-  "solidworks-gratuit-prix-guide": ["Planche technique : billet de licence SOLIDWORKS, prix barré et sept solutions gratuites", "Technical drawing: SOLIDWORKS license ticket, crossed-out price and seven free options"],
-  "raccourcis-clavier-solidworks": ["Planche technique : touches de raccourci SOLIDWORKS Ctrl+Q, Ctrl+B, S, Espace, F et D", "Technical drawing: SOLIDWORKS shortcut keys Ctrl+Q, Ctrl+B, S, Space, F and D"],
-  "erreurs-solidworks-frequentes": ["Planche technique : arbre de création SOLIDWORKS avec erreurs de reconstruction et référence perdue", "Technical drawing: SOLIDWORKS feature tree with rebuild errors and a lost reference"],
-  "formats-echange-cao-step-iges-parasolid": ["Planche technique : formats STEP, Parasolid, JT, IGES et STL convergeant vers une pièce, avec leur fidélité", "Technical drawing: STEP, Parasolid, JT, IGES and STL formats converging on a part, with their fidelity"],
-  "choisir-logiciel-cao-solidworks-inventor-fusion-catia": ["Planche technique : radar comparant SOLIDWORKS, Inventor, Fusion 360 et CATIA sur cinq critères", "Technical drawing: radar chart comparing SOLIDWORKS, Inventor, Fusion 360 and CATIA on five criteria"],
-  "ia-solidworks-pdm-bureau-etudes": ["Planche technique : graphe de pièces reliées par le sens et barre de recherche sémantique", "Technical drawing: graph of parts linked by meaning and a semantic search bar"],
-  "migration-cloud-pdm-3dexperience": ["Planche technique : baie de serveurs sur site, nuage 3DEXPERIENCE et coût cumulé sur cinq ans", "Technical drawing: on-premise server rack, 3DEXPERIENCE cloud and five-year cumulative cost"],
-  "migration-donnees-solidworks-pdm": ["Planche technique : fichiers en vrac migrés et dédoublonnés dans le coffre SOLIDWORKS PDM", "Technical drawing: scattered files migrated and deduplicated into the SOLIDWORKS PDM vault"],
-  "configuration-materielle-solidworks": ["Planche technique : carte mère d'une station SOLIDWORKS avec CPU, mémoire ECC, GPU et SSD NVMe", "Technical drawing: SOLIDWORKS workstation motherboard with CPU, ECC memory, GPU and NVMe SSDs"],
-  "resolutions-problematiques-plm": ["Planche technique : cinq fils emmêlés qui ressortent droits, les problématiques PLM résolues", "Technical drawing: five tangled wires coming out straight, PLM issues resolved"]
+  "symboles-soudure-iso-2553": [
+    "Planche technique : assemblage en T avec cordon d'angle a5 et symbole de soudure ISO 2553 (ligne de référence, côté flèche, procédé 135)",
+    "Technical drawing: T-joint with an a5 fillet weld and its ISO 2553 welding symbol (reference line, arrow side, process 135)"
+  ],
+  "tableau-filetage-metrique-percage-taraudage": [
+    "Planche technique : profil de filetage métrique ISO à 60° d'une vis M10 × 1,5, pas et foret de taraudage Ø8,5",
+    "Technical drawing: 60° ISO metric thread profile of an M10 × 1.5 screw, pitch and Ø8.5 tap drill"
+  ],
+  "tolerances-geometriques-symboles-iso-1101": [
+    "Planche technique : cadre de tolérance de position Ø0,1 Ⓜ par rapport aux références A, B, C sur une platine percée",
+    "Technical drawing: Ø0.1 Ⓜ position tolerance frame relative to datums A, B, C on a drilled plate"
+  ],
+  "couple-serrage-vis-tableau": [
+    "Planche technique : assemblage boulonné M10 classe 8.8 en coupe, couple de serrage 48 N·m et précharge 30 kN",
+    "Technical drawing: M10 grade 8.8 bolted joint in section, 48 N·m tightening torque and 30 kN preload"
+  ],
+  "ajustements-iso-286-tableau-h7-g6": [
+    "Planche technique : zones de tolérance de l'ajustement H7/g6 au diamètre 25, jeu de 7 à 41 µm",
+    "Technical drawing: tolerance zones of the H7/g6 fit at 25 mm diameter, 7 to 41 µm clearance"
+  ],
+  "tolerances-generales-iso-2768": [
+    "Planche technique : pièce cotée sans tolérances individuelles, mention ISO 2768-mK et écarts ±0,2 / ±0,3 / ±0,5",
+    "Technical drawing: part dimensioned without individual tolerances, ISO 2768-mK note and ±0.2 / ±0.3 / ±0.5 deviations"
+  ],
+  "rugosite-ra-tableau-classes-procedes": [
+    "Planche technique : profil de rugosité, ligne moyenne et symbole d'état de surface Ra 1,6",
+    "Technical drawing: roughness profile, mean line and Ra 1.6 surface texture symbol"
+  ],
+  "masse-volumique-materiaux-calcul-masse": [
+    "Planche technique : trois barres de même volume en acier S235, aluminium 6061 et polyamide PA66 avec leur masse volumique",
+    "Technical drawing: three bars of equal volume in S235 steel, 6061 aluminium and PA66 polyamide with their densities"
+  ],
+  "modele-nomenclature-excel-gratuit": [
+    "Planche technique : nomenclature multiniveau dans une feuille Excel, avec un doublon signalé",
+    "Technical drawing: multi-level bill of materials in an Excel sheet, with a flagged duplicate"
+  ],
+  "glossaire-pdm-plm": [
+    "Planche technique : tableau des sigles de la donnée technique (PDM, PLM, ERP, BOM, ECO, STEP…)",
+    "Technical drawing: table of technical data acronyms (PDM, PLM, ERP, BOM, ECO, STEP…)"
+  ],
+  "ebom-vs-mbom": [
+    "Planche technique : la même pièce dans une eBOM fonctionnelle et dans une mBOM organisée par opérations",
+    "Technical drawing: the same parts in a functional eBOM and in an mBOM organised by operations"
+  ],
+  "nomenclature-bom-pdm-plm-erp": [
+    "Planche technique : nomenclature arborescente sur quatre niveaux, de l'assemblage aux pièces",
+    "Technical drawing: four-level bill of materials tree, from top assembly to parts"
+  ],
+  "integration-bom-erp": [
+    "Planche technique : les quatre architectures de liaison entre la nomenclature et l'ERP",
+    "Technical drawing: the four integration architectures between the BOM and the ERP"
+  ],
+  "logiciel-gestion-nomenclatures": [
+    "Planche technique : périmètre comparé des cinq familles de logiciels de nomenclature",
+    "Technical drawing: compared scope of the five families of BOM software"
+  ],
+  "codification-proprietes-solidworks": [
+    "Planche technique : anatomie de la référence PRT-0042-B et propriétés SOLIDWORKS associées",
+    "Technical drawing: anatomy of part number PRT-0042-B and its SOLIDWORKS custom properties"
+  ],
+  "eco-ecr-gestion-modifications": [
+    "Planche technique : cote modifiée sous nuage de révision, indice B et tableau des révisions",
+    "Technical drawing: changed dimension under a revision cloud, revision B and revision table"
+  ],
+  "pdm-ou-plm-quand-basculer": [
+    "Planche technique : le coffre PDM au centre de l'anneau du cycle de vie PLM",
+    "Technical drawing: the PDM vault at the centre of the PLM lifecycle ring"
+  ],
+  "plm-guide-complet": [
+    "Planche technique : boucle du cycle de vie produit en six étapes autour du PLM",
+    "Technical drawing: six-stage product lifecycle loop around PLM"
+  ],
+  "solidworks-pdm-guide-complet": [
+    "Planche technique : porte de coffre-fort symbolisant le coffre SOLIDWORKS PDM, archivage et extraction",
+    "Technical drawing: safe door symbolising the SOLIDWORKS PDM vault, check-in and check-out"
+  ],
+  "solidworks-pdm-standard-vs-professional": [
+    "Planche technique : couverture fonctionnelle de SOLIDWORKS PDM Standard et Professional",
+    "Technical drawing: functional coverage of SOLIDWORKS PDM Standard and Professional"
+  ],
+  "solidworks-pdm-lent-7-causes": [
+    "Planche technique : jauge à sept secteurs, la sixième cause de lenteur PDM en évidence",
+    "Technical drawing: seven-sector gauge highlighting the sixth cause of PDM slowness"
+  ],
+  "prix-cout-projet-solidworks-pdm": [
+    "Planche technique : répartition du budget d'un projet PDM, licences 35 %, infrastructure 10 %, services 30 %, reprise 25 %",
+    "Technical drawing: PDM project budget split, licenses 35%, infrastructure 10%, services 30%, data migration 25%"
+  ],
+  "solidworks-gratuit-prix-guide": [
+    "Planche technique : billet de licence SOLIDWORKS, prix barré et sept solutions gratuites",
+    "Technical drawing: SOLIDWORKS license ticket, crossed-out price and seven free options"
+  ],
+  "raccourcis-clavier-solidworks": [
+    "Planche technique : touches de raccourci SOLIDWORKS Ctrl+Q, Ctrl+B, S, Espace, F et D",
+    "Technical drawing: SOLIDWORKS shortcut keys Ctrl+Q, Ctrl+B, S, Space, F and D"
+  ],
+  "erreurs-solidworks-frequentes": [
+    "Planche technique : arbre de création SOLIDWORKS avec erreurs de reconstruction et référence perdue",
+    "Technical drawing: SOLIDWORKS feature tree with rebuild errors and a lost reference"
+  ],
+  "formats-echange-cao-step-iges-parasolid": [
+    "Planche technique : formats STEP, Parasolid, JT, IGES et STL convergeant vers une pièce, avec leur fidélité",
+    "Technical drawing: STEP, Parasolid, JT, IGES and STL formats converging on a part, with their fidelity"
+  ],
+  "choisir-logiciel-cao-solidworks-inventor-fusion-catia": [
+    "Planche technique : radar comparant SOLIDWORKS, Inventor, Fusion 360 et CATIA sur cinq critères",
+    "Technical drawing: radar chart comparing SOLIDWORKS, Inventor, Fusion 360 and CATIA on five criteria"
+  ],
+  "ia-solidworks-pdm-bureau-etudes": [
+    "Planche technique : graphe de pièces reliées par le sens et barre de recherche sémantique",
+    "Technical drawing: graph of parts linked by meaning and a semantic search bar"
+  ],
+  "migration-cloud-pdm-3dexperience": [
+    "Planche technique : baie de serveurs sur site, nuage 3DEXPERIENCE et coût cumulé sur cinq ans",
+    "Technical drawing: on-premise server rack, 3DEXPERIENCE cloud and five-year cumulative cost"
+  ],
+  "migration-donnees-solidworks-pdm": [
+    "Planche technique : fichiers en vrac migrés et dédoublonnés dans le coffre SOLIDWORKS PDM",
+    "Technical drawing: scattered files migrated and deduplicated into the SOLIDWORKS PDM vault"
+  ],
+  "configuration-materielle-solidworks": [
+    "Planche technique : carte mère d'une station SOLIDWORKS avec CPU, mémoire ECC, GPU et SSD NVMe",
+    "Technical drawing: SOLIDWORKS workstation motherboard with CPU, ECC memory, GPU and NVMe SSDs"
+  ],
+  "resolutions-problematiques-plm": [
+    "Planche technique : cinq fils emmêlés qui ressortent droits, les problématiques PLM résolues",
+    "Technical drawing: five tangled wires coming out straight, PLM issues resolved"
+  ],
+  "aciers-s235-s275-s355-caracteristiques": [
+    "Planche technique : section de poutrelle en I et courbe contrainte-déformation de l'acier S355, limite élastique Re = 355 MPa repérée",
+    "Technical drawing: I-beam cross-section and S355 steel stress-strain curve, with the yield strength Re = 355 MPa marked"
+  ]
 }
