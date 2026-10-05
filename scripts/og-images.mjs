@@ -44,6 +44,7 @@ const PAGES = [
   { file: 'src/blog/tolerances-geometriques-symboles-iso-1101/index.html', slug: 'tol-geo', ref: 'MEM-07', type: 'MÉMO', title: 'Tolérances géométriques : les 14 symboles ISO 1101' },
   { file: 'src/blog/symboles-soudure-iso-2553/index.html', slug: 'soudure', ref: 'MEM-08', type: 'MÉMO', title: 'Symboles de soudure ISO 2553 et cordon d’angle a / z' },
   { file: 'src/blog/aciers-s235-s275-s355-caracteristiques/index.html', slug: 'aciers', ref: 'MEM-09', type: 'MÉMO', title: 'Acier S235, S275, S355 : limite élastique et désignation' },
+  { file: 'src/blog/conversion-durete-hrc-hv-hb/index.html', slug: 'durete', ref: 'MEM-10', type: 'MÉMO', title: 'Conversion de dureté HRC, HV, HB : tableau et convertisseur' },
   { file: 'src/blog/modele-nomenclature-excel-gratuit/index.html', slug: 'modele-bom', ref: 'TPL-01', type: 'MODÈLE GRATUIT', title: 'Modèle de nomenclature Excel gratuit : BOM multiniveau' },
   { file: 'src/projets/robot-orbita/index.html', slug: 'orbita', ref: 'PRT-ORBITA · RÉV.B', type: 'ÉTUDE DE CAS', title: 'Structurer le PDM d’un robot humanoïde' },
   { file: 'src/projets/migration-pdm-internationale/index.html', slug: 'mig-intl', ref: 'MIG-INTL · RÉV.C', type: 'ÉTUDE DE CAS', title: 'Migration PDM multi-sites pour un géant mondial du câblage' },

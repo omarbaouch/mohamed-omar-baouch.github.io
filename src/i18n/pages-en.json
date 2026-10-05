@@ -122,5 +122,9 @@
   "/blog/aciers-s235-s275-s355-caracteristiques/": {
     "title": "S235 vs S275 vs S355 Steel: Yield Strength Chart (EN 10025-2)",
     "description": "S235, S275 and S355 structural steel per EN 10025-2: yield strength by thickness, tensile strength, JR/J0/J2/K2, S355J2+N decoded, A36/A572 equivalents."
+  },
+  "/blog/conversion-durete-hrc-hv-hb/": {
+    "title": "Hardness Conversion Chart: HRC to HV to HB (+ Calculator)",
+    "description": "Rockwell C, Vickers and Brinell hardness conversion chart for steels from 20 to 65 HRC (ASTM E140), an online converter and why conversions are approximate."
   }
 }

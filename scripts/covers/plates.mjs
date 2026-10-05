@@ -87,6 +87,30 @@ function aciers(l) {
   return sheet({ ref: 'MEM-09', std: 'EN 10025-2', rev: 'A', scale: '1:2', key: 'S355', keySub: 'J2 · −20 °C · 27 J', body: b, keyY: 760, keySize: 170 });
 }
 
+function durete(l) {
+  const { t, num } = lang(l);
+  let b = '';
+  // empreinte Vickers vue de dessus : losange et diagonales d1, d2
+  const cx = 860, cy = 400, r = 190;
+  b += poly([[cx, cy - r], [cx + r, cy], [cx, cy + r], [cx - r, cy]], { c: C.line, w: 2.4, fill: 'url(#hatch)' });
+  b += line(cx - r, cy, cx + r, cy, { c: C.accent, w: 2 });
+  b += line(cx, cy - r, cx, cy + r, { c: C.accent, w: 2 });
+  b += dim(cx - r, cy + r + 20, cx + r, cy + r + 20, 'd1', { off: 26, size: 22 });
+  b += dim(cx + r + 20, cy - r, cx + r + 20, cy + r, 'd2', { off: -30, size: 22 });
+  b += text(cx, cy - r - 34, t('136° · VICKERS', '136° · VICKERS'), { size: 18, c: C.mid, anchor: 'middle', ls: 2 });
+  // échelle de correspondance
+  const x = 1190, rows = [['HRC', '40', '60'], ['HV', '392', '697'], ['HBW', '371', '654']];
+  rows.forEach(([k, a, c2], i) => {
+    const y = 290 + i * 78;
+    b += text(x, y, k, { size: 24, c: C.mid, weight: 700 });
+    b += text(x + 120, y, a, { size: 28, c: C.ink, weight: 700 });
+    b += text(x + 230, y, c2, { size: 28, c: C.accent, weight: 700 });
+    b += line(x, y + 20, x + 320, y + 20, { c: C.mid, w: 1, op: 0.4 });
+  });
+  b += text(x, 290 + 3 * 78 + 10, t('≈ ASTM E140 · aciers', '≈ ASTM E140 · steels'), { size: 18, c: C.mid, ls: 1 });
+  return sheet({ ref: 'MEM-10', std: 'ASTM E140 · ISO 18265', rev: 'A', scale: '200:1', key: '60', keySub: `HRC ≈ 697 HV`, body: b, keyY: 760, keySize: 200 });
+}
+
 function filetage(l) {
   const { t, num } = lang(l);
   const P = 130, depth = 0.6134 * P, crest = P / 8, root = P / 4, run = (P - crest - root) / 2;
@@ -728,6 +752,7 @@ function resolutions() {
 }
 
 export const PLATES = {
+  'conversion-durete-hrc-hv-hb': durete,
   'aciers-s235-s275-s355-caracteristiques': aciers,
   'symboles-soudure-iso-2553': soudure,
   'tableau-filetage-metrique-percage-taraudage': filetage,

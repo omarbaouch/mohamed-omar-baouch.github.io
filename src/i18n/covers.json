@@ -131,5 +131,9 @@
   "aciers-s235-s275-s355-caracteristiques": [
     "Planche technique : section de poutrelle en I et courbe contrainte-déformation de l'acier S355, limite élastique Re = 355 MPa repérée",
     "Technical drawing: I-beam cross-section and S355 steel stress-strain curve, with the yield strength Re = 355 MPa marked"
+  ],
+  "conversion-durete-hrc-hv-hb": [
+    "Planche technique : empreinte Vickers vue de dessus avec ses deux diagonales, et correspondance 60 HRC ≈ 697 HV ≈ 654 HB",
+    "Technical drawing: top view of a Vickers indent with its two diagonals, and the correspondence 60 HRC ≈ 697 HV ≈ 654 HB"
   ]
 }

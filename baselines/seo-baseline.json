@@ -89,6 +89,24 @@
     "h1": "Configuration matérielle SOLIDWORKS 2025 : le guide terrain pour un bureau d'études réactif",
     "lang": "fr"
   },
+  "/blog/conversion-durete-hrc-hv-hb/": {
+    "title": "Conversion dureté HRC ↔ HV ↔ HB : tableau + convertisseur (aciers)",
+    "description": "Tableau de conversion de dureté Rockwell C (HRC), Vickers (HV) et Brinell (HB) pour les aciers, de 20 à 65 HRC, convertisseur, différences entre les essais et limites des conversions (ASTM E140, ISO 18265).",
+    "canonical": "https://www.baouch.fr/blog/conversion-durete-hrc-hv-hb/",
+    "robots": null,
+    "ogTitle": "Conversion de dureté HRC, HV, HB : tableau et convertisseur",
+    "ogDescription": "HRC, HV, HB de 20 à 65 HRC pour les aciers, un convertisseur, et pourquoi une conversion de dureté reste approximative.",
+    "ogUrl": "https://www.baouch.fr/blog/conversion-durete-hrc-hv-hb/",
+    "ogImage": "https://www.baouch.fr/img/og/durete.jpg",
+    "ogType": "article",
+    "twitterTitle": "Conversion de dureté HRC, HV, HB : tableau et convertisseur",
+    "twitterDescription": "HRC, HV, HB de 20 à 65 HRC pour les aciers, un convertisseur, et pourquoi une conversion de dureté reste approximative.",
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList,FAQPage"
+    ],
+    "h1": "Conversion de dureté HRC, HV, HB : tableau et convertisseurHardness conversion HRC, HV, HB: chart and converter",
+    "lang": "fr"
+  },
   "/blog/couple-serrage-vis-tableau/": {
     "title": "Couple de serrage des vis : tableau 8.8, 10.9, 12.9 de M3 à M36 + calculateur",
     "description": "Tableau des couples de serrage des vis métriques de M3 à M36 en classes 8.8, 10.9 et 12.9, avec les précontraintes. Calculateur selon la méthode VDI 2230 et le coefficient de frottement, et les erreurs de serrage à éviter.",

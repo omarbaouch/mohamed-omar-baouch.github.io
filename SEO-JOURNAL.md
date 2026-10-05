@@ -33,6 +33,20 @@ La carte se pose simplement dans la grille de `src/blog/index.html` (entre `gril
 
 **Suivi** : compter à part les URL `/en/` (indexation, impressions, requêtes anglaises). Dans le résumé, donner les URL à soumettre en version française ET anglaise. Si Search Console répond « Petit problème… Une erreur s'est produite » à une demande d'indexation, c'est une limite passagère de Google : réessayer plus tard ; le sitemap suffit à la découverte.
 
+## 2026-10-05 — nouveau mémo bilingue : conversion de dureté HRC / HV / HB
+
+**Chiffres (03/09 → 01/10)** : 14 clics (0,5/jour), 1 204 impressions (1 234), CTR 1,2 %, position moyenne 13,7 (13,9). **Indexation : 63 / 68** — le rapport couvre désormais les URL /en/ : quasi toutes indexées en 2 jours. Non indexées : aciers (FR et /en/, publiés hier), soudure (FR), /en/formats-echange-cao, resolutions-problematiques-plm. solidworks-gratuit-prix-guide reste à 211 impressions, requêtes « solidworks gratuit », « solidworks prix » en positions 14–20 (hors critère b, à surveiller).
+
+**Action (a)** : `/blog/conversion-durete-hrc-hv-hb/` et `/en/…` (requêtes : « conversion dureté », « hrc hv », « hrc en hb », « tableau dureté » ; en anglais « hardness conversion chart », « hrc to hv »). Aucun recoupement.
+- tableau HRC / HV / HBW de 20 à 65 HRC (pas de 5), valeurs ASTM E140 recoupées sur deux tables publiées ; lignes HRB et résistances à la traction écartées (sources divergentes) ;
+- convertisseur par interpolation linéaire, sans extrapolation hors 20–65 HRC ; principe des trois essais ; règles de plan (plage, choix de l'échelle, réception sur valeur mesurée) ; FAQ 5 (JSON-LD) ;
+- entièrement bilingue, pages-en.json (title 57, description 155), planche MEM-10 (empreinte Vickers + correspondances), covers.json, carte dans la grille, liens depuis aciers (paragraphe Rm) et rugosité (« À lire aussi »), image OG `durete`, baseline régénérée.
+- render.mjs relancé avec le substitut ffmpeg local (Pillow).
+
+Vérifié : build, verify:seo, verify:en (32 pages, 0 erreur, 0 texte à vérifier), Chromium en-US FR et /en/ à 1280/390 (pas d'erreur JS, pas de défilement horizontal ; 58 HRC → 656 HV / 616 HB ; 513 HV → 50 HRC / 481 HB ; 900 HV → hors plage), git status propre après build.
+
+**Prochain passage** : un mémo à fort volume anglais/français (clavettes DIN 6885, filetages gaz G / NPT, ou module d'engrenage) ; vérifier l'indexation de soudure et aciers.
+
 ## 2026-10-04 — nouveau mémo bilingue : aciers S235, S275, S355 (EN 10025-2)
 
 **Chiffres (02/09 → 30/09)** : 14 clics (0,5/jour), 1 234 impressions (1 270 au passage précédent, fenêtre glissante), CTR 1,1 %, position moyenne 13,9 (14,1). **Indexation : 34 / 36** (la page ISO 1101 du 02/10 est indexée ; soudure, publiée hier, pas encore connue ; resolutions-problematiques-plm toujours explorée non indexée). Les URL /en/ (publiées le 03/10) n'apparaissent pas encore dans le rapport. À noter : solidworks-gratuit-prix-guide monte à 211 impressions (pos. 16,2) — candidate à l'action b.

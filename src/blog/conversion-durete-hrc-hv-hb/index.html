@@ -1,0 +1,375 @@
+<!DOCTYPE html><html lang="fr"><head>
+    <meta charset="UTF-8">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PBLRK58T');</script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-33TQ27QY4M"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-33TQ27QY4M');</script>
+<!-- Microsoft Clarity -->
+    <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","vy4yvht8gz");</script>
+    <!-- LinkedIn Insight Tag -->
+    <script type="text/javascript">_linkedin_partner_id="525900907";window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];window._linkedin_data_partner_ids.push(_linkedin_partner_id);(function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";s.parentNode.insertBefore(b,s)})(window.lintrk);</script>
+    <script>
+    // Anti-flash de thème : clair par défaut, sombre si stocké.
+    (function () {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    })();
+</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversion dureté HRC ↔ HV ↔ HB : tableau + convertisseur (aciers)</title>
+    <meta name="description" content="Tableau de conversion de dureté Rockwell C (HRC), Vickers (HV) et Brinell (HB) pour les aciers, de 20 à 65 HRC, convertisseur, différences entre les essais et limites des conversions (ASTM E140, ISO 18265).">
+    <meta name="author" content="Mohamed Omar Baouch">
+    <link rel="canonical" href="https://www.baouch.fr/blog/conversion-durete-hrc-hv-hb/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Conversion de dureté HRC, HV, HB : tableau et convertisseur">
+    <meta property="og:description" content="HRC, HV, HB de 20 à 65 HRC pour les aciers, un convertisseur, et pourquoi une conversion de dureté reste approximative.">
+    <meta property="og:url" content="https://www.baouch.fr/blog/conversion-durete-hrc-hv-hb/">
+    <meta property="og:image" content="https://www.baouch.fr/img/og/durete.jpg">
+    <meta property="og:site_name" content="Mohamed Omar Baouch">
+    <meta property="article:published_time" content="2026-10-05T00:00:00.000Z">
+    <meta property="article:author" content="Mohamed Omar Baouch">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Conversion de dureté HRC, HV, HB : tableau et convertisseur">
+    <meta name="twitter:description" content="HRC, HV, HB de 20 à 65 HRC pour les aciers, un convertisseur, et pourquoi une conversion de dureté reste approximative.">
+    <meta name="twitter:image" content="https://www.baouch.fr/img/og/durete.jpg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "headline": "Conversion de dureté HRC, HV, HB : tableau et convertisseur",
+                "description": "Tableau de conversion de dureté Rockwell C (HRC), Vickers (HV) et Brinell (HB) pour les aciers, de 20 à 65 HRC, convertisseur, différences entre les essais et limites des conversions (ASTM E140, ISO 18265).",
+                "image": "https://www.baouch.fr/img/og/durete.jpg",
+                "datePublished": "2026-10-05",
+                "dateModified": "2026-10-05",
+                "inLanguage": "fr-FR",
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://www.baouch.fr/blog/conversion-durete-hrc-hv-hb/"
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://www.baouch.fr",
+                    "jobTitle": "Ingénieur & Consultant PDM/PLM"
+                },
+                "publisher": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://www.baouch.fr"
+                },
+                "keywords": [
+                    "Dureté",
+                    "HRC",
+                    "HV",
+                    "HB",
+                    "Rockwell",
+                    "Vickers",
+                    "Brinell",
+                    "ASTM E140"
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Accueil",
+                        "item": "https://www.baouch.fr/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Blog",
+                        "item": "https://www.baouch.fr/blog/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Conversion de dureté HRC, HV, HB : tableau et convertisseur",
+                        "item": "https://www.baouch.fr/blog/conversion-durete-hrc-hv-hb/"
+                    }
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Comment convertir des HRC en HV ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Avec une table de conversion normalisée (ASTM E140 ou ISO 18265), pas avec une formule : par exemple 40 HRC ≈ 392 HV et 60 HRC ≈ 697 HV pour un acier non austénitique. Entre deux lignes du tableau, une interpolation linéaire donne un ordre de grandeur."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Combien font 50 HRC en Brinell ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Environ 481 HB (bille en carbure de tungstène) et 513 HV, d'après les tables ASTM E140 pour les aciers."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Peut-on utiliser ces conversions pour l'inox ou l'aluminium ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Non. Ce tableau vaut pour les aciers non austénitiques. Les inox austénitiques (304, 316), l'aluminium, le cuivre ou les fontes ont leurs propres tables, parce que leur comportement sous l'indenteur est différent."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Pourquoi une conversion de dureté est-elle approximative ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Chaque essai sollicite la matière différemment (profondeur pour Rockwell, empreinte pour Vickers et Brinell, charges différentes). Les tables sont établies par essais comparatifs sur des aciers : elles donnent une correspondance moyenne, pas une égalité. Pour une réception, on mesure dans l'échelle demandée au plan."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Que signifie HBW ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Une dureté Brinell mesurée avec une bille en carbure de tungstène (W pour wolfram). C'est la seule bille admise par l'ISO 6506 ; l'ancienne notation HB ou HBS désignait aussi des billes en acier."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+    <link rel="alternate" type="application/rss+xml" title="Blog — Mohamed Omar Baouch" href="https://www.baouch.fr/blog/rss.xml">
+    {{> head-lang }}{{> head-fonts }}<script type="module" src="../../js/blog.js"></script>
+</head>
+<body class="blog-page" data-blog-post="conversion-durete-hrc-hv-hb">
+{{> nav }}
+
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBLRK58T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <main id="main" class="container blog-container show">
+        <div class="blog-shell" id="blogShell" data-shell="">
+            <article class="blog-article" data-article-root="">
+                <nav class="article-breadcrumbs" aria-label="Navigation secondaire">
+                    <a class="back-link" href="/blog/" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                    <a class="back-link back-link--ghost" href="/" data-translate-key="blog_back_to_portfolio">Retour au portfolio</a>
+                </nav>
+
+                <header class="blog-hero post-hero" data-component="hero">
+                    <div class="hero-intro">
+                        <div class="hero-badges">
+                            <span class="badge badge-editorial" data-i18n=""><span data-lang="fr">Mémo & calculateur</span><span data-lang="en">Reference & calculator</span></span>
+                            <span class="badge" data-i18n=""><span data-lang="fr">Matériaux</span><span data-lang="en">Materials</span></span>
+                            <span class="badge badge-reading-time" data-i18n=""><span data-lang="fr">~6 min de lecture</span><span data-lang="en">~6 min read</span></span>
+                        </div>
+                        <span class="hero-eyebrow" data-i18n=""><span data-lang="fr">Passer d'une échelle de dureté à l'autre, avec ses limites</span><span data-lang="en">Moving between hardness scales, and their limits</span></span>
+                        <h1 class="hero-title" data-i18n=""><span data-lang="fr">Conversion de dureté HRC, HV, HB : tableau et convertisseur</span><span data-lang="en">Hardness conversion HRC, HV, HB: chart and converter</span></h1>
+                        <p class="hero-subtitle" data-i18n=""><span data-lang="fr">Publié le 5 octobre 2026 — la correspondance Rockwell C, Vickers et Brinell pour les aciers de 20 à 65 HRC, un convertisseur, ce que mesure chaque essai et pourquoi une conversion ne remplace pas une mesure.</span><span data-lang="en">Published October 5, 2026 — the Rockwell C, Vickers and Brinell correspondence for steels from 20 to 65 HRC, a converter, what each test measures and why a conversion does not replace a measurement.</span></p>
+                        <div class="hero-actions">
+                            <a class="hero-btn" href="#convertisseur" data-i18n=""><span data-lang="fr">Convertir une dureté</span><span data-lang="en">Convert a hardness</span></a>
+                            <a class="hero-btn hero-btn--ghost" href="#tableau" data-i18n=""><span data-lang="fr">Voir le tableau</span><span data-lang="en">See the chart</span></a>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">60 HRC</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">≈ 697 HV ≈ 654 HB</span><span data-lang="en">≈ 697 HV ≈ 654 HB</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">40 HRC</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">≈ 392 HV ≈ 371 HB</span><span data-lang="en">≈ 392 HV ≈ 371 HB</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">3</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Essais, trois grandeurs différentes</span><span data-lang="en">Tests, three different quantities</span></span>
+                        </div>
+                    </div>
+                </header>
+
+                <section class="blog-section article-section">
+                    <div class="callout">
+                        <p data-i18n=""><span data-lang="fr"><strong>En bref :</strong> HRC, HV et HB ne mesurent pas la même chose (une profondeur de pénétration pour Rockwell, une taille d'empreinte pour Vickers et Brinell). On passe de l'une à l'autre avec des <strong>tables établies par essais comparatifs</strong> (ASTM E140, ISO 18265), valables pour un type de matériau. Pour les aciers non austénitiques : <strong>40 HRC ≈ 392 HV ≈ 371 HB</strong>, <strong>60 HRC ≈ 697 HV ≈ 654 HB</strong>. Une conversion donne un ordre de grandeur ; une réception se fait dans l'échelle demandée au plan.</span><span data-lang="en"><strong>In short:</strong> HRC, HV and HB do not measure the same thing (penetration depth for Rockwell, indent size for Vickers and Brinell). You move between them with <strong>tables built from comparative tests</strong> (ASTM E140, ISO 18265), valid for one material type. For non-austenitic steels: <strong>40 HRC ≈ 392 HV ≈ 371 HB</strong>, <strong>60 HRC ≈ 697 HV ≈ 654 HB</strong>. A conversion gives an order of magnitude; acceptance is done in the scale specified on the drawing.</span></p>
+                    </div>
+                </section>
+
+                <nav class="blog-section article-summary" id="sommaire" aria-label="Sommaire de l'article">
+                    <h2 class="summary-title" data-i18n=""><span data-lang="fr">Sommaire</span><span data-lang="en">Contents</span></h2>
+                    <ol class="summary-list">
+                        <li><a href="#tableau"><span class="summary-index">01</span><span class="summary-label" data-i18n=""><span data-lang="fr">Tableau de conversion HRC, HV, HB</span><span data-lang="en">HRC, HV, HB conversion chart</span></span></a></li>
+                        <li><a href="#convertisseur"><span class="summary-index">02</span><span class="summary-label" data-i18n=""><span data-lang="fr">Convertisseur</span><span data-lang="en">Converter</span></span></a></li>
+                        <li><a href="#essais"><span class="summary-index">03</span><span class="summary-label" data-i18n=""><span data-lang="fr">Ce que mesure chaque essai</span><span data-lang="en">What each test measures</span></span></a></li>
+                        <li><a href="#plan"><span class="summary-index">04</span><span class="summary-label" data-i18n=""><span data-lang="fr">Sur le plan et à la réception</span><span data-lang="en">On the drawing and at acceptance</span></span></a></li>
+                        <li><a href="#faq"><span class="summary-index">05</span><span class="summary-label">FAQ</span></a></li>
+                    </ol>
+                </nav>
+
+                <section class="blog-section article-section" id="tableau">
+                    <h2 data-i18n=""><span data-lang="fr">1. Tableau de conversion HRC ↔ HV ↔ HB (aciers)</span><span data-lang="en">1. HRC ↔ HV ↔ HB conversion chart (steels)</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Correspondances des tables ASTM E140 pour les aciers non austénitiques (aciers au carbone et faiblement alliés). Brinell mesuré avec une bille en carbure de tungstène.</span><span data-lang="en">Correspondences from the ASTM E140 tables for non-austenitic steels (carbon and low-alloy steels). Brinell measured with a tungsten carbide ball.</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Rockwell C (HRC)</span><span data-lang="en">Rockwell C (HRC)</span></th><th data-i18n=""><span data-lang="fr">Vickers (HV)</span><span data-lang="en">Vickers (HV)</span></th><th data-i18n=""><span data-lang="fr">Brinell (HBW)</span><span data-lang="en">Brinell (HBW)</span></th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>20</strong></td><td>238</td><td>226</td></tr>
+                                    <tr><td><strong>25</strong></td><td>266</td><td>253</td></tr>
+                                    <tr><td><strong>30</strong></td><td>302</td><td>286</td></tr>
+                                    <tr><td><strong>35</strong></td><td>345</td><td>327</td></tr>
+                                    <tr><td><strong>40</strong></td><td>392</td><td>371</td></tr>
+                                    <tr><td><strong>45</strong></td><td>446</td><td>421</td></tr>
+                                    <tr><td><strong>50</strong></td><td>513</td><td>481</td></tr>
+                                    <tr><td><strong>55</strong></td><td>595</td><td>560</td></tr>
+                                    <tr><td><strong>60</strong></td><td>697</td><td>654</td></tr>
+                                    <tr><td><strong>65</strong></td><td>832</td><td>739</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr">En dessous de 20 HRC, l'échelle Rockwell C n'est plus adaptée : on mesure en Rockwell B (HRB), en Vickers ou en Brinell. Pour les aciers de construction, les caractéristiques garanties sont la limite élastique et la résistance, détaillées dans le <a href="/blog/aciers-s235-s275-s355-caracteristiques/">mémo S235, S275, S355</a>.</span><span data-lang="en">Below 20 HRC, the Rockwell C scale is no longer suitable: measure in Rockwell B (HRB), Vickers or Brinell. For structural steels, the guaranteed properties are yield and tensile strength, detailed in the <a href="/blog/aciers-s235-s275-s355-caracteristiques/">S235, S275, S355 memo</a>.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="convertisseur">
+                    <h2 data-i18n=""><span data-lang="fr">2. Convertisseur HRC, HV, HB</span><span data-lang="en">2. HRC, HV, HB converter</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Saisissez une valeur et son échelle : les deux autres sont calculées par interpolation linéaire entre les lignes du tableau, de 20 à 65 HRC. Hors de cette plage, le convertisseur ne répond pas plutôt que d'extrapoler.</span><span data-lang="en">Enter a value and its scale: the other two are calculated by linear interpolation between the chart rows, from 20 to 65 HRC. Outside that range, the converter gives no answer rather than extrapolate.</span></p>
+                    <form class="calc" id="hdCalc" onsubmit="return false">
+                        <div class="calc__fields">
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">Valeur</span><span data-lang="en">Value</span></span><input id="hdV" type="number" inputmode="decimal" min="0" step="any" value="58"></label>
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">Échelle</span><span data-lang="en">Scale</span></span><select id="hdS"><option value="c" selected>HRC</option><option value="v">HV</option><option value="b">HBW</option></select></label>
+                        </div>
+                        <dl class="calc__out" aria-live="polite">
+                            <div><dt>HRC</dt><dd id="hdC">—</dd></div>
+                            <div><dt>HV</dt><dd id="hdHV">—</dd></div>
+                            <div><dt>HBW</dt><dd id="hdHB">—</dd></div>
+                        </dl>
+                        <p class="calc__verdict" id="hdM"></p>
+                    </form>
+                </section>
+
+                <section class="blog-section article-section" id="essais">
+                    <h2 data-i18n=""><span data-lang="fr">3. Ce que mesure chaque essai</span><span data-lang="en">3. What each test measures</span></h2>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Symbole</span><span data-lang="en">Symbol</span></th><th data-i18n=""><span data-lang="fr">Essai</span><span data-lang="en">Test</span></th><th data-i18n=""><span data-lang="fr">Principe et usage</span><span data-lang="en">Principle and use</span></th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>HRC</strong></td><td>Rockwell C</td><td data-i18n=""><span data-lang="fr">Cône en diamant, charge totale de 150 kgf ; on mesure la profondeur de pénétration. Lecture directe sur la machine, rapide : l'essai d'atelier des aciers trempés.</span><span data-lang="en">Diamond cone, 150 kgf total load; penetration depth is measured. Direct reading on the machine, fast: the shop-floor test for hardened steels.</span></td></tr>
+                                    <tr><td><strong>HV</strong></td><td>Vickers</td><td data-i18n=""><span data-lang="fr">Pyramide en diamant à base carrée (angle de 136°) ; on mesure les diagonales de l'empreinte. Couvre toute la gamme, des aciers doux aux couches traitées, et s'applique aux faibles charges (microdureté).</span><span data-lang="en">Square-based diamond pyramid (136° angle); the indent diagonals are measured. Covers the whole range, from mild steels to treated layers, and works at low loads (microhardness).</span></td></tr>
+                                    <tr><td><strong>HB</strong></td><td>Brinell (HBW)</td><td data-i18n=""><span data-lang="fr">Bille en carbure de tungstène (d'où le W de HBW) ; on mesure le diamètre de l'empreinte. Grande empreinte : adaptée aux matériaux hétérogènes, fontes et aciers non trempés.</span><span data-lang="en">Tungsten carbide ball (hence the W in HBW); the indent diameter is measured. Large indent: suited to heterogeneous materials, cast irons and unhardened steels.</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr">C'est cette différence de principe qui rend les conversions approximatives : deux aciers de même dureté Vickers peuvent donner des HRC légèrement différents selon leur structure et leur traitement.</span><span data-lang="en">This difference in principle is what makes conversions approximate: two steels with the same Vickers hardness can give slightly different HRC depending on their structure and treatment.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="plan">
+                    <h2 data-i18n=""><span data-lang="fr">4. Sur le plan et à la réception</span><span data-lang="en">4. On the drawing and at acceptance</span></h2>
+                    <ul>
+                        <li data-i18n=""><span data-lang="fr"><strong>Indiquez une plage, pas une valeur</strong> : « 58–62 HRC » se contrôle, « 60 HRC » laisse l'atelier sans tolérance.</span><span data-lang="en"><strong>Specify a range, not a value</strong>: "58–62 HRC" can be checked, "60 HRC" leaves the shop without a tolerance.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Choisissez l'échelle selon la pièce</strong> : HRC pour un acier trempé à cœur, HV (souvent à faible charge) pour une couche cémentée ou nitrurée mince, HBW pour une pièce brute ou une fonte.</span><span data-lang="en"><strong>Choose the scale to suit the part</strong>: HRC for a through-hardened steel, HV (often at low load) for a thin case-hardened or nitrided layer, HBW for a raw part or cast iron.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Ne réceptionnez pas sur une valeur convertie</strong> : si le plan demande des HRC, le certificat doit donner des HRC mesurés. La conversion sert à comparer, pas à accepter.</span><span data-lang="en"><strong>Do not accept on a converted value</strong>: if the drawing asks for HRC, the certificate must give measured HRC. Conversion is for comparison, not acceptance.</span></li>
+                        <li data-i18n=""><span data-lang="fr">Dans SOLIDWORKS, la dureté se renseigne dans une propriété personnalisée reprise par le cartouche, comme la matière : voir <a href="/blog/codification-proprietes-solidworks/">codification et propriétés SOLIDWORKS</a>.</span><span data-lang="en">In SOLIDWORKS, hardness goes into a custom property picked up by the title block, like the material: see <a href="/blog/codification-proprietes-solidworks/">SOLIDWORKS numbering and properties</a>.</span></li>
+                    </ul>
+                </section>
+
+                <section class="blog-section article-section" id="faq">
+                    <h2 data-i18n=""><span data-lang="fr">5. FAQ</span><span data-lang="en">5. FAQ</span></h2>
+                    <h3 data-i18n=""><span data-lang="fr">Comment convertir des HRC en HV ?</span><span data-lang="en">How do you convert HRC to HV?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Avec une table de conversion normalisée (ASTM E140 ou ISO 18265), pas avec une formule : par exemple 40 HRC ≈ 392 HV et 60 HRC ≈ 697 HV pour un acier non austénitique. Entre deux lignes du tableau, une interpolation linéaire donne un ordre de grandeur.</span><span data-lang="en">With a standard conversion table (ASTM E140 or ISO 18265), not a formula: for example 40 HRC ≈ 392 HV and 60 HRC ≈ 697 HV for a non-austenitic steel. Between two table rows, linear interpolation gives an order of magnitude.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Combien font 50 HRC en Brinell ?</span><span data-lang="en">What is 50 HRC in Brinell?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Environ 481 HB (bille en carbure de tungstène) et 513 HV, d'après les tables ASTM E140 pour les aciers.</span><span data-lang="en">About 481 HB (tungsten carbide ball) and 513 HV, per the ASTM E140 tables for steels.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Peut-on utiliser ces conversions pour l'inox ou l'aluminium ?</span><span data-lang="en">Can these conversions be used for stainless steel or aluminium?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Non. Ce tableau vaut pour les aciers non austénitiques. Les inox austénitiques (304, 316), l'aluminium, le cuivre ou les fontes ont leurs propres tables, parce que leur comportement sous l'indenteur est différent.</span><span data-lang="en">No. This table applies to non-austenitic steels. Austenitic stainless steels (304, 316), aluminium, copper or cast irons have their own tables, because they behave differently under the indenter.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Pourquoi une conversion de dureté est-elle approximative ?</span><span data-lang="en">Why is a hardness conversion approximate?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Chaque essai sollicite la matière différemment (profondeur pour Rockwell, empreinte pour Vickers et Brinell, charges différentes). Les tables sont établies par essais comparatifs sur des aciers : elles donnent une correspondance moyenne, pas une égalité. Pour une réception, on mesure dans l'échelle demandée au plan.</span><span data-lang="en">Each test loads the material differently (depth for Rockwell, indent size for Vickers and Brinell, different loads). The tables come from comparative tests on steels: they give an average correspondence, not an equality. For acceptance, measure in the scale required on the drawing.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Que signifie HBW ?</span><span data-lang="en">What does HBW mean?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Une dureté Brinell mesurée avec une bille en carbure de tungstène (W pour wolfram). C'est la seule bille admise par l'ISO 6506 ; l'ancienne notation HB ou HBS désignait aussi des billes en acier.</span><span data-lang="en">A Brinell hardness measured with a tungsten carbide ball (W for wolfram). It is the only ball allowed by ISO 6506; the old HB or HBS notation also covered steel balls.</span></p>
+                </section>
+
+                <section class="blog-section article-related">
+                    <h2 data-i18n=""><span data-lang="fr">À lire aussi</span><span data-lang="en">Read next</span></h2>
+                    <div class="media-grid">
+                        <a href="/blog/aciers-s235-s275-s355-caracteristiques/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">Acier S235, S275, S355 : limite élastique et désignation</span><span data-lang="en">S235, S275, S355 steel: yield strength and designation</span></h3>
+                            <p data-i18n=""><span data-lang="fr">Ce que garantit la nuance d'acier inscrite sur le plan.</span><span data-lang="en">What the steel grade on the drawing guarantees.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                        <a href="/blog/rugosite-ra-tableau-classes-procedes/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">Rugosité Ra : classes N et valeurs à demander</span><span data-lang="en">Ra roughness: N grades and values to specify</span></h3>
+                            <p data-i18n=""><span data-lang="fr">L'autre caractéristique de surface à bien spécifier.</span><span data-lang="en">The other surface property to specify correctly.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                    </div>
+                </section>
+
+                <footer class="article-footer">
+                    <div class="article-tags">
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Dureté</span><span data-lang="en">Hardness</span></span>
+                        <span class="article-tag">ASTM E140</span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Matériaux</span><span data-lang="en">Materials</span></span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Traitements thermiques</span><span data-lang="en">Heat treatment</span></span>
+                    </div>
+                    <div class="article-nav">
+                        <a href="/blog/" class="back-link" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                        <a href="/#contact" class="hero-btn" data-i18n=""><span data-lang="fr">Parler d'un projet</span><span data-lang="en">Discuss a project</span></a>
+                    </div>
+                </footer>
+
+            </article>
+        </div>
+    </main>
+
+    <script>
+// Conversion de dureté (aciers non austénitiques, ASTM E140) : interpolation linéaire entre les lignes du tableau.
+    (function () {
+        var T = [[20, 238, 226], [25, 266, 253], [30, 302, 286], [35, 345, 327], [40, 392, 371], [45, 446, 421], [50, 513, 481], [55, 595, 560], [60, 697, 654], [65, 832, 739]];
+        var $ = function (id) { return document.getElementById(id); };
+        var vIn = $('hdV'), sIn = $('hdS');
+        if (!vIn) return;
+        function en() { return document.documentElement.lang === 'en'; }
+        function fmt(n, d) { var s = n.toFixed(d); return en() ? s : s.replace('.', ','); }
+        function interp(col, x) {
+            for (var i = 0; i < T.length - 1; i++) {
+                var a = T[i], b = T[i + 1];
+                if (x >= a[col] && x <= b[col]) {
+                    var k = (x - a[col]) / (b[col] - a[col]);
+                    return [a[0] + k * (b[0] - a[0]), a[1] + k * (b[1] - a[1]), a[2] + k * (b[2] - a[2])];
+                }
+            }
+            return null;
+        }
+        function run() {
+            var x = parseFloat(String(vIn.value).replace(',', '.')), col = { c: 0, v: 1, b: 2 }[sIn.value];
+            var r = x > 0 ? interp(col, x) : null;
+            if (!r) {
+                $('hdC').textContent = $('hdHV').textContent = $('hdHB').textContent = '—';
+                $('hdM').textContent = x > 0 ? (en() ? 'Outside the chart range (20 to 65 HRC): no conversion.' : 'Hors de la plage du tableau (20 à 65 HRC) : pas de conversion.') : '';
+                return;
+            }
+            $('hdC').textContent = '≈ ' + fmt(r[0], 1);
+            $('hdHV').textContent = '≈ ' + Math.round(r[1]);
+            $('hdHB').textContent = '≈ ' + Math.round(r[2]);
+            $('hdM').textContent = en() ? 'Non-austenitic steels, interpolated from ASTM E140.' : 'Aciers non austénitiques, interpolé depuis l’ASTM E140.';
+        }
+        vIn.addEventListener('input', run); sIn.addEventListener('change', run);
+        window.addEventListener('langchange', run);
+        run();
+    })();
+    </script>
+    <script src="/assets/js/loader.js"></script>
+    <script src="/assets/js/visitor-intelligence.js"></script>
+
+{{> footer }}
+{{> chatbot }}
+</body></html>

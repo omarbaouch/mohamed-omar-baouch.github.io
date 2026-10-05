@@ -5,8 +5,16 @@
     <link>https://www.baouch.fr/blog/</link>
     <description>Articles de fond et retours d'expérience terrain sur le PDM, le PLM, SOLIDWORKS et la gestion des données produit.</description>
     <language>fr-FR</language>
-    <lastBuildDate>Sun, 04 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 05 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.baouch.fr/blog/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Conversion de dureté HRC, HV, HB : tableau et convertisseur</title>
+      <link>https://www.baouch.fr/blog/conversion-durete-hrc-hv-hb/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/conversion-durete-hrc-hv-hb/</guid>
+      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Tableau de conversion de dureté Rockwell C (HRC), Vickers (HV) et Brinell (HB) pour les aciers, de 20 à 65 HRC, convertisseur, différences entre les essais et limites des conversions (ASTM E140, ISO 18265).</description>
+      <enclosure url="https://www.baouch.fr/img/og/durete.jpg" type="image/jpeg"/>
+    </item>
     <item>
       <title>Acier S235, S275, S355 : limite élastique, résistance et désignation</title>
       <link>https://www.baouch.fr/blog/aciers-s235-s275-s355-caracteristiques/</link>
