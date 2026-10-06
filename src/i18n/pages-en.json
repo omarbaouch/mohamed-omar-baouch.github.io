@@ -126,5 +126,9 @@
   "/blog/conversion-durete-hrc-hv-hb/": {
     "title": "Hardness Conversion Chart: HRC to HV to HB (+ Calculator)",
     "description": "Rockwell C, Vickers and Brinell hardness conversion chart for steels from 20 to 65 HRC (ASTM E140), an online converter and why conversions are approximate."
+  },
+  "/blog/clavettes-paralleles-din-6885-dimensions/": {
+    "title": "Keyway Size Chart: DIN 6885 / ISO 773 Parallel Key Dimensions",
+    "description": "Parallel key and keyway dimensions by shaft diameter (DIN 6885-1 / ISO 773): b × h, depths t1 and t2, lengths, forms A/B/C, N9/JS9/P9 fits and a calculator."
   }
 }

@@ -111,6 +111,36 @@ function durete(l) {
   return sheet({ ref: 'MEM-10', std: 'ASTM E140 · ISO 18265', rev: 'A', scale: '200:1', key: '60', keySub: `HRC ≈ 697 HV`, body: b, keyY: 760, keySize: 200 });
 }
 
+function clavette(l) {
+  const { t, num } = lang(l);
+  let b = '';
+  // coupe arbre Ø25 (échelle 12 px/mm) dans un moyeu, clavette 8 × 7, t1 = 4, t2 = 3,3
+  const k = 12, cx = 860, cy = 450, R = 12.5 * k, Rh = 30 * k;
+  const w = 8 * k, t1 = 4 * k, t2 = 3.3 * k, h = 7 * k;
+  const yTop = cy - R;                       // génératrice supérieure de l'arbre
+  const yShaftBottom = yTop + t1;            // fond de rainure d'arbre
+  const yHubTop = yTop - t2;                 // fond de rainure de moyeu
+  // moyeu (anneau) avec rainure
+  const a = Math.asin((w / 2) / R);
+  b += path(`M${cx - Rh} ${cy} A${Rh} ${Rh} 0 1 1 ${cx + Rh} ${cy} A${Rh} ${Rh} 0 1 1 ${cx - Rh} ${cy} Z`, { c: C.line, w: 2.2, fill: 'url(#hatchX)' });
+  // alésage avec rainure de moyeu
+  b += path(`M${cx - w / 2} ${cy - R * Math.cos(a)} V${yHubTop} H${cx + w / 2} V${cy - R * Math.cos(a)} A${R} ${R} 0 1 1 ${cx - w / 2} ${cy - R * Math.cos(a)} Z`, { c: C.line, w: 2.2, fill: C.bg0 });
+  // arbre avec rainure
+  b += path(`M${cx - w / 2} ${cy - R * Math.cos(a)} V${yShaftBottom} H${cx + w / 2} V${cy - R * Math.cos(a)} A${R} ${R} 0 1 1 ${cx - w / 2} ${cy - R * Math.cos(a)} Z`, { c: C.line, w: 2.4, fill: 'url(#hatch)' });
+  // clavette
+  b += rect(cx - w / 2, yShaftBottom - h, w, h, { c: C.accent, sw: 2.6, fill: 'url(#hatchA)' });
+  b += axis(cx - Rh - 30, cy, cx + Rh + 30, cy);
+  b += axis(cx, cy - Rh - 30, cx, cy + Rh + 30);
+  b += dim(cx - w / 2, yHubTop, cx + w / 2, yHubTop, 'b = 8', { off: -54, size: 20, c: C.accent, tc: C.accent });
+  b += line(cx + w / 2, yTop, cx + Rh + 20, yTop, { c: C.mid, w: 1, op: 0.6, dash: '4 6' });
+  b += line(cx + w / 2, yShaftBottom, cx + Rh + 20, yShaftBottom, { c: C.mid, w: 1, op: 0.6, dash: '4 6' });
+  b += text(cx + Rh + 60, yTop + 30, `t1 ${num('4')} · t2 ${num('3.3')}`, { size: 20, c: C.ink, weight: 700 });
+  b += text(cx + Rh + 60, yTop + 62, `d − t1 = 21`, { size: 20, c: C.accent, weight: 700 });
+  b += text(cx + Rh + 60, yTop + 94, `d + t2 = ${num('28.3')}`, { size: 20, c: C.mid, weight: 700 });
+  b += text(cx, cy + R + 44, 'Ø25', { size: 22, c: C.mid, anchor: 'middle', weight: 700 });
+  return sheet({ ref: 'MEM-11', std: 'DIN 6885-1 · ISO 773', rev: 'A', scale: '2:1', key: '8 × 7', keySub: 'Ø 22 – 30 · N9 / JS9', body: b, keyY: 760, keySize: 170 });
+}
+
 function filetage(l) {
   const { t, num } = lang(l);
   const P = 130, depth = 0.6134 * P, crest = P / 8, root = P / 4, run = (P - crest - root) / 2;
@@ -752,6 +782,7 @@ function resolutions() {
 }
 
 export const PLATES = {
+  'clavettes-paralleles-din-6885-dimensions': clavette,
   'conversion-durete-hrc-hv-hb': durete,
   'aciers-s235-s275-s355-caracteristiques': aciers,
   'symboles-soudure-iso-2553': soudure,

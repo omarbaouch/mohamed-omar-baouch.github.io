@@ -33,6 +33,18 @@ La carte se pose simplement dans la grille de `src/blog/index.html` (entre `gril
 
 **Suivi** : compter à part les URL `/en/` (indexation, impressions, requêtes anglaises). Dans le résumé, donner les URL à soumettre en version française ET anglaise. Si Search Console répond « Petit problème… Une erreur s'est produite » à une demande d'indexation, c'est une limite passagère de Google : réessayer plus tard ; le sitemap suffit à la découverte.
 
+## 2026-10-06 — nouveau mémo bilingue : clavettes parallèles DIN 6885 / ISO 773
+
+**Chiffres (04/09 → 02/10)** : **21 clics (0,8/jour, contre 0,5)**, **2 148 impressions (contre 1 204)**, CTR 1,0 %, position moyenne 13,0 (13,7). Hausse portée par solidworks-gratuit-prix-guide (436 impressions, 5 clics, pos. 15,6) et les mémos (filetage 125 impressions, rugosité 56). **Indexation : 64 / 70.** Non indexées : dureté (FR et /en/, d'hier), soudure (FR), /en/aciers (détectée), /en/formats-echange-cao, resolutions-problematiques-plm.
+
+**Action (a)** : `/blog/clavettes-paralleles-din-6885-dimensions/` et `/en/…` (requêtes : « clavette dimensions », « clavette DIN 6885 », « rainure de clavette » ; en anglais « keyway size chart », « DIN 6885 key dimensions »). Aucun recoupement.
+- tableau des 15 sections de 6 à 110 mm (b × h, t1, t2, longueurs), valeurs recoupées (engineeringhardware, aspenfasteners, recherche) ; longueurs normalisées ; formes A / B / C ; ajustements h9, N9 / JS9, P9 / P9, H9 / D10 ; calculateur (clavette, d − t1, d + t2, plage de longueurs) ; désignation type ; FAQ 5 (JSON-LD).
+- entièrement bilingue, pages-en.json (title 62, description 158), planche MEM-11 (coupe d'arbre Ø 25 + clavette 8 × 7), covers.json, carte dans la grille, liens depuis ajustements-iso-286 et tableau-filetage (« À lire aussi »), image OG `clavettes`, baseline régénérée. Rendu des couvertures avec le substitut ffmpeg local (Pillow).
+
+Vérifié : build, verify:seo, verify:en (33 pages, 0 erreur, 0 texte à vérifier), Chromium en-US FR et /en/ 1280/390 (pas d'erreur JS ni défilement horizontal ; Ø 25 → 8 × 7, 21 / 28,3 mm ; Ø 30 → 8 × 7 ; Ø 30,5 → 10 × 8), git status propre après build.
+
+**Prochain passage** : solidworks-gratuit-prix-guide devient la 2e page du site (436 impressions, pos. 15,6) : action b dès qu'une requête passe sous 15 ; sinon mémo filetages gaz G / NPT ou module d'engrenage.
+
 ## 2026-10-05 — nouveau mémo bilingue : conversion de dureté HRC / HV / HB
 
 **Chiffres (03/09 → 01/10)** : 14 clics (0,5/jour), 1 204 impressions (1 234), CTR 1,2 %, position moyenne 13,7 (13,9). **Indexation : 63 / 68** — le rapport couvre désormais les URL /en/ : quasi toutes indexées en 2 jours. Non indexées : aciers (FR et /en/, publiés hier), soudure (FR), /en/formats-echange-cao, resolutions-problematiques-plm. solidworks-gratuit-prix-guide reste à 211 impressions, requêtes « solidworks gratuit », « solidworks prix » en positions 14–20 (hors critère b, à surveiller).

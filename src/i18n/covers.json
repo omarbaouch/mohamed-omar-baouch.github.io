@@ -135,5 +135,9 @@
   "conversion-durete-hrc-hv-hb": [
     "Planche technique : empreinte Vickers vue de dessus avec ses deux diagonales, et correspondance 60 HRC ≈ 697 HV ≈ 654 HB",
     "Technical drawing: top view of a Vickers indent with its two diagonals, and the correspondence 60 HRC ≈ 697 HV ≈ 654 HB"
+  ],
+  "clavettes-paralleles-din-6885-dimensions": [
+    "Planche technique : coupe d'un arbre de 25 mm avec sa rainure et sa clavette 8 × 7, cotes t1 et t2",
+    "Technical drawing: cross-section of a 25 mm shaft with its keyway and 8 × 7 key, depths t1 and t2"
   ]
 }

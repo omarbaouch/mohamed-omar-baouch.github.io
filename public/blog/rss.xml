@@ -5,8 +5,16 @@
     <link>https://www.baouch.fr/blog/</link>
     <description>Articles de fond et retours d'expérience terrain sur le PDM, le PLM, SOLIDWORKS et la gestion des données produit.</description>
     <language>fr-FR</language>
-    <lastBuildDate>Mon, 05 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 06 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.baouch.fr/blog/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Clavettes parallèles DIN 6885 : dimensions, rainures et ajustements</title>
+      <link>https://www.baouch.fr/blog/clavettes-paralleles-din-6885-dimensions/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/clavettes-paralleles-din-6885-dimensions/</guid>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Tableau des clavettes parallèles DIN 6885-1 / ISO 773 selon le diamètre d'arbre : b × h, profondeurs de rainure t1 et t2, longueurs, formes A, B, C, ajustements N9, JS9, P9 et calculateur des cotes d − t1 et d + t2.</description>
+      <enclosure url="https://www.baouch.fr/img/og/clavettes.jpg" type="image/jpeg"/>
+    </item>
     <item>
       <title>Conversion de dureté HRC, HV, HB : tableau et convertisseur</title>
       <link>https://www.baouch.fr/blog/conversion-durete-hrc-hv-hb/</link>

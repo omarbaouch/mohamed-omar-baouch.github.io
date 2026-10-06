@@ -53,6 +53,24 @@
     "h1": "SOLIDWORKS, Inventor, Fusion 360 ou CATIA : quel logiciel de CAO choisir ?SOLIDWORKS, Inventor, Fusion 360 or CATIA: which CAD software should you choose?",
     "lang": "fr"
   },
+  "/blog/clavettes-paralleles-din-6885-dimensions/": {
+    "title": "Clavette DIN 6885 / ISO 773 : tableau des dimensions et rainures",
+    "description": "Tableau des clavettes parallèles DIN 6885-1 / ISO 773 selon le diamètre d'arbre : b × h, profondeurs de rainure t1 et t2, longueurs, formes A, B, C, ajustements N9, JS9, P9 et calculateur des cotes d − t1 et d + t2.",
+    "canonical": "https://www.baouch.fr/blog/clavettes-paralleles-din-6885-dimensions/",
+    "robots": null,
+    "ogTitle": "Clavettes parallèles DIN 6885 : dimensions, rainures et ajustements",
+    "ogDescription": "Dimensions b × h, rainures t1 / t2 selon le diamètre d'arbre, formes A B C, ajustements et cotes à mettre sur le plan.",
+    "ogUrl": "https://www.baouch.fr/blog/clavettes-paralleles-din-6885-dimensions/",
+    "ogImage": "https://www.baouch.fr/img/og/clavettes.jpg",
+    "ogType": "article",
+    "twitterTitle": "Clavettes parallèles DIN 6885 : dimensions, rainures et ajustements",
+    "twitterDescription": "Dimensions b × h, rainures t1 / t2 selon le diamètre d'arbre, formes A B C, ajustements et cotes à mettre sur le plan.",
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList,FAQPage"
+    ],
+    "h1": "Clavettes parallèles DIN 6885 : dimensions, rainures et ajustementsDIN 6885 parallel keys: dimensions, keyways and fits",
+    "lang": "fr"
+  },
   "/blog/codification-proprietes-solidworks/": {
     "title": "Codification & propriétés SOLIDWORKS : le petit chantier qui répare toute votre chaîne BOM → ERP",
     "description": "Références bricolées, propriétés saisies au petit bonheur, doublons partout : la racine de 80 % des problèmes de nomenclature n'est pas dans l'ERP, elle est dans la pièce. Comment standardiser codification et propriétés SOLIDWORKS pour réparer toute la chaîne en aval.",
