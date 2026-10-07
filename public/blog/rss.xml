@@ -5,8 +5,16 @@
     <link>https://www.baouch.fr/blog/</link>
     <description>Articles de fond et retours d'expérience terrain sur le PDM, le PLM, SOLIDWORKS et la gestion des données produit.</description>
     <language>fr-FR</language>
-    <lastBuildDate>Tue, 06 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 07 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.baouch.fr/blog/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Filetage gaz G (BSP) et NPT : tableau des dimensions et identification</title>
+      <link>https://www.baouch.fr/blog/filetage-gaz-g-bsp-npt-tableau/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/filetage-gaz-g-bsp-npt-tableau/</guid>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Filetages gaz G (ISO 228), R / Rp / Rc (ISO 7) et NPT : diamètre extérieur, filets par pouce, pas, foret de taraudage de 1/8 à 2, différences 55° / 60°, cylindrique / conique, et outil pour identifier un filetage mesuré.</description>
+      <enclosure url="https://www.baouch.fr/img/og/filetage-gaz.jpg" type="image/jpeg"/>
+    </item>
     <item>
       <title>Clavettes parallèles DIN 6885 : dimensions, rainures et ajustements</title>
       <link>https://www.baouch.fr/blog/clavettes-paralleles-din-6885-dimensions/</link>

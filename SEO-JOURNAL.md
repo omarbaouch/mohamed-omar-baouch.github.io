@@ -33,6 +33,18 @@ La carte se pose simplement dans la grille de `src/blog/index.html` (entre `gril
 
 **Suivi** : compter à part les URL `/en/` (indexation, impressions, requêtes anglaises). Dans le résumé, donner les URL à soumettre en version française ET anglaise. Si Search Console répond « Petit problème… Une erreur s'est produite » à une demande d'indexation, c'est une limite passagère de Google : réessayer plus tard ; le sitemap suffit à la découverte.
 
+## 2026-10-07 — nouveau mémo bilingue : filetages gaz G (BSP) et NPT
+
+**Chiffres (05/09 → 03/10)** : **27 clics (1,0/jour, contre 0,8)**, 2 385 impressions (2 148), CTR 1,1 %, position moyenne 13,7. Pages qui montent : solidworks-gratuit-prix-guide 498 impressions, couple-serrage 158 (pos. 9,3, CTR 0,6 % — candidate action c), tableau-filetage 150, rugosité 66, ajustements 35 ; 1er clic sur une URL /en/ (couple-serrage). **Indexation : 67 / 72** (clavettes FR et /en/ d'hier, dureté FR détectée, /en/formats-echange-cao détectée, resolutions-problematiques-plm).
+
+**Action (a)** : `/blog/filetage-gaz-g-bsp-npt-tableau/` et `/en/…` (requêtes : « filetage gaz », « filetage G 1/2 », « BSP NPT différence » ; en anglais « BSP thread chart », « NPT vs BSP », « pipe thread size chart »). Aucun recoupement (tableau-filetage ne couvre que le métrique ISO).
+- tableau G 1/8 à G 2 (Ø ext., filets / pouce, pas, foret ; engineersedge DIN ISO 228 + valeurs connues) et NPT 1/8 à 1 (Ø ext. pouce / mm, filets / pouce, foret ASME B1.20.1 recoupé) ; comparatif G / R-Rp-Rc / NPT (angle, forme, étanchéité, norme) ; piège NPT dans G ; désignations sur plan ; outil d'identification (Ø mesuré + filets / pouce → G et NPT les plus proches, refus si aucune taille ne correspond) ; FAQ 5 (JSON-LD).
+- entièrement bilingue, pages-en.json (title 62, description 157), planche MEM-12 (profils 55° / 60°), covers.json, carte dans la grille, liens depuis tableau-filetage et couple-serrage (« À lire aussi »), image OG `filetage-gaz`, baseline régénérée ; couvertures rendues avec le substitut ffmpeg local.
+
+Vérifié : build, verify:seo, verify:en (34 pages, 0 erreur, 0 texte à vérifier), Chromium en-US FR et /en/ 1280/390 (pas d'erreur JS ni défilement horizontal ; 20,9 / 14 → G 1/2 ; 21,3 / 14 → 1/2 NPT ; 10,2 / 27 → 1/8 NPT ; 8 / 20 → aucune correspondance), git status propre après build.
+
+**Prochain passage** : action c sur couple-serrage-vis-tableau (158 impressions, CTR 0,6 %, pos. 9,3) — lire ses requêtes ; ou nouveau mémo (module d'engrenage, roulements, circlips).
+
 ## 2026-10-06 — nouveau mémo bilingue : clavettes parallèles DIN 6885 / ISO 773
 
 **Chiffres (04/09 → 02/10)** : **21 clics (0,8/jour, contre 0,5)**, **2 148 impressions (contre 1 204)**, CTR 1,0 %, position moyenne 13,0 (13,7). Hausse portée par solidworks-gratuit-prix-guide (436 impressions, 5 clics, pos. 15,6) et les mémos (filetage 125 impressions, rugosité 56). **Indexation : 64 / 70.** Non indexées : dureté (FR et /en/, d'hier), soudure (FR), /en/aciers (détectée), /en/formats-echange-cao, resolutions-problematiques-plm.

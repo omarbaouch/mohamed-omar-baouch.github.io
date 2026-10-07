@@ -139,5 +139,9 @@
   "clavettes-paralleles-din-6885-dimensions": [
     "Planche technique : coupe d'un arbre de 25 mm avec sa rainure et sa clavette 8 × 7, cotes t1 et t2",
     "Technical drawing: cross-section of a 25 mm shaft with its keyway and 8 × 7 key, depths t1 and t2"
+  ],
+  "filetage-gaz-g-bsp-npt-tableau": [
+    "Planche technique : profils de filet gaz G à 55° et NPT à 60° comparés, filetage G 1/2 de 14 filets par pouce",
+    "Technical drawing: G pipe thread profile at 55° compared with NPT at 60°, G 1/2 thread with 14 threads per inch"
   ]
 }

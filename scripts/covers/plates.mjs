@@ -141,6 +141,30 @@ function clavette(l) {
   return sheet({ ref: 'MEM-11', std: 'DIN 6885-1 · ISO 773', rev: 'A', scale: '2:1', key: '8 × 7', keySub: 'Ø 22 – 30 · N9 / JS9', body: b, keyY: 760, keySize: 170 });
 }
 
+function filetageGaz(l) {
+  const { t, num } = lang(l);
+  let b = '';
+  // deux profils de filet : 55° (G) en haut, 60° (NPT) en bas, même pas
+  const P = 110, x0 = 640, x1 = 1460;
+  const prof = (y0, ang, c, w) => {
+    const half = Math.tan((ang / 2) * Math.PI / 180), H = (P / 2) / half;
+    let d = `M${x0} ${y0}`;
+    for (let x = x0; x + P <= x1; x += P) d += ` L${x + P / 2} ${y0 - H} L${x + P} ${y0}`;
+    return { d: path(d, { c, w }), H };
+  };
+  const g = prof(400, 55, C.accent, 3), n = prof(700, 60, C.line, 2.2);
+  b += g.d + n.d;
+  b += axis(x0 - 20, 400, x1 + 20, 400, { op: 0.5 }) + axis(x0 - 20, 700, x1 + 20, 700, { op: 0.5 });
+  // angles annotés sur le 3e filet
+  const xa = x0 + 2 * P + P / 2;
+  b += text(xa, 400 - g.H - 18, '55°', { size: 26, c: C.accent, anchor: 'middle', weight: 700 });
+  b += text(xa, 700 - n.H - 18, '60°', { size: 26, c: C.ink, anchor: 'middle', weight: 700 });
+  b += text(x1, 400 - g.H - 18, t('G · ISO 228 · 55°', 'G · ISO 228 · 55°'), { size: 20, c: C.accent, weight: 700, anchor: 'end' });
+  b += text(x1, 700 - n.H - 18, t('NPT · conique 1:16', 'NPT · taper 1:16'), { size: 20, c: C.mid, weight: 700, anchor: 'end' });
+  b += dim(x0 + P / 2, 400 - g.H, x0 + P + P / 2, 400 - g.H, `P ${num('1.814')}`, { off: -36, size: 18 });
+  return sheet({ ref: 'MEM-12', std: 'ISO 228 · ISO 7 · NPT', rev: 'A', scale: '10:1', key: 'G ½', keySub: `Ø ${num('20.955')} · 14 TPI`, body: b, keyY: 760, keySize: 180 });
+}
+
 function filetage(l) {
   const { t, num } = lang(l);
   const P = 130, depth = 0.6134 * P, crest = P / 8, root = P / 4, run = (P - crest - root) / 2;
@@ -782,6 +806,7 @@ function resolutions() {
 }
 
 export const PLATES = {
+  'filetage-gaz-g-bsp-npt-tableau': filetageGaz,
   'clavettes-paralleles-din-6885-dimensions': clavette,
   'conversion-durete-hrc-hv-hb': durete,
   'aciers-s235-s275-s355-caracteristiques': aciers,

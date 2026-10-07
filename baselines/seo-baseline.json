@@ -197,6 +197,24 @@
     "h1": "Les 10 erreurs SOLIDWORKS les plus fréquentes — et comment les corriger pour de bonThe 10 most common SOLIDWORKS errors — and how to fix them for good",
     "lang": "fr"
   },
+  "/blog/filetage-gaz-g-bsp-npt-tableau/": {
+    "title": "Filetage gaz G / BSP et NPT : tableau, pas, perçage et différences",
+    "description": "Filetages gaz G (ISO 228), R / Rp / Rc (ISO 7) et NPT : diamètre extérieur, filets par pouce, pas, foret de taraudage de 1/8 à 2, différences 55° / 60°, cylindrique / conique, et outil pour identifier un filetage mesuré.",
+    "canonical": "https://www.baouch.fr/blog/filetage-gaz-g-bsp-npt-tableau/",
+    "robots": null,
+    "ogTitle": "Filetage gaz G (BSP) et NPT : tableau des dimensions et identification",
+    "ogDescription": "G 1/8 à G 2 et NPT 1/8 à 1 : diamètre, filets par pouce, perçage, et comment reconnaître un filetage gaz à la mesure.",
+    "ogUrl": "https://www.baouch.fr/blog/filetage-gaz-g-bsp-npt-tableau/",
+    "ogImage": "https://www.baouch.fr/img/og/filetage-gaz.jpg",
+    "ogType": "article",
+    "twitterTitle": "Filetage gaz G (BSP) et NPT : tableau des dimensions et identification",
+    "twitterDescription": "G 1/8 à G 2 et NPT 1/8 à 1 : diamètre, filets par pouce, perçage, et comment reconnaître un filetage gaz à la mesure.",
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList,FAQPage"
+    ],
+    "h1": "Filetage gaz G (BSP) et NPT : tableau des dimensions et identificationBSP (G) and NPT pipe threads: dimension chart and identification",
+    "lang": "fr"
+  },
   "/blog/formats-echange-cao-step-iges-parasolid/": {
     "title": "STEP, IGES, Parasolid, JT, STL : quel format d'échange CAO choisir (et comment éviter les pertes) ?",
     "description": "Guide des formats d'échange CAO : STEP AP203, AP214 et AP242, Parasolid, ACIS, IGES, JT, STL, 3MF, DXF et PDF 3D. Ce que chaque format transporte vraiment, ce qui se perd au passage, les 6 pièges classiques (unités, couture, assemblages) et le protocole de contrôle en 5 points.",

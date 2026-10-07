@@ -130,5 +130,9 @@
   "/blog/clavettes-paralleles-din-6885-dimensions/": {
     "title": "Keyway Size Chart: DIN 6885 / ISO 773 Parallel Key Dimensions",
     "description": "Parallel key and keyway dimensions by shaft diameter (DIN 6885-1 / ISO 773): b × h, depths t1 and t2, lengths, forms A/B/C, N9/JS9/P9 fits and a calculator."
+  },
+  "/blog/filetage-gaz-g-bsp-npt-tableau/": {
+    "title": "BSP vs NPT Thread Chart: G (ISO 228) Sizes, TPI and Tap Drills",
+    "description": "BSP (G, ISO 228) and NPT pipe thread chart: major diameter, threads per inch, pitch and tap drill, 55° vs 60°, parallel vs taper, plus a thread identifier."
   }
 }
