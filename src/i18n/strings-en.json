@@ -101,6 +101,17 @@
     "Tasse : la déplacer sur la table (flèches du clavier)": "Mug: move it on the table (arrow keys)",
     "Taux d'erreur de nomenclature avant et après standardisation": "BOM error rate before and after standardization",
     "Valeur des cas d'usage IA selon la maturité des données": "Value of AI use cases by data maturity",
-    "Posez votre question ici...": "Ask your question here..."
+    "Posez votre question ici...": "Ask your question here...",
+    "Écran d'accueil du gestionnaire d'installation SOLIDWORKS avec l'option Créer une image administrative à déployer sur plusieurs ordinateurs": "SOLIDWORKS Installation Manager welcome screen with the option to create an administrative image to deploy on multiple computers",
+    "Écran Numéro de série du gestionnaire d'installation SOLIDWORKS, produits classés par famille": "SOLIDWORKS Installation Manager serial number screen, products grouped by family",
+    "Écran Résumé avant création de l'image administrative : produits, emplacement et taille estimée de 15 Go": "Summary screen before creating the administrative image: products, location and an estimated size of 15 GB",
+    "Contenu du dossier d'une image administrative SOLIDWORKS : dossiers 64bit et lang, sldAdminOptionEditor.exe, startswinstall.exe et StartSWInstall.hta": "Contents of a SOLIDWORKS administrative image folder: 64bit and lang folders, sldAdminOptionEditor.exe, startswinstall.exe and StartSWInstall.hta",
+    "Éditeur d'options du gestionnaire d'images administratives, onglet Mise en place, paramètres globaux": "Administrative image options editor, setup tab, global settings",
+    "Éditeur d'options : un groupe de machines défini par plage d'adresses IP, avec des logiciels retirés en rouge par rapport aux paramètres globaux": "Options editor: a machine group defined by an IP address range, with software removed in red compared with the global settings",
+    "Options d'installation du client : mise à niveau ou nouvelle version majeure, fichier de paramètres, activation automatique": "Client installation options: upgrade or new major version, settings file, automatic activation",
+    "Réglage de l'emplacement Toolbox pour les postes clients dans l'éditeur d'options": "Toolbox location setting for client workstations in the options editor",
+    "Rubrique Numéros de série de l'éditeur d'options avec le champ Port serveur SNL@serveur pour une licence réseau": "Serial numbers section of the options editor with the SNL server port@server field for a network license",
+    "Éditeur d'options, onglet Déployer automatiquement : choix des postes, options du client et identifiants d'un compte administrateur": "Options editor, deploy automatically tab: workstation selection, client options and administrator account credentials",
+    "Dossier SolidWorks Admin contenant deux images administratives, SOLIDWORKS 2020 SP0 et SP1.0": "SolidWorks Admin folder holding two administrative images, SOLIDWORKS 2020 SP0 and SP1.0"
   }
 }
