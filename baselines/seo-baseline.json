@@ -269,6 +269,24 @@
     "h1": "IA et SOLIDWORKS PDM : ce qui change vraiment pour les bureaux d'études en 2026AI and SOLIDWORKS PDM: what actually changes for engineering teams in 2026",
     "lang": "fr"
   },
+  "/blog/image-administrative-solidworks-installation/": {
+    "title": "Image administrative SOLIDWORKS : créer, configurer et déployer l'installation sur tous les postes",
+    "description": "Comment créer et configurer une image administrative SOLIDWORKS : prérequis, création pas à pas avec le gestionnaire d'installation, éditeur d'options, licences SNL, déploiement par ligne de commande ou GPO, mise à jour des Service Packs et pièges à éviter.",
+    "canonical": "https://www.baouch.fr/blog/image-administrative-solidworks-installation/",
+    "robots": null,
+    "ogTitle": "Image administrative SOLIDWORKS : créer, configurer et déployer",
+    "ogDescription": "Prérequis, création, éditeur d'options, licences SNL, déploiement par GPO et mises à jour : la méthode pour installer SOLIDWORKS sur tout un parc.",
+    "ogUrl": "https://www.baouch.fr/blog/image-administrative-solidworks-installation/",
+    "ogImage": "https://www.baouch.fr/img/og/image-admin-sw.jpg",
+    "ogType": "article",
+    "twitterTitle": "Image administrative SOLIDWORKS : créer, configurer, déployer",
+    "twitterDescription": "Installer SOLIDWORKS sur tout un parc : la méthode, les réglages et les pièges.",
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList,FAQPage"
+    ],
+    "h1": "Image administrative SOLIDWORKS : créer, configurer et déployer l'installation sur tous les postesSOLIDWORKS administrative image: create, configure and deploy to every workstation",
+    "lang": "fr"
+  },
   "/blog/": {
     "title": "Blog — Guides PDM/PLM & SOLIDWORKS | Mohamed Omar Baouch",
     "description": "Articles de fond et retours d'expérience terrain sur le PDM, le PLM, SOLIDWORKS et la gestion des données produit — issus de 80+ missions en industrie.",

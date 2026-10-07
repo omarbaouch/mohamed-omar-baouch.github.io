@@ -143,5 +143,9 @@
   "filetage-gaz-g-bsp-npt-tableau": [
     "Planche technique : profils de filet gaz G à 55° et NPT à 60° comparés, filetage G 1/2 de 14 filets par pouce",
     "Technical drawing: G pipe thread profile at 55° compared with NPT at 60°, G 1/2 thread with 14 threads per inch"
+  ],
+  "image-administrative-solidworks-installation": [
+    "Planche technique : un serveur de partage réseau distribuant une image administrative SOLIDWORKS vers quatre postes de travail",
+    "Technical drawing: a network share server distributing a SOLIDWORKS administrative image to four workstations"
   ]
 }

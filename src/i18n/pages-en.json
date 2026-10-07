@@ -134,5 +134,9 @@
   "/blog/filetage-gaz-g-bsp-npt-tableau/": {
     "title": "BSP vs NPT Thread Chart: G (ISO 228) Sizes, TPI and Tap Drills",
     "description": "BSP (G, ISO 228) and NPT pipe thread chart: major diameter, threads per inch, pitch and tap drill, 55° vs 60°, parallel vs taper, plus a thread identifier."
+  },
+  "/blog/image-administrative-solidworks-installation/": {
+    "title": "SOLIDWORKS Administrative Image: Create, Configure, Deploy",
+    "description": "How to create and configure a SOLIDWORKS administrative image: prerequisites, step-by-step setup, options editor, SNL licensing, GPO or command-line deployment and updates."
   }
 }

@@ -792,6 +792,23 @@ function config(l) {
   return sheet({ ref: 'DOC-12', std: t('SOLIDWORKS 2025 · MATÉRIEL', 'SOLIDWORKS 2025 · HARDWARE'), rev: 'A', scale: '1:1', key: 'GHz', keySub: 'CPU · GPU · NVMe', body: b, keyY: 760, keySize: 190 });
 }
 
+function imageAdmin(l) {
+  const { t } = lang(l);
+  let b = rack(660, 180, 260, 400, { units: 6, accent: 2 });
+  b += text(790, 620, '\\\\SERVER\\SW_Images', { size: 20, c: C.accent, anchor: 'middle', weight: 700 });
+  b += text(790, 650, t('image administrative · 1 copie', 'administrative image · 1 copy'), { size: 16, c: C.mid, anchor: 'middle', ls: 1 });
+  const ws = [[1120, 170], [1330, 170], [1120, 420], [1330, 420]];
+  ws.forEach(([x, y], i) => {
+    b += rect(x, y, 170, 112, { c: i === 0 ? C.accent : C.mid, sw: 2.2, r: 6, fill: 'rgba(10,20,32,.9)' });
+    b += rect(x + 12, y + 12, 146, 78, { c: C.mid, sw: 1.2, fill: 'url(#hatch)', op: 0.7 });
+    b += line(x + 85, y + 112, x + 85, y + 140, { c: C.mid, w: 2 }) + line(x + 50, y + 140, x + 120, y + 140, { c: C.mid, w: 2.4 });
+    b += text(x + 85, y + 172, 'PC-' + String(i + 1).padStart(2, '0'), { size: 16, c: C.ink, anchor: 'middle', weight: 700 });
+    b += arrow(920, 380, x - 6, y + 56, { c: C.accent, w: 1.6, s: 14 });
+  });
+  b += text(1310, 700, t('MÊME INSTALLATION · N POSTES', 'SAME INSTALL · N WORKSTATIONS'), { size: 17, c: C.mid, anchor: 'middle', ls: 2 });
+  return sheet({ ref: 'DOC-18', std: t('SOLIDWORKS · IMAGE ADMIN.', 'SOLIDWORKS · ADMIN IMAGE'), rev: 'A', scale: '1:N', key: '1 → N', keySub: t('une image · tous les postes', 'one image · every workstation'), body: b, keyY: 760, keySize: 160 });
+}
+
 function resolutions() {
   let b = '';
   range(5).forEach((i) => {
@@ -806,6 +823,7 @@ function resolutions() {
 }
 
 export const PLATES = {
+  'image-administrative-solidworks-installation': imageAdmin,
   'filetage-gaz-g-bsp-npt-tableau': filetageGaz,
   'clavettes-paralleles-din-6885-dimensions': clavette,
   'conversion-durete-hrc-hv-hb': durete,

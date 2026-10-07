@@ -1,0 +1,531 @@
+<!DOCTYPE html><html lang="fr"><head>
+    <meta charset="UTF-8">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PBLRK58T');</script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-33TQ27QY4M"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-33TQ27QY4M');</script>
+<!-- Microsoft Clarity -->
+    <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","vy4yvht8gz");</script>
+    <!-- LinkedIn Insight Tag -->
+    <script type="text/javascript">_linkedin_partner_id="525900907";window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];window._linkedin_data_partner_ids.push(_linkedin_partner_id);(function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";s.parentNode.insertBefore(b,s)})(window.lintrk);</script>
+    <script>
+    // Anti-flash de thème : clair par défaut, sombre si stocké.
+    (function () {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    })();
+</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image administrative SOLIDWORKS : créer, configurer et déployer l'installation sur tous les postes</title>
+    <meta name="description" content="Comment créer et configurer une image administrative SOLIDWORKS : prérequis, création pas à pas avec le gestionnaire d'installation, éditeur d'options, licences SNL, déploiement par ligne de commande ou GPO, mise à jour des Service Packs et pièges à éviter.">
+    <meta name="author" content="Mohamed Omar Baouch">
+    <link rel="canonical" href="https://www.baouch.fr/blog/image-administrative-solidworks-installation/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Image administrative SOLIDWORKS : créer, configurer et déployer">
+    <meta property="og:description" content="Prérequis, création, éditeur d'options, licences SNL, déploiement par GPO et mises à jour : la méthode pour installer SOLIDWORKS sur tout un parc.">
+    <meta property="og:url" content="https://www.baouch.fr/blog/image-administrative-solidworks-installation/">
+    <meta property="og:image" content="https://www.baouch.fr/img/og/image-admin-sw.jpg">
+    <meta property="og:site_name" content="Mohamed Omar Baouch">
+    <meta property="article:published_time" content="2026-10-07T00:00:00.000Z">
+    <meta property="article:author" content="Mohamed Omar Baouch">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Image administrative SOLIDWORKS : créer, configurer, déployer">
+    <meta name="twitter:description" content="Installer SOLIDWORKS sur tout un parc : la méthode, les réglages et les pièges.">
+    <meta name="twitter:image" content="https://www.baouch.fr/img/og/image-admin-sw.jpg">
+    <link rel="alternate" type="application/rss+xml" title="Blog — Mohamed Omar Baouch" href="https://www.baouch.fr/blog/rss.xml">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "headline": "Image administrative SOLIDWORKS : créer, configurer et déployer l'installation sur tous les postes",
+                "description": "Comment créer et configurer une image administrative SOLIDWORKS : prérequis, création pas à pas avec le gestionnaire d'installation, éditeur d'options, licences SNL, déploiement par ligne de commande ou GPO, mise à jour des Service Packs et pièges à éviter.",
+                "image": "https://www.baouch.fr/img/og/image-admin-sw.jpg",
+                "datePublished": "2026-10-07",
+                "dateModified": "2026-10-07",
+                "inLanguage": "fr-FR",
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://www.baouch.fr/blog/image-administrative-solidworks-installation/"
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://www.baouch.fr",
+                    "jobTitle": "Ingénieur & Consultant PDM/PLM"
+                },
+                "publisher": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://www.baouch.fr"
+                },
+                "keywords": [
+                    "SOLIDWORKS",
+                    "Image administrative",
+                    "Déploiement",
+                    "Installation",
+                    "SNL",
+                    "Bureau d'études"
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Accueil",
+                        "item": "https://www.baouch.fr/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Blog",
+                        "item": "https://www.baouch.fr/blog/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Image administrative SOLIDWORKS : créer, configurer et déployer l'installation sur tous les postes",
+                        "item": "https://www.baouch.fr/blog/image-administrative-solidworks-installation/"
+                    }
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Qu'est-ce qu'une image administrative SOLIDWORKS ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "C'est une copie complète du programme d'installation, déposée sur un partage réseau et préconfigurée par l'administrateur (produits, licence, emplacements, paramètres). Chaque poste s'installe ensuite depuis ce partage, sans retélécharger les fichiers et sans que l'utilisateur ait de choix à faire."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Quelle place faut-il prévoir pour l'image ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Plusieurs dizaines de Go pour une version complète. Comptez large : une image par version majeure, plus les Service Packs téléchargés par-dessus. Un volume de 100 Go dédié aux images SOLIDWORKS évite de se reposer la question à chaque version."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Peut-on installer depuis l'image sans droits administrateur ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Non : l'installation exige des droits administrateur local sur le poste. L'image ne les contourne pas, elle uniformise l'installation. Pour un parc, on passe donc par un script de démarrage, un outil de déploiement (SCCM, Intune) ou une intervention du support."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Faut-il une image administrative par version de SOLIDWORKS ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Oui, une par version majeure (2024, 2025, 2026…), dans des dossiers distincts et nommés explicitement. Les Service Packs, eux, se mettent à jour dans l'image existante : ne créez pas une nouvelle image à chaque SP."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Image administrative et licences réseau : quel lien ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "L'image peut embarquer l'adresse du serveur de licences (SolidNetWork License) pour que chaque poste le trouve seul, sans saisie. Le serveur de licences, lui, s'installe à part, une fois, sur une machine dédiée ou stable."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Peut-on inclure le client PDM dans le déploiement ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Oui : le client SOLIDWORKS PDM peut être déployé avec la même logique, et le coffre se rattache automatiquement au poste avec un fichier d'attache de coffre. C'est le moyen le plus fiable de garantir que tous les postes utilisent la même version de client que le serveur."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+    {{> head-lang }}{{> head-fonts }}<script type="module" src="../../js/blog.js"></script>
+</head>
+<body class="blog-page" data-blog-post="image-administrative-solidworks-installation">
+{{> nav }}
+
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBLRK58T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <main id="main" class="container blog-container show">
+        <div class="blog-shell" id="blogShell" data-shell="">
+            <article class="blog-article" data-article-root="">
+                <nav class="article-breadcrumbs" aria-label="Navigation secondaire">
+                    <a class="back-link" href="/blog/" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                    <a class="back-link back-link--ghost" href="/" data-translate-key="blog_back_to_portfolio">Retour au portfolio</a>
+                </nav>
+
+                <header class="blog-hero post-hero" data-component="hero">
+                    <div class="hero-intro">
+                        <div class="hero-badges">
+                            <span class="badge badge-editorial" data-i18n=""><span data-lang="fr">Guide technique</span><span data-lang="en">Technical guide</span></span>
+                            <span class="badge">SOLIDWORKS</span>
+                            <span class="badge badge-reading-time" data-i18n=""><span data-lang="fr">~12 min de lecture</span><span data-lang="en">~12 min read</span></span>
+                        </div>
+                        <span class="hero-eyebrow" data-i18n=""><span data-lang="fr">Installer une fois, déployer partout</span><span data-lang="en">Install once, deploy everywhere</span></span>
+                        <h1 class="hero-title" data-i18n=""><span data-lang="fr">Image administrative SOLIDWORKS : créer, configurer et déployer l'installation sur tous les postes</span><span data-lang="en">SOLIDWORKS administrative image: create, configure and deploy to every workstation</span></h1>
+                        <p class="hero-subtitle" data-i18n=""><span data-lang="fr">Publié le 7 octobre 2026 — la méthode que j'applique en bureau d'études pour que quinze postes aient exactement le même SOLIDWORKS : préparation, création, réglages de l'image, licences, déploiement et mises à jour.</span><span data-lang="en">Published on October 7, 2026 — the method I apply in design offices so that fifteen workstations run exactly the same SOLIDWORKS: preparation, creation, image settings, licensing, deployment and updates.</span></p>
+                        <div class="hero-actions">
+                            <a class="hero-btn" href="#sommaire" data-i18n=""><span data-lang="fr">Consulter le sommaire</span><span data-lang="en">Jump to contents</span></a>
+                            <a class="hero-btn hero-btn--ghost" href="#checklist" data-i18n=""><span data-lang="fr">Aller à la checklist</span><span data-lang="en">Go to the checklist</span></a>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">1</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Image pour tout le parc</span><span data-lang="en">Image for the whole fleet</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">3</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Modes de déploiement</span><span data-lang="en">Deployment modes</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">8</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Points de contrôle avant lancement</span><span data-lang="en">Checks before launch</span></span>
+                        </div>
+                    </div>
+                </header>
+
+                <figure class="article-figure">
+                    <img src="/img/blog/covers/image-administrative-solidworks-installation-1600.webp" srcset="/img/blog/covers/image-administrative-solidworks-installation-800.webp 800w, /img/blog/covers/image-administrative-solidworks-installation-1600.webp 1600w" sizes="(min-width: 64rem) 1216px, 100vw" decoding="async" alt="" loading="lazy">
+                    <figcaption data-i18n=""><span data-lang="fr">Un partage réseau, une image préréglée, et des postes qui s'installent à l'identique.</span><span data-lang="en">One network share, one preconfigured image, and workstations installing identically.</span></figcaption>
+                </figure>
+
+                <nav class="blog-section article-summary" id="sommaire" aria-label="Sommaire de l'article">
+                    <h2 class="summary-title" data-translate-key="blog_summary_title">Sommaire</h2>
+                    <ol class="summary-list">
+                        <li><a href="#quoi"><span class="summary-index">01</span><span class="summary-label" data-i18n=""><span data-lang="fr">Ce qu'est (vraiment) une image administrative</span><span data-lang="en">What an administrative image really is</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">Le principe et ce qu'il change</span><span data-lang="en">The principle and what it changes</span></span></a></li>
+                        <li><a href="#prerequis"><span class="summary-index">02</span><span class="summary-label" data-i18n=""><span data-lang="fr">Préparer le terrain</span><span data-lang="en">Preparing the ground</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">Partage, droits, espace, versions</span><span data-lang="en">Share, rights, space, versions</span></span></a></li>
+                        <li><a href="#creation"><span class="summary-index">03</span><span class="summary-label" data-i18n=""><span data-lang="fr">Créer l'image pas à pas</span><span data-lang="en">Creating the image step by step</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">Le gestionnaire d'installation</span><span data-lang="en">The Installation Manager</span></span></a></li>
+                        <li><a href="#configuration"><span class="summary-index">04</span><span class="summary-label" data-i18n=""><span data-lang="fr">Configurer l'image : l'éditeur d'options</span><span data-lang="en">Configuring the image: the options editor</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">Ce qu'on règle une fois pour tous</span><span data-lang="en">What you set once for everyone</span></span></a></li>
+                        <li><a href="#licences"><span class="summary-index">05</span><span class="summary-label" data-i18n=""><span data-lang="fr">Licences : autonome ou réseau (SNL)</span><span data-lang="en">Licensing: standalone or network (SNL)</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">Le serveur de licences</span><span data-lang="en">The license server</span></span></a></li>
+                        <li><a href="#deploiement"><span class="summary-index">06</span><span class="summary-label" data-i18n=""><span data-lang="fr">Déployer sur les postes</span><span data-lang="en">Deploying to the workstations</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">Manuel, ligne de commande, GPO</span><span data-lang="en">Manual, command line, GPO</span></span></a></li>
+                        <li><a href="#mises-a-jour"><span class="summary-index">07</span><span class="summary-label" data-i18n=""><span data-lang="fr">Service Packs et nouvelles versions</span><span data-lang="en">Service Packs and new versions</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">Garder l'image à jour sans casser le parc</span><span data-lang="en">Keeping the image current without breaking the fleet</span></span></a></li>
+                        <li><a href="#pieges"><span class="summary-index">08</span><span class="summary-label" data-i18n=""><span data-lang="fr">Les pièges classiques</span><span data-lang="en">The classic traps</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">Ce qui échoue en vrai</span><span data-lang="en">What actually fails</span></span></a></li>
+                        <li><a href="#checklist"><span class="summary-index">09</span><span class="summary-label" data-i18n=""><span data-lang="fr">La checklist avant de lancer</span><span data-lang="en">The pre-launch checklist</span></span><span class="summary-meta" data-i18n=""><span data-lang="fr">Un plan en 8 points</span><span data-lang="en">An 8-point plan</span></span></a></li>
+                        <li><a href="#faq"><span class="summary-index">10</span><span class="summary-label" data-i18n="">FAQ</span><span class="summary-meta" data-i18n=""><span data-lang="fr">Les questions qui restent</span><span data-lang="en">Remaining questions</span></span></a></li>
+                    </ol>
+                </nav>
+
+                <section class="blog-section article-section" id="quoi">
+                    <h2 data-i18n=""><span data-lang="fr">1. Ce qu'est (vraiment) une image administrative</span><span data-lang="en">1. What an administrative image really is</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Quand vous installez SOLIDWORKS « normalement » sur un poste, le programme d'installation télécharge ou lit plusieurs dizaines de Go, puis pose les composants en vous posant une série de questions : produits, dossier, numéro de série, options. Refaites cela sur quinze postes et vous obtenez quinze installations légèrement différentes — et deux jours perdus.</span><span data-lang="en">When you install SOLIDWORKS "the normal way" on a workstation, the installer downloads or reads several tens of GB, then lays down the components while asking a series of questions: products, folder, serial number, options. Repeat that on fifteen workstations and you get fifteen slightly different installations — and two lost days.</span></p>
+                    <p data-i18n=""><span data-lang="fr">Une <strong>image administrative</strong> inverse la logique : l'administrateur répond <em>une seule fois</em> aux questions, et le résultat est stocké sur un partage réseau avec tous les fichiers nécessaires. Chaque poste n'a plus qu'à lancer l'installation depuis ce partage, et obtient exactement la même configuration que les autres.</span><span data-lang="en">An <strong>administrative image</strong> reverses the logic: the administrator answers the questions <em>once</em>, and the result is stored on a network share together with every required file. Each workstation then only has to start the installation from that share, and ends up with exactly the same configuration as the others.</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr>
+                                        <th data-i18n=""><span data-lang="fr">Critère</span><span data-lang="en">Criterion</span></th>
+                                        <th data-i18n=""><span data-lang="fr">Installation individuelle</span><span data-lang="en">Individual installation</span></th>
+                                        <th data-i18n=""><span data-lang="fr">Image administrative</span><span data-lang="en">Administrative image</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">Téléchargement</span><span data-lang="en">Download</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Sur chaque poste</span><span data-lang="en">On every workstation</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Une fois, sur le serveur</span><span data-lang="en">Once, on the server</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">Choix de l'utilisateur</span><span data-lang="en">User choices</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Nombreux, donc variables</span><span data-lang="en">Many, hence variable</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Aucun : tout est préréglé</span><span data-lang="en">None: everything is preset</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">Cohérence du parc</span><span data-lang="en">Fleet consistency</span></td>
+                                        <td data-i18n=""><span data-lang="fr">À la main, fragile</span><span data-lang="en">By hand, fragile</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Identique par construction</span><span data-lang="en">Identical by construction</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">Service Pack</span><span data-lang="en">Service Pack</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Poste par poste</span><span data-lang="en">Workstation by workstation</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Mis à jour dans l'image, puis propagé</span><span data-lang="en">Updated in the image, then propagated</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">Déploiement scripté</span><span data-lang="en">Scripted deployment</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Difficile</span><span data-lang="en">Difficult</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Natif (ligne de commande, GPO)</span><span data-lang="en">Native (command line, GPO)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">À partir de combien de postes ?</span><span data-lang="en">From how many workstations?</span></td>
+                                        <td data-i18n=""><span data-lang="fr">1 à 3</span><span data-lang="en">1 to 3</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Dès 4 ou 5 postes</span><span data-lang="en">From 4 or 5 workstations</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="callout callout--soft">
+                        <p data-i18n=""><span data-lang="fr"><strong>Le vrai bénéfice n'est pas le temps gagné à l'installation.</strong> C'est la disparition d'une catégorie de pannes : « chez moi ça marche, chez lui non ». Quand tous les postes viennent de la même image, un problème reproductible sur un poste l'est sur tous — et se corrige une fois.</span><span data-lang="en"><strong>The real benefit is not the time saved at install.</strong> It is the disappearance of an entire category of failures: "it works for me, not for him". When every workstation comes from the same image, a problem reproducible on one machine is reproducible on all — and gets fixed once.</span></p>
+                    </div>
+                </section>
+
+                <section class="blog-section article-section" id="prerequis">
+                    <h2 data-i18n=""><span data-lang="fr">2. Préparer le terrain avant de toucher au gestionnaire d'installation</span><span data-lang="en">2. Preparing the ground before touching the Installation Manager</span></h2>
+                    <p data-i18n=""><span data-lang="fr">La moitié des images administratives qui échouent échouent à cause de ce qui <em>entoure</em> l'image, pas de l'image elle-même. Cinq points à régler avant de lancer la création :</span><span data-lang="en">Half of the administrative images that fail, fail because of what <em>surrounds</em> the image, not the image itself. Five points to settle before starting the creation:</span></p>
+                    <ul>
+                        <li data-i18n=""><span data-lang="fr"><strong>Un partage réseau dédié</strong>, en chemin UNC (<em>\\serveur\SW_Images</em>), jamais un lecteur réseau mappé : un poste qui s'installe via un script de démarrage ne voit pas les lecteurs mappés d'un utilisateur.</span><span data-lang="en">A <strong>dedicated network share</strong>, as a UNC path (<em>\\server\SW_Images</em>), never a mapped network drive: a workstation installing through a startup script does not see a user's mapped drives.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Des droits maîtrisés</strong> : écriture pour les administrateurs seulement, <strong>lecture pour les comptes ordinateurs</strong> (ou le groupe « Ordinateurs du domaine ») et pour les utilisateurs qui installent. C'est l'oubli numéro un des déploiements par GPO.</span><span data-lang="en"><strong>Controlled rights</strong>: write access for administrators only, <strong>read access for computer accounts</strong> (or the "Domain Computers" group) and for the users who install. It is the number-one oversight in GPO deployments.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>De l'espace</strong> : plusieurs dizaines de Go par version, et le double si vous gardez la version précédente le temps de la transition. Un volume dédié de 100 Go est un bon ordre de grandeur.</span><span data-lang="en"><strong>Space</strong>: several tens of GB per version, and twice that if you keep the previous version during the transition. A dedicated 100 GB volume is a good order of magnitude.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Les numéros de série et le type de licence</strong> sous la main : autonome (un numéro par poste) ou réseau (un serveur SNL). Ce choix détermine la suite — voir la section 5.</span><span data-lang="en"><strong>Serial numbers and license type</strong> at hand: standalone (one number per workstation) or network (an SNL server). This choice drives what follows — see section 5.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Un poste d'essai propre</strong>, de préférence une machine virtuelle, pour valider l'image avant de la montrer au parc. Un snapshot, un essai, un retour arrière : une heure qui économise une journée.</span><span data-lang="en"><strong>A clean test machine</strong>, preferably a virtual machine, to validate the image before exposing it to the fleet. Snapshot, trial, roll-back: an hour that saves a day.</span></li>
+                    </ul>
+                    <p data-i18n=""><span data-lang="fr">Pensez aussi à <strong>nommer l'image avec la version</strong> (<em>SW2025_SP3</em>, par exemple) et à tenir un petit fichier texte à la racine : date de création, numéro de Service Pack, qui l'a faite, ce qui a été réglé. Dans deux ans, ce fichier vaudra de l'or.</span><span data-lang="en">Also <strong>name the image with its version</strong> (<em>SW2025_SP3</em>, for example) and keep a small text file at the root: creation date, Service Pack number, who built it, what was configured. In two years, that file will be worth gold.</span></p>
+                    <p data-i18n=""><span data-lang="fr">Le matériel des postes cibles compte autant que l'image : voir le <a href="/blog/configuration-materielle-solidworks/">guide de configuration matérielle SOLIDWORKS</a> pour valider qu'un poste est prêt à recevoir la version visée.</span><span data-lang="en">The target workstations' hardware matters as much as the image: see the <a href="/blog/configuration-materielle-solidworks/">SOLIDWORKS hardware configuration guide</a> to check that a workstation is ready for the target version.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="creation">
+                    <h2 data-i18n=""><span data-lang="fr">3. Créer l'image pas à pas</span><span data-lang="en">3. Creating the image step by step</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Le point d'entrée est le même que pour une installation classique : le programme d'installation SOLIDWORKS, téléchargé depuis votre espace client ou lu depuis un support. Les libellés exacts évoluent légèrement d'une version à l'autre, mais la séquence reste celle-ci.</span><span data-lang="en">The entry point is the same as for a classic installation: the SOLIDWORKS installer, downloaded from your customer portal or read from media. Exact labels change slightly from one version to the next, but the sequence stays the same.</span></p>
+                    <ol>
+                        <li data-i18n=""><span data-lang="fr"><strong>Lancez le programme d'installation avec un compte administrateur</strong> et choisissez le type d'installation <strong>« Image administrative »</strong> (créer une image pour déployer sur plusieurs ordinateurs), et non « Installation individuelle ».</span><span data-lang="en"><strong>Start the installer with an administrator account</strong> and choose the <strong>"Administrative image"</strong> installation type (create an image for deployment to several computers), not "Individual installation".</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Saisissez les numéros de série.</strong> Ils déterminent les produits proposés ensuite. Avec une licence réseau, vous n'aurez pas à les distribuer aux postes : seule l'adresse du serveur sera embarquée.</span><span data-lang="en"><strong>Enter the serial numbers.</strong> They determine the products offered next. With a network license you will not need to hand them to workstations: only the server address will be embedded.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Indiquez l'emplacement de l'image</strong> : le chemin UNC du partage préparé à l'étape 2, dans un dossier propre à la version.</span><span data-lang="en"><strong>Specify the image location</strong>: the UNC path of the share prepared in step 2, in a folder specific to the version.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Cochez les produits à inclure</strong> : SOLIDWORKS, Simulation, Visualize, Electrical, PDM, Toolbox… N'embarquez que ce que vous déploierez réellement : chaque produit alourdit l'image et allonge chaque installation.</span><span data-lang="en"><strong>Tick the products to include</strong>: SOLIDWORKS, Simulation, Visualize, Electrical, PDM, Toolbox… Only embed what you will really deploy: every product makes the image heavier and every installation longer.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Lancez le téléchargement.</strong> L'outil rapatrie tous les fichiers dans le partage : c'est l'étape longue, à lancer en fin de journée.</span><span data-lang="en"><strong>Start the download.</strong> The tool pulls every file into the share: it is the long step, so start it at the end of the day.</span></li>
+                    </ol>
+                    <div class="callout callout--soft">
+                        <p data-i18n=""><span data-lang="fr"><strong>À noter :</strong> les noms d'écrans, les options proposées et les prérequis exacts dépendent de votre version et de votre contrat. Pour tout ce qui engage le déploiement, le guide d'installation officiel de la version visée fait foi : cet article donne la méthode et les pièges, pas une documentation de référence.</span><span data-lang="en"><strong>Please note:</strong> screen names, available options and exact prerequisites depend on your version and your contract. For anything that commits the deployment, the official installation guide of the target version is authoritative: this article gives the method and the traps, not reference documentation.</span></p>
+                    </div>
+                </section>
+
+                <section class="blog-section article-section" id="configuration">
+                    <h2 data-i18n=""><span data-lang="fr">4. Configurer l'image : l'éditeur d'options</span><span data-lang="en">4. Configuring the image: the options editor</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Créer l'image ne suffit pas. Sa valeur vient de ce que vous y <strong>préréglez</strong> : c'est là que les quinze installations deviennent une. Les réglages se font dans l'<strong>éditeur d'options de l'image administrative</strong>, que vous ouvrez en rouvrant l'image existante depuis le gestionnaire d'installation. Voici les familles de réglages qui comptent, par ordre d'impact.</span><span data-lang="en">Creating the image is not enough. Its value comes from what you <strong>preset</strong> inside it: that is where fifteen installations become one. Settings are made in the <strong>administrative image options editor</strong>, which you open by reopening the existing image from the Installation Manager. These are the families of settings that matter, in order of impact.</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr>
+                                        <th data-i18n=""><span data-lang="fr">Réglage</span><span data-lang="en">Setting</span></th>
+                                        <th data-i18n=""><span data-lang="fr">Ce qu'il fait</span><span data-lang="en">What it does</span></th>
+                                        <th data-i18n=""><span data-lang="fr">Pourquoi le fixer</span><span data-lang="en">Why fix it</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">Produits à installer</span><span data-lang="en">Products to install</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Sélectionne les produits et modules par défaut</span><span data-lang="en">Selects the default products and modules</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Évite qu'un utilisateur installe un module non licencié</span><span data-lang="en">Prevents a user from installing an unlicensed module</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">Dossier d'installation</span><span data-lang="en">Installation folder</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Impose le chemin local de SOLIDWORKS</span><span data-lang="en">Imposes the local SOLIDWORKS path</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Chemins identiques partout : scripts et macros fiables</span><span data-lang="en">Identical paths everywhere: reliable scripts and macros</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">Serveur de licences</span><span data-lang="en">License server</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Embarque l'adresse SNL (<em>port@serveur</em>)</span><span data-lang="en">Embeds the SNL address (<em>port@server</em>)</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Aucun numéro de série à saisir sur les postes</span><span data-lang="en">No serial number to type on workstations</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">Emplacements de fichiers</span><span data-lang="en">File locations</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Gabarits, formats de feuille, matériaux, bibliothèques</span><span data-lang="en">Templates, sheet formats, materials, libraries</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Tout le bureau d'études travaille avec les mêmes références</span><span data-lang="en">The whole design office works with the same references</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">Toolbox</span><span data-lang="en">Toolbox</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Pointe vers une bibliothèque partagée unique</span><span data-lang="en">Points to a single shared library</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Supprime la visserie divergente d'un poste à l'autre</span><span data-lang="en">Eliminates hardware that differs from one workstation to another</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">Paramètres utilisateur</span><span data-lang="en">User settings</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Importe un fichier <em>.sldreg</em> (options système)</span><span data-lang="en">Imports a <em>.sldreg</em> file (system options)</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Un premier lancement déjà réglé aux standards du bureau d'études</span><span data-lang="en">A first launch already set to the design office standards</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">Mises à jour</span><span data-lang="en">Updates</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Définit le comportement de la vérification des mises à jour</span><span data-lang="en">Sets the update-check behaviour</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Empêche un poste de passer seul à un SP non validé</span><span data-lang="en">Stops a workstation from moving to an unvalidated SP on its own</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <h3 data-i18n=""><span data-lang="fr">Le fichier de paramètres : le geste le plus rentable</span><span data-lang="en">The settings file: the most profitable move</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Réglez <em>un</em> poste de référence aux standards du bureau d'études (unités, options de document, emplacements, couleurs, raccourcis), puis exportez ses paramètres avec l'<strong>assistant de copie de paramètres</strong> dans un fichier <em>.sldreg</em>. Importé dans l'image, il s'applique à chaque nouvelle installation. C'est ce qui évite le fameux « ton SOLIDWORKS n'est pas réglé comme le mien ».</span><span data-lang="en">Set <em>one</em> reference workstation to the design office standards (units, document options, locations, colours, shortcuts), then export its settings with the <strong>Copy Settings Wizard</strong> into a <em>.sldreg</em> file. Imported into the image, it applies to every new installation. It is what ends the famous "your SOLIDWORKS isn't set up like mine".</span></p>
+                    <p data-i18n=""><span data-lang="fr">Même logique pour la <strong>Toolbox</strong> : une seule bibliothèque, à un emplacement partagé, écrite par une seule personne. C'est exactement la correction durable décrite dans l'article sur <a href="/blog/erreurs-solidworks-frequentes/">les 10 erreurs SOLIDWORKS les plus fréquentes</a> — l'image administrative est l'endroit où l'on pose ce réglage une bonne fois.</span><span data-lang="en">Same logic for the <strong>Toolbox</strong>: a single library, at a shared location, written by one person. It is exactly the durable fix described in the article on <a href="/blog/erreurs-solidworks-frequentes/">the 10 most common SOLIDWORKS errors</a> — the administrative image is where you set it once and for all.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="licences">
+                    <h2 data-i18n=""><span data-lang="fr">5. Licences : autonome ou réseau (SNL)</span><span data-lang="en">5. Licensing: standalone or network (SNL)</span></h2>
+                    <p data-i18n=""><span data-lang="fr">L'image n'invente pas votre modèle de licence, elle le matérialise. Deux cas :</span><span data-lang="en">The image does not invent your license model, it materialises it. Two cases:</span></p>
+                    <ul>
+                        <li data-i18n=""><span data-lang="fr"><strong>Licences autonomes</strong> : un numéro de série par poste. Pratique pour un petit parc ou des postes nomades ; pénible dès que le parc grossit, car chaque installation ou réactivation passe par un numéro.</span><span data-lang="en"><strong>Standalone licenses</strong>: one serial number per workstation. Convenient for a small fleet or mobile workstations; painful once the fleet grows, because every installation or reactivation goes through a number.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Licences réseau (SolidNetWork License, SNL)</strong> : un gestionnaire de licences installé une fois sur un serveur, et des postes qui « empruntent » une licence à l'ouverture. L'adresse du serveur est embarquée dans l'image sous la forme <em>port@serveur</em>, et le poste ne demande rien à l'utilisateur.</span><span data-lang="en"><strong>Network licenses (SolidNetWork License, SNL)</strong>: a license manager installed once on a server, and workstations that "borrow" a license on launch. The server address is embedded in the image as <em>port@server</em>, and the workstation asks the user nothing.</span></li>
+                    </ul>
+                    <p data-i18n=""><span data-lang="fr">Quelques points de vigilance sur le serveur SNL : une <strong>machine stable</strong> (pas le portable d'un technicien), un <strong>nom ou une adresse fixes</strong>, les <strong>ports du pare-feu ouverts</strong> (le port par défaut du gestionnaire est 25734, avec un second port pour le démon de licence) et une <strong>sauvegarde</strong> du fichier de licence. Un serveur de licences en panne, c'est tout le bureau d'études à l'arrêt.</span><span data-lang="en">A few watch points on the SNL server: a <strong>stable machine</strong> (not a technician's laptop), a <strong>fixed name or address</strong>, <strong>open firewall ports</strong> (the manager's default port is 25734, with a second port for the license daemon) and a <strong>backup</strong> of the license file. A license server down means the whole design office at a standstill.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="deploiement">
+                    <h2 data-i18n=""><span data-lang="fr">6. Déployer sur les postes</span><span data-lang="en">6. Deploying to the workstations</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Trois façons d'installer depuis l'image, de la plus simple à la plus industrielle :</span><span data-lang="en">Three ways to install from the image, from the simplest to the most industrial:</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">A. À la main, depuis le partage</span><span data-lang="en">A. By hand, from the share</span></h3>
+                    <p data-i18n=""><span data-lang="fr">On ouvre le partage sur le poste (avec un compte administrateur local) et on lance le programme d'installation de l'image. Aucune question ne reste ouverte : tout est préréglé. Suffisant pour une dizaine de postes, et idéal pour valider l'image sur le poste d'essai.</span><span data-lang="en">You open the share on the workstation (with a local administrator account) and launch the image's installer. No question remains open: everything is preset. Enough for around ten workstations, and ideal for validating the image on the test machine.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">B. En ligne de commande</span><span data-lang="en">B. By command line</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Le gestionnaire d'installation de l'image accepte des paramètres : mode client d'image administrative, nouvelle installation, source. Forme générale, à adapter à votre version et à vérifier dans le guide d'installation :</span><span data-lang="en">The image's Installation Manager accepts parameters: administrative image client mode, new installation, source. General form, to adapt to your version and verify in the installation guide:</span></p>
+                    <pre style="background:rgba(127,127,127,.12);border-radius:8px;padding:1rem;font-size:.9rem;white-space:pre-wrap;overflow-wrap:anywhere;"><code style="white-space:inherit;overflow-wrap:inherit;">\\serveur\SW_Images\SW2025_SP3\sldim\sldIM.exe /adminclient /new /source "\\serveur\SW_Images\SW2025_SP3"</code></pre>
+                    <p data-i18n=""><span data-lang="fr">Le comportement (silencieux ou non, redémarrage, options) se règle dans l'éditeur d'options de l'image. C'est ce qui permet de lancer la même commande depuis un script, un poste d'administration ou un outil de supervision.</span><span data-lang="en">Behaviour (silent or not, restart, options) is set in the image's options editor. That is what lets you run the same command from a script, an administration workstation or a monitoring tool.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">C. Par stratégie de groupe ou outil de déploiement</span><span data-lang="en">C. By group policy or deployment tool</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Pour un parc de plusieurs dizaines de postes, on place cette commande dans un <strong>script de démarrage d'ordinateur</strong> (GPO) ou dans un outil comme SCCM / Intune. Le script s'exécute alors avec le compte de l'ordinateur — d'où l'importance, vue en section 2, du chemin UNC et des droits de lecture accordés aux comptes ordinateurs.</span><span data-lang="en">For a fleet of several dozen workstations, you put this command in a <strong>computer startup script</strong> (GPO) or in a tool such as SCCM / Intune. The script then runs under the computer account — hence the importance, seen in section 2, of the UNC path and of read rights granted to computer accounts.</span></p>
+                    <div class="callout callout--soft">
+                        <p data-i18n=""><span data-lang="fr"><strong>Étalez les installations.</strong> Cinquante postes qui lisent 25 Go en même temps sur un même partage saturent le réseau et le serveur : tout le monde attend, certaines installations échouent par délai dépassé. Déployez par vagues (dix postes à la fois) ou, sur plusieurs sites, répliquez l'image sur un partage local à chaque site.</span><span data-lang="en"><strong>Stagger the installations.</strong> Fifty workstations reading 25 GB at the same time from one share saturate the network and the server: everyone waits, some installations fail on timeout. Deploy in waves (ten workstations at a time) or, across several sites, replicate the image to a local share at each site.</span></p>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr">Si vous déployez aussi le <strong>client PDM</strong>, appliquez la même discipline : version de client alignée sur celle du serveur, et attache automatique du coffre par fichier d'attache. C'est un chapitre à part entière du <a href="/blog/solidworks-pdm-guide-complet/">guide complet SOLIDWORKS PDM</a>.</span><span data-lang="en">If you also deploy the <strong>PDM client</strong>, apply the same discipline: client version aligned with the server's, and automatic vault attachment through a setup file. It is a full chapter of the <a href="/blog/solidworks-pdm-guide-complet/">complete SOLIDWORKS PDM guide</a>.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="mises-a-jour">
+                    <h2 data-i18n=""><span data-lang="fr">7. Service Packs et nouvelles versions : garder l'image à jour</span><span data-lang="en">7. Service Packs and new versions: keeping the image current</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Une image administrative est un actif vivant. Deux situations, deux règles :</span><span data-lang="en">An administrative image is a living asset. Two situations, two rules:</span></p>
+                    <ul>
+                        <li data-i18n=""><span data-lang="fr"><strong>Un nouveau Service Pack</strong> (SP) : on <em>met à jour l'image existante</em> depuis le gestionnaire d'installation, on la valide sur le poste d'essai, puis on propage aux postes. On ne recrée pas une image par SP.</span><span data-lang="en"><strong>A new Service Pack</strong> (SP): you <em>update the existing image</em> from the Installation Manager, validate it on the test machine, then propagate it to workstations. You do not create a new image for each SP.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Une nouvelle version majeure</strong> : on crée une <em>nouvelle image</em>, dans un dossier distinct, et on garde l'ancienne tant que des projets en cours en dépendent. SOLIDWORKS ne rouvre pas en arrière un fichier enregistré dans une version plus récente : la montée de version est une décision de bureau d'études, pas seulement d'informatique.</span><span data-lang="en"><strong>A new major version</strong>: you create a <em>new image</em>, in a separate folder, and keep the old one as long as ongoing projects depend on it. SOLIDWORKS does not reopen backward a file saved in a newer version: the version move is a design-office decision, not just an IT one.</span></li>
+                    </ul>
+                    <p data-i18n=""><span data-lang="fr">Dans les deux cas, <strong>validez avant de généraliser</strong> : un groupe pilote de deux ou trois utilisateurs, pendant une à deux semaines, sur des assemblages réels. Si vous utilisez un coffre PDM, vérifiez aussi la compatibilité de la version cible avec votre serveur PDM avant de toucher au parc — c'est le sujet traité dans <a href="/blog/migration-donnees-solidworks-pdm/">la migration de données vers SOLIDWORKS PDM</a>.</span><span data-lang="en">In both cases, <strong>validate before generalising</strong>: a pilot group of two or three users, for one to two weeks, on real assemblies. If you use a PDM vault, also check the target version's compatibility with your PDM server before touching the fleet — the subject covered in <a href="/blog/migration-donnees-solidworks-pdm/">migrating data to SOLIDWORKS PDM</a>.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="pieges">
+                    <h2 data-i18n=""><span data-lang="fr">8. Les pièges classiques</span><span data-lang="en">8. The classic traps</span></h2>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr>
+                                        <th data-i18n=""><span data-lang="fr">Symptôme</span><span data-lang="en">Symptom</span></th>
+                                        <th data-i18n=""><span data-lang="fr">Cause probable</span><span data-lang="en">Likely cause</span></th>
+                                        <th data-i18n=""><span data-lang="fr">Correction</span><span data-lang="en">Fix</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">Le script de démarrage « ne trouve pas » l'image</span><span data-lang="en">The startup script "can't find" the image</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Chemin sur lecteur mappé, ou droits de lecture absents pour les comptes ordinateurs</span><span data-lang="en">Path on a mapped drive, or missing read rights for computer accounts</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Chemin UNC et droits de lecture pour « Ordinateurs du domaine »</span><span data-lang="en">UNC path and read rights for "Domain Computers"</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">L'installation s'arrête en cours de route</span><span data-lang="en">The installation stops midway</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Réseau saturé par des installations simultanées, ou espace disque insuffisant sur le poste</span><span data-lang="en">Network saturated by simultaneous installations, or insufficient local disk space</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Déploiement par vagues, vérification de l'espace local avant lancement</span><span data-lang="en">Wave deployment, local space check before launch</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">Le poste demande un numéro de série</span><span data-lang="en">The workstation asks for a serial number</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Adresse du serveur de licences non embarquée, ou port bloqué par le pare-feu</span><span data-lang="en">License server address not embedded, or port blocked by the firewall</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Renseigner <em>port@serveur</em> dans l'image, ouvrir les ports</span><span data-lang="en">Set <em>port@server</em> in the image, open the ports</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">Chaque poste a une Toolbox différente</span><span data-lang="en">Each workstation has a different Toolbox</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Emplacement de la Toolbox non fixé dans l'image</span><span data-lang="en">Toolbox location not set in the image</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Un seul emplacement partagé, déclaré dans l'éditeur d'options</span><span data-lang="en">One shared location, declared in the options editor</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">Après un SP, certains postes sont différents des autres</span><span data-lang="en">After an SP, some workstations differ from the others</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Mises à jour libres : chaque utilisateur a installé son SP quand il voulait</span><span data-lang="en">Free updates: each user installed their SP whenever they wanted</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Contrôler le comportement des mises à jour dans l'image</span><span data-lang="en">Control update behaviour in the image</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n=""><span data-lang="fr">L'antivirus bloque ou ralentit l'installation</span><span data-lang="en">The antivirus blocks or slows the installation</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Analyse en temps réel du programme d'installation et de son partage</span><span data-lang="en">Real-time scanning of the installer and its share</span></td>
+                                        <td data-i18n=""><span data-lang="fr">Exclusions validées avec l'informatique, pour l'installation uniquement</span><span data-lang="en">Exclusions validated with IT, for the installation only</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr">Un dernier réflexe : quand une installation échoue, <strong>lisez le journal avant de relancer</strong>. Réessayer à l'aveugle masque la cause, et la même panne frappera le poste suivant. Un échec reproductible sur le poste d'essai se corrige dans l'image, une fois.</span><span data-lang="en">One last reflex: when an installation fails, <strong>read the log before retrying</strong>. Retrying blindly hides the cause, and the same failure will hit the next workstation. A failure reproducible on the test machine gets fixed in the image, once.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="checklist">
+                    <h2 data-i18n=""><span data-lang="fr">9. La checklist avant de lancer</span><span data-lang="en">9. The pre-launch checklist</span></h2>
+                    <ol>
+                        <li data-i18n=""><span data-lang="fr">Partage UNC dédié, droits d'écriture limités aux administrateurs, lecture pour les comptes ordinateurs et les utilisateurs concernés.</span><span data-lang="en">Dedicated UNC share, write rights limited to administrators, read for computer accounts and the users concerned.</span></li>
+                        <li data-i18n=""><span data-lang="fr">Dossier nommé avec la version et le SP, fichier texte de suivi à la racine.</span><span data-lang="en">Folder named with the version and SP, tracking text file at the root.</span></li>
+                        <li data-i18n=""><span data-lang="fr">Seuls les produits réellement déployés sont inclus dans l'image.</span><span data-lang="en">Only the products actually deployed are included in the image.</span></li>
+                        <li data-i18n=""><span data-lang="fr">Licence tranchée : numéros de série ou serveur SNL (adresse embarquée, ports ouverts, sauvegarde).</span><span data-lang="en">License decided: serial numbers or SNL server (address embedded, ports open, backup).</span></li>
+                        <li data-i18n=""><span data-lang="fr">Fichier <em>.sldreg</em> issu du poste de référence importé dans l'image.</span><span data-lang="en"><em>.sldreg</em> file from the reference workstation imported into the image.</span></li>
+                        <li data-i18n=""><span data-lang="fr">Emplacements de fichiers et Toolbox partagée déclarés dans l'éditeur d'options.</span><span data-lang="en">File locations and shared Toolbox declared in the options editor.</span></li>
+                        <li data-i18n=""><span data-lang="fr">Image validée sur un poste d'essai propre, puis sur un groupe pilote.</span><span data-lang="en">Image validated on a clean test machine, then on a pilot group.</span></li>
+                        <li data-i18n=""><span data-lang="fr">Plan de déploiement par vagues, avec un retour arrière prévu.</span><span data-lang="en">Wave deployment plan, with a roll-back foreseen.</span></li>
+                    </ol>
+                    <div class="callout">
+                        <div class="quote-block">
+                            <blockquote data-i18n=""><span data-lang="fr">Une image administrative bien faite est invisible : personne n'en parle, parce que personne n'a plus de poste « à part ». Le jour où quelqu'un dit « ton SOLIDWORKS marche pas comme le mien », c'est que l'image n'a pas fini son travail.</span><span data-lang="en">A well-built administrative image is invisible: nobody talks about it, because nobody has an "odd one out" workstation any more. The day someone says "your SOLIDWORKS doesn't behave like mine", the image has not finished its job.</span></blockquote>
+                            <cite>Mohamed Omar Baouch</cite>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="blog-section article-section" id="faq">
+                    <h2>10. FAQ</h2>
+                    <h3 data-i18n=""><span data-lang="fr">Qu'est-ce qu'une image administrative SOLIDWORKS ?</span><span data-lang="en">What is a SOLIDWORKS administrative image?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">C'est une copie complète du programme d'installation, déposée sur un partage réseau et préconfigurée par l'administrateur (produits, licence, emplacements, paramètres). Chaque poste s'installe ensuite depuis ce partage, sans retélécharger les fichiers et sans que l'utilisateur ait de choix à faire.</span><span data-lang="en">It is a complete copy of the installer, placed on a network share and preconfigured by the administrator (products, license, locations, settings). Each workstation then installs from that share, without re-downloading the files and without the user having any choices to make.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Quelle place faut-il prévoir pour l'image ?</span><span data-lang="en">How much space should I plan for the image?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Plusieurs dizaines de Go pour une version complète. Comptez large : une image par version majeure, plus les Service Packs téléchargés par-dessus. Un volume de 100 Go dédié aux images SOLIDWORKS évite de se reposer la question à chaque version.</span><span data-lang="en">Several tens of GB for a full version. Plan generously: one image per major version, plus the Service Packs downloaded on top. A dedicated 100 GB volume for SOLIDWORKS images avoids asking the question again with every version.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Peut-on installer depuis l'image sans droits administrateur ?</span><span data-lang="en">Can I install from the image without administrator rights?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Non : l'installation exige des droits administrateur local sur le poste. L'image ne les contourne pas, elle uniformise l'installation. Pour un parc, on passe donc par un script de démarrage, un outil de déploiement (SCCM, Intune) ou une intervention du support.</span><span data-lang="en">No: installation requires local administrator rights on the workstation. The image does not bypass them, it standardises the installation. For a fleet, you therefore use a startup script, a deployment tool (SCCM, Intune) or a support intervention.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Faut-il une image administrative par version de SOLIDWORKS ?</span><span data-lang="en">Do I need one administrative image per SOLIDWORKS version?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Oui, une par version majeure (2024, 2025, 2026…), dans des dossiers distincts et nommés explicitement. Les Service Packs, eux, se mettent à jour dans l'image existante : ne créez pas une nouvelle image à chaque SP.</span><span data-lang="en">Yes, one per major version (2024, 2025, 2026…), in separate, explicitly named folders. Service Packs, however, are updated inside the existing image: do not create a new image for every SP.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Image administrative et licences réseau : quel lien ?</span><span data-lang="en">Administrative image and network licenses: what is the link?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">L'image peut embarquer l'adresse du serveur de licences (SolidNetWork License) pour que chaque poste le trouve seul, sans saisie. Le serveur de licences, lui, s'installe à part, une fois, sur une machine dédiée ou stable.</span><span data-lang="en">The image can embed the license server address (SolidNetWork License) so that each workstation finds it on its own, with no typing. The license server itself is installed separately, once, on a dedicated or stable machine.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Peut-on inclure le client PDM dans le déploiement ?</span><span data-lang="en">Can the PDM client be included in the deployment?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Oui : le client SOLIDWORKS PDM peut être déployé avec la même logique, et le coffre se rattache automatiquement au poste avec un fichier d'attache de coffre. C'est le moyen le plus fiable de garantir que tous les postes utilisent la même version de client que le serveur.</span><span data-lang="en">Yes: the SOLIDWORKS PDM client can be deployed with the same logic, and the vault attaches automatically to the workstation using a vault view setup file. It is the most reliable way to guarantee that every workstation runs the same client version as the server.</span></p>
+                </section>
+
+                <section class="blog-section article-related">
+                    <h2 data-i18n=""><span data-lang="fr">À lire aussi</span><span data-lang="en">Read next</span></h2>
+                    <div class="media-grid">
+                        <a href="/blog/configuration-materielle-solidworks/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">Configuration matérielle SOLIDWORKS 2025</span><span data-lang="en">SOLIDWORKS 2025 hardware setup</span></h3>
+                            <p data-i18n=""><span data-lang="fr">Dimensionner les postes qui recevront l'image.</span><span data-lang="en">Sizing the workstations that will receive the image.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                        <a href="/blog/erreurs-solidworks-frequentes/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">Les 10 erreurs SOLIDWORKS les plus fréquentes</span><span data-lang="en">The 10 most common SOLIDWORKS errors</span></h3>
+                            <p data-i18n=""><span data-lang="fr">Toolbox, références, plantages : ce qu'une installation homogène évite.</span><span data-lang="en">Toolbox, references, crashes: what a uniform installation prevents.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                        <a href="/blog/solidworks-pdm-guide-complet/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">SOLIDWORKS PDM : le guide complet</span><span data-lang="en">SOLIDWORKS PDM: the complete guide</span></h3>
+                            <p data-i18n=""><span data-lang="fr">Déployer le client PDM et rattacher les postes au coffre.</span><span data-lang="en">Deploying the PDM client and attaching workstations to the vault.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                    </div>
+                </section>
+                <footer class="article-footer">
+                    <div class="article-tags">
+                        <span class="article-tag">SOLIDWORKS</span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Image administrative</span><span data-lang="en">Administrative image</span></span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Déploiement</span><span data-lang="en">Deployment</span></span>
+                        <span class="article-tag">SNL</span>
+                        <span class="article-tag">Toolbox</span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Bureau d'études</span><span data-lang="en">Design office</span></span>
+                    </div>
+                    <div class="article-nav">
+                        <a href="/blog/" class="back-link" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                        <a href="/#contact" class="hero-btn" data-i18n=""><span data-lang="fr">Parler d'un projet</span><span data-lang="en">Discuss a project</span></a>
+                    </div>
+                </footer>
+
+            </article>
+        </div>
+    </main>
+
+    <script src="/assets/js/loader.js"></script>
+    <script src="/assets/js/visitor-intelligence.js"></script>
+
+{{> footer }}
+{{> chatbot }}
+</body></html>

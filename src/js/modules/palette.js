@@ -33,6 +33,7 @@ const INDEX = [
   { ref: 'DOC-11', fr: 'Codification & propriétés SOLIDWORKS', en: 'SOLIDWORKS codification & properties', type: 'DOC', href: '/blog/codification-proprietes-solidworks/' },
   { ref: 'DOC-12', fr: 'Configuration matérielle SOLIDWORKS', en: 'SOLIDWORKS hardware configuration', type: 'DOC', href: '/blog/configuration-materielle-solidworks/' },
   { ref: 'DOC-13', fr: 'Résolutions de problématiques PLM', en: 'Solving PLM issues', type: 'DOC', href: '/blog/resolutions-problematiques-plm/' },
+  { ref: 'DOC-18', fr: 'Image administrative SOLIDWORKS', en: 'SOLIDWORKS administrative image', type: 'DOC', href: '/blog/image-administrative-solidworks-installation/' },
 ];
 
 const T = {
