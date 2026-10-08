@@ -140,6 +140,10 @@
     "Planche technique : coupe d'un arbre de 25 mm avec sa rainure et sa clavette 8 × 7, cotes t1 et t2",
     "Technical drawing: cross-section of a 25 mm shaft with its keyway and 8 × 7 key, depths t1 and t2"
   ],
+  "engrenage-module-calcul-diametres": [
+    "Planche technique : pignon de 20 dents engrené avec une roue de 50 dents, module 2, entraxe 70 mm",
+    "Technical drawing: 20-tooth pinion meshing with a 50-tooth gear, module 2, 70 mm center distance"
+  ],
   "filetage-gaz-g-bsp-npt-tableau": [
     "Planche technique : profils de filet gaz G à 55° et NPT à 60° comparés, filetage G 1/2 de 14 filets par pouce",
     "Technical drawing: G pipe thread profile at 55° compared with NPT at 60°, G 1/2 thread with 14 threads per inch"

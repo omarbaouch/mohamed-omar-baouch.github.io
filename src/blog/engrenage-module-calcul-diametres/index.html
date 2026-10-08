@@ -1,0 +1,365 @@
+<!DOCTYPE html><html lang="fr"><head>
+    <meta charset="UTF-8">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PBLRK58T');</script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-33TQ27QY4M"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-33TQ27QY4M');</script>
+<!-- Microsoft Clarity -->
+    <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","vy4yvht8gz");</script>
+    <!-- LinkedIn Insight Tag -->
+    <script type="text/javascript">_linkedin_partner_id="525900907";window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];window._linkedin_data_partner_ids.push(_linkedin_partner_id);(function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";s.parentNode.insertBefore(b,s)})(window.lintrk);</script>
+    <script>
+    // Anti-flash de thème : clair par défaut, sombre si stocké.
+    (function () {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    })();
+</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module d&#x27;engrenage : formules, diamètres, entraxe + calculateur</title>
+    <meta name="description" content="Calcul d&#x27;un engrenage droit à partir du module et du nombre de dents : diamètre primitif, de tête, de pied, de base, pas, hauteur de dent, entraxe et rapport, modules normalisés ISO 54 et conversion diametral pitch.">
+    <meta name="author" content="Mohamed Omar Baouch">
+    <link rel="canonical" href="https://www.baouch.fr/blog/engrenage-module-calcul-diametres/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Engrenage : module, diamètres et entraxe — formules et calculateur">
+    <meta property="og:description" content="d = m·z, da = m(z+2), df = m(z−2,5), entraxe et rapport : les formules d&#x27;un engrenage droit, les modules ISO 54 et un calculateur.">
+    <meta property="og:url" content="https://www.baouch.fr/blog/engrenage-module-calcul-diametres/">
+    <meta property="og:image" content="https://www.baouch.fr/img/og/engrenage.jpg">
+    <meta property="og:site_name" content="Mohamed Omar Baouch">
+    <meta property="article:published_time" content="2026-10-08T00:00:00.000Z">
+    <meta property="article:author" content="Mohamed Omar Baouch">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Engrenage : module, diamètres et entraxe — formules et calculateur">
+    <meta name="twitter:description" content="d = m·z, da = m(z+2), df = m(z−2,5), entraxe et rapport : les formules d&#x27;un engrenage droit, les modules ISO 54 et un calculateur.">
+    <meta name="twitter:image" content="https://www.baouch.fr/img/og/engrenage.jpg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "headline": "Engrenage : module, diamètres et entraxe — formules et calculateur",
+                "description": "Calcul d'un engrenage droit à partir du module et du nombre de dents : diamètre primitif, de tête, de pied, de base, pas, hauteur de dent, entraxe et rapport, modules normalisés ISO 54 et conversion diametral pitch.",
+                "image": "https://www.baouch.fr/img/og/engrenage.jpg",
+                "datePublished": "2026-10-08",
+                "dateModified": "2026-10-08",
+                "inLanguage": "fr-FR",
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://www.baouch.fr/blog/engrenage-module-calcul-diametres/"
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://www.baouch.fr",
+                    "jobTitle": "Ingénieur & Consultant PDM/PLM"
+                },
+                "publisher": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://www.baouch.fr"
+                },
+                "keywords": [
+                    "Engrenage",
+                    "Module",
+                    "Diamètre primitif",
+                    "Entraxe",
+                    "ISO 54",
+                    "Pignon"
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Accueil",
+                        "item": "https://www.baouch.fr/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Blog",
+                        "item": "https://www.baouch.fr/blog/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Engrenage : module, diamètres et entraxe — formules et calculateur",
+                        "item": "https://www.baouch.fr/blog/engrenage-module-calcul-diametres/"
+                    }
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Qu'est-ce que le module d'un engrenage ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "C'est le rapport entre le diamètre primitif et le nombre de dents : m = d / z, exprimé en millimètres. Il fixe la taille de la dent : deux roues ne peuvent engrener que si elles ont le même module (et le même angle de pression)."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Comment calculer le diamètre extérieur d'un pignon ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Pour une denture normale non déportée : da = m × (z + 2). Un pignon de 20 dents au module 2 a un diamètre primitif de 40 mm et un diamètre de tête de 44 mm."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Comment calculer l'entraxe de deux roues dentées ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "a = m × (z1 + z2) / 2, pour des roues droites sans déport. Avec m = 2, z1 = 20 et z2 = 50 : a = 2 × 70 / 2 = 70 mm."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Quel est le nombre minimal de dents d'un pignon ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Avec un angle de pression de 20° et une denture normale, environ 17 dents pour éviter théoriquement l'interférence de taillage (2 / sin² 20° ≈ 17,1) ; on descend en pratique à 14 dents, ou moins avec un déport de profil positif."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Comment convertir un diametral pitch en module ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "m = 25,4 / DP. Un engrenage DP 10 correspond à un module de 2,54 mm, qui n'est pas un module normalisé : les engrenages en pouces et en module ne sont généralement pas interchangeables."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+    <link rel="alternate" type="application/rss+xml" title="Blog — Mohamed Omar Baouch" href="https://www.baouch.fr/blog/rss.xml">
+    {{> head-lang }}{{> head-fonts }}<script type="module" src="../../js/blog.js"></script>
+</head>
+<body class="blog-page" data-blog-post="engrenage-module-calcul-diametres">
+{{> nav }}
+
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBLRK58T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <main id="main" class="container blog-container show">
+        <div class="blog-shell" id="blogShell" data-shell="">
+            <article class="blog-article" data-article-root="">
+                <nav class="article-breadcrumbs" aria-label="Navigation secondaire">
+                    <a class="back-link" href="/blog/" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                    <a class="back-link back-link--ghost" href="/" data-translate-key="blog_back_to_portfolio">Retour au portfolio</a>
+                </nav>
+
+                <header class="blog-hero post-hero" data-component="hero">
+                    <div class="hero-intro">
+                        <div class="hero-badges">
+                            <span class="badge badge-editorial" data-i18n=""><span data-lang="fr">Mémo & calculateur</span><span data-lang="en">Reference & calculator</span></span>
+                            <span class="badge" data-i18n=""><span data-lang="fr">Éléments de machine</span><span data-lang="en">Machine elements</span></span>
+                            <span class="badge badge-reading-time" data-i18n=""><span data-lang="fr">~6 min de lecture</span><span data-lang="en">~6 min read</span></span>
+                        </div>
+                        <span class="hero-eyebrow" data-i18n=""><span data-lang="fr">Dimensionner une paire d'engrenages droits</span><span data-lang="en">Size a pair of spur gears</span></span>
+                        <h1 class="hero-title" data-i18n=""><span data-lang="fr">Engrenage : module, diamètres et entraxe — formules et calculateur</span><span data-lang="en">Spur gears: module, diameters and center distance — formulas and calculator</span></h1>
+                        <p class="hero-subtitle" data-i18n=""><span data-lang="fr">Publié le 8 octobre 2026 — les formules d'une denture droite normale à partir du module et du nombre de dents, les modules normalisés, l'entraxe, le nombre minimal de dents et un calculateur pour une paire de roues.</span><span data-lang="en">Published October 8, 2026 — the formulas of a standard spur tooth from the module and the number of teeth, standard modules, center distance, minimum tooth count and a calculator for a gear pair.</span></p>
+                        <div class="hero-actions">
+                            <a class="hero-btn" href="#calculateur" data-i18n=""><span data-lang="fr">Calculer un engrenage</span><span data-lang="en">Calculate a gear</span></a>
+                            <a class="hero-btn hero-btn--ghost" href="#formules" data-i18n=""><span data-lang="fr">Voir les formules</span><span data-lang="en">See the formulas</span></a>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">d = m·z</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Le diamètre primitif</span><span data-lang="en">The pitch diameter</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">20°</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Angle de pression normalisé</span><span data-lang="en">Standard pressure angle</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">2,25·m</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Hauteur de dent</span><span data-lang="en">Tooth depth</span></span>
+                        </div>
+                    </div>
+                </header>
+
+                <section class="blog-section article-section">
+                    <div class="callout">
+                        <p data-i18n=""><span data-lang="fr"><strong>En bref :</strong> pour un engrenage droit à denture normale (angle de pression 20°, sans déport), tout se déduit du <strong>module m</strong> et du <strong>nombre de dents z</strong> : diamètre primitif <strong>d = m × z</strong>, diamètre de tête <strong>da = m × (z + 2)</strong>, diamètre de pied <strong>df = m × (z − 2,5)</strong>, entraxe <strong>a = m × (z1 + z2) / 2</strong>. Deux roues n'engrènent que si elles ont le même module. Choisissez le module dans la série I de l'ISO 54 : 1 ; 1,25 ; 1,5 ; 2 ; 2,5 ; 3 ; 4 ; 5 ; 6 ; 8 ; 10…</span><span data-lang="en"><strong>In short:</strong> for a standard spur gear (20° pressure angle, no profile shift), everything follows from the <strong>module m</strong> and the <strong>number of teeth z</strong>: pitch diameter <strong>d = m × z</strong>, tip diameter <strong>da = m × (z + 2)</strong>, root diameter <strong>df = m × (z − 2.5)</strong>, center distance <strong>a = m × (z1 + z2) / 2</strong>. Two gears only mesh if they have the same module. Pick the module from ISO 54 series I: 1; 1.25; 1.5; 2; 2.5; 3; 4; 5; 6; 8; 10…</span></p>
+                    </div>
+                </section>
+
+                <nav class="blog-section article-summary" id="sommaire" aria-label="Sommaire de l'article">
+                    <h2 class="summary-title" data-i18n=""><span data-lang="fr">Sommaire</span><span data-lang="en">Contents</span></h2>
+                    <ol class="summary-list">
+                        <li><a href="#formules"><span class="summary-index">01</span><span class="summary-label" data-i18n=""><span data-lang="fr">Les formules d'une denture droite</span><span data-lang="en">Spur gear formulas</span></span></a></li>
+                        <li><a href="#calculateur"><span class="summary-index">02</span><span class="summary-label" data-i18n=""><span data-lang="fr">Calculateur pour une paire de roues</span><span data-lang="en">Gear pair calculator</span></span></a></li>
+                        <li><a href="#modules"><span class="summary-index">03</span><span class="summary-label" data-i18n=""><span data-lang="fr">Modules normalisés ISO 54</span><span data-lang="en">ISO 54 standard modules</span></span></a></li>
+                        <li><a href="#regles"><span class="summary-index">04</span><span class="summary-label" data-i18n=""><span data-lang="fr">Règles de conception</span><span data-lang="en">Design rules</span></span></a></li>
+                        <li><a href="#faq"><span class="summary-index">05</span><span class="summary-label">FAQ</span></a></li>
+                    </ol>
+                </nav>
+
+                <section class="blog-section article-section" id="formules">
+                    <h2 data-i18n=""><span data-lang="fr">1. Les formules d'un engrenage droit</span><span data-lang="en">1. Spur gear formulas</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Denture normale selon le profil de référence de l'ISO 53 (saillie m, creux 1,25 m), angle de pression α = 20°, sans déport de profil. Toutes les longueurs en millimètres.</span><span data-lang="en">Standard teeth per the ISO 53 basic rack (addendum m, dedendum 1.25 m), pressure angle α = 20°, no profile shift. All lengths in millimetres.</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Grandeur</span><span data-lang="en">Quantity</span></th><th data-i18n=""><span data-lang="fr">Symbole</span><span data-lang="en">Symbol</span></th><th data-i18n=""><span data-lang="fr">Formule</span><span data-lang="en">Formula</span></th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td data-i18n=""><strong><span data-lang="fr">Diamètre primitif</span><span data-lang="en">Pitch diameter</span></strong></td><td>d</td><td>m × z</td></tr>
+                                    <tr><td data-i18n=""><strong><span data-lang="fr">Diamètre de tête</span><span data-lang="en">Tip diameter</span></strong></td><td>da</td><td>m × (z + 2)</td></tr>
+                                    <tr><td data-i18n=""><strong><span data-lang="fr">Diamètre de pied</span><span data-lang="en">Root diameter</span></strong></td><td>df</td><td data-i18n=""><span data-lang="fr">m × (z − 2,5)</span><span data-lang="en">m × (z − 2.5)</span></td></tr>
+                                    <tr><td data-i18n=""><strong><span data-lang="fr">Diamètre de base</span><span data-lang="en">Base diameter</span></strong></td><td>db</td><td>d × cos α</td></tr>
+                                    <tr><td data-i18n=""><strong><span data-lang="fr">Pas</span><span data-lang="en">Circular pitch</span></strong></td><td>p</td><td>π × m</td></tr>
+                                    <tr><td data-i18n=""><strong><span data-lang="fr">Saillie</span><span data-lang="en">Addendum</span></strong></td><td>ha</td><td>m</td></tr>
+                                    <tr><td data-i18n=""><strong><span data-lang="fr">Creux</span><span data-lang="en">Dedendum</span></strong></td><td>hf</td><td data-i18n=""><span data-lang="fr">1,25 × m</span><span data-lang="en">1.25 × m</span></td></tr>
+                                    <tr><td data-i18n=""><strong><span data-lang="fr">Hauteur de dent</span><span data-lang="en">Tooth depth</span></strong></td><td>h</td><td data-i18n=""><span data-lang="fr">2,25 × m</span><span data-lang="en">2.25 × m</span></td></tr>
+                                    <tr><td data-i18n=""><strong><span data-lang="fr">Entraxe</span><span data-lang="en">Center distance</span></strong></td><td>a</td><td>m × (z1 + z2) / 2</td></tr>
+                                    <tr><td data-i18n=""><strong><span data-lang="fr">Rapport de réduction</span><span data-lang="en">Gear ratio</span></strong></td><td>i</td><td>z2 / z1</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr">Exemple : m = 2, z1 = 20, z2 = 50. Pignon : d = 40, da = 44, df = 35 mm. Roue : d = 100, da = 104, df = 95 mm. Entraxe 70 mm, rapport 2,5.</span><span data-lang="en">Example: m = 2, z1 = 20, z2 = 50. Pinion: d = 40, da = 44, df = 35 mm. Gear: d = 100, da = 104, df = 95 mm. Center distance 70 mm, ratio 2.5.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="calculateur">
+                    <h2 data-i18n=""><span data-lang="fr">2. Calculateur : une paire de roues droites</span><span data-lang="en">2. Calculator: a spur gear pair</span></h2>
+                    <form class="calc" id="grCalc" onsubmit="return false">
+                        <div class="calc__fields">
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">Module m (mm)</span><span data-lang="en">Module m (mm)</span></span><input id="grM" type="number" inputmode="decimal" min="0" step="any" value="2"></label>
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">Dents du pignon z1</span><span data-lang="en">Pinion teeth z1</span></span><input id="grZ1" type="number" inputmode="numeric" min="1" step="1" value="20"></label>
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">Dents de la roue z2</span><span data-lang="en">Gear teeth z2</span></span><input id="grZ2" type="number" inputmode="numeric" min="1" step="1" value="50"></label>
+                        </div>
+                        <dl class="calc__out" aria-live="polite">
+                            <div><dt><span data-i18n=""><span data-lang="fr">Pignon : d / da / df</span><span data-lang="en">Pinion: d / da / df</span></span></dt><dd id="grP">—</dd></div>
+                            <div><dt><span data-i18n=""><span data-lang="fr">Roue : d / da / df</span><span data-lang="en">Gear: d / da / df</span></span></dt><dd id="grR">—</dd></div>
+                            <div><dt><span data-i18n=""><span data-lang="fr">Entraxe a</span><span data-lang="en">Center distance a</span></span></dt><dd id="grA">—</dd></div>
+                            <div><dt><span data-i18n=""><span data-lang="fr">Rapport i</span><span data-lang="en">Ratio i</span></span></dt><dd id="grI">—</dd></div>
+                        </dl>
+                        <p class="calc__verdict" id="grV"></p>
+                    </form>
+                </section>
+
+                <section class="blog-section article-section" id="modules">
+                    <h2 data-i18n=""><span data-lang="fr">3. Modules normalisés (ISO 54)</span><span data-lang="en">3. Standard modules (ISO 54)</span></h2>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Série</span><span data-lang="en">Series</span></th><th data-i18n=""><span data-lang="fr">Modules (mm)</span><span data-lang="en">Modules (mm)</span></th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td data-i18n=""><strong><span data-lang="fr">Série I (préférée)</span><span data-lang="en">Series I (preferred)</span></strong></td><td data-i18n=""><span data-lang="fr">1 · 1,25 · 1,5 · 2 · 2,5 · 3 · 4 · 5 · 6 · 8 · 10 · 12 · 16 · 20</span><span data-lang="en">1 · 1.25 · 1.5 · 2 · 2.5 · 3 · 4 · 5 · 6 · 8 · 10 · 12 · 16 · 20</span></td></tr>
+                                    <tr><td data-i18n=""><strong><span data-lang="fr">Série II</span><span data-lang="en">Series II</span></strong></td><td data-i18n=""><span data-lang="fr">1,125 · 1,375 · 1,75 · 2,25 · 2,75 · 3,5 · 4,5 · 5,5 · 7 · 9 · 11 · 14 · 18</span><span data-lang="en">1.125 · 1.375 · 1.75 · 2.25 · 2.75 · 3.5 · 4.5 · 5.5 · 7 · 9 · 11 · 14 · 18</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr">Préférez la série I : les fraises et les roues du commerce y sont plus faciles à trouver. Dans la série II, la norme demande d'éviter le module 6,5. Conversion depuis les engrenages en pouces : m = 25,4 / DP (diametral pitch).</span><span data-lang="en">Prefer series I: cutters and off-the-shelf gears are easier to find there. In series II, the standard asks to avoid module 6.5. Conversion from inch gears: m = 25.4 / DP (diametral pitch).</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="regles">
+                    <h2 data-i18n=""><span data-lang="fr">4. Règles de conception à connaître</span><span data-lang="en">4. Design rules to know</span></h2>
+                    <ul>
+                        <li data-i18n=""><span data-lang="fr"><strong>Même module, même angle de pression</strong> : c'est la condition pour que deux roues engrènent.</span><span data-lang="en"><strong>Same module, same pressure angle</strong>: the condition for two gears to mesh.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Nombre minimal de dents</strong> : environ 17 à 20° sans déport pour éviter l'interférence de taillage (2 / sin² α ≈ 17,1) ; 14 en pratique ; moins avec un déport de profil positif.</span><span data-lang="en"><strong>Minimum tooth count</strong>: about 17 at 20° without shift to avoid undercut (2 / sin² α ≈ 17.1); 14 in practice; fewer with a positive profile shift.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Nombres de dents premiers entre eux</strong> : évitez un rapport entier exact (20 / 40) pour que chaque dent rencontre toutes les dents de l'autre roue et répartisse l'usure.</span><span data-lang="en"><strong>Co-prime tooth counts</strong>: avoid an exact integer ratio (20 / 40) so each tooth meets every tooth of the other gear and spreads wear.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Liaison à l'arbre</strong> : le moyeu de la roue se cale le plus souvent par clavette ; la section se choisit d'après le diamètre d'arbre, voir le <a href="/blog/clavettes-paralleles-din-6885-dimensions/">tableau des clavettes DIN 6885</a>, et l'alésage se tolérance avec un <a href="/blog/ajustements-iso-286-tableau-h7-g6/">ajustement ISO 286</a>.</span><span data-lang="en"><strong>Shaft connection</strong>: the gear hub is most often keyed; the section is chosen from the shaft diameter, see the <a href="/blog/clavettes-paralleles-din-6885-dimensions/">DIN 6885 key chart</a>, and the bore is toleranced with an <a href="/blog/ajustements-iso-286-tableau-h7-g6/">ISO 286 fit</a>.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Ce que ce mémo ne couvre pas</strong> : le calcul de résistance (flexion et pression de contact, ISO 6336), les dentures hélicoïdales et le déport de profil, qui modifient les diamètres et l'entraxe.</span><span data-lang="en"><strong>What this memo does not cover</strong>: strength calculation (bending and contact stress, ISO 6336), helical teeth and profile shift, which change diameters and center distance.</span></li>
+                    </ul>
+                </section>
+
+                <section class="blog-section article-section" id="faq">
+                    <h2 data-i18n=""><span data-lang="fr">5. FAQ</span><span data-lang="en">5. FAQ</span></h2>
+                    <h3 data-i18n=""><span data-lang="fr">Qu'est-ce que le module d'un engrenage ?</span><span data-lang="en">What is the module of a gear?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">C'est le rapport entre le diamètre primitif et le nombre de dents : m = d / z, exprimé en millimètres. Il fixe la taille de la dent : deux roues ne peuvent engrener que si elles ont le même module (et le même angle de pression).</span><span data-lang="en">It is the ratio of the pitch diameter to the number of teeth: m = d / z, in millimetres. It sets the tooth size: two gears can only mesh if they have the same module (and the same pressure angle).</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Comment calculer le diamètre extérieur d'un pignon ?</span><span data-lang="en">How do you calculate the outside diameter of a pinion?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Pour une denture normale non déportée : da = m × (z + 2). Un pignon de 20 dents au module 2 a un diamètre primitif de 40 mm et un diamètre de tête de 44 mm.</span><span data-lang="en">For a standard, unshifted tooth: da = m × (z + 2). A 20-tooth pinion at module 2 has a 40 mm pitch diameter and a 44 mm tip diameter.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Comment calculer l'entraxe de deux roues dentées ?</span><span data-lang="en">How do you calculate the center distance of two gears?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">a = m × (z1 + z2) / 2, pour des roues droites sans déport. Avec m = 2, z1 = 20 et z2 = 50 : a = 2 × 70 / 2 = 70 mm.</span><span data-lang="en">a = m × (z1 + z2) / 2, for spur gears without profile shift. With m = 2, z1 = 20 and z2 = 50: a = 2 × 70 / 2 = 70 mm.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Quel est le nombre minimal de dents d'un pignon ?</span><span data-lang="en">What is the minimum number of teeth on a pinion?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Avec un angle de pression de 20° et une denture normale, environ 17 dents pour éviter théoriquement l'interférence de taillage (2 / sin² 20° ≈ 17,1) ; on descend en pratique à 14 dents, ou moins avec un déport de profil positif.</span><span data-lang="en">With a 20° pressure angle and standard teeth, about 17 teeth theoretically avoid undercut (2 / sin² 20° ≈ 17.1); in practice down to 14 teeth, or fewer with a positive profile shift.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Comment convertir un diametral pitch en module ?</span><span data-lang="en">How do you convert diametral pitch to module?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">m = 25,4 / DP. Un engrenage DP 10 correspond à un module de 2,54 mm, qui n'est pas un module normalisé : les engrenages en pouces et en module ne sont généralement pas interchangeables.</span><span data-lang="en">m = 25.4 / DP. A DP 10 gear corresponds to a 2.54 mm module, which is not a standard module: inch and module gears are generally not interchangeable.</span></p>
+                </section>
+
+                <section class="blog-section article-related">
+                    <h2 data-i18n=""><span data-lang="fr">À lire aussi</span><span data-lang="en">Read next</span></h2>
+                    <div class="media-grid">
+                        <a href="/blog/clavettes-paralleles-din-6885-dimensions/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">Clavettes parallèles DIN 6885 : dimensions et rainures</span><span data-lang="en">DIN 6885 parallel keys: dimensions and keyways</span></h3>
+                            <p data-i18n=""><span data-lang="fr">Caler la roue sur son arbre : section et rainures selon le diamètre.</span><span data-lang="en">Key the gear to its shaft: section and keyways by diameter.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                        <a href="/blog/ajustements-iso-286-tableau-h7-g6/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">Ajustements ISO 286 : H7/g6, H7/p6… et calculateur</span><span data-lang="en">ISO 286 fits: H7/g6, H7/p6… and calculator</span></h3>
+                            <p data-i18n=""><span data-lang="fr">L'alésage de la roue et le diamètre de l'arbre, au bon ajustement.</span><span data-lang="en">The gear bore and shaft diameter, with the right fit.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                    </div>
+                </section>
+
+                <footer class="article-footer">
+                    <div class="article-tags">
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Engrenage</span><span data-lang="en">Gears</span></span>
+                        <span class="article-tag">ISO 54</span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Éléments de machine</span><span data-lang="en">Machine elements</span></span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Transmission</span><span data-lang="en">Power transmission</span></span>
+                    </div>
+                    <div class="article-nav">
+                        <a href="/blog/" class="back-link" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                        <a href="/#contact" class="hero-btn" data-i18n=""><span data-lang="fr">Parler d'un projet</span><span data-lang="en">Discuss a project</span></a>
+                    </div>
+                </footer>
+
+            </article>
+        </div>
+    </main>
+
+    <script>
+// Engrenage droit, denture normale (ISO 53, α = 20°, sans déport) : d = m·z, da = m(z+2), df = m(z−2,5), a = m(z1+z2)/2.
+    (function () {
+        var $ = function (id) { return document.getElementById(id); };
+        var mIn = $('grM'), z1In = $('grZ1'), z2In = $('grZ2');
+        if (!mIn) return;
+        function en() { return document.documentElement.lang === 'en'; }
+        function f(x) { var s = String(Math.round(x * 100) / 100); return en() ? s : s.replace('.', ','); }
+        function v(el) { return parseFloat(String(el.value).replace(',', '.')); }
+        function gcd(a, b) { return b ? gcd(b, a % b) : a; }
+        function trio(m, z) { return f(m * z) + ' / ' + f(m * (z + 2)) + ' / ' + f(m * (z - 2.5)) + ' mm'; }
+        function run() {
+            var m = v(mIn), z1 = Math.round(v(z1In)), z2 = Math.round(v(z2In));
+            if (!(m > 0) || !(z1 > 0) || !(z2 > 0)) { $('grP').textContent = $('grR').textContent = $('grA').textContent = $('grI').textContent = '—'; $('grV').textContent = ''; return; }
+            $('grP').textContent = trio(m, z1);
+            $('grR').textContent = trio(m, z2);
+            $('grA').textContent = f(m * (z1 + z2) / 2) + ' mm';
+            $('grI').textContent = f(z2 / z1);
+            var notes = [];
+            if (Math.min(z1, z2) < 17) notes.push(en() ? 'fewer than 17 teeth: risk of undercut without profile shift' : 'moins de 17 dents : risque d’interférence sans déport');
+            if (gcd(z1, z2) > 1) notes.push(en() ? 'tooth counts are not co-prime' : 'nombres de dents non premiers entre eux');
+            $('grV').textContent = notes.length ? notes.join(' · ') : (en() ? 'Standard spur teeth, 20°, no profile shift.' : 'Denture droite normale, 20°, sans déport.');
+        }
+        [mIn, z1In, z2In].forEach(function (el) { el.addEventListener('input', run); });
+        window.addEventListener('langchange', run);
+        run();
+    })();
+    </script>
+    <script src="/assets/js/loader.js"></script>
+    <script src="/assets/js/visitor-intelligence.js"></script>
+
+{{> footer }}
+{{> chatbot }}
+</body></html>

@@ -5,8 +5,16 @@
     <link>https://www.baouch.fr/blog/</link>
     <description>Articles de fond et retours d'expérience terrain sur le PDM, le PLM, SOLIDWORKS et la gestion des données produit.</description>
     <language>fr-FR</language>
-    <lastBuildDate>Wed, 07 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 08 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.baouch.fr/blog/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Engrenage : module, diamètres et entraxe — formules et calculateur</title>
+      <link>https://www.baouch.fr/blog/engrenage-module-calcul-diametres/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/engrenage-module-calcul-diametres/</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Calcul d'un engrenage droit à partir du module et du nombre de dents : diamètre primitif, de tête, de pied, de base, pas, hauteur de dent, entraxe et rapport, modules normalisés ISO 54 et conversion diametral pitch.</description>
+      <enclosure url="https://www.baouch.fr/img/og/engrenage.jpg" type="image/jpeg"/>
+    </item>
     <item>
       <title>Filetage gaz G (BSP) et NPT : tableau des dimensions et identification</title>
       <link>https://www.baouch.fr/blog/filetage-gaz-g-bsp-npt-tableau/</link>

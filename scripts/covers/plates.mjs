@@ -822,7 +822,35 @@ function resolutions() {
   return sheet({ ref: 'DOC-13', std: 'PLM · 5 × 1', rev: 'B', scale: '—', key: '5 → 1', keySub: 'PLM', body: b, keyY: 760, keySize: 170 });
 }
 
+function engrenage(l) {
+  const { t, num } = lang(l);
+  let b = '';
+  // pignon z20 et roue z50, module 2 (échelle 5,5 px/mm) : entraxe a = m(z1 + z2)/2 = 70
+  const k = 5.5, m = 2, cy = 450, cw = 1180, cp = cw - 70 * k;
+  const gear = (cx, z, phase, c, w, fill) => {
+    const ra = m * (z + 2) / 2 * k, rf = m * (z - 2.5) / 2 * k, p = 2 * Math.PI / z, pts = [];
+    for (let i = 0; i < z; i++) {
+      const th = phase + i * p;
+      for (const [da, r] of [[-0.3, rf], [-0.14, ra], [0.14, ra], [0.3, rf]]) pts.push([cx + r * Math.cos(th + da * p), cy + r * Math.sin(th + da * p)]);
+    }
+    return poly(pts, { c, w, fill });
+  };
+  b += gear(cw, 50, Math.PI + Math.PI / 50, C.line, 2.2, 'url(#hatch)');
+  b += gear(cp, 20, 0, C.accent, 2.6, 'url(#hatchA)');
+  b += circle(cw, cy, 50 * k, { c: C.mid, w: 1.4, dash: '10 6' });
+  b += circle(cp, cy, 20 * k, { c: C.accent, w: 1.4, dash: '10 6' });
+  b += circle(cw, cy, 14 * k, { c: C.line, w: 2.2, fill: C.bg0 });
+  b += circle(cp, cy, 6 * k, { c: C.accent, w: 2.2, fill: C.bg0 });
+  b += axis(cp - 150, cy, cw + 320, cy);
+  b += axis(cp, cy - 150, cp, cy + 150) + axis(cw, cy - 320, cw, cy + 320);
+  b += dim(cp, cy + 22 * k, cw, cy + 22 * k, '', { off: 120, size: 20, c: C.accent });
+  b += text(cp - 18, cy + 22 * k + 127, `a = ${num('70')}`, { size: 22, c: C.accent, anchor: 'end', weight: 700 });
+  b += text(cp, cy - 22 * k - 26, 'z1 = 20 · d 40', { size: 20, c: C.accent, anchor: 'middle', weight: 700 });
+  b += text(cw + 150, cy - 52 * k - 14, 'z2 = 50 · d 100', { size: 20, c: C.ink, anchor: 'middle', weight: 700 });
+  return sheet({ ref: 'MEM-13', std: 'ISO 54 · ISO 53 · α 20°', rev: 'A', scale: '1:1', key: 'm 2', keySub: `z 20 / 50 · i ${num('2.5')}`, body: b, keyY: 760, keySize: 180 });
+}
 export const PLATES = {
+  'engrenage-module-calcul-diametres': engrenage,
   'image-administrative-solidworks-installation': imageAdmin,
   'filetage-gaz-g-bsp-npt-tableau': filetageGaz,
   'clavettes-paralleles-din-6885-dimensions': clavette,

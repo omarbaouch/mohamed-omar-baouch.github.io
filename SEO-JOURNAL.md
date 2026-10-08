@@ -33,6 +33,15 @@ La carte se pose simplement dans la grille de `src/blog/index.html` (entre `gril
 
 **Suivi** : compter à part les URL `/en/` (indexation, impressions, requêtes anglaises). Dans le résumé, donner les URL à soumettre en version française ET anglaise. Si Search Console répond « Petit problème… Une erreur s'est produite » à une demande d'indexation, c'est une limite passagère de Google : réessayer plus tard ; le sitemap suffit à la découverte.
 
+## 2026-10-08 — nouveau mémo bilingue : engrenages (module, diamètres, entraxe)
+
+- **Rapport GSC (28 j)** : 33 clics (≈ 1,2/jour), 3 023 impressions, position moyenne 14,5 ; 68/76 pages indexées.
+- **Action (a)** : création de `/blog/engrenage-module-calcul-diametres/` (MEM-13) + `/en/` : formules d'un engrenage droit à denture normale (d = m·z, da = m(z + 2), df = m(z − 2,5), db = d·cos α, p = π·m, h = 2,25 m), entraxe a = m(z1 + z2)/2, rapport, modules normalisés ISO 54 (séries I et II, vérifiées par recherche web), nombre minimal de dents à 20° (17 théorique, ≈ 14 en pratique), conversion diametral pitch m = 25,4/DP, FAQ et calculateur (contrôle m = 2, z = 20/50 → 40/44/35 mm, 100/104/95 mm, a = 70 mm, i = 2,5).
+- Planche `engrenage` (pignon z20 / roue z50), alt FR/EN, image OG, carte dans la grille, lien depuis le mémo clavettes. Baseline SEO : 40 pages.
+- Vérifications : build OK, verify:seo identique (après snapshot de la nouvelle page), verify:en 0 erreur / 0 texte à vérifier, Chromium 1280/390 FR et /en/ sans erreur JS ni défilement horizontal.
+- Remarque : `apply.mjs` renseigne aussi l'alt vide de la figure de l'article « image administrative » ; modification annulée (hors périmètre de la passe).
+- Prochaine piste : action (c) sur `couple-serrage-vis-tableau` (198 impressions, CTR 0,5 %, position 10,6).
+
 ## 2026-10-07 — nouveau mémo bilingue : filetages gaz G (BSP) et NPT
 
 **Chiffres (05/09 → 03/10)** : **27 clics (1,0/jour, contre 0,8)**, 2 385 impressions (2 148), CTR 1,1 %, position moyenne 13,7. Pages qui montent : solidworks-gratuit-prix-guide 498 impressions, couple-serrage 158 (pos. 9,3, CTR 0,6 % — candidate action c), tableau-filetage 150, rugosité 66, ajustements 35 ; 1er clic sur une URL /en/ (couple-serrage). **Indexation : 67 / 72** (clavettes FR et /en/ d'hier, dureté FR détectée, /en/formats-echange-cao détectée, resolutions-problematiques-plm).

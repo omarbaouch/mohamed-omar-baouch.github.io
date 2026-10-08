@@ -135,6 +135,10 @@
     "title": "BSP vs NPT Thread Chart: G (ISO 228) Sizes, TPI and Tap Drills",
     "description": "BSP (G, ISO 228) and NPT pipe thread chart: major diameter, threads per inch, pitch and tap drill, 55° vs 60°, parallel vs taper, plus a thread identifier."
   },
+  "/blog/engrenage-module-calcul-diametres/": {
+    "title": "Gear Module Calculator: Pitch Diameter and Center Distance",
+    "description": "Spur gear formulas from module and tooth count: pitch, tip, root and base diameter, tooth height, center distance, ratio, ISO 54 modules and diametral pitch."
+  },
   "/blog/image-administrative-solidworks-installation/": {
     "title": "SOLIDWORKS Administrative Image: Create, Configure, Deploy",
     "description": "How to create and configure a SOLIDWORKS administrative image: prerequisites, step-by-step setup, options editor, SNL licensing, GPO or command-line deployment and updates."

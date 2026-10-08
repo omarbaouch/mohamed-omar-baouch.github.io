@@ -179,6 +179,24 @@
     "h1": "La révision fantôme à 40 000 € : maîtriser les ECO/ECR avant qu'elles ne vous coûtent cherThe €40,000 phantom revision: master ECO/ECR before they cost you dearly",
     "lang": "fr"
   },
+  "/blog/engrenage-module-calcul-diametres/": {
+    "title": "Module d'engrenage : formules, diamètres, entraxe + calculateur",
+    "description": "Calcul d'un engrenage droit à partir du module et du nombre de dents : diamètre primitif, de tête, de pied, de base, pas, hauteur de dent, entraxe et rapport, modules normalisés ISO 54 et conversion diametral pitch.",
+    "canonical": "https://www.baouch.fr/blog/engrenage-module-calcul-diametres/",
+    "robots": null,
+    "ogTitle": "Engrenage : module, diamètres et entraxe — formules et calculateur",
+    "ogDescription": "d = m·z, da = m(z+2), df = m(z−2,5), entraxe et rapport : les formules d'un engrenage droit, les modules ISO 54 et un calculateur.",
+    "ogUrl": "https://www.baouch.fr/blog/engrenage-module-calcul-diametres/",
+    "ogImage": "https://www.baouch.fr/img/og/engrenage.jpg",
+    "ogType": "article",
+    "twitterTitle": "Engrenage : module, diamètres et entraxe — formules et calculateur",
+    "twitterDescription": "d = m·z, da = m(z+2), df = m(z−2,5), entraxe et rapport : les formules d'un engrenage droit, les modules ISO 54 et un calculateur.",
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList,FAQPage"
+    ],
+    "h1": "Engrenage : module, diamètres et entraxe — formules et calculateurSpur gears: module, diameters and center distance — formulas and calculator",
+    "lang": "fr"
+  },
   "/blog/erreurs-solidworks-frequentes/": {
     "title": "Les 10 erreurs SOLIDWORKS les plus fréquentes : causes réelles et corrections durables",
     "description": "Références manquantes, fichier en lecture seule, erreurs de reconstruction, Toolbox incohérente, « impossible d'enregistrer le document », mise en plan qui perd ses vues : les 10 pannes SOLIDWORKS les plus courantes en bureau d'études, la correction immédiate pour chacune, et la cause de fond qui les fait revenir.",
