@@ -46,7 +46,7 @@ La carte se pose simplement dans la grille de `src/blog/index.html` (entre `gril
    - verify:seo : seuls les h1 divergent (baseline régénérée), verify:en 0/0 ;
    - Chromium 1280/390 sur les 36 pages, bascule FR ↔ EN et calculateurs vérifiés.
 2. **IndexNow** : `node scripts/indexnow.mjs --since <commit>` ne signale que les pages modifiées depuis ce commit, et leur version /en/. Renvoyer chaque jour les 78 URL du sitemap n'apportait rien. Le sitemap complet reste pour les refontes, comme ce lot.
-3. **Descriptions trop longues de mes mémos récents** (206 à 245 caractères, coupées par Google) ramenées à 148–157 caractères : aciers, clavettes, dureté, engrenages, filetage gaz.
+3. **Descriptions trop longues de mes mémos récents** (206 à 245 caractères, coupées par Google) ramenées à 148–157 caractères : aciers, clavettes, dureté, engrenages, filetage gaz. Ces 5 pages sont **en test jusqu'au 23/10** pour leur title et leur description.
 
 **Critique des passages précédents (moi)** :
 - Le passage du matin sur la masse volumique a changé titre et contenu en même temps, ce qui empêche de mesurer l'effet du titre. Sa requête principale est en position 25,7 : le frein est le classement, pas le titre.
