@@ -33,6 +33,41 @@ La carte se pose simplement dans la grille de `src/blog/index.html` (entre `gril
 
 **Suivi** : compter à part les URL `/en/` (indexation, impressions, requêtes anglaises). Dans le résumé, donner les URL à soumettre en version française ET anglaise. Si Search Console répond « Petit problème… Une erreur s'est produite » à une demande d'indexation, c'est une limite passagère de Google : réessayer plus tard ; le sitemap suffit à la découverte.
 
+## 2026-10-09 (3) — données de mots-clés réelles et fichiers à télécharger (demande du propriétaire)
+
+**1. Recherche de mots-clés sur données réelles** : `node scripts/mots-cles.mjs`, avec les graines dans `seo/graines.json`, produit le rapport `seo/mots-cles.md` et le cache `seo/mots-cles.json`. Chaque chiffre est attribué à sa source, aucun n'est estimé.
+- **Suggestions de recherche Google** (sans clé, actif) : les requêtes réellement tapées, avec leur rang de popularité, pour 74 graines FR/EN et les modificateurs pdf / excel / tableau / calcul / télécharger. Premier relevé : 1 705 requêtes. Les suggestions sans mot commun avec leur graine sont écartées (correction orthographique de Google). Le rapport croise chaque requête avec Search Console et signale les sujets sans page sur le site et l'intention de téléchargement (⬇).
+- **Volumes Google Ads mensuels** (DataForSEO) : actifs dès que `DATAFORSEO_LOGIN` et `DATAFORSEO_PASSWORD` sont définis dans l'environnement. Service payant, volumes gardés 30 jours en cache.
+- **Impressions Bing** (API Bing Webmaster Tools, gratuite) : actives dès que `BING_WEBMASTER_API_KEY` est défini. Le site doit être vérifié dans Bing Webmaster Tools.
+- Sans ces clés, le rapport classe par popularité des suggestions, sans volume. **À faire par le propriétaire** : ajouter ces variables dans les réglages de l'environnement cloud.
+- Ce que le premier relevé confirme :
+  - les recherches de fichiers sont fréquentes (261 requêtes ⬇ sur 1 705), par exemple « bolt torque chart pdf » (3ᵉ suggestion), « tolérance iso 2768 mk pdf », « symbole soudure pdf », « calcul ressort compression excel » ;
+  - sujets sans page : ressorts (compression, traction), moment quadratique, cotation fonctionnelle, circlips, joints toriques, vis CHC, goupilles, pliage de tôle et facteur K, conversion pouce / mm, dilatation thermique.
+
+**2. Fichiers à télécharger** :
+- **Fiches PDF A4 imprimables, FR et EN**, pour les 7 mémos les plus vus : couple de serrage, filetage métrique, ISO 2768, ISO 1101, soudure ISO 2553, rugosité, ajustements ISO 286.
+  - Générées par `node scripts/fiches-pdf.mjs` à partir des tableaux de la page construite : une seule source, donc une correction de la page se répercute à la régénération. Les phrases qui renvoient au web (calculateur, SOLIDWORKS) sont retirées.
+  - Sur chaque page : un bouton « Télécharger en PDF » dans l'en-tête et un encadré « Version imprimable » ; la version /en/ pointe vers le PDF anglais (`data-href-en`, géré par build-en).
+  - Toutes relues visuellement.
+- **Calculateur Excel de couple de serrage, FR et EN** (`scripts/excel-couple-serrage.py`) : mêmes formules que la page (VDI 2230, ISO 898-1), en formules Excel sans macro, avec le tableau µ = 0,12 complet. Recalculé hors Excel par le script : il redonne exactement les valeurs publiées (M10 8.8 → 48 N·m, M36 12.9 → 4139 N·m…). Lien sous le calculateur de la page. Requête visée : « calcul couple de serrage excel », vue dans Search Console.
+
+**3. Correction des pages anglaises** : les nombres des tableaux et des listes de choix, hors texte traduit, gardaient la virgule décimale (« 0,35 », « 1,25 ») sur les pages /en/, soit 224 cellules. build-en les passe au point.
+
+Vérifications :
+- build OK ;
+- verify:seo identique ;
+- verify:en 0/0 ;
+- Chromium : 144 contrôles (72 pages FR + EN, 1280 et 390 px), sans erreur JS ni défilement horizontal ;
+- les 18 fichiers répondent en 200.
+
+Ces 7 pages ont reçu un ajout de contenu (téléchargements) : pas de changement de titre sur ces pages avant le 23/10, pour pouvoir mesurer l'effet.
+
+**Pistes pour les prochains passages** (d'après le rapport de mots-clés) :
+- tout nouveau mémo a sa fiche PDF ;
+- version anglaise des modèles Excel de nomenclature (la page /en/ du modèle fait 4,9 % de clics en position 38, mais propose des fichiers en français) ;
+- calculateurs Excel : ressort de compression, conversion pouce / mm ;
+- mémos : ressorts, moment quadratique, circlips, joints toriques, vis CHC.
+
 ## 2026-10-09 (2) — revue critique de la stratégie, à la demande du propriétaire
 
 **Constats chiffrés (rapport du 09/10, 08/09 → 06/10)** : 2,5 clics/jour en moyenne sur 28 jours (0,4 le 25/09), 25 clics le 06/10, 6 756 impressions, position moyenne 13,3.
@@ -61,7 +96,7 @@ La carte se pose simplement dans la grille de `src/blog/index.html` (entre `gril
 - Clics attendus notés à chaque action.
 
 **Titres et descriptions français trop longs** (titre > 65 ou description > 160 caractères ; Google les coupe ou les réécrit) : à raccourcir **par lots de 5**, un lot par passage d'action (c), en commençant par les pages en position ≤ 10, sans toucher aux titres en test.
-- Lot 1 : couple-serrage-vis-tableau (334 impr., pos. 10,0), rugosite-ra-tableau-classes-procedes (202, 7,9), tolerances-geometriques-symboles-iso-1101 (190, 7,2), raccourcis-clavier-solidworks (127, 7,8), ebom-vs-mbom (95, 8,5).
+- Lot 1 : raccourcis-clavier-solidworks (127, 7,8), ebom-vs-mbom (95, 8,5), puis, après le 23/10 (téléchargements ajoutés le 09/10) : couple-serrage-vis-tableau (334 impr., pos. 10,0), rugosite-ra-tableau-classes-procedes (202, 7,9), tolerances-geometriques-symboles-iso-1101 (190, 7,2).
 - Lot 2 : solidworks-pdm-lent-7-causes, erreurs-solidworks-frequentes, ia-solidworks-pdm-bureau-etudes, prix-cout-projet-solidworks-pdm, tableau-filetage-metrique-percage-taraudage (pos. 13,1).
 - Ensuite, les pages sans impressions, dans l'ordre du rapport.
 - Exclues jusqu'à la fin de leur test : nomenclature-bom-pdm-plm-erp (en test depuis le 01/10) et masse-volumique-materiaux-calcul-masse (jusqu'au 23/10).

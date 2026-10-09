@@ -165,6 +165,13 @@ export function buildEnglishPages(dist) {
     // avant de retirer le français : il sert de clé pour traduire FAQ et glossaire
     const headings = headingIndex($);
     $('[data-i18n] [data-lang="fr"]').remove();
+    // nombres des tableaux et listes de choix, hors spans traduits : virgule décimale
+    // française → point (« 0,35 » se lit « 35 centièmes » en anglais, pas « 035 »)
+    $('td, th, option').each((_, el) => {
+      $(el).find('*').addBack().contents().each((_, n) => {
+        if (n.type === 'text' && !$(n.parent).closest('[data-lang]').length) n.data = n.data.replace(/(\d),(\d)/g, '$1.$2');
+      });
+    });
     $('[data-translate-key]').each((_, el) => {
       const v = DICT_EN[el.attribs['data-translate-key']];
       if (typeof v === 'string') $(el).html(v);
@@ -190,6 +197,11 @@ export function buildEnglishPages(dist) {
     // affiches du hero : la version anglaise directement (le script en ligne fait de même côté client)
     $('.fh-poster source, .fh-poster img').each((_, el) => {
       for (const a of ['src', 'srcset']) if (el.attribs[a]) el.attribs[a] = el.attribs[a].replace(/\/film\/hero\/(?!en\/)/g, '/film/hero/en/');
+    });
+    // fichiers à télécharger : version anglaise indiquée dans la page (data-href-en)
+    $('[data-href-en]').each((_, a) => {
+      a.attribs.href = a.attribs['data-href-en'];
+      delete a.attribs['data-href-en'];
     });
     $('a[href]').each((_, a) => {
       const to = localize(a.attribs.href);

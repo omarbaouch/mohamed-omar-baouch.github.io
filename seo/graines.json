@@ -1,0 +1,31 @@
+{
+  "_lisezmoi": "Graines de la recherche de mots-clés (node scripts/mots-cles.mjs). Une graine = un sujet ; les modificateurs sont ajoutés à chacune. « exclure » écarte les suggestions hors sujet (automobile, cycle…).",
+  "fr": {
+    "graines": [
+      "couple de serrage vis", "tableau taraudage", "perçage taraudage", "filetage métrique", "tolérance iso 2768",
+      "tolérances géométriques", "symbole soudure", "rugosité ra", "ajustement h7", "conversion dureté",
+      "masse volumique", "densité acier", "acier s355", "clavette", "filetage gaz", "engrenage module",
+      "circlips", "roulement dimensions", "joint torique gorge", "vis chc dimensions", "lamage", "fraisurage",
+      "rondelle dimensions", "écrou dimensions", "goupille", "calcul ressort", "pliage tôle", "facteur k tôlerie",
+      "cotation fonctionnelle", "solidworks gratuit", "solidworks étudiant", "raccourcis solidworks",
+      "nomenclature excel", "conversion pouce mm", "moment quadratique", "coefficient de frottement",
+      "coefficient de dilatation", "cartouche plan", "dessin technique"
+    ],
+    "modificateurs": ["pdf", "excel", "tableau", "calcul", "télécharger"],
+    "exclure": ["voiture", "roue", "roues", "jante", "jantes", "injecteur", "bougie", "vidange", "moto", "vélo", "culasse", "bielle", "tracteur", "scooter", "peugeot", "renault", "citroen", "clio", "golf", "hdi", "tdi", "dci", "boîte de vitesse", "embrayage", "étrier", "cardan", "bébé", "coiffure"]
+  },
+  "en": {
+    "graines": [
+      "bolt torque chart", "tap drill chart", "metric thread chart", "iso 2768", "gd&t symbols",
+      "weld symbols", "surface roughness chart", "iso fits chart", "hardness conversion chart",
+      "material density chart", "s355 steel", "keyway dimensions", "bsp thread chart", "gear module",
+      "circlip dimensions", "bearing size chart", "o-ring groove", "socket head cap screw dimensions",
+      "counterbore dimensions", "countersink dimensions", "washer dimensions", "nut dimensions",
+      "dowel pin", "spring calculator", "sheet metal k factor", "bend allowance", "solidworks shortcuts",
+      "solidworks free", "bom template excel", "inch to mm chart", "moment of inertia",
+      "coefficient of friction table", "thermal expansion coefficient", "title block", "engineering drawing"
+    ],
+    "modificateurs": ["pdf", "excel", "chart", "calculator", "download"],
+    "exclure": ["car", "cars", "truck", "wheel", "lug", "spark plug", "harley", "chevy", "ford", "toyota", "honda", "bike", "motorcycle", "jeep", "dodge", "f150", "nfl", "baby"]
+  }
+}
