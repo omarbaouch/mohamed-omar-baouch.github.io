@@ -33,6 +33,15 @@ La carte se pose simplement dans la grille de `src/blog/index.html` (entre `gril
 
 **Suivi** : compter à part les URL `/en/` (indexation, impressions, requêtes anglaises). Dans le résumé, donner les URL à soumettre en version française ET anglaise. Si Search Console répond « Petit problème… Une erreur s'est produite » à une demande d'indexation, c'est une limite passagère de Google : réessayer plus tard ; le sitemap suffit à la découverte.
 
+## 2026-10-09 — titre et contenu « densité » : masse volumique des matériaux (actions c + b)
+
+- **Rapport GSC (07/09 → 05/10)** : 44 clics (≈ 1,6/jour, contre 1,2 au passage précédent), 4 847 impressions (+60 %), position moyenne 14,1 ; 70/78 pages indexées. Record journalier : 11 clics et 1 841 impressions le 05/10.
+- **Action (c)** : `/blog/masse-volumique-materiaux-calcul-masse/` — 418 impressions, 0 clic, position 14,8. Sa première requête, « table densite materiaux » (78 impr., pos. 25,7), et « masse volumique plastique » (23 + 11 impr., pos. ≈ 10) ne retrouvaient pas le mot « densité » dans le titre. Nouveau title « Densité des matériaux : tableau des masses volumiques + calcul » (62 car.), meta description (156 car.), og/twitter, headline JSON-LD, fil d'Ariane et h1 alignés. **Titre en test depuis le 09/10 : ne pas y toucher avant le 23/10.**
+- **Action (b), sur la même page** : colonne « g/cm³ (densité) », paragraphe densité / masse volumique, ordre de grandeur des plastiques, 2 questions FAQ (HTML + JSON-LD) : « différence entre densité et masse volumique », « masse volumique des plastiques ». Les valeurs viennent du tableau existant ; aucune valeur de grade chargé verre n'est ajoutée (elle varie selon le grade). dateModified passé au 09/10.
+- Vérifications : build OK, verify:seo (seuls les champs voulus divergent, baseline régénérée), verify:en 0/0, Chromium 1280/390 FR et /en/ sans erreur JS ni défilement horizontal.
+- Indexation : engrenages, filetage gaz et image administrative pas encore connus de Google (moins de 7 jours) ; resolutions-problematiques-plm « explorée, non indexée » depuis juillet, ce qui en fait le candidat de l'action (d)/(e).
+- Prochaine piste : action (c) sur `couple-serrage-vis-tableau` (261 impr., CTR 0,8 %, pos. 10,4), ou nouveau mémo (roulements, circlips).
+
 ## 2026-10-08 — nouveau mémo bilingue : engrenages (module, diamètres, entraxe)
 
 - **Rapport GSC (28 j)** : 33 clics (≈ 1,2/jour), 3 023 impressions, position moyenne 14,5 ; 68/76 pages indexées.

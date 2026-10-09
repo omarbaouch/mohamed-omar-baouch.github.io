@@ -360,21 +360,21 @@
     "lang": "fr"
   },
   "/blog/masse-volumique-materiaux-calcul-masse/": {
-    "title": "Masse volumique des matériaux (acier, alu, inox, plastiques) + calcul de masse",
-    "description": "Tableau des masses volumiques des matériaux de mécanique : acier 7850 kg/m³, inox, aluminium 2700, laiton, cuivre, titane, plastiques (PA6, POM, ABS, PEEK…). Calculateur de masse pour plaque, rond, tube et hexagone, et les pièges de la masse SOLIDWORKS.",
+    "title": "Densité des matériaux : tableau des masses volumiques + calcul",
+    "description": "Table de densité des matériaux : acier 7850 kg/m³ (densité 7,85), inox, alu 2700, laiton, titane, plastiques (PA6, POM, ABS, PEEK…) et calculateur de masse.",
     "canonical": "https://www.baouch.fr/blog/masse-volumique-materiaux-calcul-masse/",
     "robots": null,
-    "ogTitle": "Masse volumique des matériaux et calcul de la masse d’une pièce",
-    "ogDescription": "Acier, inox, alu, laiton, titane, plastiques : masses volumiques et calculateur de masse d'une plaque, d'un rond ou d'un tube.",
+    "ogTitle": "Densité et masse volumique des matériaux : tableau et calcul de masse",
+    "ogDescription": "Table de densité des matériaux (acier, inox, alu, laiton, titane, plastiques) en kg/m³ et g/cm³, et calculateur de masse d'une plaque, d'un rond ou d'un tube.",
     "ogUrl": "https://www.baouch.fr/blog/masse-volumique-materiaux-calcul-masse/",
     "ogImage": "https://www.baouch.fr/img/og/masse-volumique.jpg",
     "ogType": "article",
-    "twitterTitle": "Masse volumique des matériaux et calcul de la masse d’une pièce",
-    "twitterDescription": "Acier, inox, alu, laiton, titane, plastiques : masses volumiques et calculateur de masse d'une plaque, d'un rond ou d'un tube.",
+    "twitterTitle": "Densité et masse volumique des matériaux : tableau et calcul de masse",
+    "twitterDescription": "Table de densité des matériaux (acier, inox, alu, laiton, titane, plastiques) en kg/m³ et g/cm³, et calculateur de masse d'une plaque, d'un rond ou d'un tube.",
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "Masse volumique des matériaux et calcul de la masse d’une pièceMaterial densities and part mass calculator",
+    "h1": "Densité et masse volumique des matériaux : tableau et calcul de masseMaterial densities and part mass calculator",
     "lang": "fr"
   },
   "/blog/migration-cloud-pdm-3dexperience/": {

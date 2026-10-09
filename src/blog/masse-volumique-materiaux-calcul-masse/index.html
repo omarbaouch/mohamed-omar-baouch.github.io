@@ -21,21 +21,21 @@
     })();
 </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Masse volumique des matériaux (acier, alu, inox, plastiques) + calcul de masse</title>
-    <meta name="description" content="Tableau des masses volumiques des matériaux de mécanique : acier 7850 kg/m³, inox, aluminium 2700, laiton, cuivre, titane, plastiques (PA6, POM, ABS, PEEK…). Calculateur de masse pour plaque, rond, tube et hexagone, et les pièges de la masse SOLIDWORKS.">
+    <title>Densité des matériaux : tableau des masses volumiques + calcul</title>
+    <meta name="description" content="Table de densité des matériaux : acier 7850 kg/m³ (densité 7,85), inox, alu 2700, laiton, titane, plastiques (PA6, POM, ABS, PEEK…) et calculateur de masse.">
     <meta name="author" content="Mohamed Omar Baouch">
     <link rel="canonical" href="https://www.baouch.fr/blog/masse-volumique-materiaux-calcul-masse/">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Masse volumique des matériaux et calcul de la masse d’une pièce">
-    <meta property="og:description" content="Acier, inox, alu, laiton, titane, plastiques : masses volumiques et calculateur de masse d&#x27;une plaque, d&#x27;un rond ou d&#x27;un tube.">
+    <meta property="og:title" content="Densité et masse volumique des matériaux : tableau et calcul de masse">
+    <meta property="og:description" content="Table de densité des matériaux (acier, inox, alu, laiton, titane, plastiques) en kg/m³ et g/cm³, et calculateur de masse d&#x27;une plaque, d&#x27;un rond ou d&#x27;un tube.">
     <meta property="og:url" content="https://www.baouch.fr/blog/masse-volumique-materiaux-calcul-masse/">
     <meta property="og:image" content="https://www.baouch.fr/img/og/masse-volumique.jpg">
     <meta property="og:site_name" content="Mohamed Omar Baouch">
     <meta property="article:published_time" content="2026-09-28T00:00:00.000Z">
     <meta property="article:author" content="Mohamed Omar Baouch">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Masse volumique des matériaux et calcul de la masse d’une pièce">
-    <meta name="twitter:description" content="Acier, inox, alu, laiton, titane, plastiques : masses volumiques et calculateur de masse d&#x27;une plaque, d&#x27;un rond ou d&#x27;un tube.">
+    <meta name="twitter:title" content="Densité et masse volumique des matériaux : tableau et calcul de masse">
+    <meta name="twitter:description" content="Table de densité des matériaux (acier, inox, alu, laiton, titane, plastiques) en kg/m³ et g/cm³, et calculateur de masse d&#x27;une plaque, d&#x27;un rond ou d&#x27;un tube.">
     <meta name="twitter:image" content="https://www.baouch.fr/img/og/masse-volumique.jpg">
     <script type="application/ld+json">
     {
@@ -43,11 +43,11 @@
         "@graph": [
             {
                 "@type": "BlogPosting",
-                "headline": "Masse volumique des matériaux et calcul de la masse d’une pièce",
+                "headline": "Densité et masse volumique des matériaux : tableau et calcul de masse",
                 "description": "Tableau des masses volumiques des matériaux de mécanique : acier 7850 kg/m³, inox, aluminium 2700, laiton, cuivre, titane, plastiques (PA6, POM, ABS, PEEK…). Calculateur de masse pour plaque, rond, tube et hexagone, et les pièges de la masse SOLIDWORKS.",
                 "image": "https://www.baouch.fr/img/og/masse-volumique.jpg",
                 "datePublished": "2026-09-28",
-                "dateModified": "2026-09-28",
+                "dateModified": "2026-10-09",
                 "inLanguage": "fr-FR",
                 "mainEntityOfPage": {
                     "@type": "WebPage",
@@ -67,6 +67,8 @@
                 "keywords": [
                     "Masse volumique",
                     "Densité acier",
+                    "Densité des matériaux",
+                    "Masse volumique plastique",
                     "Masse volumique aluminium",
                     "Calcul de masse",
                     "Poids tube acier",
@@ -92,7 +94,7 @@
                     {
                         "@type": "ListItem",
                         "position": 3,
-                        "name": "Masse volumique des matériaux et calcul de la masse d’une pièce",
+                        "name": "Densité et masse volumique des matériaux : tableau et calcul de masse",
                         "item": "https://www.baouch.fr/blog/masse-volumique-materiaux-calcul-masse/"
                     }
                 ]
@@ -114,6 +116,22 @@
                         "acceptedAnswer": {
                             "@type": "Answer",
                             "text": "2 700 kg/m³ (2,7 g/cm³) pour l'aluminium et les alliages courants 6060, 6061 et 6082. Les alliages au cuivre ou au zinc sont un peu plus denses : environ 2 790 kg/m³ pour le 2017A et 2 810 kg/m³ pour le 7075."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Quelle est la différence entre densité et masse volumique ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "La masse volumique est une masse par unité de volume (kg/m³ ou g/cm³). La densité est sa valeur rapportée à celle de l'eau, 1 000 kg/m³ : elle n'a pas d'unité et vaut le même nombre que la masse volumique en g/cm³. L'acier a une masse volumique de 7 850 kg/m³ et une densité de 7,85."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Quelle est la masse volumique des plastiques ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "De 900 kg/m³ pour le polypropylène à environ 2 200 kg/m³ pour le PTFE ; la plupart des plastiques techniques (ABS, PA6, PC, PMMA, POM) sont entre 1 000 et 1 450 kg/m³. Une charge de fibre de verre augmente la valeur : reportez-vous à la fiche du grade."
                         }
                     },
                     {
@@ -169,7 +187,7 @@
                             <span class="badge badge-reading-time" data-i18n=""><span data-lang="fr">~6 min de lecture</span><span data-lang="en">~6 min read</span></span>
                         </div>
                         <span class="hero-eyebrow" data-i18n=""><span data-lang="fr">Le poids d’une pièce en dix secondes</span><span data-lang="en">A part’s weight in ten seconds</span></span>
-                        <h1 class="hero-title" data-i18n=""><span data-lang="fr">Masse volumique des matériaux et calcul de la masse d’une pièce</span><span data-lang="en">Material densities and part mass calculator</span></h1>
+                        <h1 class="hero-title" data-i18n=""><span data-lang="fr">Densité et masse volumique des matériaux : tableau et calcul de masse</span><span data-lang="en">Material densities and part mass calculator</span></h1>
                         <p class="hero-subtitle" data-i18n=""><span data-lang="fr">Publié le 28 septembre 2026 — les masses volumiques des aciers, alliages d'aluminium, cuivreux, titane et plastiques techniques, un calculateur de masse pour plaques, ronds, tubes et hexagones, et les réglages SOLIDWORKS qui garantissent une masse juste dans la nomenclature.</span><span data-lang="en">Published September 28, 2026 — densities of steels, aluminium alloys, copper alloys, titanium and engineering plastics, a mass calculator for plates, bars, tubes and hex stock, and the SOLIDWORKS settings that keep BOM mass correct.</span></p>
                         <div class="hero-actions">
                             <a class="hero-btn" href="#calculateur" data-i18n=""><span data-lang="fr">Calculer une masse</span><span data-lang="en">Calculate a mass</span></a>
@@ -228,11 +246,12 @@
                 <section class="blog-section article-section" id="metaux">
                     <h2 data-i18n=""><span data-lang="fr">1. Masses volumiques des métaux</span><span data-lang="en">1. Densities of metals</span></h2>
                     <p data-i18n=""><span data-lang="fr">Valeurs usuelles à 20 °C. Pour un alliage donné, la fiche matière du fournisseur ou la norme de la nuance fait foi ; les écarts entre nuances d'une même famille restent de l'ordre de 1 à 3 %.</span><span data-lang="en">Usual values at 20 °C. For a given alloy, the supplier's material data sheet or the grade standard prevails; differences between grades in the same family are typically 1 to 3%.</span></p>
+                    <p data-i18n=""><span data-lang="fr"><strong>Densité ou masse volumique ?</strong> La masse volumique ρ s'exprime en kg/m³ ; la densité d est le rapport sans unité entre cette masse volumique et celle de l'eau (1 000 kg/m³). Comme l'eau fait 1 g/cm³, la densité se lit directement dans la colonne g/cm³ : acier 7,85, aluminium 2,7.</span><span data-lang="en"><strong>Density or specific gravity?</strong> Density ρ is expressed in kg/m³; specific gravity is the unitless ratio between that density and the density of water (1,000 kg/m³). Since water is 1 g/cm³, specific gravity reads directly in the g/cm³ column: steel 7.85, aluminium 2.7.</span></p>
                     <div class="table-scroll">
                         <div class="table-scroll__viewport">
                             <table class="feature-table">
                                 <thead>
-                                    <tr><th data-i18n=""><span data-lang="fr">Matériau</span><span data-lang="en">Material</span></th><th data-i18n=""><span data-lang="fr">kg/m³</span><span data-lang="en">kg/m³</span></th><th data-i18n=""><span data-lang="fr">g/cm³</span><span data-lang="en">g/cm³</span></th></tr>
+                                    <tr><th data-i18n=""><span data-lang="fr">Matériau</span><span data-lang="en">Material</span></th><th data-i18n=""><span data-lang="fr">kg/m³</span><span data-lang="en">kg/m³</span></th><th data-i18n=""><span data-lang="fr">g/cm³ (densité)</span><span data-lang="en">g/cm³ (specific gravity)</span></th></tr>
                                 </thead>
                                 <tbody>
                                     <tr><td data-i18n=""><span data-lang="fr"><strong>Acier non allié et faiblement allié (S235, C45, 42CrMo4)</strong></span><span data-lang="en"><strong>Carbon and low-alloy steel (S235, C45, 42CrMo4)</strong></span></td><td><strong>7 850</strong></td><td>7,85</td></tr>
@@ -262,11 +281,12 @@
                 <section class="blog-section article-section" id="plastiques">
                     <h2 data-i18n=""><span data-lang="fr">2. Masses volumiques des plastiques</span><span data-lang="en">2. Densities of plastics</span></h2>
                     <p data-i18n=""><span data-lang="fr">Les plastiques varient davantage : charge (fibre de verre, minérale), taux de cristallinité et additifs déplacent la valeur. Un PA6 chargé à 30 % de fibre de verre dépasse nettement la valeur du PA6 non chargé : prenez la fiche technique du grade exact.</span><span data-lang="en">Plastics vary more: fillers (glass fibre, mineral), crystallinity and additives shift the value. A 30% glass-filled PA6 is clearly heavier than unfilled PA6: use the data sheet of the exact grade.</span></p>
+                    <p data-i18n=""><span data-lang="fr">Ordre de grandeur : la plupart des plastiques techniques se situent entre 1 000 et 1 450 kg/m³, environ six fois moins que l'acier. Le PP et le PE-HD, de densité inférieure à 1, flottent sur l'eau ; le PTFE, vers 2 200 kg/m³, est le plus lourd du tableau.</span><span data-lang="en">Order of magnitude: most engineering plastics fall between 1,000 and 1,450 kg/m³, about six times lighter than steel. PP and HDPE, with a specific gravity below 1, float on water; PTFE, around 2,200 kg/m³, is the heaviest in the table.</span></p>
                     <div class="table-scroll">
                         <div class="table-scroll__viewport">
                             <table class="feature-table">
                                 <thead>
-                                    <tr><th data-i18n=""><span data-lang="fr">Matériau</span><span data-lang="en">Material</span></th><th data-i18n=""><span data-lang="fr">kg/m³</span><span data-lang="en">kg/m³</span></th><th data-i18n=""><span data-lang="fr">g/cm³</span><span data-lang="en">g/cm³</span></th></tr>
+                                    <tr><th data-i18n=""><span data-lang="fr">Matériau</span><span data-lang="en">Material</span></th><th data-i18n=""><span data-lang="fr">kg/m³</span><span data-lang="en">kg/m³</span></th><th data-i18n=""><span data-lang="fr">g/cm³ (densité)</span><span data-lang="en">g/cm³ (specific gravity)</span></th></tr>
                                 </thead>
                                 <tbody>
                                     <tr><td data-i18n=""><span data-lang="fr"><strong>ABS</strong></span><span data-lang="en"><strong>ABS</strong></span></td><td><strong>1 030 – 1 070</strong></td><td>1,05</td></tr>
@@ -290,7 +310,7 @@
                         <div class="table-scroll__viewport">
                             <table class="feature-table">
                                 <thead>
-                                    <tr><th data-i18n=""><span data-lang="fr">Matériau</span><span data-lang="en">Material</span></th><th data-i18n=""><span data-lang="fr">kg/m³</span><span data-lang="en">kg/m³</span></th><th data-i18n=""><span data-lang="fr">g/cm³</span><span data-lang="en">g/cm³</span></th></tr>
+                                    <tr><th data-i18n=""><span data-lang="fr">Matériau</span><span data-lang="en">Material</span></th><th data-i18n=""><span data-lang="fr">kg/m³</span><span data-lang="en">kg/m³</span></th><th data-i18n=""><span data-lang="fr">g/cm³ (densité)</span><span data-lang="en">g/cm³ (specific gravity)</span></th></tr>
                                 </thead>
                                 <tbody>
                                     <tr><td data-i18n=""><span data-lang="fr"><strong>Verre sodocalcique</strong></span><span data-lang="en"><strong>Soda-lime glass</strong></span></td><td><strong>2 500</strong></td><td>2,5</td></tr>
@@ -331,6 +351,10 @@
                     <p data-i18n=""><span data-lang="fr">7 850 kg/m³ (7,85 g/cm³) pour les aciers non alliés et faiblement alliés. Les inox austénitiques sont un peu plus lourds : environ 7 900 kg/m³ pour le 304 et 8 000 kg/m³ pour le 316L.</span><span data-lang="en">7,850 kg/m³ (7.85 g/cm³) for carbon and low-alloy steels. Austenitic stainless steels are slightly heavier: about 7,900 kg/m³ for 304 and 8,000 kg/m³ for 316L.</span></p>
                     <h3 data-i18n=""><span data-lang="fr">Quelle est la masse volumique de l'aluminium ?</span><span data-lang="en">What is the density of aluminium?</span></h3>
                     <p data-i18n=""><span data-lang="fr">2 700 kg/m³ (2,7 g/cm³) pour l'aluminium et les alliages courants 6060, 6061 et 6082. Les alliages au cuivre ou au zinc sont un peu plus denses : environ 2 790 kg/m³ pour le 2017A et 2 810 kg/m³ pour le 7075.</span><span data-lang="en">2,700 kg/m³ (2.7 g/cm³) for aluminium and the common 6060, 6061 and 6082 alloys. Copper or zinc alloys are slightly denser: about 2,790 kg/m³ for 2017A and 2,810 kg/m³ for 7075.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Quelle est la différence entre densité et masse volumique ?</span><span data-lang="en">What is the difference between density and specific gravity?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">La masse volumique est une masse par unité de volume (kg/m³ ou g/cm³). La densité est sa valeur rapportée à celle de l'eau, 1 000 kg/m³ : elle n'a pas d'unité et vaut le même nombre que la masse volumique en g/cm³. L'acier a une masse volumique de 7 850 kg/m³ et une densité de 7,85.</span><span data-lang="en">Density is a mass per unit volume (kg/m³ or g/cm³). Specific gravity is that value divided by the density of water, 1,000 kg/m³: it has no unit and equals the density in g/cm³. Steel has a density of 7,850 kg/m³ and a specific gravity of 7.85.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Quelle est la masse volumique des plastiques ?</span><span data-lang="en">What is the density of plastics?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">De 900 kg/m³ pour le polypropylène à environ 2 200 kg/m³ pour le PTFE ; la plupart des plastiques techniques (ABS, PA6, PC, PMMA, POM) sont entre 1 000 et 1 450 kg/m³. Une charge de fibre de verre augmente la valeur : reportez-vous à la fiche du grade.</span><span data-lang="en">From 900 kg/m³ for polypropylene to about 2,200 kg/m³ for PTFE; most engineering plastics (ABS, PA6, PC, PMMA, POM) are between 1,000 and 1,450 kg/m³. Glass-fibre filling raises the value: check the grade's data sheet.</span></p>
                     <h3 data-i18n=""><span data-lang="fr">Combien pèse une tôle d'acier de 1 mm ?</span><span data-lang="en">How much does a 1 mm steel sheet weigh?</span></h3>
                     <p data-i18n=""><span data-lang="fr">7,85 kg par mètre carré. La règle se généralise : une tôle d'acier pèse 7,85 kg/m² par millimètre d'épaisseur, soit 23,55 kg/m² en 3 mm.</span><span data-lang="en">7.85 kg per square metre. The rule generalises: a steel sheet weighs 7.85 kg/m² per millimetre of thickness, i.e. 23.55 kg/m² at 3 mm.</span></p>
                     <h3 data-i18n=""><span data-lang="fr">Comment calculer la masse d'un rond en acier ?</span><span data-lang="en">How do I calculate the mass of a steel round bar?</span></h3>
