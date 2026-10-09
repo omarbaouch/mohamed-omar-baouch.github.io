@@ -149,7 +149,7 @@ async function impressionsBing(lang, motsCles) {
       try { liste = await api('GetRelatedKeywords', graine); } catch (e) { console.log(`Bing (${lang}) : échec — ${e.message}`); return true; }
       for (const r of liste || []) {
         const kw = norm(r.Query);
-        if (exclure.some((re) => re.test(kw)) || !pertinente(kw, [graine])) continue;
+        if (exclure.some((re) => re.test(kw)) || !tresPertinente(kw, graine)) continue;
         const e = entree(lang, kw);
         e.bing = { impressions: r.Impressions ?? 0, large: r.BroadImpressions ?? 0, periode: `${debut} → ${fin}`, date: TODAY };
         e.bingAssocie ??= graine;
@@ -191,6 +191,9 @@ const mots = (s) => new Set(norm(s).replace(/[^\p{L}\p{N} ]/gu, ' ').split(' ').
 // une suggestion n'est gardée que si elle partage un mot avec sa graine (hors modificateurs) :
 // Google corrige parfois la saisie (« lamage » → « langage »)
 const pertinente = (kw, graines) => graines.some((g) => { const k = mots(kw); return [...mots(g)].some((w) => k.has(w)); });
+// requêtes « associées » de Bing : beaucoup plus larges (« conversion pouce mm » → « conversion
+// dollar euro ») ; il faut au moins deux mots communs avec la graine (ou son mot unique)
+const tresPertinente = (kw, graine) => { const k = mots(kw), g = [...mots(graine)]; return g.filter((w) => k.has(w)).length >= Math.min(2, g.length); };
 function pagesExistantes() {
   const pages = [];
   for (const slug of readdirSync(resolve(ROOT, 'src/blog'))) {
@@ -234,7 +237,7 @@ function rapport(sources) {
     '',
   ];
   for (const lang of langs) {
-    const rows = Object.values(cache.keywords).filter((e) => e.lang === lang && (e.google || e.bing || !e.suggestion || pertinente(e.kw, e.suggestion.graines)));
+    const rows = Object.values(cache.keywords).filter((e) => e.lang === lang && (e.suggestion ? pertinente(e.kw, e.suggestion.graines) : e.bingAssocie ? tresPertinente(e.kw, e.bingAssocie) : true));
     const score = (e) => [e.google?.volume ?? -1, e.bing?.impressions ?? -1, (e.suggestion?.apparitions ?? 0) * 10 - (e.suggestion?.meilleurRang ?? 99)];
     rows.sort((a, b) => { const sa = score(a), sb = score(b); for (let i = 0; i < 3; i++) if (sb[i] !== sa[i]) return sb[i] - sa[i]; return 0; });
     const sansPage = rows.filter((e) => !couverture(lang, e.kw, pages));
