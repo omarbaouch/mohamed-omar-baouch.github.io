@@ -129,14 +129,41 @@ async function impressionsBing(lang, motsCles) {
   if (!key) return false;
   const L = LANGS[lang];
   const fin = TODAY, debut = new Date(Date.parse(TODAY) - 90 * 864e5).toISOString().slice(0, 10);
+  const api = async (methode, q) => {
+    const url = `https://ssl.bing.com/webmaster/api.svc/json/${methode}?apikey=${encodeURIComponent(key)}&q=${encodeURIComponent(q)}&country=${L.bingCountry}&language=${L.bingLanguage}&startDate=${debut}&endDate=${fin}`;
+    for (let essai = 0; essai < 3; essai++) {
+      try {
+        const data = await (await fetch(url)).json();
+        if (data.ErrorCode) throw Object.assign(new Error(data.Message), { api: true });
+        return data.d;
+      } catch (e) { if (e.api || essai === 2) throw e; await pause(2000); }
+    }
+  };
+  // découverte : requêtes associées aux graines, avec leurs impressions Bing (requêtes réelles)
+  {
+    const g = GRAINES[lang];
+    const exclure = (g.exclure || []).map((m) => new RegExp(`\\b${m}\\b`, 'i'));
+    let k = 0;
+    for (const graine of (ponctuelles.length ? ponctuelles : g.graines)) {
+      let liste;
+      try { liste = await api('GetRelatedKeywords', graine); } catch (e) { console.log(`Bing (${lang}) : échec — ${e.message}`); return true; }
+      for (const r of liste || []) {
+        const kw = norm(r.Query);
+        if (exclure.some((re) => re.test(kw)) || !pertinente(kw, [graine])) continue;
+        const e = entree(lang, kw);
+        e.bing = { impressions: r.Impressions ?? 0, large: r.BroadImpressions ?? 0, periode: `${debut} → ${fin}`, date: TODAY };
+        e.bingAssocie ??= graine;
+        k++;
+      }
+      await pause(250);
+    }
+    console.log(`Bing (${lang}) : ${k} requêtes associées aux graines`);
+  }
   let n = 0;
   for (const kw of motsCles) {
     if (frais(cache.keywords[cle(lang, kw)]?.bing?.date)) continue;
-    const url = `https://ssl.bing.com/webmaster/api.svc/json/GetKeyword?apikey=${encodeURIComponent(key)}&q=${encodeURIComponent(kw)}&country=${L.bingCountry}&language=${L.bingLanguage}&startDate=${debut}&endDate=${fin}`;
-    const res = await fetch(url);
-    const data = await res.json().catch(() => ({}));
-    if (data.ErrorCode) { console.log(`Bing (${lang}) : échec — ${data.Message}`); return true; }
-    const d = data.d;
+    let d;
+    try { d = await api('GetKeyword', kw); } catch (e) { console.log(`Bing (${lang}) : échec après ${n} mots-clés — ${e.message}`); return true; }
     entree(lang, kw).bing = { impressions: d?.Impressions ?? 0, large: d?.BroadImpressions ?? 0, periode: `${debut} → ${fin}`, date: TODAY };
     n++;
     await pause(250);
@@ -200,7 +227,7 @@ function rapport(sources) {
     '',
     `- Suggestions Google : ${sources.suggestions ? 'oui (rang 1 = suggestion la plus populaire ; apparitions = nombre de recherches de graines où elle ressort)' : 'non relevées ce jour (cache)'}`,
     `- Volumes Google Ads / mois (DataForSEO) : ${sources.google ? 'oui' : 'non — définir DATAFORSEO_LOGIN et DATAFORSEO_PASSWORD'}`,
-    `- Impressions Bing sur 90 jours (Bing Webmaster Tools) : ${sources.bing ? 'oui' : 'non — définir BING_WEBMASTER_API_KEY'}`,
+    `- Impressions Bing sur 90 jours (Bing Webmaster Tools, recherche exacte ; marché : France pour le français, États-Unis pour l'anglais) : ${sources.bing ? 'oui, plus les requêtes associées aux graines que Bing renvoie (colonne Suggestion « — »)' : 'non — définir BING_WEBMASTER_API_KEY'}`,
     '- GSC : impressions et position du site sur la requête exacte (rapport seo-data, requêtes les plus vues seulement).',
     '- Page : page du site dont le titre recouvre la requête (rapprochement par mots, à vérifier).',
     '- ⬇ : intention de téléchargement (pdf, excel, modèle, télécharger…).',
