@@ -28,6 +28,7 @@ for (const [path, meta] of Object.entries(PAGES_EN)) {
 
   if (en('html').attr('lang') !== 'en') err(p, 'html lang ≠ en');
   if (en('[data-lang="fr"]').length) err(p, `${en('[data-lang="fr"]').length} span(s) data-lang="fr" restants`);
+  if (fr('[data-lang="en"]').length) err(path, `${fr('[data-lang="en"]').length} span(s) data-lang="en" restants sur la page française`);
   if (en('title').text() !== meta.title) err(p, 'title');
   if (en('link[rel="canonical"]').attr('href') !== SITE + p) err(p, 'canonical');
   if (en('meta[property="og:url"]').attr('content') !== SITE + p) err(p, 'og:url');

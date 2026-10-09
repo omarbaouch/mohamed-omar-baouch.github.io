@@ -123,6 +123,26 @@ function translateJsonLd(data, ctx) {
   return walk(data);
 }
 
+// retire les <span data-lang="…"> d'une langue (suppression textuelle, spans imbriqués
+// compris : on compte les ouvertures et fermetures de <span> jusqu'à l'équilibre)
+export function stripLang(html, lang, label = '') {
+  const open = `<span data-lang="${lang}">`;
+  let out = '', i = 0;
+  for (let at = html.indexOf(open); at !== -1; at = html.indexOf(open, i)) {
+    out += html.slice(i, at);
+    let depth = 0, j = at;
+    const tag = /<span\b|<\/span>/g;
+    tag.lastIndex = at;
+    for (let m; (m = tag.exec(html)); ) {
+      depth += m[0] === '</span>' ? -1 : 1;
+      if (depth === 0) { j = tag.lastIndex; break; }
+    }
+    if (depth !== 0) throw new Error(`build-en : ${label} span data-lang="${lang}" non fermé`);
+    i = j;
+  }
+  return out + html.slice(i);
+}
+
 export function buildEnglishPages(dist) {
   const warnings = [];
   const done = [];
@@ -133,9 +153,11 @@ export function buildEnglishPages(dist) {
     const warn = (m) => warnings.push(`${path} : ${m}`);
 
     // --- la page française reçoit ses alternatives (insertion textuelle : rien d'autre ne bouge)
+    // et perd ses spans anglais : l'anglais a désormais sa propre URL (le bouton EN y mène),
+    // ce texte masqué ne s'afficherait jamais et doublerait la page /en/ sur l'URL française.
     if (!/<meta charset="utf-8">/i.test(html)) throw new Error(`build-en : ${path} sans <meta charset="utf-8">`);
     const withAlt = (h) => h.replace(/<meta charset="utf-8">/i, (m) => `${m}\n    ${alternates(path)}`);
-    writeFileSync(src, withAlt(html).replace(/<html lang="fr"/, '<html lang="fr" data-page-lang="fr"'));
+    writeFileSync(src, stripLang(withAlt(html), 'en', path).replace(/<html lang="fr"/, '<html lang="fr" data-page-lang="fr"'));
 
     // --- la page anglaise
     const $ = cheerio.load(withAlt(html));

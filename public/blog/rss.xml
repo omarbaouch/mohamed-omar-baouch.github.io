@@ -12,7 +12,7 @@
       <link>https://www.baouch.fr/blog/engrenage-module-calcul-diametres/</link>
       <guid isPermaLink="true">https://www.baouch.fr/blog/engrenage-module-calcul-diametres/</guid>
       <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Calcul d'un engrenage droit à partir du module et du nombre de dents : diamètre primitif, de tête, de pied, de base, pas, hauteur de dent, entraxe et rapport, modules normalisés ISO 54 et conversion diametral pitch.</description>
+      <description>Engrenage droit : diamètres primitif, de tête et de pied, hauteur de dent et entraxe à partir du module et du nombre de dents, modules ISO 54 et calculateur.</description>
       <enclosure url="https://www.baouch.fr/img/og/engrenage.jpg" type="image/jpeg"/>
     </item>
     <item>
@@ -20,7 +20,7 @@
       <link>https://www.baouch.fr/blog/filetage-gaz-g-bsp-npt-tableau/</link>
       <guid isPermaLink="true">https://www.baouch.fr/blog/filetage-gaz-g-bsp-npt-tableau/</guid>
       <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Filetages gaz G (ISO 228), R / Rp / Rc (ISO 7) et NPT : diamètre extérieur, filets par pouce, pas, foret de taraudage de 1/8 à 2, différences 55° / 60°, cylindrique / conique, et outil pour identifier un filetage mesuré.</description>
+      <description>Filetage gaz G (BSP), R / Rp et NPT de 1/8 à 2 : diamètre, filets par pouce, perçage, 55° ou 60°, cylindrique ou conique, et outil d'identification.</description>
       <enclosure url="https://www.baouch.fr/img/og/filetage-gaz.jpg" type="image/jpeg"/>
     </item>
     <item>
@@ -36,7 +36,7 @@
       <link>https://www.baouch.fr/blog/clavettes-paralleles-din-6885-dimensions/</link>
       <guid isPermaLink="true">https://www.baouch.fr/blog/clavettes-paralleles-din-6885-dimensions/</guid>
       <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Tableau des clavettes parallèles DIN 6885-1 / ISO 773 selon le diamètre d'arbre : b × h, profondeurs de rainure t1 et t2, longueurs, formes A, B, C, ajustements N9, JS9, P9 et calculateur des cotes d − t1 et d + t2.</description>
+      <description>Clavettes parallèles DIN 6885 / ISO 773 selon le diamètre d'arbre : b × h, rainures t1 et t2, formes A, B, C, ajustements N9, JS9, P9 et calculateur.</description>
       <enclosure url="https://www.baouch.fr/img/og/clavettes.jpg" type="image/jpeg"/>
     </item>
     <item>
@@ -44,7 +44,7 @@
       <link>https://www.baouch.fr/blog/conversion-durete-hrc-hv-hb/</link>
       <guid isPermaLink="true">https://www.baouch.fr/blog/conversion-durete-hrc-hv-hb/</guid>
       <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Tableau de conversion de dureté Rockwell C (HRC), Vickers (HV) et Brinell (HB) pour les aciers, de 20 à 65 HRC, convertisseur, différences entre les essais et limites des conversions (ASTM E140, ISO 18265).</description>
+      <description>Tableau de conversion de dureté HRC, HV et HB pour les aciers, de 20 à 65 HRC, avec convertisseur et limites des conversions (ISO 18265, ASTM E140).</description>
       <enclosure url="https://www.baouch.fr/img/og/durete.jpg" type="image/jpeg"/>
     </item>
     <item>
@@ -52,7 +52,7 @@
       <link>https://www.baouch.fr/blog/aciers-s235-s275-s355-caracteristiques/</link>
       <guid isPermaLink="true">https://www.baouch.fr/blog/aciers-s235-s275-s355-caracteristiques/</guid>
       <pubDate>Sun, 04 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Les aciers de construction S235, S275 et S355 selon l'EN 10025-2 : limite élastique minimale selon l'épaisseur, résistance à la traction, qualités JR, J0, J2, K2, lecture d'une désignation (S355J2+N), équivalences E24 / E36 / A36 et calculateur.</description>
+      <description>Aciers S235, S275, S355 (EN 10025-2) : limite élastique selon l'épaisseur, Rm, qualités JR à K2, désignation S355J2+N, équivalences E24 / E36 et calculateur.</description>
       <enclosure url="https://www.baouch.fr/img/og/aciers.jpg" type="image/jpeg"/>
     </item>
     <item>

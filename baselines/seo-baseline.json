@@ -1,7 +1,7 @@
 {
   "/blog/aciers-s235-s275-s355-caracteristiques/": {
     "title": "Acier S235, S275, S355 : tableau Re, Rm et désignation (EN 10025-2)",
-    "description": "Les aciers de construction S235, S275 et S355 selon l'EN 10025-2 : limite élastique minimale selon l'épaisseur, résistance à la traction, qualités JR, J0, J2, K2, lecture d'une désignation (S355J2+N), équivalences E24 / E36 / A36 et calculateur.",
+    "description": "Aciers S235, S275, S355 (EN 10025-2) : limite élastique selon l'épaisseur, Rm, qualités JR à K2, désignation S355J2+N, équivalences E24 / E36 et calculateur.",
     "canonical": "https://www.baouch.fr/blog/aciers-s235-s275-s355-caracteristiques/",
     "robots": null,
     "ogTitle": "Acier S235, S275, S355 : limite élastique, résistance et désignation",
@@ -14,7 +14,7 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "Acier S235, S275, S355 : limite élastique, résistance et désignationS235, S275, S355 steel: yield strength, tensile strength and designation",
+    "h1": "Acier S235, S275, S355 : limite élastique, résistance et désignation",
     "lang": "fr"
   },
   "/blog/ajustements-iso-286-tableau-h7-g6/": {
@@ -32,7 +32,7 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "Ajustements ISO 286 : tableau H7/g6, H7/h6, H7/p6 et calculateur de jeuISO 286 fits: H7/g6, H7/h6, H7/p6 chart and clearance calculator",
+    "h1": "Ajustements ISO 286 : tableau H7/g6, H7/h6, H7/p6 et calculateur de jeu",
     "lang": "fr"
   },
   "/blog/choisir-logiciel-cao-solidworks-inventor-fusion-catia/": {
@@ -50,12 +50,12 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "SOLIDWORKS, Inventor, Fusion 360 ou CATIA : quel logiciel de CAO choisir ?SOLIDWORKS, Inventor, Fusion 360 or CATIA: which CAD software should you choose?",
+    "h1": "SOLIDWORKS, Inventor, Fusion 360 ou CATIA : quel logiciel de CAO choisir ?",
     "lang": "fr"
   },
   "/blog/clavettes-paralleles-din-6885-dimensions/": {
     "title": "Clavette DIN 6885 / ISO 773 : tableau des dimensions et rainures",
-    "description": "Tableau des clavettes parallèles DIN 6885-1 / ISO 773 selon le diamètre d'arbre : b × h, profondeurs de rainure t1 et t2, longueurs, formes A, B, C, ajustements N9, JS9, P9 et calculateur des cotes d − t1 et d + t2.",
+    "description": "Clavettes parallèles DIN 6885 / ISO 773 selon le diamètre d'arbre : b × h, rainures t1 et t2, formes A, B, C, ajustements N9, JS9, P9 et calculateur.",
     "canonical": "https://www.baouch.fr/blog/clavettes-paralleles-din-6885-dimensions/",
     "robots": null,
     "ogTitle": "Clavettes parallèles DIN 6885 : dimensions, rainures et ajustements",
@@ -68,7 +68,7 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "Clavettes parallèles DIN 6885 : dimensions, rainures et ajustementsDIN 6885 parallel keys: dimensions, keyways and fits",
+    "h1": "Clavettes parallèles DIN 6885 : dimensions, rainures et ajustements",
     "lang": "fr"
   },
   "/blog/codification-proprietes-solidworks/": {
@@ -86,7 +86,7 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "Codification & propriétés SOLIDWORKS : le petit chantier qui répare toute votre chaîne BOM → ERPSOLIDWORKS numbering & properties: the small project that fixes your whole BOM → ERP chain",
+    "h1": "Codification & propriétés SOLIDWORKS : le petit chantier qui répare toute votre chaîne BOM → ERP",
     "lang": "fr"
   },
   "/blog/configuration-materielle-solidworks/": {
@@ -109,7 +109,7 @@
   },
   "/blog/conversion-durete-hrc-hv-hb/": {
     "title": "Conversion dureté HRC ↔ HV ↔ HB : tableau + convertisseur (aciers)",
-    "description": "Tableau de conversion de dureté Rockwell C (HRC), Vickers (HV) et Brinell (HB) pour les aciers, de 20 à 65 HRC, convertisseur, différences entre les essais et limites des conversions (ASTM E140, ISO 18265).",
+    "description": "Tableau de conversion de dureté HRC, HV et HB pour les aciers, de 20 à 65 HRC, avec convertisseur et limites des conversions (ISO 18265, ASTM E140).",
     "canonical": "https://www.baouch.fr/blog/conversion-durete-hrc-hv-hb/",
     "robots": null,
     "ogTitle": "Conversion de dureté HRC, HV, HB : tableau et convertisseur",
@@ -122,7 +122,7 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "Conversion de dureté HRC, HV, HB : tableau et convertisseurHardness conversion HRC, HV, HB: chart and converter",
+    "h1": "Conversion de dureté HRC, HV, HB : tableau et convertisseur",
     "lang": "fr"
   },
   "/blog/couple-serrage-vis-tableau/": {
@@ -140,7 +140,7 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "Couple de serrage des vis : tableau 8.8, 10.9, 12.9 et calculateurBolt tightening torque: 8.8, 10.9, 12.9 chart and calculator",
+    "h1": "Couple de serrage des vis : tableau 8.8, 10.9, 12.9 et calculateur",
     "lang": "fr"
   },
   "/blog/ebom-vs-mbom/": {
@@ -158,7 +158,7 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "eBOM vs mBOM : la vraie différence, avec un exemple ligne par ligneeBOM vs mBOM: the real difference, with a line-by-line example",
+    "h1": "eBOM vs mBOM : la vraie différence, avec un exemple ligne par ligne",
     "lang": "fr"
   },
   "/blog/eco-ecr-gestion-modifications/": {
@@ -176,12 +176,12 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "La révision fantôme à 40 000 € : maîtriser les ECO/ECR avant qu'elles ne vous coûtent cherThe €40,000 phantom revision: master ECO/ECR before they cost you dearly",
+    "h1": "La révision fantôme à 40 000 € : maîtriser les ECO/ECR avant qu'elles ne vous coûtent cher",
     "lang": "fr"
   },
   "/blog/engrenage-module-calcul-diametres/": {
     "title": "Module d'engrenage : formules, diamètres, entraxe + calculateur",
-    "description": "Calcul d'un engrenage droit à partir du module et du nombre de dents : diamètre primitif, de tête, de pied, de base, pas, hauteur de dent, entraxe et rapport, modules normalisés ISO 54 et conversion diametral pitch.",
+    "description": "Engrenage droit : diamètres primitif, de tête et de pied, hauteur de dent et entraxe à partir du module et du nombre de dents, modules ISO 54 et calculateur.",
     "canonical": "https://www.baouch.fr/blog/engrenage-module-calcul-diametres/",
     "robots": null,
     "ogTitle": "Engrenage : module, diamètres et entraxe — formules et calculateur",
@@ -194,7 +194,7 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "Engrenage : module, diamètres et entraxe — formules et calculateurSpur gears: module, diameters and center distance — formulas and calculator",
+    "h1": "Engrenage : module, diamètres et entraxe — formules et calculateur",
     "lang": "fr"
   },
   "/blog/erreurs-solidworks-frequentes/": {
@@ -212,12 +212,12 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "Les 10 erreurs SOLIDWORKS les plus fréquentes — et comment les corriger pour de bonThe 10 most common SOLIDWORKS errors — and how to fix them for good",
+    "h1": "Les 10 erreurs SOLIDWORKS les plus fréquentes — et comment les corriger pour de bon",
     "lang": "fr"
   },
   "/blog/filetage-gaz-g-bsp-npt-tableau/": {
     "title": "Filetage gaz G / BSP et NPT : tableau, pas, perçage et différences",
-    "description": "Filetages gaz G (ISO 228), R / Rp / Rc (ISO 7) et NPT : diamètre extérieur, filets par pouce, pas, foret de taraudage de 1/8 à 2, différences 55° / 60°, cylindrique / conique, et outil pour identifier un filetage mesuré.",
+    "description": "Filetage gaz G (BSP), R / Rp et NPT de 1/8 à 2 : diamètre, filets par pouce, perçage, 55° ou 60°, cylindrique ou conique, et outil d'identification.",
     "canonical": "https://www.baouch.fr/blog/filetage-gaz-g-bsp-npt-tableau/",
     "robots": null,
     "ogTitle": "Filetage gaz G (BSP) et NPT : tableau des dimensions et identification",
@@ -230,7 +230,7 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "Filetage gaz G (BSP) et NPT : tableau des dimensions et identificationBSP (G) and NPT pipe threads: dimension chart and identification",
+    "h1": "Filetage gaz G (BSP) et NPT : tableau des dimensions et identification",
     "lang": "fr"
   },
   "/blog/formats-echange-cao-step-iges-parasolid/": {
@@ -248,7 +248,7 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "STEP, IGES, Parasolid, JT, STL : quel format d'échange CAO choisir — et comment éviter les pertesSTEP, IGES, Parasolid, JT, STL: which CAD exchange format to choose — and how to avoid losses",
+    "h1": "STEP, IGES, Parasolid, JT, STL : quel format d'échange CAO choisir — et comment éviter les pertes",
     "lang": "fr"
   },
   "/blog/glossaire-pdm-plm/": {
@@ -266,7 +266,7 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,DefinedTermSet"
     ],
-    "h1": "Glossaire de la donnée technique : 73 termes du PDM, du PLM et de la CAOTechnical data glossary: 73 terms from PDM, PLM and CAD",
+    "h1": "Glossaire de la donnée technique : 73 termes du PDM, du PLM et de la CAO",
     "lang": "fr"
   },
   "/blog/ia-solidworks-pdm-bureau-etudes/": {
@@ -284,7 +284,7 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "IA et SOLIDWORKS PDM : ce qui change vraiment pour les bureaux d'études en 2026AI and SOLIDWORKS PDM: what actually changes for engineering teams in 2026",
+    "h1": "IA et SOLIDWORKS PDM : ce qui change vraiment pour les bureaux d'études en 2026",
     "lang": "fr"
   },
   "/blog/image-administrative-solidworks-installation/": {
@@ -302,7 +302,7 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "Image administrative SOLIDWORKS : créer, configurer et déployer l'installation sur tous les postesSOLIDWORKS administrative image: create, configure and deploy to every workstation",
+    "h1": "Image administrative SOLIDWORKS : créer, configurer et déployer l'installation sur tous les postes",
     "lang": "fr"
   },
   "/blog/": {
@@ -320,7 +320,7 @@
     "jsonldTypes": [
       "CollectionPage,BreadcrumbList"
     ],
-    "h1": "Guides & analyses PDM/PLM et SOLIDWORKSPDM/PLM & SOLIDWORKS guides and analysis",
+    "h1": "Guides & analyses PDM/PLM et SOLIDWORKS",
     "lang": "fr"
   },
   "/blog/integration-bom-erp/": {
@@ -338,7 +338,7 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "Connecter la nomenclature à l'ERP : les 4 architectures possibles, et celle qui tient dans le tempsConnecting the BOM to the ERP: the 4 possible architectures, and the one that lasts",
+    "h1": "Connecter la nomenclature à l'ERP : les 4 architectures possibles, et celle qui tient dans le temps",
     "lang": "fr"
   },
   "/blog/logiciel-gestion-nomenclatures/": {
@@ -356,7 +356,7 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "Quel logiciel pour gérer vos nomenclatures ? Les 5 familles d'outils, et celle qui vous correspondWhich software should manage your BOMs? The 5 families of tools, and the one that fits you",
+    "h1": "Quel logiciel pour gérer vos nomenclatures ? Les 5 familles d'outils, et celle qui vous correspond",
     "lang": "fr"
   },
   "/blog/masse-volumique-materiaux-calcul-masse/": {
@@ -374,7 +374,7 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "Densité et masse volumique des matériaux : tableau et calcul de masseMaterial densities and part mass calculator",
+    "h1": "Densité et masse volumique des matériaux : tableau et calcul de masse",
     "lang": "fr"
   },
   "/blog/migration-cloud-pdm-3dexperience/": {
@@ -392,7 +392,7 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "Passer votre PDM dans le cloud : ce que les commerciaux ne vous diront jamais avant de signerMoving your PDM to the cloud: what sales reps will never tell you before you sign",
+    "h1": "Passer votre PDM dans le cloud : ce que les commerciaux ne vous diront jamais avant de signer",
     "lang": "fr"
   },
   "/blog/migration-donnees-solidworks-pdm/": {
@@ -428,7 +428,7 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "Modèle de nomenclature Excel gratuit : BOM multiniveau à téléchargerFree Excel BOM template: multi-level bill of materials to download",
+    "h1": "Modèle de nomenclature Excel gratuit : BOM multiniveau à télécharger",
     "lang": "fr"
   },
   "/blog/nomenclature-bom-pdm-plm-erp/": {
@@ -464,7 +464,7 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "PDM ou PLM : les 5 signaux qui prouvent que vous avez dépassé les limites de votre coffrePDM or PLM: the 5 signals that you've outgrown your vault",
+    "h1": "PDM ou PLM : les 5 signaux qui prouvent que vous avez dépassé les limites de votre coffre",
     "lang": "fr"
   },
   "/blog/plm-guide-complet/": {
@@ -482,7 +482,7 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "Le PLM industriel de A à Z : ce que c'est vraiment, ce que ça gère, et par où commencerIndustrial PLM from A to Z: what it really is, what it manages, and where to start",
+    "h1": "Le PLM industriel de A à Z : ce que c'est vraiment, ce que ça gère, et par où commencer",
     "lang": "fr"
   },
   "/blog/prix-cout-projet-solidworks-pdm/": {
@@ -500,7 +500,7 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "Combien coûte vraiment un projet SOLIDWORKS PDM ?What does a SOLIDWORKS PDM project really cost?",
+    "h1": "Combien coûte vraiment un projet SOLIDWORKS PDM ?",
     "lang": "fr"
   },
   "/blog/raccourcis-clavier-solidworks/": {
@@ -518,7 +518,7 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "Raccourcis clavier SOLIDWORKS : la liste complète — et la méthode pour en tirer une heure par jourSOLIDWORKS keyboard shortcuts: the complete list — and the method that turns it into an hour a day",
+    "h1": "Raccourcis clavier SOLIDWORKS : la liste complète — et la méthode pour en tirer une heure par jour",
     "lang": "fr"
   },
   "/blog/resolutions-problematiques-plm/": {
@@ -554,7 +554,7 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "Rugosité Ra : tableau des classes N, procédés et valeurs à demanderSurface roughness Ra: N grades, processes and values to specify",
+    "h1": "Rugosité Ra : tableau des classes N, procédés et valeurs à demander",
     "lang": "fr"
   },
   "/blog/solidworks-gratuit-prix-guide/": {
@@ -572,7 +572,7 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "SOLIDWORKS gratuit en 2026 : les 7 solutions légales — et le vrai prix quand il faut payerFree SOLIDWORKS in 2026: the 7 legal options — and the real price when you must pay",
+    "h1": "SOLIDWORKS gratuit en 2026 : les 7 solutions légales — et le vrai prix quand il faut payer",
     "lang": "fr"
   },
   "/blog/solidworks-pdm-guide-complet/": {
@@ -590,7 +590,7 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "SOLIDWORKS PDM : le guide complet, du principe du coffre à l'exploitation quotidienneSOLIDWORKS PDM: the complete guide, from the vault principle to daily operation",
+    "h1": "SOLIDWORKS PDM : le guide complet, du principe du coffre à l'exploitation quotidienne",
     "lang": "fr"
   },
   "/blog/solidworks-pdm-lent-7-causes/": {
@@ -608,7 +608,7 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "SOLIDWORKS PDM lent : les 7 vraies causes (et la 6ᵉ que personne ne regarde)Slow SOLIDWORKS PDM: the 7 real causes (and the 6th nobody checks)",
+    "h1": "SOLIDWORKS PDM lent : les 7 vraies causes (et la 6ᵉ que personne ne regarde)",
     "lang": "fr"
   },
   "/blog/solidworks-pdm-standard-vs-professional/": {
@@ -626,7 +626,7 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "SOLIDWORKS PDM : comprendre le PDM et choisir entre Standard et ProfessionalSOLIDWORKS PDM: understand PDM and choose between Standard and Professional",
+    "h1": "SOLIDWORKS PDM : comprendre le PDM et choisir entre Standard et Professional",
     "lang": "fr"
   },
   "/blog/symboles-soudure-iso-2553/": {
@@ -644,7 +644,7 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "Symboles de soudure ISO 2553 : tableau, lecture et cordon d'angle a / zISO 2553 welding symbols: chart, how to read them, and fillet weld a / z",
+    "h1": "Symboles de soudure ISO 2553 : tableau, lecture et cordon d'angle a / z",
     "lang": "fr"
   },
   "/blog/tableau-filetage-metrique-percage-taraudage/": {
@@ -662,7 +662,7 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "Tableau filetage métrique ISO : pas, perçage avant taraudage et trous de passageISO metric thread chart: pitch, tap drill and clearance holes",
+    "h1": "Tableau filetage métrique ISO : pas, perçage avant taraudage et trous de passage",
     "lang": "fr"
   },
   "/blog/tolerances-generales-iso-2768/": {
@@ -680,7 +680,7 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "Tolérances générales ISO 2768 : tableaux f, m, c, v et H, K, LISO 2768 general tolerances: f, m, c, v and H, K, L tables",
+    "h1": "Tolérances générales ISO 2768 : tableaux f, m, c, v et H, K, L",
     "lang": "fr"
   },
   "/blog/tolerances-geometriques-symboles-iso-1101/": {
@@ -698,7 +698,7 @@
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
-    "h1": "Tolérances géométriques : les 14 symboles ISO 1101 et leur lectureGeometrical tolerances: the 14 ISO 1101 symbols and how to read them",
+    "h1": "Tolérances géométriques : les 14 symboles ISO 1101 et leur lecture",
     "lang": "fr"
   },
   "/": {

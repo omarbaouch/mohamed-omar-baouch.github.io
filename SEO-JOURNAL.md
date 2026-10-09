@@ -33,6 +33,53 @@ La carte se pose simplement dans la grille de `src/blog/index.html` (entre `gril
 
 **Suivi** : compter à part les URL `/en/` (indexation, impressions, requêtes anglaises). Dans le résumé, donner les URL à soumettre en version française ET anglaise. Si Search Console répond « Petit problème… Une erreur s'est produite » à une demande d'indexation, c'est une limite passagère de Google : réessayer plus tard ; le sitemap suffit à la découverte.
 
+## 2026-10-09 (2) — revue critique de la stratégie, à la demande du propriétaire
+
+**Constats chiffrés (rapport du 09/10, 08/09 → 06/10)** : 2,5 clics/jour en moyenne sur 28 jours (0,4 le 25/09), 25 clics le 06/10, 6 756 impressions, position moyenne 13,3.
+- **La croissance vient surtout des pages /en/**, mises en ligne le 03/10. Elles se classent en positions 3,8 à 7,3 avec 2 à 4 % de clics : couple de serrage (6 clics), soudure (6), ISO 2768 (4), ISO 1101 (4). Les mêmes pages françaises sont en positions 7 à 16 avec moins de 1 % de clics. L'anglais est le premier levier vers 1 000 clics/jour ; les mémos français récents ne sont pas encore mesurables.
+- **Calcul corrigé** : à 1 % de taux de clic, 1 000 clics/jour demandent environ 100 000 impressions/jour ; à 3 % (positions 3 à 5), environ 33 000. Aujourd'hui : environ 2 000 par jour. Jalons de suivi : 10/jour, puis 50, 100, 300, 1 000, sans garantie de délai.
+
+**Défauts corrigés dans ce lot** :
+1. **Texte anglais caché dans les pages françaises.** Les 36 pages qui ont une version /en/ contenaient toute leur traduction anglaise masquée en CSS, environ 48 % du texte, que le bouton EN n'affichait jamais puisqu'il mène à l'URL /en/. Google lisait des h1 mêlant les deux langues (« …désignationS235, S275, S355 steel… »). `scripts/build-en.mjs` retire désormais ces spans au build (`stripLang`). Les pages sans version anglaise gardent la bascule sur place. `check-en.mjs` signale tout span anglais restant sur une page française. Contrôles faits :
+   - texte français visible identique avant et après sur les 36 pages ;
+   - 564 Ko de HTML en moins ;
+   - verify:seo : seuls les h1 divergent (baseline régénérée), verify:en 0/0 ;
+   - Chromium 1280/390 sur les 36 pages, bascule FR ↔ EN et calculateurs vérifiés.
+2. **IndexNow** : `node scripts/indexnow.mjs --since <commit>` ne signale que les pages modifiées depuis ce commit, et leur version /en/. Renvoyer chaque jour les 78 URL du sitemap n'apportait rien. Le sitemap complet reste pour les refontes, comme ce lot.
+3. **Descriptions trop longues de mes mémos récents** (206 à 245 caractères, coupées par Google) ramenées à 148–157 caractères : aciers, clavettes, dureté, engrenages, filetage gaz.
+
+**Critique des passages précédents (moi)** :
+- Le passage du matin sur la masse volumique a changé titre et contenu en même temps, ce qui empêche de mesurer l'effet du titre. Sa requête principale est en position 25,7 : le frein est le classement, pas le titre.
+- J'ai publié un mémo par jour, hors du cœur d'expertise PDM/PLM, sans relecture humaine des valeurs. Google sanctionne le contenu produit à la chaîne pour le classement. La valeur doit venir des calculateurs, des planches et de valeurs exactes, et la cadence ne doit pas dépasser la qualité.
+- Les sujets « à fort volume » étaient choisis sans donnée de volume. Seules les requêtes réelles de Search Console sont des preuves.
+
+**Nouvelles règles** (aussi inscrites dans les instructions de la tâche) :
+- Anglais d'abord pour le choix des sujets.
+- Action (c) seulement en position ≤ 10.
+- Un seul changement mesurable par page, puis 14 jours sans y toucher.
+- Ping limité aux URL modifiées.
+- Clics attendus notés à chaque action.
+
+**Titres et descriptions français trop longs** (titre > 65 ou description > 160 caractères ; Google les coupe ou les réécrit) : à raccourcir **par lots de 5**, un lot par passage d'action (c), en commençant par les pages en position ≤ 10, sans toucher aux titres en test.
+- Lot 1 : couple-serrage-vis-tableau (334 impr., pos. 10,0), rugosite-ra-tableau-classes-procedes (202, 7,9), tolerances-geometriques-symboles-iso-1101 (190, 7,2), raccourcis-clavier-solidworks (127, 7,8), ebom-vs-mbom (95, 8,5).
+- Lot 2 : solidworks-pdm-lent-7-causes, erreurs-solidworks-frequentes, ia-solidworks-pdm-bureau-etudes, prix-cout-projet-solidworks-pdm, tableau-filetage-metrique-percage-taraudage (pos. 13,1).
+- Ensuite, les pages sans impressions, dans l'ordre du rapport.
+- Exclues jusqu'à la fin de leur test : nomenclature-bom-pdm-plm-erp (en test depuis le 01/10) et masse-volumique-materiaux-calcul-masse (jusqu'au 23/10).
+
+**Pistes de mémos, anglais d'abord** :
+- vis CHC ISO 4762 / DIN 912 (dimensions) ;
+- gorges de joints toriques ;
+- roulements série 6000 / 6200 (dimensions) ;
+- circlips DIN 471 / 472 ;
+- facteur K et rayon de pliage en tôlerie (lien naturel avec SOLIDWORKS) ;
+- lamages et fraisurages ISO.
+
+**À faire par le propriétaire (hors de portée de la tâche)** :
+1. Relire les valeurs des mémos et signaler toute erreur. Ne rien afficher comme « relu » sans relecture réelle.
+2. Obtenir des liens entrants légitimes : profil LinkedIn et publications, forums SOLIDWORKS, écoles et IUT, GrabCAD, réponses utiles sur des forums techniques. Sans liens, un domaine récent n'atteint pas les requêtes à fort volume.
+3. Soumettre à la main dans Search Console les URL listées à chaque passage.
+4. Optionnel : déposer un export Keyword Planner (volumes FR et EN) dans le dépôt, pour choisir les sujets sur des volumes réels.
+
 ## 2026-10-09 — titre et contenu « densité » : masse volumique des matériaux (actions c + b)
 
 - **Rapport GSC (07/09 → 05/10)** : 44 clics (≈ 1,6/jour, contre 1,2 au passage précédent), 4 847 impressions (+60 %), position moyenne 14,1 ; 70/78 pages indexées. Record journalier : 11 clics et 1 841 impressions le 05/10.
