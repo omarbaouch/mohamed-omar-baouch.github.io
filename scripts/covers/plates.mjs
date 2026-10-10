@@ -849,7 +849,36 @@ function engrenage(l) {
   b += text(cw + 150, cy - 52 * k - 14, 'z2 = 50 · d 100', { size: 20, c: C.ink, anchor: 'middle', weight: 700 });
   return sheet({ ref: 'MEM-13', std: 'ISO 54 · ISO 53 · α 20°', rev: 'A', scale: '1:1', key: 'm 2', keySub: `z 20 / 50 · i ${num('2.5')}`, body: b, keyY: 760, keySize: 180 });
 }
+function pouceMm(l) {
+  const { t, num } = lang(l);
+  let b = '';
+  // règle double : millimètres en haut, pouces (au 1/16) en bas ; 1 pouce = 25,4 mm
+  const k = 10.4, x0 = 560, y0 = 300, yMid = 470, y1 = 640, Lmm = 88;
+  b += rect(x0 - 30, y0, Lmm * k + 60, y1 - y0, { c: C.line, sw: 2.2, fill: 'url(#hatch)' });
+  b += line(x0 - 30, yMid, x0 + Lmm * k + 30, yMid, { c: C.line, w: 1.4, op: 0.6 });
+  for (let mm = 0; mm <= Lmm; mm++) {
+    const x = x0 + mm * k, h = mm % 10 === 0 ? 46 : mm % 5 === 0 ? 30 : 18;
+    b += line(x, y0, x, y0 + h, { c: C.ink, w: mm % 10 === 0 ? 2 : 1.2 });
+    if (mm % 10 === 0) b += text(x, y0 + 74, String(mm / 10), { size: 22, c: C.ink, anchor: 'middle', weight: 700 });
+  }
+  b += text(x0 + Lmm * k - 4, y0 + 74, 'cm', { size: 18, c: C.mid, anchor: 'end' });
+  for (let s = 0; s <= 16 * 3; s++) {
+    const x = x0 + (s / 16) * 25.4 * k;
+    const h = s % 16 === 0 ? 50 : s % 8 === 0 ? 38 : s % 4 === 0 ? 28 : s % 2 === 0 ? 20 : 13;
+    b += line(x, y1, x, y1 - h, { c: C.accent, w: s % 16 === 0 ? 2.4 : 1.3 });
+    if (s % 16 === 0) b += text(x + 10, y1 - 66, String(s / 16), { size: 22, c: C.accent, anchor: 'start', weight: 700 });
+  }
+  b += text(x0 + Lmm * k - 4, y1 - 66, 'in', { size: 18, c: C.accent, anchor: 'end' });
+  // repère : 1 pouce = 25,4 mm
+  const xi = x0 + 25.4 * k;
+  b += line(xi, y0 - 40, xi, y1 + 40, { c: C.accent, w: 2.4, dash: '8 6' });
+  b += dim(x0, y1 + 40, xi, y1 + 40, '', { off: 36, c: C.accent });
+  b += text((x0 + xi) / 2, y1 + 112, `${num('25.4')} mm`, { size: 22, c: C.accent, anchor: 'middle', weight: 700 });
+  b += text(x0 + 2 * 25.4 * k, y0 - 26, t('1/64″ = 0,396875 mm', '1/64″ = 0.396875 mm'), { size: 19, c: C.mid, anchor: 'middle', weight: 700 });
+  return sheet({ ref: 'MEM-14', std: t('Pouce international · 1959', 'International inch · 1959'), rev: 'A', scale: '1:1', key: '1″', keySub: `= ${num('25.4')} mm`, body: b, keyY: 760, keySize: 200 });
+}
 export const PLATES = {
+  'conversion-pouce-mm-tableau': pouceMm,
   'engrenage-module-calcul-diametres': engrenage,
   'image-administrative-solidworks-installation': imageAdmin,
   'filetage-gaz-g-bsp-npt-tableau': filetageGaz,

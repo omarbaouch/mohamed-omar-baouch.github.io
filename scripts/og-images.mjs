@@ -48,6 +48,7 @@ const PAGES = [
   { file: 'src/blog/clavettes-paralleles-din-6885-dimensions/index.html', slug: 'clavettes', ref: 'MEM-11', type: 'MÉMO', title: 'Clavettes parallèles DIN 6885 : dimensions et rainures' },
   { file: 'src/blog/filetage-gaz-g-bsp-npt-tableau/index.html', slug: 'filetage-gaz', ref: 'MEM-12', type: 'MÉMO', title: 'Filetage gaz G (BSP) et NPT : tableau et identification' },
   { file: 'src/blog/engrenage-module-calcul-diametres/index.html', slug: 'engrenage', ref: 'MEM-13', type: 'MÉMO', title: 'Module d’engrenage : diamètres, entraxe et calculateur' },
+  { file: 'src/blog/conversion-pouce-mm-tableau/index.html', slug: 'pouce-mm', ref: 'MEM-14', type: 'MÉMO', title: 'Conversion pouce ↔ mm : tableau des fractions et convertisseur' },
   { file: 'src/blog/image-administrative-solidworks-installation/index.html', slug: 'image-admin-sw', ref: 'DOC-18', type: 'ARTICLE', title: 'Image administrative SOLIDWORKS : créer, configurer, déployer' },
   { file: 'src/blog/modele-nomenclature-excel-gratuit/index.html', slug: 'modele-bom', ref: 'TPL-01', type: 'MODÈLE GRATUIT', title: 'Modèle de nomenclature Excel gratuit : BOM multiniveau' },
   { file: 'src/projets/robot-orbita/index.html', slug: 'orbita', ref: 'PRT-ORBITA · RÉV.B', type: 'ÉTUDE DE CAS', title: 'Structurer le PDM d’un robot humanoïde' },

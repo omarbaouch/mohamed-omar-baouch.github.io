@@ -125,6 +125,24 @@
     "h1": "Conversion de dureté HRC, HV, HB : tableau et convertisseur",
     "lang": "fr"
   },
+  "/blog/conversion-pouce-mm-tableau/": {
+    "title": "Conversion pouce en mm : tableau des fractions et convertisseur",
+    "description": "1 pouce = 25,4 mm exactement. Tableau des fractions de pouce de 1/64 à 1 en mm, pouces décimaux, conversion mm en pouces et convertisseur.",
+    "canonical": "https://www.baouch.fr/blog/conversion-pouce-mm-tableau/",
+    "robots": null,
+    "ogTitle": "Conversion pouce ↔ mm : tableau des fractions de pouce et convertisseur",
+    "ogDescription": "1 pouce = 25,4 mm exactement : les fractions de 1/64 à 1 pouce en mm, les mm en pouces et un convertisseur qui donne la fraction la plus proche.",
+    "ogUrl": "https://www.baouch.fr/blog/conversion-pouce-mm-tableau/",
+    "ogImage": "https://www.baouch.fr/img/og/pouce-mm.jpg",
+    "ogType": "article",
+    "twitterTitle": "Conversion pouce ↔ mm : tableau des fractions de pouce et convertisseur",
+    "twitterDescription": "1 pouce = 25,4 mm exactement : les fractions de 1/64 à 1 pouce en mm, les mm en pouces et un convertisseur qui donne la fraction la plus proche.",
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList,FAQPage"
+    ],
+    "h1": "Conversion pouce ↔ mm : tableau des fractions de pouce et convertisseur",
+    "lang": "fr"
+  },
   "/blog/couple-serrage-vis-tableau/": {
     "title": "Couple de serrage des vis : tableau 8.8, 10.9, 12.9 de M3 à M36 + calculateur",
     "description": "Tableau des couples de serrage des vis métriques de M3 à M36 en classes 8.8, 10.9 et 12.9, avec les précontraintes. Calculateur selon la méthode VDI 2230 et le coefficient de frottement, et les erreurs de serrage à éviter.",

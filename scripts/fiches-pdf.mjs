@@ -36,6 +36,10 @@ export const FICHES = {
     fr: 'tableau-rugosite-ra-classes-n', en: 'surface-roughness-ra-chart',
     h2: { 'Convertisseur Ra : µm, µin et classes N': 'Classes de rugosité N et valeurs de Ra', 'Ra converter: µm, µin and N grades': 'Roughness grades N and Ra values' },
   },
+  'conversion-pouce-mm-tableau': {
+    fr: 'tableau-conversion-pouce-mm', en: 'inch-to-mm-conversion-chart',
+    titre: { fr: 'Conversion pouce ↔ mm : fractions de pouce, tailles courantes, mm en pouces', en: 'Inch to mm conversion chart: fractions, common sizes, mm to inches' },
+  },
   'ajustements-iso-286-tableau-h7-g6': {
     fr: 'tableau-ajustements-iso-286', en: 'iso-286-fits-chart',
     titre: { fr: 'Ajustements ISO 286 : tableau H7/g6, H7/h6, H7/p6 et écarts', en: 'ISO 286 fits chart: H7/g6, H7/h6, H7/p6 and deviations' },

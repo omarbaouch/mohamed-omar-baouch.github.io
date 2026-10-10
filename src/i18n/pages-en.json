@@ -135,6 +135,10 @@
     "title": "BSP vs NPT Thread Chart: G (ISO 228) Sizes, TPI and Tap Drills",
     "description": "BSP (G, ISO 228) and NPT pipe thread chart: major diameter, threads per inch, pitch and tap drill, 55° vs 60°, parallel vs taper, plus a thread identifier."
   },
+  "/blog/conversion-pouce-mm-tableau/": {
+    "title": "Inches to mm Conversion Chart: Fractions, Decimals, Converter",
+    "description": "1 inch = 25.4 mm exactly. Fraction to mm chart from 1/64 to 1 inch, decimal inches, mm to inches with the nearest fraction, and a converter."
+  },
   "/blog/engrenage-module-calcul-diametres/": {
     "title": "Gear Module Calculator: Pitch Diameter and Center Distance",
     "description": "Spur gear formulas from module and tooth count: pitch, tip, root and base diameter, tooth height, center distance, ratio, ISO 54 modules and diametral pitch."

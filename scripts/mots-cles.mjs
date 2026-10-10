@@ -144,7 +144,9 @@ async function impressionsBing(lang, motsCles) {
     const g = GRAINES[lang];
     const exclure = (g.exclure || []).map((m) => new RegExp(`\\b${m}\\b`, 'i'));
     let k = 0;
+    cache.bingAssocies ??= {};
     for (const graine of (ponctuelles.length ? ponctuelles : g.graines)) {
+      if (frais(cache.bingAssocies[cle(lang, graine)])) continue; // déjà relevée ce mois-ci : quota épargné
       let liste;
       try { liste = await api('GetRelatedKeywords', graine); } catch (e) { console.log(`Bing (${lang}) : échec — ${e.message}`); return true; }
       for (const r of liste || []) {
@@ -155,6 +157,7 @@ async function impressionsBing(lang, motsCles) {
         e.bingAssocie ??= graine;
         k++;
       }
+      cache.bingAssocies[cle(lang, graine)] = TODAY;
       await pause(250);
     }
     console.log(`Bing (${lang}) : ${k} requêtes associées aux graines`);

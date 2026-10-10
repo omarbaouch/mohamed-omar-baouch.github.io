@@ -140,6 +140,10 @@
     "Planche technique : coupe d'un arbre de 25 mm avec sa rainure et sa clavette 8 × 7, cotes t1 et t2",
     "Technical drawing: cross-section of a 25 mm shaft with its keyway and 8 × 7 key, depths t1 and t2"
   ],
+  "conversion-pouce-mm-tableau": [
+    "Planche technique : une règle graduée en millimètres et en pouces, le repère d'un pouce aligné sur 25,4 mm",
+    "Technical drawing: a ruler graduated in millimetres and inches, the one-inch mark aligned with 25.4 mm"
+  ],
   "engrenage-module-calcul-diametres": [
     "Planche technique : pignon de 20 dents engrené avec une roue de 50 dents, module 2, entraxe 70 mm",
     "Technical drawing: 20-tooth pinion meshing with a 50-tooth gear, module 2, 70 mm center distance"

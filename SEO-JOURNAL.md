@@ -33,6 +33,63 @@ La carte se pose simplement dans la grille de `src/blog/index.html` (entre `gril
 
 **Suivi** : compter à part les URL `/en/` (indexation, impressions, requêtes anglaises). Dans le résumé, donner les URL à soumettre en version française ET anglaise. Si Search Console répond « Petit problème… Une erreur s'est produite » à une demande d'indexation, c'est une limite passagère de Google : réessayer plus tard ; le sitemap suffit à la découverte.
 
+## 2026-10-10 — nouveau mémo bilingue : conversion pouce ↔ mm (fractions, convertisseur, fiche PDF)
+
+**Search Console** : rapport du 09/10, couvrant le 08/09 → 06/10 ; celui du jour n'est pas encore publié.
+- 2,5 clics/jour en moyenne sur 28 jours, 25 clics le 06/10. Jalon 10/jour pas encore atteint en moyenne.
+- 6 756 impressions, position moyenne 13,3.
+- Indexation : 73/78 pages.
+  - Pages FR non indexées (1) : resolutions-problematiques-plm (« explorée, non indexée » depuis juillet).
+  - Pages /en/ non indexées (4) : engrenages, filetage gaz, image administrative (« inconnues »), formats d'échange CAO (« détectée »).
+- Pages /en/ les plus cliquées : couple de serrage (6 clics, pos. 3,8), soudure (6, pos. 4,6), ISO 2768 (4, pos. 5,0), ISO 1101 (4, pos. 7,3).
+
+**Mots-clés — le choix vient des données Bing** (clé `BING_WEBMASTER_API_KEY` désormais dans l'environnement) :
+- **FR, 90 jours** : la famille « pouce en mm » dépasse 5 000 impressions au total (« pouce en mm » 1 209, « conversion pouce mm » 773, « 1/2 pouces en mm » 410, « 3/8 pouce en mm » 377…).
+- **US, 90 jours** : « inches to mm » 60 184, « inch to mm » 26 215, « mm to inch » 15 035, « 1/16 inch to mm » 1 405, « 5/16 inch to mm » 1 302, « 3/16 inch to mm » 1 215, « convert inch to mm » 1 006.
+- Aucune page du site ne traitait le sujet.
+- Les requêtes courtes (« inches to mm ») sont dominées par le convertisseur intégré de Google. La page vise surtout les fractions (« 5/16 inch to mm ») et les tableaux, où un tableau exact et une fiche imprimable ont leur place.
+
+**Action (a)** : `/blog/conversion-pouce-mm-tableau/` (MEM-14) et `/en/blog/conversion-pouce-mm-tableau/`.
+- **Contenu** :
+  - 1 pouce = 25,4 mm exactement (accord international de 1959) ;
+  - toutes les fractions de 1/64 à 1 pouce en valeurs exactes, sans arrondi, calculées en fractions exactes par le générateur ;
+  - tailles courantes jusqu'au yard ;
+  - mm → pouces avec la fraction la plus proche au 1/64 et l'écart ;
+  - pièges : tailles nominales des tubes (G 1/2 = 20,955 mm), arrondi au 1/64 sur un ajustement, mil / µin, filetages et engrenages en pouces, unités MMGS / IPS de SOLIDWORKS ;
+  - 5 questions FAQ.
+- **Convertisseur bidirectionnel**, qui accepte « 3/8 », « 1 1/2 », « 1-1/2 », « 5/16" » et la virgule. Contrôlé en FR et EN : 3/8 → 9,525 ; 1 1/2 → 38,1 ; 10 mm → 0,3937 in, 25/64 (−0,078 mm) ; 12,7 mm → 1/2 exact.
+- **Fiche PDF A4 FR/EN** : tableau-conversion-pouce-mm.pdf et inch-to-mm-conversion-chart.pdf. Relue visuellement ; valeurs recontrôlées, par exemple 3 mm → 1/8 (+0,175) et 1 000 mm → 39 3/8 (+0,125).
+- **Autour de la page** :
+  - planche « règle mm / pouces » ;
+  - image de partage `pouce-mm` ;
+  - carte dans la grille du blog ;
+  - liens depuis filetage métrique et rugosité (µin) ;
+  - entrée pages-en.json (title 61 caractères, description 150) ;
+  - baseline : 41 pages.
+- **Vérifications** :
+  - build OK, verify:seo (page nouvelle seule), verify:en 0/0 ;
+  - Chromium 1280/390 sur 7 pages FR/EN, sans erreur JS ni défilement horizontal ;
+  - téléchargements en 200, version /en/ vers les fichiers anglais.
+
+**Clics attendus** : aucun chiffre fiable avant indexation. À vérifier au 17/10 : indexation FR et /en/, premières impressions sur les fractions.
+
+**Pages en test** :
+- titres et descriptions des mémos aciers, clavettes, dureté, engrenages, filetage gaz (jusqu'au 23/10) ;
+- masse volumique (23/10) ;
+- couple de serrage, ISO 2768, ISO 1101, soudure et ajustements, qui ont reçu du contenu le 09/10 : pas de changement de titre avant le 23/10 ;
+- filetage métrique et rugosité : contenu ajouté les 09/10 et 10/10, pas de changement de titre avant le 24/10.
+
+**Outil de mots-clés** :
+- les requêtes associées Bing déjà relevées ne sont plus redemandées (quota épargné) ;
+- relevé anglais du 10/10 : 576 requêtes associées et 182 requêtes exactes avant le blocage « ThrottleUser » ; le script reprend au relevé suivant.
+
+**Relevé Bing du 09/10, non consigné ce jour-là** (commande bloquée) :
+- premier relevé FR : 1 307 requêtes associées et 218 requêtes exactes ;
+- les requêtes associées ne sont gardées que si elles ont deux mots communs avec la graine ;
+- sujets confirmés : joint torique (2 099), goupille fendue (443), circlips.
+
+**Prochaines pistes, d'après Bing US** : « sheet metal gauge chart » 2 693, « socket head cap screw » 1 334, « moment of inertia formula » 1 040, « dowel pins » 1 000, et en France « joint torique » 2 099.
+
 ## 2026-10-09 (3) — données de mots-clés réelles et fichiers à télécharger (demande du propriétaire)
 
 **1. Recherche de mots-clés sur données réelles** : `node scripts/mots-cles.mjs`, avec les graines dans `seo/graines.json`, produit le rapport `seo/mots-cles.md` et le cache `seo/mots-cles.json`. Chaque chiffre est attribué à sa source, aucun n'est estimé.
