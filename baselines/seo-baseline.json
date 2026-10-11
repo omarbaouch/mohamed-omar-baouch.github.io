@@ -215,6 +215,24 @@
     "h1": "Engrenage : module, diamètres et entraxe — formules et calculateur",
     "lang": "fr"
   },
+  "/blog/epaisseur-tole-jauge-gauge-tableau/": {
+    "title": "Jauge de tôle (gauge) : tableau des épaisseurs en mm et pouces",
+    "description": "Jauges de tôle 7 à 30 en mm et en pouces pour l'acier, l'acier galvanisé, l'inox et l'aluminium, avec un convertisseur jauge ↔ épaisseur.",
+    "canonical": "https://www.baouch.fr/blog/epaisseur-tole-jauge-gauge-tableau/",
+    "robots": null,
+    "ogTitle": "Jauge de tôle (gauge) : tableau des épaisseurs en mm et en pouces",
+    "ogDescription": "16 gauge = 1,52 mm en acier mais 1,29 mm en aluminium : le tableau des jauges de tôle par matériau, en mm et en pouces, et un convertisseur.",
+    "ogUrl": "https://www.baouch.fr/blog/epaisseur-tole-jauge-gauge-tableau/",
+    "ogImage": "https://www.baouch.fr/img/og/jauge-tole.jpg",
+    "ogType": "article",
+    "twitterTitle": "Jauge de tôle (gauge) : tableau des épaisseurs en mm et en pouces",
+    "twitterDescription": "16 gauge = 1,52 mm en acier mais 1,29 mm en aluminium : le tableau des jauges de tôle par matériau, en mm et en pouces, et un convertisseur.",
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList,FAQPage"
+    ],
+    "h1": "Jauge de tôle (gauge) : tableau des épaisseurs en mm et en pouces",
+    "lang": "fr"
+  },
   "/blog/erreurs-solidworks-frequentes/": {
     "title": "Les 10 erreurs SOLIDWORKS les plus fréquentes : causes réelles et corrections durables",
     "description": "Références manquantes, fichier en lecture seule, erreurs de reconstruction, Toolbox incohérente, « impossible d'enregistrer le document », mise en plan qui perd ses vues : les 10 pannes SOLIDWORKS les plus courantes en bureau d'études, la correction immédiate pour chacune, et la cause de fond qui les fait revenir.",

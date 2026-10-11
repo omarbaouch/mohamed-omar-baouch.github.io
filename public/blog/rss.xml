@@ -5,8 +5,16 @@
     <link>https://www.baouch.fr/blog/</link>
     <description>Articles de fond et retours d'expérience terrain sur le PDM, le PLM, SOLIDWORKS et la gestion des données produit.</description>
     <language>fr-FR</language>
-    <lastBuildDate>Sat, 10 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 11 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.baouch.fr/blog/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Jauge de tôle (gauge) : tableau des épaisseurs en mm et en pouces</title>
+      <link>https://www.baouch.fr/blog/epaisseur-tole-jauge-gauge-tableau/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/epaisseur-tole-jauge-gauge-tableau/</guid>
+      <pubDate>Sun, 11 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Jauges de tôle 7 à 30 en mm et en pouces pour l'acier, l'acier galvanisé, l'inox et l'aluminium, avec un convertisseur jauge ↔ épaisseur.</description>
+      <enclosure url="https://www.baouch.fr/img/og/jauge-tole.jpg" type="image/jpeg"/>
+    </item>
     <item>
       <title>Conversion pouce ↔ mm : tableau des fractions de pouce et convertisseur</title>
       <link>https://www.baouch.fr/blog/conversion-pouce-mm-tableau/</link>

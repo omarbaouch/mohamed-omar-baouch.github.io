@@ -36,6 +36,10 @@ export const FICHES = {
     fr: 'tableau-rugosite-ra-classes-n', en: 'surface-roughness-ra-chart',
     h2: { 'Convertisseur Ra : µm, µin et classes N': 'Classes de rugosité N et valeurs de Ra', 'Ra converter: µm, µin and N grades': 'Roughness grades N and Ra values' },
   },
+  'epaisseur-tole-jauge-gauge-tableau': {
+    fr: 'tableau-jauges-tole-gauge-mm', en: 'sheet-metal-gauge-chart',
+    titre: { fr: 'Jauges de tôle (gauge) : épaisseurs en mm et en pouces par matériau', en: 'Sheet metal gauge chart: thickness in inches and mm by material' },
+  },
   'conversion-pouce-mm-tableau': {
     fr: 'tableau-conversion-pouce-mm', en: 'inch-to-mm-conversion-chart',
     titre: { fr: 'Conversion pouce ↔ mm : fractions de pouce, tailles courantes, mm en pouces', en: 'Inch to mm conversion chart: fractions, common sizes, mm to inches' },

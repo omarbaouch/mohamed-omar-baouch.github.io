@@ -33,6 +33,65 @@ La carte se pose simplement dans la grille de `src/blog/index.html` (entre `gril
 
 **Suivi** : compter à part les URL `/en/` (indexation, impressions, requêtes anglaises). Dans le résumé, donner les URL à soumettre en version française ET anglaise. Si Search Console répond « Petit problème… Une erreur s'est produite » à une demande d'indexation, c'est une limite passagère de Google : réessayer plus tard ; le sitemap suffit à la découverte.
 
+## 2026-10-11 — nouveau mémo bilingue : jauges de tôle (gauge), épaisseurs en mm et en pouces
+
+**Search Console** : rapport du 10/10, couvrant le 09/09 → 07/10.
+- 2,4 clics/jour en moyenne sur 28 jours ; le 06/10 reste le meilleur jour avec 25 clics. Jalon 10/jour pas encore atteint en moyenne.
+- 6 707 impressions, position moyenne 13,3.
+- Indexation : 76/80 pages.
+  - Pages FR non indexées (3) :
+    - conversion-pouce-mm (publiée le 10/10, inconnue) ;
+    - resolutions-problematiques-plm ;
+    - **tolerances-geometriques-symboles-iso-1101**.
+  - Pages /en/ non indexées (1) : formats d'échange CAO (« détectée »).
+  - /en/ engrenages, filetage gaz et image administrative sont désormais indexées.
+
+**Alerte ISO 1101 (FR)** : la page est « explorée, actuellement non indexée » depuis la visite du 05/10, alors qu'elle faisait 190 impressions en position 7,2. Cause probable : elle contenait alors toute la traduction anglaise masquée, en double de la page /en/ indexée ; c'est corrigé depuis le 09/10. Contrôle en ligne ce jour : réponse 200, canonical vers elle-même, hreflang FR/EN/x-default, plus aucun texte anglais caché, présente dans le sitemap. **À faire par le propriétaire** : demander l'indexation de l'URL dans Search Console. La page n'est pas modifiée aujourd'hui, pour ne pas mêler les effets.
+
+**Mots-clés (impressions Bing US sur 90 jours, relevé du jour)** :
+
+| Requête | Impressions |
+|---|---:|
+| « sheet metal gauge chart » | 2 693 |
+| « 16 gauge thickness » | 1 739 |
+| « 14 gauge thickness » | 1 136 |
+| « steel gauge chart » | 1 112 |
+| « gauge to mm » | 295 |
+| « sheet metal gauge thickness » | 236 |
+| « aluminum gauge chart » | 230 |
+
+Soit environ 7 000 au total : la plus grosse famille anglaise sans page après la conversion pouce ↔ mm. En France, « jauge tôle » et « épaisseur tôle » font 0 sur Bing : la page vise d'abord l'anglais, avec un français utile pour lire des plans et des tables américaines. Elle rejoint aussi l'expertise SOLIDWORKS du site (tables de jauges en tôlerie).
+
+**Action (a)** : `/blog/epaisseur-tole-jauge-gauge-tableau/` (MEM-15) et `/en/blog/epaisseur-tole-jauge-gauge-tableau/`.
+- **Valeurs** : jauges 7 à 30 pour l'acier (Manufacturers' Standard Gauge), l'acier galvanisé, l'inox et l'aluminium (Brown & Sharpe), en pouces et en mm. Vérifiées le 11/10 sur deux tableaux concordants (T/J Fabricators, OpenSpindle) ; contrôle automatique de 8 valeurs mm dans le générateur ; mm arrondis au demi supérieur (11 ga inox = 3,18 mm).
+- **Contenu** :
+  - tableau des épaisseurs métriques courantes (0,5 à 4 mm) avec la jauge la plus proche par matériau ;
+  - section « comprendre » : une jauge par matériau, 41,82 lb/ft² par pouce pour l'acier et 7,85 kg/m² par mm, commande en mm en Europe, tables de jauges SOLIDWORKS ;
+  - 5 questions FAQ.
+- **Convertisseur jauge ↔ épaisseur** : quatre matériaux à la fois, résultats identiques au tableau. Contrôlé en FR et EN : 16 ga → 1,52 / 1,61 / 1,59 / 1,29 mm ; 1,5 mm → 16 / 17 / 17 / 15 ga ; jauge 40 refusée.
+- **Fiche PDF A4 FR/EN** : tableau-jauges-tole-gauge-mm.pdf et sheet-metal-gauge-chart.pdf, relue visuellement.
+- **Autour de la page** :
+  - planche « 4 tôles 16 ga en coupe » ;
+  - image de partage `jauge-tole` ;
+  - carte dans la grille du blog ;
+  - liens depuis les mémos pouce ↔ mm et soudure (ajout de contenu seulement) ;
+  - pages-en.json : title 62 caractères, description 141 ;
+  - baseline : 42 pages.
+- **Vérifications** :
+  - build OK, verify:seo (page nouvelle seule), verify:en 0/0 ;
+  - Chromium 1280/390 sur 7 pages FR/EN, sans erreur JS ni défilement horizontal ;
+  - téléchargements en 200, version /en/ vers les fichiers anglais.
+
+**Clics attendus** : aucun chiffre fiable avant indexation. À vérifier au 18/10 : indexation FR et /en/, premières impressions sur « gauge » et « gauge thickness ».
+
+**Pages en test** :
+- jusqu'au 23/10 : aciers, clavettes, dureté, engrenages, filetage gaz, masse volumique (titre ou description) ; couple de serrage, ISO 2768, ISO 1101, ajustements (contenu du 09/10) ;
+- soudure : contenu ajouté le 09/10 et le 11/10, pas de titre avant le 25/10 ;
+- filetage métrique et rugosité : pas de titre avant le 24/10 ;
+- conversion pouce ↔ mm : pas de titre avant le 25/10.
+
+**Prochaines pistes** (Bing US) : « socket head cap screw » 1 334, « moment of inertia formula » 1 040, « dowel pins » 1 000 ; en France, « joint torique » 1 898. Également : la page /en/ « SOLIDWORKS gratuit / prix » fait 195 impressions en position 7,5 avec 0,5 % de clics. C'est une candidate pour l'action (d) (réécrire son entrée pages-en.json), à faire seule sur un passage pour pouvoir la mesurer.
+
 ## 2026-10-10 — nouveau mémo bilingue : conversion pouce ↔ mm (fractions, convertisseur, fiche PDF)
 
 **Search Console** : rapport du 09/10, couvrant le 08/09 → 06/10 ; celui du jour n'est pas encore publié.

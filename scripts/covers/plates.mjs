@@ -877,7 +877,27 @@ function pouceMm(l) {
   b += text(x0 + 2 * 25.4 * k, y0 - 26, t('1/64″ = 0,396875 mm', '1/64″ = 0.396875 mm'), { size: 19, c: C.mid, anchor: 'middle', weight: 700 });
   return sheet({ ref: 'MEM-14', std: t('Pouce international · 1959', 'International inch · 1959'), rev: 'A', scale: '1:1', key: '1″', keySub: `= ${num('25.4')} mm`, body: b, keyY: 760, keySize: 200 });
 }
+function jaugeTole(l) {
+  const { t, num } = lang(l);
+  let b = '';
+  // quatre tôles 16 ga en coupe, à l'échelle (60 px/mm) : même jauge, épaisseurs différentes
+  const k = 60, x0 = 640, w = 700, tole = [
+    [t('Acier', 'Steel'), '1.52'], [t('Galvanisé', 'Galvanized'), '1.61'], [t('Inox', 'Stainless'), '1.59'], [t('Aluminium', 'Aluminum'), '1.29'],
+  ];
+  let y = 210;
+  tole.forEach(([nom, e], i) => {
+    const h = +e * k, alu = i === 3;
+    b += rect(x0, y, w, h, { c: alu ? C.accent : C.line, sw: alu ? 2.6 : 2.2, fill: alu ? 'url(#hatchA)' : 'url(#hatch)' });
+    b += text(x0 - 24, y + h / 2 + 7, nom, { size: 21, c: alu ? C.accent : C.ink, anchor: 'end', weight: 700 });
+    b += line(x0 + w, y, x0 + w + 40, y, { c: C.mid, w: 1, op: 0.7 }) + line(x0 + w, y + h, x0 + w + 40, y + h, { c: C.mid, w: 1, op: 0.7 });
+    b += arrow(x0 + w + 30, y + h / 2, x0 + w + 30, y, { c: alu ? C.accent : C.mid }) + arrow(x0 + w + 30, y + h / 2, x0 + w + 30, y + h, { c: alu ? C.accent : C.mid });
+    b += text(x0 + w + 52, y + h / 2 + 7, `${num(e)} mm`, { size: 21, c: alu ? C.accent : C.ink, weight: 700 });
+    y += h + 34;
+  });
+  return sheet({ ref: 'MEM-15', std: t('Jauges acier · inox · alu', 'Steel · stainless · alu gauges'), rev: 'A', scale: '40:1', key: '16 GA', keySub: t('même jauge, 4 épaisseurs', 'same gauge, 4 thicknesses'), body: b, keyY: 760, keySize: 140 });
+}
 export const PLATES = {
+  'epaisseur-tole-jauge-gauge-tableau': jaugeTole,
   'conversion-pouce-mm-tableau': pouceMm,
   'engrenage-module-calcul-diametres': engrenage,
   'image-administrative-solidworks-installation': imageAdmin,

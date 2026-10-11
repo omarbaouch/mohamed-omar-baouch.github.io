@@ -135,6 +135,10 @@
     "title": "BSP vs NPT Thread Chart: G (ISO 228) Sizes, TPI and Tap Drills",
     "description": "BSP (G, ISO 228) and NPT pipe thread chart: major diameter, threads per inch, pitch and tap drill, 55° vs 60°, parallel vs taper, plus a thread identifier."
   },
+  "/blog/epaisseur-tole-jauge-gauge-tableau/": {
+    "title": "Sheet Metal Gauge Chart: Steel, Galvanized, Stainless, Aluminum",
+    "description": "Sheet metal gauge chart, gauges 7 to 30, in inches and mm for steel, galvanized, stainless and aluminum, plus a gauge to thickness converter."
+  },
   "/blog/conversion-pouce-mm-tableau/": {
     "title": "Inches to mm Conversion Chart: Fractions, Decimals, Converter",
     "description": "1 inch = 25.4 mm exactly. Fraction to mm chart from 1/64 to 1 inch, decimal inches, mm to inches with the nearest fraction, and a converter."
