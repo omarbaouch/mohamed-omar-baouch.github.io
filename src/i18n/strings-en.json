@@ -25,7 +25,10 @@
     "IA · SOLIDWORKS · PDM": "AI · SOLIDWORKS · PDM",
     "flèche": "arrow",
     "ligne d'identification (traits interrompus)": "identification line (dashed)",
-    "ligne de référence (trait continu)": "reference line (continuous)"
+    "ligne de référence (trait continu)": "reference line (continuous)",
+    "Rectangle plein": "Solid rectangle",
+    "Tube rectangulaire": "Rectangular tube",
+    "Profilé en I (symétrique)": "I-section (symmetric)"
   },
   "attr": {
     "Baies de serveurs": "Server racks",

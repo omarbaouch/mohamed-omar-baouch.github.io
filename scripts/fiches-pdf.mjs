@@ -36,6 +36,10 @@ export const FICHES = {
     fr: 'tableau-rugosite-ra-classes-n', en: 'surface-roughness-ra-chart',
     h2: { 'Convertisseur Ra : µm, µin et classes N': 'Classes de rugosité N et valeurs de Ra', 'Ra converter: µm, µin and N grades': 'Roughness grades N and Ra values' },
   },
+  'moment-quadratique-inertie-section-calcul': {
+    fr: 'formulaire-moment-quadratique-sections', en: 'area-moment-of-inertia-formulas',
+    titre: { fr: 'Moment quadratique : formules des sections, exemples et unités', en: 'Area moment of inertia: section formulas, examples and units' },
+  },
   'epaisseur-tole-jauge-gauge-tableau': {
     fr: 'tableau-jauges-tole-gauge-mm', en: 'sheet-metal-gauge-chart',
     titre: { fr: 'Jauges de tôle (gauge) : épaisseurs en mm et en pouces par matériau', en: 'Sheet metal gauge chart: thickness in inches and mm by material' },

@@ -896,7 +896,33 @@ function jaugeTole(l) {
   });
   return sheet({ ref: 'MEM-15', std: t('Jauges acier · inox · alu', 'Steel · stainless · alu gauges'), rev: 'A', scale: '40:1', key: '16 GA', keySub: t('même jauge, 4 épaisseurs', 'same gauge, 4 thicknesses'), body: b, keyY: 760, keySize: 140 });
 }
+function momentQuadratique(l) {
+  const { t, num } = lang(l);
+  let b = '';
+  // trois sections et leur axe neutre : rectangle (cotes b, h), tube rond, profilé en I
+  const yc = 430;
+  // rectangle 20 × 40 à l'échelle 7 px/mm
+  const rx = 640, rw = 140, rh = 280;
+  b += rect(rx, yc - rh / 2, rw, rh, { c: C.accent, sw: 2.6, fill: 'url(#hatchA)' });
+  b += dim(rx, yc + rh / 2, rx + rw, yc + rh / 2, 'b', { off: 44, size: 22, c: C.accent, tc: C.accent });
+  b += dim(rx, yc - rh / 2, rx, yc + rh / 2, 'h', { off: 44, size: 22, c: C.accent, tc: C.accent });
+  // tube rond
+  const tx = 1000, R = 120, r = 104;
+  b += circle(tx, yc, R, { c: C.line, w: 2.4, fill: 'url(#hatch)' });
+  b += circle(tx, yc, r, { c: C.line, w: 2.2, fill: C.bg0 });
+  // profilé en I
+  const ix = 1340, B = 190, H = 280, tf = 26, tw = 18;
+  b += path(`M${ix - B / 2} ${yc - H / 2} H${ix + B / 2} V${yc - H / 2 + tf} H${ix + tw / 2} V${yc + H / 2 - tf} H${ix + B / 2} V${yc + H / 2} H${ix - B / 2} V${yc + H / 2 - tf} H${ix - tw / 2} V${yc - H / 2 + tf} H${ix - B / 2} Z`, { c: C.line, w: 2.4, fill: 'url(#hatch)' });
+  // axe neutre commun
+  b += axis(612, yc, 1480, yc);
+  b += text(1480, yc - 14, 'x', { size: 24, c: C.mid, anchor: 'end', weight: 700 });
+  b += text(rx + rw / 2, yc - rh / 2 - 30, 'b·h³/12', { size: 22, c: C.accent, anchor: 'middle', weight: 700 });
+  b += text(tx, yc - R - 30, 'π·(D⁴ − d⁴)/64', { size: 22, c: C.ink, anchor: 'middle', weight: 700 });
+  b += text(ix, yc - H / 2 - 30, t('profilé en I', 'I-section'), { size: 22, c: C.ink, anchor: 'middle', weight: 700 });
+  return sheet({ ref: 'MEM-16', std: t('Résistance des matériaux', 'Strength of materials'), rev: 'A', scale: '1:1', key: 'Ix', keySub: t('moment quadratique · mm⁴', 'area moment of inertia · mm⁴'), body: b, keyY: 760, keySize: 200 });
+}
 export const PLATES = {
+  'moment-quadratique-inertie-section-calcul': momentQuadratique,
   'epaisseur-tole-jauge-gauge-tableau': jaugeTole,
   'conversion-pouce-mm-tableau': pouceMm,
   'engrenage-module-calcul-diametres': engrenage,

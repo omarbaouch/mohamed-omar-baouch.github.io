@@ -140,6 +140,10 @@
     "Planche technique : coupe d'un arbre de 25 mm avec sa rainure et sa clavette 8 × 7, cotes t1 et t2",
     "Technical drawing: cross-section of a 25 mm shaft with its keyway and 8 × 7 key, depths t1 and t2"
   ],
+  "moment-quadratique-inertie-section-calcul": [
+    "Planche technique : sections d'un rectangle, d'un tube rond et d'un profilé en I avec leur axe neutre, I = b·h³/12",
+    "Technical drawing: rectangle, round tube and I-section cross-sections with their neutral axis, I = b·h³/12"
+  ],
   "epaisseur-tole-jauge-gauge-tableau": [
     "Planche technique : quatre tôles de jauge 16 en coupe, acier, galvanisé, inox et aluminium, d'épaisseurs différentes",
     "Technical drawing: four 16-gauge sheets in section, steel, galvanized, stainless and aluminum, each a different thickness"

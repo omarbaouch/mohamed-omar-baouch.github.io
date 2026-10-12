@@ -467,6 +467,24 @@
     "h1": "Modèle de nomenclature Excel gratuit : BOM multiniveau à télécharger",
     "lang": "fr"
   },
+  "/blog/moment-quadratique-inertie-section-calcul/": {
+    "title": "Moment quadratique : formules des sections et calculateur",
+    "description": "Moment quadratique I et module de flexion W du rectangle, du rond, des tubes et du profilé en I : formules, exemples chiffrés, Huygens et calculateur.",
+    "canonical": "https://www.baouch.fr/blog/moment-quadratique-inertie-section-calcul/",
+    "robots": null,
+    "ogTitle": "Moment quadratique (moment d'inertie de section) : formules et calculateur",
+    "ogDescription": "I = b·h³/12, π·d⁴/64… : le moment quadratique et le module de flexion des sections courantes, des exemples chiffrés et un calculateur.",
+    "ogUrl": "https://www.baouch.fr/blog/moment-quadratique-inertie-section-calcul/",
+    "ogImage": "https://www.baouch.fr/img/og/moment-quadratique.jpg",
+    "ogType": "article",
+    "twitterTitle": "Moment quadratique (moment d'inertie de section) : formules et calculateur",
+    "twitterDescription": "I = b·h³/12, π·d⁴/64… : le moment quadratique et le module de flexion des sections courantes, des exemples chiffrés et un calculateur.",
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList,FAQPage"
+    ],
+    "h1": "Moment quadratique (moment d'inertie de section) : formules et calculateur",
+    "lang": "fr"
+  },
   "/blog/nomenclature-bom-pdm-plm-erp/": {
     "title": "Nomenclature BOM : définition, exemple et modèle Excel",
     "description": "Définition de la BOM, tableau eBOM/mBOM et rôles du PDM, PLM et ERP. Un exemple concret et un modèle Excel gratuit pour structurer votre nomenclature.",

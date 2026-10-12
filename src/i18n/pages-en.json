@@ -135,6 +135,10 @@
     "title": "BSP vs NPT Thread Chart: G (ISO 228) Sizes, TPI and Tap Drills",
     "description": "BSP (G, ISO 228) and NPT pipe thread chart: major diameter, threads per inch, pitch and tap drill, 55° vs 60°, parallel vs taper, plus a thread identifier."
   },
+  "/blog/moment-quadratique-inertie-section-calcul/": {
+    "title": "Area Moment of Inertia: Formulas, Section Modulus, Calculator",
+    "description": "Area moment of inertia and section modulus formulas for rectangle, circle, tubes and I-section, with worked examples and a calculator."
+  },
   "/blog/epaisseur-tole-jauge-gauge-tableau/": {
     "title": "Sheet Metal Gauge Chart: Steel, Galvanized, Stainless, Aluminum",
     "description": "Sheet metal gauge chart, gauges 7 to 30, in inches and mm for steel, galvanized, stainless and aluminum, plus a gauge to thickness converter."

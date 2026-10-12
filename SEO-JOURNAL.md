@@ -33,6 +33,81 @@ La carte se pose simplement dans la grille de `src/blog/index.html` (entre `gril
 
 **Suivi** : compter à part les URL `/en/` (indexation, impressions, requêtes anglaises). Dans le résumé, donner les URL à soumettre en version française ET anglaise. Si Search Console répond « Petit problème… Une erreur s'est produite » à une demande d'indexation, c'est une limite passagère de Google : réessayer plus tard ; le sitemap suffit à la découverte.
 
+## 2026-10-12 — nouveau mémo bilingue : moment quadratique (formules des sections, calculateur, fiche PDF)
+
+**Search Console** : rapport du 11/10, couvrant le 10/09 → 08/10.
+- **4,3 clics/jour en moyenne sur 28 jours** (2,4 au passage précédent). Records : 29 clics le 07/10, 23 le 08/10. Le jalon 10/jour est atteint sur les jours récents, pas encore en moyenne.
+- 10 914 impressions (+63 %), position moyenne 11,9 (13,3).
+- **Pages /en/ en tête** :
+  - soudure : 14 clics, 533 impressions, position 4,9 ;
+  - ISO 1101 : 7 clics, position 6,1 ;
+  - couple de serrage : 6 clics, position 4,8 ;
+  - clavettes : 4 clics, position 4,0, une semaine après publication ;
+  - ISO 2768 : 4 clics, 455 impressions, position 4,5, mais 0,9 % de clics.
+- **ISO 1101 FR est de nouveau indexée** : 8 clics, 373 impressions, position 6,8.
+- Indexation 77/82. Pages non indexées :
+  - nouveaux mémos encore inconnus : pouce ↔ mm FR, jauges FR et /en/ ;
+  - resolutions-problematiques-plm ;
+  - /en/ formats d'échange (« détectée »).
+
+**Mots-clés (impressions Bing sur 90 jours, relevé du jour)** :
+- États-Unis :
+
+  | Requête | Impressions |
+  |---|---:|
+  | « moment of inertia » | 2 075 |
+  | « moment of inertia formula » | 1 040 |
+  | « section modulus » | 643 |
+  | « polar moment of inertia » | 553 |
+  | « moment of inertia calculator » | 457 |
+  | « area moment of inertia » | 416 |
+  | « moment of inertia of a circle » | 362 |
+  | « moment of inertia of a rectangle » | 299 |
+  | « second moment of area » | 274 |
+
+  Soit environ 6 100 au total.
+- France : « moment d'inertie » 184, « moment quadratique » 129.
+- Le sujet n'avait pas de page sur le site. Ce sont des formules mathématiques exactes, sans valeur normalisée à vérifier.
+
+**Pourquoi pas l'action (d) aujourd'hui** :
+- La page /en/ ISO 2768 (position 4,5, 0,9 % de clics) est la meilleure candidate, mais elle a reçu du contenu le 09/10 : pas de changement de titre avant le 23/10.
+- /en/ SOLIDWORKS gratuit (357 impressions, position 6,9, 0,6 %) et /en/ erreurs SOLIDWORKS (244 impressions, position 7,4, 0,8 %) sont libres. Leur gain potentiel, environ 15 clics par 28 jours à 3 % de clics, est inférieur à celui d'un mémo : les mémos récents prennent vite des positions en /en/ (clavettes en position 4,0 en une semaine).
+
+**Action (a)** : `/blog/moment-quadratique-inertie-section-calcul/` (MEM-16) et `/en/blog/moment-quadratique-inertie-section-calcul/`.
+- **Contenu** :
+  - formules de A, I, W et J pour le rectangle, le carré, le tube rectangulaire, le rond, le tube rond, le profilé en I et le triangle ;
+  - exemples chiffrés calculés par le générateur et contrôlés : 20 × 40 sur chant = 106 667 mm⁴, quatre fois plus qu'à plat ; tube Ø 40 × 2 = 43 215,75 mm⁴ ; tube carré 40 × 40 × 2 = 73 365 mm⁴ ;
+  - σ = M/W, flèches en console (F·L³/3EI) et sur deux appuis (F·L³/48EI), E acier 210 000 MPa ;
+  - théorème de Huygens ;
+  - conversions in⁴ et in³ exactes ;
+  - Propriétés de section dans SOLIDWORKS ;
+  - 5 questions FAQ, dont la différence entre moment quadratique et moment d'inertie de masse.
+- **Calculateur à 5 sections** (rectangle, tube rectangulaire, rond, tube rond, I) : A, Ix (mm⁴ et cm⁴), Wx, Iy, J pour les sections rondes. Les champs affichés dépendent de la section ; les dimensions impossibles sont refusées. Libellés des options traduits dans strings-en.json. Contrôlé en FR et EN.
+- **Fiche PDF A4 FR/EN** : formulaire-moment-quadratique-sections.pdf et area-moment-of-inertia-formulas.pdf, relue.
+- **Autour de la page** :
+  - planche « rectangle, tube, profilé en I et axe neutre » ;
+  - image de partage `moment-quadratique` ;
+  - carte dans la grille du blog ;
+  - liens depuis les mémos jauges de tôle et pouce ↔ mm ;
+  - baseline : 43 pages.
+- **Vérifications** :
+  - build OK, verify:seo (page nouvelle seule), verify:en 0/0 (39 pages anglaises) ;
+  - Chromium 1280/390 sur 7 pages FR/EN, sans erreur JS ni défilement horizontal ;
+  - téléchargements en 200, version /en/ vers les fichiers anglais.
+
+**Clics attendus** : aucun chiffre fiable avant indexation. À vérifier au 19/10 : indexation et premières impressions sur « moment of inertia » et « section modulus ».
+
+**Pages en test** :
+- jusqu'au 23/10 : aciers, clavettes, dureté, engrenages, filetage gaz, masse volumique (titre ou description) ; couple de serrage, ISO 2768, ISO 1101, ajustements (contenu) ;
+- jusqu'au 24/10 : filetage métrique, rugosité ;
+- jusqu'au 25/10 : soudure ;
+- jusqu'au 26/10 : pouce ↔ mm et jauges de tôle (contenu ajouté le 12/10).
+
+**Prochaines pistes** :
+1. Action (d) seule sur les entrées pages-en.json de /en/ SOLIDWORKS gratuit et /en/ erreurs SOLIDWORKS (libres).
+2. Le 23/10 : titre de /en/ ISO 2768 (position 4,5, 0,9 % de clics).
+3. Mémos d'après Bing US : « socket head cap screw » 1 334, « dowel pins » 1 000 ; en France, « joint torique » 1 898.
+
 ## 2026-10-11 — nouveau mémo bilingue : jauges de tôle (gauge), épaisseurs en mm et en pouces
 
 **Search Console** : rapport du 10/10, couvrant le 09/09 → 07/10.

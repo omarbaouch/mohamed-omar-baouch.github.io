@@ -1,0 +1,402 @@
+<!DOCTYPE html><html lang="fr"><head>
+    <meta charset="UTF-8">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PBLRK58T');</script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-33TQ27QY4M"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-33TQ27QY4M');</script>
+<!-- Microsoft Clarity -->
+    <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","vy4yvht8gz");</script>
+    <!-- LinkedIn Insight Tag -->
+    <script type="text/javascript">_linkedin_partner_id="525900907";window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];window._linkedin_data_partner_ids.push(_linkedin_partner_id);(function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";s.parentNode.insertBefore(b,s)})(window.lintrk);</script>
+    <script>
+    // Anti-flash de thème : clair par défaut, sombre si stocké.
+    (function () {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    })();
+</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moment quadratique : formules des sections et calculateur</title>
+    <meta name="description" content="Moment quadratique I et module de flexion W du rectangle, du rond, des tubes et du profilé en I : formules, exemples chiffrés, Huygens et calculateur.">
+    <meta name="author" content="Mohamed Omar Baouch">
+    <link rel="canonical" href="https://www.baouch.fr/blog/moment-quadratique-inertie-section-calcul/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Moment quadratique (moment d&#x27;inertie de section) : formules et calculateur">
+    <meta property="og:description" content="I = b·h³/12, π·d⁴/64… : le moment quadratique et le module de flexion des sections courantes, des exemples chiffrés et un calculateur.">
+    <meta property="og:url" content="https://www.baouch.fr/blog/moment-quadratique-inertie-section-calcul/">
+    <meta property="og:image" content="https://www.baouch.fr/img/og/moment-quadratique.jpg">
+    <meta property="og:site_name" content="Mohamed Omar Baouch">
+    <meta property="article:published_time" content="2026-10-12T00:00:00.000Z">
+    <meta property="article:author" content="Mohamed Omar Baouch">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Moment quadratique (moment d&#x27;inertie de section) : formules et calculateur">
+    <meta name="twitter:description" content="I = b·h³/12, π·d⁴/64… : le moment quadratique et le module de flexion des sections courantes, des exemples chiffrés et un calculateur.">
+    <meta name="twitter:image" content="https://www.baouch.fr/img/og/moment-quadratique.jpg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "headline": "Moment quadratique (moment d'inertie de section) : formules et calculateur",
+                "description": "Moment quadratique I et module de flexion W du rectangle, du rond, des tubes et du profilé en I : formules, exemples chiffrés, Huygens et calculateur.",
+                "image": "https://www.baouch.fr/img/og/moment-quadratique.jpg",
+                "datePublished": "2026-10-12",
+                "dateModified": "2026-10-12",
+                "inLanguage": "fr-FR",
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://www.baouch.fr/blog/moment-quadratique-inertie-section-calcul/"
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://www.baouch.fr",
+                    "jobTitle": "Ingénieur & Consultant PDM/PLM"
+                },
+                "publisher": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://www.baouch.fr"
+                },
+                "keywords": [
+                    "Moment quadratique",
+                    "Moment d'inertie",
+                    "Module de flexion",
+                    "Résistance des matériaux",
+                    "Section"
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Accueil",
+                        "item": "https://www.baouch.fr/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Blog",
+                        "item": "https://www.baouch.fr/blog/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Moment quadratique (moment d'inertie de section) : formules et calculateur",
+                        "item": "https://www.baouch.fr/blog/moment-quadratique-inertie-section-calcul/"
+                    }
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Quelle différence entre moment quadratique et moment d'inertie ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Le moment quadratique (ou moment d'inertie de section) ne dépend que de la forme de la section et s'exprime en mm⁴ : il sert au calcul de la flexion et de la flèche. Le moment d'inertie de masse s'exprime en kg·m² et décrit la résistance d'un solide à la mise en rotation."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Quelle est la formule du moment quadratique d'un rectangle ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "I = b·h³/12 autour de l'axe central parallèle à b, où h est la dimension dans le sens de la flexion. Une barre 20 × 40 posée sur chant (h = 40) a un I de 106 667 mm⁴, quatre fois plus qu'à plat (26 667 mm⁴)."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Quelle est la formule pour un rond et un tube ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Rond plein : I = π·D⁴/64 et module de flexion W = π·D³/32. Tube : I = π·(D⁴ − d⁴)/64. Le moment quadratique polaire, utilisé en torsion, vaut le double : J = π·D⁴/32 pour un rond plein."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Qu'est-ce que le module de flexion W ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "C'est le moment quadratique divisé par la distance v entre l'axe neutre et la fibre la plus éloignée : W = I / v, en mm³. La contrainte maximale de flexion vaut σ = M / W, avec M le moment fléchissant."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Comment calculer le moment quadratique par rapport à un autre axe ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Avec le théorème de Huygens (axes parallèles) : I = IG + A·d², où IG est le moment quadratique autour de l'axe passant par le centre de gravité, A l'aire de la section et d la distance entre les deux axes."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+    <link rel="alternate" type="application/rss+xml" title="Blog — Mohamed Omar Baouch" href="https://www.baouch.fr/blog/rss.xml">
+    {{> head-lang }}{{> head-fonts }}<script type="module" src="../../js/blog.js"></script>
+</head>
+<body class="blog-page" data-blog-post="moment-quadratique-inertie-section-calcul">
+{{> nav }}
+
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBLRK58T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <main id="main" class="container blog-container show">
+        <div class="blog-shell" id="blogShell" data-shell="">
+            <article class="blog-article" data-article-root="">
+                <nav class="article-breadcrumbs" aria-label="Navigation secondaire">
+                    <a class="back-link" href="/blog/" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                    <a class="back-link back-link--ghost" href="/" data-translate-key="blog_back_to_portfolio">Retour au portfolio</a>
+                </nav>
+
+                <header class="blog-hero post-hero" data-component="hero">
+                    <div class="hero-intro">
+                        <div class="hero-badges">
+                            <span class="badge badge-editorial" data-i18n=""><span data-lang="fr">Mémo & calculateur</span><span data-lang="en">Reference & calculator</span></span>
+                            <span class="badge" data-i18n=""><span data-lang="fr">Résistance des matériaux</span><span data-lang="en">Strength of materials</span></span>
+                            <span class="badge badge-reading-time" data-i18n=""><span data-lang="fr">~6 min de lecture</span><span data-lang="en">~6 min read</span></span>
+                        </div>
+                        <span class="hero-eyebrow" data-i18n=""><span data-lang="fr">Dimensionner une poutre, un profilé, un arbre</span><span data-lang="en">Size a beam, a profile, a shaft</span></span>
+                        <h1 class="hero-title" data-i18n=""><span data-lang="fr">Moment quadratique (moment d'inertie de section) : formules et calculateur</span><span data-lang="en">Area moment of inertia: section formulas and calculator</span></h1>
+                        <p class="hero-subtitle" data-i18n=""><span data-lang="fr">Publié le 12 octobre 2026 — le moment quadratique et le module de flexion des sections courantes (rectangle, rond, tubes, profilé en I, triangle), des exemples chiffrés, le théorème de Huygens, les conversions d'unités et un calculateur.</span><span data-lang="en">Published October 12, 2026 — the area moment of inertia and section modulus of common sections (rectangle, round, tubes, I-section, triangle), worked examples, the parallel axis theorem, unit conversions and a calculator.</span></p>
+                        <div class="hero-actions">
+                            <a class="hero-btn" href="#calculateur" data-i18n=""><span data-lang="fr">Calculer une section</span><span data-lang="en">Calculate a section</span></a>
+                            <a class="hero-btn hero-btn--ghost" href="#formules" data-i18n=""><span data-lang="fr">Voir les formules</span><span data-lang="en">See the formulas</span></a>
+                            <a class="hero-btn hero-btn--ghost" href="/telechargements/formulaire-moment-quadratique-sections.pdf" data-href-en="/telechargements/en/area-moment-of-inertia-formulas.pdf" download data-i18n=""><span data-lang="fr">Télécharger en PDF</span><span data-lang="en">Download as PDF</span></a>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">b·h³/12</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Le rectangle</span><span data-lang="en">The rectangle</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">π·D⁴/64</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Le rond plein</span><span data-lang="en">The solid round</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">σ = M/W</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">La contrainte de flexion</span><span data-lang="en">The bending stress</span></span>
+                        </div>
+                    </div>
+                </header>
+
+                <section class="blog-section article-section">
+                    <div class="callout">
+                        <p data-i18n=""><span data-lang="fr"><strong>En bref :</strong> le moment quadratique <strong>I</strong> (en mm⁴) mesure la rigidité d'une section en flexion ; il ne dépend que de sa forme. Rectangle : <strong>I = b·h³/12</strong>, avec h dans le sens de la flexion. Rond plein : <strong>I = π·D⁴/64</strong>. Le module de flexion <strong>W = I / v</strong> (en mm³) donne la contrainte : <strong>σ = M / W</strong>. Doubler la hauteur d'une poutre rectangulaire multiplie sa rigidité par 8.</span><span data-lang="en"><strong>In short:</strong> the area moment of inertia <strong>I</strong> (in mm⁴) measures a section's bending stiffness; it depends only on its shape. Rectangle: <strong>I = b·h³/12</strong>, with h in the bending direction. Solid round: <strong>I = π·D⁴/64</strong>. The section modulus <strong>W = I / c</strong> (in mm³) gives the stress: <strong>σ = M / W</strong>. Doubling the depth of a rectangular beam makes it 8 times stiffer.</span></p>
+                    </div>
+                </section>
+
+                <nav class="blog-section article-summary" id="sommaire" aria-label="Sommaire de l'article">
+                    <h2 class="summary-title" data-i18n=""><span data-lang="fr">Sommaire</span><span data-lang="en">Contents</span></h2>
+                    <ol class="summary-list">
+                        <li><a href="#calculateur"><span class="summary-index">01</span><span class="summary-label" data-i18n=""><span data-lang="fr">Calculateur de section</span><span data-lang="en">Section calculator</span></span></a></li>
+                        <li><a href="#formules"><span class="summary-index">02</span><span class="summary-label" data-i18n=""><span data-lang="fr">Formules des sections courantes</span><span data-lang="en">Formulas for common sections</span></span></a></li>
+                        <li><a href="#exemples"><span class="summary-index">03</span><span class="summary-label" data-i18n=""><span data-lang="fr">Exemples chiffrés</span><span data-lang="en">Worked examples</span></span></a></li>
+                        <li><a href="#utiliser"><span class="summary-index">04</span><span class="summary-label" data-i18n=""><span data-lang="fr">Utiliser I et W : contrainte, flèche, Huygens</span><span data-lang="en">Using I and W: stress, deflection, parallel axis</span></span></a></li>
+                        <li><a href="#unites"><span class="summary-index">05</span><span class="summary-label" data-i18n=""><span data-lang="fr">Unités et conversions</span><span data-lang="en">Units and conversions</span></span></a></li>
+                        <li><a href="#faq"><span class="summary-index">06</span><span class="summary-label">FAQ</span></a></li>
+                    </ol>
+                </nav>
+
+                <section class="blog-section article-section" id="calculateur">
+                    <h2 data-i18n=""><span data-lang="fr">1. Calculateur de moment quadratique</span><span data-lang="en">1. Area moment of inertia calculator</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Choisissez la section et saisissez ses dimensions en millimètres. Axe x : axe central horizontal, la flexion se faisant dans le sens de H (ou h, D).</span><span data-lang="en">Pick the section and enter its dimensions in millimetres. x axis: horizontal centroidal axis, bending acting in the direction of H (or h, D).</span></p>
+                    <form class="calc" id="miCalc" onsubmit="return false">
+                        <div class="calc__fields">
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">Section</span><span data-lang="en">Section</span></span><select id="miS"><option value="rect">Rectangle plein</option><option value="rtube">Tube rectangulaire</option><option value="rond">Rond plein</option><option value="tube">Tube rond</option><option value="i">Profilé en I (symétrique)</option></select></label>
+                            <label class="calc__field" data-sec="rect rtube i"><span data-i18n=""><span data-lang="fr">Largeur B (ou b)</span><span data-lang="en">Width B (or b)</span></span><input id="miB" type="number" inputmode="decimal" min="0" step="any" value="20"></label>
+                            <label class="calc__field" data-sec="rect rtube i"><span data-i18n=""><span data-lang="fr">Hauteur H (ou h)</span><span data-lang="en">Height H (or h)</span></span><input id="miH" type="number" inputmode="decimal" min="0" step="any" value="40"></label>
+                            <label class="calc__field" data-sec="rond tube"><span data-i18n=""><span data-lang="fr">Diamètre extérieur D</span><span data-lang="en">Outside diameter D</span></span><input id="miD" type="number" inputmode="decimal" min="0" step="any" value="40"></label>
+                            <label class="calc__field" data-sec="rtube tube"><span data-i18n=""><span data-lang="fr">Épaisseur de paroi t</span><span data-lang="en">Wall thickness t</span></span><input id="miT" type="number" inputmode="decimal" min="0" step="any" value="2"></label>
+                            <label class="calc__field" data-sec="i"><span data-i18n=""><span data-lang="fr">Épaisseur d'âme t<sub>w</sub></span><span data-lang="en">Web thickness t<sub>w</sub></span></span><input id="miTw" type="number" inputmode="decimal" min="0" step="any" value="5.6"></label>
+                            <label class="calc__field" data-sec="i"><span data-i18n=""><span data-lang="fr">Épaisseur d'aile t<sub>f</sub></span><span data-lang="en">Flange thickness t<sub>f</sub></span></span><input id="miTf" type="number" inputmode="decimal" min="0" step="any" value="8.5"></label>
+                        </div>
+                        <dl class="calc__out" aria-live="polite">
+                            <div><dt><span data-i18n=""><span data-lang="fr">Aire A</span><span data-lang="en">Area A</span></span></dt><dd id="miA">—</dd></div>
+                            <div><dt><span data-i18n=""><span data-lang="fr">Moment quadratique I<sub>x</sub></span><span data-lang="en">Moment of inertia I<sub>x</sub></span></span></dt><dd id="miIx">—</dd></div>
+                            <div><dt><span data-i18n=""><span data-lang="fr">Module de flexion W<sub>x</sub></span><span data-lang="en">Section modulus W<sub>x</sub></span></span></dt><dd id="miWx">—</dd></div>
+                            <div><dt><span data-i18n=""><span data-lang="fr">Moment quadratique I<sub>y</sub></span><span data-lang="en">Moment of inertia I<sub>y</sub></span></span></dt><dd id="miIy">—</dd></div>
+                        </dl>
+                        <p class="calc__verdict" id="miV"></p>
+                    </form>
+                </section>
+
+                <section class="blog-section article-section" id="formules">
+                    <h2 data-i18n=""><span data-lang="fr">2. Formules des sections courantes</span><span data-lang="en">2. Formulas for common sections</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Moments quadratiques autour de l'axe central x (passant par le centre de gravité), la flexion se faisant dans le sens de h, H ou D. W = I / v, v étant la distance de l'axe à la fibre la plus éloignée. J : moment quadratique polaire, pour la torsion des sections rondes.</span><span data-lang="en">Moments of inertia about the centroidal x axis (through the centroid), bending acting in the direction of h, H or D. W = I / c, c being the distance from the axis to the extreme fibre. J: polar moment of inertia, for the torsion of round sections.</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Section</span><span data-lang="en">Section</span></th><th data-i18n=""><span data-lang="fr">Aire A</span><span data-lang="en">Area A</span></th><th data-i18n=""><span data-lang="fr">Moment quadratique I<sub>x</sub></span><span data-lang="en">Moment of inertia I<sub>x</sub></span></th><th data-i18n=""><span data-lang="fr">Module de flexion W<sub>x</sub></span><span data-lang="en">Section modulus W<sub>x</sub></span></th><th data-i18n=""><span data-lang="fr">Polaire J</span><span data-lang="en">Polar J</span></th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td data-i18n=""><strong><span data-lang="fr">Rectangle plein b × h</span><span data-lang="en">Solid rectangle b × h</span></strong></td><td>b·h</td><td>b·h<sup>3</sup> / 12</td><td>b·h<sup>2</sup> / 6</td><td>—</td></tr>
+                                    <tr><td data-i18n=""><strong><span data-lang="fr">Carré de côté a</span><span data-lang="en">Square, side a</span></strong></td><td>a<sup>2</sup></td><td>a<sup>4</sup> / 12</td><td>a<sup>3</sup> / 6</td><td>—</td></tr>
+                                    <tr><td data-i18n=""><strong><span data-lang="fr">Tube rectangulaire B × H, intérieur b × h</span><span data-lang="en">Rectangular tube B × H, inside b × h</span></strong></td><td>B·H − b·h</td><td>(B·H<sup>3</sup> − b·h<sup>3</sup>) / 12</td><td>I / (H / 2)</td><td>—</td></tr>
+                                    <tr><td data-i18n=""><strong><span data-lang="fr">Rond plein, diamètre D</span><span data-lang="en">Solid round, diameter D</span></strong></td><td>π·D<sup>2</sup> / 4</td><td>π·D<sup>4</sup> / 64</td><td>π·D<sup>3</sup> / 32</td><td>π·D<sup>4</sup> / 32</td></tr>
+                                    <tr><td data-i18n=""><strong><span data-lang="fr">Tube rond D × d</span><span data-lang="en">Round tube D × d</span></strong></td><td>π·(D<sup>2</sup> − d<sup>2</sup>) / 4</td><td>π·(D<sup>4</sup> − d<sup>4</sup>) / 64</td><td>π·(D<sup>4</sup> − d<sup>4</sup>) / (32·D)</td><td>π·(D<sup>4</sup> − d<sup>4</sup>) / 32</td></tr>
+                                    <tr><td data-i18n=""><strong><span data-lang="fr">Profilé en I symétrique B × H, âme t<sub>w</sub>, ailes t<sub>f</sub></span><span data-lang="en">Symmetric I-section B × H, web t<sub>w</sub>, flanges t<sub>f</sub></span></strong></td><td>2·B·t<sub>f</sub> + (H − 2·t<sub>f</sub>)·t<sub>w</sub></td><td>(B·H<sup>3</sup> − (B − t<sub>w</sub>)·(H − 2·t<sub>f</sub>)<sup>3</sup>) / 12</td><td>I / (H / 2)</td><td>—</td></tr>
+                                    <tr><td data-i18n=""><strong><span data-lang="fr">Triangle, base b, hauteur h</span><span data-lang="en">Triangle, base b, height h</span></strong></td><td>b·h / 2</td><td>b·h<sup>3</sup> / 36</td><td data-i18n=""><span data-lang="fr">b·h<sup>2</sup> / 24 (sommet)</span><span data-lang="en">b·h<sup>2</sup> / 24 (apex)</span></td><td>—</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="blog-section article-section" id="exemples">
+                    <h2 data-i18n=""><span data-lang="fr">3. Exemples chiffrés</span><span data-lang="en">3. Worked examples</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Dimensions en millimètres. Le même rectangle 20 × 40 est quatre fois plus rigide posé sur chant qu'à plat : le moment quadratique varie avec le cube de la hauteur.</span><span data-lang="en">Dimensions in millimetres. The same 20 × 40 rectangle is four times stiffer on edge than flat: the moment of inertia varies with the cube of the depth.</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Section</span><span data-lang="en">Section</span></th><th>A (mm<sup>2</sup>)</th><th>I<sub>x</sub> (cm<sup>4</sup>)</th><th>W<sub>x</sub> (cm<sup>3</sup>)</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td data-i18n=""><span data-lang="fr">Rectangle 20 × 40 posé sur chant (h = 40)</span><span data-lang="en">Rectangle 20 × 40 on edge (h = 40)</span></td><td>800,0</td><td><strong>10,67</strong></td><td>5,33</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Le même, à plat (h = 20)</span><span data-lang="en">The same, flat (h = 20)</span></td><td>800,0</td><td><strong>2,67</strong></td><td>2,67</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Rond plein Ø 20</span><span data-lang="en">Solid round Ø 20</span></td><td>314,2</td><td><strong>0,79</strong></td><td>0,79</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Tube rond Ø 40 × 2</span><span data-lang="en">Round tube Ø 40 × 2</span></td><td>238,8</td><td><strong>4,32</strong></td><td>2,16</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Tube carré 40 × 40 × 2</span><span data-lang="en">Square tube 40 × 40 × 2</span></td><td>304,0</td><td><strong>7,34</strong></td><td>3,67</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Profilé en I 100 × 200, âme 5,6, ailes 8,5 (sans congés)</span><span data-lang="en">I-section 100 × 200, web 5.6, flanges 8.5 (no fillets)</span></td><td>2 724,8</td><td><strong>1 845,59</strong></td><td>184,56</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr">Les profilés laminés (IPE, HEA…) ont des congés de raccordement entre âme et ailes, absents de la formule : leur moment quadratique réel est un peu plus élevé. Prenez la valeur du catalogue du fabricant.</span><span data-lang="en">Rolled profiles (IPE, HEA…) have root fillets between web and flanges, which the formula ignores: their actual moment of inertia is slightly higher. Use the manufacturer's catalogue value.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="utiliser">
+                    <h2 data-i18n=""><span data-lang="fr">4. Utiliser I et W : contrainte, flèche, Huygens</span><span data-lang="en">4. Using I and W: stress, deflection, parallel axis</span></h2>
+                    <ul>
+                        <li data-i18n=""><span data-lang="fr"><strong>Contrainte de flexion</strong> : σ = M / W, avec M le moment fléchissant (N·mm) et W en mm³ ; σ en MPa. À comparer à la limite élastique du matériau, voir les <a href="/blog/aciers-s235-s275-s355-caracteristiques/">aciers S235, S275, S355</a>.</span><span data-lang="en"><strong>Bending stress</strong>: σ = M / W, with M the bending moment (N·mm) and W in mm³; σ in MPa. Compare it with the material's yield strength, see <a href="/blog/aciers-s235-s275-s355-caracteristiques/">S235, S275, S355 steels</a>.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Flèche</strong> : elle est inversement proportionnelle à E·I. Poutre en console chargée en bout : f = F·L³ / (3·E·I) ; poutre sur deux appuis chargée au milieu : f = F·L³ / (48·E·I). E vaut 210 000 MPa pour l'acier, environ 70 000 MPa pour l'aluminium.</span><span data-lang="en"><strong>Deflection</strong>: it is inversely proportional to E·I. Cantilever with an end load: f = F·L³ / (3·E·I); simply supported beam with a mid-span load: f = F·L³ / (48·E·I). E is 210,000 MPa for steel, about 70,000 MPa for aluminium.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Théorème de Huygens</strong> : autour d'un axe parallèle à l'axe central, à la distance d, I = I<sub>G</sub> + A·d². C'est ainsi qu'on calcule une section composée (plusieurs rectangles) : on additionne les I de chaque partie, ramenés à l'axe commun.</span><span data-lang="en"><strong>Parallel axis theorem</strong>: about an axis parallel to the centroidal axis, at distance d, I = I<sub>c</sub> + A·d². This is how a built-up section (several rectangles) is calculated: add the I of each part, moved to the common axis.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Orientation</strong> : la hauteur compte au cube. À masse égale, un tube ou un profilé en I est bien plus rigide qu'un rond plein, car la matière est loin de l'axe.</span><span data-lang="en"><strong>Orientation</strong>: depth counts cubed. For the same mass, a tube or an I-section is much stiffer than a solid round, because the material is far from the axis.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Dans SOLIDWORKS</strong>, Outils → Évaluer → Propriétés de section donne l'aire, le centre de gravité et les moments quadratiques d'une face plane ou d'une esquisse : pratique pour une section quelconque.</span><span data-lang="en"><strong>In SOLIDWORKS</strong>, Tools → Evaluate → Section Properties gives the area, centroid and moments of inertia of a planar face or sketch: handy for any section.</span></li>
+                    </ul>
+                </section>
+
+                <section class="blog-section article-section" id="unites">
+                    <h2 data-i18n=""><span data-lang="fr">5. Unités et conversions</span><span data-lang="en">5. Units and conversions</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Le moment quadratique s'exprime en mm⁴ ou cm⁴ (catalogues de profilés), le module de flexion en mm³ ou cm³. Conversions exactes, 1 pouce valant 25,4 mm :</span><span data-lang="en">The moment of inertia is expressed in mm⁴ or cm⁴ (profile catalogues), the section modulus in mm³ or cm³. Exact conversions, 1 inch being 25.4 mm:</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Unité</span><span data-lang="en">Unit</span></th><th data-i18n=""><span data-lang="fr">Équivaut à</span><span data-lang="en">Equals</span></th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1 cm<sup>4</sup></td><td>10 000 mm<sup>4</sup></td></tr>
+                                    <tr><td>1 in<sup>4</sup></td><td>416 231,4 mm<sup>4</sup> = 41,62 cm<sup>4</sup></td></tr>
+                                    <tr><td>1 cm<sup>3</sup></td><td>1 000 mm<sup>3</sup></td></tr>
+                                    <tr><td>1 in<sup>3</sup></td><td>16 387,064 mm<sup>3</sup> = 16,39 cm<sup>3</sup></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="callout callout--soft fiche-pdf">
+                        <p data-i18n=""><span data-lang="fr"><strong>Version imprimable</strong> : <a href="/telechargements/formulaire-moment-quadratique-sections.pdf" download>le formulaire des moments quadratiques en PDF</a> (A4, sans inscription), à garder avec ses cours ou au bureau d'études.</span><span data-lang="en"><strong>Printable version</strong>: <a href="/telechargements/en/area-moment-of-inertia-formulas.pdf" download>the area moment of inertia formulas as a PDF</a> (A4, no sign-up), to keep with your notes or in the design office.</span></p>
+                    </div>
+                </section>
+
+                <section class="blog-section article-section" id="faq">
+                    <h2 data-i18n=""><span data-lang="fr">6. FAQ</span><span data-lang="en">6. FAQ</span></h2>
+                    <h3 data-i18n=""><span data-lang="fr">Quelle différence entre moment quadratique et moment d'inertie ?</span><span data-lang="en">What is the difference between area moment of inertia and mass moment of inertia?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Le moment quadratique (ou moment d'inertie de section) ne dépend que de la forme de la section et s'exprime en mm⁴ : il sert au calcul de la flexion et de la flèche. Le moment d'inertie de masse s'exprime en kg·m² et décrit la résistance d'un solide à la mise en rotation.</span><span data-lang="en">The area moment of inertia (second moment of area) depends only on the shape of the cross-section and is expressed in mm⁴: it is used for bending and deflection. The mass moment of inertia is expressed in kg·m² and describes a body's resistance to angular acceleration.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Quelle est la formule du moment quadratique d'un rectangle ?</span><span data-lang="en">What is the moment of inertia formula for a rectangle?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">I = b·h³/12 autour de l'axe central parallèle à b, où h est la dimension dans le sens de la flexion. Une barre 20 × 40 posée sur chant (h = 40) a un I de 106 667 mm⁴, quatre fois plus qu'à plat (26 667 mm⁴).</span><span data-lang="en">I = b·h³/12 about the centroidal axis parallel to b, where h is the dimension in the bending direction. A 20 × 40 bar on edge (h = 40) has I = 106,667 mm⁴, four times more than flat (26,667 mm⁴).</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Quelle est la formule pour un rond et un tube ?</span><span data-lang="en">What is the formula for a round bar and a tube?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Rond plein : I = π·D⁴/64 et module de flexion W = π·D³/32. Tube : I = π·(D⁴ − d⁴)/64. Le moment quadratique polaire, utilisé en torsion, vaut le double : J = π·D⁴/32 pour un rond plein.</span><span data-lang="en">Solid round: I = π·D⁴/64 and section modulus W = π·D³/32. Tube: I = π·(D⁴ − d⁴)/64. The polar moment, used in torsion, is twice as much: J = π·D⁴/32 for a solid round.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Qu'est-ce que le module de flexion W ?</span><span data-lang="en">What is the section modulus W?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">C'est le moment quadratique divisé par la distance v entre l'axe neutre et la fibre la plus éloignée : W = I / v, en mm³. La contrainte maximale de flexion vaut σ = M / W, avec M le moment fléchissant.</span><span data-lang="en">It is the moment of inertia divided by the distance from the neutral axis to the extreme fibre: W = I / c, in mm³. The maximum bending stress is σ = M / W, where M is the bending moment.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Comment calculer le moment quadratique par rapport à un autre axe ?</span><span data-lang="en">How do you calculate the moment of inertia about another axis?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Avec le théorème de Huygens (axes parallèles) : I = I<sub>G</sub> + A·d², où I<sub>G</sub> est le moment quadratique autour de l'axe passant par le centre de gravité, A l'aire de la section et d la distance entre les deux axes.</span><span data-lang="en">With the parallel axis theorem: I = I<sub>c</sub> + A·d², where I<sub>c</sub> is the moment of inertia about the centroidal axis, A the section area and d the distance between the two axes.</span></p>
+                </section>
+
+                <section class="blog-section article-related">
+                    <h2 data-i18n=""><span data-lang="fr">À lire aussi</span><span data-lang="en">Read next</span></h2>
+                    <div class="media-grid">
+                        <a href="/blog/aciers-s235-s275-s355-caracteristiques/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">Acier S235, S275, S355 : limite élastique et désignation</span><span data-lang="en">S235, S275, S355 steel: yield strength and designation</span></h3>
+                            <p data-i18n=""><span data-lang="fr">La limite élastique à comparer à la contrainte σ = M / W.</span><span data-lang="en">The yield strength to compare with the stress σ = M / W.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                        <a href="/blog/epaisseur-tole-jauge-gauge-tableau/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">Jauge de tôle (gauge) : tableau des épaisseurs</span><span data-lang="en">Sheet metal gauge chart</span></h3>
+                            <p data-i18n=""><span data-lang="fr">L'épaisseur réelle d'une tôle avant de calculer sa section.</span><span data-lang="en">The actual sheet thickness before calculating its section.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                    </div>
+                </section>
+
+                <footer class="article-footer">
+                    <div class="article-tags">
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Résistance des matériaux</span><span data-lang="en">Strength of materials</span></span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Moment quadratique</span><span data-lang="en">Moment of inertia</span></span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Poutres</span><span data-lang="en">Beams</span></span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Conception mécanique</span><span data-lang="en">Mechanical design</span></span>
+                    </div>
+                    <div class="article-nav">
+                        <a href="/blog/" class="back-link" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                        <a href="/#contact" class="hero-btn" data-i18n=""><span data-lang="fr">Parler d'un projet</span><span data-lang="en">Discuss a project</span></a>
+                    </div>
+                </footer>
+
+            </article>
+        </div>
+    </main>
+
+    <script>
+// Moment quadratique des sections courantes, axes centraux (mêmes formules que les tableaux).
+    (function () {
+        var $ = function (id) { return document.getElementById(id); };
+        var sIn = $('miS');
+        if (!sIn) return;
+        function en() { return document.documentElement.lang === 'en'; }
+        function f(x, n) { return x.toLocaleString(en() ? 'en-US' : 'fr-FR', { maximumFractionDigits: n, minimumFractionDigits: n }); }
+        function v(id) { return parseFloat(String($(id).value).replace(',', '.')); }
+        function calc(s) {
+            var B = v('miB'), H = v('miH'), D = v('miD'), t = v('miT'), tw = v('miTw'), tf = v('miTf'), PI = Math.PI;
+            if (s === 'rect') return [B * H, B * Math.pow(H, 3) / 12, H * Math.pow(B, 3) / 12, H / 2, B > 0 && H > 0];
+            if (s === 'rtube') { var b = B - 2 * t, h = H - 2 * t; return [B * H - b * h, (B * Math.pow(H, 3) - b * Math.pow(h, 3)) / 12, (H * Math.pow(B, 3) - h * Math.pow(b, 3)) / 12, H / 2, t > 0 && b > 0 && h > 0]; }
+            if (s === 'rond') { var I = PI * Math.pow(D, 4) / 64; return [PI * D * D / 4, I, I, D / 2, D > 0]; }
+            if (s === 'tube') { var d = D - 2 * t, It = PI * (Math.pow(D, 4) - Math.pow(d, 4)) / 64; return [PI * (D * D - d * d) / 4, It, It, D / 2, t > 0 && d > 0]; }
+            var hw = H - 2 * tf;
+            return [2 * B * tf + hw * tw, (B * Math.pow(H, 3) - (B - tw) * Math.pow(hw, 3)) / 12, (2 * tf * Math.pow(B, 3) + hw * Math.pow(tw, 3)) / 12, H / 2, B > 0 && tw > 0 && tw < B && hw > 0];
+        }
+        function run() {
+            var s = sIn.value;
+            [].forEach.call(document.querySelectorAll('#miCalc [data-sec]'), function (el) { el.style.display = el.getAttribute('data-sec').split(' ').indexOf(s) < 0 ? 'none' : ''; });
+            var r = calc(s);
+            if (!r[4] || !r.slice(0, 4).every(isFinite)) { ['miA', 'miIx', 'miWx', 'miIy'].forEach(function (id) { $(id).textContent = '—'; }); $('miV').textContent = en() ? 'Check the dimensions.' : 'Vérifiez les dimensions.'; return; }
+            $('miA').textContent = f(r[0], 1) + ' mm²';
+            $('miIx').textContent = f(r[1], 0) + ' mm⁴ (' + f(r[1] / 1e4, 2) + ' cm⁴)';
+            $('miWx').textContent = f(r[1] / r[3], 0) + ' mm³ (' + f(r[1] / r[3] / 1e3, 2) + ' cm³)';
+            $('miIy').textContent = f(r[2], 0) + ' mm⁴';
+            $('miV').textContent = (s === 'rond' || s === 'tube') ? (en() ? 'Polar moment J = ' : 'Polaire J = ') + f(2 * r[1], 0) + ' mm⁴' : (s === 'i' ? (en() ? 'Fillets ignored: use the catalogue value for rolled profiles.' : 'Congés ignorés : prenez la valeur du catalogue pour un profilé laminé.') : '');
+        }
+        sIn.addEventListener('change', run);
+        [].forEach.call(document.querySelectorAll('#miCalc input'), function (el) { el.addEventListener('input', run); });
+        window.addEventListener('langchange', run);
+        run();
+    })();
+    </script>
+    <script src="/assets/js/loader.js"></script>
+    <script src="/assets/js/visitor-intelligence.js"></script>
+
+{{> footer }}
+{{> chatbot }}
+</body></html>
