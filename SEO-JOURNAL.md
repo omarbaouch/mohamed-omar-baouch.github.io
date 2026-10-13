@@ -33,6 +33,66 @@ La carte se pose simplement dans la grille de `src/blog/index.html` (entre `gril
 
 **Suivi** : compter à part les URL `/en/` (indexation, impressions, requêtes anglaises). Dans le résumé, donner les URL à soumettre en version française ET anglaise. Si Search Console répond « Petit problème… Une erreur s'est produite » à une demande d'indexation, c'est une limite passagère de Google : réessayer plus tard ; le sitemap suffit à la découverte.
 
+## 2026-10-13 — action (d) : titres et descriptions de deux pages /en/ très vues mais non cliquées
+
+**Search Console** : rapport du 12/10, couvrant le 11/09 → 09/10.
+- 4,7 clics/jour en moyenne sur 28 jours (4,3 au passage précédent). 14 clics le 09/10, après 25, 29 et 23. Jalon 10/jour atteint sur 4 des 5 derniers jours, pas encore en moyenne.
+- 12 533 impressions, position moyenne 11,7.
+- **Pages /en/ en tête** :
+  - soudure : 16 clics, position 4,9 ;
+  - couple de serrage : 8 clics ;
+  - ISO 1101 : 7 clics ;
+  - clavettes : 5 clics, position 4,0 ;
+  - ISO 2768 : 5 clics, 548 impressions, position 4,8.
+- Indexation 80/84. Pages non indexées :
+  - pouce ↔ mm FR et moment quadratique FR (« détectées ») ;
+  - resolutions-problematiques-plm ;
+  - /en/ formats d'échange.
+  - Jauges FR et /en/ sont indexées.
+
+**Choix de l'action (d)** : quatre pages /en/ sont en position ≤ 10 avec moins de 1 % de clics.
+
+| Page /en/ | Impressions | Position | Clics | Taux de clic |
+|---|---:|---:|---:|---:|
+| raccourcis SOLIDWORKS | 494 | 7,0 | 0 | 0 % |
+| aciers | 320 | 4,0 | 0 | 0 % |
+| SOLIDWORKS gratuit | 436 | 7,0 | 4 | 0,9 % |
+| erreurs SOLIDWORKS | 296 | 7,9 | 3 | 1,0 % |
+
+/en/ ISO 2768 (548 impressions, 0,9 %) reste bloquée jusqu'au 23/10, à cause du contenu ajouté le 09/10.
+
+Le rapport ne donnait pas les requêtes de ces pages. Je n'ai donc réécrit que les deux entrées dont le défaut est objectif (descriptions de 166 caractères, coupées par Google ; titre de 66 caractères), en m'appuyant sur la demande Bing US sur 90 jours :
+- « solidworks for makers » 2 144, « solidworks student » 1 753, « solidworks free » 450, « solidworks cost » 237, « solidworks price » 203 ;
+- « solidworks shortcuts » 137, « solidworks keyboard shortcuts » 116.
+
+Aciers et erreurs ne sont pas touchées tant que leurs requêtes réelles ne sont pas connues.
+
+**Action** : deux entrées de pages-en.json, avec title, description, og et twitter générés au build. Aucun changement de contenu ; le headline JSON-LD suit le h1, inchangé.
+- `/en/blog/raccourcis-clavier-solidworks/`
+  - title : « SOLIDWORKS Keyboard Shortcuts: Full List and Custom Hotkeys » (59 caractères, avant 66) ;
+  - description de 139 caractères (avant 166).
+- `/en/blog/solidworks-gratuit-prix-guide/`
+  - title : « Free SOLIDWORKS: Student, Makers Edition, Trial and Real Prices » (63 caractères) ;
+  - description de 150 caractères (avant 166). Elle cite l'édition étudiant, SOLIDWORKS for Makers, l'essai de 30 jours, les visionneuses, le Mac et les prix 2026, tous traités dans la page.
+- **Rapport Search Console** (`scripts/gsc-report.mjs`) : le détail « requêtes par page » couvre désormais les 5 pages les plus vues **et** les pages « à réécrire ». Les données sont déjà chargées, sans appel d'API supplémentaire. Les prochaines actions (d) partiront des requêtes réelles de chaque page.
+- **Vérifications** :
+  - build OK, verify:en 0/0, verify:seo identique (les URL /en/ ne sont pas dans la baseline) ;
+  - Chromium 1280/390 sur les deux pages FR et /en/, sans erreur JS ni défilement horizontal.
+
+**Clics attendus** : à 2 à 3 % de clics en position 7, soit 10 à 15 clics par 28 jours pour /en/ raccourcis (0 aujourd'hui) et 9 à 13 pour /en/ SOLIDWORKS gratuit (4 aujourd'hui). À comparer le 27/10, à fenêtre de 28 jours comparable.
+
+**Pages en test** :
+- jusqu'au 23/10 : aciers, clavettes, dureté, engrenages, filetage gaz, masse volumique (titre ou description) ; couple de serrage, ISO 2768, ISO 1101, ajustements (contenu) ;
+- jusqu'au 24/10 : filetage métrique, rugosité ;
+- jusqu'au 25/10 : soudure ;
+- jusqu'au 26/10 : pouce ↔ mm, jauges de tôle, moment quadratique ;
+- **jusqu'au 27/10 : /en/ raccourcis SOLIDWORKS et /en/ SOLIDWORKS gratuit (titre et description)**.
+
+**Prochaines pistes** :
+1. Dès que le rapport donne leurs requêtes : action (d) sur /en/ aciers (position 4,0, 0 clic) et /en/ erreurs SOLIDWORKS.
+2. Le 23/10 : /en/ ISO 2768.
+3. Mémos d'après Bing : vis CHC, goupilles, joints toriques.
+
 ## 2026-10-12 — nouveau mémo bilingue : moment quadratique (formules des sections, calculateur, fiche PDF)
 
 **Search Console** : rapport du 11/10, couvrant le 10/09 → 08/10.

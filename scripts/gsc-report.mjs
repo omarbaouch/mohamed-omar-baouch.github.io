@@ -95,25 +95,26 @@ parRequete
   .forEach((r) => console.log(ligne(r)));
 
 titre('Titres à réécrire : pages très vues mais peu cliquées (CTR < 2 %)');
-parPage
+const aReecrire = parPage
   .filter((r) => r.impressions >= 100 && r.ctr < 0.02)
   .sort((a, b) => b.impressions - a.impressions)
-  .slice(0, 15)
-  .forEach((r) => console.log(ligne(r)));
+  .slice(0, 15);
+aReecrire.forEach((r) => console.log(ligne(r)));
 
-titre('Requêtes qui mènent à chaque page (5 pages les plus affichées)');
-parPage
-  .sort((a, b) => b.impressions - a.impressions)
-  .slice(0, 5)
-  .forEach((p) => {
-    console.log(`### ${p.keys[0]}`);
-    pageRequete
-      .filter((r) => r.keys[0] === p.keys[0])
-      .sort((a, b) => b.impressions - a.impressions)
-      .slice(0, 15)
-      .forEach((r) => console.log(ligne({ ...r, keys: [r.keys[1]] })));
-    console.log('');
-  });
+// détail des requêtes : les 5 pages les plus affichées, puis les pages à réécrire, pour qu'un
+// nouveau titre parte des requêtes réelles de la page (données déjà chargées, aucun appel en plus)
+titre('Requêtes qui mènent à chaque page (5 pages les plus affichées, puis pages à réécrire)');
+const plusVues = [...parPage].sort((a, b) => b.impressions - a.impressions).slice(0, 5);
+const detail = [...new Map([...plusVues, ...aReecrire].map((p) => [p.keys[0], p])).values()];
+detail.forEach((p) => {
+  console.log(`### ${p.keys[0]}`);
+  pageRequete
+    .filter((r) => r.keys[0] === p.keys[0])
+    .sort((a, b) => b.impressions - a.impressions)
+    .slice(0, 12)
+    .forEach((r) => console.log(ligne({ ...r, keys: [r.keys[1]] })));
+  console.log('');
+});
 
 // État d'indexation de chaque URL du sitemap (API URL Inspection, lecture seule)
 titre("Indexation des pages du sitemap");
