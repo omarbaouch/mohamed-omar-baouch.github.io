@@ -63,14 +63,14 @@ system, plus cohérents avec la direction artistique qu'une capture d'écran.
 
 ## Ce qui reste à la main du propriétaire
 
-1. Relecture des chiffres des deux études de cas
+1. Nouvelles captures et vidéo sur la version actuelle du site
 2. Création du compte Awwwards + paiement de la soumission
 
 ## Matériel dans ce dossier
 
-- `captures/` — visuels de présentation (hero, viewport BOM, palette, blog, 404)
-- `video/parcours.webm` — parcours scénarisé ~40 s (loader → hero → arbre :
-  assemblage, survol, drag, vue éclatée → palette Ctrl+K → blog)
+Les captures et la vidéo de présentation ont été retirées le 16/10/2026 : elles
+montraient une ancienne version du site (études de cas, compteurs de clients)
+qui n'est plus en ligne. À refaire sur la version actuelle avant une soumission.
 
 Scores mesurés au moment du dossier : Lighthouse mobile Perf 98 · A11y 100 ·
 SEO 100 · axe-core 0 violation · LCP 2,2 s · CLS 0,004.

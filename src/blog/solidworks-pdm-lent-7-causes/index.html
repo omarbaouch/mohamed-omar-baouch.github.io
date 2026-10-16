@@ -22,7 +22,7 @@
 </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SOLIDWORKS PDM lent : les 7 vraies causes (et la 6ᵉ que personne ne regarde)</title>
-    <meta name="description" content="Votre SOLIDWORKS PDM rame à l'ouverture, à l'enregistrement, au check-out ? Les 7 causes réelles observées sur 80 clients, la méthode de diagnostic et les correctifs qui redonnent 15 minutes par jour à chaque ingénieur.">
+    <meta name="description" content="Votre SOLIDWORKS PDM rame à l'ouverture, à l'enregistrement, au check-out ? Les 7 causes réelles, la méthode de diagnostic et les correctifs qui redonnent 15 minutes par jour à chaque ingénieur.">
     <meta name="author" content="Mohamed Omar Baouch">
     <link rel="canonical" href="https://www.baouch.fr/blog/solidworks-pdm-lent-7-causes/">
     <meta property="og:type" content="article">
@@ -47,7 +47,7 @@
             {
                 "@type": "BlogPosting",
                 "headline": "SOLIDWORKS PDM lent : les 7 vraies causes de lenteur",
-                "description": "Votre SOLIDWORKS PDM rame à l'ouverture, à l'enregistrement, au check-out ? Les 7 causes réelles observées sur 80 clients, la méthode de diagnostic et les correctifs qui redonnent 15 minutes par jour à chaque ingénieur.",
+                "description": "Votre SOLIDWORKS PDM rame à l'ouverture, à l'enregistrement, au check-out ? Les 7 causes réelles, la méthode de diagnostic et les correctifs qui redonnent 15 minutes par jour à chaque ingénieur.",
                 "image": "https://www.baouch.fr/img/og/pdm-lent.jpg",
                 "datePublished": "2026-06-18",
                 "dateModified": "2026-06-18",
@@ -180,7 +180,6 @@
                         <p class="hero-subtitle" data-i18n=""><span data-lang="fr">Publié le 18 juin 2026 — chaque ouverture d'assemblage qui traîne, c'est un ingénieur qui décroche. Voici pourquoi votre coffre rame vraiment, et comment récupérer 15 minutes par jour et par poste.</span><span data-lang="en">Published June 18, 2026 — every assembly that drags on opening is an engineer losing focus. Here's why your vault is really slow, and how to win back 15 minutes a day per workstation.</span></p>
                         <div class="hero-actions">
                             <a class="hero-btn" href="#sommaire" data-i18n=""><span data-lang="fr">Consulter le sommaire</span><span data-lang="en">Jump to contents</span></a>
-                            <a class="hero-btn hero-btn--ghost" href="/#contact" data-i18n=""><span data-lang="fr">Me contacter</span><span data-lang="en">Get in touch</span></a>
                         </div>
                     </div>
                     <div class="hero-stats">
@@ -191,10 +190,6 @@
                         <div class="hero-stat">
                             <span class="hero-stat-value">7</span>
                             <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Causes diagnostiquées</span><span data-lang="en">Root causes</span></span>
-                        </div>
-                        <div class="hero-stat">
-                            <span class="hero-stat-value">80+</span>
-                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Clients accompagnés</span><span data-lang="en">Clients served</span></span>
                         </div>
                     </div>
                 </header>
@@ -277,29 +272,6 @@
                 <section class="blog-section article-section" id="cause-5">
                     <h2 data-i18n=""><span data-lang="fr">5. Le réseau et la latence — le gigabit qui ment</span><span data-lang="en">5. Network and latency — the gigabit that lies</span></h2>
                     <p data-i18n=""><span data-lang="fr">« On est en gigabit » ne veut rien dire tout seul. Ce qui compte pour un PDM, c'est le <strong>débit réel de bout en bout</strong> et surtout la <strong>latence</strong>. Un site distant relié en VPN à 30 ms de latence peut rendre le coffre inutilisable, même avec un « gros débit », parce que le protocole multiplie les allers-retours.</span><span data-lang="en">"We're on gigabit" means nothing on its own. What matters for PDM is <strong>real end-to-end throughput</strong> and above all <strong>latency</strong>. A remote site on a VPN with 30 ms latency can make the vault unusable, even with "high bandwidth," because the protocol multiplies round-trips.</span></p>
-                    <figure class="chart-figure" data-blog-chart="">
-                        <canvas aria-label="Poids relatif des causes de lenteur PDM observées sur 80 clients"></canvas>
-                        <script type="application/json" data-chart-config="">
-                            {
-                                "type": "bar",
-                                "data": {
-                                    "labels": ["Archives", "Antivirus", "SQL", "Réseau", "Cache", "Data cards", "CAO"],
-                                    "datasets": [{
-                                        "label": "Cause principale de lenteur (% des cas)",
-                                        "data": [31, 24, 15, 12, 8, 6, 4],
-                                        "backgroundColor": ["rgba(37,99,235,0.75)","rgba(239,68,68,0.7)","rgba(124,58,237,0.7)","rgba(249,115,22,0.7)","rgba(16,185,129,0.6)","rgba(234,179,8,0.6)","rgba(148,163,184,0.6)"],
-                                        "borderColor": ["#2563eb","#ef4444","#7c3aed","#f97316","#10b981","#eab308","#94a3b8"],
-                                        "borderWidth": 2
-                                    }]
-                                },
-                                "options": {
-                                    "plugins": { "legend": { "display": false } },
-                                    "scales": { "y": { "beginAtZero": true, "max": 40, "title": { "display": true, "text": "% / %" } } }
-                                }
-                            }
-                        </script>
-                        <figcaption data-i18n=""><span data-lang="fr">Cause principale de lenteur PDM — répartition observée sur 80 diagnostics terrain.</span><span data-lang="en">Primary cause of PDM slowness — distribution observed across 80 field diagnostics.</span></figcaption>
-                    </figure>
                     <p data-i18n=""><span data-lang="fr"><strong>Pour les sites multiples</strong>, la réponse n'est pas « plus de débit » mais un <strong>serveur d'archives répliqué</strong> sur chaque site : chaque équipe travaille sur sa copie locale, la réplication synchronise en tâche de fond. C'est la seule architecture qui tienne pour un BE réparti sur plusieurs villes.</span><span data-lang="en"><strong>For multiple sites</strong>, the answer isn't "more bandwidth" but a <strong>replicated archive server</strong> on each site: each team works on its local copy while replication syncs in the background. It's the only architecture that holds for an engineering team spread across several cities.</span></p>
                 </section>
 
@@ -392,7 +364,6 @@
                     </div>
                     <div class="article-nav">
                         <a href="/blog/" class="back-link" data-translate-key="blog_back_to_blog">← Retour au blog</a>
-                        <a href="/#contact" class="hero-btn" data-i18n=""><span data-lang="fr">Me contacter</span><span data-lang="en">Get in touch</span></a>
                     </div>
                 </footer>
 

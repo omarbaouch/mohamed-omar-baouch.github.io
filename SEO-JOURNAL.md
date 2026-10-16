@@ -25,13 +25,36 @@ Le site est désormais bilingue et indexable en anglais, et chaque article a une
 
 La carte se pose simplement dans la grille de `src/blog/index.html` (entre `grille:debut` et `grille:fin`) : compteur, tri et « À la une » sont calculés au build (`scripts/blog-hub.mjs`). Commiter ce que le prebuild régénère : `git status` doit être propre après `npm run build`.
 
-**Nouvelle action (e), à intercaler après les actions a à d** : compléter l'anglais d'un article sans version `/en/` — dans l'ordre : `nomenclature-bom-pdm-plm-erp` (la page qui fait le plus d'impressions), puis `configuration-materielle-solidworks`, `migration-donnees-solidworks-pdm`, `resolutions-problematiques-plm`. Ajouter les spans anglais manquants sur tout le texte, puis l'entrée `pages-en.json`. Une page n'entre dans `pages-en.json` que si son anglais est complet.
+**Nouvelle action (e), à intercaler après les actions a à d** : compléter l'anglais d'un article sans version `/en/` — dans l'ordre : `nomenclature-bom-pdm-plm-erp` (la page qui fait le plus d'impressions), puis `configuration-materielle-solidworks` (les deux autres articles de la liste ont été retirés le 16/10 pour conformité). Ajouter les spans anglais manquants sur tout le texte, puis l'entrée `pages-en.json`. Une page n'entre dans `pages-en.json` que si son anglais est complet.
 
 **Pour une URL `/en/` peu cliquée (action c)**, réécrire son entrée dans `pages-en.json`, pas la page française.
 
 **Vérification** : en plus de `npm run build` et `npm run verify:seo`, **`npm run verify:en`** doit afficher 0 erreur et 0 texte à vérifier. Contrôler aussi la version `/en/` de la page dans Chromium (1280 px et 390 px : pas d'erreur JS, pas de défilement horizontal, aucun texte français visible).
 
 **Suivi** : compter à part les URL `/en/` (indexation, impressions, requêtes anglaises). Dans le résumé, donner les URL à soumettre en version française ET anglaise. Si Search Console répond « Petit problème… Une erreur s'est produite » à une demande d'indexation, c'est une limite passagère de Google : réessayer plus tard ; le sitemap suffit à la découverte.
+
+## CONSIGNE DU PROPRIÉTAIRE (16/10/2026) — conformité au contrat de travail (prioritaire sur tout le reste)
+
+Le propriétaire est salarié et son contrat l'exige : le site doit rester un **site personnel, sans aucune activité professionnelle ni information de l'employeur**. Ces règles priment sur l'objectif de clics.
+- **Aucune offre de service** :
+  - pas de « Parler d'un projet », « Me contacter » en appel commercial, audit, devis, chiffrage, accompagnement ou disponibilité pour des missions ;
+  - pas de JSON-LD de type Service ou Offer ;
+  - le contact sert seulement aux questions et remarques sur les articles.
+- **Aucune monétisation** (publicité, produit payant, affiliation, dons) sans accord écrit de l'employeur, que le propriétaire seul peut obtenir.
+- **Aucune information sur l'employeur, ses clients ou ses projets** :
+  - pas de nom de client, même ancien, même anonymisé de façon reconnaissable ;
+  - pas de nombre de clients, de missions ou de projets (« 80+ clients », « sur 80 audits ») ;
+  - pas de statistique tirée de missions, pas d'étude de cas de mission ;
+  - pas de méthode interne, de tarif ou de pratique commerciale (remises, marges, prix « constatés ») ;
+  - pas de capture ni de contenu repris d'un document de l'employeur.
+- **Aucune documentation d'éditeur recopiée** (aide en ligne, guides), ni sur le site ni dans le dépôt, qui est public.
+- **Ce qui reste permis** :
+  - le CV factuel (poste, dates, compétences) ;
+  - les notions techniques générales ;
+  - les valeurs normalisées vérifiées ;
+  - les prix publics officiels, avec leur source et leur date.
+- **Mention fixe** : le pied de page de toutes les pages porte « Site personnel… aucune prestation n'est proposée sur ce site ». Ne pas la retirer.
+- **Écriture** : à la première personne, on parle de ce qu'on recommande ou de ce qu'on observe en général, jamais de « mes clients » ni de « en mission ».
 
 ## CONSIGNE DU PROPRIÉTAIRE (16/10/2026) — des dessins dans les articles
 
@@ -64,7 +87,6 @@ La carte se pose simplement dans la grille de `src/blog/index.html` (entre `gril
 - epaisseur-tole-jauge-gauge-tableau ;
 - conversion-pouce-mm-tableau ;
 - engrenage-module-calcul-diametres (titre en test jusqu'au 23/10) ;
-- image-administrative-solidworks-installation ;
 - filetage-gaz-g-bsp-npt-tableau, clavettes-paralleles-din-6885-dimensions, conversion-durete-hrc-hv-hb, aciers-s235-s275-s355-caracteristiques (titres en test jusqu'au 23/10) ;
 - tolerances-geometriques-symboles-iso-1101 ;
 - tolerances-generales-iso-2768 ;
@@ -85,7 +107,6 @@ La carte se pose simplement dans la grille de `src/blog/index.html` (entre `gril
 - formats-echange-cao-step-iges-parasolid ;
 - choisir-logiciel-cao-solidworks-inventor-fusion-catia ;
 - solidworks-gratuit-prix-guide (/en/ en test jusqu'au 27/10) ;
-- prix-cout-projet-solidworks-pdm ;
 - ia-solidworks-pdm-bureau-etudes ;
 - solidworks-pdm-standard-vs-professional ;
 - pdm-ou-plm-quand-basculer ;
@@ -93,12 +114,64 @@ La carte se pose simplement dans la grille de `src/blog/index.html` (entre `gril
 - solidworks-pdm-lent-7-causes ;
 - codification-proprietes-solidworks ;
 - migration-cloud-pdm-3dexperience ;
-- migration-donnees-solidworks-pdm ;
 - nomenclature-bom-pdm-plm-erp ;
 - configuration-materielle-solidworks ;
-- resolutions-problematiques-plm.
 
 **Nouvelles pages (action a)** : au moins 2 schémas de ce type dès la publication.
+
+## 2026-10-16 (3) — mise en conformité du site avec le contrat de travail (demande du propriétaire)
+
+**Demande** : « Il faut que tout le site soit conforme. Enlève tout ce risque. » Le contrat a été lu pour cet audit. Seules les règles sont reprises dans la consigne ci-dessus, rien de personnel ni de son contenu.
+
+**Pages retirées** (404, à faire sortir de l'index Google ; liens, cartes, palette, index du pied de page, images et entrées pages-en/og/covers supprimés) :
+- /projets/robot-orbita/ et /projets/migration-pdm-internationale/ : études de cas de missions ;
+- /blog/image-administrative-solidworks-installation/ (+ /en/) : captures et astuces tirées d'un guide de l'employeur ;
+- /blog/resolutions-problematiques-plm/ : récits de projets chez l'employeur et chez d'anciens employeurs ;
+- /blog/prix-cout-projet-solidworks-pdm/ (+ /en/) : coûts de projets tirés du terrain et « devis gratuit » ;
+- /blog/migration-donnees-solidworks-pdm/ : méthodologie et statistiques tirées de « 80+ audits » de clients.
+
+**Accueil** :
+- les offres de conseil deviennent une description du métier ;
+- blocs « clients par secteur » et « projets phares » supprimés, avec leurs images ;
+- compteurs de clients et de projets supprimés ;
+- noms de clients d'un ancien employeur retirés ;
+- mention « site personnel, aucune prestation » ajoutée au contact ;
+- le sous-ensemble « Projets » de la structure devient « Mémos techniques ».
+
+**Articles** :
+- tous les boutons « Parler d'un projet », « Me contacter » et « Obtenir un chiffrage » retirés (49) ;
+- compteurs « 80+ clients » et « 100+ projets » retirés (9 articles + le hub du blog) ;
+- trois graphiques bâtis sur des statistiques de clients supprimés (PDM lent, nomenclature) ;
+- formulations « mes clients », « en mission » et « en clientèle » réécrites ;
+- mentions de l'employeur remplacées par « je travaille dans l'écosystème… ; avis personnel » ;
+- SOLIDWORKS gratuit :
+  - les ordres de grandeur « constatés » et le « conseil de négociation » (marges des revendeurs) sont remplacés par les prix publics de la boutique Dassault Systèmes, avec source et date ;
+  - la licence perpétuelle est donnée « sur devis d'un revendeur agréé ».
+
+**Chatbot** :
+- prompt et base réécrits : plus de clients, de méthode, de chiffres, d'offre de projet ni d'information sur l'employeur ; consigne explicite de refuser ces sujets ;
+- corpus recopiés de l'aide en ligne de l'employeur et de l'éditeur supprimés (6,5 Mo), vecteurs réduits à la base curée ;
+- testé : chargement, recherche et prompt sans mention sensible.
+
+**Dépôt public** :
+- ancien script `public/assets/js/script.js` supprimé : il n'était plus chargé mais était en ligne, avec noms de clients et anecdotes ;
+- captures et vidéo de `docs/awwwards/` supprimées, ainsi que l'ancien CV de `OLD/`.
+
+**Pied de page** : mention « Site personnel. Les contenus n'engagent que leur auteur et ne représentent pas la position de son employeur ; aucune prestation n'est proposée sur ce site. »
+
+**Pages en test** : le retrait des boutons de pied d'article touche aussi des pages en test de titre. C'est un changement mineur, imposé par la conformité, sans effet attendu sur le taux de clic. Les dates de fin ne bougent pas, sauf pour SOLIDWORKS gratuit, dont la section prix change : pas de titre avant le 30/10.
+
+**Vérifications** :
+- build OK ;
+- verify:seo : seuls écarts, les pages retirées et deux descriptions débarrassées des « 80 clients/missions » ; baseline 40 pages ;
+- verify:en 0/0 (38 pages anglaises) ;
+- scan de dist : aucun nom de client, compteur ni appel à projet ; aucun lien interne cassé ;
+- Chromium 1280/390 sur 14 pages FR et /en/ : sans erreur JS ni défilement horizontal, mention présente partout.
+
+**Reste à la main du propriétaire** (voir son message) :
+- l'historique Git du dépôt public garde les anciennes versions ;
+- les CV PDF citent des clients d'un ancien employeur ;
+- demande de suppression des URL retirées dans Search Console (outil « Suppressions ») pour aller plus vite.
 
 ## 2026-10-16 (2) — schémas dans le mémo vis CHC (demande du propriétaire)
 
@@ -213,8 +286,7 @@ La carte se pose simplement dans la grille de `src/blog/index.html` (entre `gril
   - ISO 2768 : 5 clics, 548 impressions, position 4,8.
 - Indexation 80/84. Pages non indexées :
   - pouce ↔ mm FR et moment quadratique FR (« détectées ») ;
-  - resolutions-problematiques-plm ;
-  - /en/ formats d'échange.
+    - /en/ formats d'échange.
   - Jauges FR et /en/ sont indexées.
 
 **Choix de l'action (d)** : quatre pages /en/ sont en position ≤ 10 avec moins de 1 % de clics.
@@ -274,8 +346,7 @@ Aciers et erreurs ne sont pas touchées tant que leurs requêtes réelles ne son
 - **ISO 1101 FR est de nouveau indexée** : 8 clics, 373 impressions, position 6,8.
 - Indexation 77/82. Pages non indexées :
   - nouveaux mémos encore inconnus : pouce ↔ mm FR, jauges FR et /en/ ;
-  - resolutions-problematiques-plm ;
-  - /en/ formats d'échange (« détectée »).
+    - /en/ formats d'échange (« détectée »).
 
 **Mots-clés (impressions Bing sur 90 jours, relevé du jour)** :
 - États-Unis :
@@ -343,8 +414,7 @@ Aciers et erreurs ne sont pas touchées tant que leurs requêtes réelles ne son
 - Indexation : 76/80 pages.
   - Pages FR non indexées (3) :
     - conversion-pouce-mm (publiée le 10/10, inconnue) ;
-    - resolutions-problematiques-plm ;
-    - **tolerances-geometriques-symboles-iso-1101**.
+        - **tolerances-geometriques-symboles-iso-1101**.
   - Pages /en/ non indexées (1) : formats d'échange CAO (« détectée »).
   - /en/ engrenages, filetage gaz et image administrative sont désormais indexées.
 

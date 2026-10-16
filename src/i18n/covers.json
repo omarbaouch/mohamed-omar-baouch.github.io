@@ -84,10 +84,6 @@
     "Planche technique : jauge à sept secteurs, la sixième cause de lenteur PDM en évidence",
     "Technical drawing: seven-sector gauge highlighting the sixth cause of PDM slowness"
   ],
-  "prix-cout-projet-solidworks-pdm": [
-    "Planche technique : répartition du budget d'un projet PDM, licences 35 %, infrastructure 10 %, services 30 %, reprise 25 %",
-    "Technical drawing: PDM project budget split, licenses 35%, infrastructure 10%, services 30%, data migration 25%"
-  ],
   "solidworks-gratuit-prix-guide": [
     "Planche technique : billet de licence SOLIDWORKS, prix barré et sept solutions gratuites",
     "Technical drawing: SOLIDWORKS license ticket, crossed-out price and seven free options"
@@ -116,17 +112,9 @@
     "Planche technique : baie de serveurs sur site, nuage 3DEXPERIENCE et coût cumulé sur cinq ans",
     "Technical drawing: on-premise server rack, 3DEXPERIENCE cloud and five-year cumulative cost"
   ],
-  "migration-donnees-solidworks-pdm": [
-    "Planche technique : fichiers en vrac migrés et dédoublonnés dans le coffre SOLIDWORKS PDM",
-    "Technical drawing: scattered files migrated and deduplicated into the SOLIDWORKS PDM vault"
-  ],
   "configuration-materielle-solidworks": [
     "Planche technique : carte mère d'une station SOLIDWORKS avec CPU, mémoire ECC, GPU et SSD NVMe",
     "Technical drawing: SOLIDWORKS workstation motherboard with CPU, ECC memory, GPU and NVMe SSDs"
-  ],
-  "resolutions-problematiques-plm": [
-    "Planche technique : cinq fils emmêlés qui ressortent droits, les problématiques PLM résolues",
-    "Technical drawing: five tangled wires coming out straight, PLM issues resolved"
   ],
   "aciers-s235-s275-s355-caracteristiques": [
     "Planche technique : section de poutrelle en I et courbe contrainte-déformation de l'acier S355, limite élastique Re = 355 MPa repérée",
@@ -163,9 +151,5 @@
   "filetage-gaz-g-bsp-npt-tableau": [
     "Planche technique : profils de filet gaz G à 55° et NPT à 60° comparés, filetage G 1/2 de 14 filets par pouce",
     "Technical drawing: G pipe thread profile at 55° compared with NPT at 60°, G 1/2 thread with 14 threads per inch"
-  ],
-  "image-administrative-solidworks-installation": [
-    "Planche technique : un serveur de partage réseau distribuant une image administrative SOLIDWORKS vers quatre postes de travail",
-    "Technical drawing: a network share server distributing a SOLIDWORKS administrative image to four workstations"
   ]
 }

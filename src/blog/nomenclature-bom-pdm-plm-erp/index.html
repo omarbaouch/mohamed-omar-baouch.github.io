@@ -197,7 +197,6 @@
                         <p class="hero-subtitle" data-translate-key="blog_bom_hero_subtitle">Publié le <span data-date-iso="2026-03-16T00:00:00.000Z" data-date-format="long">16 mars 2026</span> — un retour terrain sur la façon dont BOM, PDM, PLM et ERP s'articulent (ou se déchirent) dans les bureaux d'études industriels.</p>
                         <div class="hero-actions">
                             <a class="hero-btn" href="#sommaire" data-translate-key="blog_cta_summary">Consulter le sommaire</a>
-                            <a class="hero-btn hero-btn--ghost" href="/#contact" data-translate-key="blog_cta_discuss_project">Me contacter</a>
                         </div>
                     </div>
                     <div class="hero-stats">
@@ -208,10 +207,6 @@
                         <div class="hero-stat">
                             <span class="hero-stat-value">3</span>
                             <span class="hero-stat-label" data-translate-key="blog_bom_stat_systems">Systèmes analysés</span>
-                        </div>
-                        <div class="hero-stat">
-                            <span class="hero-stat-value">80+</span>
-                            <span class="hero-stat-label" data-translate-key="blog_bom_stat_clients">Clients accompagnés</span>
                         </div>
                     </div>
                 </header>
@@ -451,45 +446,6 @@
                         </script>
                     </figure>
 
-                    <figure class="chart-figure" data-blog-chart="">
-                        <canvas aria-label="Usage des types de BOM dans les PME industrielles françaises"></canvas>
-                        <script type="application/json" data-chart-config="">
-                            {
-                                "type": "bar",
-                                "data": {
-                                    "labels": ["eBOM", "mBOM", "sBOM", "cBOM"],
-                                    "datasets": [{
-                                        "label": "Usage observé dans les PME industrielles (%)",
-                                        "data": [65, 25, 7, 3],
-                                        "backgroundColor": [
-                                            "rgba(37,99,235,0.7)",
-                                            "rgba(124,58,237,0.7)",
-                                            "rgba(249,115,22,0.5)",
-                                            "rgba(16,185,129,0.5)"
-                                        ],
-                                        "borderColor": ["#2563eb","#7c3aed","#f97316","#10b981"],
-                                        "borderWidth": 2
-                                    }]
-                                },
-                                "options": {
-                                    "plugins": {
-                                        "legend": { "display": false },
-                                        "title": {
-                                            "display": true,
-                                            "text": "Types de BOM actifs sur 80 clients — % des sites concernés"
-                                        }
-                                    },
-                                    "scales": {
-                                        "y": {
-                                            "beginAtZero": true,
-                                            "max": 100,
-                                            "title": { "display": true, "text": "% des sites" }
-                                        }
-                                    }
-                                }
-                            }
-                        </script>
-                    </figure>
                     <div class="callout callout--soft">
                         <p data-i18n=""><span data-lang="fr"><strong>Pour aller plus loin :</strong> la même vanne décrite côté étude (9 lignes) et côté fabrication (17 lignes), écart par écart, dans <a href="/blog/ebom-vs-mbom/">eBOM vs mBOM : la vraie différence, avec un exemple ligne par ligne</a>.</span><span data-lang="en"><strong>Go further:</strong> the same valve described in engineering (9 lines) and in manufacturing (17 lines), gap by gap, in <a href="/blog/ebom-vs-mbom/">eBOM vs mBOM: the real difference, with a line-by-line example</a>.</span></p>
                     </div>
@@ -527,7 +483,7 @@
 
                     <p data-translate-key="blog_bom_s3_solutions_intro">Les solutions PDM les plus répandues dans les PME industrielles françaises que j'accompagne :</p>
                     <ul>
-                        <li data-translate-key="blog_bom_s3_pdm1"><strong>SOLIDWORKS PDM Standard / Professional</strong> — la solution la plus courante dans les BE sous SOLIDWORKS (80 % de mes clients)</li>
+                        <li data-translate-key="blog_bom_s3_pdm1"><strong>SOLIDWORKS PDM Standard / Professional</strong> — la solution la plus courante dans les BE sous SOLIDWORKS</li>
                         <li data-translate-key="blog_bom_s3_pdm2"><strong>PTC Windchill PDMLink</strong> — couplé à Creo, orienté grands comptes</li>
                         <li data-translate-key="blog_bom_s3_pdm3"><strong>3DEXPERIENCE Platform</strong> (Dassault Systèmes) — PDM intégré dans un environnement PLM complet</li>
                         <li data-translate-key="blog_bom_s3_pdm4"><strong>Autodesk Vault</strong> — pour les BE sous Inventor</li>
@@ -706,45 +662,6 @@
                     <h3 data-translate-key="blog_bom_s6_flux3_title">Le flux ERP → PLM : remontée terrain</h3>
                     <p data-translate-key="blog_bom_s6_flux3_p">Moins connu, mais crucial : les retours de production (rebuts, substitutions de composants, non-conformités) doivent remonter vers le PLM pour déclencher des modifications formelles. Sans cette boucle, le design reste figé sur une réalité de terrain qui a évolué.</p>
 
-                    <figure class="chart-figure" data-blog-chart="">
-                        <canvas aria-label="Fréquence des flux de données entre PDM, PLM et ERP sur 80 clients"></canvas>
-                        <script type="application/json" data-chart-config="">
-                            {
-                                "type": "bar",
-                                "data": {
-                                    "labels": ["PDM → ERP", "PDM → PLM", "PLM → ERP", "ERP → PLM"],
-                                    "datasets": [{
-                                        "label": "Fréquence des flux observés sur 80 clients (%)",
-                                        "data": [72, 45, 18, 8],
-                                        "backgroundColor": [
-                                            "rgba(37,99,235,0.7)",
-                                            "rgba(124,58,237,0.7)",
-                                            "rgba(249,115,22,0.7)",
-                                            "rgba(16,185,129,0.7)"
-                                        ],
-                                        "borderColor": ["#2563eb","#7c3aed","#f97316","#10b981"],
-                                        "borderWidth": 2
-                                    }]
-                                },
-                                "options": {
-                                    "plugins": {
-                                        "legend": { "display": false },
-                                        "title": {
-                                            "display": true,
-                                            "text": "Flux de données actifs — % des sites concernés (80 clients)"
-                                        }
-                                    },
-                                    "scales": {
-                                        "y": {
-                                            "beginAtZero": true,
-                                            "max": 100,
-                                            "title": { "display": true, "text": "% des sites" }
-                                        }
-                                    }
-                                }
-                            }
-                        </script>
-                    </figure>
 
                     <div class="grid grid--2">
                         <div>
@@ -773,7 +690,7 @@
                 <!-- 7. Sans cohérence -->
                 <section class="blog-section article-section" id="ce-qui-se-passe-sans-coherence">
                     <h2 data-translate-key="blog_bom_s7_title">7. Ce qui se passe quand rien n'est aligné</h2>
-                    <p data-translate-key="blog_bom_s7_p1">Après 80+ clients et 100+ projets PDM, voici les symptômes récurrents que j'observe quand PDM, PLM et ERP ne parlent pas le même langage :</p>
+                    <p data-translate-key="blog_bom_s7_p1">Voici les symptômes récurrents que l'on observe quand PDM, PLM et ERP ne parlent pas le même langage :</p>
 
                     <div class="media-grid">
                         <div class="media-card media-card--text">
@@ -860,11 +777,6 @@
                             <p>Plan d'action pour calibrer stations de travail, serveur PDM et réseau — avec indicateurs terrain et repères budgétaires.</p>
                             <span class="related-link">Lire l'article →</span>
                         </a>
-                        <a href="/blog/resolutions-problematiques-plm/" class="media-card media-card--text related-card">
-                            <h3>Résoudre les 5 problématiques PLM</h3>
-                            <p>Retour d'expérience sur cinq problématiques PLM vécues sur le terrain et les solutions concrètes apportées.</p>
-                            <span class="related-link">Lire l'article →</span>
-                        </a>
                     </div>
                 </section>
 
@@ -883,7 +795,6 @@
                     </div>
                     <div class="article-nav">
                         <a href="/blog/" class="back-link" data-translate-key="blog_back_to_blog">← Retour au blog</a>
-                        <a href="/#contact" class="hero-btn" data-translate-key="blog_cta_linkedin">Me contacter</a>
                     </div>
                 </footer>
 

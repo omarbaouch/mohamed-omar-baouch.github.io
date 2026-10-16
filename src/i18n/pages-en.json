@@ -1,7 +1,7 @@
 {
   "/": {
     "title": "Mohamed Omar Baouch | SOLIDWORKS PDM/PLM Consultant",
-    "description": "SOLIDWORKS PDM/PLM consultant at Visiativ (Strasbourg, France): PDM architecture, workflows, data migration and BOM–ERP integration for 80+ manufacturers."
+    "description": "Personal site of Mohamed Omar Baouch, mechanical engineer working in PDM/PLM: technical memos, calculators and articles on CAD, PDM and BOM data."
   },
   "/blog/": {
     "title": "Engineering Notebook: PDM/PLM, SOLIDWORKS & Design Charts",
@@ -74,10 +74,6 @@
   "/blog/plm-guide-complet/": {
     "title": "What Is PLM? The Complete Guide for Manufacturers (2026)",
     "description": "Product lifecycle management explained by a consultant who deploys it: definition, scope, PDM vs PLM vs ERP, building blocks, platforms, costs and where to start."
-  },
-  "/blog/prix-cout-projet-solidworks-pdm/": {
-    "title": "SOLIDWORKS PDM Cost: Licenses, Infrastructure & Services Budget",
-    "description": "The full cost of a SOLIDWORKS PDM project: licenses, SQL Server, servers, services, data migration and hidden costs, with field orders of magnitude and five budget traps."
   },
   "/blog/raccourcis-clavier-solidworks/": {
     "title": "SOLIDWORKS Keyboard Shortcuts: Full List and Custom Hotkeys",
@@ -154,9 +150,5 @@
   "/blog/engrenage-module-calcul-diametres/": {
     "title": "Gear Module Calculator: Pitch Diameter and Center Distance",
     "description": "Spur gear formulas from module and tooth count: pitch, tip, root and base diameter, tooth height, center distance, ratio, ISO 54 modules and diametral pitch."
-  },
-  "/blog/image-administrative-solidworks-installation/": {
-    "title": "SOLIDWORKS Administrative Image: Create, Configure, Deploy",
-    "description": "How to create and configure a SOLIDWORKS administrative image: prerequisites, step-by-step setup, options editor, SNL licensing, GPO or command-line deployment and updates."
   }
 }

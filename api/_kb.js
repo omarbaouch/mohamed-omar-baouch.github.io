@@ -2,11 +2,10 @@
 // Base de connaissances curée de l'assistant (RAG).
 // Le préfixe « _ » évite que Vercel en fasse une route HTTP.
 //
-// IMPORTANT — provenance : ce corpus est une synthèse ORIGINALE rédigée par
-// Omar à partir de son expérience terrain, de la documentation publique
-// SOLIDWORKS PDM et des pages publiques Visiativ. Ce n'est pas une copie de
-// documentation propriétaire : ce sont des faits généraux et des repères
-// méthodologiques, réécrits, destinés à cadrer les réponses de l'assistant.
+// IMPORTANT — provenance : synthèse ORIGINALE de notions générales et des
+// articles du site. Aucune information sur un employeur, ses clients, ses
+// projets, ses méthodes ou ses tarifs : ce site est personnel et ne propose
+// aucune prestation.
 //
 // Chaque document : { id, title, url, tags[], text }.
 // `tags` contient des mots-clés FR ET EN pour que la recherche fonctionne
@@ -16,31 +15,24 @@ export const KB_DOCS = [
     // ─────────────────────────── PORTFOLIO / OMAR ───────────────────────────
     {
         id: 'omar-profil',
-        title: 'Qui est Omar — consultant PDM/PLM',
+        title: 'Qui est Omar',
         url: '/#about',
-        tags: ['omar', 'baouch', 'consultant', 'visiativ', 'pdm', 'plm', 'profile', 'about', 'experience', 'career', 'parcours', 'who'],
-        text: "Mohamed Omar BAOUCH est consultant PDM/PLM confirmé chez VISIATIV depuis 2023. Il accompagne les industriels dans la structuration de leurs données techniques. Formation : CPGE PTSI, Bachelor Plasturgie puis Master Génie Mécanique à l'INSA. Parcours : EVOLUM CONTAINER (2020), ABMI (2021-2023, projets IDEMIA et FLOWBIRD), puis VISIATIV. Chiffres clés : 80+ clients industriels, 100+ projets, 100+ migrations, 20+ déploiements. Langues : arabe (maternelle), français (bilingue), anglais (courant), allemand (notions). Secteurs : machinerie, automobile, énergie, robotique, défense."
+        tags: ['omar', 'baouch', 'ingenieur', 'engineer', 'pdm', 'plm', 'profile', 'about', 'experience', 'career', 'parcours', 'who'],
+        text: "Mohamed Omar BAOUCH est ingénieur de formation (Bachelor Plasturgie et Master Génie Mécanique à l'INSA, après une CPGE PTSI) et travaille dans le PDM/PLM depuis 2020. Ce site est personnel : il partage des mémos techniques, des calculateurs et des articles, et ne propose aucune prestation. Langues : arabe (maternelle), français (bilingue), anglais (courant), allemand (notions)."
     },
     {
         id: 'omar-expertise',
-        title: 'Expertise et périmètre technique',
-        url: '/#skills',
-        tags: ['expertise', 'skills', 'competences', 'solidworks', 'pdm', '3dexperience', 'windchill', 'creo', 'erp', 'sap', 'integration', 'stack'],
-        text: "Socle technique d'Omar : SOLIDWORKS PDM (expertise principale), 3DEXPERIENCE, PTC Windchill/Creo. Domaines : migration de données (Windows/Workgroup → PDM Professional), intégration PDM ↔ ERP (SAP, Sage, Cegid, Clipper), gestion des modifications (ECR/ECO), nomenclatures (BOM/eBOM/mBOM), performance PDM, conduite du changement (Prosci/ADKAR). Quelques clients accompagnés : NEXANS, PANDROL, ARC FRANCE, NOREMAT, SUPERBA, ENCHANTED TOOLS."
-    },
-    {
-        id: 'omar-methode',
-        title: 'Méthode projet en 6 étapes',
-        url: '/#services',
-        tags: ['methode', 'method', 'projet', 'project', 'deployment', 'deploiement', 'change management', 'conduite du changement', 'reprise', 'audit', 'process'],
-        text: "Méthode projet d'Omar en 6 étapes : 1) Cadrage & conduite du changement (l'humain avant l'outil) ; 2) Formation des admins & spécifications ; 3) Développement & suivi agile (zéro effet tunnel) ; 4) Stratégie de reprise des données (la phase la plus critique) ; 5) Formation utilisateurs & déploiement ; 6) Support post-projet. Principe clé : « Ne jamais faire confiance aux données existantes » — l'audit des données est obligatoire avant toute migration."
+        title: 'Sujets traités sur le site',
+        url: '/blog/',
+        tags: ['expertise', 'skills', 'sujets', 'topics', 'solidworks', 'pdm', 'plm', 'bom', 'memo', 'calculateur', 'mecanique'],
+        text: "Le site traite de mécanique (visserie, tolérances, ajustements, matériaux, soudure, tôlerie, conversions, avec des calculateurs) et des données produit : SOLIDWORKS, PDM, PLM, nomenclatures (BOM, eBOM, mBOM), gestion des modifications (ECR/ECO) et intégration ERP, sous l'angle des bonnes pratiques générales."
     },
     {
         id: 'contact',
-        title: 'Contact et prise de rendez-vous',
+        title: 'Contact',
         url: '/#contact',
-        tags: ['contact', 'rendez-vous', 'devis', 'quote', 'email', 'linkedin', 'projet', 'audit', 'reach', 'hire'],
-        text: "Pour échanger sur un projet, un audit PDM/PLM ou une migration, le mieux est de passer par la page contact du site (/#contact) ou par LinkedIn. Omar ne communique pas de prix ni de devis via l'assistant : chaque contexte industriel est différent et mérite un échange dédié."
+        tags: ['contact', 'email', 'linkedin', 'question', 'reach', 'feedback'],
+        text: "Pour une question ou une remarque sur un article, l'adresse e-mail est indiquée dans la page contact du site (/#contact). Ce site est personnel : il ne propose ni prestation, ni audit, ni devis."
     },
 
     // ─────────────── SOLIDWORKS PDM — PACK DE CONNAISSANCES ───────────────
@@ -80,14 +72,6 @@ export const KB_DOCS = [
         text: "5 questions pour trancher entre Standard et Professional : 1) Combien d'utilisateurs aujourd'hui ET dans 3 ans ? (>20 → Professional). 2) Un ou plusieurs sites géographiques ? (multi-sites → Professional pour la réplication). 3) Avez-vous besoin de nomenclatures (BOM) gérées dans le coffre ? (oui → Professional). 4) Faut-il un accès Web / à distance / à des non-utilisateurs CAO ? (oui → Professional via Web2). 5) Intégration ERP ou automatisations par API ? (oui → Professional). Bonne nouvelle : on peut démarrer en Standard et migrer vers Professional sans repartir de zéro — le coffre évolue."
     },
 
-    // ─────────────────────────── VISIATIV ───────────────────────────
-    {
-        id: 'visiativ',
-        title: 'Visiativ — intégrateur et éditeur',
-        url: '/#experience',
-        tags: ['visiativ', 'integrateur', 'reseller', 'var', 'partenaire dassault', 'solidworks reseller', 'transformation numerique', 'services', 'company'],
-        text: "VISIATIV est un acteur de la transformation numérique des entreprises industrielles, partenaire et revendeur (VAR) de solutions Dassault Systèmes — dont SOLIDWORKS et SOLIDWORKS PDM. Au-delà de la vente de licences, Visiativ accompagne : conseil, déploiement PDM/PLM, migration de données, intégration avec l'ERP, formation et support. C'est dans ce cadre qu'Omar mène ses projets : structuration des données techniques, choix d'édition PDM, reprise de l'existant et conduite du changement chez les industriels."
-    },
 
     // ─────────────────────────── ARTICLES DE BLOG ───────────────────────────
     {
@@ -103,13 +87,6 @@ export const KB_DOCS = [
         url: '/blog/solidworks-pdm-lent-7-causes/',
         tags: ['pdm lent', 'slow pdm', 'performance', 'lenteur', 'sql', 'reseau', 'network', 'archive server', 'cache', 'antivirus', 'optimisation'],
         text: "Article « SOLIDWORKS PDM lent : les 7 vraies causes ». Diagnostic terrain des lenteurs : 1) SQL Server sous-dimensionné ou mal configuré (RAM, index) ; 2) Archive Server saturé ou disque lent ; 3) réseau/latence entre client et serveurs ; 4) antivirus qui scanne le cache du coffre ; 5) cartes de données et workflows trop lourds ; 6) cache local non maîtrisé (Cold/warm) ; 7) trop de références/gros assemblages sans « pack and go » maîtrisé. Chaque correctif peut rendre ~15 min/jour à chaque ingénieur."
-    },
-    {
-        id: 'blog-migration-donnees',
-        title: 'Migration de données vers SOLIDWORKS PDM',
-        url: '/blog/migration-donnees-solidworks-pdm/',
-        tags: ['migration', 'migrate', 'reprise de donnees', 'data migration', 'workgroup', 'partage reseau', 'guide', 'phases', 'audit', 'reference'],
-        text: "Article « Migration de données vers SOLIDWORKS PDM : le guide terrain ». Méthodologie en 6 phases pour migrer depuis des partages réseau ou Workgroup PDM vers PDM Professional sans perdre un fichier : audit et nettoyage de l'existant, définition de la structure cible (cartes, workflows, références), stratégie de reprise (par lots, par projet), résolution des références cassées, validation, bascule. Pièges courants : doublons, chemins absolus, références externes, historique de révisions à préserver. Règle d'or : ne jamais faire confiance aux données existantes."
     },
     {
         id: 'blog-migration-cloud',
@@ -140,13 +117,6 @@ export const KB_DOCS = [
         text: "Article sur la nomenclature (BOM) et son parcours entre PDM, PLM et ERP. Distinction eBOM (vue bureau d'études, telle que conçue) vs mBOM (vue méthodes/production, telle que fabriquée). Le PDM produit la eBOM depuis la CAO ; le PLM/ERP la transforme en mBOM. Enjeux : synchronisation, articles fantômes, quantités, articles achetés vs fabriqués, et cohérence quand la conception évolue. Une BOM fiable est la colonne vertébrale de la chaîne numérique."
     },
     {
-        id: 'blog-resolutions-plm',
-        title: 'Résolutions de problématiques PLM',
-        url: '/blog/resolutions-problematiques-plm/',
-        tags: ['plm', 'problematiques', 'problems', 'solutions', 'retours terrain', 'cas', 'deploiement', 'adoption', 'gouvernance'],
-        text: "Article de retours terrain sur les problématiques PLM courantes et leurs solutions : adoption utilisateur faible, gouvernance des données absente, processus trop rigides ou trop lâches, intégrations fragiles, périmètre mal cadré. Approche : commencer petit, prouver la valeur, industrialiser. La technologie n'est jamais le vrai blocage — c'est l'organisation et la conduite du changement."
-    },
-    {
         id: 'blog-config-materielle',
         title: 'Configuration matérielle SOLIDWORKS',
         url: '/blog/configuration-materielle-solidworks/',
@@ -161,17 +131,10 @@ export const KB_DOCS = [
         text: "Article d'analyse sur l'IA appliquée à SOLIDWORKS et au PDM en 2026. Les 5 cas d'usage concrets et matures : recherche sémantique (retrouver une pièce sans connaître son nom exact) et similarité géométrique, classification et pré-remplissage automatique des propriétés/cartes de données, déduplication assistée, assistants documentaires RAG (répondre aux questions procédures/normes avec sources citées), contrôle qualité continu des données. Le message clé : le prérequis de toute IA utile est la qualité des données — un coffre PDM structuré avec cartes remplies et workflows respectés. Le chemin vers « prêt pour l'IA » est le même que vers un PDM bien déployé. Feuille de route en 4 trimestres : audit des données, réparation du socle, premier cas d'usage visible (recherche ou assistant), mesure et extension."
     },
     {
-        id: 'blog-cout-pdm',
-        title: "Combien coûte vraiment un projet SOLIDWORKS PDM",
-        url: '/blog/prix-cout-projet-solidworks-pdm/',
-        tags: ['prix', 'cout', 'budget', 'tarif', 'price', 'cost', 'licences', 'maintenance', 'sql server', 'roi', 'investissement', 'devis', 'chiffrage'],
-        text: "Guide budget d'un projet SOLIDWORKS PDM. Structure en 4 postes : licences (~1/3 du total), infrastructure, services (config, formation), reprise de données. PDM Standard est inclus avec SOLIDWORKS Pro/Premium ; PDM Professional est une licence séparée par utilisateur (CAD Editor vs Contributor/Viewer, le mix étant le premier levier d'économie) + SQL Server Standard + maintenance annuelle 18-25 %. Ordres de grandeur an 1 (indicatifs France 2026) : BE 5 postes en Standard ≈ 5-15 k€ ; PME 15 postes en Professional ≈ 40-90 k€ ; ETI 40 postes multi-sites + ERP ≈ 120-250 k€+. Le coût de la reprise dépend du désordre initial, pas du volume. ROI typique 12-24 mois. Les 5 pièges : budgéter seulement les licences, sur-licencier, découvrir l'état des données en cours de migration, zapper la formation, tout faire en phase 1. Pour un devis ferme : échange personnalisé via la page contact."
-    },
-    {
         id: 'blog-sw-gratuit',
         title: "SOLIDWORKS gratuit : les 7 solutions légales et le vrai prix",
         url: '/blog/solidworks-gratuit-prix-guide/',
         tags: ['gratuit', 'free', 'etudiant', 'student', 'maker', 'makers', 'startup', 'essai', 'trial', 'edrawings', 'viewer', 'mac', 'macos', 'licence', 'perpetuelle', 'abonnement', 'prix', 'crack'],
-        text: "Guide des façons légales d'utiliser SOLIDWORKS gratuitement ou presque : 1) étudiants/enseignants via la licence éducation de l'établissement (gratuite, fichiers marqués éducation, usage non commercial) ; 2) SOLIDWORKS for Makers ≈ 48 $/an pour les particuliers (non commercial, fichiers au format maker non ouvrables en version commerciale, connexion 3DEXPERIENCE requise) ; 3) SOLIDWORKS for Startups (gratuit la 1ʳᵉ année pour les jeunes entreprises éligibles) ; 4) essai cloud gratuit ~30 jours sans installation ; 5) eDrawings Viewer gratuit pour consulter pièces/assemblages/plans ; 6) version d'évaluation via un revendeur. Pas de version native macOS (les apps cloud 3DEXPERIENCE tournent dans un navigateur sur Mac ; virtualisation non supportée officiellement). Licences commerciales : perpétuelle ≈ 5-13 k€ HT/poste selon l'édition + maintenance 18-25 %/an, ou abonnement ≈ 2-4 k€ HT/an (ordres de grandeur indicatifs France 2026). Éviter les versions crackées : malwares, fichiers corrompus, risques juridiques."
+        text: "Guide des façons légales d'utiliser SOLIDWORKS gratuitement ou presque : 1) étudiants/enseignants via la licence éducation de l'établissement (gratuite, fichiers marqués éducation, usage non commercial) ; 2) SOLIDWORKS for Makers ≈ 48 $/an pour les particuliers (non commercial, fichiers au format maker non ouvrables en version commerciale, connexion 3DEXPERIENCE requise) ; 3) SOLIDWORKS for Startups (gratuit la 1ʳᵉ année pour les jeunes entreprises éligibles) ; 4) essai cloud gratuit ~30 jours sans installation ; 5) eDrawings Viewer gratuit pour consulter pièces/assemblages/plans ; 6) version d'évaluation via un revendeur. Pas de version native macOS (les apps cloud 3DEXPERIENCE tournent dans un navigateur sur Mac ; virtualisation non supportée officiellement). Licences commerciales : l'abonnement 3DEXPERIENCE SOLIDWORKS a un prix public sur la boutique de Dassault Systèmes (2 820 $/an en Standard, 3 456 $ en Professional, 4 716 $ en Premium, relevé le 16/10/2026) ; le prix de la licence perpétuelle n'est pas publié et se demande à un revendeur agréé. Éviter les versions crackées : malwares, fichiers corrompus, risques juridiques."
     }
 ];

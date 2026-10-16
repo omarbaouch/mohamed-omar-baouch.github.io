@@ -6,34 +6,29 @@
 const ENDPOINT = '/api/ask-gemini';
 const MAX_HISTORY = 16;
 
-const PORTFOLIO_CONTEXT = `Informations sur le portfolio de Mohamed Omar Baouch :
+const PORTFOLIO_CONTEXT = `Informations sur le site personnel de Mohamed Omar Baouch :
 
 ## Profil
-Consultant Expert SOLIDWORKS PDM/PLM chez VISIATIV, basé à Strasbourg (67200), missions dans toute la France.
-Ingénieur Plasturgie INSA de formation, évolution de la conception mécanique vers l'architecture des systèmes d'information techniques.
-Plus de 80 clients industriels accompagnés, 100+ migrations et mises à jour, 100+ projets livrés depuis 2020, 20+ déploiements complets.
-Contact : mohamed.omar.baouch@gmail.com, +33 6 95 91 92 18, LinkedIn mohamed-omar-baouch-9b4473180. Permis B, véhiculé.
+Ingénieur Plasturgie INSA de formation, basé à Strasbourg, qui travaille dans le PDM/PLM depuis 2020.
+Site personnel : mémos techniques, calculateurs et articles. Aucune prestation n'est proposée sur ce site.
 Langues : arabe (natal), français (bilingue), anglais (courant), allemand (débutant).
 
-## Expérience professionnelle
-- Juin 2023 - Présent : Consultant PDM/PLM Confirmé chez VISIATIV. Pilotage d'implémentations PDM/PLM de l'analyse des besoins à la mise en production ; architecture et paramétrage SOLIDWORKS PDM avec workflows personnalisés ; intégrations ERP-PDM/PLM ; formation des utilisateurs et administrateurs.
-- Sept 2021 - Juin 2023 : Ingénieur Concepteur Mécanique chez ABMI GROUP. IDEMIA (défense & sécurité) : systèmes radar, composants usinés de précision, PLM et traçabilité. FLOWBIRD (transport) : modernisation des distributeurs RATP, analyse structurelle Creo Simulate.
-- Avril 2020 - Oct 2020 : Spécialiste en Ingénierie de Conception chez EVOLUM CONTAINER SOLUTIONS. Chiffrage de conteneurs sur mesure, nomenclatures CAO/ERP, relations fournisseurs.
+## Parcours
+- Depuis 2023 : consultant PDM/PLM.
+- 2021-2023 : ingénieur concepteur mécanique (défense & sécurité, transport).
+- 2020 : spécialiste en ingénierie de conception (conteneurs sur mesure).
 
 ## Compétences
-- Infrastructure PDM : Admin SQL Server, réplication multi-sites, workflows & dispatch, déploiement & installation, cold storage.
-- Migrations & données : migrations et mises à jour, admin recovery, templates SOLIDWORKS, MyCADTools, reprise ETL.
-- Accompagnement & documentation : DTE, plans et PV de recette, formation admin/utilisateur, consulting régie, passation de projet.
-- Outils : SOLIDWORKS PDM, SQL Server, Windows Server, Creo/Windchill, 3DEXPERIENCE, MyCADTools.
+- Infrastructure PDM, SQL Server, réplication, workflows.
+- Données produit : nomenclatures, migrations, modèles SOLIDWORKS.
+- Outils : SOLIDWORKS PDM, SQL Server, Windows Server, Creo/Windchill, 3DEXPERIENCE.
 
 ## Formation
 - 2018-2020 : Master Génie Mécanique, UFR MIM (conception et simulation numérique).
 - 2015-2018 : Bachelor Plasturgie, INSA Strasbourg.
 - 2013-2015 : Classes préparatoires CPGE PTSI, Lycée Couffignal.
 
-## Secteurs clients (80 clients)
-Machines & équipements (27), BTP/agro/divers (25), industrie & énergie (10), automatisme & robotique (8), métallurgie (7), international (3).
-Blog PDM/PLM avec articles de fond sur https://www.baouch.fr/blog/`;
+Blog et mémos techniques : https://www.baouch.fr/blog/`;
 
 function pageInfo() {
   const isBlog = document.body.classList.contains('blog-page') || location.pathname.startsWith('/blog');

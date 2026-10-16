@@ -18,22 +18,16 @@ const INDEX = [
   { ref: 'DOC-EDU', fr: 'Formation', en: 'Education', type: 'SECTION', href: '/#education' },
   { ref: 'ECO-CONTACT', fr: 'Contact', en: 'Contact', type: 'SECTION', href: '/#contact' },
   { ref: 'ASM-04', fr: 'Blog — articles de fond', en: 'Blog — in-depth articles', type: 'SECTION', href: '/blog/' },
-  { ref: 'PRT-ORBITA · RÉV.B', fr: 'Structurer le PDM d’un robot humanoïde', en: 'Structuring the PDM of a humanoid robot', type: 'CASE', href: '/projets/robot-orbita/' },
-  { ref: 'MIG-INTL · RÉV.C', fr: 'Migration PDM multi-sites internationale', en: 'International multi-site PDM migration', type: 'CASE', href: '/projets/migration-pdm-internationale/' },
   { ref: 'DOC-01', fr: 'PDM ou PLM : les 5 signaux de bascule', en: 'PDM or PLM: the 5 switch signals', type: 'DOC', href: '/blog/pdm-ou-plm-quand-basculer/' },
   { ref: 'DOC-02', fr: 'SOLIDWORKS PDM Standard ou Professional', en: 'SOLIDWORKS PDM Standard vs Professional', type: 'DOC', href: '/blog/solidworks-pdm-standard-vs-professional/' },
   { ref: 'DOC-03', fr: 'SOLIDWORKS PDM lent : les 7 vraies causes', en: 'Slow SOLIDWORKS PDM: the 7 real causes', type: 'DOC', href: '/blog/solidworks-pdm-lent-7-causes/' },
   { ref: 'DOC-04', fr: 'La révision fantôme : maîtriser les ECO/ECR', en: 'The phantom revision: mastering ECO/ECR', type: 'DOC', href: '/blog/eco-ecr-gestion-modifications/' },
   { ref: 'DOC-05', fr: 'Nomenclature BOM, eBOM, mBOM et ERP', en: 'BOM, eBOM, mBOM and ERP backbone', type: 'DOC', href: '/blog/nomenclature-bom-pdm-plm-erp/' },
-  { ref: 'DOC-06', fr: 'Migration de données vers SOLIDWORKS PDM', en: 'Migrating data to SOLIDWORKS PDM', type: 'DOC', href: '/blog/migration-donnees-solidworks-pdm/' },
   { ref: 'DOC-07', fr: 'PDM dans le cloud : les angles morts', en: 'Cloud PDM: the blind spots', type: 'DOC', href: '/blog/migration-cloud-pdm-3dexperience/' },
   { ref: 'DOC-08', fr: 'IA et SOLIDWORKS PDM en 2026', en: 'AI and SOLIDWORKS PDM in 2026', type: 'DOC', href: '/blog/ia-solidworks-pdm-bureau-etudes/' },
-  { ref: 'DOC-09', fr: 'Combien coûte un projet SOLIDWORKS PDM ?', en: 'What does a SOLIDWORKS PDM project cost?', type: 'DOC', href: '/blog/prix-cout-projet-solidworks-pdm/' },
   { ref: 'DOC-10', fr: 'SOLIDWORKS gratuit : les 7 solutions légales', en: 'Free SOLIDWORKS: the 7 legal options', type: 'DOC', href: '/blog/solidworks-gratuit-prix-guide/' },
   { ref: 'DOC-11', fr: 'Codification & propriétés SOLIDWORKS', en: 'SOLIDWORKS codification & properties', type: 'DOC', href: '/blog/codification-proprietes-solidworks/' },
   { ref: 'DOC-12', fr: 'Configuration matérielle SOLIDWORKS', en: 'SOLIDWORKS hardware configuration', type: 'DOC', href: '/blog/configuration-materielle-solidworks/' },
-  { ref: 'DOC-13', fr: 'Résolutions de problématiques PLM', en: 'Solving PLM issues', type: 'DOC', href: '/blog/resolutions-problematiques-plm/' },
-  { ref: 'DOC-18', fr: 'Image administrative SOLIDWORKS', en: 'SOLIDWORKS administrative image', type: 'DOC', href: '/blog/image-administrative-solidworks-installation/' },
 ];
 
 const T = {

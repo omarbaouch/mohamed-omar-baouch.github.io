@@ -959,7 +959,6 @@ export const PLATES = {
   'epaisseur-tole-jauge-gauge-tableau': jaugeTole,
   'conversion-pouce-mm-tableau': pouceMm,
   'engrenage-module-calcul-diametres': engrenage,
-  'image-administrative-solidworks-installation': imageAdmin,
   'filetage-gaz-g-bsp-npt-tableau': filetageGaz,
   'clavettes-paralleles-din-6885-dimensions': clavette,
   'conversion-durete-hrc-hv-hb': durete,
@@ -985,7 +984,6 @@ export const PLATES = {
   'solidworks-pdm-guide-complet': pdmGuide,
   'solidworks-pdm-standard-vs-professional': stdVsPro,
   'solidworks-pdm-lent-7-causes': pdmLent,
-  'prix-cout-projet-solidworks-pdm': prixPdm,
   'solidworks-gratuit-prix-guide': swGratuit,
   'raccourcis-clavier-solidworks': raccourcis,
   'erreurs-solidworks-frequentes': erreurs,
@@ -993,7 +991,5 @@ export const PLATES = {
   'choisir-logiciel-cao-solidworks-inventor-fusion-catia': choixCao,
   'ia-solidworks-pdm-bureau-etudes': iaPdm,
   'migration-cloud-pdm-3dexperience': cloud,
-  'migration-donnees-solidworks-pdm': migration,
   'configuration-materielle-solidworks': config,
-  'resolutions-problematiques-plm': resolutions,
 };

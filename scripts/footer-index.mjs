@@ -31,8 +31,6 @@ const GROUPES = [
 const CAT_VERS_GROUPE = { plm: 'plm', data: 'data', cao: 'cao', memo: 'memo', perf: 'perf', migration: 'perf' };
 // titres anglais des études de cas (elles n'ont pas de carte bilingue)
 const EN_PROJETS = {
-  '/projets/migration-pdm-internationale/': 'International multi-site PDM migration',
-  '/projets/robot-orbita/': 'PDM workflow for humanoid robotics',
 };
 // articles sans thème de carte (anciens formats)
 const SECOURS = {

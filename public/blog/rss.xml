@@ -56,14 +56,6 @@
       <enclosure url="https://www.baouch.fr/img/og/filetage-gaz.jpg" type="image/jpeg"/>
     </item>
     <item>
-      <title>Image administrative SOLIDWORKS : créer, configurer et déployer</title>
-      <link>https://www.baouch.fr/blog/image-administrative-solidworks-installation/</link>
-      <guid isPermaLink="true">https://www.baouch.fr/blog/image-administrative-solidworks-installation/</guid>
-      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Comment créer et configurer une image administrative SOLIDWORKS : prérequis, création pas à pas avec le gestionnaire d'installation, éditeur d'options, licences SNL, déploiement par ligne de commande ou GPO, mise à jour des Service Packs et pièges à éviter.</description>
-      <enclosure url="https://www.baouch.fr/img/og/image-admin-sw.jpg" type="image/jpeg"/>
-    </item>
-    <item>
       <title>Clavettes parallèles DIN 6885 : dimensions, rainures et ajustements</title>
       <link>https://www.baouch.fr/blog/clavettes-paralleles-din-6885-dimensions/</link>
       <guid isPermaLink="true">https://www.baouch.fr/blog/clavettes-paralleles-din-6885-dimensions/</guid>
@@ -248,14 +240,6 @@
       <enclosure url="https://www.baouch.fr/img/og/ia-pdm.jpg" type="image/jpeg"/>
     </item>
     <item>
-      <title>Combien coûte vraiment un projet SOLIDWORKS PDM ?</title>
-      <link>https://www.baouch.fr/blog/prix-cout-projet-solidworks-pdm/</link>
-      <guid isPermaLink="true">https://www.baouch.fr/blog/prix-cout-projet-solidworks-pdm/</guid>
-      <pubDate>Fri, 10 Jul 2026 00:00:00 GMT</pubDate>
-      <description>Personne ne publie le budget réel d'un projet SOLIDWORKS PDM. Voici la structure de coûts complète — licences, SQL Server, infrastructure, services, reprise de données — avec les fourchettes constatées sur le terrain, les pièges qui font déraper le budget, et les leviers pour le réduire.</description>
-      <enclosure url="https://www.baouch.fr/img/og/prix-pdm.jpg" type="image/jpeg"/>
-    </item>
-    <item>
       <title>SOLIDWORKS gratuit en 2026 : les 7 solutions légales et le vrai prix des licences</title>
       <link>https://www.baouch.fr/blog/solidworks-gratuit-prix-guide/</link>
       <guid isPermaLink="true">https://www.baouch.fr/blog/solidworks-gratuit-prix-guide/</guid>
@@ -292,7 +276,7 @@
       <link>https://www.baouch.fr/blog/solidworks-pdm-lent-7-causes/</link>
       <guid isPermaLink="true">https://www.baouch.fr/blog/solidworks-pdm-lent-7-causes/</guid>
       <pubDate>Thu, 18 Jun 2026 00:00:00 GMT</pubDate>
-      <description>Votre SOLIDWORKS PDM rame à l'ouverture, à l'enregistrement, au check-out ? Les 7 causes réelles observées sur 80 clients, la méthode de diagnostic et les correctifs qui redonnent 15 minutes par jour à chaque ingénieur.</description>
+      <description>Votre SOLIDWORKS PDM rame à l'ouverture, à l'enregistrement, au check-out ? Les 7 causes réelles, la méthode de diagnostic et les correctifs qui redonnent 15 minutes par jour à chaque ingénieur.</description>
       <enclosure url="https://www.baouch.fr/img/og/pdm-lent.jpg" type="image/jpeg"/>
     </item>
     <item>
@@ -312,14 +296,6 @@
       <enclosure url="https://www.baouch.fr/img/og/pdm-cloud.jpg" type="image/jpeg"/>
     </item>
     <item>
-      <title>Migration de donnees vers SOLIDWORKS PDM : le guide terrain</title>
-      <link>https://www.baouch.fr/blog/migration-donnees-solidworks-pdm/</link>
-      <guid isPermaLink="true">https://www.baouch.fr/blog/migration-donnees-solidworks-pdm/</guid>
-      <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
-      <description>Guide complet de migration de donnees vers SOLIDWORKS PDM : methodologie en 6 phases, pieges courants, strategies de reprise, retours d'experience apres 80+ projets industriels.</description>
-      <enclosure url="https://www.baouch.fr/img/og/migration-pdm.jpg" type="image/jpeg"/>
-    </item>
-    <item>
       <title>Nomenclature BOM : définition, exemple et modèle Excel</title>
       <link>https://www.baouch.fr/blog/nomenclature-bom-pdm-plm-erp/</link>
       <guid isPermaLink="true">https://www.baouch.fr/blog/nomenclature-bom-pdm-plm-erp/</guid>
@@ -334,14 +310,6 @@
       <pubDate>Sun, 21 Sep 2025 00:00:00 GMT</pubDate>
       <description>Plan d'action détaillé pour calibrer stations de travail, serveur PDM et réseau autour de SOLIDWORKS 2025, avec indicateurs de terrain et repères budgétaires.</description>
       <enclosure url="https://www.baouch.fr/img/og/config-materielle.jpg" type="image/jpeg"/>
-    </item>
-    <item>
-      <title>Résoudre les 5 problématiques PLM vécues en tant qu'Ingénieur Mécanique</title>
-      <link>https://www.baouch.fr/blog/resolutions-problematiques-plm/</link>
-      <guid isPermaLink="true">https://www.baouch.fr/blog/resolutions-problematiques-plm/</guid>
-      <pubDate>Mon, 15 Sep 2025 00:00:00 GMT</pubDate>
-      <description>Retour d'expérience de Mohamed Omar Baouch sur cinq problématiques PLM vécues sur le terrain et les solutions apportées grâce à un PDM/PLM bien implémenté.</description>
-      <enclosure url="https://www.baouch.fr/img/og/resolutions-plm.jpg" type="image/jpeg"/>
     </item>
   </channel>
 </rss>

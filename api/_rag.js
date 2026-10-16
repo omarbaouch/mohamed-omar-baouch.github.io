@@ -1,6 +1,5 @@
 // api/_rag.js
-// Récupération d'information (RAG) au-dessus de la base curée (_kb.js) ET du
-// corpus documentaire (api/_data/ : doc SOLIDWORKS PDM 2026 FR + help.visiativ.com).
+// Récupération d'information (RAG) au-dessus de la base curée (_kb.js).
 // Recherche HYBRIDE : BM25 (stemming FR léger + expansion bilingue) fusionné
 // par RRF avec la recherche dense (embeddings précalculés, api/_data/vectors.js)
 // quand un vecteur de requête est fourni.
@@ -56,8 +55,7 @@ const SYNONYMS = {
     hardware: ['materiel', 'configuration', 'poste'],
     choisir: ['choix', 'choose', 'comparatif', 'difference', 'comparison'],
     difference: ['comparatif', 'choisir', 'versus', 'compare'],
-    visiativ: ['integrateur', 'reseller', 'var', 'partenaire'],
-    omar: ['baouch', 'consultant', 'profil', 'experience'],
+    omar: ['baouch', 'ingenieur', 'profil', 'experience'],
     contact: ['devis', 'rendez-vous', 'projet', 'mail', 'email'],
     utilisateurs: ['users', 'postes', 'equipe', 'team'],
     replication: ['multi-site', 'multisite', 'sites'],

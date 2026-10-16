@@ -17,14 +17,11 @@ const PAGES = [
   { file: 'src/blog/solidworks-pdm-lent-7-causes/index.html', slug: 'pdm-lent', ref: 'DOC-03', type: 'ARTICLE', title: 'SOLIDWORKS PDM lent : les 7 vraies causes' },
   { file: 'src/blog/eco-ecr-gestion-modifications/index.html', slug: 'eco-ecr', ref: 'DOC-04', type: 'ARTICLE', title: 'La révision fantôme à 40 000 € : maîtriser les ECO/ECR' },
   { file: 'src/blog/nomenclature-bom-pdm-plm-erp/index.html', slug: 'bom-erp', ref: 'DOC-05', type: 'ARTICLE', title: 'BOM, eBOM, mBOM : la colonne vertébrale de vos données produit' },
-  { file: 'src/blog/migration-donnees-solidworks-pdm/index.html', slug: 'migration-pdm', ref: 'DOC-06', type: 'ARTICLE', title: 'Migration de données vers SOLIDWORKS PDM : le guide terrain' },
   { file: 'src/blog/migration-cloud-pdm-3dexperience/index.html', slug: 'pdm-cloud', ref: 'DOC-07', type: 'ARTICLE', title: 'PDM dans le cloud : ce qu’on ne vous dit jamais avant de signer' },
   { file: 'src/blog/ia-solidworks-pdm-bureau-etudes/index.html', slug: 'ia-pdm', ref: 'DOC-08', type: 'ARTICLE', title: 'IA et SOLIDWORKS PDM : ce qui change vraiment en 2026' },
-  { file: 'src/blog/prix-cout-projet-solidworks-pdm/index.html', slug: 'prix-pdm', ref: 'DOC-09', type: 'ARTICLE', title: 'Combien coûte vraiment un projet SOLIDWORKS PDM ?' },
   { file: 'src/blog/solidworks-gratuit-prix-guide/index.html', slug: 'sw-gratuit', ref: 'DOC-10', type: 'ARTICLE', title: 'SOLIDWORKS gratuit : les 7 solutions légales (et le vrai prix)' },
   { file: 'src/blog/codification-proprietes-solidworks/index.html', slug: 'codification', ref: 'DOC-11', type: 'ARTICLE', title: 'Codification & propriétés SOLIDWORKS : réparer la chaîne BOM → ERP' },
   { file: 'src/blog/configuration-materielle-solidworks/index.html', slug: 'config-materielle', ref: 'DOC-12', type: 'ARTICLE', title: 'Configuration matérielle SOLIDWORKS : le guide terrain' },
-  { file: 'src/blog/resolutions-problematiques-plm/index.html', slug: 'resolutions-plm', ref: 'DOC-13', type: 'ARTICLE', title: 'Résolutions de problématiques PLM : retours de terrain' },
   { file: 'src/blog/raccourcis-clavier-solidworks/index.html', slug: 'raccourcis', ref: 'DOC-14', type: 'ARTICLE', title: 'Raccourcis clavier SOLIDWORKS : la liste complète et la méthode' },
   { file: 'src/blog/choisir-logiciel-cao-solidworks-inventor-fusion-catia/index.html', slug: 'choix-cao', ref: 'DOC-15', type: 'ARTICLE', title: 'SOLIDWORKS, Inventor, Fusion 360 ou CATIA : quel logiciel de CAO choisir ?' },
   { file: 'src/blog/formats-echange-cao-step-iges-parasolid/index.html', slug: 'formats-cao', ref: 'DOC-16', type: 'ARTICLE', title: "STEP, IGES, Parasolid, STL : quel format d'échange CAO choisir ?" },
@@ -52,10 +49,7 @@ const PAGES = [
   { file: 'src/blog/epaisseur-tole-jauge-gauge-tableau/index.html', slug: 'jauge-tole', ref: 'MEM-15', type: 'MÉMO', title: 'Jauge de tôle (gauge) : tableau des épaisseurs en mm et pouces' },
   { file: 'src/blog/vis-chc-iso-4762-dimensions/index.html', slug: 'vis-chc', ref: 'MEM-17', type: 'MÉMO', title: 'Vis CHC ISO 4762 : dimensions de la tête, clé et longueurs' },
   { file: 'src/blog/moment-quadratique-inertie-section-calcul/index.html', slug: 'moment-quadratique', ref: 'MEM-16', type: 'MÉMO', title: 'Moment quadratique : formules des sections et calculateur' },
-  { file: 'src/blog/image-administrative-solidworks-installation/index.html', slug: 'image-admin-sw', ref: 'DOC-18', type: 'ARTICLE', title: 'Image administrative SOLIDWORKS : créer, configurer, déployer' },
   { file: 'src/blog/modele-nomenclature-excel-gratuit/index.html', slug: 'modele-bom', ref: 'TPL-01', type: 'MODÈLE GRATUIT', title: 'Modèle de nomenclature Excel gratuit : BOM multiniveau' },
-  { file: 'src/projets/robot-orbita/index.html', slug: 'orbita', ref: 'PRT-ORBITA · RÉV.B', type: 'ÉTUDE DE CAS', title: 'Structurer le PDM d’un robot humanoïde' },
-  { file: 'src/projets/migration-pdm-internationale/index.html', slug: 'mig-intl', ref: 'MIG-INTL · RÉV.C', type: 'ÉTUDE DE CAS', title: 'Migration PDM multi-sites pour un géant mondial du câblage' },
 ];
 
 const sansFont = `file://${resolve(ROOT, 'public/fonts/instrument-sans-var.woff2')}`;

@@ -323,27 +323,9 @@
     "h1": "IA et SOLIDWORKS PDM : ce qui change vraiment pour les bureaux d'études en 2026",
     "lang": "fr"
   },
-  "/blog/image-administrative-solidworks-installation/": {
-    "title": "Image administrative SOLIDWORKS : créer, configurer et déployer l'installation sur tous les postes",
-    "description": "Comment créer et configurer une image administrative SOLIDWORKS : prérequis, création pas à pas avec le gestionnaire d'installation, éditeur d'options, licences SNL, déploiement par ligne de commande ou GPO, mise à jour des Service Packs et pièges à éviter.",
-    "canonical": "https://www.baouch.fr/blog/image-administrative-solidworks-installation/",
-    "robots": null,
-    "ogTitle": "Image administrative SOLIDWORKS : créer, configurer et déployer",
-    "ogDescription": "Prérequis, création, éditeur d'options, licences SNL, déploiement par GPO et mises à jour : la méthode pour installer SOLIDWORKS sur tout un parc.",
-    "ogUrl": "https://www.baouch.fr/blog/image-administrative-solidworks-installation/",
-    "ogImage": "https://www.baouch.fr/img/og/image-admin-sw.jpg",
-    "ogType": "article",
-    "twitterTitle": "Image administrative SOLIDWORKS : créer, configurer, déployer",
-    "twitterDescription": "Installer SOLIDWORKS sur tout un parc : la méthode, les réglages et les pièges.",
-    "jsonldTypes": [
-      "BlogPosting,BreadcrumbList,FAQPage"
-    ],
-    "h1": "Image administrative SOLIDWORKS : créer, configurer et déployer l'installation sur tous les postes",
-    "lang": "fr"
-  },
   "/blog/": {
     "title": "Blog — Guides PDM/PLM & SOLIDWORKS | Mohamed Omar Baouch",
-    "description": "Articles de fond et retours d'expérience terrain sur le PDM, le PLM, SOLIDWORKS et la gestion des données produit — issus de 80+ missions en industrie.",
+    "description": "Articles de fond et retours d'expérience terrain sur le PDM, le PLM, SOLIDWORKS et la gestion des données produit.",
     "canonical": "https://www.baouch.fr/blog/",
     "robots": null,
     "ogTitle": "Blog — Guides PDM/PLM & SOLIDWORKS",
@@ -429,24 +411,6 @@
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
     "h1": "Passer votre PDM dans le cloud : ce que les commerciaux ne vous diront jamais avant de signer",
-    "lang": "fr"
-  },
-  "/blog/migration-donnees-solidworks-pdm/": {
-    "title": "Migration de donnees vers SOLIDWORKS PDM : le guide terrain pour reussir sans perdre un fichier",
-    "description": "Guide complet de migration de donnees vers SOLIDWORKS PDM : methodologie en 6 phases, pieges courants, strategies de reprise, retours d'experience apres 80+ projets industriels.",
-    "canonical": "https://www.baouch.fr/blog/migration-donnees-solidworks-pdm/",
-    "robots": null,
-    "ogTitle": "Migration de donnees vers SOLIDWORKS PDM : le guide terrain",
-    "ogDescription": "Methodologie en 6 phases pour migrer vers SOLIDWORKS PDM sans perdre un fichier. Retours d'experience apres 80+ projets.",
-    "ogUrl": "https://www.baouch.fr/blog/migration-donnees-solidworks-pdm/",
-    "ogImage": "https://www.baouch.fr/img/og/migration-pdm.jpg",
-    "ogType": "article",
-    "twitterTitle": "Migration de donnees vers SOLIDWORKS PDM : le guide terrain",
-    "twitterDescription": "Methodologie en 6 phases pour migrer vers SOLIDWORKS PDM sans perdre un fichier.",
-    "jsonldTypes": [
-      "BlogPosting,BreadcrumbList,FAQPage"
-    ],
-    "h1": "Migration de donnees vers SOLIDWORKS PDM : le guide terrain pour reussir sans perdre un fichier",
     "lang": "fr"
   },
   "/blog/modele-nomenclature-excel-gratuit/": {
@@ -539,24 +503,6 @@
     "h1": "Le PLM industriel de A à Z : ce que c'est vraiment, ce que ça gère, et par où commencer",
     "lang": "fr"
   },
-  "/blog/prix-cout-projet-solidworks-pdm/": {
-    "title": "Combien coûte vraiment un projet SOLIDWORKS PDM ? Licences, infra, services — le vrai budget",
-    "description": "Personne ne publie le budget réel d'un projet SOLIDWORKS PDM. Voici la structure de coûts complète — licences, SQL Server, infrastructure, services, reprise de données — avec les fourchettes constatées sur le terrain, les pièges qui font déraper le budget, et les leviers pour le réduire.",
-    "canonical": "https://www.baouch.fr/blog/prix-cout-projet-solidworks-pdm/",
-    "robots": null,
-    "ogTitle": "Combien coûte vraiment un projet SOLIDWORKS PDM ?",
-    "ogDescription": "La structure de coûts complète d'un projet PDM — et les pièges qui font déraper le budget.",
-    "ogUrl": "https://www.baouch.fr/blog/prix-cout-projet-solidworks-pdm/",
-    "ogImage": "https://www.baouch.fr/img/og/prix-pdm.jpg",
-    "ogType": "article",
-    "twitterTitle": "Combien coûte vraiment un projet SOLIDWORKS PDM ?",
-    "twitterDescription": "Licences, infra, services, reprise de données : le vrai budget d'un projet PDM, poste par poste.",
-    "jsonldTypes": [
-      "BlogPosting,BreadcrumbList,FAQPage"
-    ],
-    "h1": "Combien coûte vraiment un projet SOLIDWORKS PDM ?",
-    "lang": "fr"
-  },
   "/blog/raccourcis-clavier-solidworks/": {
     "title": "Raccourcis clavier SOLIDWORKS 2026 : la liste complète par famille + la méthode pour gagner 1 h par jour",
     "description": "Tous les raccourcis clavier SOLIDWORKS par défaut (vues, fichier, esquisse, assemblage, mise en plan), la touche S et la touche D que 80 % des utilisateurs ignorent, les gestes de souris, comment créer les vôtres et les déployer sur toute l'équipe. Guide terrain d'un consultant PDM.",
@@ -573,24 +519,6 @@
       "BlogPosting,BreadcrumbList,FAQPage"
     ],
     "h1": "Raccourcis clavier SOLIDWORKS : la liste complète — et la méthode pour en tirer une heure par jour",
-    "lang": "fr"
-  },
-  "/blog/resolutions-problematiques-plm/": {
-    "title": "Au-delà de la théorie : résoudre les 5 problématiques PLM que j'ai vécues en tant qu'Ingénieur Mécanique",
-    "description": "Retour d'expérience de Mohamed Omar Baouch sur cinq problématiques PLM vécues sur le terrain et les solutions apportées grâce à un PDM/PLM bien implémenté.",
-    "canonical": "https://www.baouch.fr/blog/resolutions-problematiques-plm/",
-    "robots": null,
-    "ogTitle": "Résoudre les 5 problématiques PLM vécues en tant qu'Ingénieur Mécanique",
-    "ogDescription": "Retour d'expérience sur cinq problématiques PLM vécues sur le terrain et les solutions apportées.",
-    "ogUrl": "https://www.baouch.fr/blog/resolutions-problematiques-plm/",
-    "ogImage": "https://www.baouch.fr/img/og/resolutions-plm.jpg",
-    "ogType": "article",
-    "twitterTitle": "5 problématiques PLM résolues sur le terrain",
-    "twitterDescription": "Retour d'expérience sur cinq problématiques PLM et les solutions concrètes apportées.",
-    "jsonldTypes": [
-      "BlogPosting,BreadcrumbList,FAQPage"
-    ],
-    "h1": "Au-delà de la théorie : résoudre les 5 problématiques PLM que j'ai vécues en tant qu'Ingénieur Mécanique",
     "lang": "fr"
   },
   "/blog/rugosite-ra-tableau-classes-procedes/": {
@@ -649,7 +577,7 @@
   },
   "/blog/solidworks-pdm-lent-7-causes/": {
     "title": "SOLIDWORKS PDM lent : les 7 vraies causes (et la 6ᵉ que personne ne regarde)",
-    "description": "Votre SOLIDWORKS PDM rame à l'ouverture, à l'enregistrement, au check-out ? Les 7 causes réelles observées sur 80 clients, la méthode de diagnostic et les correctifs qui redonnent 15 minutes par jour à chaque ingénieur.",
+    "description": "Votre SOLIDWORKS PDM rame à l'ouverture, à l'enregistrement, au check-out ? Les 7 causes réelles, la méthode de diagnostic et les correctifs qui redonnent 15 minutes par jour à chaque ingénieur.",
     "canonical": "https://www.baouch.fr/blog/solidworks-pdm-lent-7-causes/",
     "robots": null,
     "ogTitle": "SOLIDWORKS PDM lent : les 7 vraies causes de lenteur",
