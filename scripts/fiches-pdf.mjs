@@ -19,7 +19,8 @@ const SITE = 'https://www.baouch.fr';
 
 // slug de l'article → noms des fichiers (descriptifs : le nom du PDF compte pour la recherche)
 // titre : celui de la fiche quand le h1 de l'article annonce ce que la fiche ne contient pas
-// (calculateur, méthode de lecture) ; h2 : intertitres à renommer pour le papier.
+// (calculateur, méthode de lecture) ; h2 : intertitres à renommer pour le papier ;
+// figures : reprendre aussi les schémas (figure > svg) des sections qui ont un tableau.
 export const FICHES = {
   'couple-serrage-vis-tableau': {
     fr: 'tableau-couple-de-serrage-vis', en: 'bolt-torque-chart-metric',
@@ -37,7 +38,7 @@ export const FICHES = {
     h2: { 'Convertisseur Ra : µm, µin et classes N': 'Classes de rugosité N et valeurs de Ra', 'Ra converter: µm, µin and N grades': 'Roughness grades N and Ra values' },
   },
   'vis-chc-iso-4762-dimensions': {
-    fr: 'tableau-vis-chc-iso-4762-dimensions', en: 'socket-head-cap-screw-dimensions-chart',
+    fr: 'tableau-vis-chc-iso-4762-dimensions', en: 'socket-head-cap-screw-dimensions-chart', figures: true,
     titre: { fr: 'Vis CHC ISO 4762 : dimensions métriques et en pouces, classes de qualité', en: 'Socket head cap screw dimensions: metric ISO 4762, inch ASME B18.3, property classes' },
     h2: {
       '3. Vis CHC en pouces (ASME B18.3)': '2. Vis CHC en pouces (ASME B18.3)', '3. Inch socket head cap screws (ASME B18.3)': '2. Inch socket head cap screws (ASME B18.3)',
@@ -90,7 +91,7 @@ const TXT = {
 };
 
 // tableaux de l'article + les paragraphes qui les encadrent (hypothèses, unités, source)
-function extraire(html, renommer = {}) {
+function extraire(html, renommer = {}, figures = false) {
   const $ = cheerio.load(html);
   const titre = $('h1').first().text().replace(/\s+/g, ' ').trim();
   const sections = [];
@@ -104,6 +105,7 @@ function extraire(html, renommer = {}) {
       const $el = $(el);
       if ($el.is('h2')) return;
       if (estTable(el)) blocs.push(`<table>${$el.is('table') ? $el.html() : $el.find('table').first().html()}</table>`);
+      else if (figures && $el.is('figure') && $el.find('svg').length) blocs.push(`<figure>${$.html($el.find('svg').first())}</figure>`);
       else if ($el.is('p, h3') && (estTable(enfants[i + 1]) || ($el.is('p') && estTable(enfants[i - 1])))) {
         const b = nettoyer($, el);
         if (b) blocs.push(b);
@@ -136,6 +138,8 @@ th { background: #15161a; color: #fff; text-align: left; font-weight: 600; paddi
 td { border-bottom: 0.6pt solid #cfd0d4; padding: 3.5px 6px; vertical-align: top; }
 tbody tr:nth-child(even) td { background: #f3f3f5; }
 svg { color: #15161a; }
+figure { margin: 4px 0 10px; text-align: center; break-inside: avoid; }
+figure svg { max-width: 150mm !important; }
 .gdt-sym { font-family: 'DejaVu Sans', sans-serif !important; font-size: 1.7em !important; line-height: 1; }
 .note { margin-top: 14px; padding-top: 8px; border-top: 0.6pt solid #cfd0d4; font-size: 8pt; color: #555; }
 a { color: inherit; text-decoration: none; }
@@ -155,7 +159,7 @@ for (const slug of slugs) {
   for (const lang of ['fr', 'en']) {
     const chemin = lang === 'fr' ? `/blog/${slug}/` : `/en/blog/${slug}/`;
     const html = readFileSync(resolve(ROOT, 'dist', '.' + chemin, 'index.html'), 'utf8');
-    const { titre: h1, sections } = extraire(html, noms.h2);
+    const { titre: h1, sections } = extraire(html, noms.h2, noms.figures);
     const titre = noms.titre?.[lang] ?? h1;
     if (!sections.length) throw new Error(`fiches-pdf : aucun tableau dans ${chemin}`);
     const page = await browser.newPage({ viewport: { width: 794, height: 1123 } });

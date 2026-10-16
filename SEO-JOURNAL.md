@@ -33,6 +33,95 @@ La carte se pose simplement dans la grille de `src/blog/index.html` (entre `gril
 
 **Suivi** : compter à part les URL `/en/` (indexation, impressions, requêtes anglaises). Dans le résumé, donner les URL à soumettre en version française ET anglaise. Si Search Console répond « Petit problème… Une erreur s'est produite » à une demande d'indexation, c'est une limite passagère de Google : réessayer plus tard ; le sitemap suffit à la découverte.
 
+## CONSIGNE DU PROPRIÉTAIRE (16/10/2026) — des dessins dans les articles
+
+« Rajoute des dessins dans les articles de blog pour que ce soit plus parlant », en commençant par le dernier article.
+
+**À chaque passage, en plus de l'action du jour**, ajouter des schémas explicatifs à UN article existant, en suivant la liste ci-dessous, du plus récent au plus ancien.
+- Ne pas toucher un article dont le titre ou la description est en test : passer au suivant et y revenir après la date de fin. Ne pas toucher non plus l'article qui reçoit l'action du jour.
+- Un article qui reçoit des schémas ne change pas de titre pendant 14 jours : inscrire la date de fin dans les pages en test.
+
+**Ce qu'est un bon schéma** :
+- il explique ce que le texte décrit : cotes d'une pièce, coupe d'un montage, principe d'un calcul, flux d'un processus PDM/PLM. Jamais décoratif ;
+- ses valeurs et ses lettres sont celles de l'article (mêmes symboles, mêmes exemples) ;
+- 1 à 3 schémas par article, placés à côté du passage qu'ils éclairent.
+
+**Méthode** (modèle : les trois figures de `src/blog/vis-chc-iso-4762-dimensions/index.html`) :
+- SVG en ligne dans une `figure.article-figure`, avec une `figcaption` bilingue (spans data-lang) et un `aria-label` ;
+- traits en `currentColor`, pour les thèmes clair et sombre ;
+- cotes en accent : `style="color:var(--accent,#2f6e9b)"`, avec repli pour la fiche PDF ;
+- masque de fond : `fill:var(--bg-0,#fff)` ;
+- hachures : `pattern` aux identifiants uniques dans la page ;
+- libellés courts, de 15 px au moins dans un viewBox d'environ 640 de large, pour rester lisibles à 390 px ;
+- traduction : chaque `<text>` français va dans `text` de `src/i18n/strings-en.json` et chaque `aria-label` dans `attr`. Vérifier dans `dist/en/…` qu'aucun libellé français ne reste : verify:en ne repère que les accents ;
+- si l'article a une fiche PDF : `figures: true` dans son entrée FICHES, puis régénérer la fiche et regarder l'aperçu ;
+- contrôle Chromium à 1280 et 390 px, en FR, en /en/ et en thème sombre. Faire défiler jusqu'à la figure et attendre environ 1,5 s avant la capture : les sections apparaissent en fondu ;
+- noter l'avancement dans le journal.
+
+**Ordre** (du plus récent au plus ancien) ; ✓ = fait :
+- ✓ vis-chc-iso-4762-dimensions (16/10) — soudure ISO 2553 a déjà ses schémas ;
+- moment-quadratique-inertie-section-calcul ;
+- epaisseur-tole-jauge-gauge-tableau ;
+- conversion-pouce-mm-tableau ;
+- engrenage-module-calcul-diametres (titre en test jusqu'au 23/10) ;
+- image-administrative-solidworks-installation ;
+- filetage-gaz-g-bsp-npt-tableau, clavettes-paralleles-din-6885-dimensions, conversion-durete-hrc-hv-hb, aciers-s235-s275-s355-caracteristiques (titres en test jusqu'au 23/10) ;
+- tolerances-geometriques-symboles-iso-1101 ;
+- tolerances-generales-iso-2768 ;
+- rugosite-ra-tableau-classes-procedes ;
+- modele-nomenclature-excel-gratuit ;
+- masse-volumique-materiaux-calcul-masse (titre en test jusqu'au 23/10) ;
+- couple-serrage-vis-tableau ;
+- ajustements-iso-286-tableau-h7-g6 ;
+- tableau-filetage-metrique-percage-taraudage ;
+- logiciel-gestion-nomenclatures ;
+- integration-bom-erp ;
+- glossaire-pdm-plm ;
+- ebom-vs-mbom ;
+- solidworks-pdm-guide-complet ;
+- plm-guide-complet ;
+- erreurs-solidworks-frequentes ;
+- raccourcis-clavier-solidworks (/en/ en test jusqu'au 27/10) ;
+- formats-echange-cao-step-iges-parasolid ;
+- choisir-logiciel-cao-solidworks-inventor-fusion-catia ;
+- solidworks-gratuit-prix-guide (/en/ en test jusqu'au 27/10) ;
+- prix-cout-projet-solidworks-pdm ;
+- ia-solidworks-pdm-bureau-etudes ;
+- solidworks-pdm-standard-vs-professional ;
+- pdm-ou-plm-quand-basculer ;
+- eco-ecr-gestion-modifications ;
+- solidworks-pdm-lent-7-causes ;
+- codification-proprietes-solidworks ;
+- migration-cloud-pdm-3dexperience ;
+- migration-donnees-solidworks-pdm ;
+- nomenclature-bom-pdm-plm-erp ;
+- configuration-materielle-solidworks ;
+- resolutions-problematiques-plm.
+
+**Nouvelles pages (action a)** : au moins 2 schémas de ce type dès la publication.
+
+## 2026-10-16 (2) — schémas dans le mémo vis CHC (demande du propriétaire)
+
+**Demande** : ajouter des dessins dans les articles pour les rendre plus parlants, en commençant par le dernier. La tâche planifiée et la consigne ci-dessus organisent la suite, un article par passage.
+
+**Fait sur `/blog/vis-chc-iso-4762-dimensions/` et sa version /en/** : trois schémas SVG en ligne.
+1. **Cotes de la vis** (section 1) : profil d'une M8 × 40 à l'échelle et vue de dessus de la tête, avec dk, k, d, b, L (sous tête), t et s, les lettres du tableau.
+2. **Montage dans un lamage** (section 2, au-dessus du calculateur) : coupe d'une M8 × 25, tête noyée, pièce serrée et pièce taraudée hachurées. Cotes e, prise et L = e + prise, lamage « ≥ k » et « Ø > dk », taraudage plus profond que la prise. Le schéma montre ce que le calculateur demande.
+3. **Lecture d'une désignation** (section 4) : ISO 4762 – M8 × 30 – 12.9, avec norme, diamètre nominal, longueur L et classe de qualité.
+
+**Autour** :
+- libellés et `aria-label` traduits dans strings-en.json ; aucun libellé français dans dist/en ;
+- **fiche PDF** : nouvelle option `figures` dans scripts/fiches-pdf.mjs, qui reprend les schémas des sections à tableau. Seule la fiche vis CHC l'active, les autres fiches sont inchangées. La fiche FR/EN contient maintenant le schéma des cotes ; relue visuellement.
+
+**Vérifications** :
+- build OK, verify:seo identique (44 pages), verify:en 0/0 ;
+- Chromium FR et /en/ à 1280 px (clair et sombre) et 390 px : 3 figures, sans erreur JS ni défilement horizontal ;
+- deux corrections après la première capture : libellé anglais coupé à droite et libellés de la désignation qui se chevauchaient.
+
+**Pages en test** : inchangées. La page vis CHC est déjà en test jusqu'au 30/10.
+
+**Prochain article à illustrer** : moment-quadratique-inertie-section-calcul (sections avec axe neutre et fibre extrême v, principe de Huygens).
+
 ## 2026-10-16 — nouveau mémo bilingue : vis CHC ISO 4762 (dimensions, pouces, classes, calculateur, fiche PDF)
 
 **Passages manqués** : le passage du 14/10 s'est interrompu avant toute livraison, et le déclenchement du 15/10 est arrivé en retard. Ce passage les remplace : rien n'a été poussé entre le 13/10 (d542dc9) et aujourd'hui.

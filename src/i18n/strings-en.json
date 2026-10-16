@@ -28,7 +28,17 @@
     "ligne de référence (trait continu)": "reference line (continuous)",
     "Rectangle plein": "Solid rectangle",
     "Tube rectangulaire": "Rectangular tube",
-    "Profilé en I (symétrique)": "I-section (symmetric)"
+    "Profilé en I (symétrique)": "I-section (symmetric)",
+    "vue de dessus": "top view",
+    "L (sous tête)": "L (under head)",
+    "pièce serrée": "clamped part",
+    "pièce taraudée": "tapped part",
+    "prise": "engagement",
+    "taraudage > prise": "tapped depth > engagement",
+    "norme": "standard",
+    "diamètre nominal": "nominal diameter",
+    "longueur L (mm)": "length L (mm)",
+    "classe de qualité": "property class"
   },
   "attr": {
     "Baies de serveurs": "Server racks",
@@ -115,6 +125,9 @@
     "Réglage de l'emplacement Toolbox pour les postes clients dans l'éditeur d'options": "Toolbox location setting for client workstations in the options editor",
     "Rubrique Numéros de série de l'éditeur d'options avec le champ Port serveur SNL@serveur pour une licence réseau": "Serial numbers section of the options editor with the SNL server port@server field for a network license",
     "Éditeur d'options, onglet Déployer automatiquement : choix des postes, options du client et identifiants d'un compte administrateur": "Options editor, deploy automatically tab: workstation selection, client options and administrator account credentials",
-    "Dossier SolidWorks Admin contenant deux images administratives, SOLIDWORKS 2020 SP0 et SP1.0": "SolidWorks Admin folder holding two administrative images, SOLIDWORKS 2020 SP0 and SP1.0"
+    "Dossier SolidWorks Admin contenant deux images administratives, SOLIDWORKS 2020 SP0 et SP1.0": "SolidWorks Admin folder holding two administrative images, SOLIDWORKS 2020 SP0 and SP1.0",
+    "Vis CHC ISO 4762 de profil et vue de dessus de la tête : diamètre de tête dk, hauteur de tête k, diamètre d, longueur filetée b, longueur L mesurée sous la tête, clé s et profondeur d'empreinte t": "ISO 4762 socket head cap screw in side view and head top view: head diameter dk, head height k, diameter d, thread length b, length L measured under the head, key size s and socket depth t",
+    "Coupe d'une vis CHC dans un lamage : tête noyée dans un lamage d'au moins k de profondeur et de diamètre supérieur à dk, épaisseur serrée e sous la tête, longueur en prise dans le taraudage, longueur L égale à e plus la prise": "Section of a socket head cap screw in a counterbore: head sunk in a counterbore at least k deep and larger than dk, clamped thickness e under the head, thread engagement in the tapped hole, length L equal to e plus the engagement",
+    "Lecture de la désignation ISO 4762 - M8 × 30 - 12.9 : norme, diamètre nominal, longueur sous tête en mm, classe de qualité": "Reading the designation ISO 4762 - M8 × 30 - 12.9: standard, nominal diameter, length under the head in mm, property class"
   }
 }
