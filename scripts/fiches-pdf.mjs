@@ -36,6 +36,14 @@ export const FICHES = {
     fr: 'tableau-rugosite-ra-classes-n', en: 'surface-roughness-ra-chart',
     h2: { 'Convertisseur Ra : µm, µin et classes N': 'Classes de rugosité N et valeurs de Ra', 'Ra converter: µm, µin and N grades': 'Roughness grades N and Ra values' },
   },
+  'vis-chc-iso-4762-dimensions': {
+    fr: 'tableau-vis-chc-iso-4762-dimensions', en: 'socket-head-cap-screw-dimensions-chart',
+    titre: { fr: 'Vis CHC ISO 4762 : dimensions métriques et en pouces, classes de qualité', en: 'Socket head cap screw dimensions: metric ISO 4762, inch ASME B18.3, property classes' },
+    h2: {
+      '3. Vis CHC en pouces (ASME B18.3)': '2. Vis CHC en pouces (ASME B18.3)', '3. Inch socket head cap screws (ASME B18.3)': '2. Inch socket head cap screws (ASME B18.3)',
+      '5. Classes de qualité 8.8, 10.9, 12.9 (ISO 898-1)': '3. Classes de qualité 8.8, 10.9, 12.9 (ISO 898-1)', '5. Property classes 8.8, 10.9, 12.9 (ISO 898-1)': '3. Property classes 8.8, 10.9, 12.9 (ISO 898-1)',
+    },
+  },
   'moment-quadratique-inertie-section-calcul': {
     fr: 'formulaire-moment-quadratique-sections', en: 'area-moment-of-inertia-formulas',
     titre: { fr: 'Moment quadratique : formules des sections, exemples et unités', en: 'Area moment of inertia: section formulas, examples and units' },

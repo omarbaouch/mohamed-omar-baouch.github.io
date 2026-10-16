@@ -33,6 +33,84 @@ La carte se pose simplement dans la grille de `src/blog/index.html` (entre `gril
 
 **Suivi** : compter à part les URL `/en/` (indexation, impressions, requêtes anglaises). Dans le résumé, donner les URL à soumettre en version française ET anglaise. Si Search Console répond « Petit problème… Une erreur s'est produite » à une demande d'indexation, c'est une limite passagère de Google : réessayer plus tard ; le sitemap suffit à la découverte.
 
+## 2026-10-16 — nouveau mémo bilingue : vis CHC ISO 4762 (dimensions, pouces, classes, calculateur, fiche PDF)
+
+**Passages manqués** : le passage du 14/10 s'est interrompu avant toute livraison, et le déclenchement du 15/10 est arrivé en retard. Ce passage les remplace : rien n'a été poussé entre le 13/10 (d542dc9) et aujourd'hui.
+
+**Search Console** : rapport du 15/10, couvrant le 14/09 → 12/10.
+- **6,9 clics/jour en moyenne sur 28 jours** (4,7 au passage du 13/10).
+- 192 clics, 16 905 impressions (+35 %), position moyenne 11,4 (11,7).
+- **Record : 41 clics le 12/10**, après un creux de week-end (8 le 10/10, 11 le 11/10).
+- **Pages /en/ en tête** :
+  - soudure : 33 clics, 908 impressions, position 4,3 ;
+  - ISO 1101 : 12 clics, position 5,8 ;
+  - couple de serrage : 11 clics, position 4,4 ;
+  - ISO 2768 : 9 clics, 805 impressions, position 4,7 ;
+  - clavettes : 5 clics, position 4,2.
+- **Côté FR** : couple de serrage 11 clics (position 9,7), SOLIDWORKS gratuit 11 clics (1 044 impressions, position 16,0), ISO 1101 8 clics (position 6,7).
+- **Indexation 82/84** : pouce ↔ mm FR et moment quadratique FR sont désormais indexées. Restent non indexées resolutions-problematiques-plm et /en/ formats d'échange (« détectée »).
+- À noter : /en/ logiciel-gestion-nomenclatures fait 1 467 impressions en position 29,1, sans clic.
+
+**Mots-clés** : relevé du 10/10, donc de moins de 7 jours, pas de nouvelle collecte.
+- Bing US, impressions sur 90 jours : « socket head cap screw » 1 334, « socket head screw » 260, « socket head cap screws » 180, « socket head bolt » 117. Bing associe toutes ces requêtes à « socket head cap screw dimensions », première suggestion Google.
+- Bing France : « vis chc » 754. Les suggestions Google portent sur les dimensions par taille (« vis chc m8 dimensions »…), le lamage et le PDF.
+- Le sujet n'avait pas de page : le filetage métrique ne donne que la clé.
+
+**Pourquoi l'action (a)** :
+- Toutes les pages candidates à l'action (d) sont en test jusqu'au 23 à 27/10.
+- Les requêtes en positions 4–15 avec au moins 30 impressions (« ebom » 114, « ebom mbom » 64, « mbom » 49) relèvent de nomenclature-bom-pdm-plm-erp. Cette page doit d'abord recevoir son anglais complet (action f).
+
+**Action (a)** : `/blog/vis-chc-iso-4762-dimensions/` (MEM-17) et `/en/blog/vis-chc-iso-4762-dimensions/`.
+- **Valeurs vérifiées par recherche web** :
+  - ISO 4762:2004 : d, P, dk max, k max, s, t mini et b réf. de M1,6 à M36, relevés sur fasten.it et contrôlés sur globalfastener. Le générateur vérifie k = d, b = 2d + 12 et dk = 1,5·d à partir de M12.
+  - Série des longueurs nominales de 2,5 à 300 mm.
+  - ASME B18.3-2003, #4 à 1″ : A max, H max, clé J et T mini (aftfasteners). Les conversions en mm sont calculées et arrondies au centième.
+  - ISO 898-1 : Rm et Rp0,2 des classes 8.8, 10.9 et 12.9 (trfastenings).
+  - DIN 912, retirée et remplacée par l'ISO 4762 (pas gros) et l'ISO 12474 (pas fin).
+- **Valeurs écartées** : les diamètres de lamage DIN 974-1. Les tableaux trouvés ne concordent pas (11 ou 11,25 mm pour M6, 14 ou 15 mm pour M8). La page donne seulement la règle : profondeur au moins k, diamètre supérieur à dk de la tête moletée, valeurs normalisées dans la DIN 974-1.
+- Aucune règle de longueur en prise non normalisée (1·d, 1,5·d…) : la page renvoie à la VDI 2230.
+- **Contenu** :
+  - tableau métrique et tableau en pouces avec équivalents en mm ;
+  - longueurs normalisées et désignation ;
+  - classes de qualité, inox A2-70 et A4-70 ;
+  - lamage et perçage, avec renvoi au tableau du filetage pour l'ISO 273 ;
+  - assistance pour le perçage SOLIDWORKS ;
+  - autres vis six pans creux : DIN 7984, ISO 7380, ISO 10642 ;
+  - 5 questions FAQ.
+- **Calculateur de longueur et de lamage** (métrique) :
+  - longueur nécessaire = épaisseur serrée + rondelle + prise ;
+  - longueurs normalisées encadrantes, avec la prise obtenue ;
+  - profondeur et diamètre minimaux du lamage, clé et profondeur d'empreinte ;
+  - alerte si la partie lisse d'une vis partiellement filetée atteindrait le taraudage.
+  - Contrôlé en FR et EN : M8, e = 12, p = 12 → 24 mm → M8 × 25 (prise 13) ou × 20 (prise 8).
+- **Fiche PDF A4 FR/EN** : tableau-vis-chc-iso-4762-dimensions.pdf et socket-head-cap-screw-dimensions-chart.pdf, avec les trois tableaux et les sections renumérotées. Relue visuellement.
+- **Autour de la page** :
+  - planche « vis M8 × 40 de profil et vue de la tête » (dk 13, k 8, clé 6), regardée en FR et EN ;
+  - image de partage `vis-chc` ;
+  - carte dans la grille du blog ;
+  - liens depuis le filetage métrique et pouce ↔ mm ;
+  - baseline : 44 pages.
+- **Vérifications** :
+  - build OK, verify:seo (page nouvelle seule, puis baseline à jour), verify:en 0/0 (40 pages anglaises) ;
+  - Chromium 1280/390 sur 8 pages FR et /en/ (nouveau mémo, blog, filetage, pouce ↔ mm) : sans erreur JS ni défilement horizontal ;
+  - PDF en 200, version /en/ vers le PDF anglais.
+
+**Clics attendus** : aucun chiffre fiable avant indexation. Les mémos récents prennent position vite en /en/ (clavettes en position 4 en une semaine). En position 5 sur « socket head cap screw dimensions », compter 1 à 3 clics par jour. À vérifier au 23/10 : indexation et premières impressions.
+
+**Pages en test** :
+- jusqu'au 23/10 : aciers, clavettes, dureté, engrenages, filetage gaz, masse volumique (titre ou description) ; couple de serrage, ISO 2768, ISO 1101, ajustements (contenu) ;
+- jusqu'au 24/10 : rugosité ;
+- jusqu'au 25/10 : soudure ;
+- jusqu'au 26/10 : moment quadratique, jauges de tôle ;
+- jusqu'au 27/10 : /en/ raccourcis SOLIDWORKS et /en/ SOLIDWORKS gratuit (titre et description) ;
+- **jusqu'au 30/10 : vis CHC (nouvelle), filetage métrique et pouce ↔ mm (lien ajouté le 16/10)**.
+
+**Prochaines pistes** :
+1. Action (f) : anglais complet de nomenclature-bom-pdm-plm-erp. Les requêtes « ebom », « ebom mbom », « mbom », « plm bom » et « bom erp » y arrivent déjà.
+2. Le 23/10 : /en/ ISO 2768 (805 impressions, position 4,7, 1,1 % de clics).
+3. /en/ logiciel-gestion-nomenclatures : 1 467 impressions en position 29. Regarder ses requêtes au prochain rapport.
+4. Mémos d'après Bing : goupilles (« dowel pins » 1 000), joints toriques (« joint torique » 2 099), dilatation thermique.
+
 ## 2026-10-13 — action (d) : titres et descriptions de deux pages /en/ très vues mais non cliquées
 
 **Search Console** : rapport du 12/10, couvrant le 11/09 → 09/10.

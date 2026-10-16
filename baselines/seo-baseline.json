@@ -755,6 +755,24 @@
     "h1": "Tolérances géométriques : les 14 symboles ISO 1101 et leur lecture",
     "lang": "fr"
   },
+  "/blog/vis-chc-iso-4762-dimensions/": {
+    "title": "Vis CHC ISO 4762 : dimensions de la tête, clé et longueurs",
+    "description": "Dimensions des vis CHC ISO 4762 de M1,6 à M36 : diamètre et hauteur de tête, clé six pans, filetage, longueurs, classes 8.8 à 12.9 et vis en pouces.",
+    "canonical": "https://www.baouch.fr/blog/vis-chc-iso-4762-dimensions/",
+    "robots": null,
+    "ogTitle": "Vis CHC ISO 4762 : dimensions, clé, longueurs et lamage",
+    "ogDescription": "Tête, clé six pans, longueur filetée et longueurs normalisées des vis CHC M1,6 à M36, les vis en pouces et un calculateur de longueur.",
+    "ogUrl": "https://www.baouch.fr/blog/vis-chc-iso-4762-dimensions/",
+    "ogImage": "https://www.baouch.fr/img/og/vis-chc.jpg",
+    "ogType": "article",
+    "twitterTitle": "Vis CHC ISO 4762 : dimensions, clé, longueurs et lamage",
+    "twitterDescription": "Tête, clé six pans, longueur filetée et longueurs normalisées des vis CHC M1,6 à M36, les vis en pouces et un calculateur de longueur.",
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList,FAQPage"
+    ],
+    "h1": "Vis CHC ISO 4762 : dimensions, clé, longueurs et lamage",
+    "lang": "fr"
+  },
   "/": {
     "title": "Mohamed Omar Baouch | Ingénieur Plasturgie & Consultant PDM/PLM",
     "description": "Portfolio de Mohamed Omar Baouch - Ingénieur Plasturgie et consultant PDM/PLM spécialisé dans l'optimisation des processus de développement produit",

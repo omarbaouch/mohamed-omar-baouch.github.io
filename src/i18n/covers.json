@@ -140,6 +140,10 @@
     "Planche technique : coupe d'un arbre de 25 mm avec sa rainure et sa clavette 8 × 7, cotes t1 et t2",
     "Technical drawing: cross-section of a 25 mm shaft with its keyway and 8 × 7 key, depths t1 and t2"
   ],
+  "vis-chc-iso-4762-dimensions": [
+    "Planche technique : vis CHC M8 ISO 4762 de profil et vue de dessus de la tête, cotes dk 13, k 8 et clé six pans 6",
+    "Technical drawing: M8 ISO 4762 socket head cap screw in side view and head top view, dimensions dk 13, k 8 and hex key 6"
+  ],
   "moment-quadratique-inertie-section-calcul": [
     "Planche technique : sections d'un rectangle, d'un tube rond et d'un profilé en I avec leur axe neutre, I = b·h³/12",
     "Technical drawing: rectangle, round tube and I-section cross-sections with their neutral axis, I = b·h³/12"

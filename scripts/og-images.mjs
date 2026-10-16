@@ -50,6 +50,7 @@ const PAGES = [
   { file: 'src/blog/engrenage-module-calcul-diametres/index.html', slug: 'engrenage', ref: 'MEM-13', type: 'MÉMO', title: 'Module d’engrenage : diamètres, entraxe et calculateur' },
   { file: 'src/blog/conversion-pouce-mm-tableau/index.html', slug: 'pouce-mm', ref: 'MEM-14', type: 'MÉMO', title: 'Conversion pouce ↔ mm : tableau des fractions et convertisseur' },
   { file: 'src/blog/epaisseur-tole-jauge-gauge-tableau/index.html', slug: 'jauge-tole', ref: 'MEM-15', type: 'MÉMO', title: 'Jauge de tôle (gauge) : tableau des épaisseurs en mm et pouces' },
+  { file: 'src/blog/vis-chc-iso-4762-dimensions/index.html', slug: 'vis-chc', ref: 'MEM-17', type: 'MÉMO', title: 'Vis CHC ISO 4762 : dimensions de la tête, clé et longueurs' },
   { file: 'src/blog/moment-quadratique-inertie-section-calcul/index.html', slug: 'moment-quadratique', ref: 'MEM-16', type: 'MÉMO', title: 'Moment quadratique : formules des sections et calculateur' },
   { file: 'src/blog/image-administrative-solidworks-installation/index.html', slug: 'image-admin-sw', ref: 'DOC-18', type: 'ARTICLE', title: 'Image administrative SOLIDWORKS : créer, configurer, déployer' },
   { file: 'src/blog/modele-nomenclature-excel-gratuit/index.html', slug: 'modele-bom', ref: 'TPL-01', type: 'MODÈLE GRATUIT', title: 'Modèle de nomenclature Excel gratuit : BOM multiniveau' },

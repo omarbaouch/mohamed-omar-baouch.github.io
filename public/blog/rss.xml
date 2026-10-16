@@ -5,8 +5,16 @@
     <link>https://www.baouch.fr/blog/</link>
     <description>Articles de fond et retours d'expérience terrain sur le PDM, le PLM, SOLIDWORKS et la gestion des données produit.</description>
     <language>fr-FR</language>
-    <lastBuildDate>Mon, 12 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 16 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.baouch.fr/blog/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Vis CHC ISO 4762 : dimensions, clé, longueurs et lamage</title>
+      <link>https://www.baouch.fr/blog/vis-chc-iso-4762-dimensions/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/vis-chc-iso-4762-dimensions/</guid>
+      <pubDate>Fri, 16 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Dimensions des vis CHC ISO 4762 de M1,6 à M36 : diamètre et hauteur de tête, clé six pans, filetage, longueurs, classes 8.8 à 12.9 et vis en pouces.</description>
+      <enclosure url="https://www.baouch.fr/img/og/vis-chc.jpg" type="image/jpeg"/>
+    </item>
     <item>
       <title>Moment quadratique (moment d'inertie de section) : formules et calculateur</title>
       <link>https://www.baouch.fr/blog/moment-quadratique-inertie-section-calcul/</link>

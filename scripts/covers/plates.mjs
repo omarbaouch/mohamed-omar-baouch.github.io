@@ -921,7 +921,40 @@ function momentQuadratique(l) {
   b += text(ix, yc - H / 2 - 30, t('profilé en I', 'I-section'), { size: 22, c: C.ink, anchor: 'middle', weight: 700 });
   return sheet({ ref: 'MEM-16', std: t('Résistance des matériaux', 'Strength of materials'), rev: 'A', scale: '1:1', key: 'Ix', keySub: t('moment quadratique · mm⁴', 'area moment of inertia · mm⁴'), body: b, keyY: 760, keySize: 200 });
 }
+function visChc(l) {
+  const { t } = lang(l);
+  let b = '';
+  // vis CHC M8 × 40 ISO 4762 de profil (14 px/mm) et vue de dessus de la tête
+  const u = 14, yc = 400, x0 = 600;
+  const k = 8 * u, dk = 13 * u, d = 8 * u, L = 40 * u, bt = 28 * u, tS = 4 * u, s = 6 * u;
+  const xh = x0 + k, xe = xh + L, ch = 10;
+  // tête (arêtes chanfreinées côté dessus) et tige
+  b += path(`M${x0 + ch} ${yc - dk / 2} H${xh} V${yc + dk / 2} H${x0 + ch} L${x0} ${yc + dk / 2 - ch} V${yc - dk / 2 + ch} Z`, { c: C.line, w: 2.4, fill: C.fill });
+  b += path(`M${xh} ${yc - d / 2} H${xe - u} L${xe} ${yc - d / 2 + u} V${yc + d / 2 - u} L${xe - u} ${yc + d / 2} H${xh}`, { c: C.line, w: 2.4, fill: C.fill });
+  // empreinte six pans en traits cachés (profondeur t mini 4, clé 6)
+  b += rect(x0, yc - s / 2, tS, s, { c: C.mid, sw: 1.6, dash: '9 6' });
+  // filetage : limite de filetage et fond de filet (d3 ≈ 6,47 mm)
+  const xf = xe - bt, r3 = 6.47 * u / 2;
+  b += line(xf, yc - d / 2, xf, yc + d / 2, { c: C.line, w: 2.2 });
+  b += line(xf, yc - r3, xe - u, yc - r3, { c: C.mid, w: 1.3 }) + line(xf, yc + r3, xe - u, yc + r3, { c: C.mid, w: 1.3 });
+  b += axis(x0 - 30, yc, xe + 30, yc);
+  // cotes
+  b += dim(x0, yc - dk / 2, xh, yc - dk / 2, 'k 8', { off: -44, size: 22, c: C.accent, tc: C.accent });
+  b += dim(x0, yc - dk / 2, x0, yc + dk / 2, 'Ø13', { off: 52, size: 22, c: C.accent, tc: C.accent });
+  // cotes sous la vis : texte au-dessus du trait de cote
+  b += dim(xf, yc + d / 2, xe, yc + d / 2, '', { off: 58 }) + text((xf + xe) / 2, yc + d / 2 + 48, 'b 28', { size: 20, c: C.mid, anchor: 'middle' });
+  b += dim(xh, yc + d / 2, xe, yc + d / 2, '', { off: 124 }) + text((xh + xe) / 2, yc + d / 2 + 114, 'L 40', { size: 22, c: C.ink, anchor: 'middle' });
+  // vue de dessus : tête Ø13 et empreinte six pans de 6 sur plats
+  const cx = 1424, R = dk / 2, Rh = s / Math.sqrt(3);
+  b += circle(cx, yc, R, { c: C.line, w: 2.4, fill: C.fill });
+  b += circle(cx, yc, R - ch, { c: C.mid, w: 1.2, op: 0.7 });
+  b += poly([0, 1, 2, 3, 4, 5].map((i) => [cx + Rh * Math.cos((i * Math.PI) / 3), yc + Rh * Math.sin((i * Math.PI) / 3)]), { c: C.accent, w: 2.6, fill: C.bg0 });
+  b += axis(cx - R - 22, yc, cx + R + 22, yc, { op: 0.5 }) + axis(cx, yc - R - 22, cx, yc + R + 22, { op: 0.5 });
+  b += leader(cx + Rh * 0.5, yc + s / 2, cx + 30, yc + R + 70, t('clé 6', 'key 6'), { c: C.accent, tc: C.accent, size: 22 });
+  return sheet({ ref: 'MEM-17', std: 'ISO 4762', rev: 'A', scale: '2:1', key: 'M8', keySub: t('tête Ø13 · k 8 · clé 6', 'head Ø13 · k 8 · key 6'), body: b, keyY: 760, keySize: 200 });
+}
 export const PLATES = {
+  'vis-chc-iso-4762-dimensions': visChc,
   'moment-quadratique-inertie-section-calcul': momentQuadratique,
   'epaisseur-tole-jauge-gauge-tableau': jaugeTole,
   'conversion-pouce-mm-tableau': pouceMm,
