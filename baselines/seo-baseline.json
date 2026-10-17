@@ -35,6 +35,24 @@
     "h1": "Ajustements ISO 286 : tableau H7/g6, H7/h6, H7/p6 et calculateur de jeu",
     "lang": "fr"
   },
+  "/blog/chaine-de-cotes-tolerance-stack-up/": {
+    "title": "Chaîne de cotes : calcul au pire des cas et quadratique (RSS)",
+    "description": "Chaîne de cotes : construire la boucle, calculer le jeu au pire des cas et par la méthode quadratique (RSS), exemple chiffré et calculateur gratuit.",
+    "canonical": "https://www.baouch.fr/blog/chaine-de-cotes-tolerance-stack-up/",
+    "robots": null,
+    "ogTitle": "Chaîne de cotes : calcul au pire des cas et quadratique (RSS)",
+    "ogDescription": "Construire une chaîne de cotes, calculer le jeu mini et maxi au pire des cas et en quadratique (RSS), avec un exemple et un calculateur.",
+    "ogUrl": "https://www.baouch.fr/blog/chaine-de-cotes-tolerance-stack-up/",
+    "ogImage": "https://www.baouch.fr/img/og/chaine-de-cotes.jpg",
+    "ogType": "article",
+    "twitterTitle": "Chaîne de cotes : calcul au pire des cas et quadratique (RSS)",
+    "twitterDescription": "Construire une chaîne de cotes, calculer le jeu mini et maxi au pire des cas et en quadratique (RSS), avec un exemple et un calculateur.",
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList,FAQPage"
+    ],
+    "h1": "Chaîne de cotes : calcul au pire des cas et quadratique (RSS)",
+    "lang": "fr"
+  },
   "/blog/choisir-logiciel-cao-solidworks-inventor-fusion-catia/": {
     "title": "SOLIDWORKS, Inventor, Fusion 360 ou CATIA : quel logiciel de CAO choisir en 2026 ?",
     "description": "Comparatif honnête des logiciels de CAO 3D pour la mécanique : SOLIDWORKS, Autodesk Inventor, Fusion 360, CATIA, Creo, NX, Onshape. Pour quel profil, avec quelles limites réelles, et les 5 critères qui décident vraiment — dont celui que tout le monde oublie : le coût total sur cinq ans.",

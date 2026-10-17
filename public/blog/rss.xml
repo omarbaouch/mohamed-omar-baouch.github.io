@@ -5,8 +5,16 @@
     <link>https://www.baouch.fr/blog/</link>
     <description>Articles de fond et retours d'expérience terrain sur le PDM, le PLM, SOLIDWORKS et la gestion des données produit.</description>
     <language>fr-FR</language>
-    <lastBuildDate>Fri, 16 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 17 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.baouch.fr/blog/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Chaîne de cotes : calcul au pire des cas et quadratique (RSS)</title>
+      <link>https://www.baouch.fr/blog/chaine-de-cotes-tolerance-stack-up/</link>
+      <guid isPermaLink="true">https://www.baouch.fr/blog/chaine-de-cotes-tolerance-stack-up/</guid>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Chaîne de cotes : construire la boucle, calculer le jeu au pire des cas et par la méthode quadratique (RSS), exemple chiffré et calculateur gratuit.</description>
+      <enclosure url="https://www.baouch.fr/img/og/chaine-de-cotes.jpg" type="image/jpeg"/>
+    </item>
     <item>
       <title>Vis CHC ISO 4762 : dimensions, clé, longueurs et lamage</title>
       <link>https://www.baouch.fr/blog/vis-chc-iso-4762-dimensions/</link>

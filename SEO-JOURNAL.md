@@ -83,7 +83,7 @@ Le propriétaire est salarié et son contrat l'exige : le site doit rester un **
 
 **Ordre** (du plus récent au plus ancien) ; ✓ = fait :
 - ✓ vis-chc-iso-4762-dimensions (16/10) — soudure ISO 2553 a déjà ses schémas ;
-- moment-quadratique-inertie-section-calcul ;
+- ✓ moment-quadratique-inertie-section-calcul (17/10) ;
 - epaisseur-tole-jauge-gauge-tableau ;
 - conversion-pouce-mm-tableau ;
 - engrenage-module-calcul-diametres (titre en test jusqu'au 23/10) ;
@@ -118,6 +118,92 @@ Le propriétaire est salarié et son contrat l'exige : le site doit rester un **
 - configuration-materielle-solidworks ;
 
 **Nouvelles pages (action a)** : au moins 2 schémas de ce type dès la publication.
+
+## 2026-10-17 — nouveau mémo bilingue : chaîne de cotes (pire des cas, quadratique RSS, calculateur, fiche PDF) + schémas du moment quadratique
+
+**Search Console** : rapport du 17/10, couvrant le 15/09 → 13/10.
+- **7,8 clics/jour en moyenne sur 28 jours** (6,9 au passage précédent).
+- 219 clics, 19 809 impressions (+17 %), position moyenne 11,2.
+- Le 13/10 : 28 clics et 2 947 impressions, record d'impressions.
+- **Pages /en/ en tête** :
+  - soudure : 37 clics, 1 079 impressions, position 4,2 ;
+  - ISO 1101 : 13 clics ;
+  - couple de serrage : 12 clics, position 4,3 ;
+  - ISO 2768 : 11 clics, 930 impressions, position 4,5, 1,2 % de clics.
+- **Côté FR** : couple de serrage 13 clics (787 impressions, position 9,3), SOLIDWORKS gratuit 11, raccourcis 8, ISO 1101 8.
+- **Moment quadratique FR**, 5 jours après publication : 3 clics, 120 impressions, position 7,8.
+- **Indexation 82/86** : le rapport liste encore les pages retirées le 16/10. Vis CHC FR et /en/ sont « inconnues », car publiées la veille.
+- /en/ logiciel-gestion-nomenclatures : 1 697 impressions en position 28,7, sans clic.
+
+**Mots-clés** : relance ponctuelle sur « tolerance stack up » (rapport régénéré, mise à jour du 17/10).
+- Bing a refusé la suite après 264 mots-clés (« ThrottleUser ») : pas de nouveau volume Bing.
+- Suggestions Google, rang 1 : « tolerance stack up calculator », « … excel », « … pdf », « … chart ».
+- Également : « tolerance stack up calculator excel free download », « rss tolerance stack up calculator ».
+- France : « chaine de cote statistique », « … quadratique », « … fonctionnelle », « … exercice corrigé ».
+
+**Choix de l'action (a)** :
+- aucune page du site ne traitait le sujet ;
+- ce ne sont que des mathématiques, sans valeur normalisée douteuse ;
+- le mémo complète les pages de tolérances, qui sont les plus cliquées en /en/ (ISO 2768, ISO 1101, ajustements).
+
+**Action (a)** : `/blog/chaine-de-cotes-tolerance-stack-up/` (MEM-18) et `/en/blog/chaine-de-cotes-tolerance-stack-up/`.
+- **Contenu** :
+  - construire la boucle en 5 étapes (condition, parcours, une cote par pièce, signe, calcul) ;
+  - tableau des formules : J nominal, J mini et maxi au pire des cas, T = Σ Tᵢ, T = √Σ Tᵢ² ;
+  - conversion des écarts dissymétriques ;
+  - exemple chiffré contrôlé par le générateur :
+    - a = 50 ±0,1 (+), b = 20 ±0,05 (−), c = 29,5 ±0,05 (−) ;
+    - J = 0,5 ; pire des cas 0,3 … 0,7 ; RSS 0,378 … 0,622 ;
+    - la cote a pèse 67 % de la variance ;
+  - comparaison pour n = 2 à 10 cotes ;
+  - quand choisir chaque méthode, Monte-Carlo ;
+  - 5 questions FAQ.
+- **Calculateur** :
+  - lignes ajoutables (signe, nominale, écarts) ;
+  - J moyen, intervalles au pire des cas et RSS, plus forte contribution ;
+  - verdict sur la condition (J mini, J maxi) ;
+  - contrôlé en FR et EN.
+- **2 schémas SVG** :
+  - la chaîne a − b − c = J (boîtier, pièces, jeu exagéré pour la lisibilité, ce que dit la légende) ;
+  - la répartition de J (cloche, intervalles pire des cas et RSS à 99,73 %).
+- **Fiche PDF A4 FR/EN** : chaine-de-cotes-formules-exemple.pdf et tolerance-stack-up-formulas-example.pdf, avec le schéma de répartition et les sections renumérotées. Relue.
+- **Autour de la page** :
+  - planche « boîtier, b, c, J » ;
+  - image de partage `chaine-de-cotes` ;
+  - carte du blog ;
+  - liens depuis ISO 1101 et ajustements ISO 286.
+  - ISO 2768 n'a volontairement pas été touchée : son titre /en/ reste le prochain candidat de l'action (d).
+- **Conformité** : contenu général de mécanique, sans client, mission ni information de l'employeur ; aucun bouton de contact.
+
+**3 bis, schémas** : moment-quadratique-inertie-section-calcul (coché dans la liste).
+- **Flexion** : section b × h, axe neutre, contrainte linéaire de compression et de traction jusqu'à h/2, σmax = M/W. Placé sous le tableau des formules.
+- **Théorème de Huygens** : aire A, axe central x, axe Δ à la distance d. Placé sous la section 4.
+- `figures: true` dans la fiche PDF du formulaire, régénérée et relue.
+
+**Vérifications** :
+- build OK ;
+- verify:seo (page nouvelle seule, baseline 41 pages) ; verify:en 0/0 (39 pages anglaises) ;
+- grep de conformité vide ;
+- Chromium 1280/390 sur 8 pages FR/EN : sans erreur JS ni défilement horizontal ; schémas regardés en clair et en sombre ;
+- PDF en 200, version /en/ vers les fichiers anglais.
+- Deux corrections après capture : formules restées en français sur /en/ (« cotes ») et libellés qui se chevauchaient (RSS sur la cloche, « axe neutre » sur h/2).
+
+**Clics attendus** : aucun chiffre fiable avant indexation. À vérifier au 24/10 : indexation, premières impressions sur « tolerance stack up » et « chaine de cote ».
+
+**Pages en test** :
+- jusqu'au 23/10 : aciers, clavettes, dureté, engrenages, filetage gaz, masse volumique (titre ou description) ; couple de serrage, ISO 2768 (contenu) ;
+- jusqu'au 24/10 : rugosité ;
+- jusqu'au 25/10 : soudure ;
+- jusqu'au 26/10 : jauges de tôle ;
+- jusqu'au 27/10 : /en/ raccourcis SOLIDWORKS (titre et description) ;
+- jusqu'au 30/10 : vis CHC, filetage métrique, pouce ↔ mm, SOLIDWORKS gratuit (/en/ compris) ;
+- **jusqu'au 31/10 : chaîne de cotes (nouvelle), moment quadratique (schémas), ISO 1101 et ajustements (lien ajouté)**.
+
+**Prochaines pistes** :
+1. Le 23/10 : action (d) sur le titre /en/ d'ISO 2768 (930 impressions, position 4,5, 1,2 % de clics).
+2. Action (b) : modèle Excel gratuit de chaîne de cotes, avec ses formules contrôlées (« tolerance stack up excel template » est en suggestion n° 1).
+3. Schémas : epaisseur-tole-jauge-gauge-tableau, puis conversion-pouce-mm-tableau.
+4. Conformité : le dépôt est toujours public au 17/10. Le propriétaire doit le passer en privé lui-même (Settings → Danger Zone), l'accès de l'agent ne le permet pas.
 
 ## 2026-10-16 (3) — mise en conformité du site avec le contrat de travail (demande du propriétaire)
 

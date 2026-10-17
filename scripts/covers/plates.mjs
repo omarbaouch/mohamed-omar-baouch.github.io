@@ -953,7 +953,26 @@ function visChc(l) {
   b += leader(cx + Rh * 0.5, yc + s / 2, cx + 30, yc + R + 70, t('clé 6', 'key 6'), { c: C.accent, tc: C.accent, size: 22 });
   return sheet({ ref: 'MEM-17', std: 'ISO 4762', rev: 'A', scale: '2:1', key: 'M8', keySub: t('tête Ø13 · k 8 · clé 6', 'head Ø13 · k 8 · key 6'), body: b, keyY: 760, keySize: 200 });
 }
+function chaineCotes(l) {
+  const { t } = lang(l);
+  let b = '';
+  // boîtier en U coupé, deux pièces b et c en appui, jeu J exagéré pour la lisibilité ; a − b − c = J
+  const x0 = 620, yb = 580, H = 250, wall = 30, XA1 = x0 + 600, xb1 = x0 + 230, xc1 = xb1 + 280;
+  b += path(`M${x0 - wall} ${yb - H} H${x0} V${yb} H${XA1} V${yb - H} H${XA1 + wall} V${yb + wall} H${x0 - wall} Z`, { c: C.line, w: 2.4, fill: 'url(#hatch)' });
+  b += rect(x0, yb - 160, xb1 - x0, 160, { c: C.line, sw: 2.4, fill: C.fill });
+  b += rect(xb1, yb - 130, xc1 - xb1, 130, { c: C.line, sw: 2.4, fill: C.fill });
+  b += text((x0 + xb1) / 2, yb - 68, 'b', { size: 36, c: C.ink, anchor: 'middle', weight: 700 });
+  b += text((xb1 + xc1) / 2, yb - 54, 'c', { size: 36, c: C.ink, anchor: 'middle', weight: 700 });
+  b += dim(x0, yb - H, XA1, yb - H, 'a (+)', { off: -42, size: 26, c: C.accent, tc: C.accent });
+  b += dim(x0, yb - 160, xb1, yb - 160, 'b (−)', { off: -36, size: 22 });
+  b += dim(xb1, yb - 130, xc1, yb - 130, 'c (−)', { off: -36, size: 22 });
+  b += dim(xc1, yb - 70, XA1, yb - 70, '', { off: 0, c: C.accent });
+  b += text((xc1 + XA1) / 2, yb - 88, 'J', { size: 34, c: C.accent, anchor: 'middle', weight: 700 });
+  b += text(x0 + 300, yb + wall + 56, 'a − b − c = J', { size: 28, c: C.mid, anchor: 'middle' });
+  return sheet({ ref: 'MEM-18', std: t('Cotation fonctionnelle', 'Functional dimensioning'), rev: 'A', scale: t('s. éch.', 'NTS'), key: 'J', keySub: t('pire des cas · RSS', 'worst case · RSS'), body: b, keyY: 760, keySize: 200 });
+}
 export const PLATES = {
+  'chaine-de-cotes-tolerance-stack-up': chaineCotes,
   'vis-chc-iso-4762-dimensions': visChc,
   'moment-quadratique-inertie-section-calcul': momentQuadratique,
   'epaisseur-tole-jauge-gauge-tableau': jaugeTole,

@@ -37,6 +37,15 @@ export const FICHES = {
     fr: 'tableau-rugosite-ra-classes-n', en: 'surface-roughness-ra-chart',
     h2: { 'Convertisseur Ra : µm, µin et classes N': 'Classes de rugosité N et valeurs de Ra', 'Ra converter: µm, µin and N grades': 'Roughness grades N and Ra values' },
   },
+  'chaine-de-cotes-tolerance-stack-up': {
+    fr: 'chaine-de-cotes-formules-exemple', en: 'tolerance-stack-up-formulas-example', figures: true,
+    titre: { fr: 'Chaîne de cotes : formules du pire des cas et quadratique (RSS), exemple', en: 'Tolerance stack-up: worst-case and RSS formulas, worked example' },
+    h2: {
+      '3. Les formules': '1. Les formules', '3. The formulas': '1. The formulas',
+      '4. Exemple chiffré': '2. Exemple chiffré', '4. Worked example': '2. Worked example',
+      '5. Pire des cas ou quadratique ?': '3. Pire des cas ou quadratique ?', '5. Worst case or RSS?': '3. Worst case or RSS?',
+    },
+  },
   'vis-chc-iso-4762-dimensions': {
     fr: 'tableau-vis-chc-iso-4762-dimensions', en: 'socket-head-cap-screw-dimensions-chart', figures: true,
     titre: { fr: 'Vis CHC ISO 4762 : dimensions métriques et en pouces, classes de qualité', en: 'Socket head cap screw dimensions: metric ISO 4762, inch ASME B18.3, property classes' },
@@ -46,7 +55,7 @@ export const FICHES = {
     },
   },
   'moment-quadratique-inertie-section-calcul': {
-    fr: 'formulaire-moment-quadratique-sections', en: 'area-moment-of-inertia-formulas',
+    fr: 'formulaire-moment-quadratique-sections', en: 'area-moment-of-inertia-formulas', figures: true,
     titre: { fr: 'Moment quadratique : formules des sections, exemples et unités', en: 'Area moment of inertia: section formulas, examples and units' },
   },
   'epaisseur-tole-jauge-gauge-tableau': {

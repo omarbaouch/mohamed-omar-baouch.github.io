@@ -128,6 +128,10 @@
     "Planche technique : coupe d'un arbre de 25 mm avec sa rainure et sa clavette 8 × 7, cotes t1 et t2",
     "Technical drawing: cross-section of a 25 mm shaft with its keyway and 8 × 7 key, depths t1 and t2"
   ],
+  "chaine-de-cotes-tolerance-stack-up": [
+    "Planche technique : boîtier en coupe avec deux pièces en appui et le jeu J, chaîne de cotes a − b − c = J",
+    "Technical drawing: housing in section with two parts in contact and the gap J, tolerance loop a − b − c = J"
+  ],
   "vis-chc-iso-4762-dimensions": [
     "Planche technique : vis CHC M8 ISO 4762 de profil et vue de dessus de la tête, cotes dk 13, k 8 et clé six pans 6",
     "Technical drawing: M8 ISO 4762 socket head cap screw in side view and head top view, dimensions dk 13, k 8 and hex key 6"

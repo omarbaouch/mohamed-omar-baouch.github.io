@@ -131,6 +131,10 @@
     "title": "BSP vs NPT Thread Chart: G (ISO 228) Sizes, TPI and Tap Drills",
     "description": "BSP (G, ISO 228) and NPT pipe thread chart: major diameter, threads per inch, pitch and tap drill, 55° vs 60°, parallel vs taper, plus a thread identifier."
   },
+  "/blog/chaine-de-cotes-tolerance-stack-up/": {
+    "title": "Tolerance Stack-Up Calculator: Worst Case and RSS, with Example",
+    "description": "Tolerance stack-up analysis: build the dimension loop, worst-case and RSS (root sum square) formulas, a worked example and a free calculator."
+  },
   "/blog/vis-chc-iso-4762-dimensions/": {
     "title": "Socket Head Cap Screw Dimensions: Metric ISO 4762 & Inch Chart",
     "description": "Socket head cap screw dimensions chart: ISO 4762 M1.6 to M36 and inch sizes, head diameter and height, hex key, thread length, plus a length calculator."

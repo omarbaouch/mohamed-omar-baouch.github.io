@@ -1,0 +1,452 @@
+<!DOCTYPE html><html lang="fr"><head>
+    <meta charset="UTF-8">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PBLRK58T');</script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-33TQ27QY4M"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-33TQ27QY4M');</script>
+<!-- Microsoft Clarity -->
+    <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","vy4yvht8gz");</script>
+    <!-- LinkedIn Insight Tag -->
+    <script type="text/javascript">_linkedin_partner_id="525900907";window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];window._linkedin_data_partner_ids.push(_linkedin_partner_id);(function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";s.parentNode.insertBefore(b,s)})(window.lintrk);</script>
+    <script>
+    // Anti-flash de thème : clair par défaut, sombre si stocké.
+    (function () {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    })();
+</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaîne de cotes : calcul au pire des cas et quadratique (RSS)</title>
+    <meta name="description" content="Chaîne de cotes : construire la boucle, calculer le jeu au pire des cas et par la méthode quadratique (RSS), exemple chiffré et calculateur gratuit.">
+    <meta name="author" content="Mohamed Omar Baouch">
+    <link rel="canonical" href="https://www.baouch.fr/blog/chaine-de-cotes-tolerance-stack-up/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Chaîne de cotes : calcul au pire des cas et quadratique (RSS)">
+    <meta property="og:description" content="Construire une chaîne de cotes, calculer le jeu mini et maxi au pire des cas et en quadratique (RSS), avec un exemple et un calculateur.">
+    <meta property="og:url" content="https://www.baouch.fr/blog/chaine-de-cotes-tolerance-stack-up/">
+    <meta property="og:image" content="https://www.baouch.fr/img/og/chaine-de-cotes.jpg">
+    <meta property="og:site_name" content="Mohamed Omar Baouch">
+    <meta property="article:published_time" content="2026-10-17T00:00:00.000Z">
+    <meta property="article:author" content="Mohamed Omar Baouch">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Chaîne de cotes : calcul au pire des cas et quadratique (RSS)">
+    <meta name="twitter:description" content="Construire une chaîne de cotes, calculer le jeu mini et maxi au pire des cas et en quadratique (RSS), avec un exemple et un calculateur.">
+    <meta name="twitter:image" content="https://www.baouch.fr/img/og/chaine-de-cotes.jpg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "headline": "Chaîne de cotes : calcul au pire des cas et quadratique (RSS)",
+                "description": "Chaîne de cotes : construire la boucle, calculer le jeu au pire des cas et par la méthode quadratique (RSS), exemple chiffré et calculateur gratuit.",
+                "image": "https://www.baouch.fr/img/og/chaine-de-cotes.jpg",
+                "datePublished": "2026-10-17",
+                "dateModified": "2026-10-17",
+                "inLanguage": "fr-FR",
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://www.baouch.fr/blog/chaine-de-cotes-tolerance-stack-up/"
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://www.baouch.fr"
+                },
+                "publisher": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://www.baouch.fr"
+                },
+                "keywords": [
+                    "Chaîne de cotes",
+                    "Cotation fonctionnelle",
+                    "Tolérancement",
+                    "Pire des cas",
+                    "RSS"
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Accueil",
+                        "item": "https://www.baouch.fr/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Blog",
+                        "item": "https://www.baouch.fr/blog/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Chaîne de cotes : calcul au pire des cas et quadratique (RSS)",
+                        "item": "https://www.baouch.fr/blog/chaine-de-cotes-tolerance-stack-up/"
+                    }
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Qu'est-ce qu'une chaîne de cotes ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "C'est la suite des cotes, d'une pièce à l'autre, qui relie les deux surfaces d'une condition fonctionnelle (un jeu, un dépassement, un serrage). Additionner ces cotes avec leur signe donne la valeur de la condition ; additionner leurs tolérances donne sa variation."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Quelle différence entre pire des cas et méthode quadratique ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Le pire des cas additionne les tolérances : il garantit tous les assemblages, mais impose des tolérances serrées. La méthode quadratique (RSS) additionne les carrés puis prend la racine : elle suppose des cotes indépendantes et centrées, et donne une variation plus faible. Avec des tolérances à ±3σ réparties normalement, 99,73 % des assemblages restent dans l'intervalle RSS."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Quand utiliser la méthode statistique ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Pour une production en série, avec plusieurs cotes dans la chaîne et des procédés centrés et maîtrisés. Pour quelques pièces, une fabrication unitaire ou une fonction de sécurité, restez au pire des cas."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Comment choisir le signe d'une cote ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Une cote qui augmente le jeu quand elle augmente est positive ; une cote qui le diminue est négative. En parcourant la chaîne d'une surface du jeu à l'autre, les cotes dans le sens du jeu sont positives, celles en sens inverse négatives."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Que faire si le jeu calculé ne respecte pas la condition ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Réduisez d'abord la chaîne (moins de pièces, une seule cote par pièce), puis resserrez les tolérances qui pèsent le plus : en quadratique, la contribution d'une cote est son T² divisé par la somme des T². Le calculateur l'affiche pour chaque ligne."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+    <link rel="alternate" type="application/rss+xml" title="Blog — Mohamed Omar Baouch" href="https://www.baouch.fr/blog/rss.xml">
+    {{> head-lang }}{{> head-fonts }}<script type="module" src="../../js/blog.js"></script>
+</head>
+<body class="blog-page" data-blog-post="chaine-de-cotes-tolerance-stack-up">
+{{> nav }}
+
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBLRK58T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <main id="main" class="container blog-container show">
+        <div class="blog-shell" id="blogShell" data-shell="">
+            <article class="blog-article" data-article-root="">
+                <nav class="article-breadcrumbs" aria-label="Navigation secondaire">
+                    <a class="back-link" href="/blog/" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                    <a class="back-link back-link--ghost" href="/" data-translate-key="blog_back_to_portfolio">Retour au portfolio</a>
+                </nav>
+
+                <header class="blog-hero post-hero" data-component="hero">
+                    <div class="hero-intro">
+                        <div class="hero-badges">
+                            <span class="badge badge-editorial" data-i18n=""><span data-lang="fr">Mémo & calculateur</span><span data-lang="en">Reference & calculator</span></span>
+                            <span class="badge" data-i18n=""><span data-lang="fr">Tolérancement</span><span data-lang="en">Tolerancing</span></span>
+                            <span class="badge badge-reading-time" data-i18n=""><span data-lang="fr">~7 min de lecture</span><span data-lang="en">~7 min read</span></span>
+                        </div>
+                        <span class="hero-eyebrow" data-i18n=""><span data-lang="fr">Vérifier un jeu avant de fabriquer</span><span data-lang="en">Check a gap before you build</span></span>
+                        <h1 class="hero-title" data-i18n=""><span data-lang="fr">Chaîne de cotes : calcul au pire des cas et quadratique (RSS)</span><span data-lang="en">Tolerance stack-up: worst-case and RSS calculation</span></h1>
+                        <p class="hero-subtitle" data-i18n=""><span data-lang="fr">Publié le 17 octobre 2026 — construire une chaîne de cotes, calculer le jeu mini et maxi au pire des cas et par la méthode quadratique (RSS), un exemple chiffré, le choix entre les deux méthodes et un calculateur.</span><span data-lang="en">Published October 17, 2026 — build a tolerance stack-up, calculate the min and max gap with worst-case and root sum square (RSS) methods, a worked example, how to choose between them and a calculator.</span></p>
+                        <div class="hero-actions">
+                            <a class="hero-btn" href="#calculateur" data-i18n=""><span data-lang="fr">Calculer une chaîne</span><span data-lang="en">Calculate a stack-up</span></a>
+                            <a class="hero-btn hero-btn--ghost" href="#formules" data-i18n=""><span data-lang="fr">Voir les formules</span><span data-lang="en">See the formulas</span></a>
+                            <a class="hero-btn hero-btn--ghost" href="/telechargements/chaine-de-cotes-formules-exemple.pdf" data-href-en="/telechargements/en/tolerance-stack-up-formulas-example.pdf" download data-i18n=""><span data-lang="fr">Télécharger en PDF</span><span data-lang="en">Download as PDF</span></a>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">Σ T<sub>i</sub></span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Pire des cas</span><span data-lang="en">Worst case</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">√Σ T<sub>i</sub>²</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Quadratique (RSS)</span><span data-lang="en">Root sum square</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value" data-i18n=""><span data-lang="fr">99,73 %</span><span data-lang="en">99.73%</span></span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Assemblages dans l'intervalle RSS</span><span data-lang="en">Assemblies within the RSS range</span></span>
+                        </div>
+                    </div>
+                </header>
+
+                <section class="blog-section article-section">
+                    <div class="callout">
+                        <p data-i18n=""><span data-lang="fr"><strong>En bref :</strong> une chaîne de cotes relie les deux surfaces d'un jeu J par les cotes des pièces traversées. <strong>J = Σ cotes positives − Σ cotes négatives</strong>. Au <strong>pire des cas</strong>, la tolérance de J est la <strong>somme des tolérances</strong> : tous les assemblages sont garantis. En <strong>quadratique (RSS)</strong>, c'est la <strong>racine de la somme des carrés</strong> : plus réaliste en série, si les cotes sont indépendantes et centrées.</span><span data-lang="en"><strong>In short:</strong> a tolerance stack-up links the two surfaces of a gap J through the dimensions of the parts in between. <strong>J = Σ positive dimensions − Σ negative dimensions</strong>. In <strong>worst case</strong>, the tolerance of J is the <strong>sum of the tolerances</strong>: every assembly is guaranteed. In <strong>RSS</strong> (root sum square), it is the <strong>square root of the sum of squares</strong>: more realistic in series production, if dimensions are independent and centred.</span></p>
+                    </div>
+                </section>
+
+                <nav class="blog-section article-summary" id="sommaire" aria-label="Sommaire de l'article">
+                    <h2 class="summary-title" data-i18n=""><span data-lang="fr">Sommaire</span><span data-lang="en">Contents</span></h2>
+                    <ol class="summary-list">
+                        <li><a href="#calculateur"><span class="summary-index">01</span><span class="summary-label" data-i18n=""><span data-lang="fr">Calculateur de chaîne de cotes</span><span data-lang="en">Stack-up calculator</span></span></a></li>
+                        <li><a href="#methode"><span class="summary-index">02</span><span class="summary-label" data-i18n=""><span data-lang="fr">Construire la chaîne</span><span data-lang="en">Build the loop</span></span></a></li>
+                        <li><a href="#formules"><span class="summary-index">03</span><span class="summary-label" data-i18n=""><span data-lang="fr">Les formules</span><span data-lang="en">The formulas</span></span></a></li>
+                        <li><a href="#exemple"><span class="summary-index">04</span><span class="summary-label" data-i18n=""><span data-lang="fr">Exemple chiffré</span><span data-lang="en">Worked example</span></span></a></li>
+                        <li><a href="#choisir"><span class="summary-index">05</span><span class="summary-label" data-i18n=""><span data-lang="fr">Pire des cas ou quadratique ?</span><span data-lang="en">Worst case or RSS?</span></span></a></li>
+                        <li><a href="#faq"><span class="summary-index">06</span><span class="summary-label">FAQ</span></a></li>
+                    </ol>
+                </nav>
+
+                <section class="blog-section article-section" id="calculateur">
+                    <h2 data-i18n=""><span data-lang="fr">1. Calculateur de chaîne de cotes</span><span data-lang="en">1. Tolerance stack-up calculator</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Une ligne par cote de la chaîne : son signe (+ si elle augmente le jeu, − si elle le réduit), sa cote nominale et ses écarts supérieur et inférieur, en mm. L'exemple chargé est celui de la section 4. Saisissez la condition à respecter pour vérifier le résultat.</span><span data-lang="en">One line per dimension in the loop: its sign (+ if it increases the gap, − if it reduces it), its nominal value and its upper and lower deviations, in mm. The preloaded example is the one in section 4. Enter the requirement to check the result.</span></p>
+                    <form class="calc" id="chCalc" onsubmit="return false">
+                        <div id="chRows"></div>
+                        <p><button type="button" class="hero-btn hero-btn--ghost" id="chAdd" data-i18n=""><span data-lang="fr">+ Ajouter une cote</span><span data-lang="en">+ Add a dimension</span></button></p>
+                        <div class="calc__fields">
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">Condition : J mini (mm)</span><span data-lang="en">Requirement: min J (mm)</span></span><input id="chJmin" type="number" inputmode="decimal" step="any" value="0.35"></label>
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">Condition : J maxi (mm)</span><span data-lang="en">Requirement: max J (mm)</span></span><input id="chJmax" type="number" inputmode="decimal" step="any" value="0.7"></label>
+                        </div>
+                        <dl class="calc__out" aria-live="polite">
+                            <div><dt><span data-i18n=""><span data-lang="fr">J nominal (moyen)</span><span data-lang="en">Nominal (mean) J</span></span></dt><dd id="chJ">—</dd></div>
+                            <div><dt><span data-i18n=""><span data-lang="fr">Pire des cas</span><span data-lang="en">Worst case</span></span></dt><dd id="chWc">—</dd></div>
+                            <div><dt><span data-i18n=""><span data-lang="fr">Quadratique (RSS)</span><span data-lang="en">RSS</span></span></dt><dd id="chRss">—</dd></div>
+                            <div><dt><span data-i18n=""><span data-lang="fr">Plus forte contribution</span><span data-lang="en">Largest contributor</span></span></dt><dd id="chTop">—</dd></div>
+                        </dl>
+                        <p class="calc__verdict" id="chV"></p>
+                    </form>
+                </section>
+
+                <section class="blog-section article-section" id="methode">
+                    <h2 data-i18n=""><span data-lang="fr">2. Construire la chaîne de cotes</span><span data-lang="en">2. Building the tolerance loop</span></h2>
+                    <figure class="article-figure" style="margin:1rem 0 1.5rem">
+                        <svg viewBox="0 0 640 320" role="img" aria-label="Chaîne de cotes d'un assemblage : boîtier de largeur intérieure a, deux pièces b et c en appui, jeu J ; a est positive, b et c sont négatives, J = a − b − c" style="width:100%;max-width:680px;height:auto;color:inherit" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" font-family="inherit"><defs><pattern id="chHb" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0 V8" stroke="currentColor" stroke-width="1" opacity=".35"/></pattern></defs><path d="M88 90 H110 V210 H530 V90 H552 V232 H88 Z" fill="url(#chHb)"/><rect x="110" y="130" width="160" height="80" style="fill:var(--bg-0,#fff)"/><rect x="270" y="146" width="200" height="64" style="fill:var(--bg-0,#fff)"/><text x="190" y="176" font-size="22" text-anchor="middle" fill="currentColor" stroke="none" font-weight="600">b</text><text x="370" y="184" font-size="22" text-anchor="middle" fill="currentColor" stroke="none" font-weight="600">c</text><g style="color:var(--accent,#2f6e9b)"><path d="M110 86 L110 58" stroke-width="0.9" opacity=".55"/><path d="M530 86 L530 58" stroke-width="0.9" opacity=".55"/><path d="M110 64 L530 64" stroke-width="1.2"/><path d="M110 64 L117.4 61 L117.4 67 Z" fill="currentColor" stroke="none"/><path d="M530 64 L522.6 67 L522.6 61 Z" fill="currentColor" stroke="none"/><text x="320" y="56" font-size="17" text-anchor="middle" fill="currentColor" stroke="none">a (+)</text><path d="M270 126 L270 102" stroke-width="0.9" opacity=".55"/><path d="M470 142 L470 102" stroke-width="0.9" opacity=".55"/><path d="M110 108 L270 108" stroke-width="1.2"/><path d="M110 108 L117.4 105 L117.4 111 Z" fill="currentColor" stroke="none"/><path d="M270 108 L262.6 111 L262.6 105 Z" fill="currentColor" stroke="none"/><text x="190" y="100" font-size="17" text-anchor="middle" fill="currentColor" stroke="none">b (−)</text><path d="M270 108 L470 108" stroke-width="1.2"/><path d="M270 108 L277.4 105 L277.4 111 Z" fill="currentColor" stroke="none"/><path d="M470 108 L462.6 111 L462.6 105 Z" fill="currentColor" stroke="none"/><text x="370" y="100" font-size="17" text-anchor="middle" fill="currentColor" stroke="none">c (−)</text><path d="M470 142 L470 116" stroke-width="0.9" opacity=".55"/><path d="M470 110 L530 110" stroke-width="1.2"/><path d="M470 110 L477.4 107 L477.4 113 Z" fill="currentColor" stroke="none"/><path d="M530 110 L522.6 113 L522.6 107 Z" fill="currentColor" stroke="none"/><text x="502" y="136" font-size="19" text-anchor="middle" fill="currentColor" stroke="none" font-weight="700">J</text><path d="M530 268 H110" stroke-width="1.4" stroke-dasharray="6 5"/><path d="M112 268 L119.4 265 L119.4 271 Z" fill="currentColor" stroke="none"/><text x="320" y="292" font-size="17" text-anchor="middle" fill="currentColor" stroke="none">a − b − c = J</text></g></svg>
+                        <figcaption data-i18n=""><span data-lang="fr">Le jeu J entre la pièce c et la paroi du boîtier dépend de trois cotes : a l'augmente (cote positive), b et c le réduisent (cotes négatives). Une seule cote par pièce : la chaîne la plus courte est la meilleure. Jeu exagéré pour la lisibilité.</span><span data-lang="en">The gap J between part c and the housing wall depends on three dimensions: a increases it (positive), b and c reduce it (negative). One dimension per part: the shortest loop is the best. Gap exaggerated for readability.</span></figcaption>
+                    </figure>
+                    <ol>
+                        <li data-i18n=""><span data-lang="fr"><strong>Définir la condition</strong> : le jeu, le dépassement ou le serrage à garantir, avec ses limites (J mini, J maxi).</span><span data-lang="en"><strong>Define the requirement</strong>: the gap, overhang or interference to guarantee, with its limits (min J, max J).</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Parcourir la boucle</strong> d'une surface de la condition à l'autre, en passant par les surfaces de contact entre pièces.</span><span data-lang="en"><strong>Walk the loop</strong> from one surface of the requirement to the other, through the contact surfaces between parts.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Une seule cote par pièce</strong> : chaque pièce traversée apporte la cote entre ses deux surfaces de contact. Une chaîne plus courte accumule moins d'écarts.</span><span data-lang="en"><strong>One dimension per part</strong>: each part crossed contributes the dimension between its two contact surfaces. A shorter loop accumulates fewer deviations.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Signer les cotes</strong> : positive si elle augmente la condition quand elle grandit, négative sinon.</span><span data-lang="en"><strong>Sign the dimensions</strong>: positive if it increases the requirement as it grows, negative otherwise.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Calculer</strong> J nominal puis sa variation, au pire des cas ou en quadratique, et comparer aux limites de la condition.</span><span data-lang="en"><strong>Calculate</strong> nominal J, then its variation, by worst case or RSS, and compare with the requirement's limits.</span></li>
+                    </ol>
+                </section>
+
+                <section class="blog-section article-section" id="formules">
+                    <h2 data-i18n=""><span data-lang="fr">3. Les formules</span><span data-lang="en">3. The formulas</span></h2>
+                    <p data-i18n=""><span data-lang="fr">T<sub>i</sub> est l'intervalle de tolérance de la cote i (maxi − mini). Pour une cote à écarts dissymétriques, prenez sa cote moyenne et la demi-tolérance centrée : 20 +0,1/0 devient 20,05 ± 0,05.</span><span data-lang="en">T<sub>i</sub> is the tolerance range of dimension i (max − min). For a dimension with unequal deviations, use its mean value and the centred half-tolerance: 20 +0.1/0 becomes 20.05 ± 0.05.</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Grandeur</span><span data-lang="en">Quantity</span></th><th data-i18n=""><span data-lang="fr">Formule</span><span data-lang="en">Formula</span></th><th data-i18n=""><span data-lang="fr">Remarque</span><span data-lang="en">Note</span></th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td data-i18n=""><span data-lang="fr">Cote nominale de J</span><span data-lang="en">Nominal J</span></td><td data-i18n=""><span data-lang="fr">J = Σ (+ cotes) − Σ (− cotes)</span><span data-lang="en">J = Σ (+ dimensions) − Σ (− dimensions)</span></td><td data-i18n=""><span data-lang="fr">Sur les cotes nominales (ou moyennes)</span><span data-lang="en">Using nominal (or mean) dimensions</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">J maxi, pire des cas</span><span data-lang="en">Max J, worst case</span></td><td data-i18n=""><span data-lang="fr">Σ (+ cotes maxi) − Σ (− cotes mini)</span><span data-lang="en">Σ (+ max dimensions) − Σ (− min dimensions)</span></td><td data-i18n=""><span data-lang="fr">Toutes les cotes à leur limite défavorable</span><span data-lang="en">Every dimension at its unfavourable limit</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">J mini, pire des cas</span><span data-lang="en">Min J, worst case</span></td><td data-i18n=""><span data-lang="fr">Σ (+ cotes mini) − Σ (− cotes maxi)</span><span data-lang="en">Σ (+ min dimensions) − Σ (− max dimensions)</span></td><td data-i18n=""><span data-lang="fr">Garantit 100 % des assemblages</span><span data-lang="en">Guarantees 100% of assemblies</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Tolérance de J, pire des cas</span><span data-lang="en">Tolerance of J, worst case</span></td><td>T<sub>J</sub> = Σ T<sub>i</sub></td><td data-i18n=""><span data-lang="fr">T : intervalle de tolérance (maxi − mini)</span><span data-lang="en">T: tolerance range (max − min)</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Tolérance de J, quadratique (RSS)</span><span data-lang="en">Tolerance of J, RSS</span></td><td>T<sub>J</sub> = √(Σ T<sub>i</sub>²)</td><td data-i18n=""><span data-lang="fr">Cotes indépendantes, centrées, réparties normalement</span><span data-lang="en">Independent, centred, normally distributed dimensions</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="blog-section article-section" id="exemple">
+                    <h2 data-i18n=""><span data-lang="fr">4. Exemple chiffré</span><span data-lang="en">4. Worked example</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Le boîtier et les deux pièces du schéma de la section 2. Cotes en mm.</span><span data-lang="en">The housing and two parts from the drawing in section 2. Dimensions in mm.</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Cote</span><span data-lang="en">Dimension</span></th><th data-i18n=""><span data-lang="fr">Signe</span><span data-lang="en">Sign</span></th><th data-i18n=""><span data-lang="fr">Nominale</span><span data-lang="en">Nominal</span></th><th data-i18n=""><span data-lang="fr">Tolérance</span><span data-lang="en">Tolerance</span></th><th data-i18n=""><span data-lang="fr">Mini</span><span data-lang="en">Min</span></th><th data-i18n=""><span data-lang="fr">Maxi</span><span data-lang="en">Max</span></th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>a</strong></td><td><strong>+</strong></td><td>50</td><td>±0,1</td><td>49,9</td><td>50,1</td></tr>
+                                    <tr><td><strong>b</strong></td><td><strong>−</strong></td><td>20</td><td>±0,05</td><td>19,95</td><td>20,05</td></tr>
+                                    <tr><td><strong>c</strong></td><td><strong>−</strong></td><td>29,5</td><td>±0,05</td><td>29,45</td><td>29,55</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Résultat</span><span data-lang="en">Result</span></th><th data-i18n=""><span data-lang="fr">Jeu J (mm)</span><span data-lang="en">Gap J (mm)</span></th><th data-i18n=""><span data-lang="fr">Calcul</span><span data-lang="en">Calculation</span></th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td data-i18n=""><span data-lang="fr">Cote nominale de J</span><span data-lang="en">Nominal J</span></td><td><strong>0,5</strong></td><td>50 − 20 − 29,5</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Pire des cas</span><span data-lang="en">Worst case</span></td><td><strong>0,3 … 0,7</strong></td><td>0,5 ± (0,1 + 0,05 + 0,05) = 0,5 ± 0,2</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Quadratique (RSS)</span><span data-lang="en">Root sum square (RSS)</span></td><td><strong>0,378 … 0,622</strong></td><td>0,5 ± √(0,1² + 0,05² + 0,05²) = 0,5 ± 0,122</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <figure class="article-figure" style="margin:1rem 0 1.5rem">
+                        <svg viewBox="0 0 640 260" role="img" aria-label="Répartition du jeu J de l'exemple : courbe en cloche centrée sur 0,5, intervalle au pire des cas de 0,3 à 0,7 et intervalle quadratique de 0,378 à 0,622 qui contient 99,73 % des assemblages" style="width:100%;max-width:680px;height:auto;color:inherit" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" font-family="inherit"><path d="M60 230 L580 230" stroke-width="1.4"/><path d="M112 230 L112 236" stroke-width="1.2"/><text x="112" y="254" font-size="15" text-anchor="middle" fill="currentColor" stroke="none" opacity=".8">0,3</text><path d="M216 230 L216 236" stroke-width="1.2"/><text x="216" y="254" font-size="15" text-anchor="middle" fill="currentColor" stroke="none" opacity=".8">0,4</text><path d="M320 230 L320 236" stroke-width="1.2"/><text x="320" y="254" font-size="15" text-anchor="middle" fill="currentColor" stroke="none" opacity=".8">0,5</text><path d="M424 230 L424 236" stroke-width="1.2"/><text x="424" y="254" font-size="15" text-anchor="middle" fill="currentColor" stroke="none" opacity=".8">0,6</text><path d="M528 230 L528 236" stroke-width="1.2"/><text x="528" y="254" font-size="15" text-anchor="middle" fill="currentColor" stroke="none" opacity=".8">0,7</text><text x="580" y="254" font-size="16" text-anchor="end" fill="currentColor" stroke="none" font-weight="700">J</text><path d="M60 230 L62.2 230 L64.3 230 L66.5 230 L68.7 230 L70.8 230 L73 230 L75.2 230 L77.3 230 L79.5 230 L81.7 230 L83.8 230 L86 230 L88.2 230 L90.3 230 L92.5 230 L94.7 230 L96.8 230 L99 230 L101.2 230 L103.3 230 L105.5 230 L107.7 230 L109.8 230 L112 230 L114.2 230 L116.3 230 L118.5 230 L120.7 230 L122.8 230 L125 230 L127.2 230 L129.3 230 L131.5 230 L133.7 230 L135.8 230 L138 230 L140.2 230 L142.3 230 L144.5 230 L146.7 230 L148.8 230 L151 230 L153.2 229.9 L155.3 229.9 L157.5 229.9 L159.7 229.9 L161.8 229.9 L164 229.9 L166.2 229.8 L168.3 229.8 L170.5 229.7 L172.7 229.7 L174.8 229.6 L177 229.6 L179.2 229.5 L181.3 229.4 L183.5 229.3 L185.7 229.2 L187.8 229 L190 228.8 L192.2 228.7 L194.3 228.4 L196.5 228.2 L198.7 227.9 L200.8 227.6 L203 227.2 L205.2 226.8 L207.3 226.3 L209.5 225.8 L211.7 225.2 L213.8 224.5 L216 223.8 L218.2 223 L220.3 222.1 L222.5 221.1 L224.7 220 L226.8 218.7 L229 217.4 L231.2 216 L233.3 214.4 L235.5 212.7 L237.7 210.9 L239.8 209 L242 206.9 L244.2 204.6 L246.3 202.3 L248.5 199.7 L250.7 197.1 L252.8 194.2 L255 191.3 L257.2 188.2 L259.3 185 L261.5 181.6 L263.7 178.2 L265.8 174.6 L268 171 L270.2 167.2 L272.3 163.4 L274.5 159.6 L276.7 155.7 L278.8 151.9 L281 148 L283.2 144.2 L285.3 140.4 L287.5 136.7 L289.7 133.2 L291.8 129.7 L294 126.4 L296.2 123.2 L298.3 120.3 L300.5 117.5 L302.7 115 L304.8 112.7 L307 110.7 L309.2 109 L311.3 107.6 L313.5 106.5 L315.7 105.6 L317.8 105.2 L320 105 L322.2 105.2 L324.3 105.6 L326.5 106.5 L328.7 107.6 L330.8 109 L333 110.7 L335.2 112.7 L337.3 115 L339.5 117.5 L341.7 120.3 L343.8 123.2 L346 126.4 L348.2 129.7 L350.3 133.2 L352.5 136.7 L354.7 140.4 L356.8 144.2 L359 148 L361.2 151.9 L363.3 155.7 L365.5 159.6 L367.7 163.4 L369.8 167.2 L372 171 L374.2 174.6 L376.3 178.2 L378.5 181.6 L380.7 185 L382.8 188.2 L385 191.3 L387.2 194.2 L389.3 197.1 L391.5 199.7 L393.7 202.3 L395.8 204.6 L398 206.9 L400.2 209 L402.3 210.9 L404.5 212.7 L406.7 214.4 L408.8 216 L411 217.4 L413.2 218.7 L415.3 220 L417.5 221.1 L419.7 222.1 L421.8 223 L424 223.8 L426.2 224.5 L428.3 225.2 L430.5 225.8 L432.7 226.3 L434.8 226.8 L437 227.2 L439.2 227.6 L441.3 227.9 L443.5 228.2 L445.7 228.4 L447.8 228.7 L450 228.8 L452.2 229 L454.3 229.2 L456.5 229.3 L458.7 229.4 L460.8 229.5 L463 229.6 L465.2 229.6 L467.3 229.7 L469.5 229.7 L471.7 229.8 L473.8 229.8 L476 229.9 L478.2 229.9 L480.3 229.9 L482.5 229.9 L484.7 229.9 L486.8 229.9 L489 230 L491.2 230 L493.3 230 L495.5 230 L497.7 230 L499.8 230 L502 230 L504.2 230 L506.3 230 L508.5 230 L510.7 230 L512.8 230 L515 230 L517.2 230 L519.3 230 L521.5 230 L523.7 230 L525.8 230 L528 230 L530.2 230 L532.3 230 L534.5 230 L536.7 230 L538.8 230 L541 230 L543.2 230 L545.3 230 L547.5 230 L549.7 230 L551.8 230 L554 230 L556.2 230 L558.3 230 L560.5 230 L562.7 230 L564.8 230 L567 230 L569.2 230 L571.3 230 L573.5 230 L575.7 230 L577.8 230 L580 230" stroke-width="2"/><g style="color:var(--accent,#2f6e9b)"><path d="M112 38 L112 230" stroke-width="0.9" opacity=".55"/><path d="M528 38 L528 230" stroke-width="0.9" opacity=".55"/><path d="M112 34 L528 34" stroke-width="1.2"/><path d="M112 34 L119.4 31 L119.4 37 Z" fill="currentColor" stroke="none"/><path d="M528 34 L520.6 37 L520.6 31 Z" fill="currentColor" stroke="none"/><text x="320" y="26" font-size="16" text-anchor="middle" fill="currentColor" stroke="none">pire des cas</text><path d="M192.6 84 L192.6 230" stroke-width="0.9" opacity=".55"/><path d="M447.4 84 L447.4 230" stroke-width="0.9" opacity=".55"/><path d="M192.6 80 L447.4 80" stroke-width="1.2"/><path d="M192.6 80 L200.1 77 L200.1 83 Z" fill="currentColor" stroke="none"/><path d="M447.4 80 L439.9 83 L439.9 77 Z" fill="currentColor" stroke="none"/><text x="320" y="72" font-size="16" text-anchor="middle" fill="currentColor" stroke="none">quadratique (RSS) · 99,73 %</text></g></svg>
+                        <figcaption data-i18n=""><span data-lang="fr">Dans l'exemple, le pire des cas annonce un jeu de 0,3 à 0,7 mm. Si chaque cote suit une loi normale centrée, avec sa tolérance à ±3σ, 99,73 % des assemblages tombent entre 0,378 et 0,622 mm : c'est l'intervalle quadratique.</span><span data-lang="en">In the example, worst case gives a gap from 0.3 to 0.7 mm. If each dimension follows a centred normal distribution with its tolerance at ±3σ, 99.73% of assemblies fall between 0.378 and 0.622 mm: that is the RSS range.</span></figcaption>
+                    </figure>
+                    <p data-i18n=""><span data-lang="fr">Si la condition impose un jeu d'au moins 0,35 mm, le pire des cas ne la garantit pas (0,3 mm) ; la méthode quadratique la respecte pour 99,73 % des assemblages. À vous de décider si ce risque est acceptable, ou de resserrer la cote a, qui pèse le plus : 67 % de la variance.</span><span data-lang="en">If the requirement calls for a gap of at least 0.35 mm, worst case does not guarantee it (0.3 mm); RSS meets it for 99.73% of assemblies. It is your call whether that risk is acceptable, or to tighten dimension a, the largest contributor: 67% of the variance.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="choisir">
+                    <h2 data-i18n=""><span data-lang="fr">5. Pire des cas ou quadratique ?</span><span data-lang="en">5. Worst case or RSS?</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Plus la chaîne compte de cotes, plus l'écart entre les deux méthodes grandit. Avec n cotes de même tolérance ±0,1 mm :</span><span data-lang="en">The more dimensions in the loop, the wider the gap between the two methods. With n dimensions of equal tolerance ±0.1 mm:</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Cotes n</span><span data-lang="en">Dimensions n</span></th><th data-i18n=""><span data-lang="fr">Pire des cas</span><span data-lang="en">Worst case</span></th><th data-i18n=""><span data-lang="fr">Quadratique (RSS)</span><span data-lang="en">RSS</span></th><th data-i18n=""><span data-lang="fr">RSS / pire des cas</span><span data-lang="en">RSS / worst case</span></th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>2</strong></td><td>±0,2</td><td>±0,141</td><td data-i18n=""><span data-lang="fr">71 %</span><span data-lang="en">71%</span></td></tr>
+                                    <tr><td><strong>3</strong></td><td>±0,3</td><td>±0,173</td><td data-i18n=""><span data-lang="fr">58 %</span><span data-lang="en">58%</span></td></tr>
+                                    <tr><td><strong>4</strong></td><td>±0,4</td><td>±0,2</td><td data-i18n=""><span data-lang="fr">50 %</span><span data-lang="en">50%</span></td></tr>
+                                    <tr><td><strong>5</strong></td><td>±0,5</td><td>±0,224</td><td data-i18n=""><span data-lang="fr">45 %</span><span data-lang="en">45%</span></td></tr>
+                                    <tr><td><strong>6</strong></td><td>±0,6</td><td>±0,245</td><td data-i18n=""><span data-lang="fr">41 %</span><span data-lang="en">41%</span></td></tr>
+                                    <tr><td><strong>8</strong></td><td>±0,8</td><td>±0,283</td><td data-i18n=""><span data-lang="fr">35 %</span><span data-lang="en">35%</span></td></tr>
+                                    <tr><td><strong>10</strong></td><td>±1</td><td>±0,316</td><td data-i18n=""><span data-lang="fr">32 %</span><span data-lang="en">32%</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <ul>
+                        <li data-i18n=""><span data-lang="fr"><strong>Pire des cas</strong> : quelques pièces, fabrication unitaire, fonction de sécurité, ou procédés mal connus. C'est la seule méthode qui garantit chaque assemblage.</span><span data-lang="en"><strong>Worst case</strong>: a few parts, one-off manufacturing, a safety function, or poorly known processes. It is the only method that guarantees every assembly.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Quadratique</strong> : production en série, cotes nombreuses, procédés centrés et maîtrisés. Elle suppose des cotes indépendantes, réparties normalement et centrées sur leur valeur moyenne.</span><span data-lang="en"><strong>RSS</strong>: series production, many dimensions, centred and controlled processes. It assumes independent dimensions, normally distributed and centred on their mean value.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Simulation de Monte-Carlo</strong> : quand les lois ne sont pas normales ou que la chaîne n'est pas linéaire (angles, cotes en 3D), on tire des milliers d'assemblages au hasard pour obtenir la répartition de J.</span><span data-lang="en"><strong>Monte Carlo simulation</strong>: when distributions are not normal or the loop is not linear (angles, 3D dimensions), thousands of random assemblies are drawn to obtain the distribution of J.</span></li>
+                        <li data-i18n=""><span data-lang="fr">Les tolérances générales s'appliquent aussi aux cotes sans tolérance : voir <a href="/blog/tolerances-generales-iso-2768/">ISO 2768</a>, et pour les alésages et les arbres, les <a href="/blog/ajustements-iso-286-tableau-h7-g6/">ajustements ISO 286</a>.</span><span data-lang="en">General tolerances also apply to untoleranced dimensions: see <a href="/blog/tolerances-generales-iso-2768/">ISO 2768</a>, and for holes and shafts, <a href="/blog/ajustements-iso-286-tableau-h7-g6/">ISO 286 fits</a>.</span></li>
+                    </ul>
+                    <div class="callout callout--soft fiche-pdf">
+                        <p data-i18n=""><span data-lang="fr"><strong>Version imprimable</strong> : <a href="/telechargements/chaine-de-cotes-formules-exemple.pdf" download>les formules et l'exemple en PDF</a> (A4, sans inscription), pour un dossier de conception ou une revue de plan.</span><span data-lang="en"><strong>Printable version</strong>: <a href="/telechargements/en/tolerance-stack-up-formulas-example.pdf" download>the formulas and example as a PDF</a> (A4, no sign-up), for a design file or a drawing review.</span></p>
+                    </div>
+                </section>
+
+                <section class="blog-section article-section" id="faq">
+                    <h2 data-i18n=""><span data-lang="fr">6. FAQ</span><span data-lang="en">6. FAQ</span></h2>
+                    <h3 data-i18n=""><span data-lang="fr">Qu'est-ce qu'une chaîne de cotes ?</span><span data-lang="en">What is a tolerance stack-up?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">C'est la suite des cotes, d'une pièce à l'autre, qui relie les deux surfaces d'une condition fonctionnelle (un jeu, un dépassement, un serrage). Additionner ces cotes avec leur signe donne la valeur de la condition ; additionner leurs tolérances donne sa variation.</span><span data-lang="en">It is the sequence of dimensions, from one part to the next, that links the two surfaces of a functional requirement (a gap, an overhang, an interference). Adding these dimensions with their sign gives the requirement's value; adding their tolerances gives its variation.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Quelle différence entre pire des cas et méthode quadratique ?</span><span data-lang="en">What is the difference between worst case and RSS?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Le pire des cas additionne les tolérances : il garantit tous les assemblages, mais impose des tolérances serrées. La méthode quadratique (RSS) additionne les carrés puis prend la racine : elle suppose des cotes indépendantes et centrées, et donne une variation plus faible. Avec des tolérances à ±3σ réparties normalement, 99,73 % des assemblages restent dans l'intervalle RSS.</span><span data-lang="en">Worst case adds the tolerances: it guarantees every assembly but forces tight tolerances. RSS (root sum square) adds the squares and takes the root: it assumes independent, centred dimensions and gives a smaller variation. With tolerances at ±3σ and normal distributions, 99.73% of assemblies fall within the RSS range.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Quand utiliser la méthode statistique ?</span><span data-lang="en">When should the statistical method be used?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Pour une production en série, avec plusieurs cotes dans la chaîne et des procédés centrés et maîtrisés. Pour quelques pièces, une fabrication unitaire ou une fonction de sécurité, restez au pire des cas.</span><span data-lang="en">For series production, with several dimensions in the stack and centred, controlled processes. For a few parts, one-off manufacturing or a safety function, stay with worst case.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Comment choisir le signe d'une cote ?</span><span data-lang="en">How do you choose the sign of a dimension?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Une cote qui augmente le jeu quand elle augmente est positive ; une cote qui le diminue est négative. En parcourant la chaîne d'une surface du jeu à l'autre, les cotes dans le sens du jeu sont positives, celles en sens inverse négatives.</span><span data-lang="en">A dimension that increases the gap when it grows is positive; one that reduces it is negative. Walking the loop from one surface of the gap to the other, dimensions in the gap's direction are positive, those in the opposite direction negative.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Que faire si le jeu calculé ne respecte pas la condition ?</span><span data-lang="en">What if the calculated gap does not meet the requirement?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Réduisez d'abord la chaîne (moins de pièces, une seule cote par pièce), puis resserrez les tolérances qui pèsent le plus : en quadratique, la contribution d'une cote est son T² divisé par la somme des T². Le calculateur l'affiche pour chaque ligne.</span><span data-lang="en">First shorten the loop (fewer parts, one dimension per part), then tighten the tolerances that weigh most: in RSS, a dimension's contribution is its T² divided by the sum of T². The calculator shows it for each line.</span></p>
+                </section>
+
+                <section class="blog-section article-related">
+                    <h2 data-i18n=""><span data-lang="fr">À lire aussi</span><span data-lang="en">Read next</span></h2>
+                    <div class="media-grid">
+                        <a href="/blog/tolerances-generales-iso-2768/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">Tolérances générales ISO 2768 : tableaux f, m, c, v</span><span data-lang="en">ISO 2768 general tolerances: f, m, c, v tables</span></h3>
+                            <p data-i18n=""><span data-lang="fr">Les tolérances des cotes sans indication, à reprendre dans la chaîne.</span><span data-lang="en">Tolerances of untoleranced dimensions, to use in the stack-up.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                        <a href="/blog/ajustements-iso-286-tableau-h7-g6/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">Ajustements ISO 286 : H7/g6, H7/p6 et calculateur de jeu</span><span data-lang="en">ISO 286 fits: H7/g6, H7/p6 and clearance calculator</span></h3>
+                            <p data-i18n=""><span data-lang="fr">Le jeu entre un alésage et un arbre, cas le plus simple de chaîne de cotes.</span><span data-lang="en">The clearance between a hole and a shaft, the simplest stack-up.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                    </div>
+                </section>
+
+                <footer class="article-footer">
+                    <div class="article-tags">
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Tolérancement</span><span data-lang="en">Tolerancing</span></span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Cotation fonctionnelle</span><span data-lang="en">Functional dimensioning</span></span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Conception mécanique</span><span data-lang="en">Mechanical design</span></span>
+                    </div>
+                    <div class="article-nav">
+                        <a href="/blog/" class="back-link" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                    </div>
+                </footer>
+
+            </article>
+        </div>
+    </main>
+
+    <script>
+// Chaîne de cotes : J moyen, pire des cas (Σ demi-tolérances) et quadratique (√Σ demi-tolérances²).
+    (function () {
+        var $ = function (id) { return document.getElementById(id); };
+        var box = $('chRows');
+        if (!box) return;
+        var EX = [[1, 50.0, 0.1, -0.1], [-1, 20.0, 0.05, -0.05], [-1, 29.5, 0.05, -0.05]];
+        function en() { return document.documentElement.lang === 'en'; }
+        function f(x) { return x.toLocaleString(en() ? 'en-US' : 'fr-FR', { maximumFractionDigits: 3 }); }
+        function num(el) { return parseFloat(String(el.value).replace(',', '.')); }
+        function lab() { return en() ? ['Sign', 'Nominal (mm)', 'Upper dev.', 'Lower dev.'] : ['Signe', 'Nominale (mm)', 'Écart sup.', 'Écart inf.']; }
+        function addRow(v) {
+            var i = box.children.length + 1, t = lab(), row = document.createElement('div');
+            row.className = 'calc__fields'; row.setAttribute('data-row', '');
+            row.innerHTML = '<label class="calc__field"><span>' + t[0] + ' ' + i + '</span><select data-k="s"><option value="1">+</option><option value="-1">−</option></select></label>' +
+                ['n', 'es', 'ei'].map(function (k, j) { return '<label class="calc__field"><span>' + t[j + 1] + '</span><input data-k="' + k + '" type="number" inputmode="decimal" step="any"></label>'; }).join('');
+            box.appendChild(row);
+            var q = function (k) { return row.querySelector('[data-k="' + k + '"]'); };
+            q('s').value = String(v[0]); q('n').value = v[1]; q('es').value = v[2]; q('ei').value = v[3];
+            row.querySelectorAll('input,select').forEach(function (el) { el.addEventListener('input', run); el.addEventListener('change', run); });
+        }
+        function relabel() {
+            var t = lab();
+            [].forEach.call(box.children, function (row, i) {
+                var s = row.querySelectorAll('.calc__field > span');
+                s[0].textContent = t[0] + ' ' + (i + 1); s[1].textContent = t[1]; s[2].textContent = t[2]; s[3].textContent = t[3];
+            });
+        }
+        function run() {
+            var mean = 0, wc = 0, sq = 0, parts = [], ok = true;
+            [].forEach.call(box.children, function (row, i) {
+                var q = function (k) { return row.querySelector('[data-k="' + k + '"]'); };
+                var s = +q('s').value, n = num(q('n')), es = num(q('es')), ei = num(q('ei'));
+                if (!isFinite(n) || !isFinite(es) || !isFinite(ei) || es < ei) { ok = false; return; }
+                var h = (es - ei) / 2;
+                mean += s * (n + (es + ei) / 2); wc += h; sq += h * h; parts.push(h * h);
+            });
+            if (!ok || !parts.length) {
+                ['chJ', 'chWc', 'chRss', 'chTop'].forEach(function (id) { $(id).textContent = '—'; });
+                $('chV').textContent = en() ? 'Check each line: upper deviation ≥ lower deviation.' : 'Vérifiez chaque ligne : écart supérieur ≥ écart inférieur.';
+                return;
+            }
+            var rss = Math.sqrt(sq), top = 0;
+            parts.forEach(function (p, i) { if (p > parts[top]) top = i; });
+            $('chJ').textContent = f(mean) + ' mm';
+            $('chWc').textContent = f(mean - wc) + ' … ' + f(mean + wc) + ' mm';
+            $('chRss').textContent = f(mean - rss) + ' … ' + f(mean + rss) + ' mm';
+            $('chTop').textContent = (en() ? 'line ' : 'ligne ') + (top + 1) + ' (' + Math.round(sq ? 100 * parts[top] / sq : 0) + (en() ? '%)' : ' %)');
+            var lo = num($('chJmin')), hi = num($('chJmax')), msg = '';
+            if (isFinite(lo) || isFinite(hi)) {
+                var inWc = (!isFinite(lo) || mean - wc >= lo - 1e-9) && (!isFinite(hi) || mean + wc <= hi + 1e-9);
+                var inRss = (!isFinite(lo) || mean - rss >= lo - 1e-9) && (!isFinite(hi) || mean + rss <= hi + 1e-9);
+                msg = inWc ? (en() ? 'Requirement met in worst case: every assembly is within the limits.' : 'Condition respectée au pire des cas : tous les assemblages sont dans les limites.')
+                    : inRss ? (en() ? 'Met in RSS only: about 99.73% of assemblies, if dimensions are independent and centred.' : 'Respectée en quadratique seulement : environ 99,73 % des assemblages, si les cotes sont indépendantes et centrées.')
+                    : (en() ? 'Not met, even in RSS: tighten the largest contributor or shorten the loop.' : 'Non respectée, même en quadratique : resserrez la cote qui pèse le plus ou raccourcissez la chaîne.');
+            }
+            $('chV').textContent = msg;
+        }
+        EX.forEach(addRow);
+        $('chAdd').addEventListener('click', function () { addRow([1, 0, 0, 0]); run(); });
+        ['chJmin', 'chJmax'].forEach(function (id) { $(id).addEventListener('input', run); });
+        window.addEventListener('langchange', function () { relabel(); run(); });
+        run();
+    })();
+    </script>
+    <script src="/assets/js/loader.js"></script>
+    <script src="/assets/js/visitor-intelligence.js"></script>
+
+{{> footer }}
+{{> chatbot }}
+</body></html>

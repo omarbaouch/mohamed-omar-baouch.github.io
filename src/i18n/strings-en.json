@@ -38,7 +38,16 @@
     "norme": "standard",
     "diamètre nominal": "nominal diameter",
     "longueur L (mm)": "length L (mm)",
-    "classe de qualité": "property class"
+    "classe de qualité": "property class",
+    "pire des cas": "worst case",
+    "quadratique (RSS) · 99,73 %": "RSS · 99.73%",
+    "0,3": "0.3",
+    "0,4": "0.4",
+    "0,5": "0.5",
+    "0,6": "0.6",
+    "0,7": "0.7",
+    "axe neutre": "neutral axis",
+    "traction": "tension"
   },
   "attr": {
     "Baies de serveurs": "Server racks",
@@ -127,6 +136,10 @@
     "Dossier SolidWorks Admin contenant deux images administratives, SOLIDWORKS 2020 SP0 et SP1.0": "SolidWorks Admin folder holding two administrative images, SOLIDWORKS 2020 SP0 and SP1.0",
     "Vis CHC ISO 4762 de profil et vue de dessus de la tête : diamètre de tête dk, hauteur de tête k, diamètre d, longueur filetée b, longueur L mesurée sous la tête, clé s et profondeur d'empreinte t": "ISO 4762 socket head cap screw in side view and head top view: head diameter dk, head height k, diameter d, thread length b, length L measured under the head, key size s and socket depth t",
     "Coupe d'une vis CHC dans un lamage : tête noyée dans un lamage d'au moins k de profondeur et de diamètre supérieur à dk, épaisseur serrée e sous la tête, longueur en prise dans le taraudage, longueur L égale à e plus la prise": "Section of a socket head cap screw in a counterbore: head sunk in a counterbore at least k deep and larger than dk, clamped thickness e under the head, thread engagement in the tapped hole, length L equal to e plus the engagement",
-    "Lecture de la désignation ISO 4762 - M8 × 30 - 12.9 : norme, diamètre nominal, longueur sous tête en mm, classe de qualité": "Reading the designation ISO 4762 - M8 × 30 - 12.9: standard, nominal diameter, length under the head in mm, property class"
+    "Lecture de la désignation ISO 4762 - M8 × 30 - 12.9 : norme, diamètre nominal, longueur sous tête en mm, classe de qualité": "Reading the designation ISO 4762 - M8 × 30 - 12.9: standard, nominal diameter, length under the head in mm, property class",
+    "Chaîne de cotes d'un assemblage : boîtier de largeur intérieure a, deux pièces b et c en appui, jeu J ; a est positive, b et c sont négatives, J = a − b − c": "Tolerance loop of an assembly: housing with inside width a, two parts b and c in contact, gap J; a is positive, b and c are negative, J = a − b − c",
+    "Répartition du jeu J de l'exemple : courbe en cloche centrée sur 0,5, intervalle au pire des cas de 0,3 à 0,7 et intervalle quadratique de 0,378 à 0,622 qui contient 99,73 % des assemblages": "Distribution of the example's gap J: bell curve centred on 0.5, worst-case range from 0.3 to 0.7 and RSS range from 0.378 to 0.622 containing 99.73% of assemblies",
+    "Section rectangulaire b × h et son axe neutre x ; la contrainte de flexion varie linéairement, nulle sur l'axe neutre, maximale en compression et en traction sur les fibres extrêmes à h/2 : σmax = M / W": "Rectangular b × h section and its neutral axis x; bending stress varies linearly, zero on the neutral axis, maximum in compression and tension at the extreme fibres at h/2: σmax = M / W",
+    "Théorème de Huygens : une section d'aire A, son axe central x passant par le centre de gravité et un axe parallèle Δ à la distance d ; le moment quadratique autour de Δ vaut celui autour de x plus A·d²": "Parallel axis theorem: a section of area A, its centroidal axis x through the centroid and a parallel axis Δ at distance d; the moment of inertia about Δ equals the one about x plus A·d²"
   }
 }
