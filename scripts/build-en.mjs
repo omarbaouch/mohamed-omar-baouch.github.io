@@ -34,6 +34,17 @@ const file = (dist, path) => resolve(dist, '.' + path, 'index.html');
 // textes français récurrents des données structurées
 const JSONLD_FR_EN = {
   Accueil: 'Home',
+  // page /boutique/ : produits et FAQ (les questions passent par headingIndex)
+  "Calculateurs Excel pour le bureau d'études": 'Engineering Excel calculators',
+  "Calcul d'assemblage vissé VDI 2230 (Excel)": 'VDI 2230 bolted joint calculator (Excel)',
+  "Classeur Excel de calcul d'une vis selon la VDI 2230-1 : précharges, facteur de charge, tassement, couple de serrage et vérifications R7 à R12.":
+    'Excel workbook to calculate a bolt to VDI 2230 Part 1: preloads, load factor, embedding, tightening torque and checks R7 to R12.',
+  'Calcul des cordons de soudure EN 1993-1-8 (Excel)': 'EN 1993-1-8 fillet weld calculator (Excel)',
+  "Classeur Excel de vérification des cordons de soudure d'angle selon l'Eurocode 3 : méthode directionnelle, cinq assemblages courants, gorge minimale requise.":
+    'Excel workbook to check fillet welds to Eurocode 3: directional method, five common joints, minimum required throat.',
+  'Chaîne de cotes : pire des cas, statistique et Monte-Carlo (Excel)': 'Tolerance stack-up: worst case, statistical and Monte Carlo (Excel)',
+  "Classeur Excel de chaîne de cotes jusqu'à 15 maillons, avec tolérances ISO 286 et ISO 2768, taux de non-conformes et simulation de Monte-Carlo.":
+    'Excel tolerance stack-up workbook with up to 15 links, ISO 286 and ISO 2768 tolerances, nonconforming rate and Monte Carlo simulation.',
   'Ingénieur & Consultant PDM/PLM': 'PDM/PLM Engineer & Consultant',
   'Gestion du cycle de vie produit': 'Product lifecycle management',
   'Conception Mécanique': 'Mechanical design',
@@ -197,6 +208,16 @@ export function buildEnglishPages(dist) {
     // affiches du hero : la version anglaise directement (le script en ligne fait de même côté client)
     $('.fh-poster source, .fh-poster img').each((_, el) => {
       for (const a of ['src', 'srcset']) if (el.attribs[a]) el.attribs[a] = el.attribs[a].replace(/\/film\/hero\/(?!en\/)/g, '/film/hero/en/');
+    });
+    // images propres à la langue (captures d'écran) : version anglaise indiquée dans la page (data-src-en)
+    $('[data-src-en]').each((_, el) => {
+      el.attribs.src = el.attribs['data-src-en'];
+      delete el.attribs['data-src-en'];
+    });
+    // métadonnées propres à la langue (image de partage d'une page sans couverture) : data-content-en
+    $('meta[data-content-en]').each((_, el) => {
+      el.attribs.content = el.attribs['data-content-en'];
+      delete el.attribs['data-content-en'];
     });
     // fichiers à télécharger : version anglaise indiquée dans la page (data-href-en)
     $('[data-href-en]').each((_, a) => {

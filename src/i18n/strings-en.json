@@ -160,6 +160,11 @@
     "Barre bridée entre deux appuis fixes : chauffée, elle ne peut pas s'allonger, les appuis la compriment avec un effort F et la contrainte vaut σ = E · α · ΔT": "Bar restrained between two fixed supports: when heated it cannot grow, the supports compress it with a force F and the stress is σ = E · α · ΔT",
     "Coupe d'un arbre en acier dans un carter en aluminium, à 20 °C avec un jeu j, puis à 100 °C : l'alésage en aluminium grandit plus que l'arbre en acier et le jeu devient j + Δj": "Section of a steel shaft in an aluminium housing, at 20 °C with clearance j, then at 100 °C: the aluminium bore grows more than the steel shaft and the clearance becomes j + Δj",
     "Épaisseur en mm selon le numéro de jauge, de 7 à 30 : la courbe de l'acier descend de 4,55 à 0,30 mm et celle de l'aluminium reste en dessous ; plus le numéro est grand, plus la tôle est fine": "Thickness in mm by gauge number, from 7 to 30: the steel curve falls from 4.55 to 0.30 mm and the aluminum curve stays below it; the higher the number, the thinner the sheet",
-    "Coupes de quatre tôles de jauge 16 à la même échelle : acier 1,52 mm, acier galvanisé 1,61 mm, inox 1,59 mm, aluminium 1,29 mm": "Sections of four 16 gauge sheets at the same scale: steel 1.52 mm, galvanized steel 1.61 mm, stainless 1.59 mm, aluminum 1.29 mm"
+    "Coupes de quatre tôles de jauge 16 à la même échelle : acier 1,52 mm, acier galvanisé 1,61 mm, inox 1,59 mm, aluminium 1,29 mm": "Sections of four 16 gauge sheets at the same scale: steel 1.52 mm, galvanized steel 1.61 mm, stainless 1.59 mm, aluminum 1.29 mm",
+    "Feuille de calcul VDI 2230 : bandeau de verdict, résultats principaux et saisie de la vis": "VDI 2230 calculation sheet: verdict banner, main results and bolt inputs",
+    "Feuille de choix du diamètre : vérifications de M3 à M36 et plus petite vis qui convient": "Bolt size selection sheet: checks from M3 to M36 and the smallest suitable bolt",
+    "Feuille de calcul d'un plat soudé par deux cordons d'angle, avec schéma et vérifications": "Calculation sheet for a plate welded with two fillet welds, with diagram and checks",
+    "Feuille de chaîne de cotes : maillons, résultats pire des cas et statistique, part de chaque maillon": "Tolerance stack-up sheet: links, worst-case and statistical results, share of each link",
+    "Simulation de Monte-Carlo de 5 000 assemblages avec histogramme": "Monte Carlo simulation of 5,000 assemblies with histogram"
   }
 }

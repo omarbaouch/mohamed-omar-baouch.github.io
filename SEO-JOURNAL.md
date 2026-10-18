@@ -38,9 +38,13 @@ La carte se pose simplement dans la grille de `src/blog/index.html` (entre `gril
 Le propriétaire est salarié et son contrat l'exige : le site doit rester un **site personnel, sans aucune activité professionnelle ni information de l'employeur**. Ces règles priment sur l'objectif de clics.
 - **Aucune offre de service** :
   - pas de « Parler d'un projet », « Me contacter » en appel commercial, audit, devis, chiffrage, accompagnement ou disponibilité pour des missions ;
-  - pas de JSON-LD de type Service ou Offer ;
+  - pas de JSON-LD de type Service ; Offer seulement pour les produits de la boutique (/boutique/) ;
   - le contact sert seulement aux questions et remarques sur les articles.
-- **Aucune monétisation** (publicité, produit payant, affiliation, dons) sans accord écrit de l'employeur, que le propriétaire seul peut obtenir.
+- **Monétisation : mise à jour du 18/10/2026 (décision du propriétaire)**. Le propriétaire indique que son contrat de travail l'autorise à exercer une activité annexe. Seule la **vente de ses propres outils numériques** est permise : la boutique `/boutique/` (classeurs Excel, paiement Lemon Squeezy, revendeur officiel). Règles :
+  - pas de publicité, d'affiliation, de dons ni de prestation ; la mention « aucune prestation n'est proposée » du pied de page reste vraie et ne bouge pas ;
+  - rien qui concurrence l'employeur : pas de produit payant sur SOLIDWORKS, le PDM ou le PLM ; les produits restent des outils de calcul mécanique généraux (normes VDI, EN, ISO) ;
+  - les mémos gratuits restent gratuits : un produit payant va plus loin qu'un article, il ne remplace pas un contenu déjà publié ;
+  - fichiers vendus hors du dépôt public (dossier `produits/` ignoré par git) ; liens de paiement dans le script en bas de `src/boutique/index.html`.
 - **Aucune information sur l'employeur, ses clients ou ses projets** :
   - pas de nom de client, même ancien, même anonymisé de façon reconnaissable ;
   - pas de nombre de clients, de missions ou de projets (« 80+ clients », « sur 80 audits ») ;
@@ -118,6 +122,27 @@ Le propriétaire est salarié et son contrat l'exige : le site doit rester un **
 - configuration-materielle-solidworks ;
 
 **Nouvelles pages (action a)** : au moins 2 schémas de ce type dès la publication.
+
+## 2026-10-18 (2) — boutique de classeurs Excel (demande du propriétaire)
+
+**Demande** : mettre en place Lemon Squeezy et vendre des produits à environ 10 €, sans concurrence avec l'employeur, absents en gratuit ailleurs et très recherchés. Objectif du propriétaire : 5 ventes par mois.
+
+**Choix des produits** (rapport GSC du 17/10 et recherche de l'offre gratuite) :
+- **Calcul d'assemblage vissé VDI 2230** : la page couple de serrage est la 1re page française du site (FR et /en/) ; aucun classeur VDI 2230 complet n'existe en gratuit ; les logiciels (Cetim Cobra…) et la norme elle-même coûtent plusieurs centaines d'euros.
+- **Cordons de soudure EN 1993-1-8** : soudure ISO 2553 /en/ est la 1re page du site en clics ; pas de classeur prêt à l'emploi trouvé en français.
+- **Chaîne de cotes (pire des cas, statistique, Monte-Carlo, ISO 286 / ISO 2768)** : prolonge les pages chaîne de cotes, ISO 286 et ISO 2768 (fortes impressions).
+
+**Contrôle des calculs** : chaque classeur est recalculé par LibreOffice et comparé à un moteur Python indépendant. VDI 2230 : deux exemples complets publiés (DSV M16 10.9, ESV M12 10.9 dans GJL-250) retrouvés à moins de 0,05 % ; soudure : identique au moteur (1e-15) ; chaîne de cotes : exemple de l'article retrouvé (0,3–0,7 ; 0,378–0,622 ; 67 % ; 119 ppm), Monte-Carlo dans le bruit d'échantillonnage.
+
+**Sur le site** :
+- page `/boutique/` bilingue (+ `/en/boutique/`), JSON-LD ItemList de Product/Offer, FAQ, captures d'écran FR et EN (`data-src-en`, nouveau dans build-en), image de partage FR et EN (`data-content-en`) ;
+- lien « Outils Excel » dans le menu ;
+- encart « Aller plus loin » avant la FAQ de : couple de serrage, vis CHC, soudure ISO 2553, chaîne de cotes, ajustements ISO 286, tolérances ISO 2768 (titres et descriptions inchangés : aucun test perturbé) ;
+- suivi GA4 : `begin_checkout` au clic, `purchase` à la confirmation Lemon Squeezy.
+
+**À faire par le propriétaire** : créer les 3 produits et le pack dans Lemon Squeezy, puis coller les 4 liens de paiement dans `LIENS` (bas de `src/boutique/index.html`). Tant qu'un lien est vide, son bouton affiche « Bientôt disponible ».
+
+**Suivi** : clics vers /boutique/ et /en/boutique/ (GSC), événements `begin_checkout` et `purchase` (GA4), ventes (Lemon Squeezy).
 
 ## 2026-10-18 — nouveau mémo bilingue : dilatation thermique (coefficients, formules, contrainte, jeux, frettage, calculateur, fiche PDF) + schémas des jauges de tôle
 

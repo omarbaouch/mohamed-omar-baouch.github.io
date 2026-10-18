@@ -158,5 +158,9 @@
   "/blog/engrenage-module-calcul-diametres/": {
     "title": "Gear Module Calculator: Pitch Diameter and Center Distance",
     "description": "Spur gear formulas from module and tooth count: pitch, tip, root and base diameter, tooth height, center distance, ratio, ISO 54 modules and diametral pitch."
+  },
+  "/boutique/": {
+    "title": "Engineering Excel Calculators: VDI 2230, Welds, Stack-up",
+    "description": "Excel workbooks for design engineers: VDI 2230 bolted joints (R0–R13), EN 1993-1-8 fillet welds, tolerance stack-up with ISO 286 and Monte Carlo. €10 each."
   }
 }
