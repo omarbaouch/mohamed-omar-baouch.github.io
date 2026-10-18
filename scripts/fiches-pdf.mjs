@@ -37,6 +37,16 @@ export const FICHES = {
     fr: 'tableau-rugosite-ra-classes-n', en: 'surface-roughness-ra-chart',
     h2: { 'Convertisseur Ra : µm, µin et classes N': 'Classes de rugosité N et valeurs de Ra', 'Ra converter: µm, µin and N grades': 'Roughness grades N and Ra values' },
   },
+  'dilatation-thermique-coefficient-materiaux': {
+    fr: 'tableau-coefficients-dilatation-thermique', en: 'thermal-expansion-coefficients-chart', figures: true,
+    titre: { fr: 'Dilatation thermique : coefficients des matériaux et formules', en: 'Thermal expansion: coefficients of materials and formulas' },
+    h2: {
+      '2. Coefficients de dilatation des matériaux': '1. Coefficients de dilatation des matériaux', '2. Thermal expansion coefficients of materials': '1. Thermal expansion coefficients of materials',
+      '3. Les formules de la dilatation': '2. Les formules de la dilatation', '3. Thermal expansion formulas': '2. Thermal expansion formulas',
+      '4. Dilatation empêchée : la contrainte thermique': '3. Dilatation empêchée : la contrainte thermique', '4. Restrained expansion: thermal stress': '3. Restrained expansion: thermal stress',
+      '5. Jeux entre deux matériaux et frettage': '4. Jeux entre deux matériaux et frettage', '5. Clearances between two materials and shrink fits': '4. Clearances between two materials and shrink fits',
+    },
+  },
   'chaine-de-cotes-tolerance-stack-up': {
     fr: 'chaine-de-cotes-formules-exemple', en: 'tolerance-stack-up-formulas-example', figures: true,
     titre: { fr: 'Chaîne de cotes : formules du pire des cas et quadratique (RSS), exemple', en: 'Tolerance stack-up: worst-case and RSS formulas, worked example' },
@@ -59,7 +69,7 @@ export const FICHES = {
     titre: { fr: 'Moment quadratique : formules des sections, exemples et unités', en: 'Area moment of inertia: section formulas, examples and units' },
   },
   'epaisseur-tole-jauge-gauge-tableau': {
-    fr: 'tableau-jauges-tole-gauge-mm', en: 'sheet-metal-gauge-chart',
+    fr: 'tableau-jauges-tole-gauge-mm', en: 'sheet-metal-gauge-chart', figures: true,
     titre: { fr: 'Jauges de tôle (gauge) : épaisseurs en mm et en pouces par matériau', en: 'Sheet metal gauge chart: thickness in inches and mm by material' },
   },
   'conversion-pouce-mm-tableau': {

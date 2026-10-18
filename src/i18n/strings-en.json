@@ -47,7 +47,22 @@
     "0,6": "0.6",
     "0,7": "0.7",
     "axe neutre": "neutral axis",
-    "traction": "tension"
+    "traction": "tension",
+    "à T₁": "at T₁",
+    "à T₂ > T₁": "at T₂ > T₁",
+    "carter alu (α 23)": "aluminium housing (α 23)",
+    "arbre acier (α 12)": "steel shaft (α 12)",
+    "jeu j": "clearance j",
+    "acier : 1,52": "steel: 1.52",
+    "galvanisé : 1,61": "galvanized: 1.61",
+    "inox : 1,59": "stainless: 1.59",
+    "alu : 1,29": "aluminum: 1.29",
+    "16 ga, en mm": "16 ga, in mm",
+    "numéro de jauge": "gauge number",
+    "épaisseur (mm)": "thickness (mm)",
+    "acier (MSG)": "steel (MSG)",
+    "alu (B&S)": "aluminum (B&S)",
+    "16 ga = 1,52 mm": "16 ga = 1.52 mm"
   },
   "attr": {
     "Baies de serveurs": "Server racks",
@@ -140,6 +155,11 @@
     "Chaîne de cotes d'un assemblage : boîtier de largeur intérieure a, deux pièces b et c en appui, jeu J ; a est positive, b et c sont négatives, J = a − b − c": "Tolerance loop of an assembly: housing with inside width a, two parts b and c in contact, gap J; a is positive, b and c are negative, J = a − b − c",
     "Répartition du jeu J de l'exemple : courbe en cloche centrée sur 0,5, intervalle au pire des cas de 0,3 à 0,7 et intervalle quadratique de 0,378 à 0,622 qui contient 99,73 % des assemblages": "Distribution of the example's gap J: bell curve centred on 0.5, worst-case range from 0.3 to 0.7 and RSS range from 0.378 to 0.622 containing 99.73% of assemblies",
     "Section rectangulaire b × h et son axe neutre x ; la contrainte de flexion varie linéairement, nulle sur l'axe neutre, maximale en compression et en traction sur les fibres extrêmes à h/2 : σmax = M / W": "Rectangular b × h section and its neutral axis x; bending stress varies linearly, zero on the neutral axis, maximum in compression and tension at the extreme fibres at h/2: σmax = M / W",
-    "Théorème de Huygens : une section d'aire A, son axe central x passant par le centre de gravité et un axe parallèle Δ à la distance d ; le moment quadratique autour de Δ vaut celui autour de x plus A·d²": "Parallel axis theorem: a section of area A, its centroidal axis x through the centroid and a parallel axis Δ at distance d; the moment of inertia about Δ equals the one about x plus A·d²"
+    "Théorème de Huygens : une section d'aire A, son axe central x passant par le centre de gravité et un axe parallèle Δ à la distance d ; le moment quadratique autour de Δ vaut celui autour de x plus A·d²": "Parallel axis theorem: a section of area A, its centroidal axis x through the centroid and a parallel axis Δ at distance d; the moment of inertia about Δ equals the one about x plus A·d²",
+    "Barre fixée à gauche : de longueur L₀ à la température T₁, elle s'allonge de ΔL à la température T₂ plus élevée ; ΔL = α · L₀ · ΔT": "Bar fixed at the left: of length L₀ at temperature T₁, it grows by ΔL at the higher temperature T₂; ΔL = α · L₀ · ΔT",
+    "Barre bridée entre deux appuis fixes : chauffée, elle ne peut pas s'allonger, les appuis la compriment avec un effort F et la contrainte vaut σ = E · α · ΔT": "Bar restrained between two fixed supports: when heated it cannot grow, the supports compress it with a force F and the stress is σ = E · α · ΔT",
+    "Coupe d'un arbre en acier dans un carter en aluminium, à 20 °C avec un jeu j, puis à 100 °C : l'alésage en aluminium grandit plus que l'arbre en acier et le jeu devient j + Δj": "Section of a steel shaft in an aluminium housing, at 20 °C with clearance j, then at 100 °C: the aluminium bore grows more than the steel shaft and the clearance becomes j + Δj",
+    "Épaisseur en mm selon le numéro de jauge, de 7 à 30 : la courbe de l'acier descend de 4,55 à 0,30 mm et celle de l'aluminium reste en dessous ; plus le numéro est grand, plus la tôle est fine": "Thickness in mm by gauge number, from 7 to 30: the steel curve falls from 4.55 to 0.30 mm and the aluminum curve stays below it; the higher the number, the thinner the sheet",
+    "Coupes de quatre tôles de jauge 16 à la même échelle : acier 1,52 mm, acier galvanisé 1,61 mm, inox 1,59 mm, aluminium 1,29 mm": "Sections of four 16 gauge sheets at the same scale: steel 1.52 mm, galvanized steel 1.61 mm, stainless 1.59 mm, aluminum 1.29 mm"
   }
 }

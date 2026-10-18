@@ -131,6 +131,10 @@
     "title": "BSP vs NPT Thread Chart: G (ISO 228) Sizes, TPI and Tap Drills",
     "description": "BSP (G, ISO 228) and NPT pipe thread chart: major diameter, threads per inch, pitch and tap drill, 55° vs 60°, parallel vs taper, plus a thread identifier."
   },
+  "/blog/dilatation-thermique-coefficient-materiaux/": {
+    "title": "Thermal Expansion Coefficients: Chart, Formula and Calculator",
+    "description": "Coefficient of thermal expansion chart for steel, stainless, aluminium, copper and more, the formula ΔL = α·L₀·ΔT, thermal stress and a free calculator."
+  },
   "/blog/chaine-de-cotes-tolerance-stack-up/": {
     "title": "Tolerance Stack-Up Calculator: Worst Case and RSS, with Example",
     "description": "Tolerance stack-up analysis: build the dimension loop, worst-case and RSS (root sum square) formulas, a worked example and a free calculator."

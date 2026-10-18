@@ -1,0 +1,468 @@
+<!DOCTYPE html><html lang="fr"><head>
+    <meta charset="UTF-8">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PBLRK58T');</script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-33TQ27QY4M"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-33TQ27QY4M');</script>
+<!-- Microsoft Clarity -->
+    <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","vy4yvht8gz");</script>
+    <!-- LinkedIn Insight Tag -->
+    <script type="text/javascript">_linkedin_partner_id="525900907";window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];window._linkedin_data_partner_ids.push(_linkedin_partner_id);(function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";s.parentNode.insertBefore(b,s)})(window.lintrk);</script>
+    <script>
+    // Anti-flash de thème : clair par défaut, sombre si stocké.
+    (function () {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    })();
+</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dilatation thermique : coefficients des matériaux et calculateur</title>
+    <meta name="description" content="Coefficients de dilatation thermique de l&#x27;acier, de l&#x27;inox, de l&#x27;aluminium et du cuivre, formule ΔL = α·L₀·ΔT, contrainte, jeux, frettage et calculateur.">
+    <meta name="author" content="Mohamed Omar Baouch">
+    <link rel="canonical" href="https://www.baouch.fr/blog/dilatation-thermique-coefficient-materiaux/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Dilatation thermique : coefficients des matériaux et calculateur">
+    <meta property="og:description" content="Tableau des coefficients de dilatation des matériaux, formule, contrainte thermique, jeux et frettage, avec un calculateur gratuit.">
+    <meta property="og:url" content="https://www.baouch.fr/blog/dilatation-thermique-coefficient-materiaux/">
+    <meta property="og:image" content="https://www.baouch.fr/img/og/dilatation-thermique.jpg">
+    <meta property="og:site_name" content="Mohamed Omar Baouch">
+    <meta property="article:published_time" content="2026-10-18T00:00:00.000Z">
+    <meta property="article:author" content="Mohamed Omar Baouch">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dilatation thermique : coefficients des matériaux et calculateur">
+    <meta name="twitter:description" content="Tableau des coefficients de dilatation des matériaux, formule, contrainte thermique, jeux et frettage, avec un calculateur gratuit.">
+    <meta name="twitter:image" content="https://www.baouch.fr/img/og/dilatation-thermique.jpg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "headline": "Dilatation thermique : coefficients des matériaux et calculateur",
+                "description": "Coefficients de dilatation thermique de l'acier, de l'inox, de l'aluminium et du cuivre, formule ΔL = α·L₀·ΔT, contrainte, jeux, frettage et calculateur.",
+                "image": "https://www.baouch.fr/img/og/dilatation-thermique.jpg",
+                "datePublished": "2026-10-18",
+                "dateModified": "2026-10-18",
+                "inLanguage": "fr-FR",
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://www.baouch.fr/blog/dilatation-thermique-coefficient-materiaux/"
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://www.baouch.fr"
+                },
+                "publisher": {
+                    "@type": "Person",
+                    "name": "Mohamed Omar Baouch",
+                    "url": "https://www.baouch.fr"
+                },
+                "keywords": [
+                    "Dilatation thermique",
+                    "Coefficient de dilatation",
+                    "Matériaux",
+                    "Frettage",
+                    "Conception mécanique"
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Accueil",
+                        "item": "https://www.baouch.fr/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Blog",
+                        "item": "https://www.baouch.fr/blog/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Dilatation thermique : coefficients des matériaux et calculateur",
+                        "item": "https://www.baouch.fr/blog/dilatation-thermique-coefficient-materiaux/"
+                    }
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Quelle est la formule de la dilatation thermique ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "ΔL = α · L₀ · ΔT : l'allongement est le produit du coefficient de dilatation α, de la longueur initiale L₀ et de l'écart de température ΔT. Une barre d'acier de 1 m chauffée de 20 à 70 °C s'allonge de 12 × 10⁻⁶ × 1 000 × 50 = 0,6 mm."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Quel est le coefficient de dilatation de l'acier ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Environ 12 × 10⁻⁶ /K pour l'acier de construction et l'acier non allié, valeur retenue par l'Eurocode 3 : 1,2 mm par mètre pour 100 °C. L'inox austénitique (304, 316L) se dilate davantage, environ 16 × 10⁻⁶ /K ; l'inox ferritique (430) moins, environ 10 × 10⁻⁶ /K."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Quel est le coefficient de dilatation de l'aluminium ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Environ 23 × 10⁻⁶ /K, valeur retenue par l'Eurocode 9, soit près de deux fois l'acier : 2,3 mm par mètre pour 100 °C. C'est la cause des jeux qui varient entre un carter en aluminium et un arbre en acier."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Un trou se dilate-t-il quand on chauffe la pièce ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Il s'agrandit. Chauffée de façon uniforme, la pièce grandit comme un agrandissement photographique : le trou grandit du même facteur que s'il était plein de matière. C'est le principe du frettage à chaud."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Dans quelle unité s'exprime le coefficient de dilatation ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "En 1/K, qui est égal à 1/°C, car un écart de 1 K vaut un écart de 1 °C. On l'écrit souvent × 10⁻⁶ /K, ou µm/(m·K) : 12 × 10⁻⁶ /K, c'est 12 µm par mètre et par degré. Pour un coefficient par °F, divisez par 1,8."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+    <link rel="alternate" type="application/rss+xml" title="Blog — Mohamed Omar Baouch" href="https://www.baouch.fr/blog/rss.xml">
+    {{> head-lang }}{{> head-fonts }}<script type="module" src="../../js/blog.js"></script>
+</head>
+<body class="blog-page" data-blog-post="dilatation-thermique-coefficient-materiaux">
+{{> nav }}
+
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBLRK58T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <main id="main" class="container blog-container show">
+        <div class="blog-shell" id="blogShell" data-shell="">
+            <article class="blog-article" data-article-root="">
+                <nav class="article-breadcrumbs" aria-label="Navigation secondaire">
+                    <a class="back-link" href="/blog/" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                    <a class="back-link back-link--ghost" href="/" data-translate-key="blog_back_to_portfolio">Retour au portfolio</a>
+                </nav>
+
+                <header class="blog-hero post-hero" data-component="hero">
+                    <div class="hero-intro">
+                        <div class="hero-badges">
+                            <span class="badge badge-editorial" data-i18n=""><span data-lang="fr">Mémo & calculateur</span><span data-lang="en">Reference & calculator</span></span>
+                            <span class="badge" data-i18n=""><span data-lang="fr">Matériaux</span><span data-lang="en">Materials</span></span>
+                            <span class="badge badge-reading-time" data-i18n=""><span data-lang="fr">~7 min de lecture</span><span data-lang="en">~7 min read</span></span>
+                        </div>
+                        <span class="hero-eyebrow" data-i18n=""><span data-lang="fr">Prévoir les jeux qui bougent avec la température</span><span data-lang="en">Plan for clearances that move with temperature</span></span>
+                        <h1 class="hero-title" data-i18n=""><span data-lang="fr">Dilatation thermique : coefficients des matériaux et calculateur</span><span data-lang="en">Thermal expansion: coefficients of materials and calculator</span></h1>
+                        <p class="hero-subtitle" data-i18n=""><span data-lang="fr">Publié le 18 octobre 2026 — les coefficients de dilatation des matériaux courants, la formule ΔL = α·L₀·ΔT, la contrainte d'une pièce bridée, les jeux entre deux matériaux, la température de frettage et un calculateur.</span><span data-lang="en">Published October 18, 2026 — thermal expansion coefficients of common materials, the formula ΔL = α·L₀·ΔT, the stress in a restrained part, clearances between two materials, shrink-fit temperature and a calculator.</span></p>
+                        <div class="hero-actions">
+                            <a class="hero-btn" href="#calculateur" data-i18n=""><span data-lang="fr">Calculer une dilatation</span><span data-lang="en">Calculate expansion</span></a>
+                            <a class="hero-btn hero-btn--ghost" href="#coefficients" data-i18n=""><span data-lang="fr">Voir le tableau</span><span data-lang="en">See the chart</span></a>
+                            <a class="hero-btn hero-btn--ghost" href="/telechargements/tableau-coefficients-dilatation-thermique.pdf" data-href-en="/telechargements/en/thermal-expansion-coefficients-chart.pdf" download data-i18n=""><span data-lang="fr">Télécharger en PDF</span><span data-lang="en">Download as PDF</span></a>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-value" data-i18n=""><span data-lang="fr">1,2 mm</span><span data-lang="en">1.2 mm</span></span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Acier : 1 m chauffé de 100 °C</span><span data-lang="en">Steel: 1 m heated by 100 °C</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value" data-i18n=""><span data-lang="fr">2,3 mm</span><span data-lang="en">2.3 mm</span></span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Aluminium : 1 m chauffé de 100 °C</span><span data-lang="en">Aluminium: 1 m heated by 100 °C</span></span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">20 °C</span>
+                            <span class="hero-stat-label" data-i18n=""><span data-lang="fr">Température de référence des cotes (ISO 1)</span><span data-lang="en">Reference temperature for dimensions (ISO 1)</span></span>
+                        </div>
+                    </div>
+                </header>
+
+                <section class="blog-section article-section">
+                    <div class="callout">
+                        <p data-i18n=""><span data-lang="fr"><strong>En bref :</strong> une pièce chauffée s'allonge de <strong>ΔL = α · L₀ · ΔT</strong>. Le coefficient α vaut environ <strong>12 × 10⁻⁶ /K pour l'acier</strong>, <strong>16 pour l'inox austénitique</strong> et <strong>23 pour l'aluminium</strong> : 1 m d'acier chauffé de 100 °C s'allonge de 1,2 mm, 1 m d'aluminium de 2,3 mm. Si la pièce est bridée, elle ne s'allonge pas mais se met en contrainte : <strong>σ = E · α · ΔT</strong>.</span><span data-lang="en"><strong>In short:</strong> a heated part grows by <strong>ΔL = α · L₀ · ΔT</strong>. The coefficient α is about <strong>12 × 10⁻⁶ /K for steel</strong>, <strong>16 for austenitic stainless</strong> and <strong>23 for aluminium</strong>: 1 m of steel heated by 100 °C grows by 1.2 mm, 1 m of aluminium by 2.3 mm. If the part is restrained, it does not grow but is stressed instead: <strong>σ = E · α · ΔT</strong>.</span></p>
+                    </div>
+                </section>
+
+                <nav class="blog-section article-summary" id="sommaire" aria-label="Sommaire de l'article">
+                    <h2 class="summary-title" data-i18n=""><span data-lang="fr">Sommaire</span><span data-lang="en">Contents</span></h2>
+                    <ol class="summary-list">
+                        <li><a href="#calculateur"><span class="summary-index">01</span><span class="summary-label" data-i18n=""><span data-lang="fr">Calculateur de dilatation</span><span data-lang="en">Thermal expansion calculator</span></span></a></li>
+                        <li><a href="#coefficients"><span class="summary-index">02</span><span class="summary-label" data-i18n=""><span data-lang="fr">Tableau des coefficients</span><span data-lang="en">Coefficient chart</span></span></a></li>
+                        <li><a href="#formules"><span class="summary-index">03</span><span class="summary-label" data-i18n=""><span data-lang="fr">Les formules</span><span data-lang="en">The formulas</span></span></a></li>
+                        <li><a href="#contrainte"><span class="summary-index">04</span><span class="summary-label" data-i18n=""><span data-lang="fr">Dilatation empêchée : la contrainte</span><span data-lang="en">Restrained expansion: the stress</span></span></a></li>
+                        <li><a href="#jeux"><span class="summary-index">05</span><span class="summary-label" data-i18n=""><span data-lang="fr">Jeux entre deux matériaux et frettage</span><span data-lang="en">Clearances between materials and shrink fits</span></span></a></li>
+                        <li><a href="#reference"><span class="summary-index">06</span><span class="summary-label" data-i18n=""><span data-lang="fr">Mesurer à 20 °C</span><span data-lang="en">Measuring at 20 °C</span></span></a></li>
+                        <li><a href="#faq"><span class="summary-index">07</span><span class="summary-label">FAQ</span></a></li>
+                    </ol>
+                </nav>
+
+                <section class="blog-section article-section" id="calculateur">
+                    <h2 data-i18n=""><span data-lang="fr">1. Calculateur de dilatation thermique</span><span data-lang="en">1. Thermal expansion calculator</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Choisissez un matériau ou saisissez votre coefficient, puis la longueur et les deux températures. Avec un module d'Young E, le calculateur donne aussi la contrainte si la pièce est bridée aux deux bouts.</span><span data-lang="en">Pick a material or enter your own coefficient, then the length and both temperatures. With a Young's modulus E, the calculator also gives the stress if the part is fixed at both ends.</span></p>
+                    <form class="calc" id="dtCalc" onsubmit="return false">
+                        <div class="calc__fields">
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">Matériau</span><span data-lang="en">Material</span></span><select id="dtMat"></select></label>
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">α (× 10⁻⁶ /K)</span><span data-lang="en">α (× 10⁻⁶ /K)</span></span><input id="dtA" type="number" inputmode="decimal" step="any" value="12"></label>
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">Longueur L₀</span><span data-lang="en">Length L₀</span></span><input id="dtL" type="number" inputmode="decimal" step="any" value="1000"></label>
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">Unité de longueur</span><span data-lang="en">Length unit</span></span><select id="dtLu"><option value="mm">mm</option><option value="in">in</option></select></label>
+                        </div>
+                        <div class="calc__fields">
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">Température initiale T₁</span><span data-lang="en">Initial temperature T₁</span></span><input id="dtT1" type="number" inputmode="decimal" step="any" value="20"></label>
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">Température finale T₂</span><span data-lang="en">Final temperature T₂</span></span><input id="dtT2" type="number" inputmode="decimal" step="any" value="70"></label>
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">Unité de température</span><span data-lang="en">Temperature unit</span></span><select id="dtTu"><option value="C">°C</option><option value="F">°F</option></select></label>
+                            <label class="calc__field"><span data-i18n=""><span data-lang="fr">E (GPa), facultatif</span><span data-lang="en">E (GPa), optional</span></span><input id="dtE" type="number" inputmode="decimal" step="any" value="210"></label>
+                        </div>
+                        <dl class="calc__out" aria-live="polite">
+                            <div><dt><span data-i18n=""><span data-lang="fr">Allongement ΔL</span><span data-lang="en">Change in length ΔL</span></span></dt><dd id="dtDL">—</dd></div>
+                            <div><dt><span data-i18n=""><span data-lang="fr">Longueur finale</span><span data-lang="en">Final length</span></span></dt><dd id="dtLf">—</dd></div>
+                            <div><dt><span data-i18n=""><span data-lang="fr">Coefficient par °F</span><span data-lang="en">Coefficient per °F</span></span></dt><dd id="dtAF">—</dd></div>
+                            <div><dt><span data-i18n=""><span data-lang="fr">Contrainte si bridée</span><span data-lang="en">Stress if restrained</span></span></dt><dd id="dtS">—</dd></div>
+                        </dl>
+                        <p class="calc__verdict" id="dtV"></p>
+                    </form>
+                </section>
+
+                <section class="blog-section article-section" id="coefficients">
+                    <h2 data-i18n=""><span data-lang="fr">2. Coefficients de dilatation des matériaux</span><span data-lang="en">2. Thermal expansion coefficients of materials</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Coefficients de dilatation linéaire moyens entre 20 et 100 °C, en 10⁻⁶ /K (soit µm par mètre et par degré). Ce sont des valeurs courantes de calcul : la valeur exacte dépend de la nuance, de l'état et de la plage de température, et le coefficient augmente avec la température. Pour une pièce critique, prenez celle de la fiche de la matière.</span><span data-lang="en">Mean linear expansion coefficients between 20 and 100 °C, in 10⁻⁶ /K (that is, µm per metre per degree). These are common design values: the exact value depends on the grade, condition and temperature range, and the coefficient rises with temperature. For a critical part, use the value from the material's datasheet.</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Matériau</span><span data-lang="en">Material</span></th><th data-i18n=""><span data-lang="fr">α (10⁻⁶ /K)</span><span data-lang="en">α (10⁻⁶ /K)</span></th><th data-i18n=""><span data-lang="fr">Plage courante</span><span data-lang="en">Typical range</span></th><th data-i18n=""><span data-lang="fr">α (10⁻⁶ /°F)</span><span data-lang="en">α (10⁻⁶ /°F)</span></th><th data-i18n=""><span data-lang="fr">ΔL pour 1 m et 100 °C (mm)</span><span data-lang="en">ΔL for 1 m and 100 °C (mm)</span></th><th data-i18n=""><span data-lang="fr">Remarque</span><span data-lang="en">Note</span></th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td data-i18n=""><span data-lang="fr">Acier de construction, acier non allié (S235 à S355, C45)</span><span data-lang="en">Structural and carbon steel (S235 to S355, C45)</span></td><td><strong>12</strong></td><td data-i18n=""><span data-lang="fr">11 à 13</span><span data-lang="en">11 to 13</span></td><td>6,7</td><td>1,20</td><td data-i18n=""><span data-lang="fr">Valeur de calcul de l'Eurocode 3</span><span data-lang="en">Design value in Eurocode 3</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Inox austénitique 1.4301 (304), 1.4404 (316L)</span><span data-lang="en">Austenitic stainless 1.4301 (304), 1.4404 (316L)</span></td><td><strong>16</strong></td><td data-i18n=""><span data-lang="fr">16 à 17</span><span data-lang="en">16 to 17</span></td><td>8,9</td><td>1,60</td><td data-i18n=""><span data-lang="fr">Près de 1,4 fois l'acier</span><span data-lang="en">About 1.4 times steel</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Inox ferritique 1.4016 (430)</span><span data-lang="en">Ferritic stainless 1.4016 (430)</span></td><td><strong>10</strong></td><td data-i18n=""><span data-lang="fr">10 à 11</span><span data-lang="en">10 to 11</span></td><td>5,6</td><td>1,00</td><td data-i18n=""><span data-lang="fr">Proche de l'acier</span><span data-lang="en">Close to steel</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Fonte grise (EN-GJL)</span><span data-lang="en">Grey cast iron (EN-GJL)</span></td><td><strong>11</strong></td><td data-i18n=""><span data-lang="fr">10 à 12</span><span data-lang="en">10 to 12</span></td><td>6,1</td><td>1,10</td><td></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Aluminium et alliages</span><span data-lang="en">Aluminium and alloys</span></td><td><strong>23</strong></td><td data-i18n=""><span data-lang="fr">20 à 24</span><span data-lang="en">20 to 24</span></td><td>12,8</td><td>2,30</td><td data-i18n=""><span data-lang="fr">Valeur de calcul de l'Eurocode 9 ; les alliages de fonderie Al-Si sont plus bas</span><span data-lang="en">Design value in Eurocode 9; Al-Si casting alloys are lower</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Cuivre</span><span data-lang="en">Copper</span></td><td><strong>17</strong></td><td data-i18n=""><span data-lang="fr">16,5 à 17,5</span><span data-lang="en">16.5 to 17.5</span></td><td>9,4</td><td>1,70</td><td></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Laiton (CuZn)</span><span data-lang="en">Brass (CuZn)</span></td><td><strong>20</strong></td><td data-i18n=""><span data-lang="fr">18 à 21</span><span data-lang="en">18 to 21</span></td><td>11,1</td><td>2,00</td><td></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Bronze (CuSn)</span><span data-lang="en">Bronze (CuSn)</span></td><td><strong>18</strong></td><td data-i18n=""><span data-lang="fr">17 à 19</span><span data-lang="en">17 to 19</span></td><td>10</td><td>1,80</td><td></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Titane et Ti-6Al-4V</span><span data-lang="en">Titanium and Ti-6Al-4V</span></td><td><strong>9</strong></td><td data-i18n=""><span data-lang="fr">8,5 à 9,5</span><span data-lang="en">8.5 to 9.5</span></td><td>5</td><td>0,90</td><td></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Invar (Fe-Ni 36 %)</span><span data-lang="en">Invar (Fe-Ni 36%)</span></td><td><strong>1,5</strong></td><td data-i18n=""><span data-lang="fr">1 à 2</span><span data-lang="en">1 to 2</span></td><td>0,8</td><td>0,15</td><td data-i18n=""><span data-lang="fr">Pour les montages qui ne doivent pas bouger</span><span data-lang="en">For fixtures that must not move</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Verre sodocalcique (vitrage)</span><span data-lang="en">Soda-lime glass (glazing)</span></td><td><strong>9</strong></td><td data-i18n=""><span data-lang="fr">9</span><span data-lang="en">9</span></td><td>5</td><td>0,90</td><td></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Verre borosilicaté 3.3</span><span data-lang="en">Borosilicate glass 3.3</span></td><td><strong>3,3</strong></td><td data-i18n=""><span data-lang="fr">3,3</span><span data-lang="en">3.3</span></td><td>1,8</td><td>0,33</td><td data-i18n=""><span data-lang="fr">Le nom de la nuance donne son coefficient</span><span data-lang="en">The grade name is its coefficient</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Béton</span><span data-lang="en">Concrete</span></td><td><strong>10</strong></td><td data-i18n=""><span data-lang="fr">10 à 14</span><span data-lang="en">10 to 14</span></td><td>5,6</td><td>1,00</td><td data-i18n=""><span data-lang="fr">Valeur de calcul de l'Eurocode 2</span><span data-lang="en">Design value in Eurocode 2</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Plastiques techniques (PA, POM, PC, PMMA, ABS)</span><span data-lang="en">Engineering plastics (PA, POM, PC, PMMA, ABS)</span></td><td>—</td><td data-i18n=""><span data-lang="fr">50 à 120</span><span data-lang="en">50 to 120</span></td><td>—</td><td>—</td><td data-i18n=""><span data-lang="fr">5 à 10 fois l'acier : voir la fiche de la matière</span><span data-lang="en">5 to 10 times steel: check the grade's datasheet</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">PE, PP, PTFE</span><span data-lang="en">PE, PP, PTFE</span></td><td>—</td><td data-i18n=""><span data-lang="fr">100 à 200</span><span data-lang="en">100 to 200</span></td><td>—</td><td>—</td><td data-i18n=""><span data-lang="fr">Jusqu'à 15 fois l'acier</span><span data-lang="en">Up to 15 times steel</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr">Pour les masses volumiques des mêmes matériaux, voir le <a href="/blog/masse-volumique-materiaux-calcul-masse/">tableau des masses volumiques</a> ; pour les nuances d'acier, <a href="/blog/aciers-s235-s275-s355-caracteristiques/">S235, S275 et S355</a>.</span><span data-lang="en">For the densities of the same materials, see the <a href="/blog/masse-volumique-materiaux-calcul-masse/">density chart</a>; for steel grades, <a href="/blog/aciers-s235-s275-s355-caracteristiques/">S235, S275 and S355</a>.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="formules">
+                    <h2 data-i18n=""><span data-lang="fr">3. Les formules de la dilatation</span><span data-lang="en">3. Thermal expansion formulas</span></h2>
+                    <figure class="article-figure" style="margin:1rem 0 1.5rem">
+                        <svg viewBox="0 0 640 280" role="img" aria-label="Barre fixée à gauche : de longueur L₀ à la température T₁, elle s'allonge de ΔL à la température T₂ plus élevée ; ΔL = α · L₀ · ΔT" style="width:100%;max-width:680px;height:auto;color:inherit" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" font-family="inherit"><defs><pattern id="dtH1" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0 V8" stroke="currentColor" stroke-width="1" opacity=".35"/></pattern></defs><rect x="70" y="40" width="20" height="194" fill="url(#dtH1)" stroke="none"/><path d="M90 40 L90 234" stroke-width="2"/><rect x="90" y="70" width="340" height="34" style="fill:var(--bg-0,#fff)"/><rect x="90" y="170" width="410" height="34" style="fill:var(--bg-0,#fff)"/><path d="M430 162 L430 212" stroke-width="1" stroke-dasharray="5 4" opacity=".6"/><text x="444" y="94" font-size="17" text-anchor="start" fill="currentColor" stroke="none">à T₁</text><text x="514" y="194" font-size="17" text-anchor="start" fill="currentColor" stroke="none">à T₂ &gt; T₁</text><g style="color:var(--accent,#2f6e9b)"><path d="M90 66 L90 48" stroke-width="0.9" opacity=".55"/><path d="M430 66 L430 48" stroke-width="0.9" opacity=".55"/><path d="M90 54 L430 54" stroke-width="1.2"/><path d="M90 54 L97.4 51 L97.4 57 Z" fill="currentColor" stroke="none"/><path d="M430 54 L422.6 57 L422.6 51 Z" fill="currentColor" stroke="none"/><text x="260" y="46" font-size="19" text-anchor="middle" fill="currentColor" stroke="none">L₀</text><path d="M430 208 L430 234" stroke-width="0.9" opacity=".55"/><path d="M500 208 L500 234" stroke-width="0.9" opacity=".55"/><path d="M430 226 L500 226" stroke-width="1.2"/><path d="M430 226 L437.4 223 L437.4 229 Z" fill="currentColor" stroke="none"/><path d="M500 226 L492.6 229 L492.6 223 Z" fill="currentColor" stroke="none"/><text x="465" y="252" font-size="19" text-anchor="middle" fill="currentColor" stroke="none" font-weight="700">ΔL</text><text x="100" y="252" font-size="18" text-anchor="start" fill="currentColor" stroke="none">ΔL = α · L₀ · ΔT</text></g></svg>
+                        <figcaption data-i18n=""><span data-lang="fr">Fixée d'un côté, la barre s'allonge librement de l'autre : ΔL = α · L₀ · ΔT. Pour 1 m d'acier chauffé de 50 °C, ΔL = 0,6 mm ; en aluminium, 1,15 mm. Allongement exagéré pour la lisibilité.</span><span data-lang="en">Fixed at one end, the bar grows freely at the other: ΔL = α · L₀ · ΔT. For 1 m of steel heated by 50 °C, ΔL = 0.6 mm; in aluminium, 1.15 mm. Expansion exaggerated for readability.</span></figcaption>
+                    </figure>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Grandeur</span><span data-lang="en">Quantity</span></th><th data-i18n=""><span data-lang="fr">Formule</span><span data-lang="en">Formula</span></th><th data-i18n=""><span data-lang="fr">Remarque</span><span data-lang="en">Note</span></th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td data-i18n=""><span data-lang="fr">Allongement</span><span data-lang="en">Change in length</span></td><td>ΔL = α · L₀ · ΔT</td><td data-i18n=""><span data-lang="fr">ΔT = T₂ − T₁ ; même unité pour ΔL et L₀</span><span data-lang="en">ΔT = T₂ − T₁; same unit for ΔL and L₀</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Longueur finale</span><span data-lang="en">Final length</span></td><td>L = L₀ · (1 + α · ΔT)</td><td data-i18n=""><span data-lang="fr">Négatif si la pièce refroidit</span><span data-lang="en">Negative ΔT if the part cools</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Surface</span><span data-lang="en">Area</span></td><td>ΔA ≈ 2α · A₀ · ΔT</td><td data-i18n=""><span data-lang="fr">Matériau isotrope, ΔT modéré</span><span data-lang="en">Isotropic material, moderate ΔT</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Volume</span><span data-lang="en">Volume</span></td><td>ΔV ≈ 3α · V₀ · ΔT</td><td data-i18n=""><span data-lang="fr">Coefficient volumique β ≈ 3α</span><span data-lang="en">Volumetric coefficient β ≈ 3α</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Contrainte, dilatation empêchée</span><span data-lang="en">Stress, restrained expansion</span></td><td>σ = E · α · ΔT</td><td data-i18n=""><span data-lang="fr">Pièce bridée aux deux bouts, domaine élastique</span><span data-lang="en">Part fixed at both ends, elastic range</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Variation d'un jeu</span><span data-lang="en">Change in a clearance</span></td><td data-i18n=""><span data-lang="fr">Δj = (α<sub>alésage</sub> − α<sub>arbre</sub>) · D · ΔT</span><span data-lang="en">Δj = (α<sub>bore</sub> − α<sub>shaft</sub>) · D · ΔT</span></td><td data-i18n=""><span data-lang="fr">Deux matériaux à la même température</span><span data-lang="en">Two materials at the same temperature</span></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Chauffe pour frettage</span><span data-lang="en">Heating for a shrink fit</span></td><td>ΔT = (s + j<sub>m</sub>) / (α · D)</td><td data-i18n=""><span data-lang="fr">s : serrage maxi ; j<sub>m</sub> : jeu de montage</span><span data-lang="en">s: max interference; j<sub>m</sub>: assembly clearance</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p data-i18n=""><span data-lang="fr">Exemple : une barre d'acier de 1 000 mm passe de 20 à 70 °C. ΔL = 12 × 10⁻⁶ × 1 000 × 50 = <strong>0,6 mm</strong>. La même barre en aluminium s'allonge de 23 × 10⁻⁶ × 1 000 × 50 = <strong>1,15 mm</strong>.</span><span data-lang="en">Example: a 1,000 mm steel bar goes from 20 to 70 °C. ΔL = 12 × 10⁻⁶ × 1,000 × 50 = <strong>0.6 mm</strong>. The same bar in aluminium grows by 23 × 10⁻⁶ × 1,000 × 50 = <strong>1.15 mm</strong>.</span></p>
+                </section>
+
+                <section class="blog-section article-section" id="contrainte">
+                    <h2 data-i18n=""><span data-lang="fr">4. Dilatation empêchée : la contrainte thermique</span><span data-lang="en">4. Restrained expansion: thermal stress</span></h2>
+                    <figure class="article-figure" style="margin:1rem 0 1.5rem">
+                        <svg viewBox="0 0 640 230" role="img" aria-label="Barre bridée entre deux appuis fixes : chauffée, elle ne peut pas s'allonger, les appuis la compriment avec un effort F et la contrainte vaut σ = E · α · ΔT" style="width:100%;max-width:680px;height:auto;color:inherit" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" font-family="inherit"><defs><pattern id="dtH2" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0 V8" stroke="currentColor" stroke-width="1" opacity=".35"/></pattern></defs><rect x="84" y="50" width="26" height="140" fill="url(#dtH2)" stroke="none"/><path d="M110 50 L110 190" stroke-width="2"/><rect x="530" y="50" width="26" height="140" fill="url(#dtH2)" stroke="none"/><path d="M530 50 L530 190" stroke-width="2"/><rect x="110" y="100" width="420" height="40" style="fill:var(--bg-0,#fff)"/><text x="320" y="127" font-size="17" text-anchor="middle" fill="currentColor" stroke="none">ΔT &gt; 0</text><g style="color:var(--accent,#2f6e9b)"><path d="M40 120 L76 120" stroke-width="2.2"/><path d="M80 120 L69.8 124.1 L69.8 115.9 Z" fill="currentColor" stroke="none"/><path d="M600 120 L564 120" stroke-width="2.2"/><path d="M560 120 L570.2 115.9 L570.2 124.1 Z" fill="currentColor" stroke="none"/><text x="58" y="108" font-size="19" text-anchor="middle" fill="currentColor" stroke="none" font-weight="700">F</text><text x="582" y="108" font-size="19" text-anchor="middle" fill="currentColor" stroke="none" font-weight="700">F</text><text x="320" y="186" font-size="19" text-anchor="middle" fill="currentColor" stroke="none">σ = E · α · ΔT</text><text x="320" y="82" font-size="16" text-anchor="middle" fill="currentColor" stroke="none" opacity=".9">compression</text></g></svg>
+                        <figcaption data-i18n=""><span data-lang="fr">Bridée entre deux appuis, la barre ne peut pas s'allonger : les appuis la compriment. La contrainte ne dépend pas de la longueur : σ = E · α · ΔT, soit 126 MPa pour de l'acier chauffé de 50 °C.</span><span data-lang="en">Restrained between two supports, the bar cannot grow: the supports compress it. The stress does not depend on length: σ = E · α · ΔT, or 126 MPa for steel heated by 50 °C.</span></figcaption>
+                    </figure>
+                    <p data-i18n=""><span data-lang="fr">Contrainte d'une pièce bridée aux deux bouts, dans le domaine élastique, pour un écart de 50 °C. E : 210 GPa pour l'acier (Eurocode 3), 200 GPa pour l'inox austénitique, 70 GPa pour l'aluminium (Eurocode 9).</span><span data-lang="en">Stress in a part fixed at both ends, in the elastic range, for a 50 °C change. E: 210 GPa for steel (Eurocode 3), 200 GPa for austenitic stainless, 70 GPa for aluminium (Eurocode 9).</span></p>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Matériau</span><span data-lang="en">Material</span></th><th data-i18n=""><span data-lang="fr">E (GPa)</span><span data-lang="en">E (GPa)</span></th><th data-i18n=""><span data-lang="fr">α (10⁻⁶ /K)</span><span data-lang="en">α (10⁻⁶ /K)</span></th><th data-i18n=""><span data-lang="fr">σ pour ΔT = 50 °C (MPa)</span><span data-lang="en">σ for ΔT = 50 °C (MPa)</span></th><th data-i18n=""><span data-lang="fr">σ par degré (MPa/K)</span><span data-lang="en">σ per degree (MPa/K)</span></th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td data-i18n=""><span data-lang="fr">Acier</span><span data-lang="en">Steel</span></td><td>210</td><td>12</td><td><strong>126</strong></td><td>2,52</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Inox austénitique</span><span data-lang="en">Austenitic stainless</span></td><td>200</td><td>16</td><td><strong>160</strong></td><td>3,2</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">Aluminium</span><span data-lang="en">Aluminium</span></td><td>70</td><td>23</td><td><strong>80,5</strong></td><td>1,61</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <ul>
+                        <li data-i18n=""><span data-lang="fr">La contrainte <strong>ne dépend pas de la longueur</strong> : une entretoise de 20 mm bridée entre deux flasques subit la même contrainte qu'une poutre de 10 m.</span><span data-lang="en">The stress <strong>does not depend on length</strong>: a 20 mm spacer clamped between two flanges sees the same stress as a 10 m beam.</span></li>
+                        <li data-i18n=""><span data-lang="fr">126 MPa pour 50 °C, c'est déjà plus de la moitié de la limite d'élasticité d'un S235 (235 MPa jusqu'à 16 mm d'épaisseur) ; pour 100 °C, 252 MPa la dépassent. Prévoyez un appui glissant, un trou oblong ou un soufflet.</span><span data-lang="en">126 MPa for 50 °C is already more than half the yield strength of S235 (235 MPa up to 16 mm thick); for 100 °C, 252 MPa exceeds it. Provide a sliding support, a slotted hole or a bellows.</span></li>
+                        <li data-i18n=""><span data-lang="fr">Une pièce mince bridée en compression peut aussi <strong>flamber</strong> avant d'atteindre cette contrainte.</span><span data-lang="en">A slender part restrained in compression can also <strong>buckle</strong> before reaching that stress.</span></li>
+                    </ul>
+                </section>
+
+                <section class="blog-section article-section" id="jeux">
+                    <h2 data-i18n=""><span data-lang="fr">5. Jeux entre deux matériaux et frettage</span><span data-lang="en">5. Clearances between two materials and shrink fits</span></h2>
+                    <p data-i18n=""><span data-lang="fr">Quand l'alésage et l'arbre sont en matériaux différents, le jeu change avec la température : Δj = (α<sub>alésage</sub> − α<sub>arbre</sub>) · D · ΔT. Exemple : ajustement Ø50 H7/g6, jeu de 0,009 à 0,050 mm à 20 °C, porté à 100 °C (jeux en mm).</span><span data-lang="en">When the bore and the shaft are in different materials, the clearance changes with temperature: Δj = (α<sub>bore</sub> − α<sub>shaft</sub>) · D · ΔT. Example: a Ø50 H7/g6 fit, clearance 0.009 to 0.050 mm at 20 °C, taken to 100 °C (clearances in mm).</span></p>
+                    <figure class="article-figure" style="margin:1rem 0 1.5rem">
+                        <svg viewBox="0 0 640 350" role="img" aria-label="Coupe d'un arbre en acier dans un carter en aluminium, à 20 °C avec un jeu j, puis à 100 °C : l'alésage en aluminium grandit plus que l'arbre en acier et le jeu devient j + Δj" style="width:100%;max-width:680px;height:auto;color:inherit" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" font-family="inherit"><defs><pattern id="dtH3" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0 V10" stroke="currentColor" stroke-width="1" opacity=".3"/></pattern><pattern id="dtH4" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><path d="M0 0 V5" stroke="currentColor" stroke-width="1" opacity=".5"/></pattern></defs><circle cx="175" cy="150" r="120" fill="url(#dtH3)" stroke-width="1.8"/><circle cx="175" cy="150" r="92" style="fill:var(--bg-0,#fff)"/><circle cx="175" cy="150" r="80" fill="url(#dtH4)"/><path d="M39 150 L311 150" stroke-width="0.9" stroke-dasharray="14 4 3 4" opacity=".45"/><path d="M175 30 L175 270" stroke-width="0.9" stroke-dasharray="14 4 3 4" opacity=".45"/><text x="175" y="296" font-size="18" text-anchor="middle" fill="currentColor" stroke="none" font-weight="600">20 °C</text><circle cx="465" cy="150" r="120" fill="url(#dtH3)" stroke-width="1.8"/><circle cx="465" cy="150" r="104" style="fill:var(--bg-0,#fff)"/><circle cx="465" cy="150" r="82" fill="url(#dtH4)"/><path d="M329 150 L601 150" stroke-width="0.9" stroke-dasharray="14 4 3 4" opacity=".45"/><path d="M465 30 L465 270" stroke-width="0.9" stroke-dasharray="14 4 3 4" opacity=".45"/><text x="465" y="296" font-size="18" text-anchor="middle" fill="currentColor" stroke="none" font-weight="600">100 °C</text><rect x="60" y="318" width="34" height="20" fill="url(#dtH3)"/><text x="104" y="334" font-size="16" text-anchor="start" fill="currentColor" stroke="none">carter alu (α 23)</text><rect x="380" y="318" width="34" height="20" fill="url(#dtH4)"/><text x="424" y="334" font-size="16" text-anchor="start" fill="currentColor" stroke="none">arbre acier (α 12)</text><g style="color:var(--accent,#2f6e9b)"><path d="M181 58 L245 58" stroke-width="0.9" opacity=".55"/><path d="M181 70 L245 70" stroke-width="0.9" opacity=".55"/><path d="M237 36 L237 58" stroke-width="1.2"/><path d="M237 58 L234 50.6 L240 50.6 Z" fill="currentColor" stroke="none"/><path d="M237 92 L237 70" stroke-width="1.2"/><path d="M237 70 L240 77.4 L234 77.4 Z" fill="currentColor" stroke="none"/><path d="M471 46 L535 46" stroke-width="0.9" opacity=".55"/><path d="M471 68 L535 68" stroke-width="0.9" opacity=".55"/><path d="M527 24 L527 46" stroke-width="1.2"/><path d="M527 46 L524 38.6 L530 38.6 Z" fill="currentColor" stroke="none"/><path d="M527 90 L527 68" stroke-width="1.2"/><path d="M527 68 L530 75.4 L524 75.4 Z" fill="currentColor" stroke="none"/><text x="245" y="32" font-size="17" text-anchor="start" fill="currentColor" stroke="none">jeu j</text><text x="535" y="20" font-size="17" text-anchor="start" fill="currentColor" stroke="none">j + Δj</text></g></svg>
+                        <figcaption data-i18n=""><span data-lang="fr">Arbre en acier dans un carter en aluminium : en chauffant, l'alésage grandit plus vite que l'arbre et le jeu augmente de Δj = (23 − 12) × 10⁻⁶ × D × ΔT. Pour Ø50 de 20 à 100 °C, Δj = 0,044 mm. Jeux exagérés pour la lisibilité.</span><span data-lang="en">Steel shaft in an aluminium housing: when heated, the bore grows faster than the shaft and the clearance increases by Δj = (23 − 12) × 10⁻⁶ × D × ΔT. For Ø50 from 20 to 100 °C, Δj = 0.044 mm. Clearances exaggerated for readability.</span></figcaption>
+                    </figure>
+                    <div class="table-scroll">
+                        <div class="table-scroll__viewport">
+                            <table class="feature-table">
+                                <thead>
+                                    <tr><th data-i18n=""><span data-lang="fr">Situation</span><span data-lang="en">Situation</span></th><th data-i18n=""><span data-lang="fr">Jeu mini</span><span data-lang="en">Min clearance</span></th><th data-i18n=""><span data-lang="fr">Jeu maxi</span><span data-lang="en">Max clearance</span></th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td data-i18n=""><span data-lang="fr">À 20 °C (cotes du plan)</span><span data-lang="en">At 20 °C (drawing values)</span></td><td>0,009</td><td>0,050</td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">À 100 °C, carter alu, arbre acier</span><span data-lang="en">At 100 °C, aluminium housing, steel shaft</span></td><td><strong>0,053</strong></td><td><strong>0,094</strong></td></tr>
+                                    <tr><td data-i18n=""><span data-lang="fr">À 100 °C, carter acier, arbre alu</span><span data-lang="en">At 100 °C, steel housing, aluminium shaft</span></td><td><strong>−0,035</strong></td><td><strong>0,006</strong></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <ul>
+                        <li data-i18n=""><span data-lang="fr">Carter en aluminium, arbre en acier : le jeu <strong>augmente</strong> de 0,044 mm à chaud. Un roulement monté serré dans un carter alu peut tourner dans son logement.</span><span data-lang="en">Aluminium housing, steel shaft: the clearance <strong>increases</strong> by 0.044 mm when hot. A bearing press-fitted in an aluminium housing can creep in its seat.</span></li>
+                        <li data-i18n=""><span data-lang="fr">Carter en acier, arbre en aluminium : le jeu <strong>diminue</strong> de 0,044 mm. Le jeu mini devient négatif, −0,035 mm : l'ajustement glissant devient serré et peut gripper.</span><span data-lang="en">Steel housing, aluminium shaft: the clearance <strong>decreases</strong> by 0.044 mm. The min clearance turns negative, −0.035 mm: the sliding fit becomes an interference and can seize.</span></li>
+                        <li data-i18n=""><span data-lang="fr"><strong>Frettage à chaud</strong> : pour monter un moyeu en acier Ø50 H7/p6 (serrage maxi 0,042 mm) avec 0,03 mm de jeu de montage, il faut ΔT = (0,042 + 0,03) / (12 × 10⁻⁶ × 50) = <strong>120 °C</strong>, soit chauffer le moyeu à 140 °C depuis 20 °C.</span><span data-lang="en"><strong>Shrink fitting</strong>: to fit a Ø50 H7/p6 steel hub (max interference 0.042 mm) with 0.03 mm of assembly clearance, you need ΔT = (0.042 + 0.03) / (12 × 10⁻⁶ × 50) = <strong>120 °C</strong>, so heat the hub to 140 °C from 20 °C.</span></li>
+                        <li data-i18n=""><span data-lang="fr">Les écarts H7, g6 et p6 viennent du <a href="/blog/ajustements-iso-286-tableau-h7-g6/">tableau des ajustements ISO 286</a> ; pour additionner la dilatation à d'autres cotes, voir la <a href="/blog/chaine-de-cotes-tolerance-stack-up/">chaîne de cotes</a>.</span><span data-lang="en">The H7, g6 and p6 deviations come from the <a href="/blog/ajustements-iso-286-tableau-h7-g6/">ISO 286 fits chart</a>; to add expansion to other dimensions, see the <a href="/blog/chaine-de-cotes-tolerance-stack-up/">tolerance stack-up</a>.</span></li>
+                    </ul>
+                    <div class="callout callout--soft fiche-pdf">
+                        <p data-i18n=""><span data-lang="fr"><strong>Version imprimable</strong> : <a href="/telechargements/tableau-coefficients-dilatation-thermique.pdf" download>le tableau des coefficients et les formules en PDF</a> (A4, sans inscription), à garder au bureau d'études.</span><span data-lang="en"><strong>Printable version</strong>: <a href="/telechargements/en/thermal-expansion-coefficients-chart.pdf" download>the coefficient chart and formulas as a PDF</a> (A4, no sign-up), to keep at your desk.</span></p>
+                    </div>
+                </section>
+
+                <section class="blog-section article-section" id="reference">
+                    <h2 data-i18n=""><span data-lang="fr">6. Pourquoi les cotes sont données à 20 °C</span><span data-lang="en">6. Why dimensions are specified at 20 °C</span></h2>
+                    <p data-i18n=""><span data-lang="fr">La norme ISO 1 fixe à <strong>20 °C</strong> la température de référence des spécifications géométriques : une cote de plan est la dimension de la pièce à 20 °C. Mesurée à une autre température, elle doit être corrigée, surtout quand la pièce et l'instrument n'ont pas le même coefficient.</span><span data-lang="en">ISO 1 sets <strong>20 °C</strong> as the reference temperature for geometrical product specifications: a drawing dimension is the size of the part at 20 °C. Measured at another temperature, it must be corrected, especially when the part and the instrument have different coefficients.</span></p>
+                    <ul>
+                        <li data-i18n=""><span data-lang="fr">Pièce en acier mesurée avec un instrument en acier, tous deux à 25 °C : les deux se dilatent autant, l'erreur s'annule presque.</span><span data-lang="en">Steel part measured with a steel instrument, both at 25 °C: both expand alike and the error almost cancels out.</span></li>
+                        <li data-i18n=""><span data-lang="fr">Pièce en aluminium de 500 mm mesurée à 25 °C avec un instrument en acier : erreur de (23 − 12) × 10⁻⁶ × 500 × 5 ≈ 0,03 mm, près de la moitié d'une tolérance IT7 à cette taille (0,063 mm).</span><span data-lang="en">500 mm aluminium part measured at 25 °C with a steel instrument: error of (23 − 12) × 10⁻⁶ × 500 × 5 ≈ 0.03 mm, nearly half an IT7 tolerance at that size (0.063 mm).</span></li>
+                        <li data-i18n=""><span data-lang="fr">Une pièce qui sort d'usinage est souvent plus chaude que l'atelier : laissez-la revenir à température avant le contrôle.</span><span data-lang="en">A part fresh off the machine is often warmer than the shop: let it return to temperature before inspection.</span></li>
+                    </ul>
+                </section>
+
+                <section class="blog-section article-section" id="faq">
+                    <h2 data-i18n=""><span data-lang="fr">7. FAQ</span><span data-lang="en">7. FAQ</span></h2>
+                    <h3 data-i18n=""><span data-lang="fr">Quelle est la formule de la dilatation thermique ?</span><span data-lang="en">What is the thermal expansion formula?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">ΔL = α · L₀ · ΔT : l'allongement est le produit du coefficient de dilatation α, de la longueur initiale L₀ et de l'écart de température ΔT. Une barre d'acier de 1 m chauffée de 20 à 70 °C s'allonge de 12 × 10⁻⁶ × 1 000 × 50 = 0,6 mm.</span><span data-lang="en">ΔL = α · L₀ · ΔT: the change in length is the product of the expansion coefficient α, the initial length L₀ and the temperature change ΔT. A 1 m steel bar heated from 20 to 70 °C grows by 12 × 10⁻⁶ × 1,000 × 50 = 0.6 mm.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Quel est le coefficient de dilatation de l'acier ?</span><span data-lang="en">What is the thermal expansion coefficient of steel?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Environ 12 × 10⁻⁶ /K pour l'acier de construction et l'acier non allié, valeur retenue par l'Eurocode 3 : 1,2 mm par mètre pour 100 °C. L'inox austénitique (304, 316L) se dilate davantage, environ 16 × 10⁻⁶ /K ; l'inox ferritique (430) moins, environ 10 × 10⁻⁶ /K.</span><span data-lang="en">About 12 × 10⁻⁶ /K for structural and carbon steel, the value used in Eurocode 3: 1.2 mm per metre for 100 °C. Austenitic stainless (304, 316L) expands more, about 16 × 10⁻⁶ /K; ferritic stainless (430) less, about 10 × 10⁻⁶ /K.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Quel est le coefficient de dilatation de l'aluminium ?</span><span data-lang="en">What is the thermal expansion coefficient of aluminium?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Environ 23 × 10⁻⁶ /K, valeur retenue par l'Eurocode 9, soit près de deux fois l'acier : 2,3 mm par mètre pour 100 °C. C'est la cause des jeux qui varient entre un carter en aluminium et un arbre en acier.</span><span data-lang="en">About 23 × 10⁻⁶ /K, the value used in Eurocode 9, nearly twice steel: 2.3 mm per metre for 100 °C. This is why clearances change between an aluminium housing and a steel shaft.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Un trou se dilate-t-il quand on chauffe la pièce ?</span><span data-lang="en">Does a hole get bigger or smaller when the part is heated?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">Il s'agrandit. Chauffée de façon uniforme, la pièce grandit comme un agrandissement photographique : le trou grandit du même facteur que s'il était plein de matière. C'est le principe du frettage à chaud.</span><span data-lang="en">It gets bigger. Heated uniformly, the part scales up like a photographic enlargement: the hole grows by the same factor as if it were filled with material. This is how shrink fitting works.</span></p>
+                    <h3 data-i18n=""><span data-lang="fr">Dans quelle unité s'exprime le coefficient de dilatation ?</span><span data-lang="en">What are the units of the thermal expansion coefficient?</span></h3>
+                    <p data-i18n=""><span data-lang="fr">En 1/K, qui est égal à 1/°C, car un écart de 1 K vaut un écart de 1 °C. On l'écrit souvent × 10⁻⁶ /K, ou µm/(m·K) : 12 × 10⁻⁶ /K, c'est 12 µm par mètre et par degré. Pour un coefficient par °F, divisez par 1,8.</span><span data-lang="en">In 1/K, which equals 1/°C, because a change of 1 K is a change of 1 °C. It is often written × 10⁻⁶ /K, or µm/(m·K): 12 × 10⁻⁶ /K is 12 µm per metre per degree. For a coefficient per °F, divide by 1.8.</span></p>
+                </section>
+
+                <section class="blog-section article-related">
+                    <h2 data-i18n=""><span data-lang="fr">À lire aussi</span><span data-lang="en">Read next</span></h2>
+                    <div class="media-grid">
+                        <a href="/blog/ajustements-iso-286-tableau-h7-g6/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">Ajustements ISO 286 : H7/g6, H7/p6 et calculateur de jeu</span><span data-lang="en">ISO 286 fits: H7/g6, H7/p6 and clearance calculator</span></h3>
+                            <p data-i18n=""><span data-lang="fr">Les écarts des alésages et des arbres, avant d'y ajouter la dilatation.</span><span data-lang="en">Hole and shaft deviations, before adding thermal expansion.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                        <a href="/blog/masse-volumique-materiaux-calcul-masse/" class="media-card media-card--text related-card">
+                            <h3 data-i18n=""><span data-lang="fr">Masse volumique des matériaux et calcul de masse</span><span data-lang="en">Material density chart and mass calculator</span></h3>
+                            <p data-i18n=""><span data-lang="fr">L'autre propriété physique à connaître pour les mêmes matériaux.</span><span data-lang="en">The other physical property to know for the same materials.</span></p>
+                            <span class="related-link" data-i18n=""><span data-lang="fr">Lire l'article →</span><span data-lang="en">Read the article →</span></span>
+                        </a>
+                    </div>
+                </section>
+
+                <footer class="article-footer">
+                    <div class="article-tags">
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Matériaux</span><span data-lang="en">Materials</span></span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Dilatation thermique</span><span data-lang="en">Thermal expansion</span></span>
+                        <span class="article-tag" data-i18n=""><span data-lang="fr">Conception mécanique</span><span data-lang="en">Mechanical design</span></span>
+                    </div>
+                    <div class="article-nav">
+                        <a href="/blog/" class="back-link" data-translate-key="blog_back_to_blog">← Retour au blog</a>
+                    </div>
+                </footer>
+
+            </article>
+        </div>
+    </main>
+
+    <script>
+// Dilatation : ΔL = α·L₀·ΔT (α en 10⁻⁶ /K ; ΔT en K, converti depuis °F si besoin) et σ = E·α·ΔT si la pièce est bridée.
+    (function () {
+        var $ = function (id) { return document.getElementById(id); };
+        var sel = $('dtMat');
+        if (!sel) return;
+        var MAT = [["Acier de construction, acier non allié (S235 à S355, C45)", "Structural and carbon steel (S235 to S355, C45)", 12, 210], ["Inox austénitique 1.4301 (304), 1.4404 (316L)", "Austenitic stainless 1.4301 (304), 1.4404 (316L)", 16, 200], ["Inox ferritique 1.4016 (430)", "Ferritic stainless 1.4016 (430)", 10, 0], ["Fonte grise (EN-GJL)", "Grey cast iron (EN-GJL)", 11, 0], ["Aluminium et alliages", "Aluminium and alloys", 23, 70], ["Cuivre", "Copper", 17, 0], ["Laiton (CuZn)", "Brass (CuZn)", 20, 0], ["Bronze (CuSn)", "Bronze (CuSn)", 18, 0], ["Titane et Ti-6Al-4V", "Titanium and Ti-6Al-4V", 9, 0], ["Invar (Fe-Ni 36 %)", "Invar (Fe-Ni 36%)", 1.5, 0], ["Verre sodocalcique (vitrage)", "Soda-lime glass (glazing)", 9, 0], ["Verre borosilicaté 3.3", "Borosilicate glass 3.3", 3.3, 0], ["Béton", "Concrete", 10, 0]];
+        function en() { return document.documentElement.lang === 'en'; }
+        function f(x, d) { return x.toLocaleString(en() ? 'en-US' : 'fr-FR', { maximumFractionDigits: d === undefined ? 3 : d }); }
+        function num(el) { return parseFloat(String(el.value).replace(',', '.')); }
+        function fill() {
+            var v = sel.value;
+            sel.innerHTML = MAT.map(function (m, i) { return '<option value="' + i + '">' + (en() ? m[1] : m[0]) + ' — ' + f(m[2], 1) + '</option>'; }).join('') +
+                '<option value="x">' + (en() ? 'Other (enter α)' : 'Autre (saisir α)') + '</option>';
+            sel.value = v || '0';
+        }
+        function pick() {
+            if (sel.value === 'x') return run();
+            var m = MAT[+sel.value];
+            $('dtA').value = m[2]; $('dtE').value = m[3] || '';
+            run();
+        }
+        function run() {
+            var a = num($('dtA')), L0 = num($('dtL')), t1 = num($('dtT1')), t2 = num($('dtT2')), E = num($('dtE'));
+            var lu = $('dtLu').value, fdeg = $('dtTu').value === 'F';
+            if (!isFinite(a) || !isFinite(L0) || !isFinite(t1) || !isFinite(t2) || L0 <= 0) {
+                ['dtDL', 'dtLf', 'dtAF', 'dtS'].forEach(function (id) { $(id).textContent = '—'; });
+                $('dtV').textContent = en() ? 'Enter α, a positive length and both temperatures.' : 'Saisissez α, une longueur positive et les deux températures.';
+                return;
+            }
+            var dK = (t2 - t1) / (fdeg ? 1.8 : 1);
+            var dL = a * 1e-6 * L0 * dK;
+            var small = lu === 'mm' ? f(dL * 1000, 0) + ' µm' : f(dL * 1000, 2) + ' thou';
+            $('dtDL').textContent = (dL > 0 ? '+' : '') + f(dL, lu === 'mm' ? 3 : 4) + ' ' + lu + ' (' + (dL > 0 ? '+' : '') + small + ')';
+            $('dtLf').textContent = f(L0 + dL, lu === 'mm' ? 3 : 4) + ' ' + lu;
+            $('dtAF').textContent = f(a / 1.8, 2) + ' × 10⁻⁶ /°F';
+            if (isFinite(E) && E > 0) {
+                var s = E * 1000 * a * 1e-6 * dK;
+                $('dtS').textContent = f(Math.abs(s), 1) + ' MPa' + (en() ? (s > 0 ? ' (compression)' : s < 0 ? ' (tension)' : '') : (s > 0 ? ' (compression)' : s < 0 ? ' (traction)' : '')) + ' · ' + f(Math.abs(s) * 145.0377, 0) + ' psi';
+            } else $('dtS').textContent = en() ? 'enter E' : 'saisir E';
+            $('dtV').textContent = dK === 0 ? '' : (en() ? 'ΔT = ' + f(dK, 2) + ' K' + (fdeg ? ' (' + f(t2 - t1, 2) + ' °F)' : '') + '. Coefficients vary with grade and temperature: check the datasheet for a critical part.'
+                : 'ΔT = ' + f(dK, 2) + ' K' + (fdeg ? ' (' + f(t2 - t1, 2) + ' °F)' : '') + '. Le coefficient varie avec la nuance et la température : vérifiez la fiche de la matière pour une pièce critique.');
+        }
+        fill();
+        sel.addEventListener('change', pick);
+        ['dtA', 'dtL', 'dtT1', 'dtT2', 'dtE'].forEach(function (id) { $(id).addEventListener('input', function () { if (id === 'dtA') sel.value = 'x'; run(); }); });
+        ['dtLu', 'dtTu'].forEach(function (id) { $(id).addEventListener('change', run); });
+        window.addEventListener('langchange', function () { fill(); run(); });
+        run();
+    })();
+    </script>
+    <script src="/assets/js/loader.js"></script>
+    <script src="/assets/js/visitor-intelligence.js"></script>
+
+{{> footer }}
+{{> chatbot }}
+</body></html>

@@ -84,7 +84,7 @@ Le propriétaire est salarié et son contrat l'exige : le site doit rester un **
 **Ordre** (du plus récent au plus ancien) ; ✓ = fait :
 - ✓ vis-chc-iso-4762-dimensions (16/10) — soudure ISO 2553 a déjà ses schémas ;
 - ✓ moment-quadratique-inertie-section-calcul (17/10) ;
-- epaisseur-tole-jauge-gauge-tableau ;
+- ✓ epaisseur-tole-jauge-gauge-tableau (18/10) ;
 - conversion-pouce-mm-tableau ;
 - engrenage-module-calcul-diametres (titre en test jusqu'au 23/10) ;
 - filetage-gaz-g-bsp-npt-tableau, clavettes-paralleles-din-6885-dimensions, conversion-durete-hrc-hv-hb, aciers-s235-s275-s355-caracteristiques (titres en test jusqu'au 23/10) ;
@@ -118,6 +118,56 @@ Le propriétaire est salarié et son contrat l'exige : le site doit rester un **
 - configuration-materielle-solidworks ;
 
 **Nouvelles pages (action a)** : au moins 2 schémas de ce type dès la publication.
+
+## 2026-10-18 — nouveau mémo bilingue : dilatation thermique (coefficients, formules, contrainte, jeux, frettage, calculateur, fiche PDF) + schémas des jauges de tôle
+
+**Search Console** : rapport du 17/10, couvrant le 16/09 → 14/10 (pas de nouveau rapport ce matin : moins de 3 jours, utilisé tel quel).
+- **9,1 clics/jour en moyenne sur 28 jours** (7,8 au passage précédent) ; **23 clics/jour sur les 7 derniers jours** (162 clics du 08 au 14/10, contre 81 la semaine d'avant). Jalon 10/jour atteint sur 7 jours, pas encore sur 28 jours.
+- 256 clics, 22 827 impressions (+15 %), position moyenne 10,9 (17,6 au 25/09). Record le 14/10 : 37 clics, 3 048 impressions.
+- **/en/ comptées à part** (25 premières pages) : /en/ 119 clics pour 7 206 impressions, FR 102 pour 7 369. Les /en/ se classent mieux sur les mêmes sujets : couple 4,1 contre 8,5 ; ISO 2768 4,6 contre 13,5 ; soudure 4,1 contre 5,8.
+- **Indexation 77/80** : chaîne de cotes FR et /en/ inconnues (publiées le 17/10) ; /en/ formats d'échange CAO « Détectée, actuellement non indexée » depuis le 04/10 (à soumettre à la main). Vis CHC est indexée. Les pages retirées le 16/10 ont quitté le rapport ; elles n'avaient aucun clic.
+- CTR toujours à 1,1 % : impressions doublées, taux de clic stable. Les pages bien placées et peu cliquées sont presque toutes en test (ISO 2768 /en/, couple, rugosité, raccourcis /en/, SOLIDWORKS gratuit /en/, filetage /en/).
+
+**Mots-clés** (rapport du 17/10, pas de relance) : famille « dilatation thermique » sans page sur le site.
+- Bing, 90 jours, États-Unis : « thermal expansion » 618, « coefficient of thermal expansion » 486, « thermal expansion equation » 289, « thermal expansion calculator » 257, « thermal expansion formula » 198, « what is thermal expansion » 132 (≈ 1 980 au total, hors « tank » et « valve »).
+- Suggestions Google, rang 1 : « thermal expansion coefficient », « … calculator », « … chart », « … pdf » ; France : « coefficient de dilatation thermique », « … tableau », « … calcul », « … de l'aluminium », « … acier ».
+
+**Choix de l'action (a)** : plus grosse famille anglaise du rapport sans page, après la conversion pouce ↔ mm déjà traitée ; « coefficient of friction » (≈ 1 700) écarté car ses valeurs varient trop selon les sources pour être publiées avec certitude.
+
+**Action (a)** : `/blog/dilatation-thermique-coefficient-materiaux/` (MEM-19) et `/en/blog/dilatation-thermique-coefficient-materiaux/`.
+- **Valeurs** : coefficients moyens 20–100 °C présentés comme valeurs courantes de calcul, avec une plage et l'avertissement « voir la fiche de la matière ». Vérifiés le 18/10 par recherche web (tables Engineering ToolBox, fiches 1.4016 et 304, normes citées) : acier 12 (valeur de calcul de l'Eurocode 3), inox austénitique 16, ferritique 10, fonte grise 11, aluminium 23 (Eurocode 9), cuivre 17, laiton 20, bronze 18, titane 9, Invar 1,5, verre sodocalcique 9, borosilicaté 3.3, béton 10 (Eurocode 2). Plastiques donnés seulement en plages larges (50 à 120 ; 100 à 200), sans valeur unique : sources trop dispersées.
+- **Contenu** : réponse directe ; tableau (α en /K et /°F, ΔL pour 1 m et 100 °C) ; formules (ΔL, L, surface, volume, contrainte, variation d'un jeu, chauffe de frettage) ; contrainte bridée σ = E·α·ΔT (acier 126 MPa, inox 160, alu 80,5 pour 50 °C ; E de l'Eurocode 3 et 9) ; jeu Ø50 H7/g6 de 20 à 100 °C (Δj = 0,044 mm, cas carter alu et carter acier) ; frettage Ø50 H7/p6 (ΔT = 120 °C) ; température de référence 20 °C (ISO 1) ; 5 questions FAQ. Tous les exemples sont recalculés et contrôlés par le générateur.
+- **Calculateur** : matériau ou α libre, longueur en mm ou en pouces, températures en °C ou °F, E facultatif → ΔL, longueur finale, α par °F, contrainte en MPa et psi. Contrôlé en FR et EN (acier 1 m, 50 °C : 0,6 mm et 126 MPa ; alu 40 in, 68 → 158 °F : 0,046 in).
+- **3 schémas SVG** : barre libre (L₀, ΔL), barre bridée (efforts, σ = E·α·ΔT), arbre acier dans un carter alu à 20 et 100 °C (jeu j puis j + Δj, légende des hachures).
+- **Fiche PDF A4 FR/EN** : tableau-coefficients-dilatation-thermique.pdf et thermal-expansion-coefficients-chart.pdf (4 sections, avec les schémas). Relue ; formule du jeu traduite et légende anglaise recalée après la première relecture.
+- **Autour de la page** : planche « barre, L₀, ΔL, α », image de partage `dilatation-thermique`, carte du blog, liens depuis ajustements ISO 286 et chaîne de cotes (cartes « À lire aussi »). Masse volumique et aciers ne sont pas touchés : titres en test jusqu'au 23/10.
+- **Conformité** : notions générales de physique des matériaux et valeurs publiques, sans client, mission ni information de l'employeur ; aucun bouton de contact.
+
+**3 bis, schémas** : epaisseur-tole-jauge-gauge-tableau (coché dans la liste ; contenu en test, pas de titre touché).
+- **Courbe épaisseur / numéro de jauge** (acier MSG et alu B&S, valeurs lues dans le tableau de la page), placée sous le tableau en mm : plus le numéro est grand, plus la tôle est fine, pas non constant (0,38 mm de 10 à 11 ga, 0,04 mm de 29 à 30).
+- **Quatre tôles de 16 ga à la même échelle** (1,52 / 1,61 / 1,59 / 1,29 mm), en tête de la section « Comprendre ».
+- `figures: true` dans la fiche PDF des jauges, régénérée et relue.
+
+**Vérifications** : build OK ; verify:seo (page nouvelle seule, baseline 42 pages) ; verify:en 0/0 (40 pages anglaises) ; grep de conformité vide ; Chromium 1280/390 sur 10 pages FR/EN sans erreur JS ni défilement horizontal (seules des ressources externes refusées par le proxy du bac à sable) ; schémas regardés en clair et en sombre, FR et EN ; PDF en 200, /en/ vers les fichiers anglais ; aucun libellé français dans dist/en.
+
+**Clics attendus** : aucun chiffre fiable avant indexation. À vérifier au 25/10 : indexation FR et /en/, premières impressions sur « thermal expansion coefficient » et « coefficient de dilatation ».
+
+**Pages en test** :
+- jusqu'au 23/10 : aciers, clavettes, dureté, engrenages, filetage gaz, masse volumique (titre ou description) ; couple de serrage, ISO 2768 (contenu) ;
+- jusqu'au 24/10 : rugosité ;
+- jusqu'au 25/10 : soudure ;
+- jusqu'au 26/10 : jauges de tôle ;
+- jusqu'au 27/10 : /en/ raccourcis SOLIDWORKS (titre et description) ;
+- jusqu'au 30/10 : vis CHC, filetage métrique, pouce ↔ mm, SOLIDWORKS gratuit (/en/ compris) ;
+- jusqu'au 31/10 : chaîne de cotes, moment quadratique, ISO 1101, ajustements ;
+- **jusqu'au 01/11 : dilatation thermique (nouvelle), jauges de tôle (schémas), ajustements et chaîne de cotes (lien ajouté)**.
+
+**Prochaines pistes** :
+1. Le 23/10 : action (d) sur le titre /en/ d'ISO 2768 (1 118 impressions, position 4,6, 1,2 % de clics).
+2. Action (b) : modèle Excel gratuit de chaîne de cotes, formules contrôlées.
+3. Action (a) suivante : écrous et rondelles ISO 4032 / ISO 7089 (« m3 … m20 nut dimensions », « hex nut dimensions », ≈ 700 impressions Bing), en complément de la vis CHC.
+4. Schémas : conversion-pouce-mm-tableau, puis tolerances-geometriques-symboles-iso-1101 (après le 31/10) ; engrenages après le 23/10.
+5. Cannibalisation probable sur « ebom » / « ebom mbom » : Google montre la page nomenclatures plutôt que la page eBOM vs mBOM ; à traiter avec l'action (f) sur nomenclature-bom-pdm-plm-erp.
 
 ## 2026-10-17 — nouveau mémo bilingue : chaîne de cotes (pire des cas, quadratique RSS, calculateur, fiche PDF) + schémas du moment quadratique
 

@@ -971,7 +971,24 @@ function chaineCotes(l) {
   b += text(x0 + 300, yb + wall + 56, 'a − b − c = J', { size: 28, c: C.mid, anchor: 'middle' });
   return sheet({ ref: 'MEM-18', std: t('Cotation fonctionnelle', 'Functional dimensioning'), rev: 'A', scale: t('s. éch.', 'NTS'), key: 'J', keySub: t('pire des cas · RSS', 'worst case · RSS'), body: b, keyY: 760, keySize: 200 });
 }
+function dilatation(l) {
+  const { t } = lang(l);
+  let b = '';
+  // barre fixée à une paroi : longueur L₀ à T₁, puis allongée de ΔL à T₂ (allongement exagéré) ; ΔL = α · L₀ · ΔT
+  const xw = 600, x0 = 640, l0 = 480, dl = 130, y1 = 340, y2 = 500, h = 70;
+  b += rect(xw, y1 - 50, x0 - xw, y2 + h + 50 - (y1 - 50), { c: C.line, sw: 2.4, fill: 'url(#hatch)' });
+  b += rect(x0, y1, l0, h, { c: C.line, sw: 2.4, fill: C.fill });
+  b += rect(x0, y2, l0 + dl, h, { c: C.line, sw: 2.4, fill: C.fill });
+  b += path(`M${x0 + l0} ${y2 - 14} V${y2 + h + 14}`, { c: C.mid, w: 1.6, dash: '8 6' });
+  b += text(x0 + l0 + 24, y1 + 46, 'T₁', { size: 30, c: C.ink });
+  b += text(x0 + l0 + dl + 24, y2 + 46, 'T₂', { size: 30, c: C.ink });
+  b += dim(x0, y1, x0 + l0, y1, 'L₀', { off: -40, size: 26 });
+  b += dim(x0 + l0, y2 + h, x0 + l0 + dl, y2 + h, 'ΔL', { off: 44, size: 28, c: C.accent, tc: C.accent });
+  b += text(x0 + 10, y2 + h + 100, 'ΔL = α · L₀ · ΔT', { size: 28, c: C.mid });
+  return sheet({ ref: 'MEM-19', std: t('Matériaux', 'Materials'), rev: 'A', scale: t('s. éch.', 'NTS'), key: 'α', keySub: t('acier 12 · alu 23 × 10⁻⁶/K', 'steel 12 · alu 23 × 10⁻⁶/K'), body: b, keyY: 760, keySize: 200 });
+}
 export const PLATES = {
+  'dilatation-thermique-coefficient-materiaux': dilatation,
   'chaine-de-cotes-tolerance-stack-up': chaineCotes,
   'vis-chc-iso-4762-dimensions': visChc,
   'moment-quadratique-inertie-section-calcul': momentQuadratique,
