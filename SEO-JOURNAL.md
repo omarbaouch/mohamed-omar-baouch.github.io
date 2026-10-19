@@ -85,7 +85,7 @@ Le propriétaire est salarié et son contrat l'exige : le site doit rester un **
 - ✓ vis-chc-iso-4762-dimensions (16/10) — soudure ISO 2553 a déjà ses schémas ;
 - ✓ moment-quadratique-inertie-section-calcul (17/10) ;
 - ✓ epaisseur-tole-jauge-gauge-tableau (18/10) ;
-- conversion-pouce-mm-tableau ;
+- ✓ conversion-pouce-mm-tableau (19/10) ;
 - engrenage-module-calcul-diametres (titre en test jusqu'au 23/10) ;
 - filetage-gaz-g-bsp-npt-tableau, clavettes-paralleles-din-6885-dimensions, conversion-durete-hrc-hv-hb, aciers-s235-s275-s355-caracteristiques (titres en test jusqu'au 23/10) ;
 - tolerances-geometriques-symboles-iso-1101 ;
@@ -118,6 +118,56 @@ Le propriétaire est salarié et son contrat l'exige : le site doit rester un **
 - configuration-materielle-solidworks ;
 
 **Nouvelles pages (action a)** : au moins 2 schémas de ce type dès la publication.
+
+## 2026-10-19 — nouveau mémo bilingue : écrous ISO 4032 et rondelles ISO 7089 (dimensions, écarts DIN 934, longueur de vis, calculateur, fiche PDF) + schémas pouce ↔ mm
+
+**Search Console** : rapport du 18/10, couvrant le 17/09 → 15/10.
+- **10,3 clics/jour en moyenne sur 28 jours : jalon 10/jour atteint** (9,1 au passage précédent). Prochain jalon : 50/jour.
+- 288 clics, 25 893 impressions (+13 %), position moyenne 10,6. Le 15/10 : 33 clics, 3 092 impressions (record d'impressions).
+- **/en/ comptées à part** (25 premières pages) : /en/ 128 clics pour 8 211 impressions, FR 119 pour 8 474.
+- En tête : /en/ soudure 42 clics (position 4,0), couple FR 24 (position 8,0), /en/ ISO 1101 17, /en/ couple 16 (position 4,0), masse volumique FR 11 clics pour 1 924 impressions (position 11,3).
+- **Indexation 79/82** : chaîne de cotes FR et /en/ indexées ; dilatation thermique FR et /en/ inconnues (publiées hier) ; /en/ formats d'échange CAO toujours « Détectée, actuellement non indexée » (à soumettre à la main).
+
+**Mots-clés** (rapport du 17/10, pas de relance) : famille « nut dimensions » sans page sur le site.
+- Bing, 90 jours, États-Unis : « m3 nut dimensions » 128, « m4 … » 116, « m5 … » 68, « m6 … » 66, « m8 … » 58, « hex nut dimensions » 44, « m10 … » 32, « m12 washer dimensions » 22, « m12 nut dimensions » 18 (≈ 550 au total, hors « heavy hex nut », en pouces).
+- Graines « washer dimensions », « nut dimensions » déjà dans seo/graines.json.
+
+**Choix de l'action (a)** : volume plus modeste que la dilatation, mais requêtes exactes à valeurs normalisées certaines, et complément direct des pages les plus cliquées du site (couple de serrage, vis CHC, filetages). « dowel pins » (1 000) écarté : intention d'achat, pas de référence.
+
+**Action (a)** : `/blog/ecrou-rondelle-iso-4032-7089-dimensions/` (MEM-20) et `/en/blog/ecrou-rondelle-iso-4032-7089-dimensions/`.
+- **Valeurs** : ISO 4032 de M1,6 à M36 (pas, clé s, m maxi et mini, e mini) et ISO 7089 série normale (d1 mini, d2 maxi, h et sa plage), vérifiées le 19/10 sur deux tableaux concordants (Torqbolt, Fasten.it pour l'étendue et les clés) ; hauteur M6 de 5,2 mm confirmée par plusieurs sources après une divergence relevée. Écarts DIN 934 (clés 17/19/22/32 en M10/M12/M14/M22, hauteurs 8 et 10 en M10 et M12) recoupés sur des fiches commerciales. Contrôle automatique : e mini compris entre 1,05 s et s × 2/√3 pour chaque taille.
+- **Contenu** : réponse directe ; tableau des écrous ; tableau des rondelles ; tableau ISO 4032 / DIN 934 ; longueur de vis L ≥ e + h + m + 2P avec l'exemple M10 (33,4 → 35 mm) ; classe d'écrou et de vis ; séries ISO 7092 et 7093 ; 5 questions FAQ.
+- **Calculateur** : diamètre, épaisseur serrée, nombre de rondelles → clé et hauteur de l'écrou, rondelle, longueur minimale et longueur normalisée, dépassement réel. Contrôlé en FR et EN (M10, 20 mm, 1 rondelle : 33,4 mm → 35 mm, dépassement 4,6 mm).
+- **2 schémas SVG** : écrou M10 de face et de profil et rondelle en coupe (s, e, m, d1, d2, h, à l'échelle) ; coupe d'un assemblage boulonné (e, h, m, 2P, L).
+- **Fiche PDF A4 FR/EN** : tableau-ecrous-iso-4032-rondelles-iso-7089.pdf et hex-nut-washer-dimensions-chart.pdf (3 sections, schéma des cotes). Relue ; schéma déplacé avant la phrase d'introduction pour que la fiche garde la légende des cotes.
+- **Autour de la page** : planche « écrou M10 et rondelle », image de partage `ecrou-rondelle`, carte du blog, liens depuis vis CHC et filetage métrique (cartes « À lire aussi »). Couple de serrage non touché : contenu en test jusqu'au 23/10.
+- **Conformité** : valeurs normalisées publiques et recommandation générale (« je recommande »), sans client, mission ni information de l'employeur ; aucun bouton de contact.
+
+**3 bis, schémas** : conversion-pouce-mm-tableau (coché ; contenu en test, pas de titre touché).
+- **Règle d'un pouce** : seizièmes en haut, millimètres en bas, 3/8 in = 9,525 mm, 1 in = 25,4 mm ; à la fin de la section des fractions.
+- **Piège de l'arrondi** : alésage 10 H7 (10,000 … 10,015) et fraction 25/64 in = 9,922 mm, 0,078 mm d'écart ; dans la section des pièges.
+- `figures: true` dans la fiche PDF pouce ↔ mm, régénérée et relue.
+
+**Vérifications** : build OK ; verify:seo (page nouvelle seule, baseline 43 pages) ; verify:en 0/0 (41 pages anglaises) ; grep de conformité vide ; Chromium 1280/390 sur 10 pages FR/EN sans erreur JS ni défilement horizontal ; schémas regardés en clair et en sombre, FR et EN (un libellé « tolérance » qui sortait du cadre a été replacé) ; PDF en 200, /en/ vers les fichiers anglais ; aucun libellé français dans dist/en.
+
+**Clics attendus** : aucun chiffre fiable avant indexation. À vérifier au 26/10 : indexation, premières impressions sur « m6 nut dimensions », « hex nut dimensions », « rondelle m8 dimensions ». Dilatation thermique : indexation à vérifier au 25/10.
+
+**Pages en test** :
+- jusqu'au 23/10 : aciers, clavettes, dureté, engrenages, filetage gaz, masse volumique (titre ou description) ; couple de serrage, ISO 2768 (contenu) ;
+- jusqu'au 24/10 : rugosité ;
+- jusqu'au 25/10 : soudure ;
+- jusqu'au 26/10 : jauges de tôle ;
+- jusqu'au 27/10 : /en/ raccourcis SOLIDWORKS (titre et description) ;
+- jusqu'au 30/10 : vis CHC, filetage métrique, pouce ↔ mm, SOLIDWORKS gratuit (/en/ compris) ;
+- jusqu'au 31/10 : chaîne de cotes, moment quadratique, ISO 1101, ajustements ;
+- jusqu'au 01/11 : dilatation thermique, jauges de tôle (schémas), ajustements et chaîne de cotes (lien) ;
+- **jusqu'au 02/11 : écrous et rondelles (nouvelle), pouce ↔ mm (schémas), vis CHC et filetage métrique (lien ajouté)**.
+
+**Prochaines pistes** :
+1. Le 23/10 : action (d) sur le titre /en/ d'ISO 2768 (1 276 impressions, position 4,5, 1,0 % de clics), puis masse volumique FR (1 924 impressions, position 11,3) à la fin de son test.
+2. Action (b) : modèle Excel gratuit de chaîne de cotes, formules contrôlées.
+3. Schémas : engrenage-module-calcul-diametres après le 23/10 ; d'ici là, tolerances-geometriques-symboles-iso-1101 est en test jusqu'au 31/10 : passer à tolerances-generales-iso-2768 après le 23/10, ou au premier article non en test de la liste.
+4. Cannibalisation probable « ebom » / « ebom mbom » (144 et 72 impressions, positions 15 et 13) : à traiter avec l'action (f) sur nomenclature-bom-pdm-plm-erp.
 
 ## 2026-10-18 — nouveau mémo bilingue : dilatation thermique (coefficients, formules, contrainte, jeux, frettage, calculateur, fiche PDF) + schémas des jauges de tôle
 

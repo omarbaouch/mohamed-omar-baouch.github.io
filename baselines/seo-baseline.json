@@ -233,6 +233,24 @@
     "h1": "La révision fantôme à 40 000 € : maîtriser les ECO/ECR avant qu'elles ne vous coûtent cher",
     "lang": "fr"
   },
+  "/blog/ecrou-rondelle-iso-4032-7089-dimensions/": {
+    "title": "Écrou hexagonal ISO 4032 et rondelle ISO 7089 : dimensions",
+    "description": "Dimensions des écrous hexagonaux ISO 4032 et des rondelles ISO 7089 de M1,6 à M36 : clé, hauteur, diamètres, épaisseur, écart avec la DIN 934, calculateur.",
+    "canonical": "https://www.baouch.fr/blog/ecrou-rondelle-iso-4032-7089-dimensions/",
+    "robots": null,
+    "ogTitle": "Écrou hexagonal ISO 4032 et rondelle ISO 7089 : dimensions",
+    "ogDescription": "Écrous ISO 4032 et rondelles ISO 7089 de M1,6 à M36 : clé, hauteur, diamètres, écarts avec la DIN 934 et longueur de vis à prévoir.",
+    "ogUrl": "https://www.baouch.fr/blog/ecrou-rondelle-iso-4032-7089-dimensions/",
+    "ogImage": "https://www.baouch.fr/img/og/ecrou-rondelle.jpg",
+    "ogType": "article",
+    "twitterTitle": "Écrou hexagonal ISO 4032 et rondelle ISO 7089 : dimensions",
+    "twitterDescription": "Écrous ISO 4032 et rondelles ISO 7089 de M1,6 à M36 : clé, hauteur, diamètres, écarts avec la DIN 934 et longueur de vis à prévoir.",
+    "jsonldTypes": [
+      "BlogPosting,BreadcrumbList,FAQPage"
+    ],
+    "h1": "Écrou hexagonal ISO 4032 et rondelle ISO 7089 : dimensions",
+    "lang": "fr"
+  },
   "/blog/engrenage-module-calcul-diametres/": {
     "title": "Module d'engrenage : formules, diamètres, entraxe + calculateur",
     "description": "Engrenage droit : diamètres primitif, de tête et de pied, hauteur de dent et entraxe à partir du module et du nombre de dents, modules ISO 54 et calculateur.",

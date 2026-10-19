@@ -128,6 +128,10 @@
     "Planche technique : coupe d'un arbre de 25 mm avec sa rainure et sa clavette 8 × 7, cotes t1 et t2",
     "Technical drawing: cross-section of a 25 mm shaft with its keyway and 8 × 7 key, depths t1 and t2"
   ],
+  "ecrou-rondelle-iso-4032-7089-dimensions": [
+    "Planche technique : écrou hexagonal M10 vu de face avec sa clé de 16, et rondelle 10,5 × 20 en coupe",
+    "Technical drawing: M10 hex nut front view with its 16 mm across flats, and a 10.5 × 20 washer in section"
+  ],
   "dilatation-thermique-coefficient-materiaux": [
     "Planche technique : barre fixée à une paroi, longueur L₀ à T₁ et allongement ΔL à T₂, ΔL = α · L₀ · ΔT",
     "Technical drawing: bar fixed to a wall, length L₀ at T₁ and expansion ΔL at T₂, ΔL = α · L₀ · ΔT"

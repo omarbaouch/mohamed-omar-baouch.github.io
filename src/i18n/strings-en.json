@@ -62,7 +62,22 @@
     "épaisseur (mm)": "thickness (mm)",
     "acier (MSG)": "steel (MSG)",
     "alu (B&S)": "aluminum (B&S)",
-    "16 ga = 1,52 mm": "16 ga = 1.52 mm"
+    "16 ga = 1,52 mm": "16 ga = 1.52 mm",
+    "écrou, vue de face": "nut, front view",
+    "écrou, profil": "nut, side view",
+    "rondelle, coupe": "washer, section",
+    "pièces serrées": "clamped parts",
+    "écrou ISO 4032": "ISO 4032 nut",
+    "rondelle ISO 7089": "ISO 7089 washer",
+    "3/8 in = 9,525 mm": "3/8 in = 9.525 mm",
+    "1 in = 25,4 mm": "1 in = 25.4 mm",
+    "9,90": "9.90",
+    "9,95": "9.95",
+    "10,00": "10.00",
+    "alésage H7": "H7 bore",
+    "9,922": "9.922",
+    "0,078 mm": "0.078 mm",
+    "tolérance : 0,015": "tolerance: 0.015"
   },
   "attr": {
     "Baies de serveurs": "Server racks",
@@ -160,6 +175,10 @@
     "Barre bridée entre deux appuis fixes : chauffée, elle ne peut pas s'allonger, les appuis la compriment avec un effort F et la contrainte vaut σ = E · α · ΔT": "Bar restrained between two fixed supports: when heated it cannot grow, the supports compress it with a force F and the stress is σ = E · α · ΔT",
     "Coupe d'un arbre en acier dans un carter en aluminium, à 20 °C avec un jeu j, puis à 100 °C : l'alésage en aluminium grandit plus que l'arbre en acier et le jeu devient j + Δj": "Section of a steel shaft in an aluminium housing, at 20 °C with clearance j, then at 100 °C: the aluminium bore grows more than the steel shaft and the clearance becomes j + Δj",
     "Épaisseur en mm selon le numéro de jauge, de 7 à 30 : la courbe de l'acier descend de 4,55 à 0,30 mm et celle de l'aluminium reste en dessous ; plus le numéro est grand, plus la tôle est fine": "Thickness in mm by gauge number, from 7 to 30: the steel curve falls from 4.55 to 0.30 mm and the aluminum curve stays below it; the higher the number, the thinner the sheet",
-    "Coupes de quatre tôles de jauge 16 à la même échelle : acier 1,52 mm, acier galvanisé 1,61 mm, inox 1,59 mm, aluminium 1,29 mm": "Sections of four 16 gauge sheets at the same scale: steel 1.52 mm, galvanized steel 1.61 mm, stainless 1.59 mm, aluminum 1.29 mm"
+    "Coupes de quatre tôles de jauge 16 à la même échelle : acier 1,52 mm, acier galvanisé 1,61 mm, inox 1,59 mm, aluminium 1,29 mm": "Sections of four 16 gauge sheets at the same scale: steel 1.52 mm, galvanized steel 1.61 mm, stainless 1.59 mm, aluminum 1.29 mm",
+    "Écrou hexagonal M10 vu de face et de profil, et rondelle M10 en coupe : clé s sur plats, dimension e sur angles, hauteur m de l'écrou, trou d1, diamètre extérieur d2 et épaisseur h de la rondelle": "M10 hex nut in front and side view, and M10 washer in section: spanner size s across flats, width e across corners, nut height m, washer hole d1, outside diameter d2 and thickness h",
+    "Coupe d'un assemblage boulonné : vis traversant deux pièces d'épaisseur totale e, rondelle d'épaisseur h et écrou de hauteur m, bout de vis dépassant de deux pas ; la longueur L vaut au moins e + h + m + 2P": "Section of a bolted joint: bolt through two parts of total thickness e, washer of thickness h and nut of height m, bolt end protruding by two pitches; the length L is at least e + h + m + 2P",
+    "Règle graduée sur un pouce : en haut les seizièmes de pouce avec 1/4, 1/2 et 3/4, en bas les millimètres de 0 à 25 ; 3/8 de pouce tombe à 9,525 mm et un pouce vaut exactement 25,4 mm": "Ruler graduated over one inch: sixteenths of an inch on top with 1/4, 1/2 and 3/4, millimetres from 0 to 25 below; 3/8 inch falls at 9.525 mm and one inch is exactly 25.4 mm",
+    "Axe des cotes de 9,90 à 10,03 mm : la zone de l'alésage 10 H7 va de 10,000 à 10,015 mm ; la fraction 25/64 de pouce tombe à 9,922 mm, 0,078 mm en dessous, cinq fois la tolérance": "Dimension axis from 9.90 to 10.03 mm: the 10 H7 bore zone runs from 10.000 to 10.015 mm; the 25/64 inch fraction falls at 9.922 mm, 0.078 mm below, five times the tolerance"
   }
 }

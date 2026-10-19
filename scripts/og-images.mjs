@@ -47,6 +47,7 @@ const PAGES = [
   { file: 'src/blog/engrenage-module-calcul-diametres/index.html', slug: 'engrenage', ref: 'MEM-13', type: 'MÉMO', title: 'Module d’engrenage : diamètres, entraxe et calculateur' },
   { file: 'src/blog/conversion-pouce-mm-tableau/index.html', slug: 'pouce-mm', ref: 'MEM-14', type: 'MÉMO', title: 'Conversion pouce ↔ mm : tableau des fractions et convertisseur' },
   { file: 'src/blog/epaisseur-tole-jauge-gauge-tableau/index.html', slug: 'jauge-tole', ref: 'MEM-15', type: 'MÉMO', title: 'Jauge de tôle (gauge) : tableau des épaisseurs en mm et pouces' },
+  { file: 'src/blog/ecrou-rondelle-iso-4032-7089-dimensions/index.html', slug: 'ecrou-rondelle', ref: 'MEM-20', type: 'MÉMO', title: 'Écrous ISO 4032 et rondelles ISO 7089 : dimensions' },
   { file: 'src/blog/dilatation-thermique-coefficient-materiaux/index.html', slug: 'dilatation-thermique', ref: 'MEM-19', type: 'MÉMO', title: 'Dilatation thermique : coefficients et calculateur' },
   { file: 'src/blog/chaine-de-cotes-tolerance-stack-up/index.html', slug: 'chaine-de-cotes', ref: 'MEM-18', type: 'MÉMO', title: 'Chaîne de cotes : pire des cas et quadratique (RSS)' },
   { file: 'src/blog/vis-chc-iso-4762-dimensions/index.html', slug: 'vis-chc', ref: 'MEM-17', type: 'MÉMO', title: 'Vis CHC ISO 4762 : dimensions de la tête, clé et longueurs' },

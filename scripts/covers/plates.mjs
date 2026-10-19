@@ -987,7 +987,24 @@ function dilatation(l) {
   b += text(x0 + 10, y2 + h + 100, 'ΔL = α · L₀ · ΔT', { size: 28, c: C.mid });
   return sheet({ ref: 'MEM-19', std: t('Matériaux', 'Materials'), rev: 'A', scale: t('s. éch.', 'NTS'), key: 'α', keySub: t('acier 12 · alu 23 × 10⁻⁶/K', 'steel 12 · alu 23 × 10⁻⁶/K'), body: b, keyY: 760, keySize: 200 });
 }
+function ecrouRondelle(l) {
+  const { t } = lang(l);
+  let b = '';
+  // écrou M10 vu de face (clé 16) et rondelle M10 en coupe (10,5 × 20 × 2), échelle 12 px/mm
+  const u = 12, cx = 780, cy = 450, R = 16 * u / Math.sqrt(3);
+  const pts = Array.from({ length: 6 }, (_, i) => [cx + R * Math.cos(Math.PI / 6 + i * Math.PI / 3), cy + R * Math.sin(Math.PI / 6 + i * Math.PI / 3)]);
+  b += poly(pts, { c: C.line, w: 2.4, fill: C.fill });
+  b += circle(cx, cy, 5 * u, { c: C.line, w: 2.4 });
+  b += circle(cx, cy, 4.2 * u, { c: C.mid, w: 1.4, op: 0.7 });
+  b += dim(cx - 8 * u, cy + R, cx + 8 * u, cy + R, 's 16', { off: 50, size: 26, c: C.accent, tc: C.accent });
+  const xr = 1130, hh = 2 * u;
+  b += rect(xr, cy - 10 * u, hh, 4.75 * u, { c: C.line, sw: 2.4, fill: 'url(#hatch)' });
+  b += rect(xr, cy + 5.25 * u, hh, 4.75 * u, { c: C.line, sw: 2.4, fill: 'url(#hatch)' });
+  b += dim(xr + hh, cy - 10 * u, xr + hh, cy + 10 * u, 'd2 20', { off: -60, size: 22 });
+  return sheet({ ref: 'MEM-20', std: 'ISO 4032 · ISO 7089', rev: 'A', scale: t('s. éch.', 'NTS'), key: 'M10', keySub: t('clé 16 · m 8,4', 'spanner 16 · m 8.4'), body: b, keyY: 760, keySize: 200 });
+}
 export const PLATES = {
+  'ecrou-rondelle-iso-4032-7089-dimensions': ecrouRondelle,
   'dilatation-thermique-coefficient-materiaux': dilatation,
   'chaine-de-cotes-tolerance-stack-up': chaineCotes,
   'vis-chc-iso-4762-dimensions': visChc,

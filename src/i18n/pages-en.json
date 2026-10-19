@@ -131,6 +131,10 @@
     "title": "BSP vs NPT Thread Chart: G (ISO 228) Sizes, TPI and Tap Drills",
     "description": "BSP (G, ISO 228) and NPT pipe thread chart: major diameter, threads per inch, pitch and tap drill, 55° vs 60°, parallel vs taper, plus a thread identifier."
   },
+  "/blog/ecrou-rondelle-iso-4032-7089-dimensions/": {
+    "title": "Hex Nut & Washer Dimensions Chart: ISO 4032 and ISO 7089 (mm)",
+    "description": "Metric hex nut and flat washer dimensions from M1.6 to M36: spanner size, nut height, washer ID, OD and thickness, DIN 934 differences and a calculator."
+  },
   "/blog/dilatation-thermique-coefficient-materiaux/": {
     "title": "Thermal Expansion Coefficients: Chart, Formula and Calculator",
     "description": "Coefficient of thermal expansion chart for steel, stainless, aluminium, copper and more, the formula ΔL = α·L₀·ΔT, thermal stress and a free calculator."

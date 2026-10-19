@@ -37,6 +37,15 @@ export const FICHES = {
     fr: 'tableau-rugosite-ra-classes-n', en: 'surface-roughness-ra-chart',
     h2: { 'Convertisseur Ra : µm, µin et classes N': 'Classes de rugosité N et valeurs de Ra', 'Ra converter: µm, µin and N grades': 'Roughness grades N and Ra values' },
   },
+  'ecrou-rondelle-iso-4032-7089-dimensions': {
+    fr: 'tableau-ecrous-iso-4032-rondelles-iso-7089', en: 'hex-nut-washer-dimensions-chart', figures: true,
+    titre: { fr: 'Écrous hexagonaux ISO 4032 et rondelles ISO 7089 : dimensions', en: 'Hex nut ISO 4032 and flat washer ISO 7089 dimensions' },
+    h2: {
+      '2. Dimensions des écrous hexagonaux ISO 4032': '1. Dimensions des écrous hexagonaux ISO 4032', '2. ISO 4032 hex nut dimensions': '1. ISO 4032 hex nut dimensions',
+      '3. Dimensions des rondelles plates ISO 7089': '2. Dimensions des rondelles plates ISO 7089', '3. ISO 7089 flat washer dimensions': '2. ISO 7089 flat washer dimensions',
+      '4. ISO 4032 ou DIN 934 : les clés qui changent': '3. ISO 4032 ou DIN 934 : les clés qui changent', '4. ISO 4032 vs DIN 934: the spanner sizes that change': '3. ISO 4032 vs DIN 934: the spanner sizes that change',
+    },
+  },
   'dilatation-thermique-coefficient-materiaux': {
     fr: 'tableau-coefficients-dilatation-thermique', en: 'thermal-expansion-coefficients-chart', figures: true,
     titre: { fr: 'Dilatation thermique : coefficients des matériaux et formules', en: 'Thermal expansion: coefficients of materials and formulas' },
@@ -73,7 +82,7 @@ export const FICHES = {
     titre: { fr: 'Jauges de tôle (gauge) : épaisseurs en mm et en pouces par matériau', en: 'Sheet metal gauge chart: thickness in inches and mm by material' },
   },
   'conversion-pouce-mm-tableau': {
-    fr: 'tableau-conversion-pouce-mm', en: 'inch-to-mm-conversion-chart',
+    fr: 'tableau-conversion-pouce-mm', en: 'inch-to-mm-conversion-chart', figures: true,
     titre: { fr: 'Conversion pouce ↔ mm : fractions de pouce, tailles courantes, mm en pouces', en: 'Inch to mm conversion chart: fractions, common sizes, mm to inches' },
   },
   'ajustements-iso-286-tableau-h7-g6': {
