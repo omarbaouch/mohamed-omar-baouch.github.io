@@ -86,7 +86,7 @@ Le propriétaire est salarié et son contrat l'exige : le site doit rester un **
 - ✓ moment-quadratique-inertie-section-calcul (17/10) ;
 - ✓ epaisseur-tole-jauge-gauge-tableau (18/10) ;
 - ✓ conversion-pouce-mm-tableau (19/10) ;
-- engrenage-module-calcul-diametres (titre en test jusqu'au 23/10) ;
+- ✓ engrenage-module-calcul-diametres (23/10) ;
 - filetage-gaz-g-bsp-npt-tableau, clavettes-paralleles-din-6885-dimensions, conversion-durete-hrc-hv-hb, aciers-s235-s275-s355-caracteristiques (titres en test jusqu'au 23/10) ;
 - tolerances-geometriques-symboles-iso-1101 ;
 - tolerances-generales-iso-2768 ;
@@ -118,6 +118,53 @@ Le propriétaire est salarié et son contrat l'exige : le site doit rester un **
 - configuration-materielle-solidworks ;
 
 **Nouvelles pages (action a)** : au moins 2 schémas de ce type dès la publication.
+
+## 2026-10-23 — action (d) : titre et description de /en/ ISO 2768 + schémas des engrenages
+
+**Passages manqués** : les passages programmés des 20, 21 et 22/10 n'ont pas été exécutés (session indisponible ; les déclenchements sont arrivés ensemble le 23/10). Un seul passage est fait aujourd'hui, sans rattrapage artificiel.
+
+**Search Console** : rapport du 22/10, couvrant le 21/09 → 19/10.
+- **13,8 clics/jour en moyenne sur 28 jours** (10,3 au passage du 19/10). Prochain jalon : 50/jour.
+- 387 clics, 34 618 impressions, position moyenne 11,0.
+- **Lundi 19/10 : 42 clics et 3 274 impressions, double record.**
+- **Week-end des 17-18/10** (question du propriétaire « pourquoi moins de visites ? ») : 11 et 14 clics, 1 388 et 1 751 impressions, contre 8 et 11 clics, 897 et 1 163 impressions le week-end précédent. Creux habituel du week-end, en hausse d'une semaine sur l'autre.
+- **/en/ comptées à part** (25 premières pages) : /en/ 160 clics pour 10 187 impressions, FR 164 pour 11 181.
+- En tête : /en/ soudure 49 clics (position 4,1), couple FR 42 (position 7,4), /en/ ISO 1101 20, /en/ couple 18, clavettes FR 16, **/en/ ISO 2768 16 clics pour 1 545 impressions (position 4,7, 1,0 %)**, masse volumique FR 15 pour 2 580 (position 10,9).
+- **Indexation 83/84** : dilatation thermique et écrous/rondelles indexées. Reste /en/ formats d'échange CAO, non indexée depuis le 04/10 (« Google ne reconnaît pas cette URL »).
+- **Défaut du rapport** : dans la section « Requêtes qui mènent à chaque page », les listes sont décalées d'un cran (les requêtes « iso 2768-f/-c/-m » apparaissent sous la page des raccourcis SOLIDWORKS). Lire les requêtes dans les historiques précédents ou corriger scripts/gsc-report.mjs (hors .github/) lors d'un prochain passage.
+
+**Choix de l'action (d)** : prévu depuis le 13/10 ; test de contenu de la page terminé le 23/10. Page en position 4,7 avec 1,0 % de clics sur 1 545 impressions. Les requêtes réelles (historiques du 13 au 17/10) portent sur les classes écrites avec un tiret : « iso 2768-f » (position 3,8 à 4,4), « iso 2768-c » (4,9), « iso 2768-m » (8,9), « iso 2768-mk », « iso 2768-h », « iso 2768 k », sans aucun clic. Le titre /en/ précédent ne contenait aucune de ces formes.
+
+**Action (d)** : `src/i18n/pages-en.json`, page /en/ seulement (le français n'est pas touché).
+- Titre : « ISO 2768-m, -f, -c and -mK Tolerance Tables, with Calculator » (60 caractères), au lieu de « ISO 2768 General Tolerances Chart: f, m, c, v and H, K, L ».
+- Description : « ISO 2768-1 tolerances for classes f, m, c, v (lengths, radii, chamfers, angles), ISO 2768-2 H, K, L, a min/max calculator and what ISO 2768-mK means. » (149 caractères).
+- og:title, twitter:title et JSON-LD suivent par build-en (contrôlé dans dist/en).
+- **Clics attendus** : aucun chiffre garanti. Référence pour la mesure : 16 clics, 1 545 impressions, 1,0 % sur 28 jours ; à comparer le 06/11 sur une période de 14 jours.
+
+**3 bis, schémas** : engrenage-module-calcul-diametres (coché ; titre sorti de test aujourd'hui, seul le contenu change pour cette page).
+- **Dents du pignon de l'exemple** (m = 2, z = 20, profil en développante calculé, à l'échelle) : cercles de tête, primitif et de pied, saillie ha = m, creux hf = 1,25 m, pas p = π m.
+- **Paire de l'exemple** : cercles primitifs de 40 et 100 mm tangents, cercles de tête en pointillés, entraxe a = (d1 + d2) / 2 = 70.
+- Placés à la fin de la section des formules, après l'exemple chiffré. Pas de fiche PDF pour cette page.
+
+**Vérifications** : build OK ; verify:seo identique (43 pages) ; verify:en 0/0 (41 pages anglaises) ; grep de conformité vide ; Chromium 1280/390 sur 4 pages FR/EN sans erreur JS ni défilement horizontal ; PDF ISO 2768 en 200, /en/ vers le fichier anglais ; schémas regardés en clair et en sombre, FR et EN (libellé « df » et marge haute de l'entraxe corrigés après capture) ; aucun libellé français dans dist/en ; titre, og:title et description /en/ contrôlés dans dist/en.
+
+**Pages en test** :
+- jusqu'au 24/10 : rugosité ;
+- jusqu'au 25/10 : soudure ;
+- jusqu'au 26/10 : jauges de tôle ;
+- jusqu'au 27/10 : /en/ raccourcis SOLIDWORKS (titre et description) ;
+- jusqu'au 30/10 : vis CHC, filetage métrique, pouce ↔ mm, SOLIDWORKS gratuit (/en/ compris) ;
+- jusqu'au 31/10 : chaîne de cotes, moment quadratique, ISO 1101, ajustements ;
+- jusqu'au 01/11 : dilatation thermique, jauges de tôle (schémas), ajustements et chaîne de cotes (lien) ;
+- jusqu'au 02/11 : écrous et rondelles, pouce ↔ mm (schémas), vis CHC et filetage métrique (lien) ;
+- **jusqu'au 06/11 : /en/ ISO 2768 (titre et description), engrenages (schémas)**.
+- Sortis de test le 23/10 : aciers, clavettes, dureté, filetage gaz, masse volumique (titres) ; couple de serrage, ISO 2768 FR (contenu).
+
+**Prochaines pistes** :
+1. Masse volumique FR : 2 580 impressions en position 10,9, 0,6 % de clics ; titre sorti de test. La requête principale (« table densite materiaux ») est au-delà de la position 15 : action (c) sur le classement avant de retoucher le titre.
+2. Action (e) : /en/ formats d'échange CAO, non indexée depuis 19 jours : contrôle technique puis 2 à 3 liens depuis des pages /en/ indexées.
+3. Corriger le décalage de la section « requêtes par page » dans scripts/gsc-report.mjs.
+4. Schémas : filetage-gaz-g-bsp-npt-tableau (titre sorti de test), puis clavettes, dureté, aciers.
 
 ## 2026-10-19 — nouveau mémo bilingue : écrous ISO 4032 et rondelles ISO 7089 (dimensions, écarts DIN 934, longueur de vis, calculateur, fiche PDF) + schémas pouce ↔ mm
 

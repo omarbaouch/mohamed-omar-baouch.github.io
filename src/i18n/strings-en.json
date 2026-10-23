@@ -77,7 +77,13 @@
     "alésage H7": "H7 bore",
     "9,922": "9.922",
     "0,078 mm": "0.078 mm",
-    "tolérance : 0,015": "tolerance: 0.015"
+    "tolérance : 0,015": "tolerance: 0.015",
+    "da (tête)": "da (tip)",
+    "d (primitif)": "d (pitch)",
+    "df (pied)": "df (root)",
+    "hf = 1,25 m": "hf = 1.25 m",
+    "pignon z1 = 20": "pinion z1 = 20",
+    "roue z2 = 50": "gear z2 = 50"
   },
   "attr": {
     "Baies de serveurs": "Server racks",
@@ -179,6 +185,8 @@
     "Écrou hexagonal M10 vu de face et de profil, et rondelle M10 en coupe : clé s sur plats, dimension e sur angles, hauteur m de l'écrou, trou d1, diamètre extérieur d2 et épaisseur h de la rondelle": "M10 hex nut in front and side view, and M10 washer in section: spanner size s across flats, width e across corners, nut height m, washer hole d1, outside diameter d2 and thickness h",
     "Coupe d'un assemblage boulonné : vis traversant deux pièces d'épaisseur totale e, rondelle d'épaisseur h et écrou de hauteur m, bout de vis dépassant de deux pas ; la longueur L vaut au moins e + h + m + 2P": "Section of a bolted joint: bolt through two parts of total thickness e, washer of thickness h and nut of height m, bolt end protruding by two pitches; the length L is at least e + h + m + 2P",
     "Règle graduée sur un pouce : en haut les seizièmes de pouce avec 1/4, 1/2 et 3/4, en bas les millimètres de 0 à 25 ; 3/8 de pouce tombe à 9,525 mm et un pouce vaut exactement 25,4 mm": "Ruler graduated over one inch: sixteenths of an inch on top with 1/4, 1/2 and 3/4, millimetres from 0 to 25 below; 3/8 inch falls at 9.525 mm and one inch is exactly 25.4 mm",
-    "Axe des cotes de 9,90 à 10,03 mm : la zone de l'alésage 10 H7 va de 10,000 à 10,015 mm ; la fraction 25/64 de pouce tombe à 9,922 mm, 0,078 mm en dessous, cinq fois la tolérance": "Dimension axis from 9.90 to 10.03 mm: the 10 H7 bore zone runs from 10.000 to 10.015 mm; the 25/64 inch fraction falls at 9.922 mm, 0.078 mm below, five times the tolerance"
+    "Axe des cotes de 9,90 à 10,03 mm : la zone de l'alésage 10 H7 va de 10,000 à 10,015 mm ; la fraction 25/64 de pouce tombe à 9,922 mm, 0,078 mm en dessous, cinq fois la tolérance": "Dimension axis from 9.90 to 10.03 mm: the 10 H7 bore zone runs from 10.000 to 10.015 mm; the 25/64 inch fraction falls at 9.922 mm, 0.078 mm below, five times the tolerance",
+    "Cinq dents d'un pignon de module 2 à 20 dents, profil en développante : cercle de tête da, cercle primitif d et cercle de pied df ; la saillie ha vaut m, le creux hf vaut 1,25 m et le pas p vaut π m le long du cercle primitif": "Five teeth of a module 2, 20-tooth pinion with involute profile: tip circle da, pitch circle d and root circle df; the addendum ha equals m, the dedendum hf equals 1.25 m and the pitch p equals π m along the pitch circle",
+    "Engrenage de l'exemple : pignon de 20 dents et roue de 50 dents de module 2, cercles primitifs de 40 et 100 mm tangents au point de contact, entraxe a de 70 mm entre les centres": "The example gear pair: 20-tooth pinion and 50-tooth gear of module 2, pitch circles of 40 and 100 mm tangent at the contact point, centre distance a of 70 mm between the centres"
   }
 }

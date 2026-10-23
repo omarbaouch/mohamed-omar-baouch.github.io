@@ -108,8 +108,8 @@
     "description": "ISO metric thread chart from M1.6 to M36: coarse and fine pitch, tap drill sizes, ISO 273 clearance holes and wrench sizes in one filterable table, with the formula."
   },
   "/blog/tolerances-generales-iso-2768/": {
-    "title": "ISO 2768 General Tolerances Chart: f, m, c, v and H, K, L",
-    "description": "ISO 2768-1 and 2768-2 tables: deviations for lengths, radii, chamfers and angles, general geometrical tolerances, a min/max calculator and how to write ISO 2768-mK."
+    "title": "ISO 2768-m, -f, -c and -mK Tolerance Tables, with Calculator",
+    "description": "ISO 2768-1 tolerances for classes f, m, c, v (lengths, radii, chamfers, angles), ISO 2768-2 H, K, L, a min/max calculator and what ISO 2768-mK means."
   },
   "/blog/tolerances-geometriques-symboles-iso-1101/": {
     "title": "GD&T Symbols Chart: the 14 Geometric Tolerances (ISO 1101)",
