@@ -87,7 +87,8 @@ Le propriétaire est salarié et son contrat l'exige : le site doit rester un **
 - ✓ epaisseur-tole-jauge-gauge-tableau (18/10) ;
 - ✓ conversion-pouce-mm-tableau (19/10) ;
 - ✓ engrenage-module-calcul-diametres (23/10) ;
-- filetage-gaz-g-bsp-npt-tableau, clavettes-paralleles-din-6885-dimensions, conversion-durete-hrc-hv-hb, aciers-s235-s275-s355-caracteristiques (titres en test jusqu'au 23/10) ;
+- ✓ filetage-gaz-g-bsp-npt-tableau (24/10) ;
+- clavettes-paralleles-din-6885-dimensions, conversion-durete-hrc-hv-hb, aciers-s235-s275-s355-caracteristiques (titres sortis de test le 23/10) ;
 - tolerances-geometriques-symboles-iso-1101 ;
 - tolerances-generales-iso-2768 ;
 - rugosite-ra-tableau-classes-procedes ;
@@ -119,6 +120,54 @@ Le propriétaire est salarié et son contrat l'exige : le site doit rester un **
 
 **Nouvelles pages (action a)** : au moins 2 schémas de ce type dès la publication.
 
+## 2026-10-24 — action (d) : titre et description de eBOM vs mBOM (FR) + schémas des filetages gaz
+
+**Search Console** : rapport du 23/10, couvrant le 22/09 → 20/10.
+- **15,3 clics/jour en moyenne sur 28 jours** (13,8 hier). Prochain jalon : 50/jour.
+- 428 clics, 37 941 impressions, position moyenne 10,9. **Mardi 20/10 : 44 clics et 3 384 impressions, nouveau record** (42 et 3 274 la veille).
+- **/en/ comptées à part** (25 premières pages) : /en/ 171 clics pour 10 975 impressions, FR 182 pour 12 550.
+- **Indexation 83/84** : seule /en/ formats d'échange CAO reste « Détectée, actuellement non indexée ».
+
+**Opportunités** (positions 4 à 20, ≥ 30 impressions) :
+- famille eBOM : « ebom » 178 impressions (position 15,3), « ebom mbom » 81 (13,8), « ebom vs mbom » 77 (16,8), soit 336 impressions et 2 clics ;
+- « moment quadratique » 93 (9,7, page en test jusqu'au 31/10), « iso 2553 » 55 (9,4, soudure en test jusqu'au 25/10), « iso 1101 » 54 (7,3, en test jusqu'au 31/10), « h7/g6 » 42 (17,3).
+
+**Choix de l'action (d)** sur /blog/ebom-vs-mbom/ (FR) :
+- page en position 8,3 avec 1,7 % de clics (181 impressions au 14/10) ; inscrite au lot 1 des titres trop longs le 09/10 ;
+- son title faisait 77 caractères et sa description environ 280, coupés par Google ; le title ne contenait ni « différence » au début ni une formulation courte ;
+- la page nomenclatures, qui capte les requêtes « ebom » en position 15, la cite déjà deux fois : pas de nouveau lien à ajouter.
+
+**Action (d)** : title, meta description, og/twitter et JSON-LD (headline, description) de la version française seulement ; titre et contenu /en/ inchangés.
+- Title : « eBOM vs mBOM : différence, exemple et passage de l'une à l'autre » (64 caractères).
+- Description : « eBOM (nomenclature d'étude) et mBOM (de fabrication) : la différence sur l'exemple d'une vanne, les 6 écarts et comment passer de l'une à l'autre. » (146 caractères).
+- **Clics attendus** : aucun chiffre garanti ; référence à mesurer le 07/11 : 3 clics, 181 impressions, position 8,3 (relevé du 14/10) et les 336 impressions de la famille « ebom ».
+
+**À côté** : scripts/gsc-report.mjs demande maintenant jusqu'à 25 000 lignes page × requête (au lieu de 2 000), pour que la section « requêtes par page » ne reste plus vide pour des pages comme /en/ ISO 2768.
+
+**3 bis, schémas** : filetage-gaz-g-bsp-npt-tableau (coché ; titre sorti de test le 23/10, seul le contenu change).
+- **Profils de base au même pas** : 55° (G, R, Whitworth) contre 60° (NPT), pas P, à côté de l'encadré « le piège classique ».
+- **Étanchéité** : G cylindrique avec joint sous l'épaulement, NPT et R coniques 1:16 étanches dans le filet ; à la fin de la section 3.
+- Pas de fiche PDF pour cette page.
+
+**Vérifications** : build OK ; verify:seo (seule divergence : la page eBOM, voulue ; baseline régénérée) ; verify:en 0/0 (41 pages anglaises) ; grep de conformité vide ; Chromium 1280/390 sur 4 pages FR/EN sans erreur JS ni défilement horizontal, titres contrôlés ; schémas regardés en clair et en sombre, FR et EN ; aucun libellé français dans dist/en.
+
+**Pages en test** :
+- jusqu'au 25/10 : soudure ;
+- jusqu'au 26/10 : jauges de tôle ;
+- jusqu'au 27/10 : /en/ raccourcis SOLIDWORKS (titre et description) ;
+- jusqu'au 30/10 : vis CHC, filetage métrique, pouce ↔ mm, SOLIDWORKS gratuit (/en/ compris) ;
+- jusqu'au 31/10 : chaîne de cotes, moment quadratique, ISO 1101, ajustements ;
+- jusqu'au 01/11 : dilatation thermique, jauges de tôle (schémas), ajustements et chaîne de cotes (lien) ;
+- jusqu'au 02/11 : écrous et rondelles, pouce ↔ mm (schémas), vis CHC et filetage métrique (lien) ;
+- jusqu'au 06/11 : /en/ ISO 2768 (titre et description), engrenages (schémas) ;
+- **jusqu'au 07/11 : eBOM vs mBOM FR (titre et description), filetage gaz (schémas)**.
+
+**Prochaines pistes** :
+1. Masse volumique FR (2 580 impressions, position 10,9) : action (c) sur « table densite materiaux ».
+2. Action (e) : /en/ formats d'échange CAO, non indexée depuis le 04/10.
+3. Schémas : clavettes-paralleles-din-6885-dimensions, puis conversion-durete-hrc-hv-hb, aciers.
+4. Nouvelle page anglaise (action a) : goupilles ISO 8734 / ISO 2338 ou facteur K de pliage, à vérifier dans le rapport de mots-clés (relance prévue après le 24/10, rapport du 17/10).
+
 ## 2026-10-23 — action (d) : titre et description de /en/ ISO 2768 + schémas des engrenages
 
 **Passages manqués** : les passages programmés des 20, 21 et 22/10 n'ont pas été exécutés (session indisponible ; les déclenchements sont arrivés ensemble le 23/10). Un seul passage est fait aujourd'hui, sans rattrapage artificiel.
@@ -131,7 +180,7 @@ Le propriétaire est salarié et son contrat l'exige : le site doit rester un **
 - **/en/ comptées à part** (25 premières pages) : /en/ 160 clics pour 10 187 impressions, FR 164 pour 11 181.
 - En tête : /en/ soudure 49 clics (position 4,1), couple FR 42 (position 7,4), /en/ ISO 1101 20, /en/ couple 18, clavettes FR 16, **/en/ ISO 2768 16 clics pour 1 545 impressions (position 4,7, 1,0 %)**, masse volumique FR 15 pour 2 580 (position 10,9).
 - **Indexation 83/84** : dilatation thermique et écrous/rondelles indexées. Reste /en/ formats d'échange CAO, non indexée depuis le 04/10 (« Google ne reconnaît pas cette URL »).
-- **Défaut du rapport** : dans la section « Requêtes qui mènent à chaque page », les listes sont décalées d'un cran (les requêtes « iso 2768-f/-c/-m » apparaissent sous la page des raccourcis SOLIDWORKS). Lire les requêtes dans les historiques précédents ou corriger scripts/gsc-report.mjs (hors .github/) lors d'un prochain passage.
+- **Rapport** : la section « Requêtes qui mènent à chaque page » de /en/ ISO 2768 était vide (rectifié le 24/10 : ce n'était pas un décalage, mais la limite de 2 000 lignes page × requête de l'API ; relevée à 25 000 le 24/10).
 
 **Choix de l'action (d)** : prévu depuis le 13/10 ; test de contenu de la page terminé le 23/10. Page en position 4,7 avec 1,0 % de clics sur 1 545 impressions. Les requêtes réelles (historiques du 13 au 17/10) portent sur les classes écrites avec un tiret : « iso 2768-f » (position 3,8 à 4,4), « iso 2768-c » (4,9), « iso 2768-m » (8,9), « iso 2768-mk », « iso 2768-h », « iso 2768 k », sans aucun clic. Le titre /en/ précédent ne contenait aucune de ces formes.
 

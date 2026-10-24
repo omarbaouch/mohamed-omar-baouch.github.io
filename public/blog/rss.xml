@@ -176,11 +176,11 @@
       <enclosure url="https://www.baouch.fr/img/og/filetage.jpg" type="image/jpeg"/>
     </item>
     <item>
-      <title>eBOM vs mBOM : la différence, avec un exemple chiffré</title>
+      <title>eBOM vs mBOM : différence, exemple et passage de l'une à l'autre</title>
       <link>https://www.baouch.fr/blog/ebom-vs-mbom/</link>
       <guid isPermaLink="true">https://www.baouch.fr/blog/ebom-vs-mbom/</guid>
       <pubDate>Sun, 20 Sep 2026 00:00:00 GMT</pubDate>
-      <description>eBOM et mBOM ne décrivent pas le même produit : l'une dit comment il est conçu, l'autre comment il est assemblé. Un exemple complet ligne par ligne, les 6 écarts systématiques entre les deux, qui possède quoi, et la méthode pour passer de l'une à l'autre sans ressaisie ni divergence.</description>
+      <description>eBOM (nomenclature d'étude) et mBOM (de fabrication) : la différence sur l'exemple d'une vanne, les 6 écarts et comment passer de l'une à l'autre.</description>
       <enclosure url="https://www.baouch.fr/img/og/ebom-mbom.jpg" type="image/jpeg"/>
     </item>
     <item>

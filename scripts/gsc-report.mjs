@@ -66,7 +66,7 @@ const [total, parRequete, parPage, parJour, pageRequete] = await Promise.all([
   requete(['query'], 1000),
   requete(['page'], 250),
   requete(['date'], 400),
-  requete(['page', 'query'], 2000),
+  requete(['page', 'query'], 25000),
 ]);
 
 const pct = (x) => `${(x * 100).toFixed(1)} %`;

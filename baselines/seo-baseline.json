@@ -198,17 +198,17 @@
     "lang": "fr"
   },
   "/blog/ebom-vs-mbom/": {
-    "title": "eBOM vs mBOM : la différence, avec un exemple chiffré et la méthode de passage",
-    "description": "eBOM et mBOM ne décrivent pas le même produit : l'une dit comment il est conçu, l'autre comment il est assemblé. Un exemple complet ligne par ligne, les 6 écarts systématiques entre les deux, qui possède quoi, et la méthode pour passer de l'une à l'autre sans ressaisie ni divergence.",
+    "title": "eBOM vs mBOM : différence, exemple et passage de l'une à l'autre",
+    "description": "eBOM (nomenclature d'étude) et mBOM (de fabrication) : la différence sur l'exemple d'une vanne, les 6 écarts et comment passer de l'une à l'autre.",
     "canonical": "https://www.baouch.fr/blog/ebom-vs-mbom/",
     "robots": null,
-    "ogTitle": "eBOM vs mBOM : la différence, avec un exemple chiffré",
-    "ogDescription": "Les 6 écarts systématiques entre nomenclature d'étude et nomenclature de fabrication, et la méthode de passage sans ressaisie.",
+    "ogTitle": "eBOM vs mBOM : différence, exemple et passage de l'une à l'autre",
+    "ogDescription": "eBOM (nomenclature d'étude) et mBOM (de fabrication) : la différence sur l'exemple d'une vanne, les 6 écarts et comment passer de l'une à l'autre.",
     "ogUrl": "https://www.baouch.fr/blog/ebom-vs-mbom/",
     "ogImage": "https://www.baouch.fr/img/og/ebom-mbom.jpg",
     "ogType": "article",
-    "twitterTitle": "eBOM vs mBOM : la différence, avec un exemple chiffré",
-    "twitterDescription": "Une même vanne, deux nomenclatures : 9 lignes côté étude, 17 côté fabrication. Pourquoi, et comment passer de l'une à l'autre.",
+    "twitterTitle": "eBOM vs mBOM : différence, exemple et passage de l'une à l'autre",
+    "twitterDescription": "eBOM (nomenclature d'étude) et mBOM (de fabrication) : la différence sur l'exemple d'une vanne, les 6 écarts et comment passer de l'une à l'autre.",
     "jsonldTypes": [
       "BlogPosting,BreadcrumbList,FAQPage"
     ],

@@ -83,7 +83,13 @@
     "df (pied)": "df (root)",
     "hf = 1,25 m": "hf = 1.25 m",
     "pignon z1 = 20": "pinion z1 = 20",
-    "roue z2 = 50": "gear z2 = 50"
+    "roue z2 = 50": "gear z2 = 50",
+    "joint": "seal",
+    "G : cylindrique": "G: parallel",
+    "étanche par joint": "sealed by a gasket",
+    "conicité 1:16": "taper 1:16",
+    "NPT, R : conique": "NPT, R: tapered",
+    "étanche dans le filet": "sealed in the thread"
   },
   "attr": {
     "Baies de serveurs": "Server racks",
@@ -187,6 +193,8 @@
     "Règle graduée sur un pouce : en haut les seizièmes de pouce avec 1/4, 1/2 et 3/4, en bas les millimètres de 0 à 25 ; 3/8 de pouce tombe à 9,525 mm et un pouce vaut exactement 25,4 mm": "Ruler graduated over one inch: sixteenths of an inch on top with 1/4, 1/2 and 3/4, millimetres from 0 to 25 below; 3/8 inch falls at 9.525 mm and one inch is exactly 25.4 mm",
     "Axe des cotes de 9,90 à 10,03 mm : la zone de l'alésage 10 H7 va de 10,000 à 10,015 mm ; la fraction 25/64 de pouce tombe à 9,922 mm, 0,078 mm en dessous, cinq fois la tolérance": "Dimension axis from 9.90 to 10.03 mm: the 10 H7 bore zone runs from 10.000 to 10.015 mm; the 25/64 inch fraction falls at 9.922 mm, 0.078 mm below, five times the tolerance",
     "Cinq dents d'un pignon de module 2 à 20 dents, profil en développante : cercle de tête da, cercle primitif d et cercle de pied df ; la saillie ha vaut m, le creux hf vaut 1,25 m et le pas p vaut π m le long du cercle primitif": "Five teeth of a module 2, 20-tooth pinion with involute profile: tip circle da, pitch circle d and root circle df; the addendum ha equals m, the dedendum hf equals 1.25 m and the pitch p equals π m along the pitch circle",
-    "Engrenage de l'exemple : pignon de 20 dents et roue de 50 dents de module 2, cercles primitifs de 40 et 100 mm tangents au point de contact, entraxe a de 70 mm entre les centres": "The example gear pair: 20-tooth pinion and 50-tooth gear of module 2, pitch circles of 40 and 100 mm tangent at the contact point, centre distance a of 70 mm between the centres"
+    "Engrenage de l'exemple : pignon de 20 dents et roue de 50 dents de module 2, cercles primitifs de 40 et 100 mm tangents au point de contact, entraxe a de 70 mm entre les centres": "The example gear pair: 20-tooth pinion and 50-tooth gear of module 2, pitch circles of 40 and 100 mm tangent at the contact point, centre distance a of 70 mm between the centres",
+    "Profils de base de deux filets au même pas : filetage gaz G et R à angle de 55 degrés (Whitworth), filetage NPT à angle de 60 degrés ; à pas égal, le filet NPT est moins profond": "Basic profiles of two threads at the same pitch: G and R pipe threads with a 55 degree angle (Whitworth), NPT thread with a 60 degree angle; at equal pitch, the NPT thread is shallower",
+    "Deux embouts mâles : à gauche un filetage G cylindrique, étanche grâce à un joint plat sous l'épaulement ; à droite un filetage NPT ou R conique 1:16, étanche par serrage dans le filet avec pâte ou ruban": "Two male ends: on the left a parallel G thread, sealed by a flat gasket under the shoulder; on the right a 1:16 tapered NPT or R thread, sealed by tightening in the thread with paste or tape"
   }
 }
